@@ -1,0 +1,17 @@
+{
+  "experiment_id": "mordor-selected-v1",
+  "inputs": [
+    {
+      "filename": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+      "expected_record_count": 25993
+    },
+    {
+      "filename": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+      "expected_record_count": 2390
+    },
+    {
+      "filename": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "expected_record_count": 1127
+    }
+  ]
+}

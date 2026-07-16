@@ -1,0 +1,47 @@
+# Local datasets and generated artifacts
+/data/raw/
+/data/processed/
+/data/knowledge/
+/outputs/
+*.zip
+*.log
+
+# Local environments and secrets
+.env
+.env.*
+.venv/
+
+# Python caches and compiled files
+**/__pycache__/
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# IDE and editor settings
+.idea/
+.vscode/
+.vs/
+*.code-workspace
+*.suo
+*.user
+*~
+*.swp
+*.swo
+
+# Jupyter temporary state
+.ipynb_checkpoints/
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
