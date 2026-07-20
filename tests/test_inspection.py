@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -24,6 +25,7 @@ class InspectionTests(unittest.TestCase):
                 "\n".join(json.dumps(record) for record in records) + "\n",
                 encoding="utf-8",
             )
+            before = hashlib.sha256(path.read_bytes()).hexdigest()
             source = DiscoveredInput(
                 requested_value=path.name,
                 path=path,
@@ -32,6 +34,7 @@ class InspectionTests(unittest.TestCase):
             )
 
             report = inspect_file(source, detect_format(path))
+            after = hashlib.sha256(path.read_bytes()).hexdigest()
             fields = {
                 item["path"]: item
                 for item in report["observed_schema"]["field_paths"]
@@ -50,8 +53,9 @@ class InspectionTests(unittest.TestCase):
             self.assertNotIn("canonical_events", report)
             self.assertEqual(
                 report["canonical_mapping_proposals"]["event_id"]["status"],
-                "candidate",
+                "unavailable",
             )
+            self.assertEqual(after, before)
 
 
 if __name__ == "__main__":

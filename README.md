@@ -4,7 +4,7 @@
 
 ## Trạng thái hiện tại
 
-Repository hiện có pipeline inspection read-only cho log Mordor ở định dạng JSON Lines, JSON array hoặc JSON object. Công cụ tìm file theo tên chính xác, kiểm tra định dạng, đọc toàn bộ bản ghi, thống kê schema và sinh đề xuất ánh xạ sang canonical fields. Kết quả được ghi vào `outputs/mordor_inspection/` và không thay đổi dữ liệu nguồn.
+Repository hiện có pipeline structural inspection v2 read-only cho log Mordor ở định dạng JSON Lines, JSON array hoặc JSON object. Công cụ tìm file theo tên chính xác, kiểm tra định dạng, đọc toàn bộ bản ghi, thống kê schema, phát hiện timestamp conflict và sinh đề xuất canonical mapping theo context `provider + Event ID`. Experiment `mordor-selected-v2` đã chạy thành công trên đúng ba dataset và giữ nguyên SHA-256 của raw input.
 
 Ba kịch bản đã chọn:
 
@@ -29,7 +29,7 @@ PROJECT_CONTEXT.md      Hồ sơ và quyết định hiện tại của đồ á
 
 ## Chuẩn bị dữ liệu
 
-Dataset không được lưu trong Git. Đặt ba file Mordor có tên chính xác như danh sách trên vào các thư mục phù hợp bên dưới `data/raw/`. Mỗi filename phải chỉ xuất hiện một lần trong repository để discovery không bị mơ hồ. Baseline record count được khai báo tại `configs/experiments/mordor_selected_v1.json`.
+Dataset không được lưu trong Git. Đặt ba file Mordor có tên chính xác như danh sách trên vào các thư mục phù hợp bên dưới `data/raw/`. Mỗi filename phải chỉ xuất hiện một lần trong repository để discovery không bị mơ hồ. Baseline record count được khai báo tại `configs/experiments/mordor_selected_v2.json`.
 
 Các nguồn MITRE ATT&CK, Sigma và CTI phục vụ các giai đoạn sau được đặt trong `data/knowledge/`. Toàn bộ `data/raw/`, `data/processed/`, `data/knowledge/` và `outputs/` đã được loại khỏi Git bằng `.gitignore`.
 
@@ -47,11 +47,13 @@ Runtime hiện chỉ dùng Python standard library; extra `test` cài `pytest` �
 
 ## Chạy inspection
 
-Chạy với experiment mặc định và ghi đè báo cáo cũ nếu có:
+Sau khi code được duyệt, chạy experiment mặc định:
 
 ```powershell
-python scripts/inspect_mordor.py --overwrite
+python scripts/inspect_mordor.py
 ```
+
+Output được tách khỏi output cũ tại `outputs/mordor_inspection/mordor-selected-v2/`. `summary.md` cung cấp báo cáo structural inspection ngắn gọn; `manifest.json`, `canonical_schema.json` và từng `files/*/inspection.json` giữ chi tiết máy đọc được. Report hiện dùng `mordor-inspection/v2`; canonical schema là `canonical-event/v2` ở trạng thái proposed/reviewable, chưa tạo canonical events.
 
 Xem toàn bộ tùy chọn:
 
@@ -67,4 +69,4 @@ python -m pytest
 
 ## Giới hạn hiện tại
 
-Repository chưa triển khai RAG, GraphRAG, LLM, vector database, graph database hoặc giao diện người dùng. Evidence extraction và ground truth cuối cùng cũng chưa hoàn thành; output inspection hiện chỉ là dữ liệu trung gian để kiểm tra và duyệt trước các giai đoạn đó.
+Repository chưa triển khai normalization, canonical event generation, evidence extraction, Sigma matching, MITRE mapping, ground truth cuối, RAG, GraphRAG, LLM, vector database, graph database hoặc giao diện người dùng. Output inspection hiện chỉ là dữ liệu structural trung gian để kiểm tra và duyệt trước các giai đoạn đó.

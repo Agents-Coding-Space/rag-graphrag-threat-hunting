@@ -20,7 +20,8 @@ from threat_hunting.reporting import ReportingError, write_reports
 from threat_hunting.run_spec import InputSpec, RunSpec, RunSpecError, load_run_spec
 
 
-DEFAULT_SPEC = REPOSITORY_ROOT / "configs" / "experiments" / "mordor_selected_v1.json"
+DEFAULT_SPEC = REPOSITORY_ROOT / "configs" / "experiments" / "mordor_selected_v2.json"
+DEFAULT_OUTPUT_ROOT = REPOSITORY_ROOT / "outputs" / "mordor_inspection"
 
 
 def _expected_count(value: str) -> tuple[str, int]:
@@ -69,7 +70,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=REPOSITORY_ROOT / "outputs" / "mordor_inspection",
+        help=(
+            "Output directory (default: "
+            f"{DEFAULT_OUTPUT_ROOT / '<experiment_id>'})"
+        ),
     )
     parser.add_argument(
         "--overwrite",
@@ -99,11 +103,20 @@ def _resolve_run_spec(arguments: argparse.Namespace) -> RunSpec:
     return load_run_spec((arguments.spec or DEFAULT_SPEC).resolve())
 
 
+def _resolve_output_directory(
+    arguments: argparse.Namespace,
+    run_spec: RunSpec,
+) -> Path:
+    requested = arguments.output_dir or DEFAULT_OUTPUT_ROOT / run_spec.experiment_id
+    return requested.resolve()
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     arguments = parser.parse_args(argv)
     try:
         run_spec = _resolve_run_spec(arguments)
+        output_directory = _resolve_output_directory(arguments, run_spec)
         sources = discover_inputs(run_spec.inputs, arguments.search_root)
         reports = []
         for source in sources:
@@ -111,7 +124,7 @@ def main(argv: list[str] | None = None) -> int:
             detection = detect_format(source.path)
             reports.append(inspect_file(source, detection))
         manifest = write_reports(
-            arguments.output_dir.resolve(),
+            output_directory,
             run_spec.experiment_id,
             reports,
             overwrite=arguments.overwrite,
@@ -126,7 +139,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"inspect_mordor: error: {exc}", file=sys.stderr)
         return 2
 
-    print(arguments.output_dir.resolve())
+    print(output_directory)
     return 0 if manifest["status"] == "completed" else 1
 
 

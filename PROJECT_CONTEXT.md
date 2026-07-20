@@ -156,23 +156,28 @@ Vẫn chưa chốt: ground truth cuối cùng, tập câu hỏi đánh giá, cá
 Canonical schema tối thiểu hiện được đề xuất gồm:
 
 ```text
-event_id, timestamp, channel, provider, host, user,
+event_id, timestamp, channel, provider, host,
+user, subject_user, target_user,
 source_ip, source_port, destination_ip, destination_port,
-process_name, process_id, parent_process_name, parent_process_id,
-command_line, file_path, registry_key, dns_query,
+process_name, process_id, process_guid,
+parent_process_name, parent_process_id, parent_process_guid,
+command_line, parent_command_line,
+file_path, registry_key, dns_query,
 raw_record_ref, source_file
 ```
 
 Các trường mở rộng cần thiết cho đúng ba kịch bản đã quan sát gồm:
 
 ```text
-target_user, target_domain, workstation,
+target_domain, workstation,
 status, sub_status, logon_type,
 service_name, ticket_options, ticket_encryption_type,
-process_guid, parent_process_guid, original_file_name
+original_file_name
 ```
 
-Không ép giá trị không tồn tại vào schema; trường scalar không có dữ liệu dùng `null`. `event_id` và process ID dùng string khi chuẩn hóa để không làm mất biểu diễn số hoặc hexadecimal. Khi có Sysmon, ưu tiên `ProcessGuid`/`ParentProcessGuid` để liên kết và khử trùng process; PID chỉ có ý nghĩa trong phạm vi host và thời gian. `raw_record_ref` của ba file JSONL có dạng `jsonl:line:<line>` và phải kết hợp với `source_file` cùng SHA-256 để truy ngược record gốc.
+`canonical-event/v2` hiện là schema **proposed/reviewable**, chưa phải schema normalization đã chốt. `user` giữ giá trị người dùng chung khi source không thể hiện vai trò; `subject_user` biểu diễn actor/subject; `target_user` biểu diễn tài khoản hoặc người dùng bị tác động. Mapping phải dựa trên `provider + Event ID`: ví dụ Security Event ID `4688` dùng `NewProcessId` cho `process_id` và `ProcessId` cho `parent_process_id`. Sysmon Event ID `10` dùng source/target process roles, nên `SourceImage`/`TargetImage` không bị ép vào parent-child fields khi schema v2 chưa biểu diễn các role đó.
+
+Không ép giá trị không tồn tại vào schema; trường scalar không có dữ liệu dùng `null`. `event_id` và process ID dùng string khi chuẩn hóa để không làm mất biểu diễn số hoặc hexadecimal. Port nguồn có thể là string và chỉ được đề xuất chuyển sang integer sau validation; structural inspection chưa áp dụng transformation. Khi có Sysmon, ưu tiên `ProcessGuid`/`ParentProcessGuid` để liên kết và khử trùng process; PID chỉ có ý nghĩa trong phạm vi host và thời gian. `raw_record_ref` của ba file JSONL có dạng `jsonl:line:<line>` và phải kết hợp với `source_file` cùng SHA-256 để truy ngược record gốc.
 
 Các thực thể dùng cho đồ thị gồm User, Host, IP, Process, Service, Event, Technique và Rule. File và Command Line trước mắt được giữ dưới dạng thuộc tính; chỉ chuyển thành node nếu thực nghiệm chứng minh cần truy vấn quan hệ riêng.
 
@@ -457,6 +462,9 @@ Các tiêu chí hiện mới ở mức định tính/khung. Chưa có công th�
 - Xác định các evidence anchor có thể truy ngược bằng `jsonl:line:<line>` cho cả ba kịch bản.
 - Đã xây CLI inspection theo báo cáo triển khai: hỗ trợ discovery theo filename, JSONL/JSON array/object, streaming, schema statistics, canonical mapping proposal và reporting tách từng file.
 - Đã chạy inspection trên bộ ba cũ và đạt 10/10 unit tests; raw data không thay đổi.
+- Đã hoàn thành structural inspection v2 trên đúng `mordor-selected-v2`: 25.993, 2.390 và 1.127 records đều khớp baseline; manifest `completed`, 3/3 input thành công và không chứa PowerShell HTTP Listener cũ.
+- Đã nâng output lên `mordor-inspection/v2` và canonical schema lên `canonical-event/v2` ở trạng thái proposed/reviewable; mapping proposal dùng context `provider + Event ID`, phân biệt process/parent và subject/target roles, đồng thời ghi nhận timestamp conflict và string-to-integer port transformation cần review.
+- Đã đạt 14/14 tests cho parser/reference ổn định, context-aware mapping, JSON readback, summary và raw-input immutability; SHA-256 của cả ba raw dataset không thay đổi sau inspection.
 - Kiến trúc tổng quan và sơ đồ pipeline RAG + GraphRAG + LLM.
 - Mô tả tám bước triển khai ở mức thiết kế.
 - Schema đồ thị ban đầu.
@@ -465,8 +473,6 @@ Các tiêu chí hiện mới ở mức định tính/khung. Chưa có công th�
 
 ### Đang ở mức thiết kế hoặc chưa có bằng chứng hoàn thành
 
-- Cập nhật run specification và chạy lại CLI inspection trong repository với file MSHTA thay cho PowerShell HTTP Listener.
-- Cập nhật canonical mapping proposal dựa trên bộ ba mới và kiểm tra output inspection mới.
 - Viết, kiểm thử và đánh dấu rõ `win_security_password_spray_correlation.yml` là project-defined rule.
 - Trích xuất evidence có cấu trúc và tạo báo cáo trung gian dễ đọc cho người dùng duyệt.
 - Tạo ground truth và tập câu hỏi thực nghiệm từ ba file đã chọn.
@@ -480,19 +486,18 @@ Các tiêu chí hiện mới ở mức định tính/khung. Chưa có công th�
 - Xây ground truth, baseline và thang đo định lượng.
 - Viết kết quả thực nghiệm, phân tích hạn chế và kết luận.
 
-Nói ngắn gọn: **phần inspection và lựa chọn dữ liệu/tri thức cho ba kịch bản đã có kết quả xác minh; evidence extraction, ground truth, RAG, GraphRAG, LLM và đánh giá thực nghiệm vẫn chưa hoàn thành.**
+Nói ngắn gọn: **structural inspection v2 trên bộ ba mới đã hoàn thành và canonical schema v2 đã sẵn sàng để review; normalization, evidence extraction, ground truth, RAG, GraphRAG, LLM và đánh giá thực nghiệm vẫn chưa hoàn thành.**
 
 ## 16. Các quyết định cần chốt tiếp theo
 
 Ưu tiên theo thứ tự để tránh triển khai lan man:
 
-1. Cập nhật experiment config và chạy lại inspection trên đúng bộ ba mới.
-2. Duyệt source-to-canonical mapping và báo cáo inspection dễ đọc.
-3. Xây password-spraying correlation và evidence extractor cho từng kịch bản.
-4. Tạo bản nháp `scenario_ground_truth.json`, chưa tự động đánh dấu confirmed khi chưa được người dùng duyệt.
-5. Xác minh MITRE objects từ `enterprise-attack.json` và chốt phiên bản ATT&CK.
-6. Chốt bộ câu hỏi, output schema, baseline và metric đánh giá.
-7. Sau khi ground truth được duyệt mới xây RAG, GraphRAG, LLM và giao diện.
+1. Duyệt `canonical-event/v2`, timestamp recommendation và các mapping còn `ambiguous`/`context_specific_unmapped` trước khi viết normalization.
+2. Xây password-spraying correlation và evidence extractor cho từng kịch bản.
+3. Tạo bản nháp `scenario_ground_truth.json`, chưa tự động đánh dấu confirmed khi chưa được người dùng duyệt.
+4. Xác minh MITRE objects từ `enterprise-attack.json` và chốt phiên bản ATT&CK.
+5. Chốt bộ câu hỏi, output schema, baseline và metric đánh giá.
+6. Sau khi ground truth được duyệt mới xây RAG, GraphRAG, LLM và giao diện.
 
 ## 17. Rủi ro và điểm cần kiểm soát
 
@@ -540,6 +545,15 @@ Nói ngắn gọn: **phần inspection và lựa chọn dữ liệu/tri thức c
 - Ghi nhận 7 failed-logon targets, 5 Kerberos RC4 matches, 3 Regsvr32 rule matches và 2 MSHTA rule matches với raw record references cụ thể.
 - Loại các rule tạo 0 match hoặc cần telemetry không tồn tại khỏi active experiment; không xóa raw/reference files.
 - Trạng thái tiếp theo: cập nhật experiment config, chạy lại inspection trên bộ ba mới, xây evidence extraction và tạo ground truth để người dùng duyệt.
+
+### 16/07/2026 - Hoàn thành structural inspection v2
+
+- Chạy `mordor-selected-v2` trên đúng ba raw JSONL đã chọn; toàn bộ baseline khớp và raw SHA-256 không thay đổi.
+- Nâng report lên `mordor-inspection/v2` và canonical schema lên `canonical-event/v2` proposed/reviewable.
+- Thay mapping theo alias/coverage toàn file bằng proposal phụ thuộc `provider + Event ID`; sửa semantic của Security `4688`, authentication user roles, registry, DNS và network fields.
+- Ghi nhận Sysmon Event ID `10` source/target process roles là `context_specific_unmapped`, không ép thành quan hệ parent-child.
+- Bổ sung thống kê timestamp conflict, cảnh báo timezone-naive và transformation port string-to-integer cần validation.
+- Trạng thái tiếp theo: review schema/mapping; normalization, evidence extraction và ground truth chưa triển khai.
 
 ## 21. Quy tắc cập nhật hồ sơ
 
