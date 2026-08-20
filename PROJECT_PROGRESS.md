@@ -1,9 +1,9 @@
 # TIẾN ĐỘ ĐỒ ÁN TỐT NGHIỆP
 
-**Cập nhật gần nhất:** 20/07/2026
+**Cập nhật gần nhất:** 21/08/2026
 **Đề tài:** Nghiên cứu mô hình kết hợp RAG, GraphRAG, LLM và ứng dụng truy tìm mối đe dọa ATTT
 **Repository:** https://github.com/phong8924/rag-graphrag-threat-hunting
-**Trạng thái hiện tại:** Hoàn thành inspection và streaming normalization trên ba dataset; bước tiếp theo là evidence extraction, Sigma và MITRE ATT&CK.
+**Trạng thái hiện tại:** Hoàn thành structural inspection, production canonical normalization và MSHTA in-memory evidence extractor. Evidence extraction cho toàn bộ ba scenario đang thực hiện; production MSHTA extraction, Sigma, MITRE ATT&CK và ground truth chưa hoàn thành.
 
 > File này dùng để theo dõi tiến độ thực tế. Chỉ đánh dấu một việc là hoàn thành khi có bằng chứng như mã nguồn, output hợp lệ, test result hoặc kết quả kiểm tra dữ liệu. Nội dung thiết kế hoặc kế hoạch không được coi là đã triển khai.
 
@@ -130,8 +130,33 @@ Các anchor dưới đây đã được kiểm tra trực tiếp trước khi x�
 - [x] Context-aware mapping registry theo `provider + EventID` hoàn thành.
 - [x] Streaming normalization giữ contract một raw record tạo một canonical event.
 - [x] Atomic writer và normalization CLI hoàn thành.
-- [x] Production run thành công: 29.510 input → 29.510 output, dropped 0.
-- [x] Toàn bộ 104 tests đạt.
+- [x] Production normalization hoàn thành: 29.510 input → 29.510 canonical events, dropped=0.
+- [x] 104 tests đạt tại checkpoint normalization.
+
+### 4.1. Checkpoint evidence schema và MSHTA in-memory extractor
+
+- [x] Evidence schema `scenario-evidence/v1` hoàn thành và được kiểm thử.
+- [x] MSHTA in-memory evidence extractor hoàn thành cho fixture của `cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json`.
+- [x] Correlation giữa Security Event ID 4688 và Sysmon Event ID 1 dùng telemetry grouping `inferred`; process-spawn evidence giữ trạng thái `observed`.
+- [x] Custom correlation tolerance được validate, lưu trong intermediate group và dùng lại khi build evidence/document.
+- [x] `time_window` validation đã xử lý exact keys, null pairing, ISO 8601, aware/naive consistency và chronological ordering mà không sửa chuỗi timestamp gốc.
+- [x] Legacy correlation API có semantics cạnh tranh đã được loại bỏ; public pipeline còn lại là classify → `same_process_creation()` → `group_process_creations()`.
+- [x] `normalize_process_name()` đã xử lý basename, Windows path, case, quote và các process-path edge cases đã kiểm thử.
+- [x] Fixture hiện tạo 3 process entities, 2 evidence items, 2 `process_spawn` relationships và giữ đủ 4 raw references.
+- [x] Fixture có `analysis_status=draft_reviewable`; không có status `confirmed`.
+- [x] Full test suite hiện tại: 246 tests đạt.
+
+Fixture chưa có Sigma hoặc MITRE mapping.
+
+### 4.2. Phạm vi chưa hoàn thành
+
+- [ ] Chưa chạy extractor trên 1.127 production canonical MSHTA events.
+- [ ] Chưa ghi production evidence output.
+- [ ] Chưa thực thi Sigma cho MSHTA.
+- [ ] Chưa resolve MITRE ATT&CK.
+- [ ] Chưa tạo ground truth được người dùng duyệt.
+- [ ] Chưa xây evidence extractor cho Regsvr32 và PurpleSharp.
+- [ ] Chưa triển khai RAG, GraphRAG, LLM hoặc UI.
 
 ## 5. Những việc cần làm tiếp theo
 
@@ -143,8 +168,9 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 - [ ] Viết Sigma YAML loader an toàn, không thực thi arbitrary YAML tags.
 - [ ] Giữ Sigma metadata: title, ID, status, logsource, condition, tags, level và references.
 - [ ] Ghi rõ unsupported Sigma fields hoặc backend assumptions.
-- [ ] Xây evidence extractor riêng cho ba scenario.
-- [ ] Khử trùng telemetry views như Sysmon Event ID 1 với Security Event ID 4688, hoặc Event ID 4625 với 4776 khi chúng mô tả cùng hoạt động.
+- [x] Xây MSHTA in-memory evidence extractor và khử trùng Sysmon Event ID 1 với Security Event ID 4688 khi chúng mô tả cùng process creation.
+- [ ] Chạy extractor read-only trên 1.127 production canonical MSHTA events và review evidence; chưa ghi production evidence output.
+- [ ] Xây evidence extractor cho Regsvr32 và PurpleSharp, gồm khử trùng Event ID 4625 với 4776 khi chúng mô tả cùng authentication attempt.
 - [ ] Sinh báo cáo evidence trung gian dễ đọc để người dùng duyệt.
 - [ ] Không coi Sigma match là ground truth tự động.
 
@@ -198,8 +224,9 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 | Lựa chọn dataset/Sigma | Hoàn thành | 3 JSON, 6 SigmaHQ, 1 derived rule được lên kế hoạch |
 | Structural inspection v2 | Hoàn thành | Manifest 3/3, summary, inspection reports, baseline và SHA-256 |
 | Canonical schema/mapping review | Hoàn thành | `canonical-event/v2` và context-aware mapping registry đã được kiểm thử |
-| Canonical normalization | Hoàn thành | Streaming iterator, atomic writer, CLI, production run 29.510 → 29.510, dropped 0 và 104 tests |
-| Evidence extraction | Chưa bắt đầu | Mới có manual evidence anchors |
+| Canonical normalization | Hoàn thành | Streaming iterator, atomic writer, CLI, production run 29.510 input → 29.510 canonical events, dropped=0 |
+| Evidence schema | Hoàn thành | `scenario-evidence/v1`, deterministic IDs và validation được kiểm thử |
+| Evidence extraction | Đang thực hiện | MSHTA in-memory extractor hoàn thành; chưa chạy 1.127 production canonical MSHTA events; chưa có extractor Regsvr32/PurpleSharp |
 | Sigma execution/correlation | Chưa bắt đầu | Chưa có pipeline và derived correlation hoàn chỉnh |
 | MITRE STIX resolution | Chưa bắt đầu | Mới có candidate technique IDs |
 | Ground truth | Chưa bắt đầu | Chưa có bản nháp được người dùng duyệt |
@@ -223,7 +250,7 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 
 ## 8. Bước tiếp theo duy nhất
 
-**Xây dựng evidence extraction, sau đó đối chiếu Sigma và resolve MITRE ATT&CK từ các nguồn đã chọn.**
+**Tạo Git checkpoint cho in-memory evidence extractor, sau đó chạy read-only trên 1.127 canonical MSHTA events.**
 
 ## 9. Cách cập nhật file này
 
