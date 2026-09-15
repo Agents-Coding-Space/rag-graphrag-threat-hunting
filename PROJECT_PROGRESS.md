@@ -1,9 +1,9 @@
 # TIẾN ĐỘ ĐỒ ÁN TỐT NGHIỆP
 
-**Cập nhật gần nhất:** 21/08/2026
+**Cập nhật gần nhất:** 15/09/2026
 **Đề tài:** Nghiên cứu mô hình kết hợp RAG, GraphRAG, LLM và ứng dụng truy tìm mối đe dọa ATTT
 **Repository:** https://github.com/phong8924/rag-graphrag-threat-hunting
-**Trạng thái hiện tại:** Hoàn thành structural inspection, production canonical normalization và MSHTA in-memory evidence extractor. Evidence extraction cho toàn bộ ba scenario đang thực hiện; production MSHTA extraction, Sigma, MITRE ATT&CK và ground truth chưa hoàn thành.
+**Trạng thái hiện tại:** Hoàn thành structural inspection, production canonical normalization và MSHTA production evidence extraction. Evidence extraction cho toàn bộ ba scenario đang thực hiện; PurpleSharp, Regsvr32, Sigma, MITRE ATT&CK và ground truth chưa hoàn thành. Tiến độ tổng thể giữ ở mức khoảng 40%.
 
 > File này dùng để theo dõi tiến độ thực tế. Chỉ đánh dấu một việc là hoàn thành khi có bằng chứng như mã nguồn, output hợp lệ, test result hoặc kết quả kiểm tra dữ liệu. Nội dung thiết kế hoặc kế hoạch không được coi là đã triển khai.
 
@@ -133,7 +133,7 @@ Các anchor dưới đây đã được kiểm tra trực tiếp trước khi x�
 - [x] Production normalization hoàn thành: 29.510 input → 29.510 canonical events, dropped=0.
 - [x] 104 tests đạt tại checkpoint normalization.
 
-### 4.1. Checkpoint evidence schema và MSHTA in-memory extractor
+### 4.1. Checkpoint evidence schema và MSHTA production extractor
 
 - [x] Evidence schema `scenario-evidence/v1` hoàn thành và được kiểm thử.
 - [x] MSHTA in-memory evidence extractor hoàn thành cho fixture của `cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json`.
@@ -144,14 +144,20 @@ Các anchor dưới đây đã được kiểm tra trực tiếp trước khi x�
 - [x] `normalize_process_name()` đã xử lý basename, Windows path, case, quote và các process-path edge cases đã kiểm thử.
 - [x] Fixture hiện tạo 3 process entities, 2 evidence items, 2 `process_spawn` relationships và giữ đủ 4 raw references.
 - [x] Fixture có `analysis_status=draft_reviewable`; không có status `confirmed`.
-- [x] Full test suite hiện tại: 246 tests đạt.
+- [x] Production extraction đã chạy trên toàn bộ 1.127 canonical events: examined=1.127, matched=4, unmatched=1.123, rejected=0 và unprocessed=0.
+- [x] Production output dùng `scenario-evidence/v1`, giữ `analysis_status=draft_reviewable`, tạo 3 process entities, 2 `process_spawn` relationships, 2 evidence items và 4 unique source references.
+- [x] Hai cặp Security Event ID 4688/Sysmon Event ID 1 được tương quan, với độ lệch timestamp khoảng 0,001 giây và 0,027 giây; cả hai đều nằm trong tolerance 1 giây.
+- [x] Hai Sysmon observations liên quan có upstream normalization issue `timestamp_conflict`; các conflict được giữ lại để review và không làm correlation vượt tolerance.
+- [x] CLI/extractor warnings=0. Upstream normalization giữ 1.379 review issues, gồm 892 `timestamp_conflict` và 487 `unsupported_context`.
+- [x] `raw_fields` trong production evidence hiện rỗng; provenance vẫn truy ngược được raw record bằng `source_file` và `raw_record_ref`.
+- [x] Production output deterministic, SHA-256 `ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905`.
+- [x] Raw SHA-256 trước và sau giữ nguyên `25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32`; canonical SHA-256 là `9bcac98d41746eb4365cb96efbc7411c595760c9f5c54678453219e71d4411d8`.
+- [x] Full test suite hiện tại: 250 tests đạt, 0 failed và 0 skipped.
 
-Fixture chưa có Sigma hoặc MITRE mapping.
+Production evidence output chưa có Sigma hoặc MITRE mapping.
 
 ### 4.2. Phạm vi chưa hoàn thành
 
-- [ ] Chưa chạy extractor trên 1.127 production canonical MSHTA events.
-- [ ] Chưa ghi production evidence output.
 - [ ] Chưa thực thi Sigma cho MSHTA.
 - [ ] Chưa resolve MITRE ATT&CK.
 - [ ] Chưa tạo ground truth được người dùng duyệt.
@@ -162,6 +168,10 @@ Fixture chưa có Sigma hoặc MITRE mapping.
 
 Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm sang RAG/GraphRAG.
 
+### Chiến lược triển khai chuyên sâu
+
+Báo cáo chuyên sâu sẽ xây dựng lát cắt hoàn chỉnh RAG và GraphRAG trên kịch bản MSHTA–PowerShell. Kiến trúc phải độc lập với kịch bản và có khả năng mở rộng sang PurpleSharp và Regsvr32; hai kịch bản này được tạm hoãn, không bị loại khỏi phạm vi đồ án tốt nghiệp.
+
 ### Milestone 3 — Sigma và evidence extraction
 
 - [ ] Viết và kiểm thử `win_security_password_spray_correlation.yml` dưới dạng project-defined rule.
@@ -169,7 +179,7 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 - [ ] Giữ Sigma metadata: title, ID, status, logsource, condition, tags, level và references.
 - [ ] Ghi rõ unsupported Sigma fields hoặc backend assumptions.
 - [x] Xây MSHTA in-memory evidence extractor và khử trùng Sysmon Event ID 1 với Security Event ID 4688 khi chúng mô tả cùng process creation.
-- [ ] Chạy extractor read-only trên 1.127 production canonical MSHTA events và review evidence; chưa ghi production evidence output.
+- [x] Chạy extractor trên 1.127 production canonical MSHTA events, ghi deterministic `scenario-evidence/v1` output và hoàn thành review.
 - [ ] Xây evidence extractor cho Regsvr32 và PurpleSharp, gồm khử trùng Event ID 4625 với 4776 khi chúng mô tả cùng authentication attempt.
 - [ ] Sinh báo cáo evidence trung gian dễ đọc để người dùng duyệt.
 - [ ] Không coi Sigma match là ground truth tự động.
@@ -226,7 +236,7 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 | Canonical schema/mapping review | Hoàn thành | `canonical-event/v2` và context-aware mapping registry đã được kiểm thử |
 | Canonical normalization | Hoàn thành | Streaming iterator, atomic writer, CLI, production run 29.510 input → 29.510 canonical events, dropped=0 |
 | Evidence schema | Hoàn thành | `scenario-evidence/v1`, deterministic IDs và validation được kiểm thử |
-| Evidence extraction | Đang thực hiện | MSHTA in-memory extractor hoàn thành; chưa chạy 1.127 production canonical MSHTA events; chưa có extractor Regsvr32/PurpleSharp |
+| Evidence extraction | Đang thực hiện | MSHTA production extraction hoàn thành trên 1.127 canonical events; chưa có extractor Regsvr32/PurpleSharp |
 | Sigma execution/correlation | Chưa bắt đầu | Chưa có pipeline và derived correlation hoàn chỉnh |
 | MITRE STIX resolution | Chưa bắt đầu | Mới có candidate technique IDs |
 | Ground truth | Chưa bắt đầu | Chưa có bản nháp được người dùng duyệt |
@@ -250,7 +260,7 @@ Thực hiện theo thứ tự; không bỏ qua ground truth để chuyển sớm
 
 ## 8. Bước tiếp theo duy nhất
 
-**Tạo Git checkpoint cho in-memory evidence extractor, sau đó chạy read-only trên 1.127 canonical MSHTA events.**
+**Hoàn thiện ground truth cho kịch bản MSHTA–PowerShell, gồm đối chiếu evidence với Sigma Rule, resolve MITRE ATT&CK từ STIX 2.1 và xây dựng bộ câu hỏi cùng đáp án mong đợi phục vụ đánh giá RAG và GraphRAG.**
 
 ## 9. Cách cập nhật file này
 

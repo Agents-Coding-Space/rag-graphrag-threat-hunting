@@ -4,7 +4,9 @@
 
 ## Trạng thái hiện tại
 
-Repository hiện có pipeline structural inspection v2 read-only cho log Mordor ở định dạng JSON Lines, JSON array hoặc JSON object. Công cụ tìm file theo tên chính xác, kiểm tra định dạng, đọc toàn bộ bản ghi, thống kê schema, phát hiện timestamp conflict và sinh đề xuất canonical mapping theo context `provider + Event ID`. Experiment `mordor-selected-v2` đã chạy thành công trên đúng ba dataset và giữ nguyên SHA-256 của raw input.
+Repository hiện có pipeline structural inspection v2 read-only cho log Mordor ở định dạng JSON Lines, JSON array hoặc JSON object. Công cụ tìm file theo tên chính xác, kiểm tra định dạng, đọc toàn bộ bản ghi, thống kê schema, phát hiện timestamp conflict và sinh đề xuất canonical mapping theo context `provider + Event ID`. Experiment `mordor-selected-v2` đã chạy thành công trên đúng ba dataset, giữ nguyên SHA-256 của raw input và tạo 29.510 canonical events theo contract một raw record tạo một canonical event.
+
+MSHTA evidence extractor đã chạy production trên toàn bộ 1.127 canonical events, tạo 3 process entities, 2 `process_spawn` relationships, 2 evidence items và 4 unique source references trong output `scenario-evidence/v1` có trạng thái `draft_reviewable`. Output đã được kiểm tra deterministic. Full test suite hiện có 250 tests đạt, 0 failed và 0 skipped.
 
 Ba kịch bản đã chọn:
 
@@ -53,7 +55,7 @@ Sau khi code được duyệt, chạy experiment mặc định:
 python scripts/inspect_mordor.py
 ```
 
-Output được tách khỏi output cũ tại `outputs/mordor_inspection/mordor-selected-v2/`. `summary.md` cung cấp báo cáo structural inspection ngắn gọn; `manifest.json`, `canonical_schema.json` và từng `files/*/inspection.json` giữ chi tiết máy đọc được. Report hiện dùng `mordor-inspection/v2`; canonical schema là `canonical-event/v2` ở trạng thái proposed/reviewable, chưa tạo canonical events.
+Output được tách khỏi output cũ tại `outputs/mordor_inspection/mordor-selected-v2/`. `summary.md` cung cấp báo cáo structural inspection ngắn gọn; `manifest.json`, `canonical_schema.json` và từng `files/*/inspection.json` giữ chi tiết máy đọc được. Report hiện dùng `mordor-inspection/v2`; canonical schema `canonical-event/v2` đã được dùng để tạo 29.510 canonical events.
 
 Xem toàn bộ tùy chọn:
 
@@ -67,6 +69,10 @@ python scripts/inspect_mordor.py --help
 python -m pytest
 ```
 
+Kết quả gần nhất: 250 tests passed, 0 failed và 0 skipped.
+
 ## Giới hạn hiện tại
 
-Repository chưa triển khai normalization, canonical event generation, evidence extraction, Sigma matching, MITRE mapping, ground truth cuối, RAG, GraphRAG, LLM, vector database, graph database hoặc giao diện người dùng. Output inspection hiện chỉ là dữ liệu structural trung gian để kiểm tra và duyệt trước các giai đoạn đó.
+Production normalization và MSHTA evidence extraction đã hoàn thành. PurpleSharp và Regsvr32 evidence extractors chưa hoàn thành. Sigma execution, MITRE ATT&CK resolution, ground truth, RAG, GraphRAG, LLM, vector database, graph database và giao diện người dùng chưa được triển khai.
+
+Bước tiếp theo là hoàn thiện ground truth cho kịch bản MSHTA–PowerShell, sau đó xây dựng và so sánh RAG, GraphRAG trên kịch bản này. Kiến trúc được thiết kế để tiếp tục mở rộng sang PurpleSharp và Regsvr32 trong các giai đoạn sau.
