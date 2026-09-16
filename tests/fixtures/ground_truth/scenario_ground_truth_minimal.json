@@ -1,0 +1,187 @@
+{
+  "schema_version": "scenario-ground-truth/v1",
+  "scenario": {
+    "scenario_id": "scenario-synthetic-alpha",
+    "scenario_name": "Synthetic relationship review",
+    "description": "A fictional scenario used only to exercise the Ground Truth Core contract.",
+    "analysis_status": "draft_reviewable",
+    "time_window": {
+      "start": null,
+      "end": null
+    }
+  },
+  "input_provenance": [
+    {
+      "input_id": "input-synthetic-events",
+      "input_type": "canonical_events",
+      "path": "fixtures/synthetic_events.jsonl",
+      "schema_version": "synthetic-events/v1",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "scenario_id": "scenario-synthetic-alpha"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "entity-synthetic-actor",
+      "entity_type": "synthetic_actor",
+      "name": "actor-alpha",
+      "attributes": {
+        "category": "fixture"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ]
+    },
+    {
+      "entity_id": "entity-synthetic-resource",
+      "entity_type": "synthetic_resource",
+      "name": "resource-beta",
+      "attributes": {},
+      "status": "inferred",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "fact-synthetic-1",
+      "subject": "entity-synthetic-actor",
+      "predicate": "interacted_with",
+      "object": "entity-synthetic-resource",
+      "attributes": {
+        "scope": "fixture_only"
+      },
+      "status": "inferred",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship-synthetic-1",
+      "relationship_type": "synthetic_interaction",
+      "source_entity_id": "entity-synthetic-actor",
+      "target_entity_id": "entity-synthetic-resource",
+      "attributes": {},
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence-synthetic-1",
+      "evidence_type": "synthetic_observation",
+      "summary": "A fictional record links two synthetic entities.",
+      "status": "observed",
+      "observations": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1",
+          "provider": "synthetic-provider",
+          "event_id": "fixture-event-1",
+          "timestamp": null
+        }
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ]
+    }
+  ],
+  "sigma_findings": [
+    {
+      "finding_id": "finding-synthetic-1",
+      "rule_id": "rule-synthetic-1",
+      "rule_title": "Synthetic fixture rule",
+      "rule_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "status": "candidate",
+      "observation_match_ids": [
+        "observation-match-synthetic-1"
+      ],
+      "behavior_match_ids": [
+        "behavior-match-synthetic-1"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "caveats": [
+        "Fixture finding requires human review."
+      ]
+    }
+  ],
+  "mitre_assessments": [
+    {
+      "assessment_id": "assessment-synthetic-1",
+      "external_id": "technique-synthetic-1",
+      "stix_id": "attack-pattern--synthetic-fixture-1",
+      "name": "Synthetic technique candidate",
+      "origin": "sigma_tag",
+      "status": "candidate",
+      "evidence_support": "supported_by_observed_behavior",
+      "supporting_evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "supporting_sigma_rule_ids": [
+        "rule-synthetic-1"
+      ],
+      "rationale": "The fictional rule and observation provide candidate support only.",
+      "review_status": "needs_review"
+    }
+  ],
+  "summary": {
+    "observed_behavior": [
+      "A fictional interaction is present in the synthetic record."
+    ],
+    "key_entities": [
+      "entity-synthetic-actor",
+      "entity-synthetic-resource"
+    ],
+    "key_relationships": [
+      "relationship-synthetic-1"
+    ],
+    "limitations": [
+      "The fixture has no production meaning."
+    ]
+  },
+  "queryable_dimensions": [
+    "entity",
+    "relationship",
+    "evidence",
+    "sigma_rule",
+    "mitre_technique",
+    "provenance"
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "decisions": [],
+    "notes": []
+  },
+  "warnings": []
+}
