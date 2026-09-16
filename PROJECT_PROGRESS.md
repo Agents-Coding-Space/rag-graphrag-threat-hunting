@@ -3,7 +3,7 @@
 **Cập nhật gần nhất:** 16/09/2026
 **Đề tài:** Nghiên cứu mô hình kết hợp RAG, GraphRAG, LLM và ứng dụng truy tìm mối đe dọa ATTT
 **Repository:** https://github.com/phong8924/rag-graphrag-threat-hunting
-**Trạng thái hiện tại:** Hoàn thành structural inspection, production canonical normalization, MSHTA production evidence extraction và Sigma evaluation giới hạn cho MSHTA. Evidence extraction cho toàn bộ ba scenario vẫn đang thực hiện; PurpleSharp và Regsvr32 tạm hoãn, còn MITRE ATT&CK resolver và ground truth chưa hoàn thành. Tiến độ tổng thể giữ ở mức khoảng 40%.
+**Trạng thái hiện tại:** Hoàn thành structural inspection, production canonical normalization, MSHTA production evidence extraction, Sigma evaluation giới hạn và MITRE ATT&CK STIX 2.1 resolver cho MSHTA. Milestone MITRE đã được review PASS; PurpleSharp và Regsvr32 tạm hoãn, còn ground truth được kiểm duyệt chưa hoàn thành. Tiến độ tổng thể giữ ở mức khoảng 40%.
 
 > File này dùng để theo dõi tiến độ thực tế. Chỉ đánh dấu một việc là hoàn thành khi có bằng chứng như mã nguồn, output hợp lệ, test result hoặc kết quả kiểm tra dữ liệu. Nội dung thiết kế hoặc kế hoạch không được coi là đã triển khai.
 
@@ -52,9 +52,14 @@ PowerShell thông qua MSHTA:
 
 ### 2.3. MITRE ATT&CK
 
-- Nguồn dữ liệu: `enterprise-attack.json`.
-- Candidate techniques hiện tại: `T1110.003`, `T1558.003`, `T1218.010`, `T1218.005`.
-- Chưa đánh dấu technique nào là `confirmed` cho đến khi resolve object tương ứng từ STIX 2.1 và gắn với evidence có thể truy vết.
+- Nguồn dữ liệu production: `enterprise-attack.json`, được pin tại release `v19.1`, commit `6c3719993d0401de199203ecc3f369544d9e091c` và collection version `19.1`.
+- Bundle SHA-256: `bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3`.
+- Bundle chứa 25.843 STIX objects, 697 active attack-patterns và 477 quan hệ `subtechnique-of`.
+- Resolver dùng exact-match và fail-closed.
+- Production đã phân giải `T1059.007` — JavaScript, `T1140` — Deobfuscate/Decode Files or Information và `T1218.005` — Mshta.
+- Output `mitre-resolution/v1` có 4 rule-technique candidate links, cùng hai quan hệ cha `T1059.007 → T1059` và `T1218.005 → T1218`.
+- Tất cả techniques và links vẫn là `candidate`/`not_assessed`; không có technique nào được xác nhận.
+- `attack.execution` và `attack.stealth` được giữ dưới dạng non-technique ATT&CK tags. Các tag `car.*` và `cve.*` được giữ riêng, không ánh xạ thành ATT&CK technique.
 
 ## 3. Những việc đã hoàn thành
 
@@ -171,9 +176,22 @@ Các anchor dưới đây đã được kiểm tra trực tiếp trước khi x�
 - [x] Sigma tests đạt 40 passed; full suite đạt 290 passed, 0 failed và 0 skipped.
 - [ ] Q14 và Q15 vẫn pending vì milestone chưa thực hiện full-dataset negative scan theo hai câu hỏi này.
 
-### 4.3. Phạm vi chưa hoàn thành
+### 4.3. Checkpoint MITRE ATT&CK STIX 2.1 resolver
 
-- [ ] Chưa resolve MITRE ATT&CK.
+- [x] Loader parse `enterprise-attack.json` dưới dạng STIX 2.1 và kiểm tra bundle theo nguyên tắc fail-closed.
+- [x] Nguồn production được pin tại release `v19.1`, commit `6c3719993d0401de199203ecc3f369544d9e091c` và collection version `19.1`.
+- [x] Bundle SHA-256 là `bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3`; bundle có 25.843 STIX objects, 697 active attack-patterns và 477 quan hệ `subtechnique-of`.
+- [x] Resolver exact-match đã phân giải production techniques `T1059.007`, `T1140` và `T1218.005` từ ATT&CK objects.
+- [x] Production output dùng schema `mitre-resolution/v1`, tạo 4 rule-technique candidate links và giữ quan hệ cha `T1059.007 → T1059`, `T1218.005 → T1218`.
+- [x] Techniques và links giữ trạng thái `candidate`/`not_assessed`; không có technique nào được đánh dấu `confirmed`.
+- [x] `attack.execution` và `attack.stealth` được giữ làm non-technique ATT&CK tags; `car.*` và `cve.*` được giữ riêng và không bị ánh xạ thành ATT&CK technique.
+- [x] Production output deterministic, SHA-256 `f5eec09eaff36806e8567f215d9eed7edc7bc62dc3c3c9864dcbae3c6dcd608d`.
+- [x] Enterprise ATT&CK production bundle và generated outputs không nằm trong Git.
+- [x] MITRE tests đạt 29 passed; full suite đạt 319 passed, 0 failed và 0 skipped.
+- [x] Review ZIP đã được kiểm tra và milestone MITRE ATT&CK resolver được review PASS.
+
+### 4.4. Phạm vi chưa hoàn thành
+
 - [ ] Chưa tạo ground truth được người dùng duyệt.
 - [ ] Chưa xây evidence extractor cho Regsvr32 và PurpleSharp.
 - [ ] Chưa triển khai RAG, GraphRAG, LLM hoặc UI.
@@ -201,10 +219,10 @@ Báo cáo chuyên sâu sẽ xây dựng lát cắt hoàn chỉnh RAG và GraphRA
 
 ### Milestone 4 — MITRE ATT&CK và ground truth
 
-- [ ] Parse `enterprise-attack.json` dưới dạng STIX 2.1.
-- [ ] Lưu ATT&CK version hoặc collection metadata dùng trong experiment.
-- [ ] Resolve candidate technique IDs từ ATT&CK objects.
-- [ ] Liên kết mỗi mapping với log evidence, Sigma rule hoặc ATT&CK object.
+- [x] Parse `enterprise-attack.json` dưới dạng STIX 2.1.
+- [x] Lưu ATT&CK release, commit và collection version dùng trong experiment.
+- [x] Resolve candidate technique IDs từ ATT&CK objects bằng exact-match và fail-closed.
+- [x] Liên kết các Sigma rule-technique candidate mappings với ATT&CK objects; giữ nguyên trạng thái review, không tự động xác nhận.
 - [ ] Tạo bản nháp `scenario_ground_truth.json` có trạng thái reviewable.
 - [ ] Validate JSON và deterministic ordering.
 - [ ] Người dùng duyệt evidence trước khi chuyển label sang `confirmed`.
@@ -253,7 +271,7 @@ Báo cáo chuyên sâu sẽ xây dựng lát cắt hoàn chỉnh RAG và GraphRA
 | Evidence schema | Hoàn thành | `scenario-evidence/v1`, deterministic IDs và validation được kiểm thử |
 | Evidence extraction | Đang thực hiện | MSHTA production extraction hoàn thành trên 1.127 canonical events; chưa có extractor Regsvr32/PurpleSharp |
 | Sigma execution/correlation | Đang thực hiện | MSHTA loader/evaluator fail-closed và production review đã hoàn thành; password-spraying correlation cùng Regsvr32/PurpleSharp còn tạm hoãn |
-| MITRE STIX resolution | Chưa bắt đầu | Mới có candidate technique IDs |
+| MITRE STIX resolution | Hoàn thành | Resolver exact-match/fail-closed, pinned ATT&CK v19.1, `mitre-resolution/v1`, 29 MITRE tests và review PASS |
 | Ground truth | Chưa bắt đầu | Chưa có bản nháp được người dùng duyệt |
 | RAG | Chưa bắt đầu | Chưa chọn embedding/vector database |
 | GraphRAG | Chưa bắt đầu | Mới có graph schema ở mức thiết kế |
@@ -275,7 +293,7 @@ Báo cáo chuyên sâu sẽ xây dựng lát cắt hoàn chỉnh RAG và GraphRA
 
 ## 8. Bước tiếp theo duy nhất
 
-**Xây dựng MITRE ATT&CK STIX 2.1 resolver và ground truth được kiểm duyệt cho kịch bản MSHTA–PowerShell; chỉ sau khi ground truth ổn định mới xây dựng và so sánh RAG với GraphRAG trên kịch bản này.**
+**Xây dựng ground truth được kiểm duyệt cho kịch bản MSHTA–PowerShell; chỉ sau khi ground truth ổn định mới xây dựng và so sánh RAG với GraphRAG trên kịch bản này.**
 
 ## 9. Cách cập nhật file này
 
