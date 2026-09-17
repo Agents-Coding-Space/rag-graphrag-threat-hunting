@@ -1,0 +1,782 @@
+{
+  "schema_version": "retrieval-corpus/v1",
+  "corpus_id": "retrieval-corpus--a8d7adca8c70e4ec669cc6848aec6159133dcc30c7ae6fb8b59db4c9dfb5006e",
+  "scenario_id": "scenario-synthetic-builder",
+  "source_ground_truth": {
+    "path": "tests/fixtures/ground_truth/builder/expected_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "90a352db22280201685a47e1e0ba6b15241986bf6c1c5e95b0e3105d43b88e93",
+    "scenario_id": "scenario-synthetic-builder"
+  },
+  "chunks": [
+    {
+      "chunk_id": "retrieval-chunk--4eb4adfa772b698bc8fdab3bd3250015774783847d4d09d8a47241f4ed430256",
+      "chunk_type": "scenario_summary",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Synthetic artifact relationship review",
+      "content": "Scenario Synthetic artifact relationship review. Description: A synthetic scenario used only to verify deterministic artifact merging. Analysis status: draft_reviewable. Observed behavior: Synthetic activity was observed between the first two entities.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "scenario",
+        "object_id": null,
+        "json_pointer": "/scenario"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-alpha-beta",
+        "relationship-synthetic-beta-gamma"
+      ],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "provenance",
+        "relationship",
+        "scenario",
+        "synthetic_signal"
+      ],
+      "metadata": {
+        "analysis_status": "draft_reviewable",
+        "time_window": {
+          "start": "2024-01-01T00:00:00Z",
+          "end": "2024-01-01T00:00:03Z"
+        },
+        "observed_behavior_count": 1,
+        "source_review_status": "pending_human_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--e3ca3a1b70195c88f675e1ebd5702d57207ac7245db5c1c04d825174df1e4d43",
+      "chunk_type": "entity",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Alpha display override",
+      "content": "Entity Alpha display override. Type: synthetic_agent. Status: observed. Attributes: {\"name\":\"alpha-source\",\"zone\":\"lab-a\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "entity-synthetic-alpha",
+        "json_pointer": "/entities/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha"
+      ],
+      "fact_ids": [
+        "fact-synthetic-alpha-activity"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-alpha-beta"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "synthetic_agent",
+        "attributes": {
+          "name": "alpha-source",
+          "zone": "lab-a"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--f88e5e064e1bbd4eda0fdf636c900bcb0ff2152b927d786c5df507e37675c79b",
+      "chunk_type": "entity",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "worker-beta.bin",
+      "content": "Entity worker-beta.bin. Type: synthetic_worker. Status: observed. Attributes: {\"process_name\":\"worker-beta.bin\",\"role\":\"worker\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "entity-synthetic-beta",
+        "json_pointer": "/entities/1"
+      },
+      "entity_ids": [
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [
+        "fact-synthetic-alpha-activity",
+        "fact-synthetic-beta-transition"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-alpha-beta",
+        "relationship-synthetic-beta-gamma"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1",
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "synthetic_worker",
+        "attributes": {
+          "process_name": "worker-beta.bin",
+          "role": "worker"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--d86770d36498b45989c892939ad6ecc715c1cf218fa086accd8548360a4ec039",
+      "chunk_type": "entity",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "host-gamma",
+      "content": "Entity host-gamma. Type: synthetic_host. Status: observed. Attributes: {\"host\":\"host-gamma\",\"role\":\"destination\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "entity-synthetic-gamma",
+        "json_pointer": "/entities/2"
+      },
+      "entity_ids": [
+        "entity-synthetic-gamma"
+      ],
+      "fact_ids": [
+        "fact-synthetic-beta-transition"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-beta-gamma"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "synthetic_host",
+        "attributes": {
+          "host": "host-gamma",
+          "role": "destination"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--917e0b7dcdb8136b2bf5a8fa2253e99e8c62857fbb63d10b8ed69e927e776284",
+      "chunk_type": "fact",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "initiates_activity",
+      "content": "Fact fact-synthetic-alpha-activity. Subject: entity-synthetic-alpha. Predicate: initiates_activity. Object: entity-synthetic-beta. Status: observed. Attributes: {\"basis\":\"direct synthetic observation\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "fact",
+        "object_id": "fact-synthetic-alpha-activity",
+        "json_pointer": "/facts/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [
+        "fact-synthetic-alpha-activity"
+      ],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {
+          "basis": "direct synthetic observation"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--4d6219075201b7f7196db67fc839d81e76800f447fda486d8462af3eee469e53",
+      "chunk_type": "fact",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "has_reviewable_transition",
+      "content": "Fact fact-synthetic-beta-transition. Subject: entity-synthetic-beta. Predicate: has_reviewable_transition. Object: entity-synthetic-gamma. Status: inferred. Attributes: {\"basis\":\"correlated synthetic records\"}.",
+      "status": "inferred",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "fact",
+        "object_id": "fact-synthetic-beta-transition",
+        "json_pointer": "/facts/1"
+      },
+      "entity_ids": [
+        "entity-synthetic-beta",
+        "entity-synthetic-gamma"
+      ],
+      "fact_ids": [
+        "fact-synthetic-beta-transition"
+      ],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {
+          "basis": "correlated synthetic records"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--9222eed2c381f5574b2d184cbf8e05130d6b8beec106a5923c0fdd5a4636e290",
+      "chunk_type": "relationship",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "initiates",
+      "content": "Relationship relationship-synthetic-alpha-beta. Source: Alpha display override (entity-synthetic-alpha). Type: initiates. Target: worker-beta.bin (entity-synthetic-beta). Status: observed.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "relationship",
+        "object_id": "relationship-synthetic-alpha-beta",
+        "json_pointer": "/relationships/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-alpha-beta"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {}
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--06b6367aba60c0225e742249732a3653dc5647bb6e4992456f68da26009933c2",
+      "chunk_type": "relationship",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "transitions_to",
+      "content": "Relationship relationship-synthetic-beta-gamma. Source: worker-beta.bin (entity-synthetic-beta). Type: transitions_to. Target: host-gamma (entity-synthetic-gamma). Status: inferred.",
+      "status": "inferred",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "relationship",
+        "object_id": "relationship-synthetic-beta-gamma",
+        "json_pointer": "/relationships/1"
+      },
+      "entity_ids": [
+        "entity-synthetic-beta",
+        "entity-synthetic-gamma"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-beta-gamma"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {}
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--335a150e6dc4498c40ddcab7efa1dcd0ec19c003213de3032175a613f43b01cd",
+      "chunk_type": "evidence",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Two records directly show synthetic activity.",
+      "content": "Evidence evidence-synthetic-1. Type: synthetic_activity. Summary: Two records directly show synthetic activity. Status: observed. Observations: provider=Synthetic-Provider, event_id=101, timestamp=2024-01-01T00:00:00Z; provider=null, event_id=202, timestamp=2024-01-01T00:00:01Z.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "evidence",
+        "object_id": "evidence-synthetic-1",
+        "json_pointer": "/evidence/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [
+        "fact-synthetic-alpha-activity"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-alpha-beta"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-alpha"
+      ],
+      "mitre_external_ids": [
+        "SYN-1001"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "mitre_technique",
+        "provenance",
+        "relationship",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "observation_count": 2
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--38b95efd900fcefa3783e7b85b2f8bdf39a0db49ed45d885315b30956826b8ef",
+      "chunk_type": "evidence",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Two records support a transition to the destination.",
+      "content": "Evidence evidence-synthetic-2. Type: synthetic_transition. Summary: Two records support a transition to the destination. Status: inferred. Observations: provider=Synthetic-Provider, event_id=303, timestamp=2024-01-01T00:00:02Z; provider=Synthetic-Provider, event_id=404, timestamp=2024-01-01T00:00:03Z.",
+      "status": "inferred",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "evidence",
+        "object_id": "evidence-synthetic-2",
+        "json_pointer": "/evidence/1"
+      },
+      "entity_ids": [
+        "entity-synthetic-beta",
+        "entity-synthetic-gamma"
+      ],
+      "fact_ids": [
+        "fact-synthetic-beta-transition"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-beta-gamma"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-beta"
+      ],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "mitre_technique",
+        "provenance",
+        "relationship",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "observation_count": 2
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--904f950dcd0513018504d0bbf0598172ae32178886f38b58e99894e033e5b63d",
+      "chunk_type": "sigma_finding",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Synthetic activity candidate",
+      "content": "Sigma finding Synthetic activity candidate. Rule ID: rule-synthetic-alpha. Status: candidate. Caveats: none. Evidence IDs: evidence-synthetic-1.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--9c0f4be61a535fab4dfadab048bcec4859de843c6a602242be720ce528e2afbf",
+        "json_pointer": "/sigma_findings/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-alpha"
+      ],
+      "mitre_external_ids": [
+        "SYN-1001"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "rule_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observation_match_ids": [
+          "observation-match-synthetic-1",
+          "observation-match-synthetic-2"
+        ],
+        "behavior_match_ids": [
+          "behavior-match-synthetic-1"
+        ],
+        "caveats": []
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--40d28e60efc52a107bea2fd45c08daec1c1427aaf737428d7f7cc6b1a4449d99",
+      "chunk_type": "sigma_finding",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Synthetic transition candidate",
+      "content": "Sigma finding Synthetic transition candidate. Rule ID: rule-synthetic-beta. Status: candidate. Caveats: known_unmapped_field: SyntheticField. Evidence IDs: evidence-synthetic-2.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--c9edf46d1d2b9031bafa24117422548caff0a78d22e834b80e37de0bd2f43cdd",
+        "json_pointer": "/sigma_findings/1"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-beta"
+      ],
+      "mitre_external_ids": [
+        "SYN-1002"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "rule_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "observation_match_ids": [
+          "observation-match-synthetic-3",
+          "observation-match-synthetic-4"
+        ],
+        "behavior_match_ids": [
+          "behavior-match-synthetic-2"
+        ],
+        "caveats": [
+          "known_unmapped_field: SyntheticField"
+        ]
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--346ddb95a13c273040c7ac2ebf5718af79039e2ce63db3f046d2a4b4a5eeac55",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "SYN-1002 - Synthetic Transition Pattern",
+      "content": "MITRE assessment SYN-1002: Synthetic Transition Pattern. Status: candidate. Evidence support: not_assessed. Rationale: No evidence-support decision was provided in the build config. Review status: needs_review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--113a7030e1781caf43721924fddb64f04c9b0541cf9cdfd2b799a5fe7633d8b8",
+        "json_pointer": "/mitre_assessments/1"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [
+        "rule-synthetic-beta"
+      ],
+      "mitre_external_ids": [
+        "SYN-1002"
+      ],
+      "source_references": [],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "stix_id": "attack-pattern--synthetic-beta",
+        "origin": "sigma_tag",
+        "evidence_support": "not_assessed",
+        "review_status": "needs_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--174bd769161289331c01f0247c73fe217ae24fd31493fc1193b3b39e85551af2",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "SYN-1001 - Synthetic Activity Pattern",
+      "content": "MITRE assessment SYN-1001: Synthetic Activity Pattern. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: The first synthetic evidence group directly supports this candidate pattern. Review status: needs_review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--c37a0735d4866a5c785ec00afffbd847cbba47c83c9bcd254158404c09ffad8b",
+        "json_pointer": "/mitre_assessments/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-alpha"
+      ],
+      "mitre_external_ids": [
+        "SYN-1001"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "stix_id": "attack-pattern--synthetic-alpha",
+        "origin": "sigma_tag",
+        "evidence_support": "supported_by_observed_behavior",
+        "review_status": "needs_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--2bb4f6afdcc582991d103cea999c39daa71a6048fe88b3a8eb2939b0559f69c2",
+      "chunk_type": "limitation",
+      "scenario_id": "scenario-synthetic-builder",
+      "title": "Ground Truth scope limitation",
+      "content": "All fixture values are synthetic and require human review.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation",
+        "provenance"
+      ],
+      "metadata": {
+        "source_summary_field": "limitations"
+      }
+    }
+  ],
+  "queryable_dimensions": [
+    "entity",
+    "evidence",
+    "fact",
+    "limitation",
+    "mitre_technique",
+    "provenance",
+    "relationship",
+    "scenario",
+    "sigma_rule",
+    "synthetic_signal"
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": [
+      "This corpus was generated automatically from a validated Ground Truth Core document.",
+      "The generated corpus has not been reviewed by a human."
+    ]
+  },
+  "warnings": [
+    "Synthetic Sigma review warning.",
+    "Synthetic resolution warning."
+  ],
+  "metadata": {
+    "builder_contract": "ground-truth-to-retrieval-corpus/v1",
+    "chunk_count": 15,
+    "source_analysis_status": "draft_reviewable",
+    "source_review_status": "pending_human_review"
+  }
+}
