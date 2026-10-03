@@ -1,0 +1,18 @@
+{
+  "schema_version": "vector-index-build-config/v1",
+  "embedding": {
+    "provider": "sentence-transformers",
+    "model_id": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimension": 384,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "",
+    "query_prefix": ""
+  },
+  "runtime": {
+    "device": "cpu",
+    "batch_size": 32,
+    "show_progress_bar": false
+  }
+}

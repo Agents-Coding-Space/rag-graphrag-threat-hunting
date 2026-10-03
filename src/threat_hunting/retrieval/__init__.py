@@ -1,6 +1,10 @@
 """Retrieval Corpus contracts for scenario-independent RAG inputs."""
 
 from .builder import RetrievalCorpusBuildError, build_retrieval_corpus
+from .embedding_backend import (
+    EmbeddingBackendError,
+    SentenceTransformerEmbeddingBackend,
+)
 from .lexical import (
     LEXICAL_RETRIEVAL_METHOD,
     RETRIEVAL_RESULT_SCHEMA_VERSION,
@@ -23,6 +27,7 @@ from .vector_schema import (
 from .vector_builder import VectorIndexBuildError, build_vector_index
 
 __all__ = (
+    "EmbeddingBackendError",
     "LEXICAL_RETRIEVAL_METHOD",
     "RETRIEVAL_CORPUS_SCHEMA_VERSION",
     "RETRIEVAL_RESULT_SCHEMA_VERSION",
@@ -30,6 +35,7 @@ __all__ = (
     "LexicalRetrievalError",
     "RetrievalCorpusBuildError",
     "RetrievalCorpusValidationError",
+    "SentenceTransformerEmbeddingBackend",
     "VectorIndexBuildError",
     "VectorIndexValidationError",
     "build_retrieval_corpus",
