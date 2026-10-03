@@ -20,6 +20,7 @@ from .vector_schema import (
     load_vector_index,
     validate_vector_index,
 )
+from .vector_builder import VectorIndexBuildError, build_vector_index
 
 __all__ = (
     "LEXICAL_RETRIEVAL_METHOD",
@@ -29,8 +30,10 @@ __all__ = (
     "LexicalRetrievalError",
     "RetrievalCorpusBuildError",
     "RetrievalCorpusValidationError",
+    "VectorIndexBuildError",
     "VectorIndexValidationError",
     "build_retrieval_corpus",
+    "build_vector_index",
     "load_retrieval_corpus",
     "load_vector_index",
     "retrieve_lexical",
