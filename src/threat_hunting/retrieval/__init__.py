@@ -25,6 +25,7 @@ from .vector_schema import (
     validate_vector_index,
 )
 from .vector_builder import VectorIndexBuildError, build_vector_index
+from .vector_search import VectorRetrievalError, retrieve_vector
 
 __all__ = (
     "EmbeddingBackendError",
@@ -38,11 +39,13 @@ __all__ = (
     "SentenceTransformerEmbeddingBackend",
     "VectorIndexBuildError",
     "VectorIndexValidationError",
+    "VectorRetrievalError",
     "build_retrieval_corpus",
     "build_vector_index",
     "load_retrieval_corpus",
     "load_vector_index",
     "retrieve_lexical",
+    "retrieve_vector",
     "tokenize_retrieval_text",
     "validate_retrieval_corpus",
     "validate_vector_index",
