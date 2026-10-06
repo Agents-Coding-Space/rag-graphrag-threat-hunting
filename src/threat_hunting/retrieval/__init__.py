@@ -5,6 +5,7 @@ from .embedding_backend import (
     EmbeddingBackendError,
     SentenceTransformerEmbeddingBackend,
 )
+from .hybrid import HybridRetrievalError, retrieve_hybrid
 from .lexical import (
     LEXICAL_RETRIEVAL_METHOD,
     RETRIEVAL_RESULT_SCHEMA_VERSION,
@@ -29,6 +30,7 @@ from .vector_search import VectorRetrievalError, retrieve_vector
 
 __all__ = (
     "EmbeddingBackendError",
+    "HybridRetrievalError",
     "LEXICAL_RETRIEVAL_METHOD",
     "RETRIEVAL_CORPUS_SCHEMA_VERSION",
     "RETRIEVAL_RESULT_SCHEMA_VERSION",
@@ -44,6 +46,7 @@ __all__ = (
     "build_vector_index",
     "load_retrieval_corpus",
     "load_vector_index",
+    "retrieve_hybrid",
     "retrieve_lexical",
     "retrieve_vector",
     "tokenize_retrieval_text",
