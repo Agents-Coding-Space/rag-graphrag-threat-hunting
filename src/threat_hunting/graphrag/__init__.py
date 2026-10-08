@@ -1,4 +1,10 @@
-"""Exact provenance mapping between retrieval results and graph seed nodes."""
+"""In-memory GraphRAG context orchestration and exact provenance seed mapping."""
+
+from .orchestrator import (
+    GRAPHRAG_CONTEXT_SCHEMA_VERSION,
+    GraphRAGOrchestrationError,
+    build_graphrag_context,
+)
 
 from .seed_mapping import (
     GRAPH_SEED_MAP_SCHEMA_VERSION,
@@ -7,6 +13,9 @@ from .seed_mapping import (
 )
 
 __all__ = (
+    "GRAPHRAG_CONTEXT_SCHEMA_VERSION",
+    "GraphRAGOrchestrationError",
+    "build_graphrag_context",
     "GRAPH_SEED_MAP_SCHEMA_VERSION",
     "GraphSeedMappingError",
     "map_hybrid_hits_to_graph_seeds",
