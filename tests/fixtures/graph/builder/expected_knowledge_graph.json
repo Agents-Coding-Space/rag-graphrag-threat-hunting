@@ -559,30 +559,6 @@
       "status": "observed"
     },
     {
-      "attributes": {
-        "analysis_status": "draft_reviewable",
-        "description": "A synthetic scenario used only to verify deterministic artifact merging.",
-        "time_window": {
-          "end": "2024-01-01T00:00:03Z",
-          "start": "2024-01-01T00:00:00Z"
-        }
-      },
-      "dimensions": [
-        "provenance"
-      ],
-      "evidence_ids": [],
-      "label": "Synthetic artifact relationship review",
-      "node_id": "graph-node--225a821e8df117f2183413cb7c4fe470300c4366a7cff9b2f0ff3620f4dd2765",
-      "node_type": "scenario",
-      "source": {
-        "json_pointer": "/scenario",
-        "object_id": "scenario-synthetic-builder",
-        "object_type": "scenario"
-      },
-      "source_references": [],
-      "status": "reviewable"
-    },
-    {
       "attributes": {},
       "dimensions": [
         "provenance"
@@ -701,6 +677,30 @@
       },
       "source_references": [],
       "status": "candidate"
+    },
+    {
+      "attributes": {
+        "analysis_status": "draft_reviewable",
+        "description": "A synthetic scenario used only to verify deterministic artifact merging.",
+        "time_window": {
+          "end": "2024-01-01T00:00:03Z",
+          "start": "2024-01-01T00:00:00Z"
+        }
+      },
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [],
+      "label": "Synthetic artifact relationship review",
+      "node_id": "graph-node--8731b8cde7c29414acae7ae89f59ca628dc45349ecd21c049e3cc318c1c1fe66",
+      "node_type": "scenario",
+      "source": {
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "source_references": [],
+      "status": "reviewable"
     },
     {
       "attributes": {

@@ -246,7 +246,7 @@ class _GraphBuilder:
     def create_nodes(self) -> None:
         scenario = self.ground_truth["scenario"]
         self._add_node(
-            source=_source("scenario", self.scenario_id, "/scenario"),
+            source=_source("scenario", None, "/scenario"),
             label=scenario["scenario_name"], status="reviewable",
             attributes={
                 key: copy.deepcopy(value)

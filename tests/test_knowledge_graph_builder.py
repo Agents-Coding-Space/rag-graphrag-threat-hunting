@@ -354,6 +354,20 @@ def test_derived_edge_pointers_identify_original_terms_and_id_list_entries() -> 
             assert term == rule_id
 
 
+def test_scenario_source_uses_pointer_identity_and_preserves_scenario_id() -> None:
+    document = _ground_truth()
+    graph = _build(document)
+    scenario_nodes = [node for node in graph["nodes"] if node["node_type"] == "scenario"]
+    assert len(scenario_nodes) == 1
+    source = scenario_nodes[0]["source"]
+    assert source["object_type"] == "scenario"
+    assert source["object_id"] is None
+    assert source["json_pointer"] == "/scenario"
+    assert _resolve_pointer(document, source["json_pointer"]) is document["scenario"]
+    assert graph["scenario_id"] == document["scenario"]["scenario_id"]
+    assert graph["source_ground_truth"]["scenario_id"] == document["scenario"]["scenario_id"]
+
+
 def test_scenario_node_preserves_reviewable_metadata() -> None:
     document = _ground_truth()
     graph = _build(document)
