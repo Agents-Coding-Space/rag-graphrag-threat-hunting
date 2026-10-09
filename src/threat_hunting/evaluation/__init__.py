@@ -15,6 +15,13 @@ from .calibration_schema import (
     validate_calibration_report,
 )
 from .relevance_calibration import RelevanceCalibrationError, calibrate_relevance_policies
+from .diagnostics_schema import (
+    GRAPHRAG_RELEVANCE_DIAGNOSTICS_SCHEMA_VERSION,
+    RelevanceDiagnosticsError,
+    load_relevance_diagnostics,
+    validate_relevance_diagnostics,
+)
+from .relevance_diagnostics import analyze_relevance_separability
 from .relevance_dataset import (
     RELEVANCE_CALIBRATION_DATASET_SCHEMA_VERSION,
     RelevanceCalibrationDatasetValidationError,
@@ -23,6 +30,11 @@ from .relevance_dataset import (
 )
 
 __all__ = (
+    "GRAPHRAG_RELEVANCE_DIAGNOSTICS_SCHEMA_VERSION",
+    "RelevanceDiagnosticsError",
+    "analyze_relevance_separability",
+    "load_relevance_diagnostics",
+    "validate_relevance_diagnostics",
     "CALIBRATION_CONFIG_SCHEMA_VERSION",
     "CALIBRATION_REPORT_SCHEMA_VERSION",
     "CalibrationConfigValidationError",

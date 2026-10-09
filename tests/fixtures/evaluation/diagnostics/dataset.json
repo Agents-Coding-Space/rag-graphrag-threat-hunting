@@ -1,0 +1,113 @@
+{
+  "cases": [
+    {
+      "case_id": "direct-en",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "language": "en",
+      "query": "Synthetic query direct-en",
+      "rationale": "Synthetic context eligibility label for direct-en.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "direct-vi",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "language": "vi",
+      "query": "C?u h?i gi? l?p direct-vi",
+      "rationale": "Synthetic context eligibility label for direct-vi.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "paraphrase-en",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "language": "en",
+      "query": "Synthetic query paraphrase-en",
+      "rationale": "Synthetic context eligibility label for paraphrase-en.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "paraphrase-vi",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "language": "vi",
+      "query": "C?u h?i gi? l?p paraphrase-vi",
+      "rationale": "Synthetic context eligibility label for paraphrase-vi.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "insufficient-en",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "language": "en",
+      "query": "Synthetic query insufficient-en",
+      "rationale": "Synthetic context eligibility label for insufficient-en.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "insufficient-vi",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "language": "vi",
+      "query": "C?u h?i gi? l?p insufficient-vi",
+      "rationale": "Synthetic context eligibility label for insufficient-vi.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "unrelated-en",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "language": "en",
+      "query": "Synthetic query unrelated-en",
+      "rationale": "Synthetic context eligibility label for unrelated-en.",
+      "tags": [
+        "synthetic"
+      ]
+    },
+    {
+      "case_id": "unrelated-vi",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "language": "vi",
+      "query": "C?u h?i gi? l?p unrelated-vi",
+      "rationale": "Synthetic context eligibility label for unrelated-vi.",
+      "tags": [
+        "synthetic"
+      ]
+    }
+  ],
+  "dataset_id": "synthetic-diagnostics-dataset",
+  "metadata": {
+    "case_count": 8,
+    "category_counts": {
+      "insufficient_evidence": 2,
+      "relevant_direct": 2,
+      "relevant_paraphrase": 2,
+      "unrelated": 2
+    },
+    "decision_counts": {
+      "abstain": 4,
+      "proceed": 4
+    },
+    "language_counts": {
+      "en": 4,
+      "vi": 4
+    }
+  },
+  "purpose": "relevance_gate_calibration",
+  "scenario_id": "synthetic-signal-separability",
+  "schema_version": "graphrag-relevance-calibration-dataset/v1"
+}
