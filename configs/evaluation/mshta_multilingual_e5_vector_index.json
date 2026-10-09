@@ -1,0 +1,18 @@
+{
+  "schema_version": "vector-index-build-config/v1",
+  "embedding": {
+    "provider": "sentence-transformers",
+    "model_id": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dimension": 384,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "passage: ",
+    "query_prefix": "query: "
+  },
+  "runtime": {
+    "device": "cpu",
+    "batch_size": 32,
+    "show_progress_bar": false
+  }
+}
