@@ -1,0 +1,313 @@
+{
+  "schema_version": "graphrag-relevance-calibration-dataset/v1",
+  "dataset_id": "mshta-relevance-calibration-v1",
+  "scenario_id": "mshta-powershell",
+  "purpose": "relevance_gate_calibration",
+  "cases": [
+    {
+      "case_id": "rd-en-process-chain",
+      "category": "relevant_direct",
+      "language": "en",
+      "query": "Which process chain led to powershell.exe in the reviewed evidence?",
+      "expected_decision": "proceed",
+      "rationale": "The directed process-spawn facts and relationships are available in /facts and /relationships, making the reviewed chain evaluable without a final security determination.",
+      "tags": ["process_chain", "ground_truth:/facts", "ground_truth:/relationships"]
+    },
+    {
+      "case_id": "rd-en-shell-parent",
+      "category": "relevant_direct",
+      "language": "en",
+      "query": "Which process is the observed parent of powershell.exe?",
+      "expected_decision": "proceed",
+      "rationale": "The reviewed spawn fact at /facts/1 identifies its subject and object and links supporting evidence, so the parent relationship is evaluable.",
+      "tags": ["process_parent", "ground_truth:/facts/1", "ground_truth:/relationships/0"]
+    },
+    {
+      "case_id": "rd-en-initial-spawn-evidence",
+      "category": "relevant_direct",
+      "language": "en",
+      "query": "What evidence supports the cmd.exe to mshta.exe process creation relationship?",
+      "expected_decision": "proceed",
+      "rationale": "The corresponding fact, relationship and evidence group retain observation and source references at /facts/0, /relationships/1 and /evidence/0, enabling evidence review.",
+      "tags": ["process_spawn_evidence", "ground_truth:/facts/0", "ground_truth:/relationships/1", "ground_truth:/evidence/0"]
+    },
+    {
+      "case_id": "rd-en-final-spawn-evidence",
+      "category": "relevant_direct",
+      "language": "en",
+      "query": "What evidence supports the mshta.exe to powershell.exe process creation relationship?",
+      "expected_decision": "proceed",
+      "rationale": "The corresponding fact, relationship and evidence group retain observation and source references at /facts/1, /relationships/0 and /evidence/1, enabling evidence review.",
+      "tags": ["process_spawn_evidence", "ground_truth:/facts/1", "ground_truth:/relationships/0", "ground_truth:/evidence/1"]
+    },
+    {
+      "case_id": "rd-vi-proxy-technique-assessment",
+      "category": "relevant_direct",
+      "language": "vi",
+      "query": "Đánh giá hiện tại đối với ATT&CK T1218.005 có mức hỗ trợ bằng chứng và trạng thái review nào?",
+      "expected_decision": "proceed",
+      "rationale": "Assessment tại /mitre_assessments/2 có các trường evidence_support, status và review_status cùng liên kết bằng chứng, đủ để đánh giá câu hỏi về trạng thái hiện có.",
+      "tags": ["technique_assessment", "ground_truth:/mitre_assessments/2"]
+    },
+    {
+      "case_id": "rd-vi-scripting-technique-status",
+      "category": "relevant_direct",
+      "language": "vi",
+      "query": "T1059.007 có được hỗ trợ bởi command line đã quan sát không, và trạng thái đánh giá là gì?",
+      "expected_decision": "proceed",
+      "rationale": "Assessment tại /mitre_assessments/0 lưu evidence_support, rationale và trạng thái review, cho phép kiểm tra mức hỗ trợ của nhãn trong phạm vi đã review.",
+      "tags": ["technique_support_status", "ground_truth:/mitre_assessments/0"]
+    },
+    {
+      "case_id": "rd-vi-reviewed-scope-limitations",
+      "category": "relevant_direct",
+      "language": "vi",
+      "query": "Ground Truth ghi nhận những giới hạn nào đối với phạm vi bằng chứng đã review?",
+      "expected_decision": "proceed",
+      "rationale": "Các giới hạn được ghi rõ tại /summary/limitations và ghi chú review tại /review/notes, đủ cơ sở đánh giá câu hỏi về giới hạn thay vì suy rộng sang toàn bộ dataset.",
+      "tags": ["scope_limitations", "ground_truth:/summary/limitations", "ground_truth:/review/notes"]
+    },
+    {
+      "case_id": "rd-vi-initial-relation-provenance",
+      "category": "relevant_direct",
+      "language": "vi",
+      "query": "Nguồn log và raw record references nào hỗ trợ quan hệ cmd.exe tạo mshta.exe?",
+      "expected_decision": "proceed",
+      "rationale": "Fact tại /facts/0/source_references và nhóm evidence tại /evidence/0/observations giữ provenance của quan hệ, đủ để truy vết nguồn mà không tạo thêm bản ghi.",
+      "tags": ["relation_provenance", "ground_truth:/facts/0/source_references", "ground_truth:/evidence/0/observations"]
+    },
+    {
+      "case_id": "rp-en-intermediate-utility",
+      "category": "relevant_paraphrase",
+      "language": "en",
+      "query": "Which Windows utility sits between the initial command interpreter and the final shell?",
+      "expected_decision": "proceed",
+      "rationale": "The entities and directed relationships at /entities and /relationships provide the information needed to locate an intermediate process despite the alternative wording.",
+      "tags": ["process_chain_paraphrase", "ground_truth:/entities", "ground_truth:/relationships"]
+    },
+    {
+      "case_id": "rp-en-shell-creator",
+      "category": "relevant_paraphrase",
+      "language": "en",
+      "query": "How can I trace the launch of the final shell back to its creator?",
+      "expected_decision": "proceed",
+      "rationale": "The spawn fact at /facts/1 and its linked evidence expose a traceable creator relationship, so this reformulation remains evaluable.",
+      "tags": ["process_parent_paraphrase", "ground_truth:/facts/1", "ground_truth:/evidence/1"]
+    },
+    {
+      "case_id": "rp-en-technique-review",
+      "category": "relevant_paraphrase",
+      "language": "en",
+      "query": "Why is the proxy execution technique still awaiting analyst approval even though its behavior has supporting records?",
+      "expected_decision": "proceed",
+      "rationale": "The technique assessment at /mitre_assessments/2 links supporting evidence and records its review state, while /review/notes retains the limits on final determinations.",
+      "tags": ["technique_review_paraphrase", "ground_truth:/mitre_assessments/2", "ground_truth:/review/notes"]
+    },
+    {
+      "case_id": "rp-en-retained-scripting-label",
+      "category": "relevant_paraphrase",
+      "language": "en",
+      "query": "Why does a scripting technique label remain in the record when the reviewed inline command uses a different scripting language?",
+      "expected_decision": "proceed",
+      "rationale": "The assessment rationale at /mitre_assessments/0/rationale explains the retained label and its evidence limits, making this wording evaluable without promoting a candidate.",
+      "tags": ["technique_support_paraphrase", "ground_truth:/mitre_assessments/0/rationale", "ground_truth:/summary/observed_behavior"]
+    },
+    {
+      "case_id": "rp-vi-launch-order",
+      "category": "relevant_paraphrase",
+      "language": "vi",
+      "query": "Nhìn các quan hệ cha-con đã lưu, làm thế nào dựng lại thứ tự khởi chạy ba tiến trình?",
+      "expected_decision": "proceed",
+      "rationale": "Các facts và relationships tại /facts và /relationships giữ hướng quan hệ, nên cách hỏi về thứ tự khởi chạy vẫn có căn cứ trong phạm vi đã review.",
+      "tags": ["process_chain_paraphrase", "ground_truth:/facts", "ground_truth:/relationships"]
+    },
+    {
+      "case_id": "rp-vi-observation-provenance",
+      "category": "relevant_paraphrase",
+      "language": "vi",
+      "query": "Những bản ghi telemetry nào cùng làm căn cứ cho mỗi lần tạo tiến trình trong hai nhóm bằng chứng?",
+      "expected_decision": "proceed",
+      "rationale": "Các observations tại /evidence/0/observations và /evidence/1/observations được gắn với từng nhóm evidence, đủ để đánh giá provenance của mỗi hành vi đã review.",
+      "tags": ["evidence_provenance_paraphrase", "ground_truth:/evidence/0/observations", "ground_truth:/evidence/1/observations"]
+    },
+    {
+      "case_id": "rp-vi-final-review-limits",
+      "category": "relevant_paraphrase",
+      "language": "vi",
+      "query": "Người phân tích còn phải xem lại điều gì trước khi đưa ra nhận định cuối cùng?",
+      "expected_decision": "proceed",
+      "rationale": "Các giới hạn tại /summary/limitations và ghi chú tại /review/notes xác định những điểm còn phải review, đủ để đánh giá câu hỏi về giới hạn nhận định.",
+      "tags": ["human_review_paraphrase", "ground_truth:/summary/limitations", "ground_truth:/review/notes"]
+    },
+    {
+      "case_id": "rp-vi-service-action",
+      "category": "relevant_paraphrase",
+      "language": "vi",
+      "query": "Tác vụ về dịch vụ mà shell cuối cùng đã thực hiện được ghi nhận như thế nào?",
+      "expected_decision": "proceed",
+      "rationale": "Mô tả hành vi tại /summary/observed_behavior ghi nhận tác vụ của shell, cho phép đánh giá câu hỏi diễn đạt lại mà không yêu cầu nội dung payload ngoài phạm vi.",
+      "tags": ["observed_action_paraphrase", "ground_truth:/summary/observed_behavior"]
+    },
+    {
+      "case_id": "ie-en-payload-download-url",
+      "category": "insufficient_evidence",
+      "language": "en",
+      "query": "Which URL did PowerShell use to download the payload in this MSHTA chain?",
+      "expected_decision": "abstain",
+      "rationale": "The reviewed evidence groups and observed-behavior summary do not supply a payload download URL. The scope limitation at /summary/limitations does not establish absence across the full dataset.",
+      "tags": ["missing_download_evidence", "ground_truth:/evidence", "ground_truth:/summary/observed_behavior", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ie-en-c2-address",
+      "category": "insufficient_evidence",
+      "language": "en",
+      "query": "What IP address acted as the C2 server for the PowerShell process?",
+      "expected_decision": "abstain",
+      "rationale": "The reviewed process-creation evidence groups do not identify a C2 server or its IP address. The limited reviewed scope at /summary/limitations cannot support a full-dataset absence claim.",
+      "tags": ["missing_c2_evidence", "ground_truth:/evidence", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ie-en-attacker-identity",
+      "category": "insufficient_evidence",
+      "language": "en",
+      "query": "Who was the attacker responsible for the reviewed MSHTA execution?",
+      "expected_decision": "abstain",
+      "rationale": "The entities and reviewed evidence groups do not establish attacker identity or attribution. The scope and unfinished review at /summary/limitations and /review prevent inventing an identity.",
+      "tags": ["missing_attribution_evidence", "ground_truth:/entities", "ground_truth:/evidence", "ground_truth:/summary/limitations", "ground_truth:/review"]
+    },
+    {
+      "case_id": "ie-en-stolen-credentials",
+      "category": "insufficient_evidence",
+      "language": "en",
+      "query": "Which credentials did PowerShell steal during this activity?",
+      "expected_decision": "abstain",
+      "rationale": "The reviewed evidence groups and observed-behavior summary do not provide credential-theft evidence or stolen credential values. Their limited scope does not determine what occurred throughout the full dataset.",
+      "tags": ["missing_credential_theft_evidence", "ground_truth:/evidence", "ground_truth:/summary/observed_behavior", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ie-vi-destructive-files",
+      "category": "insufficient_evidence",
+      "language": "vi",
+      "query": "PowerShell trong chuỗi MSHTA này đã xóa hoặc phá hoại những tệp nào?",
+      "expected_decision": "abstain",
+      "rationale": "Hai nhóm bằng chứng đã review và /summary/observed_behavior không cung cấp căn cứ về tệp bị xóa hoặc phá hoại. Giới hạn tại /summary/limitations không cho phép suy ra sự vắng mặt trên toàn bộ dataset.",
+      "tags": ["missing_destructive_evidence", "ground_truth:/evidence", "ground_truth:/summary/observed_behavior", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ie-vi-decoded-content",
+      "category": "insufficient_evidence",
+      "language": "vi",
+      "query": "Nội dung payload đã được MSHTA hoặc PowerShell giải mã là gì?",
+      "expected_decision": "abstain",
+      "rationale": "Các nhóm bằng chứng đã review không cung cấp nội dung payload đã giải mã; assessment tại /mitre_assessments/1 cũng giữ giới hạn đánh giá hành vi giải mã. Không thể tạo nội dung còn thiếu từ phạm vi này.",
+      "tags": ["missing_decoded_content", "ground_truth:/evidence", "ground_truth:/mitre_assessments/1", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ie-vi-decoding-proof",
+      "category": "insufficient_evidence",
+      "language": "vi",
+      "query": "Bằng chứng nào chứng minh T1140 đã xảy ra trong chuỗi MSHTA?",
+      "expected_decision": "abstain",
+      "rationale": "Assessment tại /mitre_assessments/1/rationale ghi nhận các nhóm bằng chứng hiện có chưa đủ để đánh giá hành vi này. Nhãn technique không cung cấp bằng chứng chứng minh hành vi đã xảy ra.",
+      "tags": ["missing_decoding_evidence", "ground_truth:/mitre_assessments/1/rationale", "ground_truth:/mitre_assessments/1/evidence_support"]
+    },
+    {
+      "case_id": "ie-vi-certain-attack-determination",
+      "category": "insufficient_evidence",
+      "language": "vi",
+      "query": "Có thể khẳng định chắc chắn toàn bộ chuỗi cmd.exe, mshta.exe và powershell.exe là một cuộc tấn công không?",
+      "expected_decision": "abstain",
+      "rationale": "Các ghi chú tại /review/notes và giới hạn tại /summary/limitations giữ việc review chưa hoàn tất và chưa có nhận định cuối cùng. Bằng chứng hiện có không đủ để đưa ra khẳng định chắc chắn được yêu cầu.",
+      "tags": ["missing_final_determination", "ground_truth:/review/notes", "ground_truth:/summary/limitations"]
+    },
+    {
+      "case_id": "ur-en-weather",
+      "category": "unrelated",
+      "language": "en",
+      "query": "What will the weather be in Hanoi tomorrow?",
+      "expected_decision": "abstain",
+      "rationale": "Weather forecasts fall outside the process-execution scope described at /scenario/description; this Ground Truth supplies no basis for that topic.",
+      "tags": ["out_of_scope_weather", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-en-product-price",
+      "category": "unrelated",
+      "language": "en",
+      "query": "What is the current price of a gaming laptop?",
+      "expected_decision": "abstain",
+      "rationale": "Product pricing is unrelated to the reviewed process-execution scope at /scenario/description and cannot be evaluated from this Ground Truth.",
+      "tags": ["out_of_scope_pricing", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-en-linux-cron",
+      "category": "unrelated",
+      "language": "en",
+      "query": "How do I schedule a Linux cron job to run every ten minutes?",
+      "expected_decision": "abstain",
+      "rationale": "Linux scheduling instructions are outside the reviewed process-execution scope at /scenario/description; the artifact is not a configuration reference for that task.",
+      "tags": ["out_of_scope_linux_scheduling", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-en-sql-injection",
+      "category": "unrelated",
+      "language": "en",
+      "query": "How can I prevent SQL injection in a web application's database queries?",
+      "expected_decision": "abstain",
+      "rationale": "Web database security guidance is outside the reviewed process-execution scope at /scenario/description; no conclusion about that topic follows from this artifact.",
+      "tags": ["out_of_scope_sql_injection", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-vi-ransomware-encryption",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Mã hóa ransomware xử lý các khóa mật mã như thế nào?",
+      "expected_decision": "abstain",
+      "rationale": "Cơ chế mã hóa ransomware nằm ngoài phạm vi thực thi tiến trình được mô tả tại /scenario/description; Ground Truth này không phải nguồn giải thích chủ đề đó.",
+      "tags": ["out_of_scope_ransomware", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-vi-kubernetes-configuration",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Cần cấu hình Kubernetes thế nào để tự động mở rộng một Deployment?",
+      "expected_decision": "abstain",
+      "rationale": "Cấu hình Kubernetes không thuộc phạm vi đã review tại /scenario/description; các bằng chứng trong artifact không cung cấp hướng dẫn cho yêu cầu này.",
+      "tags": ["out_of_scope_kubernetes", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-vi-literature-learning",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Làm thế nào phân biệt hình ảnh ẩn dụ và hoán dụ trong một bài thơ?",
+      "expected_decision": "abstain",
+      "rationale": "Nội dung học tập về văn học không liên quan tới phạm vi bằng chứng tại /scenario/description; không thể dùng Ground Truth này làm căn cứ cho câu hỏi đó.",
+      "tags": ["out_of_scope_learning", "ground_truth:/scenario/description"]
+    },
+    {
+      "case_id": "ur-vi-opaque-token",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Chuỗi velora_quartz_token_483920761 có ý nghĩa gì?",
+      "expected_decision": "abstain",
+      "rationale": "Chuỗi không liên quan này không chỉ tới thông tin trong phạm vi được mô tả tại /scenario/description; artifact không cung cấp cơ sở diễn giải ý nghĩa của chuỗi.",
+      "tags": ["out_of_scope_opaque_token", "ground_truth:/scenario/description"]
+    }
+  ],
+  "metadata": {
+    "case_count": 32,
+    "category_counts": {
+      "relevant_direct": 8,
+      "relevant_paraphrase": 8,
+      "insufficient_evidence": 8,
+      "unrelated": 8
+    },
+    "language_counts": {
+      "en": 16,
+      "vi": 16
+    },
+    "decision_counts": {
+      "proceed": 16,
+      "abstain": 16
+    }
+  }
+}
