@@ -28,6 +28,13 @@ from .relevance_dataset import (
     load_relevance_calibration_dataset,
     validate_relevance_calibration_dataset,
 )
+from .retrieval_judgments import (
+    RETRIEVAL_JUDGMENTS_SCHEMA_VERSION,
+    RetrievalJudgmentsValidationError,
+    load_retrieval_judgments_document,
+    resolve_retrieval_judgments,
+    validate_retrieval_judgments_document,
+)
 
 __all__ = (
     "GRAPHRAG_RELEVANCE_DIAGNOSTICS_SCHEMA_VERSION",
@@ -51,4 +58,9 @@ __all__ = (
     "RelevanceCalibrationDatasetValidationError",
     "load_relevance_calibration_dataset",
     "validate_relevance_calibration_dataset",
+    "RETRIEVAL_JUDGMENTS_SCHEMA_VERSION",
+    "RetrievalJudgmentsValidationError",
+    "load_retrieval_judgments_document",
+    "resolve_retrieval_judgments",
+    "validate_retrieval_judgments_document",
 )
