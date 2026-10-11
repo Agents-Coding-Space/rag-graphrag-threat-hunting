@@ -35,6 +35,13 @@ from .retrieval_judgments import (
     resolve_retrieval_judgments,
     validate_retrieval_judgments_document,
 )
+from .embedding_retrieval_comparison_schema import (
+    EMBEDDING_RETRIEVAL_COMPARISON_SCHEMA_VERSION,
+    EmbeddingRetrievalComparisonError,
+    serialize_embedding_retrieval_comparison_report,
+    validate_embedding_retrieval_comparison_report,
+)
+from .embedding_retrieval_comparison import compare_embedding_retrieval_rankings
 
 __all__ = (
     "GRAPHRAG_RELEVANCE_DIAGNOSTICS_SCHEMA_VERSION",
@@ -63,4 +70,9 @@ __all__ = (
     "load_retrieval_judgments_document",
     "resolve_retrieval_judgments",
     "validate_retrieval_judgments_document",
+    "EMBEDDING_RETRIEVAL_COMPARISON_SCHEMA_VERSION",
+    "EmbeddingRetrievalComparisonError",
+    "compare_embedding_retrieval_rankings",
+    "serialize_embedding_retrieval_comparison_report",
+    "validate_embedding_retrieval_comparison_report",
 )
