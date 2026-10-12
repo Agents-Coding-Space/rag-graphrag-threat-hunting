@@ -50,8 +50,22 @@ from .embedding_retrieval_runner import (
     run_embedding_retrieval_comparison,
     validate_embedding_retrieval_run_config,
 )
+from .embedding_model_selection_schema import (
+    EMBEDDING_MODEL_SELECTION_POLICY_SCHEMA_VERSION,
+    EMBEDDING_MODEL_SELECTION_SCHEMA_VERSION,
+    EmbeddingModelSelectionError,
+    validate_embedding_model_selection_policy,
+    validate_embedding_model_selection,
+)
+from .embedding_model_selection import evaluate_embedding_model_candidates
 
 __all__ = (
+    "EMBEDDING_MODEL_SELECTION_POLICY_SCHEMA_VERSION",
+    "EMBEDDING_MODEL_SELECTION_SCHEMA_VERSION",
+    "EmbeddingModelSelectionError",
+    "evaluate_embedding_model_candidates",
+    "validate_embedding_model_selection_policy",
+    "validate_embedding_model_selection",
     "EMBEDDING_RETRIEVAL_RUN_CONFIG_SCHEMA_VERSION",
     "EmbeddingRetrievalRunnerError",
     "parse_embedding_retrieval_json_bytes",
