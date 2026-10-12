@@ -1,0 +1,35 @@
+{
+  "schema_version": "embedding-retrieval-run-config/v1",
+  "baseline_candidate_id": "all-minilm-l6-v2",
+  "ranking_limit": 10,
+  "sources": {
+    "calibration_dataset": {
+      "path": "benchmarks/graphrag/mshta_relevance_calibration.json",
+      "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4"
+    },
+    "retrieval_judgments": {
+      "path": "benchmarks/retrieval/mshta_embedding_retrieval_judgments.json",
+      "sha256": "021c7a31f8244d15ba8a84258d067d8112753a26138dfb3afb57f5ae921eaf0d"
+    },
+    "retrieval_corpus": {
+      "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "all-minilm-l6-v2",
+      "build_config_path": "configs/retrieval/mshta_vector_index.json",
+      "build_config_sha256": "ae49b7cbd9a34d5e30fd557068fa3813a7ddd183ffe7b73da6a63810a8c3e42b",
+      "vector_index_path": "outputs/retrieval/mshta-powershell/vector_index.json",
+      "vector_index_sha256": "94705156295740dfbf835a867c031213975481ec0bee68275c886be9d8cf2116"
+    },
+    {
+      "candidate_id": "multilingual-e5-small",
+      "build_config_path": "configs/evaluation/mshta_multilingual_e5_vector_index.json",
+      "build_config_sha256": "e27a332833c22fdfd652919e2648603bb607c5d7f7ab0bc6d9b5a82bcacfc531",
+      "vector_index_path": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+      "vector_index_sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91"
+    }
+  ]
+}

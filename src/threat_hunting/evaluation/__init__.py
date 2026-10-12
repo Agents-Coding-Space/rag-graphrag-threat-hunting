@@ -42,8 +42,22 @@ from .embedding_retrieval_comparison_schema import (
     validate_embedding_retrieval_comparison_report,
 )
 from .embedding_retrieval_comparison import compare_embedding_retrieval_rankings
+from .embedding_retrieval_runner import (
+    EMBEDDING_RETRIEVAL_RUN_CONFIG_SCHEMA_VERSION,
+    EmbeddingRetrievalRunnerError,
+    parse_embedding_retrieval_json_bytes,
+    prepare_embedding_retrieval_run,
+    run_embedding_retrieval_comparison,
+    validate_embedding_retrieval_run_config,
+)
 
 __all__ = (
+    "EMBEDDING_RETRIEVAL_RUN_CONFIG_SCHEMA_VERSION",
+    "EmbeddingRetrievalRunnerError",
+    "parse_embedding_retrieval_json_bytes",
+    "prepare_embedding_retrieval_run",
+    "run_embedding_retrieval_comparison",
+    "validate_embedding_retrieval_run_config",
     "GRAPHRAG_RELEVANCE_DIAGNOSTICS_SCHEMA_VERSION",
     "RelevanceDiagnosticsError",
     "analyze_relevance_separability",
