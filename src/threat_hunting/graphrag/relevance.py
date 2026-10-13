@@ -529,6 +529,32 @@ def _policy(value: object) -> dict[str, Any]:
     return policy
 
 
+def _validated_context_and_signals(context: object) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Detach and validate the existing context contract before reading signals."""
+    root = _object(_snapshot(context, "context", set()), "context")
+    _json_bytes(root)
+    return root, _signals(root)
+
+
+def extract_graphrag_relevance_signals(
+    context: Mapping[str, object],
+) -> dict[str, Any]:
+    """Return the twelve observed signals used by the existing relevance policy.
+
+    This API validates and detaches finite native JSON without applying a policy
+    or making a decision. Counts and the top returned vector score keep their
+    existing meanings; chunk metadata and graph attributes remain opaque.
+    """
+    try:
+        _, signals = _validated_context_and_signals(context)
+        _json_bytes(signals)
+        return signals
+    except GraphRAGRelevanceError:
+        raise
+    except Exception as exc:
+        raise GraphRAGRelevanceError(f"Invalid GraphRAG relevance input: {exc}") from exc
+
+
 def assess_graphrag_relevance(
     context: Mapping[str, object], *, policy: Mapping[str, object],
 ) -> dict[str, object]:
@@ -548,10 +574,8 @@ def assess_graphrag_relevance(
     """
     try:
         configured = _policy(_snapshot(policy, "policy", set()))
-        root = _object(_snapshot(context, "context", set()), "context")
         _json_bytes(configured)
-        _json_bytes(root)
-        signals = _signals(root)
+        root, signals = _validated_context_and_signals(context)
         reasons = []
         for setting, observed, reason in (
             ("min_hits", "retrieval_hit_count", "insufficient_hits"),
@@ -599,5 +623,5 @@ def assess_graphrag_relevance(
 
 __all__ = (
     "GRAPHRAG_RELEVANCE_POLICY_SCHEMA_VERSION", "GRAPHRAG_RELEVANCE_DECISION_SCHEMA_VERSION",
-    "GraphRAGRelevanceError", "assess_graphrag_relevance",
+    "GraphRAGRelevanceError", "extract_graphrag_relevance_signals", "assess_graphrag_relevance",
 )
