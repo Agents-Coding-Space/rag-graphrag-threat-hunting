@@ -18,6 +18,14 @@ from .gate_signals import (
     GRAPHRAG_GATE_SIGNALS_SCHEMA_VERSION,
     GraphRAGGateSignalError,
     extract_graphrag_gate_signals,
+    validate_graphrag_gate_signals,
+)
+
+from .two_stage_gate import (
+    GRAPHRAG_TWO_STAGE_GATE_DECISION_SCHEMA_VERSION,
+    GRAPHRAG_TWO_STAGE_GATE_POLICY_SCHEMA_VERSION,
+    GraphRAGTwoStageGateError,
+    assess_graphrag_two_stage_gate,
 )
 
 from .seed_mapping import (
@@ -38,6 +46,11 @@ __all__ = (
     "GRAPHRAG_GATE_SIGNALS_SCHEMA_VERSION",
     "GraphRAGGateSignalError",
     "extract_graphrag_gate_signals",
+    "validate_graphrag_gate_signals",
+    "GRAPHRAG_TWO_STAGE_GATE_POLICY_SCHEMA_VERSION",
+    "GRAPHRAG_TWO_STAGE_GATE_DECISION_SCHEMA_VERSION",
+    "GraphRAGTwoStageGateError",
+    "assess_graphrag_two_stage_gate",
     "GRAPH_SEED_MAP_SCHEMA_VERSION",
     "GraphSeedMappingError",
     "map_hybrid_hits_to_graph_seeds",
