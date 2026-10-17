@@ -16,11 +16,23 @@ export const CytoscapeGraph: React.FC<Props> = ({ elements, onSelectNode, select
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Initialize Cytoscape
-    const cy = cytoscape({
-      container: containerRef.current,
-      elements: elements as any,
-      style: [
+    // Filter valid elements
+    const validNodeIds = new Set(
+      elements.filter((el) => !el.data.source && !el.data.target).map((el) => el.data.id)
+    );
+    const safeElements = elements.filter((el) => {
+      if (el.data.source && el.data.target) {
+        return validNodeIds.has(el.data.source) && validNodeIds.has(el.data.target);
+      }
+      return true;
+    });
+
+    try {
+      // Initialize Cytoscape
+      const cy = cytoscape({
+        container: containerRef.current,
+        elements: safeElements as any,
+        style: [
         {
           selector: 'node',
           style: {
@@ -154,10 +166,16 @@ export const CytoscapeGraph: React.FC<Props> = ({ elements, onSelectNode, select
       onSelectNode(node.data());
     });
 
-    cyRef.current = cy;
+      cyRef.current = cy;
+    } catch (err) {
+      console.error('Cytoscape initialization error:', err);
+    }
 
     return () => {
-      cy.destroy();
+      if (cyRef.current) {
+        cyRef.current.destroy();
+        cyRef.current = null;
+      }
     };
   }, [elements]);
 

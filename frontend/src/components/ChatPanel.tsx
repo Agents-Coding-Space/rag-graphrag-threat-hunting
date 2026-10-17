@@ -214,12 +214,12 @@ export const ChatPanel: React.FC<Props> = ({
                       </div>
 
                       {/* Attack Chain */}
-                      {m.response.report.attack_chain.length > 0 && (
+                      {(m.response.report.attack_chain?.length ?? 0) > 0 && (
                         <div className="pt-2 border-t border-gray-800 space-y-1.5">
                           <span className="text-[10px] text-soc-muted uppercase font-semibold block">
                             Chuỗi Tấn Công (Attack Chain):
                           </span>
-                          {m.response.report.attack_chain.map((step) => (
+                          {m.response.report.attack_chain?.map((step) => (
                             <div
                               key={step.step_number}
                               className="text-[10px] font-mono bg-gray-900/80 p-1.5 rounded flex flex-col gap-0.5 border border-gray-800"
@@ -235,9 +235,9 @@ export const ChatPanel: React.FC<Props> = ({
                       )}
 
                       {/* MITRE Mapping */}
-                      {m.response.report.mitre_mappings.length > 0 && (
+                      {(m.response.report.mitre_mappings?.length ?? 0) > 0 && (
                         <div className="flex flex-wrap gap-1 pt-1">
-                          {m.response.report.mitre_mappings.map((mitre) => (
+                          {m.response.report.mitre_mappings?.map((mitre) => (
                             <span
                               key={mitre.technique_id}
                               className="px-1.5 py-0.5 rounded text-[10px] bg-rose-950/80 text-rose-300 border border-rose-900 font-mono"
@@ -250,13 +250,13 @@ export const ChatPanel: React.FC<Props> = ({
                       )}
 
                       {/* Unverified Claims */}
-                      {m.response.report.unverified_claims.length > 0 && (
+                      {(m.response.report.unverified_claims?.length ?? 0) > 0 && (
                         <div className="p-2 rounded bg-amber-950/20 border border-amber-900/50 text-[10px] text-amber-300 space-y-0.5">
                           <span className="font-semibold flex items-center gap-1">
                             <AlertTriangle className="w-3 h-3" /> Giới hạn bằng chứng (Unverified):
                           </span>
                           <ul className="list-disc list-inside">
-                            {m.response.report.unverified_claims.map((claim, idx) => (
+                            {m.response.report.unverified_claims?.map((claim, idx) => (
                               <li key={idx}>{claim}</li>
                             ))}
                           </ul>
@@ -267,9 +267,9 @@ export const ChatPanel: React.FC<Props> = ({
                     /* Fallback to raw retrieval hits */
                     <div className="space-y-1.5">
                       <span className="text-[10px] text-soc-muted block">Các đoạn tri thức truy xuất:</span>
-                      {m.response.retrieval_hits.slice(0, 3).map((h, i) => (
+                      {(m.response.retrieval_hits || []).slice(0, 3).map((h, i) => (
                         <div key={i} className="p-2 bg-black/40 rounded text-[10px] text-gray-300 font-mono">
-                          <span className="text-soc-accent font-semibold">[{h.chunk_type}]</span> {h.content.slice(0, 160)}...
+                          <span className="text-soc-accent font-semibold">[{h.chunk_type}]</span> {h.content?.slice(0, 160)}...
                         </div>
                       ))}
                     </div>

@@ -153,11 +153,18 @@ export const App: React.FC = () => {
 
         {/* Center Pane: Cytoscape Knowledge Graph Canvas (45% -> 5 cols) */}
         <section className="col-span-5 h-full p-2 bg-[#060910] overflow-hidden">
-          <CytoscapeGraph
-            elements={graphElements}
-            onSelectNode={(nodeData) => setSelectedNode(nodeData)}
-            selectedNodeId={selectedNode?.id}
-          />
+          {graphElements.length > 0 ? (
+            <CytoscapeGraph
+              elements={graphElements}
+              onSelectNode={(nodeData) => setSelectedNode(nodeData)}
+              selectedNodeId={selectedNode?.id}
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center text-soc-muted border border-soc-border rounded-lg bg-[#080C14]">
+              <div className="animate-spin text-soc-accent mb-2">⏳</div>
+              <p className="text-xs">Đang nạp đồ thị tri thức...</p>
+            </div>
+          )}
         </section>
 
         {/* Right Pane: Forensic Evidence Sidebar (25% -> 3 cols) */}
