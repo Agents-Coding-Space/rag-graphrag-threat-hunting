@@ -24,6 +24,8 @@ from threat_hunting.graphrag import (  # noqa: E402
     GRAPHRAG_CONTEXT_SCHEMA_VERSION,
     build_graphrag_context,
 )
+from threat_hunting.graphrag.gate_signals import extract_graphrag_gate_signals  # noqa: E402
+from threat_hunting.graphrag.two_stage_gate import assess_graphrag_two_stage_gate  # noqa: E402
 from threat_hunting.retrieval import (  # noqa: E402
     SentenceTransformerEmbeddingBackend,
     load_retrieval_corpus,
@@ -236,6 +238,12 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--expected-corpus-sha256", required=True)
     parser.add_argument("--expected-index-sha256", required=True)
     parser.add_argument("--expected-graph-sha256", required=True)
+    parser.add_argument("--gate-policy", type=Path, default=None,
+                        help="Path to Two-Stage Gate policy JSON (e.g. configs/gate/two_stage_production_policy.json)")
+    parser.add_argument("--enforce-gate", action="store_true", default=False,
+                        help="When set, reject questions failing Two-Stage Gate with exit code 1 and explanation")
+    parser.add_argument("--format", choices=("context", "gated-context", "decision-only"), default="context",
+                        help="Output format: 'context' (raw GraphRAG context), 'gated-context' (wrapped with gate decision), or 'decision-only'")
     return parser
 
 
@@ -267,7 +275,47 @@ def main(
                 max_nodes=args.max_nodes, max_edges=args.max_edges,
                 backend_factory=backend_factory,
             )
-            output = _serialize(result) + "\n"
+            
+            gate_decision = None
+            if args.gate_policy is not None:
+                policy_doc = json.loads(args.gate_policy.read_text(encoding="utf-8"))
+                # Unwrap policy if wrapped in production policy document
+                policy = policy_doc.get("policy", policy_doc)
+                if "topical_relevance" in policy_doc and "evidence_answerability" in policy_doc:
+                    policy = {
+                        "schema_version": policy_doc.get("schema_version", "graphrag-two-stage-gate-policy/v1"),
+                        "policy_id": policy_doc.get("policy_id", "prod-policy"),
+                        "topical_relevance": policy_doc["topical_relevance"],
+                        "evidence_answerability": policy_doc["evidence_answerability"],
+                    }
+                signals = extract_graphrag_gate_signals(result)
+                gate_decision = assess_graphrag_two_stage_gate(signals, policy=policy)
+
+            if args.gate_policy is not None and args.enforce_gate and gate_decision is not None:
+                if gate_decision.get("decision") == "abstain":
+                    stage = gate_decision.get("abstention_stage", "unknown")
+                    reason = "insufficient_evidence" if stage == "evidence_answerability" else "unrelated"
+                    reasons = gate_decision.get("reason_codes", [])
+                    print(f"error: query rejected by two-stage gate ({reason}): {reasons}", file=sys.stderr)
+                    return 1
+
+            if args.format == "decision-only":
+                if gate_decision is None:
+                    raise GraphRAGQueryCliError("--format decision-only requires --gate-policy")
+                output = json.dumps(gate_decision, ensure_ascii=False, indent=2) + "\n"
+            elif args.format == "gated-context":
+                if gate_decision is None:
+                    raise GraphRAGQueryCliError("--format gated-context requires --gate-policy")
+                gated_envelope = {
+                    "schema_version": "gated-graphrag-context/v1",
+                    "status": gate_decision["decision"],
+                    "gate_decision": gate_decision,
+                    "context": result if gate_decision["decision"] == "proceed" else None,
+                }
+                output = json.dumps(gated_envelope, ensure_ascii=False, indent=2) + "\n"
+            else:
+                output = _serialize(result) + "\n"
+
             _assert_input_hashes((
                 (args.corpus, _expected_hash(
                     args.expected_corpus_sha256, "--expected-corpus-sha256",
