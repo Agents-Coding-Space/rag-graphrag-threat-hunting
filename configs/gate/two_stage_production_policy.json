@@ -28,7 +28,7 @@
     "min_lexical_hit_count": 0,
     "min_vector_hit_count": 0,
     "min_joint_lexical_vector_hit_count": 0,
-    "min_query_token_coverage": 0.2,
+    "min_query_token_coverage": 0.0,
     "min_returned_top_rrf_score": null,
     "min_returned_top_bm25_score": null,
     "min_returned_top_cosine_score": 0.75

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { CytoscapeGraph } from './components/CytoscapeGraph';
 import { ChatPanel } from './components/ChatPanel';
 import { EvidenceSidebar } from './components/EvidenceSidebar';
+import { CyberGraphShieldIcon, SunIcon, MoonIcon, RefreshIcon } from './components/SvgIcons';
 import { CytoscapeElement, EvidenceItem, HuntResponse, ScenarioInfo } from './types';
-import { ShieldAlert, RefreshCw } from 'lucide-react';
 
 export const App: React.FC = () => {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('soc_theme') as 'dark' | 'light') || 'dark';
+  });
+
   const [scenarios, setScenarios] = useState<ScenarioInfo[]>([]);
   const [selectedScenario, setSelectedScenario] = useState<string>('mshta-powershell');
   const [graphElements, setGraphElements] = useState<CytoscapeElement[]>([]);
@@ -13,6 +17,16 @@ export const App: React.FC = () => {
   const [selectedNode, setSelectedNode] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Sync theme attribute
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('soc_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   // 1. Fetch scenarios on load
   useEffect(() => {
@@ -35,7 +49,6 @@ export const App: React.FC = () => {
     setSelectedNode(null);
     setErrorMessage(null);
 
-    // Fetch full scenario graph
     fetch(`/api/graph?scenario_id=${scenId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -45,7 +58,6 @@ export const App: React.FC = () => {
       })
       .catch((err) => console.error('Failed to load graph:', err));
 
-    // Fetch evidence items
     fetch(`/api/evidence?scenario_id=${scenId}`)
       .then((res) => res.json())
       .then((data) => {
@@ -84,10 +96,8 @@ export const App: React.FC = () => {
 
       const data: HuntResponse = await resp.json();
 
-      // If proceed and subgraph returned, update graph to traversed subgraph
       if (data.status === 'proceed' && data.subgraph && data.subgraph.elements.length > 0) {
         setGraphElements(data.subgraph.elements);
-        // Select first node if available
         const firstNode = data.subgraph.elements.find((el) => !el.data.source);
         if (firstNode) {
           setSelectedNode(firstNode.data);
@@ -105,76 +115,123 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-soc-dark text-soc-text overflow-hidden select-none">
-      {/* Top Navigation Bar */}
-      <header className="h-12 border-b border-soc-border bg-[#0B0F19] px-4 flex items-center justify-between z-10">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded bg-soc-accent/20 border border-soc-accent/50 flex items-center justify-center">
-            <span className="font-bold text-xs text-soc-accent">PH</span>
-          </div>
-          <div>
-            <h1 className="font-bold text-xs tracking-wider uppercase flex items-center gap-2">
-              <span>SOC Threat Hunting Workbench</span>
-              <span className="text-[10px] text-soc-muted font-normal">| RAG + GraphRAG + LLM Co-Pilot</span>
-            </h1>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3 text-xs">
-          {errorMessage && (
-            <span className="text-rose-400 flex items-center gap-1 text-[11px] bg-rose-950/40 px-2 py-0.5 rounded border border-rose-900">
-              <ShieldAlert className="w-3.5 h-3.5" /> {errorMessage}
-            </span>
-          )}
-
-          <button
-            onClick={() => loadScenarioData(selectedScenario)}
-            className="flex items-center gap-1 text-soc-muted hover:text-white bg-gray-900 hover:bg-gray-800 border border-soc-border px-2.5 py-1 rounded transition text-[11px]"
-            title="Tải lại toàn bộ đồ thị kịch bản"
-          >
-            <RefreshCw className="w-3 h-3" />
-            <span>Toàn cảnh đồ thị</span>
-          </button>
-        </div>
-      </header>
-
-      {/* Main 3-Pane Workspace */}
-      <main className="flex-1 grid grid-cols-12 overflow-hidden">
-        {/* Left Pane: Chat (30% -> 4 cols) */}
-        <section className="col-span-4 h-full overflow-hidden">
-          <ChatPanel
-            scenarios={scenarios}
-            selectedScenario={selectedScenario}
-            onSelectScenario={(scenId) => setSelectedScenario(scenId)}
-            onHunt={handleHunt}
-            isLoading={isLoading}
-          />
-        </section>
-
-        {/* Center Pane: Cytoscape Knowledge Graph Canvas (45% -> 5 cols) */}
-        <section className="col-span-5 h-full p-2 bg-[#060910] overflow-hidden">
-          {graphElements.length > 0 ? (
-            <CytoscapeGraph
-              elements={graphElements}
-              onSelectNode={(nodeData) => setSelectedNode(nodeData)}
-              selectedNodeId={selectedNode?.id}
-            />
-          ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center text-soc-muted border border-soc-border rounded-lg bg-[#080C14]">
-              <div className="animate-spin text-soc-accent mb-2">⏳</div>
-              <p className="text-xs">Đang nạp đồ thị tri thức...</p>
+    <div className="flex items-center justify-center h-screen w-screen p-3 overflow-hidden select-none bg-cover bg-center">
+      {/* MacOS Floating Glass Window Container */}
+      <div className="flex flex-col h-full w-full max-w-[1920px] glass-panel border rounded-2xl overflow-hidden shadow-2xl relative">
+        {/* Glass Header */}
+        <header className="h-12 border-b px-4 flex items-center justify-between z-10 glass-card" style={{ borderColor: 'var(--border-glass)' }}>
+          {/* Left: Cyber Graph Shield Logo & Title */}
+          <div className="flex items-center gap-3">
+            <CyberGraphShieldIcon className="w-6 h-6" />
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-xs tracking-wider uppercase font-mono">SOC THREAT HUNTING</span>
+              <span className="text-[10px] text-soc-muted font-mono hidden md:inline">• GraphRAG & LLM Co-Pilot</span>
             </div>
-          )}
-        </section>
+            <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Engine Active</span>
+            </div>
+          </div>
 
-        {/* Right Pane: Forensic Evidence Sidebar (25% -> 3 cols) */}
-        <section className="col-span-3 h-full overflow-hidden">
-          <EvidenceSidebar
-            selectedNode={selectedNode}
-            evidenceItems={evidenceItems}
-          />
-        </section>
-      </main>
+          {/* Right: Actions & Theme Toggle */}
+          <div className="flex items-center gap-2.5 text-xs">
+            {errorMessage ? (
+              <span className="text-rose-400 text-[10px] font-mono bg-rose-950/40 px-2 py-0.5 rounded-lg border border-rose-900">
+                ⚠️ {errorMessage}
+              </span>
+            ) : (
+              <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono text-soc-muted">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <span>Backend: 127.0.0.1:8000</span>
+              </div>
+            )}
+
+            <button
+              onClick={() => loadScenarioData(selectedScenario)}
+              className="flex items-center gap-1.5 text-soc-muted hover:text-white glass-card border px-2.5 py-1.5 rounded-xl transition text-[11px] font-mono shadow-sm"
+              title="Tải lại toàn cảnh đồ thị"
+            >
+              <RefreshIcon className="w-3 h-3 text-cyan-400" />
+              <span className="hidden sm:inline">Toàn cảnh</span>
+            </button>
+
+            {/* Theme Toggle Button (1 duy nhất) */}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 glass-card border text-soc-muted hover:text-white rounded-xl transition shadow-sm"
+              title={theme === 'dark' ? 'Chuyển sang Giao diện Sáng' : 'Chuyển sang Giao diện Tối'}
+            >
+              {theme === 'dark' ? <SunIcon className="w-4 h-4 text-amber-400" /> : <MoonIcon className="w-4 h-4 text-cyan-600" />}
+            </button>
+          </div>
+        </header>
+
+        {/* Main 3-Pane Layout: Left (Evidence) | Center (Graph) | Right (Chat) */}
+        <main className="flex-1 grid grid-cols-12 overflow-hidden">
+          {/* Left Column: Forensic Evidence Sidebar (3 cols) */}
+          <section className="col-span-3 h-full overflow-hidden">
+            <EvidenceSidebar
+              selectedNode={selectedNode}
+              evidenceItems={evidenceItems}
+              theme={theme}
+            />
+          </section>
+
+          {/* Center Column: Cytoscape Knowledge Graph Canvas (5 cols) */}
+          <section className="col-span-5 h-full p-2.5 overflow-hidden">
+            {graphElements.length > 0 ? (
+              <CytoscapeGraph
+                elements={graphElements}
+                onSelectNode={(nodeData) => setSelectedNode(nodeData)}
+                selectedNodeId={selectedNode?.id}
+                theme={theme}
+              />
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center text-soc-muted border rounded-2xl glass-card">
+                <div className="animate-spin text-cyan-400 mb-2">⏳</div>
+                <p className="text-xs font-mono">Đang nạp đồ thị tri thức...</p>
+              </div>
+            )}
+          </section>
+
+          {/* Right Column: Threat Hunting Chat Panel (4 cols) */}
+          <section className="col-span-4 h-full overflow-hidden">
+            <ChatPanel
+              scenarios={scenarios}
+              selectedScenario={selectedScenario}
+              onSelectScenario={(scenId) => setSelectedScenario(scenId)}
+              onHunt={handleHunt}
+              isLoading={isLoading}
+              theme={theme}
+            />
+          </section>
+        </main>
+
+        {/* MacOS Style Footer Shortcut Hints Bar (như mẫu RLESS) */}
+        <footer className="h-7 border-t px-4 flex items-center justify-between text-[10px] font-mono text-soc-muted glass-card select-none" style={{ borderColor: 'var(--border-glass)' }}>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1">
+              <kbd className="px-1 py-0.2 rounded bg-black/40 border text-gray-300 font-bold" style={{ borderColor: 'var(--border-glass)' }}>Tab</kbd>
+              <span>Đổi kịch bản</span>
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <kbd className="px-1 py-0.2 rounded bg-black/40 border text-gray-300 font-bold" style={{ borderColor: 'var(--border-glass)' }}>D</kbd>
+              <span>Sáng / Tối</span>
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <kbd className="px-1 py-0.2 rounded bg-black/40 border text-gray-300 font-bold" style={{ borderColor: 'var(--border-glass)' }}>G</kbd>
+              <span>Toàn cảnh đồ thị</span>
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="text-emerald-400 font-semibold uppercase">Học viện Kỹ thuật Mật mã — 2026</span>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 };
