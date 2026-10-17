@@ -1,0 +1,76 @@
+{
+  "embedding": {
+    "provider": "sentence-transformers",
+    "model_id": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dimension": 384,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "passage: ",
+    "query_prefix": "query: "
+  },
+  "retrieval": {
+    "top_k": 5,
+    "candidate_k": 20,
+    "chunk_types": null,
+    "required_dimensions": null
+  },
+  "fusion": {
+    "method": "reciprocal_rank_fusion",
+    "rrf_k": 60
+  },
+  "seed_mapping": "Existing exact ID/JSON-pointer mapping, unchanged",
+  "traversal": {
+    "direction": "both",
+    "max_depth": 2,
+    "allowed_edge_types": null,
+    "max_nodes": 100,
+    "max_edges": 200
+  },
+  "context_budget": {
+    "retrieval_hits": 5,
+    "traversal_nodes": 100,
+    "traversal_edges": 200,
+    "additional_token_truncation": null
+  },
+  "runtime": {
+    "device": "cpu",
+    "offline": true,
+    "batch_size": 1,
+    "show_progress_bar": false
+  },
+  "query_input_boundary": "Only the current query text is embedded/retrieved; never the question collection, answers, categories, decisions or expected evidence.",
+  "schema_version": "graphrag-v2-consumer-sync-experiment/v1",
+  "fixed_policy": {
+    "path": "outputs/review/graphrag-two-stage-gate-calibration/selected_policy.json",
+    "sha256": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+    "policy_id": "two-stage-dev-5a4b308b106699e0"
+  },
+  "sources": {
+    "retrieval_corpus.json": {
+      "path": "outputs/experiments/graphrag-2d3-fix1/retrieval_corpus.json",
+      "sha256": "b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c"
+    },
+    "knowledge_graph.json": {
+      "path": "outputs/experiments/graphrag-2d3-fix1/knowledge_graph.json",
+      "sha256": "04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443"
+    },
+    "vector_index.json": {
+      "path": "outputs/experiments/graphrag-2d3-fix1/vector_index.json",
+      "sha256": "2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78"
+    }
+  },
+  "source_ground_truth": {
+    "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v2",
+    "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+    "scenario_id": "mshta-powershell"
+  },
+  "intentional_changes": [
+    "Actual approved Ground Truth v2 source/provenance",
+    "Evidence content and fresh document embeddings synchronized",
+    "Strict supported-source compatibility"
+  ],
+  "no_threshold_search": true,
+  "no_heldout": true
+}

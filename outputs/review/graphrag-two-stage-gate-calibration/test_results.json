@@ -1,0 +1,64 @@
+{
+  "runs": [
+    {
+      "name": "focused",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-focused-20261016\" tests/test_two_stage_calibration.py tests/test_two_stage_review.py tests/test_calibrate_two_stage_gate_cli.py tests/test_review_package.py",
+      "passed": 124,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 0.7,
+      "exit_code": 0
+    },
+    {
+      "name": "regression",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-regression-20261016\" tests/test_two_stage_calibration.py tests/test_two_stage_review.py tests/test_calibrate_two_stage_gate_cli.py tests/test_review_package.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_graphrag_orchestrator.py tests/test_graphrag_seed_mapping.py tests/test_relevance_calibration.py tests/test_relevance_calibration_dataset.py tests/test_retrieval_schema.py tests/test_vector_retriever.py tests/test_embedding_backend.py",
+      "passed": 1289,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.95,
+      "exit_code": 0
+    },
+    {
+      "name": "full_suite",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-full-20261016\"",
+      "passed": 5815,
+      "subtests_passed": 6,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 122.55,
+      "exit_code": 0
+    }
+  ],
+  "phase_commands": [
+    ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase prepare",
+    ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase collect",
+    ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase calibrate",
+    ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase freeze-replay"
+  ],
+  "failed_attempts": [],
+  "extra_focused_verification": [
+    {
+      "file": "tests/test_two_stage_calibration.py",
+      "passed": 45,
+      "seconds": 0.2
+    },
+    {
+      "file": "tests/test_two_stage_review.py",
+      "passed": 25,
+      "seconds": 0.26
+    },
+    {
+      "file": "tests/test_review_package.py",
+      "passed": 51,
+      "seconds": 0.58
+    }
+  ],
+  "notes": [
+    "All pytest executions use system temp outside repository and approved escalation due previously verified Windows sandbox temp restrictions.",
+    "No rerun of full prerequisite suite before implementation; final full suite is this task final required verification.",
+    "One external rubric correction recalculated diagnostics on identical saved contexts/signals; thresholds never changed."
+  ]
+}

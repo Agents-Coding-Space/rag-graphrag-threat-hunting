@@ -1,0 +1,81 @@
+{
+  "schema_version": "two-stage-calibration-selection-plan/v1",
+  "selection_rule": "Minimize false proceed on unrelated plus insufficient_evidence; then maximize retained context-sufficient positives; then minimize enabled conditions; then policy_id. All-abstain candidates cannot be selected.",
+  "tunable_conditions": [
+    "min_returned_top_cosine_score",
+    "min_query_token_coverage",
+    "min_hits_with_source_references"
+  ],
+  "threshold_construction": "No labels: cosine thresholds disabled plus empirical Q25/Q50/Q75 of returned top cosine; coverage zero or empirical median; source-reference hit minimum zero or one. At most 20 unique combinations, plus an all-abstain negative control.",
+  "acceptance_criteria": {
+    "max_false_proceed_unrelated": 0,
+    "max_false_proceed_insufficient_evidence": 0,
+    "min_retained_context_sufficient_positives": 1,
+    "allow_all_abstain_success": false,
+    "require_consumer_evidence_consistency": true,
+    "require_approved_independent_evaluation": true
+  },
+  "fixed_conditions": {
+    "topical_relevance.min_retrieval_hit_count": 1,
+    "evidence_answerability.min_mapped_hit_count": 1,
+    "evidence_answerability.min_seed_node_count": 1,
+    "evidence_answerability.require_traversal": true
+  },
+  "disabled_condition_rationales": {
+    "other_topical_counts": "Counts largely saturate under fixed top5; no justified extra search dimension.",
+    "rrf_bm25_thresholds": "RRF is rank fusion and BM25 language dependent; no additional scale tuning on 32 exposed cases.",
+    "other_evidence_and_traversal_minima": "Graph density/counts do not prove query-specific evidence sufficiency.",
+    "max_traversed_limitation_node_count": "Limitations are necessary context; their presence must not be penalized."
+  },
+  "qualification_blockers": [
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "pointers": [
+        "/chunks/0/content"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon",
+        "PowerShell ran Get-Service sysmon."
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Process creation establishes launch command, not successful cmdlet completion; this consumer cannot support a policy-qualified result."
+    },
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "pointers": [
+        "/nodes/14/attributes/description"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon"
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Same stale completion wording as corpus."
+    },
+    {
+      "severity": "missing_approved_evidence_content",
+      "artifacts": [
+        "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+        "outputs/graph/mshta-powershell/knowledge_graph.json"
+      ],
+      "missing_approved_ground_truth_pointers": [
+        "/facts/0/attributes/source_observations",
+        "/facts/1/attributes/source_observations",
+        "/summary/limitations/4",
+        "/summary/limitations/5",
+        "/summary/limitations/6"
+      ],
+      "effect": "Original CommandLine/process-role fields and expanded scope limits cannot be recovered by dereferencing provenance or adding expected evidence to gate input."
+    }
+  ],
+  "policy_qualified": false
+}

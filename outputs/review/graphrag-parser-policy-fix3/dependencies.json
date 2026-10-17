@@ -1,0 +1,15 @@
+{
+  "python": "3.12.8",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "installed_versions": {
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1",
+    "sentence-transformers": "6.1.0",
+    "transformers": "5.18.0",
+    "torch": "2.14.1",
+    "numpy": "2.5.0"
+  },
+  "new_dependencies": [],
+  "model_calls": 0,
+  "corpus_or_index_rebuilds": 0
+}

@@ -2,7 +2,9 @@
 
 Source IDs define identity; original collection positions define provenance.
 Only explicit relationships, exact entity references, and declared support links
-become edges. File access and serialization belong to the caller.
+become edges. Document approval is deliberately excluded from graph content;
+it does not change any claim's status. File access and serialization belong to
+the caller.
 """
 
 from __future__ import annotations
@@ -16,7 +18,6 @@ import os
 from typing import Any, cast
 
 from ..ground_truth.schema import (
-    SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
     validate_ground_truth_document,
 )
 from .schema import (
@@ -402,7 +403,7 @@ def _build_knowledge_graph(
         "scenario_id": builder.scenario_id,
         "source_ground_truth": {
             "path": path,
-            "schema_version": SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
+            "schema_version": root["schema_version"],
             "sha256": digest,
             "scenario_id": builder.scenario_id,
         },

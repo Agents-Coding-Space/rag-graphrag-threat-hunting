@@ -1,6 +1,7 @@
 # HỒ SƠ TRẠNG THÁI ĐỒ ÁN TỐT NGHIỆP
 
-**Cập nhật gần nhất:** 16/07/2026  
+**Cập nhật gần nhất:** 14/10/2026
+
 **Sinh viên:** Nguyễn Hồng Phong  
 **Mã sinh viên:** AT190540  
 **Lớp theo đề cương chính thức:** AT19ET  
@@ -20,6 +21,8 @@
 - **LLM:** tổng hợp ngữ cảnh, phân tích, diễn giải, ánh xạ MITRE ATT&CK và gợi ý điều tra.
 
 Đồ án **không nhằm huấn luyện lại LLM**. LLM được dùng như thành phần phân tích và sinh câu trả lời dựa trên ngữ cảnh đã được truy xuất.
+
+**Hiện trạng ngày 14/10/2026:** đã có pipeline chuẩn hóa cả ba dataset và prototype retrieval RAG/GraphRAG cho lát cắt MSHTA–PowerShell. Ground truth và 32 đáp án tham chiếu đã được review kỹ thuật, vẫn chờ người dùng duyệt. Gate hai tầng mới có module và tests; chưa tích hợp CLI hoặc có policy production được kiểm chứng. Chưa có LLM sinh câu trả lời, giao diện hay database service.
 
 Các dự án NIDS/CIC-IDS-2017, SOC lab, Solana, Hyperledger Fabric/OpenSSL và IAM/Keycloak **không thuộc phạm vi đồ án hiện tại**, trừ khi sau này sinh viên đưa ra quyết định tích hợp rõ ràng. Trong đó, dự án học sâu chống truy cập mạng trái phép hiện được xem là một dự án riêng, không gộp vào đề tài RAG/GraphRAG/LLM.
 
@@ -149,11 +152,11 @@ Nghiên cứu, đề xuất và xây dựng hệ thống thử nghiệm kết h�
 
 File `psh_powershell_httplistener_2020-11-0204130683.json` đã bị loại khỏi experiment chính vì không có `CommandLine` hoặc `ScriptBlockText` cần thiết để đánh giá năm Sigma PowerShell đã chọn trước đó. File này vẫn được giữ nguyên làm dữ liệu tham khảo, không bị xóa hay sửa.
 
-Vẫn chưa chốt: ground truth cuối cùng, tập câu hỏi đánh giá, cách chia tập thực nghiệm và tiêu chuẩn pass/fail.
+Đã có ground truth MSHTA dạng `draft_reviewable` và 32 câu hỏi/đáp án tham chiếu. Bản review kỹ thuật ngày 14/10/2026 nằm riêng trong `outputs/review/mshta-ground-truth/`, vẫn `pending_human_review`. Ground truth cho hai kịch bản còn lại, cách chia calibration/holdout và tiêu chuẩn đánh giá cuối cùng chưa chốt.
 
 ### 5.2. Canonical event schema và thực thể cần trích xuất
 
-Canonical schema tối thiểu hiện được đề xuất gồm:
+Canonical schema `canonical-event/v2` đang được normalization sử dụng gồm:
 
 ```text
 event_id, timestamp, channel, provider, host,
@@ -166,7 +169,7 @@ file_path, registry_key, dns_query,
 raw_record_ref, source_file
 ```
 
-Các trường mở rộng cần thiết cho đúng ba kịch bản đã quan sát gồm:
+Các trường mở rộng được đề xuất cho ba kịch bản, chưa có trong canonical schema đang chạy, gồm:
 
 ```text
 target_domain, workstation,
@@ -175,11 +178,13 @@ service_name, ticket_options, ticket_encryption_type,
 original_file_name
 ```
 
-`canonical-event/v2` hiện là schema **proposed/reviewable**, chưa phải schema normalization đã chốt. `user` giữ giá trị người dùng chung khi source không thể hiện vai trò; `subject_user` biểu diễn actor/subject; `target_user` biểu diễn tài khoản hoặc người dùng bị tác động. Mapping phải dựa trên `provider + Event ID`: ví dụ Security Event ID `4688` dùng `NewProcessId` cho `process_id` và `ProcessId` cho `parent_process_id`. Sysmon Event ID `10` dùng source/target process roles, nên `SourceImage`/`TargetImage` không bị ép vào parent-child fields khi schema v2 chưa biểu diễn các role đó.
+`canonical-event/v2` đã được triển khai với mapping registry theo `provider + Event ID`, tạo 29.510 canonical events từ 29.510 raw records, không bỏ record. `user` giữ giá trị người dùng chung khi source không thể hiện vai trò; `subject_user` biểu diễn actor/subject; `target_user` biểu diễn tài khoản hoặc người dùng bị tác động. Security Event ID `4688` dùng `NewProcessId` cho `process_id` và `ProcessId` cho `parent_process_id`. Sysmon Event ID `10` có source/target process roles chưa được schema v2 biểu diễn, nên `SourceImage`/`TargetImage` không bị ép vào parent-child fields; context này được ghi nhận để review.
 
-Không ép giá trị không tồn tại vào schema; trường scalar không có dữ liệu dùng `null`. `event_id` và process ID dùng string khi chuẩn hóa để không làm mất biểu diễn số hoặc hexadecimal. Port nguồn có thể là string và chỉ được đề xuất chuyển sang integer sau validation; structural inspection chưa áp dụng transformation. Khi có Sysmon, ưu tiên `ProcessGuid`/`ParentProcessGuid` để liên kết và khử trùng process; PID chỉ có ý nghĩa trong phạm vi host và thời gian. `raw_record_ref` của ba file JSONL có dạng `jsonl:line:<line>` và phải kết hợp với `source_file` cùng SHA-256 để truy ngược record gốc.
+Không ép giá trị không tồn tại vào schema; trường scalar không có dữ liệu dùng `null`. `event_id` và process ID dùng string để giữ biểu diễn số hoặc hexadecimal. Normalization chuyển port hợp lệ sang integer và ghi review issue khi transformation không hợp lệ; structural inspection vẫn chỉ quan sát dữ liệu. Khi có Sysmon, ưu tiên `ProcessGuid`/`ParentProcessGuid` để liên kết và khử trùng process; PID chỉ có ý nghĩa trong phạm vi host và thời gian. `raw_record_ref` của ba file JSONL có dạng `jsonl:line:<line>` và kết hợp với `source_file` cùng SHA-256 để truy ngược record gốc.
 
-Các thực thể dùng cho đồ thị gồm User, Host, IP, Process, Service, Event, Technique và Rule. File và Command Line trước mắt được giữ dưới dạng thuộc tính; chỉ chuyển thành node nếu thực nghiệm chứng minh cần truy vấn quan hệ riêng.
+Normalization giữ `TimeCreated` cho các evidence anchors MSHTA và ghi `timestamp_conflict` khi khác với các timestamp candidates. Sysmon `UtcTime` lệch khoảng 4 giờ so với `TimeCreated`/`@timestamp` và không có timezone trong chuỗi; review chưa xác minh được nguồn lệch, nên không tự sửa timestamp hoặc khẳng định timezone thực.
+
+Schema miền dự kiến gồm User, Host, IP, Process, Service, Event, Technique và Rule. Prototype hiện tại xây graph từ Ground Truth Core MSHTA, giữ entity/fact/evidence/Sigma finding/MITRE assessment và provenance, thay vì tự tạo toàn bộ đồ thị miền từ log. File và Command Line được giữ dưới dạng thuộc tính khi có dữ liệu; chỉ chuyển thành node nếu thực nghiệm chứng minh cần truy vấn quan hệ riêng.
 
 ### 5.3. Nguồn tri thức bảo mật
 
@@ -221,7 +226,9 @@ Password spraying cần một Sigma correlation do đồ án định nghĩa, d�
 
 Các file bị loại vẫn được giữ read-only làm tài liệu tham khảo. Không dùng chúng làm positive rule cho ground truth vì chúng tạo 0 match hoặc yêu cầu telemetry không tồn tại trong dữ liệu tương ứng.
 
-Vẫn chưa chốt: phiên bản/snapshot của `enterprise-attack.json`, danh sách CTI report, tiêu chí làm sạch tài liệu và phạm vi ngôn ngữ.
+Nguồn `enterprise-attack.json` production đã được pin tại release `v19.1`, commit `6c3719993d0401de199203ecc3f369544d9e091c`, collection version `19.1`; SHA-256 bundle là `bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3`. Loader/resolver STIX 2.1 dùng exact-match và fail-closed. Danh sách CTI report và pipeline ingestion CTI chưa chốt.
+
+Sigma safe loader/evaluator đã chạy hai rules MSHTA trên 1.127 canonical events: 4 observation matches được gộp thành 2 behavior matches. Evaluator chỉ hỗ trợ subset `windows/process_creation`, ánh xạ Sysmon `1` và Security `4688`; logsource không được hỗ trợ bị từ chối. `OriginalFileName` có trong raw Sysmon nhưng chưa nằm trong canonical v2, được giữ thành caveat. Match vẫn là detection hypothesis cần review.
 
 Tổng active external inputs hiện là 10 file: 3 JSONL, 6 SigmaHQ YAML và 1 `enterprise-attack.json`. Derived correlation không được tính là external input.
 
@@ -243,12 +250,13 @@ Tổng active external inputs hiện là 10 file: 3 JSONL, 6 SigmaHQ YAML và 1 
 
 - `jsonl:line:275`: `cmd.exe` sinh `mshta.exe` với `vbscript:Execute`; match `proc_creation_win_mshta_susp_execution.yml`.
 - `jsonl:line:398`: `mshta.exe` sinh `powershell.exe`; match `proc_creation_win_mshta_susp_child_processes.yml`.
-- Các Event ID `4688` tại dòng `4`, `30`, `36` là telemetry Security trùng với process Sysmon, không được đếm thành process bổ sung.
-- Payload chỉ chạy `Get-Service sysmon`; không quan sát thấy PowerShell download, C2, credential theft hoặc hành vi phá hoại trong file này.
+- Security `4688` tại dòng `4`, `30`, `36` tương ứng với Sysmon `1` tại dòng `275`, `398`, `422`; correlation giữ trạng thái `inferred`, không đếm thành process bổ sung. Ground Truth Core hiện chỉ bao gồm hai nhóm `cmd → mshta` và `mshta → powershell`; `powershell → conhost` nằm ngoài lát cắt này.
+- Dòng `30` và `398` chứng minh PowerShell được khởi chạy với `-noexit -command Get-Service sysmon`. Không có scriptblock, command output hoặc kết quả dịch vụ để chứng minh cmdlet hoàn tất hay trạng thái Sysmon.
+- Raw file không có Sysmon `3`/`22` hay PowerShell scriptblock telemetry. Security `5156` ở dòng `3` thuộc WindowsAzureGuestAgent, không phải chuỗi MSHTA. Raw còn có log-clearing records và temporary file deletion; không coi chúng là destructive payload hoặc tự ánh xạ technique. Không suy ra download/C2/credential theft/phá hoại từ command đang review, cũng không khẳng định toàn file không có network hoặc deletion.
 
-Các MITRE technique hiện là candidate: `T1110.003`, `T1558.003`, `T1218.010`, `T1218.005`. Chỉ đánh dấu confirmed sau khi giải quyết object tương ứng từ `enterprise-attack.json`.
+Candidate cho phạm vi ba kịch bản gồm `T1110.003`, `T1558.003`, `T1218.010`, `T1218.005`; chưa có mapping nào được người dùng xác nhận. Production resolver MSHTA đã resolve các Sigma tags `T1059.007`, `T1140`, `T1218.005` từ ATT&CK objects. Review nhận định `T1218.005` có hỗ trợ hành vi, `T1059.007` không được command VBScript hỗ trợ, `T1140` còn `not_assessed`; cả ba giữ `candidate`. Resolve được object không đồng nghĩa đã xác nhận technique trên log.
 
-## 6. Kiến trúc và pipeline được đề xuất
+## 6. Kiến trúc mục tiêu và phần đã triển khai
 
 ### 6.1. Luồng tổng quát
 
@@ -267,11 +275,11 @@ Log Mordor + nguồn tri thức bảo mật
 
 1. **Dữ liệu đầu vào:** log Mordor và kho tri thức MITRE/Sigma/CTI.
 2. **Tiền xử lý và trích xuất:** chuẩn hóa log, chọn trường, tạo thực thể và liên kết ban đầu.
-3. **RAG:** chia nhỏ tài liệu, tạo embedding, lưu vector database, truy xuất đoạn liên quan.
-4. **GraphRAG:** xây knowledge graph, truy vấn quan hệ nhiều bước giữa thực thể.
-5. **LLM:** nhận câu hỏi, tài liệu RAG, bằng chứng GraphRAG và log tiêu biểu; tạo câu trả lời có cấu trúc.
-6. **Giao diện thử nghiệm:** cho phép chọn log, đặt câu hỏi tự nhiên và xem kết quả từng khối.
-7. **Thực nghiệm/đánh giá:** chạy kịch bản và so sánh kết quả theo tiêu chí định trước.
+3. **Retrieval RAG hiện có:** corpus 19 chunks từ Ground Truth Core, local embeddings, BM25/cosine/hybrid RRF; vector index là JSON artifact và xử lý in-memory.
+4. **GraphRAG hiện có:** graph MSHTA 17 nodes/21 edges, exact seed mapping và bounded traversal; gate hai tầng chưa tích hợp runtime CLI.
+5. **LLM dự kiến:** nhận câu hỏi, tài liệu RAG, bằng chứng GraphRAG và log tiêu biểu; phần sinh câu trả lời chưa triển khai.
+6. **Giao diện dự kiến:** chọn log, đặt câu hỏi và xem kết quả; chưa có UI chạy được.
+7. **Đánh giá hiện có:** so sánh embedding và calibration relevance trên 32 cases; chưa có policy đạt tiêu chí production hoặc đánh giá hệ thống đầy đủ.
 
 ### 6.3. Vai trò của từng thành phần
 
@@ -281,7 +289,7 @@ Log Mordor + nguồn tri thức bảo mật
 
 ## 7. Schema đồ thị tri thức hiện tại
 
-### 7.1. Node chính
+### 7.1. Schema miền dự kiến
 
 - User
 - Host
@@ -292,9 +300,9 @@ Log Mordor + nguồn tri thức bảo mật
 - Technique
 - Rule
 
-File và Command Line đã được nhắc ở bước trích xuất nhưng chưa được xác nhận là node chính trong schema cuối.
+Đây là schema miền ở mức thiết kế để mở rộng ba kịch bản. File và Command Line chưa được xác nhận là node chính trong schema cuối.
 
-### 7.2. Quan hệ chính
+### 7.2. Quan hệ miền dự kiến
 
 - `Host/Process -[attempted_authentication]-> User`
 - `User -[requested_ticket_for]-> Service`
@@ -307,38 +315,46 @@ File và Command Line đã được nhắc ở bước trích xuất nhưng chư
 
 Mục đích là truy vết chuỗi hành vi qua nhiều sự kiện, thay vì chỉ đánh giá từng dòng log riêng lẻ. Với password spraying, Event ID `4625` có `IpAddress: "-"`, vì vậy không được bịa quan hệ IP → User; nguồn quan sát được phải lấy từ Host, Workstation và Process. Với process chain, phải khử trùng Sysmon Event ID `1` và Security Event ID `4688` khi chúng mô tả cùng process.
 
-### 7.3. Điểm chưa chốt của đồ thị
+### 7.3. Knowledge Graph Core đã triển khai
 
-- Thuộc tính bắt buộc và khóa định danh của từng node.
-- Cách biểu diễn thời gian và thứ tự sự kiện.
-- Cách gộp node trùng lặp và xử lý thực thể thiếu dữ liệu.
-- Quy tắc tạo cạnh từ log thô.
-- Loại cơ sở dữ liệu đồ thị và ngôn ngữ truy vấn.
-- Độ sâu truy vấn nhiều bước, giới hạn neighborhood và cách xếp hạng bằng chứng.
+- Schema `knowledge-graph/v1`, builder, validation và query CLI đã có. Graph baseline MSHTA gồm 17 nodes: 3 entity, 2 fact, 2 evidence, 2 sigma_finding, 3 mitre_assessment, 4 limitation và 1 scenario.
+- 21 edges gồm `process_spawn`, `fact_subject`, `fact_object`, `supports`, `supports_assessment`; chỉ tạo cạnh từ relationship và support links tường minh trong Ground Truth Core.
+- Node/edge IDs deterministic; giữ source IDs, JSON pointers, raw references và SHA-256 ground truth. Trạng thái observed/inferred/candidate không được tự nâng thành confirmed.
+- Traversal đã hỗ trợ direction, max_depth, allowed_edge_types và giới hạn nodes/edges; graph là JSON artifact được xử lý in-memory, chưa có graph database service.
+- Graph hiện pin Ground Truth Core baseline cũ. Bản ground truth đã review kỹ thuật ngày 14/10/2026 là artifact riêng và chưa được áp dụng vào graph.
+
+### 7.4. Phần đồ thị còn cần hoàn thiện
+
+- Ground truth và provenance mới sau khi người dùng duyệt bản sửa.
+- Query-specific answerability: có node/evidence trong neighborhood chưa chứng minh đủ bằng chứng trả lời câu hỏi cụ thể.
+- Policy gate hai tầng được kiểm chứng trên calibration/holdout và tích hợp query CLI.
+- Evidence/graph extraction cho PurpleSharp và Regsvr32, cùng database service nếu thực nghiệm cần.
 
 ## 8. RAG pipeline hiện tại
 
-1. Thu thập MITRE ATT&CK, Sigma và CTI report.
-2. Làm sạch và chia tài liệu thành chunk.
-3. Sinh embedding.
-4. Lưu vector vào vector database.
-5. Từ câu hỏi/hành vi nghi vấn, truy xuất các chunk liên quan nhất.
-6. Đưa các chunk này vào ngữ cảnh cho LLM để giảm thiếu tri thức và hallucination.
+1. Builder tạo `retrieval-corpus/v1` từ Ground Truth Core MSHTA, gồm 19 chunks có object IDs, JSON pointers, evidence references và trạng thái review.
+2. Lexical retrieval dùng BM25; vector retrieval dùng cosine similarity. Hybrid retrieval gộp thứ hạng bằng RRF, không cộng trực tiếp BM25 và cosine scores.
+3. Local Sentence Transformers backend dùng model revision được pin. Đã có vector indexes cho `sentence-transformers/all-MiniLM-L6-v2` và `intfloat/multilingual-e5-small`.
+4. Corpus/vector index được serialize thành JSON và query in-memory qua CLI, có top-k, candidate-k và filters. Chưa có vector database service.
+5. Đã so sánh hai models trên 32 queries Anh/Việt; `multilingual-e5-small` là `provisional_recommendation`, chưa phải lựa chọn model cuối cùng.
+6. Chưa nối retrieval context với LLM sinh câu trả lời; ingestion/chunking tài liệu CTI và kho tri thức rộng hơn chưa triển khai.
 
-Chưa chốt: embedding model, chiến lược chunking, vector database, top-k, reranker, metadata filter, ngưỡng tương đồng và cách trích dẫn nguồn.
+Đáp án tham chiếu, expected decisions và benchmark labels nằm trong evaluation artifacts, không đưa vào retrieval corpus hoặc runtime gate input. Corpus/indexes baseline vẫn pin ground truth cũ; cần rebuild với provenance mới sau khi bản sửa được duyệt. Các scores là điểm xếp hạng, không phải xác suất kết luận đúng hoặc mức độ nguy hiểm.
 
 ## 9. GraphRAG pipeline hiện tại
 
-1. Trích xuất thực thể từ log đã chuẩn hóa.
-2. Tạo node/cạnh theo schema bảo mật.
-3. Liên kết sự kiện với MITRE Technique và Sigma Rule khi có căn cứ.
-4. Xác định thực thể gốc từ câu hỏi hoặc sự kiện nghi vấn.
-5. Truy vấn neighborhood/đường đi nhiều bước.
-6. Chọn chuỗi quan hệ và bằng chứng liên quan để cung cấp cho LLM.
+1. Evidence/Sigma/MITRE artifacts được hợp nhất thành Ground Truth Core reviewable cho MSHTA; builder tạo Knowledge Graph Core từ các claims và support links tường minh.
+2. Query CLI thực hiện hybrid retrieval, ánh xạ hits sang graph seeds bằng IDs/JSON pointers và traversal có giới hạn.
+3. Orchestrator tạo `graphrag-context/v1`, giữ kết quả retrieval/seed mapping/traversal, warnings và provenance. Khi không có hits/seeds phù hợp thì không thực hiện traversal.
+4. Relevance gate cũ đã có calibration và diagnostics. Hai lần chạy baseline/E5 đều đánh giá 672 candidate policies trên 32 cases và trả `no_eligible_policy`; chưa chọn được policy đạt các constraints đã cấu hình.
+5. Gate mới dùng `graphrag-two-stage-gate-policy/v1` và `graphrag-two-stage-gate-decision/v1`, tách `topical_relevance` và `evidence_answerability`; module/synthetic tests đã có, nhưng chưa tích hợp vào query CLI và chưa có production policy được calibrate/kiểm chứng.
+6. `proceed` chỉ biểu thị context eligibility, không xác nhận đáp án hoặc technique. Chưa có LLM tổng hợp context, đánh giá GraphRAG trên holdout độc lập hoặc pipeline hoàn chỉnh cho hai kịch bản còn lại.
 
-GraphRAG có chi phí thiết kế và xây dựng cao hơn RAG truyền thống; cần giới hạn schema và kịch bản để phù hợp phạm vi đồ án.
+Prototype đã chứng minh được luồng retrieval → seeds → graph traversal cho MSHTA. Chưa thể coi GraphRAG hoàn chỉnh vì gate/answerability và đánh giá cuối còn chưa đạt; mở rộng schema phải bám ba kịch bản đã chọn.
 
 ## 10. Đầu vào, prompt và đầu ra LLM
+
+Phần này mô tả yêu cầu thiết kế. Chưa có LLM client, prompt pipeline hoặc module sinh câu trả lời chạy được. Retrieval/GraphRAG hiện trả context JSON để kiểm tra riêng từng thành phần.
 
 ### 10.1. Đầu vào LLM
 
@@ -373,6 +389,8 @@ Giao diện thử nghiệm được gợi ý bằng **Streamlit hoặc FastAPI**
 
 Streamlit và FastAPI hiện là hai phương án, chưa phải quyết định cuối. Chưa chốt việc có cần frontend riêng hay không.
 
+Hiện có Python CLI cho inspection, normalization, evidence, ground truth, retrieval, graph và evaluation; chưa triển khai web UI/API cho người dùng.
+
 ## 12. Kịch bản thực nghiệm
 
 ### 12.1. Kịch bản 1 - Password spraying và Kerberoasting
@@ -385,6 +403,8 @@ Dữ liệu và tri thức đã chốt:
 - SigmaHQ: `win_security_susp_rc4_kerberos.yml`.
 - Derived rule cần xây: `win_security_password_spray_correlation.yml`.
 
+Hiện đã inspection/normalization toàn bộ 25.993 records và xác định anchors tham chiếu. Evidence extractor, correlation rule, ground truth và đánh giá retrieval riêng cho kịch bản này chưa hoàn thành; kịch bản tạm hoãn để hoàn thiện MSHTA, vẫn thuộc phạm vi đồ án.
+
 ### 12.2. Kịch bản 2 - PowerShell nghi vấn thông qua MSHTA
 
 Mục tiêu: phân tích chuỗi `cmd.exe → mshta.exe → powershell.exe`, chứng minh MSHTA proxy execution bằng command line và quan hệ parent-child, rồi truy xuất Sigma/MITRE phù hợp.
@@ -394,7 +414,9 @@ Dữ liệu và tri thức đã chốt:
 - Log: `cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json`.
 - Sigma: `proc_creation_win_mshta_susp_execution.yml` và `proc_creation_win_mshta_susp_child_processes.yml`.
 
-Giới hạn: payload PowerShell chỉ chạy `Get-Service sysmon`; không gán nhãn download, C2 hoặc phá hoại cho kịch bản này.
+Hiện đã có normalization 1.127 events, 2 evidence groups, Sigma evaluation, MITRE resolution, Ground Truth Core và prototype retrieval/GraphRAG. Bản ground truth và 32 đáp án tham chiếu được review kỹ thuật ngày 14/10/2026, vẫn chờ người dùng duyệt. Các consumers baseline chưa dùng bản sửa trong `outputs/review/mshta-ground-truth/`.
+
+Giới hạn: chứng minh PowerShell được khởi chạy với `-noexit -command Get-Service sysmon`, chưa chứng minh cmdlet hoàn tất hay trạng thái Sysmon. Không gán nhãn download, C2, credential theft hoặc destructive payload cho hai nhóm hành vi đang review. Temporary file deletion, log clearing và background network records trong raw file không tự trở thành bằng chứng cho các nhãn đó.
 
 ### 12.3. Kịch bản 3 - C2 thông qua Regsvr32
 
@@ -405,7 +427,9 @@ Dữ liệu và tri thức đã chốt:
 - Log: `empire_launcher_sct_regsvr32_2020-07-21232741.json`.
 - Sigma: `proc_creation_win_regsvr32_http_ip_pattern.yml`, `proc_creation_win_regsvr32_susp_parent.yml`, `proc_creation_win_regsvr32_susp_child_process.yml`.
 
-Ba file JSONL, 6 SigmaHQ và 1 derived correlation đã được chốt. Chưa chốt cho cả ba kịch bản: bộ câu hỏi thực nghiệm, ground truth được người dùng duyệt, số lần chạy, cấu hình hệ thống và tiêu chuẩn pass/fail.
+Hiện đã inspection/normalization toàn bộ 2.390 records và xác định anchors tham chiếu. Evidence extractor, ground truth và đánh giá retrieval riêng chưa hoàn thành; kịch bản tạm hoãn, không bị loại khỏi phạm vi đồ án.
+
+Ba file JSONL và 6 SigmaHQ external inputs đã chốt; derived password-spraying correlation mới chốt ý tưởng, chưa triển khai. Ground truth được người dùng duyệt, holdout độc lập, số lần chạy và tiêu chuẩn đánh giá hệ thống cuối cùng vẫn chưa có. Bộ 32 queries/đáp án hiện có chỉ phục vụ lát cắt MSHTA.
 
 ## 13. Khung đánh giá
 
@@ -419,91 +443,84 @@ Các tiêu chí đã được nêu trong đề cương/tài liệu hướng dẫ
 6. **So sánh phương pháp:** RAG truyền thống với GraphRAG; khi triển khai nên làm rõ có thêm cấu hình kết hợp RAG + GraphRAG hay không.
 7. **Ưu điểm, hạn chế và khả năng cải tiến.**
 
-Các tiêu chí hiện mới ở mức định tính/khung. Chưa có công thức metric, bộ câu hỏi đánh giá, thang điểm, người chấm, baseline, số mẫu và kiểm định lặp lại.
+Đã triển khai đánh giá retrieval với hit rate/recall/MRR/nDCG tại các cutoffs, so sánh MiniLM với multilingual E5 trên 32 cases (16 tiếng Anh, 16 tiếng Việt). Model selection đưa ra khuyến nghị E5 tạm thời; không so sánh trực tiếp raw cosine scores giữa hai models.
+
+Reference set có 16 `proceed`, 8 `insufficient_evidence` và 8 `unrelated`. Review ngày 14/10/2026 đã làm rõ hai câu hỏi về launch command và bằng chứng payload cố ý phá hoại, giữ nguyên phân bố. Bộ câu hỏi/đáp án được kiểm tra kỹ thuật nhưng chưa được người dùng duyệt; expected decisions chỉ dùng để đánh giá.
+
+Legacy relevance calibration và lần chạy E5 đều đánh giá 672 candidate policies trên 32 cases, trả `no_eligible_policy` với constraints hiện tại. Đây là kết quả chưa đạt của policy selection, không phải bằng chứng một gate production đã hoạt động tốt. Gate hai tầng mới có tests theo fixture synthetic; cần dữ liệu calibration/holdout phân biệt đúng chủ đề với đủ bằng chứng trả lời.
+
+Chưa có đánh giá cuối về LLM/độ hữu ích cho chuyên viên, thang điểm human review, holdout độc lập, thống kê lặp lại hoặc so sánh đủ cả ba kịch bản. Không suy ra tỷ lệ hoàn thành toàn đồ án từ số lượng modules hoặc tests.
 
 ## 14. Công nghệ: đã xác định và chưa xác định
 
-### Đã xác định ở mức kiến trúc
+### Đã triển khai hoặc có artifact kiểm chứng
 
-- OTRF Security Datasets/Mordor.
-- MITRE ATT&CK.
-- Sigma Rules.
-- CTI reports.
-- Vector database cho RAG (chưa chọn sản phẩm).
-- Knowledge graph/graph database cho GraphRAG (chưa chọn sản phẩm).
-- LLM có sẵn, không fine-tune/huấn luyện lại theo thiết kế hiện tại.
-- Streamlit hoặc FastAPI là phương án giao diện/API.
+- Python 3.11+, package/CLI, `pytest`, PyYAML safe loader và Sentence Transformers; direct dependencies được pin trong `pyproject.toml`.
+- Discovery/parser/inspection/normalization cho OTRF Security Datasets/Mordor, stable raw references và SHA-256 provenance.
+- Sigma evaluator subset `windows/process_creation`, MITRE ATT&CK STIX 2.1 loader/resolver với nguồn production v19.1.
+- Ground Truth Core, Retrieval Corpus, Knowledge Graph Core và vector indexes dạng JSON; query xử lý in-memory.
+- BM25, cosine, hybrid RRF, graph seed mapping/traversal, legacy relevance calibration/diagnostics và gate hai tầng ở mức module/tests.
+- MiniLM và multilingual E5 local embedding models có revision pin; E5 được khuyến nghị tạm thời.
 
-### Chưa chốt
+### Chưa hoàn thành hoặc chưa chốt cuối cùng
 
-- LLM cụ thể và cách truy cập (local/API).
-- Embedding model.
-- Vector database.
-- Graph database.
-- Framework điều phối RAG/GraphRAG.
-- Công cụ trích xuất thực thể và mapping log → MITRE.
-- Môi trường triển khai, cấu hình phần cứng và hệ điều hành.
-- Cơ chế cache, logging, theo dõi nguồn và bảo vệ dữ liệu.
-- Streamlit hay FastAPI.
-- Vai trò của Splunk trong bản triển khai cuối.
+- Người dùng duyệt ground truth/đáp án và chọn embedding model cuối cùng.
+- Gate hai tầng: production policy, calibration/holdout và CLI integration.
+- LLM cụ thể, cách truy cập local/API, prompt và output schema; không fine-tune theo thiết kế hiện tại.
+- Vector/graph database service nếu cần; prototype hiện không dùng dịch vụ database.
+- CTI sources/ingestion và evidence/ground-truth pipeline cho PurpleSharp, Regsvr32.
+- Streamlit/FastAPI hay frontend khác, môi trường triển khai cuối, cơ chế vận hành và vai trò của Splunk.
 
-## 15. Tiến độ được suy ra từ tài liệu hiện có
+## 15. Tiến độ hiện tại theo code, outputs và review
 
 ### Đã có bằng chứng hoàn thành
 
-- Đề cương chính thức phiên bản **v1.2**, đề ngày **01/07/2026**.
-- Tên đề tài, lý do chọn đề tài, mục tiêu và cấu trúc ba chương.
-- Lựa chọn Mordor/OTRF làm bộ dữ liệu log chính.
-- Lựa chọn MITRE ATT&CK, Sigma và CTI làm nguồn tri thức.
-- Lựa chọn và kiểm tra toàn bộ ba file Security Datasets/Mordor JSONL cho password spraying/Kerberoasting, PowerShell qua MSHTA và C2 qua Regsvr32.
-- Xác nhận record count lần lượt là 25.993, 2.390 và 1.127; lưu SHA-256 để kiểm soát raw data.
-- Chốt 6 SigmaHQ có telemetry phù hợp và match thực tế; xác định 10 Sigma cũ không phù hợp hoặc tạo 0 match và loại khỏi active experiment.
-- Xác định cần xây 1 Sigma correlation của đồ án cho password spraying.
-- Xác định các evidence anchor có thể truy ngược bằng `jsonl:line:<line>` cho cả ba kịch bản.
-- Đã xây CLI inspection theo báo cáo triển khai: hỗ trợ discovery theo filename, JSONL/JSON array/object, streaming, schema statistics, canonical mapping proposal và reporting tách từng file.
-- Đã chạy inspection trên bộ ba cũ và đạt 10/10 unit tests; raw data không thay đổi.
-- Đã hoàn thành structural inspection v2 trên đúng `mordor-selected-v2`: 25.993, 2.390 và 1.127 records đều khớp baseline; manifest `completed`, 3/3 input thành công và không chứa PowerShell HTTP Listener cũ.
-- Đã nâng output lên `mordor-inspection/v2` và canonical schema lên `canonical-event/v2` ở trạng thái proposed/reviewable; mapping proposal dùng context `provider + Event ID`, phân biệt process/parent và subject/target roles, đồng thời ghi nhận timestamp conflict và string-to-integer port transformation cần review.
-- Đã đạt 14/14 tests cho parser/reference ổn định, context-aware mapping, JSON readback, summary và raw-input immutability; SHA-256 của cả ba raw dataset không thay đổi sau inspection.
-- Kiến trúc tổng quan và sơ đồ pipeline RAG + GraphRAG + LLM.
-- Mô tả tám bước triển khai ở mức thiết kế.
-- Schema đồ thị ban đầu.
-- Ba nhóm kịch bản thực nghiệm.
-- Khung đầu vào/đầu ra LLM và tiêu chí đánh giá sơ bộ.
+- Đề cương v1.2 ngày 01/07/2026, phạm vi nghiên cứu và cấu trúc ba chương; kiến trúc mục tiêu RAG + GraphRAG + LLM.
+- Chọn đúng 10 external inputs, kiểm tra ba JSONL với counts 25.993/2.390/1.127 và giữ nguyên raw SHA-256; 6 SigmaHQ phù hợp với experiment, các reference bị loại vẫn read-only.
+- CLI discovery/streaming parser/structural inspection v2, context-aware canonical mapping và normalization: 29.510 input records → 29.510 canonical events, dropped=0.
+- MSHTA extractor đọc đủ 1.127 canonical events, tạo 3 process entities, 2 process_spawn relationships, 2 evidence items và 4 unique raw references; tương quan Security/Sysmon là `inferred`.
+- Safe Sigma loader/evaluator: 4 observation matches/2 behavior matches trên MSHTA; metadata/caveats được giữ, không xác nhận attack từ rule match.
+- MITRE ATT&CK v19.1 STIX resolver: resolve exact-match `T1059.007`, `T1140`, `T1218.005`, giữ candidate mappings và source version.
+- Ground Truth Core builder/validation và bản draft MSHTA; review kỹ thuật ngày 14/10/2026 kiểm tra raw/canonical/provenance, sửa launch-command wording và bổ sung original fields trong review copy.
+- 32 reference answers được review kỹ thuật với hai query corrections; vẫn 16 proceed/8 insufficient_evidence/8 unrelated, chờ người dùng duyệt.
+- Baseline corpus 19 chunks, graph 17 nodes/21 edges, MiniLM/E5 vector indexes, BM25/cosine/hybrid retrieval và GraphRAG orchestration/query CLI.
+- Embedding comparison/model selection, relevance calibration/diagnostics; E5 là khuyến nghị tạm thời. Hai calibration runs baseline/E5 trả `no_eligible_policy` sau 672 policies × 32 cases mỗi run.
+- Gate signals và two-stage gate evaluator có strict validation, deterministic output và synthetic tests; chưa tích hợp CLI hoặc validate production policy.
+- Checkpoint review gần nhất đã chạy 592 relevant tests passed cùng validation/readback/provenance/raw-immutability checks. Đây là tập tests liên quan ở checkpoint, không phải khẳng định full suite mới nhất đã chạy.
 
-### Đang ở mức thiết kế hoặc chưa có bằng chứng hoàn thành
+### Phần chưa hoàn thành
 
-- Viết, kiểm thử và đánh dấu rõ `win_security_password_spray_correlation.yml` là project-defined rule.
-- Trích xuất evidence có cấu trúc và tạo báo cáo trung gian dễ đọc cho người dùng duyệt.
-- Tạo ground truth và tập câu hỏi thực nghiệm từ ba file đã chọn.
-- Viết module chuẩn hóa log/trích xuất thực thể.
-- Xây kho vector và kiểm thử truy xuất RAG.
-- Xây graph database và truy vấn GraphRAG.
-- Chọn/cấu hình LLM, prompt và output schema cuối.
-- Tích hợp toàn bộ pipeline.
-- Xây giao diện chạy được.
-- Chạy ba kịch bản và lưu kết quả.
-- Xây ground truth, baseline và thang đo định lượng.
-- Viết kết quả thực nghiệm, phân tích hạn chế và kết luận.
+- Người dùng duyệt Ground Truth Core và 32 reference answers; không có human approval hoặc confirmed labels tự động.
+- Rebuild corpus/graph/indexes/evaluation với provenance của ground truth đã sửa. Các consumers hiện có vẫn pin baseline cũ, review copy được giữ riêng để không phá chuỗi hashes.
+- Calibrate/kiểm chứng gate hai tầng trên dữ liệu phù hợp, tích hợp query CLI và đánh giá holdout độc lập; chưa có production policy đạt tiêu chí.
+- Hoàn thiện MSHTA answerability và giới hạn timestamp/telemetry; command-line launch không chứng minh cmdlet completion hoặc service state.
+- Chọn embedding model cuối, CTI ingestion và database service nếu thực nghiệm yêu cầu.
+- Triển khai LLM, prompt/output schema, tích hợp sinh câu trả lời và UI.
+- Evidence extractor/ground truth riêng cho PurpleSharp, Regsvr32 và project-defined password-spraying correlation.
+- Đánh giá hệ thống đầy đủ, human scoring, ba kịch bản, phân tích kết quả/hạn chế và kết luận đồ án.
 
-Nói ngắn gọn: **structural inspection v2 trên bộ ba mới đã hoàn thành và canonical schema v2 đã sẵn sàng để review; normalization, evidence extraction, ground truth, RAG, GraphRAG, LLM và đánh giá thực nghiệm vẫn chưa hoàn thành.**
+**Hiện đã có nền dữ liệu và prototype retrieval/GraphRAG cho MSHTA; ground truth/đáp án chờ người dùng duyệt, gate production chưa đạt, LLM/UI và hai lát cắt scenario còn lại chưa hoàn thành.**
 
 ## 16. Các quyết định cần chốt tiếp theo
 
 Ưu tiên theo thứ tự để tránh triển khai lan man:
 
-1. Duyệt `canonical-event/v2`, timestamp recommendation và các mapping còn `ambiguous`/`context_specific_unmapped` trước khi viết normalization.
-2. Xây password-spraying correlation và evidence extractor cho từng kịch bản.
-3. Tạo bản nháp `scenario_ground_truth.json`, chưa tự động đánh dấu confirmed khi chưa được người dùng duyệt.
-4. Xác minh MITRE objects từ `enterprise-attack.json` và chốt phiên bản ATT&CK.
-5. Chốt bộ câu hỏi, output schema, baseline và metric đánh giá.
-6. Sau khi ground truth được duyệt mới xây RAG, GraphRAG, LLM và giao diện.
+1. Người dùng duyệt bản ground truth và 32 đáp án đã review trong `outputs/review/mshta-ground-truth/`, gồm hai câu được sửa, phạm vi payload và timestamp caveats. Review của Codex không thay thế human approval.
+2. Sau khi duyệt, rebuild corpus/graph/MiniLM-E5 indexes và evaluation artifacts từ phiên bản ground truth mới, lưu provenance; giữ baseline cũ để so sánh có kiểm soát.
+3. Chốt bộ nhãn cho topical relevance và evidence answerability, calibration/holdout độc lập; calibrate gate hai tầng, kiểm tra false proceed/abstain và tích hợp policy đạt tiêu chí vào query CLI.
+4. Quyết định embedding model cuối dựa trên evaluation; E5 hiện chỉ là provisional recommendation. Xác định tiêu chí đủ bằng chứng cho từng câu hỏi trước khi nối LLM.
+5. Chọn LLM, prompt/output schema và giao diện; thực hiện tích hợp/đánh giá khi nền evidence và gate ổn định. Prototype retrieval hiện có chưa đồng nghĩa hệ thống đầy đủ đã hoàn thành.
+6. Tiếp tục hai kịch bản PurpleSharp/Regsvr32, password-spraying correlation và CTI ingestion theo phạm vi đã chốt; không thêm scenario thứ tư.
 
 ## 17. Rủi ro và điểm cần kiểm soát
 
 - **Hallucination:** LLM có thể kết luận vượt quá bằng chứng; cần prompt ràng buộc và trích dẫn nguồn.
 - **GraphRAG quá rộng:** schema lớn sẽ làm tăng thời gian xây dựng; nên giới hạn quanh ba kịch bản.
 - **Đánh giá thiếu ground truth:** khó chứng minh hiệu quả nếu chỉ trình diễn đầu ra đẹp.
+- **Ground truth chưa được người dùng duyệt:** technical review và candidate mappings chưa phải nhãn confirmed; review copy phải được version/rebuild rõ ràng trước khi dùng cho consumers.
+- **Benchmark leakage và policy overfit:** reference answers không nằm trong runtime retrieval/gate input; 32 cases cùng lát cắt chưa thay thế holdout độc lập.
+- **Topical relevance khác answerability:** có hits, seeds hoặc evidence nodes chưa đủ để trả lời trạng thái dịch vụ, cmdlet completion hoặc hành vi ngoài phạm vi log.
+- **Timestamp/telemetry:** giữ conflict và missing fields; không biến thiếu script/network telemetry thành khẳng định hành vi không thể xảy ra.
 - **So sánh không công bằng:** các cấu hình phải dùng cùng câu hỏi, dữ liệu và LLM.
 - **Mapping MITRE chủ quan:** cần đáp án tham chiếu và quy tắc chấm.
 - **CTI không đồng nhất:** cần kiểm soát nguồn, phiên bản và metadata.
@@ -527,8 +544,12 @@ Nói ngắn gọn: **structural inspection v2 trên bộ ba mới đã hoàn th�
 - Lịch sử trao đổi liên quan trực tiếp đến đề tài RAG/GraphRAG/LLM.
 - Sáu ảnh chụp ngày 12/07/2026 ghi nhận lựa chọn ban đầu gồm ba JSON và 13 Sigma rule.
 - Kết quả đọc streaming toàn bộ ba file JSONL và kiểm tra trực tiếp các Sigma YAML ngày 15-16/07/2026, dùng để thay thế lựa chọn ban đầu bằng bộ 3 JSON + 6 SigmaHQ + 1 derived correlation.
+- Mã nguồn hiện tại trong `src/threat_hunting/`, Python CLI trong `scripts/` và experiment/evaluation configs; thiết kế được đối chiếu với implementation, không suy ra hoàn thành từ đề cương.
+- Các production artifacts tại `outputs/canonical/`, `outputs/evidence/`, `outputs/ground_truth/`, `outputs/retrieval/`, `outputs/graph/`, `outputs/evaluation/` và technical review ngày 14/10/2026 tại `outputs/review/mshta-ground-truth/`. Dữ liệu/output cục bộ không commit; các consumers baseline và review copies có chuỗi provenance riêng.
 
 ## 20. Nhật ký quyết định
+
+Các mục có ngày dưới đây giữ trạng thái tại thời điểm quyết định, không thay thế tiến độ hiện tại ở mục 15. Ví dụ nhận định “normalization chưa triển khai” ngày 16/07/2026 là checkpoint lịch sử.
 
 ### 12/07/2026 - Chốt dữ liệu cho ba kịch bản
 
@@ -566,3 +587,15 @@ Mỗi quyết định mới nên ghi kèm:
 - Phần nào của đề cương hoặc kiến trúc bị ảnh hưởng.
 
 Không chuyển mục “chưa chốt” sang “đã hoàn thành” nếu chưa có bằng chứng như mã nguồn chạy được, ảnh kết quả, log thực nghiệm hoặc bảng đánh giá.
+
+## 22. Checkpoint review kỹ thuật ngày 14/10/2026
+
+Theo yêu cầu thực hiện bước review ground truth MSHTA và đáp án tham chiếu, Codex đã đối chiếu toàn bộ 1.127 raw records với canonical events, kiểm tra hai Sigma rules và STIX objects từ ATT&CK v19.1. Các source hashes giữ nguyên; 3 entities, 2 facts, 2 relationships và 4 evidence references của core có căn cứ.
+
+Bản sửa và báo cáo nằm tại `outputs/review/mshta-ground-truth/`. `scenario_ground_truth.json` bổ sung original fields trong fact attributes và sửa khẳng định “PowerShell ran Get-Service sysmon” thành “PowerShell was launched with -noexit -command Get-Service sysmon”. Log process creation không chứng minh cmdlet hoàn tất hoặc trạng thái dịch vụ. Timestamp `TimeCreated`/`UtcTime` còn lệch khoảng 4 giờ; không tự xác nhận timezone.
+
+32 đáp án tham chiếu giữ 16 proceed, 8 insufficient_evidence và 8 unrelated. Hai câu được làm rõ: câu về launch command và câu về bằng chứng payload cố ý phá hoại. Raw file có record xóa tệp tạm và event-log clearing ngoài hai nhóm process-creation core, nên không được khẳng định toàn dataset không có thao tác xóa hoặc tự coi thao tác đó là destructive payload. Không thêm scenario hoặc positive attack label.
+
+Review kỹ thuật hoàn thành với 592 relevant tests passed, validation/readback/provenance và raw immutability checks. Reviewer là Codex, không phải người dùng; ground truth vẫn `draft_reviewable`/`pending_human_review`. T1218.005 có hỗ trợ hành vi, T1059.007 không được command VBScript hỗ trợ và T1140 còn not_assessed; tất cả giữ candidate.
+
+Mã nguồn và output hiện có đã có prototype retrieval và GraphRAG cho MSHTA như tiến độ ở mục 15. Các consumer hiện có pin ground truth cũ; bản sửa là version riêng, chưa tự động áp dụng vào corpus/graph/indexes/evaluation. Bước tiếp theo sau khi người dùng duyệt bản sửa là rebuild consumer với provenance mới và kiểm chứng gate hai tầng. Đáp án tham chiếu chỉ dùng để đánh giá, không đưa vào retrieval corpus hoặc runtime gate input. LLM/UI và pipeline evidence đầy đủ cho PurpleSharp/Regsvr32 vẫn chưa hoàn thành.

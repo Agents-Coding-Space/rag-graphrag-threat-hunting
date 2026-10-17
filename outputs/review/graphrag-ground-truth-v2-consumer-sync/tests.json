@@ -1,0 +1,65 @@
+{
+  "schema_version": "graphrag-v2-consumer-sync-test-results/v1",
+  "shell": "PowerShell",
+  "working_directory": "repository root",
+  "final_runs": [
+    {
+      "scope": "focused: all 85 new tests",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_retrieval_ground_truth_v2.py tests/test_graph_ground_truth_v2.py tests/test_ground_truth_v2_provenance_consumers.py tests/test_sync_ground_truth_v2_consumers.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix1-focused-final-20261016\"",
+      "passed": 85,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 7.81,
+      "exit_code": 0
+    },
+    {
+      "scope": "related regression",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_retrieval_builder.py tests/test_retrieval_schema.py tests/test_vector_index_builder.py tests/test_vector_index_schema.py tests/test_vector_retriever.py tests/test_hybrid_retriever.py tests/test_knowledge_graph_builder.py tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_traversal.py tests/test_graphrag_seed_mapping.py tests/test_graphrag_orchestrator.py tests/test_graphrag_relevance.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_relevance_calibration_schema.py tests/test_ground_truth_schema.py tests/test_ground_truth_approval.py tests/test_two_stage_calibration.py tests/test_two_stage_review.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix1-regression-final-20261016\"",
+      "passed": 2541,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 66.91,
+      "exit_code": 0
+    },
+    {
+      "scope": "full suite",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix1-full-final-20261016\"",
+      "passed": 5900,
+      "subtests_passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 607.97,
+      "exit_code": 0
+    }
+  ],
+  "earlier_attempts": [
+    {
+      "scope": "retrieval agent",
+      "command": ".venv\\Scripts\\python.exe -m pytest tests/test_retrieval_ground_truth_v2.py tests/test_retrieval_builder.py tests/test_retrieval_schema.py -q -p no:cacheprovider",
+      "initial": "System Python lacked pytest; .venv sandbox run had 134 passed, 4 failed synthetic error-message expectations and 7 temp PermissionErrors. Tests were corrected to use pending v2 when testing unsupported schema; no fixtures or source behavior weakened.",
+      "approved_rerun": {"passed": 145, "failed": 0, "skipped": 0, "seconds": 2.33}
+    },
+    {
+      "scope": "graph agent",
+      "command": ".venv/Scripts/python.exe -B -m pytest tests/test_graph_ground_truth_v2.py tests/test_knowledge_graph_builder.py tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_traversal.py -q -p no:cacheprovider --basetemp \"$env:TEMP/graphrag-fix1-graph-tests-approved\"",
+      "initial": "Initial sandbox command used basetemp graphrag-fix1-graph-tests and was interrupted after temp setup errors and 9 displayed synthetic unsupported-version expectation failures; no final summary. Only synthetic test setup changed from confirmed to pending before unsupported-version mutation.",
+      "approved_rerun": {"passed": 650, "failed": 0, "skipped": 0, "seconds": 5.49}
+    },
+    {
+      "scope": "provenance agent",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix1-provenance-focused-20261016\" tests/test_ground_truth_v2_provenance_consumers.py tests/test_graphrag_relevance.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_relevance_calibration_schema.py",
+      "result": {"passed": 704, "failed": 0, "skipped": 0, "seconds": 26.65}
+    },
+    {
+      "scope": "integration agent",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix1-sync-integration-rerun-20261016\" tests/test_sync_ground_truth_v2_consumers.py tests/test_ground_truth_v2_provenance_consumers.py",
+      "initial": "6 passed / 2 failed because synthetic tests assumed graph paths to isolated limitation nodes and pre-embedding graph validation. Assertions were corrected to the existing graph/component ordering contract. No production path, fixture or edges changed.",
+      "approved_rerun": {"passed": 40, "failed": 0, "skipped": 0, "seconds": 7.18}
+    }
+  ],
+  "environment_note": "Tests use the existing .venv. Sandbox temp ACL errors required approved execution using system TEMP, outside the repository; no dependency installation or model call in tests.",
+  "experiments": [
+    {"command": ".\\.venv\\Scripts\\python.exe scripts/sync_ground_truth_v2_consumers.py --phase build", "exit_code": 0, "chunks": 22, "nodes": 20, "edges": 21, "fresh_document_vectors": 22},
+    {"command": ".\\.venv\\Scripts\\python.exe scripts/sync_ground_truth_v2_consumers.py --phase compare", "exit_code": 0, "fresh_query_vectors": 32, "development_cases": 32, "proposed_probes": 0, "heldout": false}
+  ]
+}

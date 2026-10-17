@@ -1,0 +1,263 @@
+{
+  "analysis_status": "pending_review",
+  "archive_verification": {
+    "exact_member_list_verified": true,
+    "excluded_content_absent": [
+      "model cache",
+      ".venv",
+      "raw Mordor",
+      "Git internals",
+      "credentials"
+    ],
+    "inventory_path": "outputs/review/production_knowledge_graph/review_inventory.json",
+    "member_count": 7,
+    "path": "outputs/review/production_knowledge_graph_review.zip",
+    "source_sizes_and_sha256_verified": true,
+    "testzip": null
+  },
+  "baseline": {
+    "branch": "feature/mshta-evidence-extractor",
+    "head": "ce4dea038922597239e842a63c4abaf70911b4ac",
+    "staging_area_empty": true,
+    "working_tree_clean": true
+  },
+  "deterministic": {
+    "byte_identical": true,
+    "ground_truth_unchanged": true,
+    "identical_stats": true,
+    "no_temporary_files": true,
+    "same_edge_count": true,
+    "same_graph_id": true,
+    "same_node_count": true,
+    "same_sha256": true
+  },
+  "files": [
+    {
+      "byte_size": 41441,
+      "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "sha256": "cf102845b43141075e23de44e9b52d02000e287cf02ca9247cb38385fa2a426f"
+    },
+    {
+      "byte_size": 14313,
+      "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+      "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41"
+    },
+    {
+      "byte_size": 11730,
+      "path": "scripts/build_knowledge_graph.py",
+      "sha256": "98d6ba586bdb7f767fb3c6c8882799a37f44f5d722001b35180375a06635582d"
+    },
+    {
+      "byte_size": 19744,
+      "path": "src/threat_hunting/graph/builder.py",
+      "sha256": "0cf1756a1af81b38d86179557220c9b26496c47d89599b72208ab83c2f05d4fe"
+    },
+    {
+      "byte_size": 17005,
+      "path": "src/threat_hunting/graph/schema.py",
+      "sha256": "466f248e3733470ff4c9aa74b691240256868b2154dd69347e151fd630921525"
+    },
+    {
+      "byte_size": 22774,
+      "path": "tests/test_build_knowledge_graph_cli.py",
+      "sha256": "07a728a4e33a47148c7c5f29c8ba524d870b129c4f0353d97da5aec811fa73a1"
+    }
+  ],
+  "git": {
+    "amend_performed": false,
+    "branch": "feature/mshta-evidence-extractor",
+    "cached_diff_check_exit_code": 0,
+    "commit_performed": false,
+    "diff_check_exit_code": 0,
+    "head": "ce4dea038922597239e842a63c4abaf70911b4ac",
+    "passed": true,
+    "push_performed": false,
+    "stage_performed": false,
+    "staged_files": [],
+    "status": [
+      "?? scripts/build_knowledge_graph.py",
+      "?? tests/test_build_knowledge_graph_cli.py"
+    ],
+    "tracked_outputs": [],
+    "trailing_whitespace_findings": []
+  },
+  "ground_truth": {
+    "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+    "sha256_after": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "sha256_before": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41"
+  },
+  "knowledge_graph": {
+    "byte_size": 41441,
+    "edge_count": 21,
+    "edge_type_counts": {
+      "fact_object": 2,
+      "fact_subject": 2,
+      "process_spawn": 2,
+      "supports": 11,
+      "supports_assessment": 4
+    },
+    "graph_id": "knowledge-graph--45c9e1a1369012689417635f46b00e25ea0b5be2d39a6cf9375428d302ce27ea",
+    "node_count": 17,
+    "node_type_counts": {
+      "entity": 3,
+      "evidence": 2,
+      "fact": 2,
+      "limitation": 4,
+      "mitre_assessment": 3,
+      "scenario": 1,
+      "sigma_finding": 2
+    },
+    "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+    "review_status": "pending_human_review",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "knowledge-graph/v1",
+    "sha256": "cf102845b43141075e23de44e9b52d02000e287cf02ca9247cb38385fa2a426f"
+  },
+  "milestone": "GRAPH-3",
+  "production_command": ".\\.venv\\Scripts\\python.exe scripts/build_knowledge_graph.py `\n  --ground-truth outputs/ground_truth/mshta-powershell/scenario_ground_truth.json `\n  --ground-truth-sha256 b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41 `\n  --expected-scenario-id mshta-powershell `\n  --output outputs/graph/mshta-powershell/knowledge_graph.json `\n  --overwrite",
+  "production_runs": [
+    {
+      "edge_count": 21,
+      "edge_type_counts": {
+        "fact_object": 2,
+        "fact_subject": 2,
+        "process_spawn": 2,
+        "supports": 11,
+        "supports_assessment": 4
+      },
+      "exit_code": 0,
+      "graph_id": "knowledge-graph--45c9e1a1369012689417635f46b00e25ea0b5be2d39a6cf9375428d302ce27ea",
+      "input_path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+      "input_sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+      "node_count": 17,
+      "node_type_counts": {
+        "entity": 3,
+        "evidence": 2,
+        "fact": 2,
+        "limitation": 4,
+        "mitre_assessment": 3,
+        "scenario": 1,
+        "sigma_finding": 2
+      },
+      "output_path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "output_sha256": "cf102845b43141075e23de44e9b52d02000e287cf02ca9247cb38385fa2a426f",
+      "review_status": "pending_human_review",
+      "run": 1,
+      "scenario_id": "mshta-powershell",
+      "schema_version": "knowledge-graph/v1"
+    },
+    {
+      "edge_count": 21,
+      "edge_type_counts": {
+        "fact_object": 2,
+        "fact_subject": 2,
+        "process_spawn": 2,
+        "supports": 11,
+        "supports_assessment": 4
+      },
+      "exit_code": 0,
+      "graph_id": "knowledge-graph--45c9e1a1369012689417635f46b00e25ea0b5be2d39a6cf9375428d302ce27ea",
+      "input_path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+      "input_sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+      "node_count": 17,
+      "node_type_counts": {
+        "entity": 3,
+        "evidence": 2,
+        "fact": 2,
+        "limitation": 4,
+        "mitre_assessment": 3,
+        "scenario": 1,
+        "sigma_finding": 2
+      },
+      "output_path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "output_sha256": "cf102845b43141075e23de44e9b52d02000e287cf02ca9247cb38385fa2a426f",
+      "review_status": "pending_human_review",
+      "run": 2,
+      "scenario_id": "mshta-powershell",
+      "schema_version": "knowledge-graph/v1"
+    }
+  ],
+  "production_validation": {
+    "edge_attributes_supporting_ids_preserved": true,
+    "edge_endpoints_verified": 21,
+    "edge_pointers_resolved": 21,
+    "evidence_ids_preserved": 38,
+    "existing_loaders_and_validator_passed": true,
+    "literal_confirmed_absent": true,
+    "metadata_counts_match": true,
+    "node_labels_attributes_and_source_ids_preserved": true,
+    "node_pointers_resolved": 17,
+    "protected_files_unchanged": 6,
+    "source_ground_truth_matches": true,
+    "source_references_preserved": 38,
+    "statuses_preserved": 38,
+    "temporary_files": [],
+    "tracked_files_unchanged": 119,
+    "unique_edge_ids": true,
+    "unique_node_ids": true,
+    "warnings_queryable_dimensions_and_review_preserved": true
+  },
+  "scope": {
+    "benchmark_started": false,
+    "dependencies_changed": false,
+    "graph_builder_changed": false,
+    "graph_schema_changed": false,
+    "graph_traversal_started": false,
+    "graphrag_started": false,
+    "ground_truth_changed": false,
+    "llm_started": false,
+    "package_export_changed": false,
+    "retrieval_corpus_changed": false,
+    "source_files": [
+      "scripts/build_knowledge_graph.py",
+      "tests/test_build_knowledge_graph_cli.py"
+    ],
+    "vector_index_changed": false
+  },
+  "tests": [
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "duration_seconds": 31.19,
+      "environment": "escalated for Windows Temp/cache access",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 1924,
+      "phase": "baseline",
+      "skipped": 0,
+      "subtests_passed": 6
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_build_knowledge_graph_cli.py -q",
+      "duration_seconds": 5.92,
+      "environment": "escalated for Windows Temp/cache access",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 71,
+      "phase": "GRAPH-3",
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_builder.py tests/test_build_knowledge_graph_cli.py -q",
+      "duration_seconds": 7.1,
+      "environment": "escalated for Windows Temp/cache access",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 531,
+      "phase": "GRAPH-1/2/3",
+      "skipped": 0,
+      "subtests_passed": 0
+    },
+    {
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+      "duration_seconds": 31.43,
+      "environment": "escalated for Windows Temp/cache access",
+      "exit_code": 0,
+      "failed": 0,
+      "passed": 1995,
+      "phase": "final",
+      "skipped": 0,
+      "subtests_passed": 6
+    }
+  ]
+}

@@ -19,6 +19,7 @@ import re
 from typing import Any, cast
 
 from ..graph.schema import EDGE_FIELDS, GRAPH_STATUSES, IDENTIFIER_PATTERN, NODE_FIELDS
+from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
 from ..retrieval.hybrid import RRF_K, SCORE_PRECISION
 from ..retrieval.schema import (
     AGGREGATE_CHUNK_TYPES, CHUNK_FIELDS, CHUNK_REFERENCE_LIST_FIELDS,
@@ -184,7 +185,7 @@ def _counts(value: object, path: str, expected: Mapping[str, int], fields: tuple
 def _provenance(value: object, scenario: str, path: str) -> None:
     source = _object(value, path, ("path", "schema_version", "sha256", "scenario_id"))
     _text(source["path"], f"{path}.path")
-    _require(source["schema_version"] == "scenario-ground-truth/v1", f"{path}.schema_version is unsupported")
+    _require(source["schema_version"] in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS, f"{path}.schema_version is unsupported")
     _require(_SHA256.fullmatch(_text(source["sha256"], f"{path}.sha256")) is not None, f"{path}.sha256 must be 64 hexadecimal characters")
     _require(source["scenario_id"] == scenario, f"{path}.scenario_id mismatch")
 

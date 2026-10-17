@@ -1,0 +1,19 @@
+{
+  "all_answer_ids_queries_labels_pointers_and_source_hashes": "passed",
+  "changed_reference_queries": 2,
+  "deterministic_rebuild": "passed",
+  "human_approval_performed": false,
+  "json_readback": "passed",
+  "mitre_label_promotions": 0,
+  "original_source_hashes_unchanged": true,
+  "reference_answers": 32,
+  "relevant_pytest": {
+    "failed": 0,
+    "passed": 592,
+    "runtime": "repository .venv; standard pytest temp outside sandbox",
+    "scope": "six ground-truth and reference-dataset test files; not full suite"
+  },
+  "review_date": "2026-10-14",
+  "schema_validation": "passed",
+  "unicode_answers": "passed"
+}

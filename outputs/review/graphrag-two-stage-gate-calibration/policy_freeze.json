@@ -1,0 +1,12 @@
+{
+  "schema_version": "two-stage-gate-evaluation-freeze/v1",
+  "bindings": {
+    "policy_sha256": "6756610aacb6e6db3029bd6b458c034c56bec2d5a9e5d32a4dd058dc8c647661",
+    "retrieval_configuration_sha256": "2fef5d4eb1ef2ee9a6c243468e21c83af675da525fe6c1af1670f3f7a88dfe22",
+    "split_manifest_sha256": "e7e63618907803b6e15dcb9d474597885b8391681c25ffb2b724b4fba9daf75c",
+    "evaluation_code_sha256": "d73ac3ff816cdb2c6da326be0f103decccd7b84c8c4b62a3dc8c20caf591e08f",
+    "criteria_sha256": "b30092f9455d584191ea8cd2db5f6d5316e50228d8cb49a1aa266ba740a9ab4e",
+    "calibration_signals_sha256": "56e3b9228752303c976d69917c91f91e76df201101d96bc5024df876af87f560"
+  },
+  "lock_sha256": "93674a4516016c20fcbbb0fbfd7f9ea9a920d3880f202af46b43a697271e8f27"
+}

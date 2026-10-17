@@ -1,0 +1,195 @@
+--- fix1-baseline/src/threat_hunting/evaluation/calibration_schema.py
++++ fix1-final/src/threat_hunting/evaluation/calibration_schema.py
+@@ -6,6 +6,8 @@
+ from pathlib import Path
+ import re
+ from typing import Any
++
++from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+ 
+ from .calibration_config import (
+     _canonical, _integer, _json_document, _load_json, _object,
+@@ -161,7 +163,11 @@
+             for field in ("path", *fields):
+                 _text(artifact[field], f"$.provenance.{name}.{field}")
+             _require(isinstance(artifact["sha256"], str) and re.fullmatch(r"[0-9a-f]{64}", artifact["sha256"]) is not None, "provenance SHA-256 must be lowercase full hash")
+-            _require(artifact["schema_version"] == ARTIFACT_SCHEMAS[name], "provenance schema_version mismatch")
++            supported_versions = (
++                SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
++                if name == "ground_truth" else (ARTIFACT_SCHEMAS[name],)
++            )
++            _require(artifact["schema_version"] in supported_versions, "provenance schema_version mismatch")
+         _require(provenance["config"]["calibration_id"] == root["calibration_id"], "config/calibration ID mismatch")
+         _require(len({provenance[name]["scenario_id"] for name in ARTIFACT_FIELDS if "scenario_id" in ARTIFACT_FIELDS[name]}) == 1, "artifact scenario mismatch")
+         _require(provenance["vector_index"]["corpus_id"] == provenance["corpus"]["corpus_id"], "index/corpus ID mismatch")
+--- fix1-baseline/src/threat_hunting/graph/builder.py
++++ fix1-final/src/threat_hunting/graph/builder.py
+@@ -2,7 +2,9 @@
+ 
+ Source IDs define identity; original collection positions define provenance.
+ Only explicit relationships, exact entity references, and declared support links
+-become edges. File access and serialization belong to the caller.
++become edges. Document approval is deliberately excluded from graph content;
++it does not change any claim's status. File access and serialization belong to
++the caller.
+ """
+ 
+ from __future__ import annotations
+@@ -16,7 +18,6 @@
+ from typing import Any, cast
+ 
+ from ..ground_truth.schema import (
+-    SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
+     validate_ground_truth_document,
+ )
+ from .schema import (
+@@ -402,7 +403,7 @@
+         "scenario_id": builder.scenario_id,
+         "source_ground_truth": {
+             "path": path,
+-            "schema_version": SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
++            "schema_version": root["schema_version"],
+             "sha256": digest,
+             "scenario_id": builder.scenario_id,
+         },
+--- fix1-baseline/src/threat_hunting/graph/schema.py
++++ fix1-final/src/threat_hunting/graph/schema.py
+@@ -15,9 +15,10 @@
+ import re
+ from typing import Any, NoReturn
+ 
++from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
++
+ 
+ KNOWLEDGE_GRAPH_SCHEMA_VERSION = "knowledge-graph/v1"
+-SOURCE_GROUND_TRUTH_SCHEMA_VERSION = "scenario-ground-truth/v1"
+ 
+ TOP_LEVEL_FIELDS = (
+     "schema_version", "graph_id", "scenario_id", "source_ground_truth",
+@@ -184,9 +185,11 @@
+     source = _require_object(value, path)
+     _require_fields(source, SOURCE_GROUND_TRUTH_FIELDS, path)
+     _require_string(source["path"], f"{path}.path")
+-    if source["schema_version"] != SOURCE_GROUND_TRUTH_SCHEMA_VERSION:
+-        raise KnowledgeGraphValidationError(
+-            f"{path}.schema_version must be {SOURCE_GROUND_TRUTH_SCHEMA_VERSION!r}"
++    schema_version = _require_string(source["schema_version"], f"{path}.schema_version")
++    if schema_version not in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS:
++        raise KnowledgeGraphValidationError(
++            f"{path}.schema_version must be one of "
++            f"{sorted(SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS)!r}"
+         )
+     digest = _require_string(source["sha256"], f"{path}.sha256")
+     if SHA256_PATTERN.fullmatch(digest) is None:
+--- fix1-baseline/src/threat_hunting/graphrag/relevance.py
++++ fix1-final/src/threat_hunting/graphrag/relevance.py
+@@ -19,6 +19,7 @@
+ from typing import Any, cast
+ 
+ from ..graph.schema import EDGE_FIELDS, GRAPH_STATUSES, IDENTIFIER_PATTERN, NODE_FIELDS
++from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+ from ..retrieval.hybrid import RRF_K, SCORE_PRECISION
+ from ..retrieval.schema import (
+     AGGREGATE_CHUNK_TYPES, CHUNK_FIELDS, CHUNK_REFERENCE_LIST_FIELDS,
+@@ -184,7 +185,7 @@
+ def _provenance(value: object, scenario: str, path: str) -> None:
+     source = _object(value, path, ("path", "schema_version", "sha256", "scenario_id"))
+     _text(source["path"], f"{path}.path")
+-    _require(source["schema_version"] == "scenario-ground-truth/v1", f"{path}.schema_version is unsupported")
++    _require(source["schema_version"] in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS, f"{path}.schema_version is unsupported")
+     _require(_SHA256.fullmatch(_text(source["sha256"], f"{path}.sha256")) is not None, f"{path}.sha256 must be 64 hexadecimal characters")
+     _require(source["scenario_id"] == scenario, f"{path}.scenario_id mismatch")
+ 
+--- fix1-baseline/src/threat_hunting/retrieval/builder.py
++++ fix1-final/src/threat_hunting/retrieval/builder.py
+@@ -187,6 +187,16 @@
+     return CHUNK_TYPE_RANK[str(chunk["chunk_type"])], str(identity)
+ 
+ 
++def _legacy_source_review_metadata(
++    ground_truth: Mapping[str, Any],
++) -> dict[str, object]:
++    """Preserve v1 annotations without copying v2 human approval to evidence."""
++
++    if ground_truth["schema_version"] == SCENARIO_GROUND_TRUTH_SCHEMA_VERSION:
++        return {"source_review_status": ground_truth["review"]["review_status"]}
++    return {}
++
++
+ def _scenario_chunk(
+     ground_truth: Mapping[str, Any],
+     *,
+@@ -236,7 +246,7 @@
+             "analysis_status": scenario["analysis_status"],
+             "time_window": scenario["time_window"],
+             "observed_behavior_count": len(summary["observed_behavior"]),
+-            "source_review_status": ground_truth["review"]["review_status"],
++            **_legacy_source_review_metadata(ground_truth),
+         },
+     )
+ 
+@@ -683,7 +693,7 @@
+         "scenario_id": scenario_id,
+         "source_ground_truth": {
+             "path": source_path,
+-            "schema_version": SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
++            "schema_version": root["schema_version"],
+             "sha256": source_hash,
+             "scenario_id": scenario_id,
+         },
+@@ -703,7 +713,7 @@
+             "builder_contract": "ground-truth-to-retrieval-corpus/v1",
+             "chunk_count": len(chunks),
+             "source_analysis_status": root["scenario"]["analysis_status"],
+-            "source_review_status": root["review"]["review_status"],
++            **_legacy_source_review_metadata(root),
+         },
+     }
+     try:
+--- fix1-baseline/src/threat_hunting/retrieval/schema.py
++++ fix1-final/src/threat_hunting/retrieval/schema.py
+@@ -13,6 +13,8 @@
+ from pathlib import Path
+ import re
+ from typing import Any, NoReturn
++
++from threat_hunting.ground_truth import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+ 
+ 
+ RETRIEVAL_CORPUS_SCHEMA_VERSION = "retrieval-corpus/v1"
+@@ -273,9 +275,10 @@
+     schema_version = _require_nonempty_string(
+         source["schema_version"], f"{path}.schema_version"
+     )
+-    if schema_version != SOURCE_GROUND_TRUTH_SCHEMA_VERSION:
+-        raise RetrievalCorpusValidationError(
+-            f"{path}.schema_version must be {SOURCE_GROUND_TRUTH_SCHEMA_VERSION!r}"
++    if schema_version not in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS:
++        raise RetrievalCorpusValidationError(
++            f"{path}.schema_version must be one of "
++            f"{sorted(SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS)!r}"
+         )
+     _require_sha256(source["sha256"], f"{path}.sha256")
+     source_scenario_id = _require_nonempty_string(
+--- fix1-baseline/PROJECT_PROGRESS.md
++++ fix1-final/PROJECT_PROGRESS.md
+@@ -333,3 +333,19 @@
+ Tests: focused 124 passed; related regression 1.289 passed; full suite 5.815 passed + 6 subtests passed, 0 failed/skipped. L?nh ch?nh x?c, per-case results, hashes v? gi?i h?n n?m trong `outputs/review/graphrag-two-stage-gate-calibration/`; review package t?i `outputs/review/graphrag_two_stage_gate_calibration_review.zip`.
+ 
+ B??c ti?p theo duy nh?t: review k?t qu? diagnostic v? ph?m vi/nh?n c?c probes m?i; quy?t ??nh c?ch x? l? consumer evidence c? tr??c khi cho ph?p m?t l?n ki?m ch?ng ??c l?p c? ? ngh?a. Kh?ng t? chuy?n sang CLI, LLM ho?c UI; kh?ng stage/commit/amend/push.
++
++## 11. Checkpoint GRAPHRAG-2D3-FIX1 — 16/10/2026
++
++Theo yêu cầu FIX1, đã đồng bộ evidence consumers thử nghiệm với Ground Truth v2 được duyệt. Giữ nguyên toàn bộ bytes của checkpoint cũ phía trên. Branch vẫn `feature/mshta-evidence-extractor`, HEAD `af2243a3ee89c5e5721ec341eea0a8cb06814f41`, staging rỗng. Không sửa approved bundle, raw data hoặc consumer/review artifacts cũ.
++
++Sáu compatibility source files được sửa: `retrieval/builder.py`, `retrieval/schema.py`, `graph/builder.py`, `graph/schema.py`, `graphrag/relevance.py`, `evaluation/calibration_schema.py`. Hỗ trợ đúng GT v1/v2, provenance ghi phiên bản thực tế, v1 golden outputs giữ nguyên; downstream schema v1 không đổi. Không đưa human approval hoặc benchmark questions/answers/labels/case IDs/rubric vào evidence embeddings hay runtime gate inputs.
++
++Builders thực tế tạo `outputs/experiments/graphrag-2d3-fix1/`: 22 chunks, graph 20 nodes/21 edges, 22 vectors mới dimension 384. Nguồn là approved GT SHA-256 `8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461`. Corpus mới `b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c`; graph `04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443`; index `2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78`. Giữ E5 local revision `614241f622f53c4eeff9890bdc4f31cfecc418b3`, prefixes, L2/cosine và preprocessing cũ; 0 old-cache hits, 22 document và 32 query misses. Determinism replay chỉ dùng đúng inputs/vectors của cùng lần build.
++
++Source observations giữ nguyên CommandLine, parent/child fields, IDs và raw references trong content/attributes được context trả về. Summary chỉ xác nhận PowerShell được khởi chạy với command line chứa Get-Service sysmon, không xác nhận cmdlet completion/output/service state. Đủ 7 limitations có trong consumers và mỗi limitation xuất hiện trong ít nhất một actual context của 32 queries; số contexts tương ứng là 2/3/3/2/3/1/13. Không thêm causal edges hoặc mở core sang probes ngoài phạm vi. Ba queries trọng tâm vẫn chưa nhận đủ context: scope-limitations và service-action có semantic support unassessed/null, final-review-limits thiếu structured analysis_status và các limits cần thiết. Không coi null là đã sửa xong.
++
++Chạy lại đúng 32 development cases với policy `two-stage-dev-5a4b308b106699e0` và retrieval top-k=5, candidate-k=20, RRF k=60, traversal both/depth=2/nodes=100/edges=200 giữ nguyên. Không tune thresholds hoặc đổi rubric. TP/TN/FP/FN đổi 5/15/1/11 → 5/14/2/11; topical 7 passed/25 failed, answerability 7 passed/0 failed/25 not_evaluated; coverage 7/32, selective error 2/7. False proceed insufficient_evidence vẫn 1/8 (payload-download URL); unrelated tăng 0/8 → 1/8 (Linux cron). Chỉ có một transition abstain→proceed, không có true positive mới. False abstain với context đủ vẫn 8/13 theo conservative AI rubric ngoài runtime; hai positives chuyển false→null không được tính là đủ context.
++
++Tests cuối: focused 85 passed; regression liên quan 2541 passed; full suite 5900 passed + 6 subtests passed, 0 failed/0 skipped. Exact commands, durations và các failed attempts trước khi sửa synthetic tests nằm trong `outputs/review/graphrag-ground-truth-v2-consumer-sync/tests.json`. Kiểm tra JSON/validators/bindings, replay context→signals→decisions và git diff --check đều pass. Inventory ghi hashes trước/sau của toàn bộ 5055 baseline files: chỉ sáu compatibility source files và phần append file tiến độ này thay đổi; raw inputs, approved bundle, consumer/review artifacts cùng ZIP cũ giữ nguyên hash.
++
++Kết quả và per-case analysis tại `outputs/review/graphrag-ground-truth-v2-consumer-sync/`; gói review `outputs/review/graphrag_ground_truth_v2_consumer_sync_review.zip`. Source/build sync đạt; runtime context coverage và gate quality chưa đạt. Answerability hiện chỉ kiểm tra cấu trúc nên vẫn cho phép câu hỏi URL thiếu evidence và câu ngoài phạm vi. Bước tiếp theo duy nhất là review regression/context gaps này trước khi quyết định cơ chế answerability theo yêu cầu và retrieval hỗ trợ limitations. Không chạy 11 proposed probes hoặc held-out; không tích hợp production CLI/LLM/UI; không stage/commit/amend/push. Dừng chờ review kết quả.

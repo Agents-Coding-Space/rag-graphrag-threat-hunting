@@ -1,0 +1,147 @@
+{
+  "schema_version": "canonical-event/v2",
+  "status": "proposed_reviewable",
+  "description": "Proposed reusable canonical event contract. The inspection step does not emit canonical events or apply conversions. Context-specific source/target process roles remain in raw records until the schema represents them explicitly.",
+  "normalization_contract": {
+    "cardinality": "one_raw_record_to_one_canonical_event",
+    "filtering": "none",
+    "deduplication": "none"
+  },
+  "fields": [
+    {
+      "name": "event_id",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "timestamp",
+      "type": "rfc3339-utc-string",
+      "nullable": true
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "provider",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "host",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "user",
+      "type": "string",
+      "nullable": true,
+      "description": "Generic user value when the source does not express a reliable actor or target role."
+    },
+    {
+      "name": "subject_user",
+      "type": "string",
+      "nullable": true,
+      "description": "Actor or subject user when event semantics support that role."
+    },
+    {
+      "name": "target_user",
+      "type": "string",
+      "nullable": true,
+      "description": "Account or user affected by the event."
+    },
+    {
+      "name": "source_ip",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "source_port",
+      "type": "integer",
+      "nullable": true,
+      "expected_source_transformation": "validated string-to-integer"
+    },
+    {
+      "name": "destination_ip",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "destination_port",
+      "type": "integer",
+      "nullable": true,
+      "expected_source_transformation": "validated string-to-integer"
+    },
+    {
+      "name": "process_name",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "process_id",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "process_guid",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "parent_process_name",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "parent_process_id",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "parent_process_guid",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "command_line",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "parent_command_line",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "file_path",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "registry_key",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "dns_query",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "raw_record_ref",
+      "type": "string",
+      "nullable": false
+    },
+    {
+      "name": "source_file",
+      "type": "string",
+      "nullable": false
+    }
+  ],
+  "raw_record_ref_formats": {
+    "jsonl": "jsonl:line:<one-based-physical-line>",
+    "json_array": "json-array:index:<zero-based-index>",
+    "json_object": "json-object:root"
+  }
+}

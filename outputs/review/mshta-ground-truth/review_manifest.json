@@ -1,0 +1,70 @@
+{
+  "artifacts": {
+    "assemble_review.py": "ed6728b618ce989bdf7cff9804b713a10203f034794a696291f5327e3e8266d4",
+    "audit_raw.py": "71ee92a73c30151709c0260e282fcd20e02b4ad7dc104524e4f9345a6eafb180",
+    "audit_sigma_mitre.py": "895a1cfaf05a127bb6e892df6d8a253db7b612da9212b8d02891b745318f601b",
+    "mshta_relevance_calibration_reviewed.json": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124",
+    "raw_audit.json": "d6c0bfde6f9bd33ce9a731515e7ec329b1171f1878f4616a07e8f40daa3144ab",
+    "reference_answers.json": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b",
+    "reference_answers.md": "d556b10033389e52d8f2000ca17adaadbb65f4c6d7b654b50291524018d3829b",
+    "reference_answers_audit.json": "b710fcb21076c3487da3376c15474225b682647642e9fc45f292f4d445babd30",
+    "review_build_config.json": "7177fadaf39b1c990dc0fc33ef6c5caca28471d7cb39a8c79914386e95ad2590",
+    "review_report.md": "2d99cabd9b96a6e6083d34fdbe4eb1090cc8167be3319cd3c6bee85bbe2f2963",
+    "scenario_ground_truth.json": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+    "sigma_mitre_audit.json": "1fd2dfff9485a0b64eb1130b3e02af89fc10b92dbc53c5da7685368be8adfece"
+  },
+  "baseline_ground_truth_valid": true,
+  "baseline_inputs": {
+    "benchmarks/graphrag/mshta_relevance_calibration.json": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4",
+    "benchmarks/retrieval/mshta_embedding_retrieval_judgments.json": "021c7a31f8244d15ba8a84258d067d8112753a26138dfb3afb57f5ae921eaf0d",
+    "configs/ground_truth/mshta_powershell.json": "f13f3efe1c783911ea512d98533826b4e2086349aead26795b7b6d57e49c247f",
+    "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "outputs/retrieval/mshta-powershell/retrieval_corpus.json": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+  },
+  "canonical_records_examined": 1127,
+  "category_and_decision_changes": 0,
+  "consumer_note": "The existing corpus, graph, vector indexes and evaluation reports are pinned to the earlier ground truth. The corrected review artifacts are a separate version; consumers must be rebuilt with new provenance in the next milestone.",
+  "human_review_status": "confirmed",
+  "input_hashes_unchanged": true,
+  "json_readback_passed": true,
+  "mitre_label_promotions": 0,
+  "original_sources": {
+    "benchmarks/graphrag/mshta_relevance_calibration.json": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4",
+    "benchmarks/retrieval/mshta_embedding_retrieval_judgments.json": "021c7a31f8244d15ba8a84258d067d8112753a26138dfb3afb57f5ae921eaf0d",
+    "configs/knowledge/mitre_enterprise_attack.json": "508b4f5773e790394765b891b6cf9064c7a4bda86b211d8386af7385ebd9ef53",
+    "data/knowledge/Mitre/enterprise-attack.json": "bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3",
+    "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_child_processes.yml": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+    "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+    "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+    "outputs/evidence/mshta-powershell/mitre_resolution.json": "f5eec09eaff36806e8567f215d9eed7edc7bc62dc3c3c9864dcbae3c6dcd608d",
+    "outputs/evidence/mshta-powershell/scenario_evidence.json": "ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905",
+    "outputs/evidence/mshta-powershell/sigma_match_review.json": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4",
+    "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "outputs/retrieval/mshta-powershell/retrieval_corpus.json": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+  },
+  "query_wording_corrections": 2,
+  "raw_records_examined": 1127,
+  "reference_answers": 32,
+  "resolved_baseline_cases": 32,
+  "resolved_baseline_relevance_pointers": 89,
+  "review_date": "2026-10-14",
+  "reviewed_entities": 3,
+  "reviewed_evidence": 2,
+  "reviewed_relationships": 2,
+  "reviewer": "Codex",
+  "reviewer_type": "ai_assistant",
+  "scenario_id": "mshta-powershell",
+  "schema_version": "mshta-technical-review/v2",
+  "status": "technical_review_completed_with_corrections",
+  "human_reviewer": "Nguyen Hong Phong",
+  "human_approved_at": "2026-10-15T23:36:13+07:00",
+  "approval_provenance": {
+    "previous_artifacts": {
+      "scenario_ground_truth.json": "b6c156358e17da6bfc092d5a97dce8a9f97c7e6ddd25522c43ed6fd506598186",
+      "reference_answers.json": "deadab1b0ad457a2501feca4ac75ff084df440f4e6b3ffc688db8cad5d823402",
+      "review_manifest.json": "65cab2ecbbf651743c356fd4d2e8c7cedb0b6cdc85643a3f37828bdd810d65ba"
+    },
+    "basis": "The user explicitly confirmed approval of the reviewed MSHTA Ground Truth and all reference answers in the current conversation and requested this metadata update.",
+    "timestamp_basis": "Current user approval confirmation recorded at the first preflight clock reading: 2026-10-15 16:36:13 UTC, represented as 2026-10-15T23:36:13+07:00. No timestamp for an earlier approval is available; no earlier time is inferred."
+  }
+}

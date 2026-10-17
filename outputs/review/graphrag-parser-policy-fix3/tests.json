@@ -1,0 +1,70 @@
+{
+  "schema_version": "parser-policy-fix3-test-results/v1",
+  "final_runs": [
+    {
+      "scope": "focused",
+      "command": ".\\.venv\\Scripts\\python.exe -B -m pytest tests/test_query_requirements_v2.py tests/test_query_context_v2.py tests/test_query_support_v2.py tests/test_query_policy.py tests/test_parser_policy_fix3_runner.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix3-focused-final-20261017\" > outputs/experiments/graphrag-2d3-fix3/focused_final.log 2>&1",
+      "log": "focused_final.log",
+      "exit_code": 0,
+      "passed": 221,
+      "subtests_passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 1.57,
+      "actual_pytest_summary": "221 passed in 1.57s",
+      "log_sha256": "6b1ec6838e293cf7010fbb37c93e7f65a1111b75cf9224ac528ef9bc621a0774"
+    },
+    {
+      "scope": "related regression",
+      "command": ".\\.venv\\Scripts\\python.exe -B -m pytest tests/test_query_requirements.py tests/test_query_context.py tests/test_query_support.py tests/test_query_aware_gate.py tests/test_query_aware_ablation.py tests/test_retrieval_builder.py tests/test_retrieval_schema.py tests/test_vector_index_builder.py tests/test_vector_index_schema.py tests/test_vector_retriever.py tests/test_hybrid_retriever.py tests/test_knowledge_graph_builder.py tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_traversal.py tests/test_graphrag_seed_mapping.py tests/test_graphrag_orchestrator.py tests/test_graphrag_relevance.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_relevance_calibration_schema.py tests/test_ground_truth_schema.py tests/test_ground_truth_builder.py tests/test_ground_truth_approval.py tests/test_ground_truth_v2_provenance_consumers.py tests/test_graph_ground_truth_v2.py tests/test_retrieval_ground_truth_v2.py tests/test_two_stage_calibration.py tests/test_two_stage_review.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix3-regression-final-20261017\" > outputs/experiments/graphrag-2d3-fix3/regression_final.log 2>&1",
+      "log": "regression_final.log",
+      "exit_code": 0,
+      "passed": 2883,
+      "subtests_passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 13.48,
+      "actual_pytest_summary": "2883 passed in 13.48s",
+      "log_sha256": "667cfc101e14c5da72be495d9639770b9d6e3e2d26aee88d9e300dcf42bb6c5b"
+    },
+    {
+      "scope": "full suite",
+      "command": ".\\.venv\\Scripts\\python.exe -B -m pytest -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix3-full-final-20261017\" > outputs/experiments/graphrag-2d3-fix3/full_final.log 2>&1",
+      "log": "full_final.log",
+      "exit_code": 0,
+      "passed": 6342,
+      "subtests_passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 155.25,
+      "actual_pytest_summary": "6342 passed, 6 subtests passed in 155.25s (0:02:35)",
+      "log_sha256": "a0f1ad0bcfb7a0ed508d76636715190506fbb109e17755b7581c00d7b6758651"
+    }
+  ],
+  "earlier_development_runs": [
+    {
+      "scope": "parser synthetic before benchmark",
+      "result": "210 passed / 4 failed including old-parser tests; corrected passive launch role, VI pronoun token matching and uncovered predicate. Then 214 passed, and 218 passed after four generic mandatory coordination guards."
+    },
+    {
+      "scope": "policy synthetic before benchmark",
+      "result": "55 passed initially; 129 passed including old support/wrapper after adding exact identity and unrelated-cut tests (58 new policy tests)."
+    },
+    {
+      "scope": "context/support synthetic before benchmark",
+      "result": "49 passed initially. Inventory coverage extension exposed a missing internal source-inspection record pointer (5 failed / 320 passed); corrected only the new wrapper. Final new context/support tests 55 passed; new+old related tests 325 passed."
+    },
+    {
+      "scope": "runner synthetic before benchmark",
+      "result": "10 passed / 1 failed due to Windows newline conversion in a test-created sentinel; switched new sentinel creation to write_bytes. Final runner 11 passed."
+    }
+  ],
+  "experiment_commands": [
+    ".\\.venv\\Scripts\\python.exe -B scripts/evaluate_parser_policy_fix3.py"
+  ],
+  "logs_normalized_to_utf8_without_text_changes": true,
+  "no_test_or_experiment_is_claimed_as_independent_or_heldout": true
+}

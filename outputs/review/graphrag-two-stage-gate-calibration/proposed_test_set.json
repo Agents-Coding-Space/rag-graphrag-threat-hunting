@@ -1,0 +1,1176 @@
+{
+  "schema_version": "graphrag-proposed-test-set/v1",
+  "proposal_id": "mshta-two-stage-gate-new-intents-20261016",
+  "scenario_id": "mshta-powershell",
+  "purpose": "new_ai_proposed_evaluation_labels_only_never_retrieval_or_runtime_gate_input",
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "approval_scope": "Pending labels; prior approval of the 32-case reference set does not apply.",
+  "evaluation_status": "not_evaluated",
+  "held_out_claim": "no_independent_approved_held_out_available",
+  "vocabulary": {
+    "review_status": [
+      "pending_human_review"
+    ],
+    "review_transition": "Only an explicit later human label approval can create a new reviewed version with non-empty reviewer and timezone-aware reviewed_at; this proposal carries no approval.",
+    "category": [
+      "in_scope_sufficient_evidence",
+      "in_scope_insufficient_evidence",
+      "unrelated"
+    ],
+    "expected_decision_meaning": "proceed/abstain refer to the declared label_domain, not actual frozen retrieval context or a security conclusion.",
+    "scope_boundary": "The full original MSHTA file is a broader evidence domain than the two reviewed process-creation groups. No Ground Truth, technique labels or retrieval scope are expanded by this proposal."
+  },
+  "sources": [
+    {
+      "path": "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32"
+    },
+    {
+      "path": "outputs/review/mshta-ground-truth/reference_answers.json",
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b"
+    },
+    {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+    },
+    {
+      "path": "outputs/review/mshta-ground-truth/review_manifest.json",
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4"
+    },
+    {
+      "path": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124"
+    },
+    {
+      "path": "benchmarks/graphrag/mshta_relevance_calibration.json",
+      "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4"
+    },
+    {
+      "path": "outputs/evaluation/mshta-powershell/embedding_retrieval_comparison.json",
+      "sha256": "687e304ed164dd03a72a0ded81a712d7fc6940f81af2e28a1a2c1ba2c1f3cc32"
+    },
+    {
+      "path": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration.json",
+      "sha256": "7806c75c5b20625f6c00fc83936c8e339f9e88433b4a73cca780a996a7d59694"
+    },
+    {
+      "path": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration_e5.json",
+      "sha256": "d4427a47676884b9996c353be26318e1b665bb714056f55e811c852835d7efcb"
+    },
+    {
+      "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+    },
+    {
+      "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227"
+    }
+  ],
+  "raw_inspection": {
+    "method": "complete_read_only_streaming_jsonl_read",
+    "records_processed": 1127,
+    "records_dropped": 0,
+    "event_id_counts": {
+      "1": 3,
+      "2": 1,
+      "5": 1,
+      "7": 238,
+      "9": 6,
+      "10": 184,
+      "11": 5,
+      "12": 401,
+      "13": 48,
+      "17": 1,
+      "18": 1,
+      "23": 3,
+      "104": 2,
+      "1102": 1,
+      "4656": 48,
+      "4658": 95,
+      "4663": 32,
+      "4673": 2,
+      "4688": 3,
+      "4689": 1,
+      "4690": 48,
+      "4703": 1,
+      "5156": 1,
+      "5158": 1
+    },
+    "timecreated_min": "2020-10-22T02:57:55.601Z",
+    "timecreated_max": "2020-10-22T02:58:08.695Z",
+    "sysmon_naive_utctime_preserved_no_timezone_correction": true,
+    "powershell_termination_event_5_or_4689_count": 0,
+    "scriptblock_text_or_id_field_count": 0,
+    "source_hash_matches_selection_manifest": true
+  },
+  "split_manifest": {
+    "partition_policy": "all previously used 32 cases remain development/calibration; new proposed cases are quarantined from calibration and not yet held-out evaluation",
+    "calibration_case_ids": [
+      "rd-en-process-chain",
+      "rd-en-shell-parent",
+      "rd-en-initial-spawn-evidence",
+      "rd-en-final-spawn-evidence",
+      "rd-vi-proxy-technique-assessment",
+      "rd-vi-scripting-technique-status",
+      "rd-vi-reviewed-scope-limitations",
+      "rd-vi-initial-relation-provenance",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-en-retained-scripting-label",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits",
+      "rp-vi-service-action",
+      "ie-en-payload-download-url",
+      "ie-en-c2-address",
+      "ie-en-attacker-identity",
+      "ie-en-stolen-credentials",
+      "ie-vi-destructive-files",
+      "ie-vi-decoded-content",
+      "ie-vi-decoding-proof",
+      "ie-vi-certain-attack-determination",
+      "ur-en-weather",
+      "ur-en-product-price",
+      "ur-en-linux-cron",
+      "ur-en-sql-injection",
+      "ur-vi-ransomware-encryption",
+      "ur-vi-kubernetes-configuration",
+      "ur-vi-literature-learning",
+      "ur-vi-opaque-token"
+    ],
+    "proposed_test_case_ids": [
+      "nt-raw-conhost-launch-detail",
+      "nt-raw-mshta-termination-status",
+      "nt-raw-powershell-delete-records",
+      "nt-raw-network-owner",
+      "nt-raw-log-clear-chronology",
+      "nt-missing-powershell-exit",
+      "nt-missing-deleted-script-content",
+      "nt-missing-log-clear-caller",
+      "nt-unrelated-printer-policy",
+      "nt-unrelated-tls-rotation",
+      "nt-unrelated-python-sequences"
+    ],
+    "held_out_approved_case_ids": [],
+    "proposed_groups": [
+      {
+        "group_id": "new-conhost-launch",
+        "case_ids": [
+          "nt-raw-conhost-launch-detail"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-mshta-lifecycle",
+        "case_ids": [
+          "nt-raw-mshta-termination-status"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-temp-file-lifecycle",
+        "case_ids": [
+          "nt-raw-powershell-delete-records",
+          "nt-missing-deleted-script-content"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-background-network",
+        "case_ids": [
+          "nt-raw-network-owner"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-eventlog-clearing",
+        "case_ids": [
+          "nt-raw-log-clear-chronology",
+          "nt-missing-log-clear-caller"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-powershell-lifecycle-outcome",
+        "case_ids": [
+          "nt-missing-powershell-exit"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-windows-printer-policy",
+        "case_ids": [
+          "nt-unrelated-printer-policy"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-tls-maintenance",
+        "case_ids": [
+          "nt-unrelated-tls-rotation"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      },
+      {
+        "group_id": "new-python-language-semantics",
+        "case_ids": [
+          "nt-unrelated-python-sequences"
+        ],
+        "partition": "proposed_test_not_run",
+        "must_stay_together_in_future_splits": true
+      }
+    ],
+    "group_non_overlap_claim": "case IDs and proposed semantic groups are disjoint by assignment; raw-source/underlying-evidence independence is explicitly NOT claimed",
+    "cross_partition_evidence_overlap": "All 8 in-scope proposed tasks use the same MSHTA raw dataset. Core launch anchors recur for identity linkage; outside-core evidence was already inspected and some existence facts appeared in old scope answers. These cannot establish unseen-scenario or independent-dataset generalization.",
+    "usage_history": [
+      {
+        "source": "outputs/evaluation/mshta-powershell/embedding_retrieval_comparison.json",
+        "cases": 32,
+        "usage": "two-model ranking comparison/model selection; 64 rankings recorded"
+      },
+      {
+        "source": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration.json",
+        "cases": 32,
+        "usage": "legacy MiniLM calibration; 672 candidate policies; no_eligible_policy"
+      },
+      {
+        "source": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration_e5.json",
+        "cases": 32,
+        "usage": "legacy E5 calibration; 672 candidate policies; no_eligible_policy"
+      },
+      {
+        "source": "outputs/review/mshta-ground-truth/reference_answers.json",
+        "cases": 32,
+        "usage": "technical error/scope review and two query wording corrections; all remain development data"
+      }
+    ],
+    "new_proposal_history": {
+      "author": "AI assistant",
+      "constructed_from": "raw log fields, existing query/answer semantic inspection and static baseline corpus inspection",
+      "retrieval_runs": 0,
+      "gate_runs": 0,
+      "threshold_selection_uses": 0,
+      "human_approval_inherited": false
+    },
+    "next_step": "Review exact proposed labels and intended full-raw versus core scope. Approving these labels alone does not add evidence to the frozen corpus/graph. Do not run a positive-context gate evaluation until supported context and experiment eligibility are explicitly established."
+  },
+  "metadata": {
+    "case_count": 11,
+    "category_counts": {
+      "in_scope_insufficient_evidence": 3,
+      "in_scope_sufficient_evidence": 5,
+      "unrelated": 3
+    },
+    "decision_counts": {
+      "abstain": 6,
+      "proceed": 5
+    },
+    "semantic_group_count": 9,
+    "independent_held_out_count": 0,
+    "full_raw_positive_cases_eligible_for_frozen_context_false_abstain_metric": 0
+  },
+  "cases": [
+    {
+      "case_id": "nt-raw-conhost-launch-detail",
+      "semantic_group_id": "new-conhost-launch",
+      "category": "in_scope_sufficient_evidence",
+      "language": "vi",
+      "query": "Trong file MSHTA gốc, command line đầy đủ của conhost.exe được PowerShell khởi chạy là gì, và hai raw records nào ghi nhận cùng lần tạo đó?",
+      "expected_decision": "proceed",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "sufficient"
+      },
+      "reference_answer": "Security 4688 line 36 và Sysmon 1 line 422 cùng ghi conhost.exe với command line \\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1. PID con 0x27b4 tương ứng 10164; PID cha PowerShell 0x2564 tương ứng 9572. Sysmon ParentProcessGuid ở line 422 khớp ProcessGuid PowerShell ở line 398. Đây là một nhóm tạo conhost ngoài hai nhóm core, không thêm process MSHTA hoặc PowerShell và không gán ý định tấn công.",
+      "label_rationale": "Các trường command line, image, PID và parent GUID hỗ trợ câu trả lời trực tiếp; correlation Security/Sysmon vẫn là inferred.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:36",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 4688,
+            "SourceName": "Microsoft-Windows-Security-Auditing",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:58:00.568Z",
+            "Hostname": "WORKSTATION5",
+            "NewProcessName": "C:\\Windows\\System32\\conhost.exe",
+            "NewProcessId": "0x27b4",
+            "ProcessId": "0x2564",
+            "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:422",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.570Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\conhost.exe",
+            "ProcessId": "10164",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6d13-000000000700}",
+            "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ParentProcessId": "9572",
+            "ParentProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.489Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessId": "9572",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}"
+          }
+        }
+      ],
+      "missing_evidence": [],
+      "novelty_assessment": {
+        "new_intent": "exact_conhost_flags_and_duplicate_telemetry_pair",
+        "closest_previous_cases": [
+          "rd-vi-reviewed-scope-limitations",
+          "rp-vi-final-review-limits"
+        ],
+        "difference": "Old answers only mention that conhost lies outside the core; no old query asks its exact flags or its own raw observation pair.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Line 398 is reused only to link the PowerShell parent; conhost existence was already mentioned in scope review.",
+        "independence_claim": "new_attribute_task_on_same_dataset_not_an_independent_evidence_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Do not count abstain on this full-raw positive as a false abstain with the frozen core context."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-raw-mshta-termination-status",
+      "semantic_group_id": "new-mshta-lifecycle",
+      "category": "in_scope_sufficient_evidence",
+      "language": "en",
+      "query": "Which termination observations are recorded for the MSHTA process, and what status value does the Security record contain?",
+      "expected_decision": "proceed",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "sufficient"
+      },
+      "reference_answer": "Security Event ID 4689 at line 42 records ProcessName C:\\Windows\\System32\\mshta.exe, ProcessId 0x2ae4 and Status 0x0 at TimeCreated 2020-10-22T02:58:00.599Z. Sysmon Event ID 5 at line 452 records Image mshta.exe, PID 10980 and ProcessGuid {39e4a257-2d77-5f91-6b13-000000000700}, which matches the creation GUID at line 275. These are two telemetry views of MSHTA termination. Status 0x0 is a raw process-exit field, not proof of PowerShell success, cmdlet completion or service state. Preserve Sysmon UtcTime separately.",
+      "label_rationale": "Termination events are observed in the complete raw file; the raw status is stated without converting it into a security conclusion.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:42",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 4689,
+            "SourceName": "Microsoft-Windows-Security-Auditing",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:58:00.599Z",
+            "Hostname": "WORKSTATION5",
+            "ProcessName": "C:\\Windows\\System32\\mshta.exe",
+            "ProcessId": "0x2ae4",
+            "Status": "0x0"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:452",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 5,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.599Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\mshta.exe",
+            "ProcessId": "10980",
+            "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+            "UtcTime": "2020-10-22 06:58:00.584"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:57:59.857Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\mshta.exe",
+            "ProcessId": "10980",
+            "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+            "UtcTime": "2020-10-22 06:57:59.855"
+          }
+        }
+      ],
+      "missing_evidence": [],
+      "novelty_assessment": {
+        "new_intent": "mshta_process_termination_status",
+        "closest_previous_cases": [
+          "rd-en-process-chain",
+          "rp-vi-service-action"
+        ],
+        "difference": "Old queries ask process creation or launch command, not termination or Security Status.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Creation line 275 is reused for identity correlation; termination lines 42/452 were outside the reviewed core.",
+        "independence_claim": "new_lifecycle_task_same_process_and_dataset_not_independent_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Do not count abstain on this full-raw positive as a false abstain with the frozen core context."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-raw-powershell-delete-records",
+      "semantic_group_id": "new-temp-file-lifecycle",
+      "category": "in_scope_sufficient_evidence",
+      "language": "vi",
+      "query": "Ba Sysmon Event ID 23 trong file MSHTA gốc ghi PowerShell xóa những TargetFilename nào, và cờ Archived/IsExecutable có giá trị gì?",
+      "expected_decision": "proceed",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "sufficient"
+      },
+      "reference_answer": "Lines 612, 655 và 782 ghi ba TargetFilename: C:\\Users\\wardog\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\CustomDestinations\\590aee7bdd69b59b.customDestinations-ms~RF1473b55e.TMP; C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_qb2jvpzw.rfn.ps1; C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_elhh2jt2.2ix.psm1. Cả ba đều có Archived=\"true\", IsExecutable=\"false\", Image PowerShell, PID 9572 và cùng ProcessGuid. Chỉ ghi nhận telemetry xóa tệp; không suy ra nội dung tệp, ý đồ phá hoại hoặc kết luận ATT&CK mới.",
+      "label_rationale": "Full-file streaming count finds exactly three Sysmon 23 records and their exact fields. This is a bounded file-inventory task, not destructive-payload attribution.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:612",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 23,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.894Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessId": "9572",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\CustomDestinations\\590aee7bdd69b59b.customDestinations-ms~RF1473b55e.TMP",
+            "Archived": "true",
+            "IsExecutable": "false"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:655",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 23,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.154Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessId": "9572",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_qb2jvpzw.rfn.ps1",
+            "Archived": "true",
+            "IsExecutable": "false"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:782",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 23,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.226Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessId": "9572",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_elhh2jt2.2ix.psm1",
+            "Archived": "true",
+            "IsExecutable": "false"
+          }
+        }
+      ],
+      "missing_evidence": [],
+      "novelty_assessment": {
+        "new_intent": "enumerate_observed_temp_deletion_targets_and_flags",
+        "closest_previous_cases": [
+          "ie-vi-destructive-files",
+          "rd-vi-reviewed-scope-limitations"
+        ],
+        "difference": "Old query explicitly asks for intentional destructive payload in two core groups; this asks literal filenames/flags in a wider raw scope. It changes the evidence domain and must not inherit the old abstain label.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Existence of temporary deletion was known in earlier review, but filenames and flags were not previous evaluation targets.",
+        "independence_claim": "same_dataset_new_detail_probe_not_fully_unseen_evidence"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Do not count abstain on this full-raw positive as a false abstain with the frozen core context."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-raw-network-owner",
+      "semantic_group_id": "new-background-network",
+      "category": "in_scope_sufficient_evidence",
+      "language": "en",
+      "query": "In the original MSHTA file, which application owns the Security 5156 connection and what source and destination endpoints are recorded?",
+      "expected_decision": "proceed",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "sufficient"
+      },
+      "reference_answer": "Line 3 assigns the 5156 connection to \\device\\harddiskvolume2\\windowsazure\\guestagent_2.7.41491.993_2020-10-08_063613\\guestagent\\windowsazureguestagent.exe, ProcessID 3428. SourceAddress/SourcePort are 192.168.2.5:52507 and DestAddress/DestPort are 168.63.129.16:80, with Protocol \"6\". The raw Message says outbound. This observation is not attributed to MSHTA or PowerShell, and does not establish their C2 or download.",
+      "label_rationale": "The sole 5156 record in the full file names an application outside the reviewed process chain; literal endpoint inventory is supported, C2 attribution is not.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:3",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 5156,
+            "SourceName": "Microsoft-Windows-Security-Auditing",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:57:58.116Z",
+            "Hostname": "WORKSTATION5",
+            "Application": "\\device\\harddiskvolume2\\windowsazure\\guestagent_2.7.41491.993_2020-10-08_063613\\guestagent\\windowsazureguestagent.exe",
+            "ProcessID": "3428",
+            "SourceAddress": "192.168.2.5",
+            "SourcePort": "52507",
+            "DestAddress": "168.63.129.16",
+            "DestPort": "80",
+            "Protocol": "6",
+            "Direction": "%%14593"
+          }
+        }
+      ],
+      "missing_evidence": [],
+      "novelty_assessment": {
+        "new_intent": "positive_background_connection_owner_and_endpoint_inventory",
+        "closest_previous_cases": [
+          "ie-en-c2-address",
+          "ie-en-payload-download-url"
+        ],
+        "difference": "Old questions assume a PowerShell C2/download; this identifies a real connection owned by a different application, without asserting a malicious role.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Earlier full-file review already noted the WindowsAzureGuestAgent connection; its endpoints were not prior case targets.",
+        "independence_claim": "new_question_intent_on_previously_inspected_raw_evidence_not_independent_dataset"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Do not count abstain on this full-raw positive as a false abstain with the frozen core context."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-raw-log-clear-chronology",
+      "semantic_group_id": "new-eventlog-clearing",
+      "category": "in_scope_sufficient_evidence",
+      "language": "vi",
+      "query": "Ba record log-clearing trong file MSHTA gốc nêu log nào bị clear, TimeCreated nào, và thứ tự timestamp có trùng thứ tự dòng trong file không?",
+      "expected_decision": "proceed",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "sufficient"
+      },
+      "reference_answer": "Line 1 là Eventlog 1102 trên Security, TimeCreated 2020-10-22T02:57:56.178Z, Message bắt đầu \"The audit log was cleared.\" Line 1126 là Eventlog 104 trên System, Message \"The System log file was cleared.\", TimeCreated 2020-10-22T02:57:56.240Z. Line 1127 cũng là Eventlog 104 trên System nhưng Message \"The Application log file was cleared.\", TimeCreated 2020-10-22T02:57:56.256Z. Theo ba TimeCreated này thứ tự tăng là 1 → 1126 → 1127, nhưng hai record cuối nằm sau nhiều record có timestamp muộn hơn. Không dùng vị trí dòng làm thứ tự toàn cục, không suy ra process gây clear hoặc kỹ thuật tấn công.",
+      "label_rationale": "Provider/channel/event ID and messages establish what was logged. Message identifies Application clear although its containing channel is System; no invented channel normalization.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1102,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:57:56.178Z",
+            "Hostname": "WORKSTATION5"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1126",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 104,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "System",
+            "TimeCreated": "2020-10-22T02:57:56.240Z",
+            "Hostname": "WORKSTATION5",
+            "Message": "The System log file was cleared."
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1127",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 104,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "System",
+            "TimeCreated": "2020-10-22T02:57:56.256Z",
+            "Hostname": "WORKSTATION5",
+            "Message": "The Application log file was cleared."
+          }
+        }
+      ],
+      "missing_evidence": [],
+      "novelty_assessment": {
+        "new_intent": "log_clear_timestamp_vs_file_position_and_message_channel_roles",
+        "closest_previous_cases": [
+          "rd-vi-reviewed-scope-limitations",
+          "rp-vi-launch-order"
+        ],
+        "difference": "Old scope mentions log clearing without target logs/timestamps; old launch-order task concerns directed process relationships, not timestamp ordering of these records.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Existence of log-clearing telemetry was already known; exact channel/message distinction is a new review target.",
+        "independence_claim": "new_forensic_task_same_inspected_dataset_not_independent_evidence_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Do not count abstain on this full-raw positive as a false abstain with the frozen core context."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-missing-powershell-exit",
+      "semantic_group_id": "new-powershell-lifecycle-outcome",
+      "category": "in_scope_insufficient_evidence",
+      "language": "en",
+      "query": "What was the exit status of the PowerShell process launched through MSHTA, and exactly how long did that PowerShell process live?",
+      "expected_decision": "abstain",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "insufficient"
+      },
+      "reference_answer": "The collected file does not provide a PowerShell termination observation or exit status. Lines 30/398 show its launch. The one Security 4689 and one Sysmon 5 instead describe MSHTA termination (lines 42/452). They cannot supply the PowerShell exit code or lifetime. Abstain from the requested values; do not infer that PowerShell never exited outside this collection.",
+      "label_rationale": "Complete-file inspection found zero PowerShell Event ID 5/4689 observations; MSHTA exit values cannot be transferred to its child.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 4688,
+            "SourceName": "Microsoft-Windows-Security-Auditing",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:58:00.462Z",
+            "Hostname": "WORKSTATION5",
+            "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "NewProcessId": "0x2564",
+            "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.489Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessId": "9572",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:42",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 4689,
+            "SourceName": "Microsoft-Windows-Security-Auditing",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:58:00.599Z",
+            "Hostname": "WORKSTATION5",
+            "ProcessName": "C:\\Windows\\System32\\mshta.exe",
+            "ProcessId": "0x2ae4",
+            "Status": "0x0"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:452",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 5,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:00.599Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\mshta.exe",
+            "ProcessId": "10980",
+            "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}"
+          }
+        }
+      ],
+      "missing_evidence": [
+        "PowerShell process termination timestamp",
+        "PowerShell exit status",
+        "complete lifecycle observation window"
+      ],
+      "novelty_assessment": {
+        "new_intent": "child_exit_status_and_lifetime",
+        "closest_previous_cases": [
+          "rp-vi-service-action",
+          "ie-vi-certain-attack-determination"
+        ],
+        "difference": "Old questions ask launch command/attack certainty, not exit-code or lifecycle duration. Distinct from cmdlet output even though both concern missing outcome telemetry.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "PowerShell launch anchors 30/398 overlap core; outcome requirement is new.",
+        "independence_claim": "new_missing_evidence_task_same_launch_anchors_not_independent_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-missing-deleted-script-content",
+      "semantic_group_id": "new-temp-file-lifecycle",
+      "category": "in_scope_insufficient_evidence",
+      "language": "vi",
+      "query": "Nội dung nguyên văn của hai tệp __PSScriptPolicyTest .ps1 và .psm1 bị xóa trong file MSHTA gốc là gì?",
+      "expected_decision": "abstain",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "insufficient"
+      },
+      "reference_answer": "Không thể khôi phục nội dung nguyên văn từ các record này. Lines 648/649 ghi tạo tệp, lines 655/782 ghi xóa với TargetFilename, Hashes và Archived=\"true\"; file log không chứa bytes/script text của hai tệp. Cờ archive và hash không cung cấp nội dung tệp trong collection hiện có. Cần artifact archive thực tế hoặc nội dung script được thu thập riêng. Không suy ra đây là payload hay nội dung đã giải mã.",
+      "label_rationale": "Observed file metadata/hash fields support identifying missing material, not reconstructing exact text. Full scan found no ScriptBlockText/ScriptBlockId fields or PowerShell 4103/4104 events.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:648",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 11,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.105Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_qb2jvpzw.rfn.ps1"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:649",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 11,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.105Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_elhh2jt2.2ix.psm1"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:655",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 23,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.154Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_qb2jvpzw.rfn.ps1",
+            "Hashes": "SHA1=6AB83620379FC69F80C0242105DDFFD7D98D5D9D,MD5=D17FE0A3F47BE24A6453E9EF58C94641,SHA256=96AD1146EB96877EAB5942AE0736B82D8B5E2039A80D3D6932665C1A4C87DCF7,IMPHASH=00000000000000000000000000000000",
+            "Archived": "true"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:782",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 23,
+            "SourceName": "Microsoft-Windows-Sysmon",
+            "Channel": "Microsoft-Windows-Sysmon/Operational",
+            "TimeCreated": "2020-10-22T02:58:02.226Z",
+            "Hostname": "WORKSTATION5",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_elhh2jt2.2ix.psm1",
+            "Hashes": "SHA1=6AB83620379FC69F80C0242105DDFFD7D98D5D9D,MD5=D17FE0A3F47BE24A6453E9EF58C94641,SHA256=96AD1146EB96877EAB5942AE0736B82D8B5E2039A80D3D6932665C1A4C87DCF7,IMPHASH=00000000000000000000000000000000",
+            "Archived": "true"
+          }
+        }
+      ],
+      "missing_evidence": [
+        "actual bytes of the two deleted files",
+        "accessible archive artifacts or collected script text"
+      ],
+      "novelty_assessment": {
+        "new_intent": "exact_contents_of_observed_policy_test_files",
+        "closest_previous_cases": [
+          "ie-vi-decoded-content",
+          "ie-vi-destructive-files"
+        ],
+        "difference": "Old query presupposes a decoded payload or intentional destruction; this asks exact content of individually observed files without asserting payload/decoding. Kept in the same proposed group as deletion inventory to prevent future leakage across splits.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Earlier scope knows deletion exists, but these file-content requirements were not old query targets.",
+        "independence_claim": "new_artifact_requirement_same_dataset_not_independent_evidence_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-missing-log-clear-caller",
+      "semantic_group_id": "new-eventlog-clearing",
+      "category": "in_scope_insufficient_evidence",
+      "language": "en",
+      "query": "Which exact process and command line caused the Security, System and Application log clears recorded in this MSHTA file?",
+      "expected_decision": "abstain",
+      "label_domain": "full_selected_mshta_raw_dataset",
+      "proposed_layer_labels": {
+        "topical_relevance": "in_scope_of_full_mshta_dataset",
+        "dataset_answerability": "insufficient"
+      },
+      "reference_answer": "The log-clearing records at lines 1, 1126 and 1127 establish that clearing was recorded, but do not identify an initiating process image/PID or command line. The subject account text in line 1 is not a causal process identifier. The MSHTA and PowerShell creation records cannot be used to invent this link. Abstain from naming a responsible process or command line; no new attack technique is assigned.",
+      "label_rationale": "The raw log-clearing event dictionaries have no CommandLine, Image/NewProcessName or initiating-process identifier fields. Timestamp proximity alone does not establish the missing causal edge.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 1102,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "Security",
+            "TimeCreated": "2020-10-22T02:57:56.178Z",
+            "Hostname": "WORKSTATION5"
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1126",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 104,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "System",
+            "TimeCreated": "2020-10-22T02:57:56.240Z",
+            "Hostname": "WORKSTATION5",
+            "Message": "The System log file was cleared."
+          }
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:1127",
+          "source_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+          "original_fields": {
+            "EventID": 104,
+            "SourceName": "Microsoft-Windows-Eventlog",
+            "Channel": "System",
+            "TimeCreated": "2020-10-22T02:57:56.256Z",
+            "Hostname": "WORKSTATION5",
+            "Message": "The Application log file was cleared."
+          }
+        }
+      ],
+      "missing_evidence": [
+        "initiating process identity for each log clear",
+        "command line or explicit causal telemetry linking process to clear event"
+      ],
+      "novelty_assessment": {
+        "new_intent": "process_and_command_line_causality_for_log_clear_events",
+        "closest_previous_cases": [
+          "ie-en-attacker-identity",
+          "rd-vi-reviewed-scope-limitations"
+        ],
+        "difference": "Old attribution query asks the human/group responsible for reviewed MSHTA execution. This asks a concrete missing process-level cause of different observed events and is grouped with log-clear inventory.",
+        "underlying_evidence_overlap_with_development": true,
+        "overlap_detail": "Log-clear existence was known earlier; causal process is not supported.",
+        "independence_claim": "new_missing_causal_link_same_dataset_not_independent_holdout"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-unrelated-printer-policy",
+      "semantic_group_id": "new-windows-printer-policy",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Trên Windows, cách cấu hình máy in mặc định cho mọi người dùng bằng Group Policy là gì?",
+      "expected_decision": "abstain",
+      "label_domain": "mshta_dataset_scope_boundary",
+      "proposed_layer_labels": {
+        "topical_relevance": "out_of_scope",
+        "dataset_answerability": "not_applicable"
+      },
+      "reference_answer": "Dataset ghi nhận telemetry MSHTA và các hoạt động nền; không phải nguồn hướng dẫn Group Policy cho máy in. Câu hỏi cấu hình máy in nằm ngoài phạm vi bằng chứng được chọn.",
+      "label_rationale": "The request is an external how-to or language concept, not an investigation of any observed MSHTA-file event. No absence-of-occurrence claim is needed; scope is the label basis.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [],
+      "missing_evidence": [
+        "task-specific evidence is outside the selected dataset domain"
+      ],
+      "novelty_assessment": {
+        "new_intent": "new-windows-printer-policy",
+        "closest_previous_cases": [],
+        "difference": "Windows administration and printer configuration were not previous query intents.",
+        "underlying_evidence_overlap_with_development": false,
+        "overlap_detail": "No log evidence is asserted for this external task.",
+        "independence_claim": "new_unrelated_intent_only_same_small_scenario_scope"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-unrelated-tls-rotation",
+      "semantic_group_id": "new-tls-maintenance",
+      "category": "unrelated",
+      "language": "en",
+      "query": "How should an Nginx reverse proxy rotate a TLS certificate without downtime?",
+      "expected_decision": "abstain",
+      "label_domain": "mshta_dataset_scope_boundary",
+      "proposed_layer_labels": {
+        "topical_relevance": "out_of_scope",
+        "dataset_answerability": "not_applicable"
+      },
+      "reference_answer": "Certificate rotation for Nginx is outside this Windows MSHTA telemetry scope. The selected raw file and reviewed core do not provide configuration/runbook evidence for that task.",
+      "label_rationale": "The request is an external how-to or language concept, not an investigation of any observed MSHTA-file event. No absence-of-occurrence claim is needed; scope is the label basis.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [],
+      "missing_evidence": [
+        "task-specific evidence is outside the selected dataset domain"
+      ],
+      "novelty_assessment": {
+        "new_intent": "new-tls-maintenance",
+        "closest_previous_cases": [],
+        "difference": "This is an operational TLS maintenance task, distinct from old SQL-injection prevention and product questions.",
+        "underlying_evidence_overlap_with_development": false,
+        "overlap_detail": "No log evidence is asserted for this external task.",
+        "independence_claim": "new_unrelated_intent_only_same_small_scenario_scope"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    },
+    {
+      "case_id": "nt-unrelated-python-sequences",
+      "semantic_group_id": "new-python-language-semantics",
+      "category": "unrelated",
+      "language": "vi",
+      "query": "Trong Python, vì sao list và tuple có hành vi thay đổi phần tử khác nhau?",
+      "expected_decision": "abstain",
+      "label_domain": "mshta_dataset_scope_boundary",
+      "proposed_layer_labels": {
+        "topical_relevance": "out_of_scope",
+        "dataset_answerability": "not_applicable"
+      },
+      "reference_answer": "Giải thích semantics của list và tuple trong Python nằm ngoài phạm vi log Windows/MSHTA. Không dùng process evidence để trả lời yêu cầu ngôn ngữ lập trình này.",
+      "label_rationale": "The request is an external how-to or language concept, not an investigation of any observed MSHTA-file event. No absence-of-occurrence claim is needed; scope is the label basis.",
+      "label_source": "direct_read_only_raw_observations_and_explicit_dataset_scope_not_evaluator_output",
+      "evidence": [],
+      "missing_evidence": [
+        "task-specific evidence is outside the selected dataset domain"
+      ],
+      "novelty_assessment": {
+        "new_intent": "new-python-language-semantics",
+        "closest_previous_cases": [],
+        "difference": "Python sequence semantics were not represented in the old unrelated set.",
+        "underlying_evidence_overlap_with_development": false,
+        "overlap_detail": "No log evidence is asserted for this external task.",
+        "independence_claim": "new_unrelated_intent_only_same_small_scenario_scope"
+      },
+      "frozen_baseline_eligibility": {
+        "corpus_and_graph_scope": "two_reviewed_process_creation_groups_only",
+        "required_raw_detail_present_in_corpus_or_graph": false,
+        "inspection_basis": "static_read_of_all_19_corpus_chunks_and_frozen_graph_not_query_retrieval",
+        "sufficient_context_label": "not_established_no_retrieval_run",
+        "included_in_current_calibration": false,
+        "included_in_held_out_metrics": false,
+        "scoring_rule": "Future scoring requires human-approved labels and explicit full-dataset-versus-core topical scope; no evaluation performed."
+      },
+      "evaluation_status": "not_evaluated",
+      "used_for_threshold_selection": false,
+      "review": {
+        "review_status": "pending_human_review",
+        "reviewer": null,
+        "reviewed_at": null
+      }
+    }
+  ],
+  "limitations": [
+    "No proposed query has been retrieved, embedded or sent to the gate; no results exist.",
+    "Novel question intent is not statistical independence. Full MSHTA raw overlap and prior scope disclosures are retained case by case.",
+    "All five proposed positive answers require raw details absent from the frozen two-group corpus/graph. They are scope/retrieval probes pending review, not eligible positive-context validation examples for the current frozen experiment.",
+    "No new confirmed technique, attack attribution, destructive intent, C2 or successful cmdlet conclusion is introduced.",
+    "The current request authorizes preparation of new cases and explicitly requires label review before held-out evaluation. It does not require re-approval of existing Ground Truth."
+  ]
+}

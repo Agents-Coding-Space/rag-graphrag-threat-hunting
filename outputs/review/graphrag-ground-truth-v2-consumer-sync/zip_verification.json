@@ -1,0 +1,1103 @@
+{
+  "entries": [
+    {
+      "filename": "AGENTS.md",
+      "sha256": "3a4e70b15c784890daa3a63a47cba78a23475355087c21d7621f42fd57d7c575",
+      "size": 20090
+    },
+    {
+      "filename": "PROJECT_CONTEXT.md",
+      "sha256": "6f951295cdde54a938ca4c003ede3fe82032babba95dc002f4a9dcce415a3480",
+      "size": 50100
+    },
+    {
+      "filename": "PROJECT_PROGRESS.md",
+      "sha256": "09c92b74540961ffcdbdb2d66f8f541f0176a221ef4f5bc6f95cfb9eb44c67af",
+      "size": 37469
+    },
+    {
+      "filename": "README.md",
+      "sha256": "a25dbb784058004a73aa9e2bac44cca9cd81917b4f936d43e9dda6c45209dda1",
+      "size": 11838
+    },
+    {
+      "filename": "fix1_baseline/AGENTS.md",
+      "sha256": "3a4e70b15c784890daa3a63a47cba78a23475355087c21d7621f42fd57d7c575",
+      "size": 20090
+    },
+    {
+      "filename": "fix1_baseline/PROJECT_CONTEXT.md",
+      "sha256": "6f951295cdde54a938ca4c003ede3fe82032babba95dc002f4a9dcce415a3480",
+      "size": 50100
+    },
+    {
+      "filename": "fix1_baseline/PROJECT_PROGRESS.md",
+      "sha256": "e76e4defb0cd71f32c86b36d88a32c4701f01b0368c947011168cb25a466cf20",
+      "size": 32910
+    },
+    {
+      "filename": "fix1_baseline/README.md",
+      "sha256": "a25dbb784058004a73aa9e2bac44cca9cd81917b4f936d43e9dda6c45209dda1",
+      "size": 11838
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/evaluation/calibration_schema.py",
+      "sha256": "e21d36fb13cda81b243935beffd6eaa1e1f8919f10915f36168875691075ede7",
+      "size": 14215
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/graph/builder.py",
+      "sha256": "ddb8b8a19d012664420a873efd105f64840dc8d909f7cb4754cce1c7d2d94c65",
+      "size": 19732
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/graph/schema.py",
+      "sha256": "466f248e3733470ff4c9aa74b691240256868b2154dd69347e151fd630921525",
+      "size": 17005
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/graphrag/relevance.py",
+      "sha256": "194f5b4018b163f89f4602a7273e57e5df291b7ccb1a3bb77202271e1b6f2e19",
+      "size": 34627
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/retrieval/builder.py",
+      "sha256": "9c94f771019a55cb0d63259b4db6817e03999b1780a9365a50ef4b2d11a577dd",
+      "size": 25188
+    },
+    {
+      "filename": "fix1_baseline/src/threat_hunting/retrieval/schema.py",
+      "sha256": "6757fae09bb76da1831714b839bf7d5153dd7b6a0b5daf9e3d364934d2090ef7",
+      "size": 16945
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/build_manifest.json",
+      "sha256": "540375eb28d2e59c829f22122916f8ec85127261503d5138bd9d14c98519d651",
+      "size": 4806
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/capture_baseline.py",
+      "sha256": "e15e613a351301f52a3ce3db648e5b3d28cf909c31e9da5eaa4fe9425fdd6625",
+      "size": 2822
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/case_transitions.json",
+      "sha256": "879ff8f245c9aab02dc18ef3a84f01965dacb8e80089a1d496ae7c923a5abf04",
+      "size": 228436
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/comparison.json",
+      "sha256": "cca346b0fa9480e1bdaee6919c1301a5cd1da7d35d0a6948cd3d28cb672e0f0b",
+      "size": 9878
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/context_adjudication.json",
+      "sha256": "f3529f1659a108ddd97ea5181f0fd662b288fbc07afcafe1e0c1fe0153a9b58a",
+      "size": 18539
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/contexts.json",
+      "sha256": "da3a0e30053d7579025b442d3c68799b7d6df3a0a9d286e99a3d1b3354952258",
+      "size": 3320731
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/decisions.json",
+      "sha256": "ae6a511aa01cbea7f1b3d39a97b633723646bf66e3e28266521b58f806b8f651",
+      "size": 289912
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/experiment_configuration.json",
+      "sha256": "a19a03c3bf2022bf1467ad470e95a5dbe4e84f226ea8969ce3d63b6592a503f0",
+      "size": 2603
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/finalize_review.py",
+      "sha256": "725944079c00a085cc6312fb352f891cb826ab9632f9534e27111aefe7d9c171",
+      "size": 21278
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/fixed_policy.json",
+      "sha256": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+      "size": 934
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/focus_case_analysis.json",
+      "sha256": "54ba13a23b09e55fc6c4b2aef0965d5099f10e92057e6c56b8123882ec552389",
+      "size": 8341
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/knowledge_graph.json",
+      "sha256": "04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443",
+      "size": 57260
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/preflight.json",
+      "sha256": "116d8c9e76fa2053dabfb1d765e49d7cd1cd2e419577a457b043c791bbdb68db",
+      "size": 1018858
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/protected_hashes_after.json",
+      "sha256": "856f6fc992041734828f920ddd60311c9910c3480f2acd23e894397eec839300",
+      "size": 1680743
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/retrieval_corpus.json",
+      "sha256": "b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c",
+      "size": 44528
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/signals.json",
+      "sha256": "26e0d27b4455396519605c42cd978d91908e86d70ed64eaa5d881b833b7062de",
+      "size": 88566
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/validation_results.json",
+      "sha256": "0c77797ecaed3091b7a1694b697ba6558318cbe05e110c5765e98b59c9bf0ecc",
+      "size": 1312
+    },
+    {
+      "filename": "outputs/experiments/graphrag-2d3-fix1/vector_index.json",
+      "sha256": "2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78",
+      "size": 259342
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/dependencies.json",
+      "sha256": "d2b12003f4f648782249d5f5a26cf571bd27cfc5940007331264b4f78a13c15b",
+      "size": 363
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/new_changes.patch",
+      "sha256": "ffde9b069866348b261ae7b2e09f1f9a5815599ccb0f1616ce18f4d4be29da5d",
+      "size": 13068
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/per_case_report.md",
+      "sha256": "68a5d655a0df705e2b2dc50bdcb7504f3986f137d01998709a0a395311820eb2",
+      "size": 71680
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/protected_hash_summary.md",
+      "sha256": "a2e8b44c86bf072a40325701f53b91bb1264e690dac0d6e0549ef08821b73c29",
+      "size": 2820
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/report.md",
+      "sha256": "e37e7b65edfc8472bb015783d8725bd70863c8f63fa1738ed5617aa1a0d8c49a",
+      "size": 21453
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/review_inventory.json",
+      "sha256": "377f589174492ba4b20cf705a8c9f508d10ed1a9d8342f0ddf4b6a2aad2e0601",
+      "size": 66049
+    },
+    {
+      "filename": "outputs/review/graphrag-ground-truth-v2-consumer-sync/tests.json",
+      "sha256": "bee9114bb4a40299f540ebf051ae5f6357264b12fce95536e6dd88f62ea5c69e",
+      "size": 5027
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/calibration_results.json",
+      "sha256": "4dd266846fd71154f1f1d4d7ebefd5df4f701158e4f3ab6fddf6a416ffb18b2b",
+      "size": 5747972
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/consumer_audit.json",
+      "sha256": "23a884033a7f3362210c78b870ff24c842fffee5965baa9e3ff6a4075265098b",
+      "size": 74985
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/external_context_adjudication.json",
+      "sha256": "e3554a91690c15df530fba344564da7eae7e12ffa626556368162b749508dfb9",
+      "size": 21864
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/frozen_retrieval_configuration.json",
+      "sha256": "dc3e32912f42b6b7703b859502e9fe37fc43e150d8632617e84770320283aa69",
+      "size": 3573
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/selected_policy.json",
+      "sha256": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+      "size": 934
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/split_manifest.json",
+      "sha256": "3f7a2247dc4f5e04dcb18ae4a99e95013a04668162fe081e03cb0fc5c28d8203",
+      "size": 19565
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/reference_answers.json",
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b",
+      "size": 55430
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/review_manifest.json",
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4",
+      "size": 5481
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "size": 19679
+    },
+    {
+      "filename": "pyproject.toml",
+      "sha256": "7b4db6bb1cc3a2f4db5a6a2e4b5bbd2ed8bef323c99e70369189a5a87aa04e5a",
+      "size": 561
+    },
+    {
+      "filename": "scripts/sync_ground_truth_v2_consumers.py",
+      "sha256": "8e9181e0917db09f9cfadda2df238c7ccb1fdf3844cc428796c3d6af82d8ebf1",
+      "size": 21285
+    },
+    {
+      "filename": "src/threat_hunting/__init__.py",
+      "sha256": "8226d03d5772e2bbd55bddbf6d1e1d88f6bab726a587bca4e283785fc609e5c4",
+      "size": 49
+    },
+    {
+      "filename": "src/threat_hunting/discovery.py",
+      "sha256": "dd030232457b3daa166076d192e6d0c84937f1d2078427743e7e4f7067d54ebc",
+      "size": 3154
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/__init__.py",
+      "sha256": "a0fbbe17d673f35a61eadf65adf552dc9d6db483b463b506229b78df84736e43",
+      "size": 4070
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/calibration_config.py",
+      "sha256": "f871e996edfa1f85fa3a6feaa9111ea1e5ae9e65c91d5a639a11312a48b3df4e",
+      "size": 13133
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/calibration_schema.py",
+      "sha256": "fc071f2494f6914c373fc28844dfe4853c775923b6feed299e58fba9cb8eb107",
+      "size": 14462
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/diagnostics_schema.py",
+      "sha256": "453c6c4d8f34f81ec80e8e34bdc2488dd6b803cd13c45a9b01f873178b6b4a35",
+      "size": 8871
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_model_selection.py",
+      "sha256": "1cf38433abbabb317e3f3017460b2cf716430b589dd6cc74dbc6721564e00e9b",
+      "size": 13437
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_model_selection_schema.py",
+      "sha256": "9d96be62b869fa93240d410ef21af6cd694971300860634fefe89025f33b404b",
+      "size": 14590
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_comparison.py",
+      "sha256": "c660e2573fda60cf5cb21f8c026c49c61a60cf0a2a970d39aa62fe6a85b7a707",
+      "size": 18390
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_comparison_schema.py",
+      "sha256": "431844a7e85f280dc2422270bd969d117bc0aa2699e4be3984bf1ced21646391",
+      "size": 28171
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_runner.py",
+      "sha256": "549368668465850df38a70cf6fa773fcc885b3062b788867a54f754e682988b3",
+      "size": 23100
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_calibration.py",
+      "sha256": "d89126635205121565a2eab66346d4567abf84c73babd67d22d9d2565bd1ad0f",
+      "size": 10384
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_dataset.py",
+      "sha256": "33a07c4a5f3312096f4646e0c4f674ce80531ecf45b1634635306c4ac7a7281c",
+      "size": 12787
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_diagnostics.py",
+      "sha256": "a99866614ae176a43e476c6f72780ed5647853ca7fe2234f7eaa99b8f38fdb3e",
+      "size": 26636
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/retrieval_judgments.py",
+      "sha256": "1d3327612c7171bbd0d4e24d0e50c655e26efa78470be01bd7b822372a0cc30c",
+      "size": 25595
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/review_package.py",
+      "sha256": "3244f91d687775d7e8c0a6e97961e569397b28bdf2ed427cfa20b7b15b54f300",
+      "size": 8565
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/two_stage_calibration.py",
+      "sha256": "4a55341fc8b07d715d958aa7a370471fd70ea3c8afde45f1f33f1d57b6e2c5df",
+      "size": 22922
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/two_stage_review.py",
+      "sha256": "11e545435e165ddf6b0b368b95a23559b4752dddde57e071aafa9370d4342084",
+      "size": 18018
+    },
+    {
+      "filename": "src/threat_hunting/evidence/__init__.py",
+      "sha256": "71e67672e1262f9550a6f5b20d785e95de41ffe6b0cb24fe316bb7d37158cdb8",
+      "size": 1736
+    },
+    {
+      "filename": "src/threat_hunting/evidence/mshta_powershell.py",
+      "sha256": "7b78d892770c1880c600bc53fd490b200749633d9057bfc1589a6749124ee14d",
+      "size": 37602
+    },
+    {
+      "filename": "src/threat_hunting/evidence/schema.py",
+      "sha256": "3c45df6011102df2080769d1ff999320761b9afdb022cd0624eed6d745a0e828",
+      "size": 18150
+    },
+    {
+      "filename": "src/threat_hunting/graph/__init__.py",
+      "sha256": "2d8f834ed850574a2fcf567247eb247fb1547224b6e208a198a915c5e072eae7",
+      "size": 663
+    },
+    {
+      "filename": "src/threat_hunting/graph/builder.py",
+      "sha256": "afb5947e6623230978e772d09171e91b1d9d4617a9421e2987a06a871471d6b4",
+      "size": 19778
+    },
+    {
+      "filename": "src/threat_hunting/graph/schema.py",
+      "sha256": "c711c77a3cef757ccc4a75f526e0b6508ce262e69c0655eefd7423598bbcd3a3",
+      "size": 17137
+    },
+    {
+      "filename": "src/threat_hunting/graph/traversal.py",
+      "sha256": "0623ac79b8e2462cf3e92fd600b2bb71578db33f51a55b215288956619460bf8",
+      "size": 17666
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/__init__.py",
+      "sha256": "226a4fbf1ef54e3e43160aa86bab22208983711c4943f790cd65e604fe8a111c",
+      "size": 1691
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/gate_signals.py",
+      "sha256": "1f603a7d6d61bfa16d62bc0746cc04445e85e15b5dda5b3c605ed54651980ae6",
+      "size": 15858
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/orchestrator.py",
+      "sha256": "733e3aa7505df89777cb90b2655d7abd707ff3cef40a6407f0a059be27b69a67",
+      "size": 11456
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/relevance.py",
+      "sha256": "4cc57df1114403efaf083005f1977f55481d925dae24dc85962d8b87f5edc109",
+      "size": 34712
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/seed_mapping.py",
+      "sha256": "a8064c5b62d96ca4265719a8317202bf10f1509623e144b0d903df1c80c10c8d",
+      "size": 16663
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/two_stage_gate.py",
+      "sha256": "3ef2af319061c254d4cb14bdd113b4222cda39ab59d49f8bb0c6a3ec94e38eac",
+      "size": 11674
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/__init__.py",
+      "sha256": "4de85156d968f1f0312ad6df8d4cd2350e2c5c2aee2d1a65885c11aecec40db6",
+      "size": 913
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/approval.py",
+      "sha256": "bc19eff75d09a9d0d9a9203a3bbec6ca889915f9e7ebafdbf56e506e8b078917",
+      "size": 2008
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/approval_update.py",
+      "sha256": "e5821e7dc58ed4dbd35e66d54c3225d2df43b74379515895a49669bceb3f9c65",
+      "size": 3961
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/builder.py",
+      "sha256": "04f838bd4e655763921f63d90c58409ca1525fda1f7265178a7f64ed3c7109d9",
+      "size": 41964
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/review_artifacts.py",
+      "sha256": "8d0574a03f434707e9e3623c6febf42277f58f9b9d618ce6de138bb58faaa414",
+      "size": 21650
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/schema.py",
+      "sha256": "f581ebe1e6687c888c97d7d7d3bd5a68aa0bff816673f34bab22d9d4d9b81a8d",
+      "size": 26575
+    },
+    {
+      "filename": "src/threat_hunting/mitre/__init__.py",
+      "sha256": "835600633438435795eb9cb9b71fe5755408df24ca5413c12acab79ec3eea32e",
+      "size": 1420
+    },
+    {
+      "filename": "src/threat_hunting/mitre/loader.py",
+      "sha256": "22be852bcf46cb410a3736cdae752c1053f386f542d61d3cc686237c9394e916",
+      "size": 22393
+    },
+    {
+      "filename": "src/threat_hunting/mitre/resolver.py",
+      "sha256": "48c9b162fa3176edc781e76f059cfe577487771446bf3bc1a8343083aa7b0c4e",
+      "size": 18185
+    },
+    {
+      "filename": "src/threat_hunting/mordor/__init__.py",
+      "sha256": "4ee235c8b37d934ab20b4dd33ec13511e4aef052331c7733c066e1ba496ff478",
+      "size": 57
+    },
+    {
+      "filename": "src/threat_hunting/mordor/format_detection.py",
+      "sha256": "e0bff891394cd72ae3a3f1029332a3e3d7cb503a79bd8e47befb68e3373242cf",
+      "size": 4482
+    },
+    {
+      "filename": "src/threat_hunting/mordor/inspection.py",
+      "sha256": "ba7bcd21f434feef88285f8de1987917a774ddfeae0f6d5fa3bc03f14c03ec7d",
+      "size": 29263
+    },
+    {
+      "filename": "src/threat_hunting/mordor/parser.py",
+      "sha256": "1e3ae25bd997f11589132e42a934b8a4c3d34c07f8fa3bddb968074ef002254e",
+      "size": 6626
+    },
+    {
+      "filename": "src/threat_hunting/normalization_reporting.py",
+      "sha256": "6d9cb1c63dfb6dc956b82312edc6652e7a2ada1cadefef90315acbb26281b05a",
+      "size": 17861
+    },
+    {
+      "filename": "src/threat_hunting/normalization_writer.py",
+      "sha256": "e6454eaf22c84f7a14fd66ecb8160b035d4ed3210cf6820d26ad5832463c6840",
+      "size": 10937
+    },
+    {
+      "filename": "src/threat_hunting/normalizer.py",
+      "sha256": "7ef38b69be77b9e25d310b4f483e9469e58dca7fa8b20c6d24fee2adce94a0dd",
+      "size": 12185
+    },
+    {
+      "filename": "src/threat_hunting/reporting.py",
+      "sha256": "ef580bca5222a2203763a2dc4ed95bb8efee125196a0780a8b85e8a12e9d0158",
+      "size": 11823
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/__init__.py",
+      "sha256": "bbda12a1bd4e6f5ba91980e9a8365b3b275606f9623e4e66911143a57f04d94a",
+      "size": 1633
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/builder.py",
+      "sha256": "5c3a8d5e536b01a96fbfb6410089ac41aaeb6130309186c7e1857e6df0fc32ff",
+      "size": 25495
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/embedding_backend.py",
+      "sha256": "d646211296acf3e96611be517961163142b71ebb11c0aa876833b66d06c54a16",
+      "size": 9012
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/hybrid.py",
+      "sha256": "1f1ac3c7a31d7d47865fc157c8a4a8f091a1067a134a37e37f19c9859764de15",
+      "size": 14751
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/lexical.py",
+      "sha256": "8dfb7f71e5603105fbc4024ff8548fa1fbca7c1f5fe3278989d511a280e69d95",
+      "size": 8692
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/schema.py",
+      "sha256": "8cb9ecba32569652106928abe204c82396673bb00f9848a5893e25c4a0d791e9",
+      "size": 17068
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_builder.py",
+      "sha256": "e42c3a82f84b6d7e38d9c8175b4e9feb0cd49db6282c011504e7c34787615a30",
+      "size": 11794
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_schema.py",
+      "sha256": "b60f577f839db2be498222c117f5d7ddee2bf3532dce8fb59371e69dd44dde7e",
+      "size": 15615
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_search.py",
+      "sha256": "cec784bf5c78761a0e948465f18cd67e6f144874d3d0f4b0894f3e4b83e1ef36",
+      "size": 9824
+    },
+    {
+      "filename": "src/threat_hunting/run_spec.py",
+      "sha256": "721e0ff290632d155ca1ceafaec5ba017a6ebe0e0ad11e5b00b4af545871e17c",
+      "size": 2375
+    },
+    {
+      "filename": "src/threat_hunting/schemas/__init__.py",
+      "sha256": "a15dc197e93ee15b3fa258243e764d90679993a576ec08f4c34cab98cad1872a",
+      "size": 49
+    },
+    {
+      "filename": "src/threat_hunting/schemas/canonical_event.py",
+      "sha256": "5186956cbdc8b9d0f800137b734cc9c2d4be9e805b9cb15f4e570d29e6afdad6",
+      "size": 3567
+    },
+    {
+      "filename": "src/threat_hunting/schemas/canonical_mapping.py",
+      "sha256": "970139908f3d0e4c052b468bc6a49e3b8e5edb1964cb2aa5b1188e31227da042",
+      "size": 14276
+    },
+    {
+      "filename": "src/threat_hunting/sigma/__init__.py",
+      "sha256": "9e38d71b33e3b0d77016042bedeb0202ac39cbad321575c4af368ee6e806e7ff",
+      "size": 1257
+    },
+    {
+      "filename": "src/threat_hunting/sigma/evaluator.py",
+      "sha256": "20117826d9668219911276b6f8156374e2d2a5ec4d484cb9b7b9588d7cdd6279",
+      "size": 12909
+    },
+    {
+      "filename": "src/threat_hunting/sigma/loader.py",
+      "sha256": "9636eb4ec404b36665bd631a9c8790551465ce64e1c3ad9e8087a6cf36073b94",
+      "size": 11111
+    },
+    {
+      "filename": "src/threat_hunting/sigma/review.py",
+      "sha256": "cde623d573a6370ce4970202e87eebade2feba11593df022f6f745810ec5330e",
+      "size": 8596
+    },
+    {
+      "filename": "tests/fixtures/evaluation/diagnostics/calibration_report.json",
+      "sha256": "e21c52fbaa61f3b657cdaff2503f7c50ec141b47e0e241376ffeff682e4d96e4",
+      "size": 39160
+    },
+    {
+      "filename": "tests/fixtures/evaluation/diagnostics/dataset.json",
+      "sha256": "594fd3297fc8166a099b890ca0092ee8bdfd1e94f3d775964c6de71be879d78d",
+      "size": 3057
+    },
+    {
+      "filename": "tests/fixtures/evaluation/embedding_model_selection/expected_selection.json",
+      "sha256": "9c51aabf85605bcfc210d1d086dce1b0c6c85f778f853d51a55b23bf1b870904",
+      "size": 24718
+    },
+    {
+      "filename": "tests/fixtures/evaluation/embedding_model_selection/input_comparison.json",
+      "sha256": "a2086ab053334ca70a8fcf782f4a72c15ae5a7cdb2f5367a2b0f8e6ec4202a7a",
+      "size": 215531
+    },
+    {
+      "filename": "tests/fixtures/evaluation/embedding_retrieval_comparison/expected_comparison.json",
+      "sha256": "17d393346f5aca58534b50755c5eaacf0f10e8d9d5f642becd52d25f0c5e9b94",
+      "size": 110543
+    },
+    {
+      "filename": "tests/fixtures/evaluation/embedding_retrieval_comparison/input_comparison.json",
+      "sha256": "0d9d6cc7ee8f88980454621821b9bc28213affe55f8da72bd33c70fc176d3a41",
+      "size": 29644
+    },
+    {
+      "filename": "tests/fixtures/evaluation/relevance_calibration_minimal.json",
+      "sha256": "28cb387f2adb020a7b51f7bddafa7e0b97b212f171be7a649a50e7f1650e6799",
+      "size": 2178
+    },
+    {
+      "filename": "tests/fixtures/evaluation/retrieval_judgments_minimal.json",
+      "sha256": "f828b8a02c41fd432bfafd7e583ca4e115f2b2a4ada70e15c76561eae65ba143",
+      "size": 2395
+    },
+    {
+      "filename": "tests/fixtures/graph/builder/expected_knowledge_graph.json",
+      "sha256": "391bb82261db7a46e6a62dcb7d69d1588ea4d8bf02f094540175a2871582b945",
+      "size": 30596
+    },
+    {
+      "filename": "tests/fixtures/graph/knowledge_graph_minimal.json",
+      "sha256": "061a75aa34d2d64f5c1f4e4e5017cf51d2be306395d034e864749b5d971dbd7c",
+      "size": 5509
+    },
+    {
+      "filename": "tests/fixtures/graphrag/gate_signals/expected_gate_signals.json",
+      "sha256": "48877626c07e927dcef81e23ad062cd20d33fe22f9ea19756cbf77c74b7597d4",
+      "size": 2545
+    },
+    {
+      "filename": "tests/fixtures/graphrag/orchestrator/expected_graphrag_context.json",
+      "sha256": "e816e1bdce5a8159d6d51b082ee03612cd13f3fed53bc6dd76a1cc66d36fc166",
+      "size": 66905
+    },
+    {
+      "filename": "tests/fixtures/graphrag/relevance/expected_relevance_decisions.json",
+      "sha256": "125affc7362cdc11a2b4edec441845fdd2ee902d863ce474c532e2da67adc8b3",
+      "size": 7494
+    },
+    {
+      "filename": "tests/fixtures/graphrag/two_stage_gate/expected_two_stage_gate_decisions.json",
+      "sha256": "0cfa94f88007f4effaa3f1efc18b9afd9095531f2f4e060e69fee6e75864a70c",
+      "size": 11582
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/builder/build_config.json",
+      "sha256": "435acc1e6801c61efb34e8b4084db8f4d976548c72f0580c83d55974280cb6b5",
+      "size": 2277
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/builder/expected_ground_truth.json",
+      "sha256": "90a352db22280201685a47e1e0ba6b15241986bf6c1c5e95b0e3105d43b88e93",
+      "size": 10633
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/builder/mitre_resolution.json",
+      "sha256": "d148fdc6e962c77495880106cbf9827a5c915e1df469c17f7062876ad1242e00",
+      "size": 1223
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/builder/scenario_evidence.json",
+      "sha256": "9b8e9f9649b4fe4cad05b701b857fc0f583b3d2e165b9e12f810ea85bc94a7db",
+      "size": 4063
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/builder/sigma_match_review.json",
+      "sha256": "b57944867e402bb9ef10119b175766f7698186dbdb7725198b3a83b0fcf2ec25",
+      "size": 4968
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/scenario_ground_truth_minimal.json",
+      "sha256": "69271ff0735618378ea8002446a31d20dc1222023aa39ac755afaad47429aec0",
+      "size": 4983
+    },
+    {
+      "filename": "tests/fixtures/mitre/enterprise_attack_minimal.json",
+      "sha256": "151a2dca0a2f84ddb09f6dbcaa4e5a3e676cfbdb13c50743d279b3bf9edb68ff",
+      "size": 7069
+    },
+    {
+      "filename": "tests/fixtures/mordor/sample-array.json",
+      "sha256": "955b4292774ab3edac06a59a329f33a7c584e76bf0bccc49b1474c5b509bec9d",
+      "size": 39
+    },
+    {
+      "filename": "tests/fixtures/mordor/sample-object.json",
+      "sha256": "b8438ef0e508d5df615e92519c0954d8843d480239ff5f7f6f08c9caf6ac613a",
+      "size": 56
+    },
+    {
+      "filename": "tests/fixtures/retrieval/builder/expected_retrieval_corpus.json",
+      "sha256": "fb5101fb65a24b7d00e5407677d9ba287fac8bc00c9ad088f03ea7fce6843d39",
+      "size": 25079
+    },
+    {
+      "filename": "tests/fixtures/retrieval/retrieval_corpus_minimal.json",
+      "sha256": "a6ea88bc2aa183a5fbc866fae7d027d70fac1e48a7b0d15a71f4412b5eaa8883",
+      "size": 11486
+    },
+    {
+      "filename": "tests/fixtures/retrieval/vector_builder/expected_vector_index.json",
+      "sha256": "7f235a75ef2623780555c6d8ae1c41024925c0b4800b654c621d042f4b91cba4",
+      "size": 5972
+    },
+    {
+      "filename": "tests/fixtures/retrieval/vector_index_minimal.json",
+      "sha256": "b97a1cf473e38cfc597c0b31c96ef6d8a06d08d45e2e9a5e6a512ac4cf62deb7",
+      "size": 1835
+    },
+    {
+      "filename": "tests/fixtures/sigma/mshta_child.yml",
+      "sha256": "13d1417ba5db300bbbd5e8deb83a1776cba995fa8bb12e0a8f2a733b459fa2f7",
+      "size": 678
+    },
+    {
+      "filename": "tests/fixtures/sigma/mshta_execution.yml",
+      "sha256": "d260db28213b6c7238791316adfdd36dde7ee7fc5fc563c83f848a4aaec3e321",
+      "size": 648
+    },
+    {
+      "filename": "tests/test_build_knowledge_graph_cli.py",
+      "sha256": "07a728a4e33a47148c7c5f29c8ba524d870b129c4f0353d97da5aec811fa73a1",
+      "size": 22774
+    },
+    {
+      "filename": "tests/test_build_mshta_ground_truth_cli.py",
+      "sha256": "d84b5961818edce56580bbd17ec36653cdadcc9b97c52e83695a76da66c3c3dd",
+      "size": 14008
+    },
+    {
+      "filename": "tests/test_build_retrieval_corpus_cli.py",
+      "sha256": "66c05f056d91f879cc8e8a6eef391a8f46292ec36b8c23124b237267cfe485da",
+      "size": 12640
+    },
+    {
+      "filename": "tests/test_build_vector_index_cli.py",
+      "sha256": "aaad3761cd25a23901d6b61634e07ac31dd268a3aafc8980b7aadd999edf1f2f",
+      "size": 18648
+    },
+    {
+      "filename": "tests/test_calibrate_graphrag_relevance_cli.py",
+      "sha256": "f8a1e79d3f62c7d38978cd933bb27409fea4f1e1bd1e6b9aa9f8cbfcf32c1a2c",
+      "size": 25165
+    },
+    {
+      "filename": "tests/test_calibrate_two_stage_gate_cli.py",
+      "sha256": "bb1be50fe0755c853b3b47707ec58a2a4a7d6f2e85edd7c3c73181db07d55ca6",
+      "size": 4269
+    },
+    {
+      "filename": "tests/test_canonical_mapping.py",
+      "sha256": "d42a0379ab3957ab1385af5abaaf7b336f9abfd41aee7a4fb27773bf95d543f0",
+      "size": 7716
+    },
+    {
+      "filename": "tests/test_compare_embedding_retrieval_models_cli.py",
+      "sha256": "80eef4a2ece6c52e6bea77a4299bae230bfd847319977a13fc71d6cd016cc0cd",
+      "size": 25601
+    },
+    {
+      "filename": "tests/test_contextual_mapping.py",
+      "sha256": "0792aa98a6ee114918315f8846352472c8b80181463e2e18543d4e988ea33cfa",
+      "size": 10267
+    },
+    {
+      "filename": "tests/test_diagnose_graphrag_relevance_cli.py",
+      "sha256": "4fead2ad6d2440e782620404978cc061a306a873a9be071a1f2ef9c587ee017b",
+      "size": 22115
+    },
+    {
+      "filename": "tests/test_discovery.py",
+      "sha256": "76206d4cdffb994bbbe0cd510a0b3165a33d961bca7c2fffc0e8a0c7e0de8880",
+      "size": 1550
+    },
+    {
+      "filename": "tests/test_embedding_backend.py",
+      "sha256": "db97e4b65b4f12d5829a7392935a7b1973a5006b2ddeee8f94a9233f8519e4b5",
+      "size": 9740
+    },
+    {
+      "filename": "tests/test_embedding_model_selection.py",
+      "sha256": "98e1c698b9bb75cc20508ab1575620901f52ab9f0d429f4329fada8c91fcf2da",
+      "size": 26067
+    },
+    {
+      "filename": "tests/test_embedding_model_selection_schema.py",
+      "sha256": "dab2332949e6a53f5aeaedcedd2181ba1b3f6b063201b8ace1cb85fdaa7e16a5",
+      "size": 21625
+    },
+    {
+      "filename": "tests/test_embedding_retrieval_comparison.py",
+      "sha256": "838ff303db5b3f50aa0b7c4cbc78f63abb702f068fb606a351e4f48ee1b4bff2",
+      "size": 29120
+    },
+    {
+      "filename": "tests/test_embedding_retrieval_comparison_schema.py",
+      "sha256": "dab30605753c32d4c5c0282d6fc92edd25d2f3e3f3371baecea9ad9c56a54523",
+      "size": 8685
+    },
+    {
+      "filename": "tests/test_embedding_retrieval_runner.py",
+      "sha256": "08062c3dc81a5d503a5a977b25f3e4d0b7249475b37b22029c5b2b1d7a96bc18",
+      "size": 30357
+    },
+    {
+      "filename": "tests/test_evaluate_mshta_sigma_cli.py",
+      "sha256": "b81ba54f1d01fd043068081342f3e3dff8ff50e5a9623ff09098f90fa39c2827",
+      "size": 4651
+    },
+    {
+      "filename": "tests/test_evidence_schema.py",
+      "sha256": "eb4e13549d5903674e265259a0caa834f6d6b06bbc10c6ff314e621e0776fddf",
+      "size": 14143
+    },
+    {
+      "filename": "tests/test_extract_mshta_evidence_cli.py",
+      "sha256": "d9fe19be120ad589b3a027b5eb41b0a80589d98f6fec11d90eda50bb94c2dc2a",
+      "size": 3950
+    },
+    {
+      "filename": "tests/test_format_and_parser.py",
+      "sha256": "14b7be5cff5909b63cf71267ec4ae2852b06a6d7e016ad47b80cfe1c60cf783f",
+      "size": 2618
+    },
+    {
+      "filename": "tests/test_graph_ground_truth_v2.py",
+      "sha256": "6e12531688e56e20f61d7dded35fcebe467281f7f415ed9d54b802e59cee1201",
+      "size": 13138
+    },
+    {
+      "filename": "tests/test_graphrag_gate_signals.py",
+      "sha256": "caf672e58da5831ad7e6137db34ef113aea4d77351a23b07e2333560b5f6a321",
+      "size": 31392
+    },
+    {
+      "filename": "tests/test_graphrag_orchestrator.py",
+      "sha256": "0a22270e585e6e0cf940d7cfa2d9cb69065cb4c175bd6def51414648f5077848",
+      "size": 33654
+    },
+    {
+      "filename": "tests/test_graphrag_relevance.py",
+      "sha256": "e5ddc62caf623ab1f840d75e0f28e44204b8370fc88f16c82baa7de51547647d",
+      "size": 42170
+    },
+    {
+      "filename": "tests/test_graphrag_seed_mapping.py",
+      "sha256": "5b76bcd5baf690a3b4a5a06b64eaa301dabfac648d45848e91cfed4b529b5a76",
+      "size": 53287
+    },
+    {
+      "filename": "tests/test_graphrag_two_stage_gate.py",
+      "sha256": "08d992ced287ba914266ded92d7e01f9df9dc790267fe704968a80386a1d0a81",
+      "size": 26379
+    },
+    {
+      "filename": "tests/test_ground_truth_approval.py",
+      "sha256": "cba25982bcd0baf3692b0a0b85ad3de452e3d6c194c552080725f4c9b4b3e55d",
+      "size": 29090
+    },
+    {
+      "filename": "tests/test_ground_truth_builder.py",
+      "sha256": "b3eb9a5bd10695bb9ec51a1061f00dc5fae7d8034ec135b2b9b4e89b7bdcde5a",
+      "size": 16258
+    },
+    {
+      "filename": "tests/test_ground_truth_schema.py",
+      "sha256": "916ee01ea3ce34e9b921a885c06d852f01110602df879709a5c2c54c50fc97f2",
+      "size": 10614
+    },
+    {
+      "filename": "tests/test_ground_truth_v2_provenance_consumers.py",
+      "sha256": "67b9cc92f892fda8a0ef9ba5df432203bff7102118548bc261d8b1aeeee592d6",
+      "size": 7896
+    },
+    {
+      "filename": "tests/test_hybrid_retriever.py",
+      "sha256": "2d2a3ba3b6a1833ea2a8f23f26f04e8846ba055901ac0910067745e004164cee",
+      "size": 36410
+    },
+    {
+      "filename": "tests/test_inspection.py",
+      "sha256": "900d682c62dc544a7bcfada244a3a3067192c3b47bd3265d06e690d6d2b98f2f",
+      "size": 2503
+    },
+    {
+      "filename": "tests/test_knowledge_graph_builder.py",
+      "sha256": "a9bb2a6e7ab487e89c90a8e0027bd0dbed4c9b2e7b1e633d7462081ca2e287aa",
+      "size": 45617
+    },
+    {
+      "filename": "tests/test_knowledge_graph_schema.py",
+      "sha256": "9a8aa32101e73cc5cc991ee74ded9cf5584b0506c89662e8d9b37c45b3113690",
+      "size": 33560
+    },
+    {
+      "filename": "tests/test_knowledge_graph_traversal.py",
+      "sha256": "ef87fd4753b878236102a6ca9ebdffd341e2b456c23af5ed6da07afce0172520",
+      "size": 38778
+    },
+    {
+      "filename": "tests/test_lexical_retriever.py",
+      "sha256": "1547e6f03d8e93cf17a3fa7eb4a877fa41cedca38ec1a7156c47d06867ca5ab0",
+      "size": 14224
+    },
+    {
+      "filename": "tests/test_mitre_loader.py",
+      "sha256": "f789e86bd4371025c0549772fb980453dd16b8479e14e131dde9ecaab86dbb12",
+      "size": 6039
+    },
+    {
+      "filename": "tests/test_mitre_resolver.py",
+      "sha256": "a37f629633fb8921cb3008c89307f21bd076420ff27cf0e8213659281abf344c",
+      "size": 6766
+    },
+    {
+      "filename": "tests/test_mshta_e5_relevance_calibration_config.py",
+      "sha256": "a03dddb8c50a434a7550a224a5ed1dd45ba4dfe3dda9aac82600605151a4e793",
+      "size": 11046
+    },
+    {
+      "filename": "tests/test_mshta_ground_truth_config.py",
+      "sha256": "33ab37b0bc527de6ea4a6d4f234a6126ba4d7caca48bed1cd5467ca02f353d54",
+      "size": 9151
+    },
+    {
+      "filename": "tests/test_mshta_powershell_evidence.py",
+      "sha256": "ff620e57b429ec1f461b98714b36f6873b24d67d7376058af95dc16cbb080794",
+      "size": 55295
+    },
+    {
+      "filename": "tests/test_multilingual_e5_vector_index_config.py",
+      "sha256": "7cf7081c2f7adf26913e6df0079053575843354c0157b981ef1c7441c1d6f653",
+      "size": 7906
+    },
+    {
+      "filename": "tests/test_normalization_reporting.py",
+      "sha256": "a8d75defff44f51ea5615a3a225d474bd5bc1d00f91e87dcc7e8cf6bdfefe12c",
+      "size": 15843
+    },
+    {
+      "filename": "tests/test_normalization_writer.py",
+      "sha256": "8519690a6ce8d89c870969a0ceae490979ad9346f42e6f3646dd7cad4436f0fa",
+      "size": 13699
+    },
+    {
+      "filename": "tests/test_normalize_cli.py",
+      "sha256": "94a7f1207e1a73958f7639a8dfb15c6c880b0800dfac9aee248c73e9090e14aa",
+      "size": 6755
+    },
+    {
+      "filename": "tests/test_normalizer.py",
+      "sha256": "a2f851e364c1ec56f934917f34a6ad35aa1ece2bb8aa2bed16d0c435d04db8eb",
+      "size": 20157
+    },
+    {
+      "filename": "tests/test_query_graphrag_context_cli.py",
+      "sha256": "733c4aad828a2c5c325cfd0eb487b1c3bc404bee830eb3a2a80c754d7c6c0796",
+      "size": 25196
+    },
+    {
+      "filename": "tests/test_query_hybrid_retrieval_cli.py",
+      "sha256": "0e0c5eeed026c13d98dba0eeabbba370ba15257f963d03a25d848050397b7af4",
+      "size": 38164
+    },
+    {
+      "filename": "tests/test_query_knowledge_graph_cli.py",
+      "sha256": "4dc37f3a5682d96a355b44de9ac869b1641dfcb7e7954e5fc18071cbc45d8aa0",
+      "size": 27450
+    },
+    {
+      "filename": "tests/test_query_retrieval_corpus_cli.py",
+      "sha256": "a7122be91db68e89d00895364446ae3a0b8b694c18e08afb60df10deaa798bff",
+      "size": 8921
+    },
+    {
+      "filename": "tests/test_query_vector_index_cli.py",
+      "sha256": "99b8c6d73e56f2df08aaff50ca7b8900c94c8efd86315e26be7579f713bb0596",
+      "size": 27541
+    },
+    {
+      "filename": "tests/test_relevance_calibration.py",
+      "sha256": "ab046879f25864e64a9c5dcb561710606611173257f3819e7705f719e1c6e7a4",
+      "size": 14631
+    },
+    {
+      "filename": "tests/test_relevance_calibration_dataset.py",
+      "sha256": "cceb1b42f8dbf1c5eaf9131063f0a188928d5d0390e5393159c6aa8f20f9cea6",
+      "size": 28140
+    },
+    {
+      "filename": "tests/test_relevance_calibration_schema.py",
+      "sha256": "4d808d92c11044205351800ba076d389a4a96ef2d4682ef0a63d7c754debfbe4",
+      "size": 7552
+    },
+    {
+      "filename": "tests/test_relevance_diagnostics.py",
+      "sha256": "eb52d80162c9202048fa73b0def9e23c53d464ac229b4fa3a32227924cdcd395",
+      "size": 27371
+    },
+    {
+      "filename": "tests/test_relevance_diagnostics_schema.py",
+      "sha256": "ee6af1448d3ac194efeb4c87b2eee0926d78f42bd8825f4c129bf786dd129261",
+      "size": 12740
+    },
+    {
+      "filename": "tests/test_reporting.py",
+      "sha256": "5c2b88dfd876ef5a0892a948b4442b29739ce9842806e81089b137ca2135deb8",
+      "size": 4937
+    },
+    {
+      "filename": "tests/test_resolve_mshta_mitre_cli.py",
+      "sha256": "e15f5b820e6bba49d425bcd2d29f0d4c7076f31e8aa29ef8b9fd6b5512390917",
+      "size": 6447
+    },
+    {
+      "filename": "tests/test_retrieval_builder.py",
+      "sha256": "7bb50f7f656923349b5094c6481c74b47f055e8f7c91c2921c4b9c95bdc7eadb",
+      "size": 20506
+    },
+    {
+      "filename": "tests/test_retrieval_ground_truth_v2.py",
+      "sha256": "f9aec4fdaa91c825d0395458a001dcf7b2e6df466138cff64b34150522d996fb",
+      "size": 9181
+    },
+    {
+      "filename": "tests/test_retrieval_judgments.py",
+      "sha256": "408eef3095c09fb02e0d10a816d33480beea3b0622a545b334831930ef135655",
+      "size": 35930
+    },
+    {
+      "filename": "tests/test_retrieval_schema.py",
+      "sha256": "f838c1ef16abf0fa98dadbe57aea7ff945ae5e4734c65a79fced95173f89ea34",
+      "size": 16516
+    },
+    {
+      "filename": "tests/test_review_package.py",
+      "sha256": "3948b6fe95f902956d033bb93dce5d501df30ae4a58364787f51a5e0ac364120",
+      "size": 10386
+    },
+    {
+      "filename": "tests/test_run_spec_v2.py",
+      "sha256": "d4c4103a2fe58a72d48839b8e81f39f590676ad3da37cd7a98004563ac09db78",
+      "size": 1524
+    },
+    {
+      "filename": "tests/test_select_embedding_model_cli.py",
+      "sha256": "1bfe6bc2f5fb7ff8761de7a330aa0b6409a5f3809d7e895b8ee16923fafe72e5",
+      "size": 37168
+    },
+    {
+      "filename": "tests/test_sigma_evaluator.py",
+      "sha256": "9336be34c3d60f6745e59e42c7638c3a134aa5cb2d18884a6a8e2a7c32c7b126",
+      "size": 11915
+    },
+    {
+      "filename": "tests/test_sigma_loader.py",
+      "sha256": "37ecde7f233b2fe33da60c822a0c289f9b332258f0117cd421a75e6dad5d9eb3",
+      "size": 5524
+    },
+    {
+      "filename": "tests/test_sync_ground_truth_v2_consumers.py",
+      "sha256": "2d66dc4b8d8bdd4eadf718464035a8f1c99557795bb7be7b19ae3e0f85a2775f",
+      "size": 15385
+    },
+    {
+      "filename": "tests/test_two_stage_calibration.py",
+      "sha256": "1c7226f5340e8eee8ad9123d7b0d22180e981c2ed1447e69e7dfe22c3a06e3ab",
+      "size": 19604
+    },
+    {
+      "filename": "tests/test_two_stage_review.py",
+      "sha256": "7280a3c63091740018a446f3f899f0599e66a122aa633b811c1d26816b95d40c",
+      "size": 14415
+    },
+    {
+      "filename": "tests/test_vector_index_builder.py",
+      "sha256": "94c47ca26c5ac0b6de4b689506e6fe7e8a5ae4eb49a8388f88fe4c2bc9e72a54",
+      "size": 19080
+    },
+    {
+      "filename": "tests/test_vector_index_schema.py",
+      "sha256": "57f9264dc4ce213bec17d68d315a2e173cd638998109b73c3e8064b54aced4e1",
+      "size": 18723
+    },
+    {
+      "filename": "tests/test_vector_retriever.py",
+      "sha256": "b85fc540f70ea4ac658a31962aa8a480812bfef3a9dc69be4fbfc595b8de358a",
+      "size": 14929
+    }
+  ],
+  "archive_sha256": "e7b7c138a5c1413840f26dfb4fdb1ec018d5e982b5ecabfddfa825eb6c739bab",
+  "testzip_passed": true,
+  "archive": "outputs/review/graphrag_ground_truth_v2_consumer_sync_review.zip",
+  "archive_size": 2017144,
+  "inventory_sha256": "377f589174492ba4b20cf705a8c9f508d10ed1a9d8342f0ddf4b6a2aad2e0601",
+  "safe_unique_regular_entries": true,
+  "payload_sizes_and_hashes_match": true,
+  "testzip_result": null,
+  "staging_empty": true
+}

@@ -1,0 +1,478 @@
+[
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-ecbf583da8ad2782",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": null
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-70c82ea7d6641496",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": null
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-975087cab6130cf9",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": null
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-95170eb3d6a0af80",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": null
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-d326c9918a217191",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.78163017
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-6d32785ac1e5814b",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.78163017
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-0ed2520e729f326f",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.78163017
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-f11ab8fb0344bcfb",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.78163017
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-39ad9a0d66a6640e",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.8121783
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-6d40eca17ba546f7",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.8121783
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-59b5468d488ecd0d",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.8121783
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-b34d1302e3d77f1a",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.8121783
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-08d961a79ba1c6c8",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.84299805
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-d1b01f874de5c4ff",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.84299805
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-5a4b308b106699e0",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.84299805
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-86a1f8c641bf2e4f",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.84299805
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "negative-control-all-abstain",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.9129396200000001
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  }
+]

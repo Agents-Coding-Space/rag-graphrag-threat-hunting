@@ -1,0 +1,400 @@
+{
+  "schema_version": "sigma-match-review/v1",
+  "scenario_id": "mshta-powershell",
+  "analysis_status": "needs_review",
+  "canonical_input": {
+    "path": "outputs/canonical/mordor-selected-v2/files/cmd_mshta_vbscript_execute_psh_2020_10_2202580804--25aa24b5f631/canonical_events.jsonl",
+    "schema_version": "canonical-event/v2",
+    "sha256": "9bcac98d41746eb4365cb96efbc7411c595760c9f5c54678453219e71d4411d8",
+    "event_count": 1127,
+    "source_files": [
+      "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    ]
+  },
+  "evidence_input": {
+    "path": "outputs/evidence/mshta-powershell/scenario_evidence.json",
+    "schema_version": "scenario-evidence/v1",
+    "sha256": "ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905",
+    "observation_count": 4,
+    "behavior_count": 2
+  },
+  "rule_count": 2,
+  "rules": [
+    {
+      "title": "Suspicious MSHTA Child Process",
+      "id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+      "status": "test",
+      "description": "Detects a suspicious process spawning from an \"mshta.exe\" process, which could be indicative of a malicious HTA script execution",
+      "references": [
+        "https://www.trustedsec.com/july-2015/malicious-htas/"
+      ],
+      "author": "Michael Haag",
+      "date": "2019-01-16",
+      "modified": "2023-02-06",
+      "tags": [
+        "attack.stealth",
+        "attack.t1218.005",
+        "car.2013-02-003",
+        "car.2013-03-001",
+        "car.2014-04-003"
+      ],
+      "logsource": {
+        "category": "process_creation",
+        "product": "windows"
+      },
+      "detection": {
+        "selection_parent": {
+          "ParentImage|endswith": "\\mshta.exe"
+        },
+        "selection_child": [
+          {
+            "Image|endswith": [
+              "\\cmd.exe",
+              "\\powershell.exe",
+              "\\pwsh.exe",
+              "\\wscript.exe",
+              "\\cscript.exe",
+              "\\sh.exe",
+              "\\bash.exe",
+              "\\reg.exe",
+              "\\regsvr32.exe",
+              "\\bitsadmin.exe"
+            ]
+          },
+          {
+            "OriginalFileName": [
+              "Cmd.Exe",
+              "PowerShell.EXE",
+              "pwsh.dll",
+              "wscript.exe",
+              "cscript.exe",
+              "Bash.exe",
+              "reg.exe",
+              "REGSVR32.EXE",
+              "bitsadmin.exe"
+            ]
+          }
+        ],
+        "condition": "all of selection*"
+      },
+      "level": "high",
+      "sha256": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+      "source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_child_processes.yml",
+      "analysis_status": "candidate",
+      "unsupported_fields": [],
+      "unsupported_constructs": [],
+      "known_unmapped_fields": [
+        "OriginalFileName"
+      ],
+      "observation_match_count": 2,
+      "behavior_match_count": 1
+    },
+    {
+      "title": "MSHTA Execution with Suspicious File Extensions",
+      "id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "status": "test",
+      "description": "Detects execution of mshta.exe with file types that looks like they do not typically represent HTA (HTML Application) content,\nsuch as .png, .jpg, .zip, .pdf, and others, which are often polyglots. MSHTA is a legitimate Windows utility for executing HTML Applications\ncontaining VBScript or JScript. Threat actors often abuse this lolbin utility to download and\nexecute malicious scripts disguised as benign files or hosted under misleading extensions to evade detection.\n",
+      "references": [
+        "http://blog.sevagas.com/?Hacking-around-HTA-files",
+        "https://0x00sec.org/t/clientside-exploitation-in-2018-how-pentesting-has-changed/7356",
+        "https://learn.microsoft.com/en-us/previous-versions/dotnet/framework/data/xml/xslt/xslt-stylesheet-scripting-using-msxsl-script",
+        "https://medium.com/tsscyber/pentesting-and-hta-bypassing-powershell-constrained-language-mode-53a42856c997",
+        "https://twitter.com/mattifestation/status/1326228491302563846",
+        "https://www.virustotal.com/gui/file/c1f27d9795a2eba630db8a043580a0761798f06370fb1317067805f8a845b00c"
+      ],
+      "author": "Diego Perez (@darkquassar), Markus Neis, Swisscom (Improve Rule), Swachchhanda Shrawan Poudel (Nextron Systems)",
+      "date": "2019-02-22",
+      "modified": "2025-05-12",
+      "tags": [
+        "attack.stealth",
+        "attack.t1140",
+        "attack.t1218.005",
+        "attack.execution",
+        "attack.t1059.007",
+        "cve.2020-1599"
+      ],
+      "logsource": {
+        "category": "process_creation",
+        "product": "windows"
+      },
+      "detection": {
+        "selection_img": [
+          {
+            "Image|endswith": "\\mshta.exe"
+          },
+          {
+            "OriginalFileName": "mshta.exe"
+          }
+        ],
+        "selection_cli": {
+          "CommandLine|contains": [
+            ".7z",
+            ".avi",
+            ".bat",
+            ".bmp",
+            ".conf",
+            ".csv",
+            ".dll",
+            ".doc",
+            ".gif",
+            ".gz",
+            ".ini",
+            ".jpe",
+            ".jpg",
+            ".json",
+            ".lnk",
+            ".log",
+            ".mkv",
+            ".mp3",
+            ".mp4",
+            ".pdf",
+            ".png",
+            ".ppt",
+            ".rar",
+            ".rtf",
+            ".svg",
+            ".tar",
+            ".tmp",
+            ".txt",
+            ".xls",
+            ".xml",
+            ".yaml",
+            ".yml",
+            ".zip",
+            "vbscript"
+          ]
+        },
+        "condition": "all of selection_*"
+      },
+      "level": "high",
+      "sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+      "source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml",
+      "analysis_status": "candidate",
+      "unsupported_fields": [],
+      "unsupported_constructs": [],
+      "known_unmapped_fields": [
+        "OriginalFileName"
+      ],
+      "observation_match_count": 2,
+      "behavior_match_count": 1
+    }
+  ],
+  "canonical_field_mappings": {
+    "Image": "process_name",
+    "ParentImage": "parent_process_name",
+    "CommandLine": "command_line",
+    "OriginalFileName": null
+  },
+  "unsupported_fields": [],
+  "unsupported_constructs": [],
+  "known_unmapped_fields": [
+    "OriginalFileName"
+  ],
+  "examined_events": 1127,
+  "matched_events": 4,
+  "unmatched_events": 1123,
+  "observation_matches": [
+    {
+      "observation_match_id": "sigma-observation-match-868f2ef62739c4c74573",
+      "status": "candidate",
+      "rule_id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "raw_record_ref": "jsonl:line:30",
+      "provider": "Microsoft-Windows-Security-Auditing",
+      "event_id": "4688",
+      "timestamp": "2020-10-22T02:58:00.462000Z",
+      "matched_selections": [
+        "selection_parent",
+        "selection_child"
+      ],
+      "matching_fields": [
+        {
+          "sigma_field": "ParentImage",
+          "canonical_field": "parent_process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\mshta.exe",
+          "matched_values": [
+            "\\mshta.exe"
+          ]
+        },
+        {
+          "sigma_field": "Image",
+          "canonical_field": "process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "matched_values": [
+            "\\powershell.exe"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ]
+    },
+    {
+      "observation_match_id": "sigma-observation-match-6245df513098047dcef2",
+      "status": "candidate",
+      "rule_id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "raw_record_ref": "jsonl:line:398",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "1",
+      "timestamp": "2020-10-22T02:58:00.489000Z",
+      "matched_selections": [
+        "selection_parent",
+        "selection_child"
+      ],
+      "matching_fields": [
+        {
+          "sigma_field": "ParentImage",
+          "canonical_field": "parent_process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\mshta.exe",
+          "matched_values": [
+            "\\mshta.exe"
+          ]
+        },
+        {
+          "sigma_field": "Image",
+          "canonical_field": "process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "matched_values": [
+            "\\powershell.exe"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ]
+    },
+    {
+      "observation_match_id": "sigma-observation-match-1e220a1f400a4618fee0",
+      "status": "candidate",
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "raw_record_ref": "jsonl:line:275",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "1",
+      "timestamp": "2020-10-22T02:57:59.857000Z",
+      "matched_selections": [
+        "selection_img",
+        "selection_cli"
+      ],
+      "matching_fields": [
+        {
+          "sigma_field": "Image",
+          "canonical_field": "process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\mshta.exe",
+          "matched_values": [
+            "\\mshta.exe"
+          ]
+        },
+        {
+          "sigma_field": "CommandLine",
+          "canonical_field": "command_line",
+          "modifier": "contains",
+          "observed_value": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+          "matched_values": [
+            "vbscript"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ]
+    },
+    {
+      "observation_match_id": "sigma-observation-match-47f7c1ba395dc32b9350",
+      "status": "candidate",
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "raw_record_ref": "jsonl:line:4",
+      "provider": "Microsoft-Windows-Security-Auditing",
+      "event_id": "4688",
+      "timestamp": "2020-10-22T02:57:59.856000Z",
+      "matched_selections": [
+        "selection_img",
+        "selection_cli"
+      ],
+      "matching_fields": [
+        {
+          "sigma_field": "Image",
+          "canonical_field": "process_name",
+          "modifier": "endswith",
+          "observed_value": "C:\\Windows\\System32\\mshta.exe",
+          "matched_values": [
+            "\\mshta.exe"
+          ]
+        },
+        {
+          "sigma_field": "CommandLine",
+          "canonical_field": "command_line",
+          "modifier": "contains",
+          "observed_value": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+          "matched_values": [
+            "vbscript"
+          ]
+        }
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ]
+    }
+  ],
+  "behavior_matches": [
+    {
+      "behavior_match_id": "sigma-behavior-match-700c4a1a1fbe62aeb900",
+      "status": "candidate",
+      "rule_id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+      "evidence_id": "evidence-b31714b888d1489a380c",
+      "observation_match_ids": [
+        "sigma-observation-match-6245df513098047dcef2",
+        "sigma-observation-match-868f2ef62739c4c74573"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        }
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "behavior_match_id": "sigma-behavior-match-5a1390bbe64d27403b77",
+      "status": "candidate",
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "evidence_id": "evidence-b07a5ff4763e629715e6",
+      "observation_match_ids": [
+        "sigma-observation-match-1e220a1f400a4618fee0",
+        "sigma-observation-match-47f7c1ba395dc32b9350"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "review_status": "needs_review"
+    }
+  ],
+  "warnings": [],
+  "review_notes": [
+    "Sigma matches are candidate detection hypotheses and require human review.",
+    "T1218.005, T1140, and T1059.007 are retained only as tags from the loaded rules; no MITRE resolver is implemented in this milestone.",
+    "Current matched evidence does not demonstrate T1140, and T1059.007 does not fit the observed VBScript command line.",
+    "T1059 is a parent technique and is not used as a direct mapping when a supported sub-technique is selected.",
+    "No ATT&CK technique is confirmed by this artifact.",
+    "Không quan sát thấy download, C2, credential theft hoặc destructive behavior trong bốn matched evidence observations.",
+    "Q14 and Q15 remain pending because this milestone does not perform a full-dataset negative scan."
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": "sigma-match-review/v1",
+  "scenario_id": "scenario-other",
+  "analysis_status": "needs_review",
+  "canonical_input": {
+    "path": "fixtures/synthetic_events.jsonl",
+    "schema_version": "canonical-event/v2",
+    "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "evidence_input": {
+    "path": "fixtures/scenario_evidence.json",
+    "schema_version": "scenario-evidence/v1",
+    "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "rule_count": 2,
+  "rules": [
+    {
+      "id": "rule-synthetic-beta",
+      "title": "Synthetic transition candidate",
+      "source_path": "fixtures/rule-beta.yml",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "tags": [
+        "attack.syn1002"
+      ],
+      "analysis_status": "candidate",
+      "unsupported_fields": [],
+      "unsupported_constructs": [],
+      "known_unmapped_fields": [
+        "SyntheticField"
+      ],
+      "observation_match_count": 2,
+      "behavior_match_count": 1
+    },
+    {
+      "id": "rule-synthetic-alpha",
+      "title": "Synthetic activity candidate",
+      "source_path": "fixtures/rule-alpha.yml",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "tags": [
+        "attack.syn1001"
+      ],
+      "analysis_status": "candidate",
+      "unsupported_fields": [],
+      "unsupported_constructs": [],
+      "known_unmapped_fields": [],
+      "observation_match_count": 2,
+      "behavior_match_count": 1
+    }
+  ],
+  "canonical_field_mappings": {
+    "SyntheticField": null
+  },
+  "unsupported_fields": [],
+  "unsupported_constructs": [],
+  "known_unmapped_fields": [
+    "SyntheticField"
+  ],
+  "examined_events": 4,
+  "matched_events": 4,
+  "unmatched_events": 0,
+  "observation_matches": [
+    {
+      "observation_match_id": "observation-match-synthetic-4",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-beta",
+      "source_file": "synthetic_events.jsonl",
+      "raw_record_ref": "fixture:record:4",
+      "provider": "Synthetic-Provider",
+      "event_id": 404,
+      "timestamp": "2024-01-01T00:00:03Z",
+      "matching_fields": [],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ]
+    },
+    {
+      "observation_match_id": "observation-match-synthetic-1",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-alpha",
+      "source_file": "synthetic_events.jsonl",
+      "raw_record_ref": "fixture:record:1",
+      "provider": "Synthetic-Provider",
+      "event_id": "101",
+      "timestamp": "2024-01-01T00:00:00Z",
+      "matching_fields": [],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ]
+    },
+    {
+      "observation_match_id": "observation-match-synthetic-3",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-beta",
+      "source_file": "synthetic_events.jsonl",
+      "raw_record_ref": "fixture:record:3",
+      "provider": "Synthetic-Provider",
+      "event_id": "303",
+      "timestamp": "2024-01-01T00:00:02Z",
+      "matching_fields": [],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ]
+    },
+    {
+      "observation_match_id": "observation-match-synthetic-2",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-alpha",
+      "source_file": "synthetic_events.jsonl",
+      "raw_record_ref": "fixture:record:2",
+      "provider": null,
+      "event_id": "202",
+      "timestamp": "2024-01-01T00:00:01Z",
+      "matching_fields": [],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ]
+    }
+  ],
+  "behavior_matches": [
+    {
+      "behavior_match_id": "behavior-match-synthetic-2",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-beta",
+      "evidence_id": "evidence-synthetic-2",
+      "observation_match_ids": [
+        "observation-match-synthetic-3",
+        "observation-match-synthetic-4"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "behavior_match_id": "behavior-match-synthetic-1",
+      "status": "candidate",
+      "rule_id": "rule-synthetic-alpha",
+      "evidence_id": "evidence-synthetic-1",
+      "observation_match_ids": [
+        "observation-match-synthetic-1",
+        "observation-match-synthetic-2"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "review_status": "needs_review"
+    }
+  ],
+  "warnings": [
+    "Synthetic Sigma review warning."
+  ],
+  "review_notes": [
+    "Synthetic fixture only."
+  ]
+}

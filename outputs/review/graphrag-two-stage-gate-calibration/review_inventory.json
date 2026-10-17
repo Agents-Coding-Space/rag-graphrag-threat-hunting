@@ -1,0 +1,1128 @@
+{
+  "schema_version": "graphrag-two-stage-gate-calibration-review-inventory/v1",
+  "client_date": "2026-10-16",
+  "baseline": {
+    "branch": "feature/mshta-evidence-extractor",
+    "head": "af2243a3ee89c5e5721ec341eea0a8cb06814f41",
+    "working_tree": " M AGENTS.md\n M PROJECT_CONTEXT.md\n M PROJECT_PROGRESS.md\n M README.md\n M src/threat_hunting/ground_truth/__init__.py\n M src/threat_hunting/ground_truth/schema.py\n?? docs/\n?? src/threat_hunting/ground_truth/approval.py\n?? src/threat_hunting/ground_truth/approval_update.py\n?? src/threat_hunting/ground_truth/review_artifacts.py\n?? tests/test_ground_truth_approval.py\n",
+    "staging": ""
+  },
+  "final_repository_state": {
+    "branch": "feature/mshta-evidence-extractor",
+    "head": "af2243a3ee89c5e5721ec341eea0a8cb06814f41",
+    "staging": "",
+    "working_tree": " M AGENTS.md\n M PROJECT_CONTEXT.md\n M PROJECT_PROGRESS.md\n M README.md\n M src/threat_hunting/ground_truth/__init__.py\n M src/threat_hunting/ground_truth/schema.py\n?? docs/\n?? scripts/calibrate_two_stage_gate.py\n?? src/threat_hunting/evaluation/review_package.py\n?? src/threat_hunting/evaluation/two_stage_calibration.py\n?? src/threat_hunting/evaluation/two_stage_review.py\n?? src/threat_hunting/ground_truth/approval.py\n?? src/threat_hunting/ground_truth/approval_update.py\n?? src/threat_hunting/ground_truth/review_artifacts.py\n?? tests/test_calibrate_two_stage_gate_cli.py\n?? tests/test_ground_truth_approval.py\n?? tests/test_review_package.py\n?? tests/test_two_stage_calibration.py\n?? tests/test_two_stage_review.py\n",
+    "diff_check": ""
+  },
+  "preflight": {
+    "path": "outputs/review/graphrag-two-stage-gate-calibration/preflight.json",
+    "sha256": "36d36002a1fd6a45136cc7594bc4e51109345d0d10ab51d9762c47c3b5551699"
+  },
+  "source_artifacts": {
+    "ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+    },
+    "answers": {
+      "path": "outputs/review/mshta-ground-truth/reference_answers.json",
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b"
+    },
+    "manifest": {
+      "path": "outputs/review/mshta-ground-truth/review_manifest.json",
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4"
+    },
+    "dataset": {
+      "path": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124"
+    },
+    "corpus": {
+      "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+    },
+    "graph": {
+      "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227"
+    },
+    "index": {
+      "path": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+      "sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91"
+    }
+  },
+  "test_results": {
+    "runs": [
+      {
+        "name": "focused",
+        "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-focused-20261016\" tests/test_two_stage_calibration.py tests/test_two_stage_review.py tests/test_calibrate_two_stage_gate_cli.py tests/test_review_package.py",
+        "passed": 124,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.7,
+        "exit_code": 0
+      },
+      {
+        "name": "regression",
+        "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-regression-20261016\" tests/test_two_stage_calibration.py tests/test_two_stage_review.py tests/test_calibrate_two_stage_gate_cli.py tests/test_review_package.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_graphrag_orchestrator.py tests/test_graphrag_seed_mapping.py tests/test_relevance_calibration.py tests/test_relevance_calibration_dataset.py tests/test_retrieval_schema.py tests/test_vector_retriever.py tests/test_embedding_backend.py",
+        "passed": 1289,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 5.95,
+        "exit_code": 0
+      },
+      {
+        "name": "full_suite",
+        "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-two-stage-full-20261016\"",
+        "passed": 5815,
+        "subtests_passed": 6,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 122.55,
+        "exit_code": 0
+      }
+    ],
+    "phase_commands": [
+      ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase prepare",
+      ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase collect",
+      ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase calibrate",
+      ".\\.venv\\Scripts\\python.exe -X utf8 scripts/calibrate_two_stage_gate.py --phase freeze-replay"
+    ],
+    "failed_attempts": [],
+    "extra_focused_verification": [
+      {
+        "file": "tests/test_two_stage_calibration.py",
+        "passed": 45,
+        "seconds": 0.2
+      },
+      {
+        "file": "tests/test_two_stage_review.py",
+        "passed": 25,
+        "seconds": 0.26
+      },
+      {
+        "file": "tests/test_review_package.py",
+        "passed": 51,
+        "seconds": 0.58
+      }
+    ],
+    "notes": [
+      "All pytest executions use system temp outside repository and approved escalation due previously verified Windows sandbox temp restrictions.",
+      "No rerun of full prerequisite suite before implementation; final full suite is this task final required verification.",
+      "One external rubric correction recalculated diagnostics on identical saved contexts/signals; thresholds never changed."
+    ]
+  },
+  "test_results_source": {
+    "path": "outputs/review/graphrag-two-stage-gate-calibration/test_results.json",
+    "sha256": "18cb88167ab783f3460098f9dc31caf1a806ca047417cf31190f68965842a966"
+  },
+  "retrieval_configuration": {
+    "schema_version": "two-stage-review-retrieval/v1",
+    "sources": {
+      "ground_truth": {
+        "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+        "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+      },
+      "answers": {
+        "path": "outputs/review/mshta-ground-truth/reference_answers.json",
+        "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b"
+      },
+      "manifest": {
+        "path": "outputs/review/mshta-ground-truth/review_manifest.json",
+        "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4"
+      },
+      "dataset": {
+        "path": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+        "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124"
+      },
+      "corpus": {
+        "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+        "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+      },
+      "graph": {
+        "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+        "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227"
+      },
+      "index": {
+        "path": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+        "sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91"
+      }
+    },
+    "consumer_ground_truth": {
+      "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v1",
+      "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+      "scenario_id": "mshta-powershell"
+    },
+    "evaluation_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+    },
+    "embedding": {
+      "provider": "sentence-transformers",
+      "model_id": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "distance_metric": "cosine",
+      "normalization": "l2",
+      "document_prefix": "passage: ",
+      "query_prefix": "query: "
+    },
+    "model_selection_status": "Existing provisional E5 recommendation reused, no new model selection",
+    "retrieval": {
+      "top_k": 5,
+      "candidate_k": 20,
+      "chunk_types": null,
+      "required_dimensions": null
+    },
+    "fusion": {
+      "method": "reciprocal_rank_fusion",
+      "rrf_k": 60
+    },
+    "seed_mapping": "Existing exact ID/JSON-pointer mapping, unchanged",
+    "traversal": {
+      "direction": "both",
+      "max_depth": 2,
+      "allowed_edge_types": null,
+      "max_nodes": 100,
+      "max_edges": 200
+    },
+    "context_budget": {
+      "retrieval_hits": 5,
+      "traversal_nodes": 100,
+      "traversal_edges": 200,
+      "additional_token_truncation": null
+    },
+    "runtime": {
+      "device": "cpu",
+      "offline": true,
+      "batch_size": 1,
+      "show_progress_bar": false
+    },
+    "query_input_boundary": "Only the current query text is embedded/retrieved; never the question collection, answers, categories, decisions or expected evidence.",
+    "query_embeddings_sha256": "93f716d7df07451d97c3cbe76c5c7bf22fca768370d0423ad98e0ee94626c2a3",
+    "external_context_adjudication_sha256": "e3554a91690c15df530fba344564da7eae7e12ffa626556368162b749508dfb9",
+    "consumer_audit_sha256": "23a884033a7f3362210c78b870ff24c842fffee5965baa9e3ff6a4075265098b",
+    "quarantined_test_manifest_sha256": "5da7b7e221e16eddf77475ef1e7403fb358641527237621867d887ec6b976814"
+  },
+  "data_usage_history": {
+    "cross_provider_deduplication": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "final_spawn_observations": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-attacker-identity": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-c2-address": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-payload-download-url": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-stolen-credentials": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-certain-attack-determination": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-decoded-content": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-decoding-proof": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-destructive-files": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "initial_spawn_observations": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "powershell_launch_command": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "powershell_parent": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "proxy_assessment_status": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "review_scope_and_limits": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "two_hop_process_chain": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "unsupported_javascript_label": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-linux-cron": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-product-price": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-sql-injection": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-weather": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-kubernetes-configuration": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-literature-learning": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-opaque-token": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-ransomware-encryption": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ]
+  },
+  "split_manifest": {
+    "path": "outputs/review/graphrag-two-stage-gate-calibration/split_manifest.json",
+    "sha256": "3f7a2247dc4f5e04dcb18ae4a99e95013a04668162fe081e03cb0fc5c28d8203"
+  },
+  "protected_before_after": {
+    "path": "outputs/review/graphrag-two-stage-gate-calibration/protected_hashes.json",
+    "sha256": "d0d733fa51a7d7296d98dfa3ae55d1859103ea8654d14a23132a59ba9bda8104",
+    "protected_file_count": 5017,
+    "unchanged_count": 5016,
+    "changed_count": 1,
+    "changed_files": [
+      "PROJECT_PROGRESS.md"
+    ],
+    "full_hash_maps_in_referenced_file": true,
+    "progress_original_prefix_preserved": true
+  },
+  "frozen_replay_verification": {
+    "frozen_bindings_verified": true,
+    "policy_lock_sha256": "93674a4516016c20fcbbb0fbfd7f9ea9a920d3880f202af46b43a697271e8f27",
+    "evaluation_code_sha256": "d73ac3ff816cdb2c6da326be0f103decccd7b84c8c4b62a3dc8c20caf591e08f",
+    "code_file_hashes": {
+      "scripts/calibrate_two_stage_gate.py": "53120d7e4a7ebcad921525fd0b230dcd762b22ce1ae262c0c19f9a657ef1e237",
+      "src/threat_hunting/__init__.py": "8226d03d5772e2bbd55bddbf6d1e1d88f6bab726a587bca4e283785fc609e5c4",
+      "src/threat_hunting/discovery.py": "dd030232457b3daa166076d192e6d0c84937f1d2078427743e7e4f7067d54ebc",
+      "src/threat_hunting/evaluation/__init__.py": "a0fbbe17d673f35a61eadf65adf552dc9d6db483b463b506229b78df84736e43",
+      "src/threat_hunting/evaluation/calibration_config.py": "f871e996edfa1f85fa3a6feaa9111ea1e5ae9e65c91d5a639a11312a48b3df4e",
+      "src/threat_hunting/evaluation/calibration_schema.py": "e21d36fb13cda81b243935beffd6eaa1e1f8919f10915f36168875691075ede7",
+      "src/threat_hunting/evaluation/diagnostics_schema.py": "453c6c4d8f34f81ec80e8e34bdc2488dd6b803cd13c45a9b01f873178b6b4a35",
+      "src/threat_hunting/evaluation/embedding_model_selection.py": "1cf38433abbabb317e3f3017460b2cf716430b589dd6cc74dbc6721564e00e9b",
+      "src/threat_hunting/evaluation/embedding_model_selection_schema.py": "9d96be62b869fa93240d410ef21af6cd694971300860634fefe89025f33b404b",
+      "src/threat_hunting/evaluation/embedding_retrieval_comparison.py": "c660e2573fda60cf5cb21f8c026c49c61a60cf0a2a970d39aa62fe6a85b7a707",
+      "src/threat_hunting/evaluation/embedding_retrieval_comparison_schema.py": "431844a7e85f280dc2422270bd969d117bc0aa2699e4be3984bf1ced21646391",
+      "src/threat_hunting/evaluation/embedding_retrieval_runner.py": "549368668465850df38a70cf6fa773fcc885b3062b788867a54f754e682988b3",
+      "src/threat_hunting/evaluation/relevance_calibration.py": "d89126635205121565a2eab66346d4567abf84c73babd67d22d9d2565bd1ad0f",
+      "src/threat_hunting/evaluation/relevance_dataset.py": "33a07c4a5f3312096f4646e0c4f674ce80531ecf45b1634635306c4ac7a7281c",
+      "src/threat_hunting/evaluation/relevance_diagnostics.py": "a99866614ae176a43e476c6f72780ed5647853ca7fe2234f7eaa99b8f38fdb3e",
+      "src/threat_hunting/evaluation/retrieval_judgments.py": "1d3327612c7171bbd0d4e24d0e50c655e26efa78470be01bd7b822372a0cc30c",
+      "src/threat_hunting/evaluation/review_package.py": "3244f91d687775d7e8c0a6e97961e569397b28bdf2ed427cfa20b7b15b54f300",
+      "src/threat_hunting/evaluation/two_stage_calibration.py": "4a55341fc8b07d715d958aa7a370471fd70ea3c8afde45f1f33f1d57b6e2c5df",
+      "src/threat_hunting/evaluation/two_stage_review.py": "11e545435e165ddf6b0b368b95a23559b4752dddde57e071aafa9370d4342084",
+      "src/threat_hunting/evidence/__init__.py": "71e67672e1262f9550a6f5b20d785e95de41ffe6b0cb24fe316bb7d37158cdb8",
+      "src/threat_hunting/evidence/mshta_powershell.py": "7b78d892770c1880c600bc53fd490b200749633d9057bfc1589a6749124ee14d",
+      "src/threat_hunting/evidence/schema.py": "3c45df6011102df2080769d1ff999320761b9afdb022cd0624eed6d745a0e828",
+      "src/threat_hunting/graph/__init__.py": "2d8f834ed850574a2fcf567247eb247fb1547224b6e208a198a915c5e072eae7",
+      "src/threat_hunting/graph/builder.py": "ddb8b8a19d012664420a873efd105f64840dc8d909f7cb4754cce1c7d2d94c65",
+      "src/threat_hunting/graph/schema.py": "466f248e3733470ff4c9aa74b691240256868b2154dd69347e151fd630921525",
+      "src/threat_hunting/graph/traversal.py": "0623ac79b8e2462cf3e92fd600b2bb71578db33f51a55b215288956619460bf8",
+      "src/threat_hunting/graphrag/__init__.py": "226a4fbf1ef54e3e43160aa86bab22208983711c4943f790cd65e604fe8a111c",
+      "src/threat_hunting/graphrag/gate_signals.py": "1f603a7d6d61bfa16d62bc0746cc04445e85e15b5dda5b3c605ed54651980ae6",
+      "src/threat_hunting/graphrag/orchestrator.py": "733e3aa7505df89777cb90b2655d7abd707ff3cef40a6407f0a059be27b69a67",
+      "src/threat_hunting/graphrag/relevance.py": "194f5b4018b163f89f4602a7273e57e5df291b7ccb1a3bb77202271e1b6f2e19",
+      "src/threat_hunting/graphrag/seed_mapping.py": "a8064c5b62d96ca4265719a8317202bf10f1509623e144b0d903df1c80c10c8d",
+      "src/threat_hunting/graphrag/two_stage_gate.py": "3ef2af319061c254d4cb14bdd113b4222cda39ab59d49f8bb0c6a3ec94e38eac",
+      "src/threat_hunting/ground_truth/__init__.py": "4de85156d968f1f0312ad6df8d4cd2350e2c5c2aee2d1a65885c11aecec40db6",
+      "src/threat_hunting/ground_truth/approval.py": "bc19eff75d09a9d0d9a9203a3bbec6ca889915f9e7ebafdbf56e506e8b078917",
+      "src/threat_hunting/ground_truth/approval_update.py": "e5821e7dc58ed4dbd35e66d54c3225d2df43b74379515895a49669bceb3f9c65",
+      "src/threat_hunting/ground_truth/builder.py": "04f838bd4e655763921f63d90c58409ca1525fda1f7265178a7f64ed3c7109d9",
+      "src/threat_hunting/ground_truth/review_artifacts.py": "8d0574a03f434707e9e3623c6febf42277f58f9b9d618ce6de138bb58faaa414",
+      "src/threat_hunting/ground_truth/schema.py": "f581ebe1e6687c888c97d7d7d3bd5a68aa0bff816673f34bab22d9d4d9b81a8d",
+      "src/threat_hunting/mitre/__init__.py": "835600633438435795eb9cb9b71fe5755408df24ca5413c12acab79ec3eea32e",
+      "src/threat_hunting/mitre/loader.py": "22be852bcf46cb410a3736cdae752c1053f386f542d61d3cc686237c9394e916",
+      "src/threat_hunting/mitre/resolver.py": "48c9b162fa3176edc781e76f059cfe577487771446bf3bc1a8343083aa7b0c4e",
+      "src/threat_hunting/mordor/__init__.py": "4ee235c8b37d934ab20b4dd33ec13511e4aef052331c7733c066e1ba496ff478",
+      "src/threat_hunting/mordor/format_detection.py": "e0bff891394cd72ae3a3f1029332a3e3d7cb503a79bd8e47befb68e3373242cf",
+      "src/threat_hunting/mordor/inspection.py": "ba7bcd21f434feef88285f8de1987917a774ddfeae0f6d5fa3bc03f14c03ec7d",
+      "src/threat_hunting/mordor/parser.py": "1e3ae25bd997f11589132e42a934b8a4c3d34c07f8fa3bddb968074ef002254e",
+      "src/threat_hunting/normalization_reporting.py": "6d9cb1c63dfb6dc956b82312edc6652e7a2ada1cadefef90315acbb26281b05a",
+      "src/threat_hunting/normalization_writer.py": "e6454eaf22c84f7a14fd66ecb8160b035d4ed3210cf6820d26ad5832463c6840",
+      "src/threat_hunting/normalizer.py": "7ef38b69be77b9e25d310b4f483e9469e58dca7fa8b20c6d24fee2adce94a0dd",
+      "src/threat_hunting/reporting.py": "ef580bca5222a2203763a2dc4ed95bb8efee125196a0780a8b85e8a12e9d0158",
+      "src/threat_hunting/retrieval/__init__.py": "bbda12a1bd4e6f5ba91980e9a8365b3b275606f9623e4e66911143a57f04d94a",
+      "src/threat_hunting/retrieval/builder.py": "9c94f771019a55cb0d63259b4db6817e03999b1780a9365a50ef4b2d11a577dd",
+      "src/threat_hunting/retrieval/embedding_backend.py": "d646211296acf3e96611be517961163142b71ebb11c0aa876833b66d06c54a16",
+      "src/threat_hunting/retrieval/hybrid.py": "1f1ac3c7a31d7d47865fc157c8a4a8f091a1067a134a37e37f19c9859764de15",
+      "src/threat_hunting/retrieval/lexical.py": "8dfb7f71e5603105fbc4024ff8548fa1fbca7c1f5fe3278989d511a280e69d95",
+      "src/threat_hunting/retrieval/schema.py": "6757fae09bb76da1831714b839bf7d5153dd7b6a0b5daf9e3d364934d2090ef7",
+      "src/threat_hunting/retrieval/vector_builder.py": "e42c3a82f84b6d7e38d9c8175b4e9feb0cd49db6282c011504e7c34787615a30",
+      "src/threat_hunting/retrieval/vector_schema.py": "b60f577f839db2be498222c117f5d7ddee2bf3532dce8fb59371e69dd44dde7e",
+      "src/threat_hunting/retrieval/vector_search.py": "cec784bf5c78761a0e948465f18cd67e6f144874d3d0f4b0894f3e4b83e1ef36",
+      "src/threat_hunting/run_spec.py": "721e0ff290632d155ca1ceafaec5ba017a6ebe0e0ad11e5b00b4af545871e17c",
+      "src/threat_hunting/schemas/__init__.py": "a15dc197e93ee15b3fa258243e764d90679993a576ec08f4c34cab98cad1872a",
+      "src/threat_hunting/schemas/canonical_event.py": "5186956cbdc8b9d0f800137b734cc9c2d4be9e805b9cb15f4e570d29e6afdad6",
+      "src/threat_hunting/schemas/canonical_mapping.py": "970139908f3d0e4c052b468bc6a49e3b8e5edb1964cb2aa5b1188e31227da042",
+      "src/threat_hunting/sigma/__init__.py": "9e38d71b33e3b0d77016042bedeb0202ac39cbad321575c4af368ee6e806e7ff",
+      "src/threat_hunting/sigma/evaluator.py": "20117826d9668219911276b6f8156374e2d2a5ec4d484cb9b7b9588d7cdd6279",
+      "src/threat_hunting/sigma/loader.py": "9636eb4ec404b36665bd631a9c8790551465ce64e1c3ad9e8087a6cf36073b94",
+      "src/threat_hunting/sigma/review.py": "cde623d573a6370ce4970202e87eebade2feba11593df022f6f745810ec5330e"
+    },
+    "calibration_replay_identical": true,
+    "case_count": 32,
+    "current_query_only_boundary_verified": true,
+    "approved_current_query_count": 32,
+    "cached_query_embedding_count": 32,
+    "proposed_query_ids_in_calibration": 0,
+    "heldout_run": false,
+    "new_embedding_calls": 0,
+    "new_llm_calls": 0
+  },
+  "policy_selection": {
+    "selection_rule": "Minimize false proceed on unrelated plus insufficient_evidence; then maximize retained context-sufficient positives; then minimize enabled conditions; then policy_id. All-abstain candidates cannot be selected.",
+    "selection_status": "selected_calibration_candidate",
+    "selected_policy": {
+      "schema_version": "graphrag-two-stage-gate-policy/v1",
+      "policy_id": "two-stage-dev-5a4b308b106699e0",
+      "topical_relevance": {
+        "min_retrieval_hit_count": 1,
+        "min_lexical_hit_count": 0,
+        "min_vector_hit_count": 0,
+        "min_joint_lexical_vector_hit_count": 0,
+        "min_query_token_coverage": 0.18181818,
+        "min_returned_top_rrf_score": null,
+        "min_returned_top_bm25_score": null,
+        "min_returned_top_cosine_score": 0.84299805
+      },
+      "evidence_answerability": {
+        "min_hits_with_evidence_ids": 0,
+        "min_hits_with_source_references": 0,
+        "min_unique_source_reference_count": 0,
+        "min_mapped_hit_count": 1,
+        "min_seed_node_count": 1,
+        "require_traversal": true,
+        "min_traversal_node_count": 0,
+        "min_traversal_edge_count": 0,
+        "min_traversal_path_count": 0,
+        "min_traversed_evidence_node_count": 0,
+        "min_support_edge_count": 0,
+        "max_traversed_limitation_node_count": null
+      }
+    },
+    "policy_qualified": false,
+    "meets_calibration_error_constraints": false,
+    "calibration_acceptance_failures": [
+      "False proceed remains: insufficient_evidence"
+    ]
+  },
+  "heldout": {
+    "status": "not_run",
+    "reasons": [
+      "All32 prior cases exposed to development",
+      "New AI-proposed stress probes lack human-approved labels and independent-core eligibility",
+      "Frozen consumers contain material stale evidence contradiction"
+    ],
+    "labels_approved": false,
+    "heldout_queries_embedded": 0,
+    "heldout_gate_calls": 0
+  },
+  "consumer_evidence_findings": [
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "pointers": [
+        "/chunks/0/content"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon",
+        "PowerShell ran Get-Service sysmon."
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Process creation establishes launch command, not successful cmdlet completion; this consumer cannot support a policy-qualified result."
+    },
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "pointers": [
+        "/nodes/14/attributes/description"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon"
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Same stale completion wording as corpus."
+    },
+    {
+      "severity": "missing_approved_evidence_content",
+      "artifacts": [
+        "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+        "outputs/graph/mshta-powershell/knowledge_graph.json"
+      ],
+      "missing_approved_ground_truth_pointers": [
+        "/facts/0/attributes/source_observations",
+        "/facts/1/attributes/source_observations",
+        "/summary/limitations/4",
+        "/summary/limitations/5",
+        "/summary/limitations/6"
+      ],
+      "effect": "Original CommandLine/process-role fields and expanded scope limits cannot be recovered by dereferencing provenance or adding expected evidence to gate input."
+    }
+  ],
+  "evaluation_limits": [
+    "All 32 historical cases were exposed to development; calibration is not independent validation.",
+    "Frozen corpus/graph/index contain material stale evidence; no qualified or production-ready policy is claimed.",
+    "Returned-context sufficiency uses an explicit conservative AI rubric, with unknown labels reported separately.",
+    "New AI-proposed stress probes are not approved independent held-out labels and were not evaluated or embedded.",
+    "The proposed test manifest is hashed as quarantined bytes; its labels do not select thresholds.",
+    "Replay repeats saved calibration signals under identical locked inputs; it is not a new independent experiment.",
+    "No raw data, approved labels, corpus, graph, indexes or production CLI were modified.",
+    "No LLM/UI integration or production policy deployment was performed."
+  ],
+  "archive_integrity_design": {
+    "archive_path": "outputs/review/graphrag_two_stage_gate_calibration_review.zip",
+    "member_paths": "Repo-relative POSIX paths preserve the saved replay layout.",
+    "own_inventory_hash_excluded": true,
+    "excluded_archive_sidecar": "outputs/review/graphrag-two-stage-gate-calibration/zip_verification.json",
+    "sidecar_contains_inventory_and_final_archive_hashes": true,
+    "raw_logs_packaged": false,
+    "read_only_source_snapshot_count": 7
+  },
+  "file_inventory_excluding_this_inventory_and_archive_sidecar": [
+    {
+      "filename": "PROJECT_PROGRESS.md",
+      "sha256": "e76e4defb0cd71f32c86b36d88a32c4701f01b0368c947011168cb25a466cf20",
+      "size": 32910
+    },
+    {
+      "filename": "docs/human_approval.md",
+      "sha256": "7cb1e164e066d4d4288e822b1ba79aff37f7c3d83363cd3ed95ba99d213d7158",
+      "size": 4854
+    },
+    {
+      "filename": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+      "sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91",
+      "size": 224199
+    },
+    {
+      "filename": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227",
+      "size": 41427
+    },
+    {
+      "filename": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3",
+      "size": 33135
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/before_PROJECT_PROGRESS.md",
+      "sha256": "cf87f1b1aeccb981a0ee2846e153e85274e67ffd878e8a5e94b61b00cdca709e",
+      "size": 29728
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/calibration_results.json",
+      "sha256": "4dd266846fd71154f1f1d4d7ebefd5df4f701158e4f3ab6fddf6a416ffb18b2b",
+      "size": 5747972
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/candidate_policies.json",
+      "sha256": "04bee3a7a15c528702134ebcc6bc142f76d9d088bbe776af870b13903feec515",
+      "size": 16747
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/capture_baseline.py",
+      "sha256": "55f4a00a6c35e606f5db2bd4fbfc5875b1b9cb2878d6140cf5cc8dbf69652f7b",
+      "size": 2634
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/consumer_audit.json",
+      "sha256": "23a884033a7f3362210c78b870ff24c842fffee5965baa9e3ff6a4075265098b",
+      "size": 74985
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/contexts.json",
+      "sha256": "3479a786a933a133872160b67d1a23fb3c23a1a91b343e85273a9b22a4f34599",
+      "size": 2858446
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/evaluation_code_hashes.json",
+      "sha256": "63cbad6fbc701c46e65243542e8e7e669c324b1bdc334f88c256048e2ad82d18",
+      "size": 7732
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/external_context_adjudication.json",
+      "sha256": "e3554a91690c15df530fba344564da7eae7e12ffa626556368162b749508dfb9",
+      "size": 21864
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/finalize_review.py",
+      "sha256": "ccf0ed9d4a758f9f2e75871e34c964465fed23992054d403268b1a0588502c37",
+      "size": 22818
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/frozen_retrieval_configuration.json",
+      "sha256": "dc3e32912f42b6b7703b859502e9fe37fc43e150d8632617e84770320283aa69",
+      "size": 3573
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/heldout_status.json",
+      "sha256": "08db7ed6e0f1380bda1d5a885fe5f845d1b3ded4d28c021dced065efe82090b2",
+      "size": 348
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/per_case_report.md",
+      "sha256": "0b3eba659a3ea1669e50fcf905cec6a432034d14a8ac10b0e47362fd86375a37",
+      "size": 155808
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/policy_freeze.json",
+      "sha256": "68b08c12788766582726bd8340f5cb68e17aacb43b5b21a0584b2d9c8c48d801",
+      "size": 750
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/preflight.json",
+      "sha256": "36d36002a1fd6a45136cc7594bc4e51109345d0d10ab51d9762c47c3b5551699",
+      "size": 1013251
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/proposed_test_notes.md",
+      "sha256": "1fbdbbc849caf03afdd1c9718f2ac96198cde0ce85eb1c36e2d8631372f75765",
+      "size": 8529
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/proposed_test_set.json",
+      "sha256": "5da7b7e221e16eddf77475ef1e7403fb358641527237621867d887ec6b976814",
+      "size": 62663
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/protected_hashes.json",
+      "sha256": "d0d733fa51a7d7296d98dfa3ae55d1859103ea8654d14a23132a59ba9bda8104",
+      "size": 2015806
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/query_embeddings.json",
+      "sha256": "93f716d7df07451d97c3cbe76c5c7bf22fca768370d0423ad98e0ee94626c2a3",
+      "size": 346239
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/replay_result.json",
+      "sha256": "acd4ccdb3b774507b6e7f4758d05ee7f32162e63ab993edfeb9d87e536c82248",
+      "size": 306794
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/report.md",
+      "sha256": "d251af5508fd218a3bcf059ec789a9ce2d113feff64257d4968dbe6c271e31af",
+      "size": 37238
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/retrieval_configuration.json",
+      "sha256": "a7f7a267ccc486c618779bb99f285b740bee47dc83c7b120e91918242bde63e9",
+      "size": 3165
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/selected_policy.json",
+      "sha256": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+      "size": 934
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/selection_plan.json",
+      "sha256": "60905314a3e068b4a31b6b22b9e5944ac282657680128a77b3960998fe5c2be5",
+      "size": 3620
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/signals.json",
+      "sha256": "324d89f42381680a2a5878e0617afc64b6ae2874e63a854510c77cdf5fb58ad8",
+      "size": 88782
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/split_manifest.json",
+      "sha256": "3f7a2247dc4f5e04dcb18ae4a99e95013a04668162fe081e03cb0fc5c28d8203",
+      "size": 19565
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/test_results.json",
+      "sha256": "18cb88167ab783f3460098f9dc31caf1a806ca047417cf31190f68965842a966",
+      "size": 2862
+    },
+    {
+      "filename": "outputs/review/graphrag-two-stage-gate-calibration/write_reports.py",
+      "sha256": "49ddc36f6e016a4d4b3dffb69652ac597becc2d604b5f58591a3a2b813cdcc32",
+      "size": 29890
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124",
+      "size": 20110
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/reference_answers.json",
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b",
+      "size": 55430
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/review_manifest.json",
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4",
+      "size": 5481
+    },
+    {
+      "filename": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "size": 19679
+    },
+    {
+      "filename": "pyproject.toml",
+      "sha256": "7b4db6bb1cc3a2f4db5a6a2e4b5bbd2ed8bef323c99e70369189a5a87aa04e5a",
+      "size": 561
+    },
+    {
+      "filename": "scripts/calibrate_two_stage_gate.py",
+      "sha256": "53120d7e4a7ebcad921525fd0b230dcd762b22ce1ae262c0c19f9a657ef1e237",
+      "size": 20122
+    },
+    {
+      "filename": "src/threat_hunting/__init__.py",
+      "sha256": "8226d03d5772e2bbd55bddbf6d1e1d88f6bab726a587bca4e283785fc609e5c4",
+      "size": 49
+    },
+    {
+      "filename": "src/threat_hunting/discovery.py",
+      "sha256": "dd030232457b3daa166076d192e6d0c84937f1d2078427743e7e4f7067d54ebc",
+      "size": 3154
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/__init__.py",
+      "sha256": "a0fbbe17d673f35a61eadf65adf552dc9d6db483b463b506229b78df84736e43",
+      "size": 4070
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/calibration_config.py",
+      "sha256": "f871e996edfa1f85fa3a6feaa9111ea1e5ae9e65c91d5a639a11312a48b3df4e",
+      "size": 13133
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/calibration_schema.py",
+      "sha256": "e21d36fb13cda81b243935beffd6eaa1e1f8919f10915f36168875691075ede7",
+      "size": 14215
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/diagnostics_schema.py",
+      "sha256": "453c6c4d8f34f81ec80e8e34bdc2488dd6b803cd13c45a9b01f873178b6b4a35",
+      "size": 8871
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_model_selection.py",
+      "sha256": "1cf38433abbabb317e3f3017460b2cf716430b589dd6cc74dbc6721564e00e9b",
+      "size": 13437
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_model_selection_schema.py",
+      "sha256": "9d96be62b869fa93240d410ef21af6cd694971300860634fefe89025f33b404b",
+      "size": 14590
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_comparison.py",
+      "sha256": "c660e2573fda60cf5cb21f8c026c49c61a60cf0a2a970d39aa62fe6a85b7a707",
+      "size": 18390
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_comparison_schema.py",
+      "sha256": "431844a7e85f280dc2422270bd969d117bc0aa2699e4be3984bf1ced21646391",
+      "size": 28171
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/embedding_retrieval_runner.py",
+      "sha256": "549368668465850df38a70cf6fa773fcc885b3062b788867a54f754e682988b3",
+      "size": 23100
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_calibration.py",
+      "sha256": "d89126635205121565a2eab66346d4567abf84c73babd67d22d9d2565bd1ad0f",
+      "size": 10384
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_dataset.py",
+      "sha256": "33a07c4a5f3312096f4646e0c4f674ce80531ecf45b1634635306c4ac7a7281c",
+      "size": 12787
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/relevance_diagnostics.py",
+      "sha256": "a99866614ae176a43e476c6f72780ed5647853ca7fe2234f7eaa99b8f38fdb3e",
+      "size": 26636
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/retrieval_judgments.py",
+      "sha256": "1d3327612c7171bbd0d4e24d0e50c655e26efa78470be01bd7b822372a0cc30c",
+      "size": 25595
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/review_package.py",
+      "sha256": "3244f91d687775d7e8c0a6e97961e569397b28bdf2ed427cfa20b7b15b54f300",
+      "size": 8565
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/two_stage_calibration.py",
+      "sha256": "4a55341fc8b07d715d958aa7a370471fd70ea3c8afde45f1f33f1d57b6e2c5df",
+      "size": 22922
+    },
+    {
+      "filename": "src/threat_hunting/evaluation/two_stage_review.py",
+      "sha256": "11e545435e165ddf6b0b368b95a23559b4752dddde57e071aafa9370d4342084",
+      "size": 18018
+    },
+    {
+      "filename": "src/threat_hunting/evidence/__init__.py",
+      "sha256": "71e67672e1262f9550a6f5b20d785e95de41ffe6b0cb24fe316bb7d37158cdb8",
+      "size": 1736
+    },
+    {
+      "filename": "src/threat_hunting/evidence/mshta_powershell.py",
+      "sha256": "7b78d892770c1880c600bc53fd490b200749633d9057bfc1589a6749124ee14d",
+      "size": 37602
+    },
+    {
+      "filename": "src/threat_hunting/evidence/schema.py",
+      "sha256": "3c45df6011102df2080769d1ff999320761b9afdb022cd0624eed6d745a0e828",
+      "size": 18150
+    },
+    {
+      "filename": "src/threat_hunting/graph/__init__.py",
+      "sha256": "2d8f834ed850574a2fcf567247eb247fb1547224b6e208a198a915c5e072eae7",
+      "size": 663
+    },
+    {
+      "filename": "src/threat_hunting/graph/builder.py",
+      "sha256": "ddb8b8a19d012664420a873efd105f64840dc8d909f7cb4754cce1c7d2d94c65",
+      "size": 19732
+    },
+    {
+      "filename": "src/threat_hunting/graph/schema.py",
+      "sha256": "466f248e3733470ff4c9aa74b691240256868b2154dd69347e151fd630921525",
+      "size": 17005
+    },
+    {
+      "filename": "src/threat_hunting/graph/traversal.py",
+      "sha256": "0623ac79b8e2462cf3e92fd600b2bb71578db33f51a55b215288956619460bf8",
+      "size": 17666
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/__init__.py",
+      "sha256": "226a4fbf1ef54e3e43160aa86bab22208983711c4943f790cd65e604fe8a111c",
+      "size": 1691
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/gate_signals.py",
+      "sha256": "1f603a7d6d61bfa16d62bc0746cc04445e85e15b5dda5b3c605ed54651980ae6",
+      "size": 15858
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/orchestrator.py",
+      "sha256": "733e3aa7505df89777cb90b2655d7abd707ff3cef40a6407f0a059be27b69a67",
+      "size": 11456
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/relevance.py",
+      "sha256": "194f5b4018b163f89f4602a7273e57e5df291b7ccb1a3bb77202271e1b6f2e19",
+      "size": 34627
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/seed_mapping.py",
+      "sha256": "a8064c5b62d96ca4265719a8317202bf10f1509623e144b0d903df1c80c10c8d",
+      "size": 16663
+    },
+    {
+      "filename": "src/threat_hunting/graphrag/two_stage_gate.py",
+      "sha256": "3ef2af319061c254d4cb14bdd113b4222cda39ab59d49f8bb0c6a3ec94e38eac",
+      "size": 11674
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/__init__.py",
+      "sha256": "4de85156d968f1f0312ad6df8d4cd2350e2c5c2aee2d1a65885c11aecec40db6",
+      "size": 913
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/approval.py",
+      "sha256": "bc19eff75d09a9d0d9a9203a3bbec6ca889915f9e7ebafdbf56e506e8b078917",
+      "size": 2008
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/approval_update.py",
+      "sha256": "e5821e7dc58ed4dbd35e66d54c3225d2df43b74379515895a49669bceb3f9c65",
+      "size": 3961
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/builder.py",
+      "sha256": "04f838bd4e655763921f63d90c58409ca1525fda1f7265178a7f64ed3c7109d9",
+      "size": 41964
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/review_artifacts.py",
+      "sha256": "8d0574a03f434707e9e3623c6febf42277f58f9b9d618ce6de138bb58faaa414",
+      "size": 21650
+    },
+    {
+      "filename": "src/threat_hunting/ground_truth/schema.py",
+      "sha256": "f581ebe1e6687c888c97d7d7d3bd5a68aa0bff816673f34bab22d9d4d9b81a8d",
+      "size": 26575
+    },
+    {
+      "filename": "src/threat_hunting/mitre/__init__.py",
+      "sha256": "835600633438435795eb9cb9b71fe5755408df24ca5413c12acab79ec3eea32e",
+      "size": 1420
+    },
+    {
+      "filename": "src/threat_hunting/mitre/loader.py",
+      "sha256": "22be852bcf46cb410a3736cdae752c1053f386f542d61d3cc686237c9394e916",
+      "size": 22393
+    },
+    {
+      "filename": "src/threat_hunting/mitre/resolver.py",
+      "sha256": "48c9b162fa3176edc781e76f059cfe577487771446bf3bc1a8343083aa7b0c4e",
+      "size": 18185
+    },
+    {
+      "filename": "src/threat_hunting/mordor/__init__.py",
+      "sha256": "4ee235c8b37d934ab20b4dd33ec13511e4aef052331c7733c066e1ba496ff478",
+      "size": 57
+    },
+    {
+      "filename": "src/threat_hunting/mordor/format_detection.py",
+      "sha256": "e0bff891394cd72ae3a3f1029332a3e3d7cb503a79bd8e47befb68e3373242cf",
+      "size": 4482
+    },
+    {
+      "filename": "src/threat_hunting/mordor/inspection.py",
+      "sha256": "ba7bcd21f434feef88285f8de1987917a774ddfeae0f6d5fa3bc03f14c03ec7d",
+      "size": 29263
+    },
+    {
+      "filename": "src/threat_hunting/mordor/parser.py",
+      "sha256": "1e3ae25bd997f11589132e42a934b8a4c3d34c07f8fa3bddb968074ef002254e",
+      "size": 6626
+    },
+    {
+      "filename": "src/threat_hunting/normalization_reporting.py",
+      "sha256": "6d9cb1c63dfb6dc956b82312edc6652e7a2ada1cadefef90315acbb26281b05a",
+      "size": 17861
+    },
+    {
+      "filename": "src/threat_hunting/normalization_writer.py",
+      "sha256": "e6454eaf22c84f7a14fd66ecb8160b035d4ed3210cf6820d26ad5832463c6840",
+      "size": 10937
+    },
+    {
+      "filename": "src/threat_hunting/normalizer.py",
+      "sha256": "7ef38b69be77b9e25d310b4f483e9469e58dca7fa8b20c6d24fee2adce94a0dd",
+      "size": 12185
+    },
+    {
+      "filename": "src/threat_hunting/reporting.py",
+      "sha256": "ef580bca5222a2203763a2dc4ed95bb8efee125196a0780a8b85e8a12e9d0158",
+      "size": 11823
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/__init__.py",
+      "sha256": "bbda12a1bd4e6f5ba91980e9a8365b3b275606f9623e4e66911143a57f04d94a",
+      "size": 1633
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/builder.py",
+      "sha256": "9c94f771019a55cb0d63259b4db6817e03999b1780a9365a50ef4b2d11a577dd",
+      "size": 25188
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/embedding_backend.py",
+      "sha256": "d646211296acf3e96611be517961163142b71ebb11c0aa876833b66d06c54a16",
+      "size": 9012
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/hybrid.py",
+      "sha256": "1f1ac3c7a31d7d47865fc157c8a4a8f091a1067a134a37e37f19c9859764de15",
+      "size": 14751
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/lexical.py",
+      "sha256": "8dfb7f71e5603105fbc4024ff8548fa1fbca7c1f5fe3278989d511a280e69d95",
+      "size": 8692
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/schema.py",
+      "sha256": "6757fae09bb76da1831714b839bf7d5153dd7b6a0b5daf9e3d364934d2090ef7",
+      "size": 16945
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_builder.py",
+      "sha256": "e42c3a82f84b6d7e38d9c8175b4e9feb0cd49db6282c011504e7c34787615a30",
+      "size": 11794
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_schema.py",
+      "sha256": "b60f577f839db2be498222c117f5d7ddee2bf3532dce8fb59371e69dd44dde7e",
+      "size": 15615
+    },
+    {
+      "filename": "src/threat_hunting/retrieval/vector_search.py",
+      "sha256": "cec784bf5c78761a0e948465f18cd67e6f144874d3d0f4b0894f3e4b83e1ef36",
+      "size": 9824
+    },
+    {
+      "filename": "src/threat_hunting/run_spec.py",
+      "sha256": "721e0ff290632d155ca1ceafaec5ba017a6ebe0e0ad11e5b00b4af545871e17c",
+      "size": 2375
+    },
+    {
+      "filename": "src/threat_hunting/schemas/__init__.py",
+      "sha256": "a15dc197e93ee15b3fa258243e764d90679993a576ec08f4c34cab98cad1872a",
+      "size": 49
+    },
+    {
+      "filename": "src/threat_hunting/schemas/canonical_event.py",
+      "sha256": "5186956cbdc8b9d0f800137b734cc9c2d4be9e805b9cb15f4e570d29e6afdad6",
+      "size": 3567
+    },
+    {
+      "filename": "src/threat_hunting/schemas/canonical_mapping.py",
+      "sha256": "970139908f3d0e4c052b468bc6a49e3b8e5edb1964cb2aa5b1188e31227da042",
+      "size": 14276
+    },
+    {
+      "filename": "src/threat_hunting/sigma/__init__.py",
+      "sha256": "9e38d71b33e3b0d77016042bedeb0202ac39cbad321575c4af368ee6e806e7ff",
+      "size": 1257
+    },
+    {
+      "filename": "src/threat_hunting/sigma/evaluator.py",
+      "sha256": "20117826d9668219911276b6f8156374e2d2a5ec4d484cb9b7b9588d7cdd6279",
+      "size": 12909
+    },
+    {
+      "filename": "src/threat_hunting/sigma/loader.py",
+      "sha256": "9636eb4ec404b36665bd631a9c8790551465ce64e1c3ad9e8087a6cf36073b94",
+      "size": 11111
+    },
+    {
+      "filename": "src/threat_hunting/sigma/review.py",
+      "sha256": "cde623d573a6370ce4970202e87eebade2feba11593df022f6f745810ec5330e",
+      "size": 8596
+    },
+    {
+      "filename": "tests/fixtures/graphrag/two_stage_gate/expected_two_stage_gate_decisions.json",
+      "sha256": "0cfa94f88007f4effaa3f1efc18b9afd9095531f2f4e060e69fee6e75864a70c",
+      "size": 11582
+    },
+    {
+      "filename": "tests/fixtures/ground_truth/scenario_ground_truth_minimal.json",
+      "sha256": "69271ff0735618378ea8002446a31d20dc1222023aa39ac755afaad47429aec0",
+      "size": 4983
+    },
+    {
+      "filename": "tests/test_calibrate_two_stage_gate_cli.py",
+      "sha256": "bb1be50fe0755c853b3b47707ec58a2a4a7d6f2e85edd7c3c73181db07d55ca6",
+      "size": 4269
+    },
+    {
+      "filename": "tests/test_ground_truth_approval.py",
+      "sha256": "cba25982bcd0baf3692b0a0b85ad3de452e3d6c194c552080725f4c9b4b3e55d",
+      "size": 29090
+    },
+    {
+      "filename": "tests/test_review_package.py",
+      "sha256": "3948b6fe95f902956d033bb93dce5d501df30ae4a58364787f51a5e0ac364120",
+      "size": 10386
+    },
+    {
+      "filename": "tests/test_two_stage_calibration.py",
+      "sha256": "1c7226f5340e8eee8ad9123d7b0d22180e981c2ed1447e69e7dfe22c3a06e3ab",
+      "size": 19604
+    },
+    {
+      "filename": "tests/test_two_stage_review.py",
+      "sha256": "7280a3c63091740018a446f3f899f0599e66a122aa633b811c1d26816b95d40c",
+      "size": 14415
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": "scenario-evidence/v1",
+  "scenario_id": "mshta-powershell",
+  "scenario_name": "MSHTA spawning PowerShell",
+  "source_files": [
+    "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+  ],
+  "analysis_status": "draft_reviewable",
+  "time_window": {
+    "end": "2020-10-22T02:58:00.489000Z",
+    "start": "2020-10-22T02:57:59.856000Z"
+  },
+  "observed_entities": [
+    {
+      "entity_id": "process-7c96a17eb66f2831da61",
+      "entity_type": "process",
+      "attributes": {
+        "host": "WORKSTATION5",
+        "process_guid": "{39e4a257-2d59-5f91-6813-000000000700}",
+        "process_id": "5888",
+        "process_name": "cmd.exe"
+      }
+    },
+    {
+      "entity_id": "process-9c691740bde5d3dbdc4e",
+      "entity_type": "process",
+      "attributes": {
+        "host": "WORKSTATION5",
+        "process_guid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "process_id": "10980",
+        "process_name": "mshta.exe"
+      }
+    },
+    {
+      "entity_id": "process-9f7ceeecb4cd61358ab7",
+      "entity_type": "process",
+      "attributes": {
+        "host": "WORKSTATION5",
+        "process_guid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "process_id": "9572",
+        "process_name": "powershell.exe"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence-b07a5ff4763e629715e6",
+      "evidence_type": "process_creation",
+      "status": "observed",
+      "summary": "cmd.exe spawned mshta.exe",
+      "observations": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "timestamp": "2020-10-22T02:57:59.856000Z",
+          "canonical_fields": {
+            "command_line": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+            "host": "WORKSTATION5",
+            "parent_process_id": "0x1700",
+            "parent_process_name": "C:\\Windows\\System32\\cmd.exe",
+            "process_id": "0x2ae4",
+            "process_name": "C:\\Windows\\System32\\mshta.exe"
+          },
+          "raw_fields": {}
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "timestamp": "2020-10-22T02:57:59.857000Z",
+          "canonical_fields": {
+            "command_line": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+            "host": "WORKSTATION5",
+            "parent_process_guid": "{39e4a257-2d59-5f91-6813-000000000700}",
+            "parent_process_id": "5888",
+            "parent_process_name": "C:\\Windows\\System32\\cmd.exe",
+            "process_guid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+            "process_id": "10980",
+            "process_name": "C:\\Windows\\System32\\mshta.exe",
+            "user": "WORKSTATION5\\wardog"
+          },
+          "raw_fields": {}
+        }
+      ],
+      "reason": "Parent and child process fields are observed directly in both telemetry events. The Security and Sysmon observations are inferred to describe the same process creation.",
+      "review_status": "needs_review"
+    },
+    {
+      "evidence_id": "evidence-b31714b888d1489a380c",
+      "evidence_type": "process_creation",
+      "status": "observed",
+      "summary": "mshta.exe spawned powershell.exe",
+      "observations": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "timestamp": "2020-10-22T02:58:00.462000Z",
+          "canonical_fields": {
+            "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+            "host": "WORKSTATION5",
+            "parent_process_id": "0x2ae4",
+            "parent_process_name": "C:\\Windows\\System32\\mshta.exe",
+            "process_id": "0x2564",
+            "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+          },
+          "raw_fields": {}
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "timestamp": "2020-10-22T02:58:00.489000Z",
+          "canonical_fields": {
+            "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+            "host": "WORKSTATION5",
+            "parent_process_guid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+            "parent_process_id": "10980",
+            "parent_process_name": "C:\\Windows\\System32\\mshta.exe",
+            "process_guid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+            "process_id": "9572",
+            "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "user": "WORKSTATION5\\wardog"
+          },
+          "raw_fields": {}
+        }
+      ],
+      "reason": "Parent and child process fields are observed directly in both telemetry events. The Security and Sysmon observations are inferred to describe the same process creation.",
+      "review_status": "needs_review"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship-1641029b76ea1ac3df6e",
+      "relationship_type": "process_spawn",
+      "source_entity_id": "process-9c691740bde5d3dbdc4e",
+      "target_entity_id": "process-9f7ceeecb4cd61358ab7",
+      "status": "observed",
+      "supported_by": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "relationship_id": "relationship-9e41d0cc407e7878b2d8",
+      "relationship_type": "process_spawn",
+      "source_entity_id": "process-7c96a17eb66f2831da61",
+      "target_entity_id": "process-9c691740bde5d3dbdc4e",
+      "status": "observed",
+      "supported_by": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "review_status": "needs_review"
+    }
+  ],
+  "sigma_rules": [],
+  "mitre_techniques": [],
+  "review_notes": [
+    "When present, Security 4688 and Sysmon 1 observations are grouped using inferred telemetry correlation.",
+    "Evidence remains draft_reviewable and requires human review; this is not a confirmed attack conclusion.",
+    "Sigma and MITRE ATT&CK mappings are not applied in this milestone."
+  ]
+}

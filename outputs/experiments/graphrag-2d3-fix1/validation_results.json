@@ -1,0 +1,42 @@
+{
+  "json_readback_files": [
+    "build_manifest.json",
+    "case_transitions.json",
+    "comparison.json",
+    "context_adjudication.json",
+    "contexts.json",
+    "decisions.json",
+    "experiment_configuration.json",
+    "fixed_policy.json",
+    "focus_case_analysis.json",
+    "knowledge_graph.json",
+    "preflight.json",
+    "protected_hashes_after.json",
+    "retrieval_corpus.json",
+    "signals.json",
+    "validation_results.json",
+    "vector_index.json"
+  ],
+  "bundle_consumer_index_validators_passed": true,
+  "actual_legacy_v1_rebuild_identical_to_existing_consumers": {
+    "outputs/retrieval/mshta-powershell/retrieval_corpus.json": true,
+    "outputs/graph/mshta-powershell/knowledge_graph.json": true
+  },
+  "saved_context_signal_and_decision_replay_matches": true,
+  "replay_is_saved_output_verification_not_an_independent_experiment": true,
+  "development_cases": 32,
+  "actual_context_return_counts_by_limitation": {
+    "/summary/limitations/0": 2,
+    "/summary/limitations/1": 3,
+    "/summary/limitations/2": 3,
+    "/summary/limitations/3": 2,
+    "/summary/limitations/4": 3,
+    "/summary/limitations/5": 1,
+    "/summary/limitations/6": 13
+  },
+  "actual_context_return_counts_by_fact": {
+    "/facts/0": 32,
+    "/facts/1": 30
+  },
+  "no_gate_or_signal_algorithm_changed": true
+}

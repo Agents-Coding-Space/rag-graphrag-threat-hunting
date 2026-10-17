@@ -7,6 +7,8 @@ from pathlib import Path
 import re
 from typing import Any
 
+from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+
 from .calibration_config import (
     _canonical, _integer, _json_document, _load_json, _object,
     _text, generate_policy_candidates, validate_execution_settings,
@@ -161,7 +163,11 @@ def validate_calibration_report(document: object) -> None:
             for field in ("path", *fields):
                 _text(artifact[field], f"$.provenance.{name}.{field}")
             _require(isinstance(artifact["sha256"], str) and re.fullmatch(r"[0-9a-f]{64}", artifact["sha256"]) is not None, "provenance SHA-256 must be lowercase full hash")
-            _require(artifact["schema_version"] == ARTIFACT_SCHEMAS[name], "provenance schema_version mismatch")
+            supported_versions = (
+                SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+                if name == "ground_truth" else (ARTIFACT_SCHEMAS[name],)
+            )
+            _require(artifact["schema_version"] in supported_versions, "provenance schema_version mismatch")
         _require(provenance["config"]["calibration_id"] == root["calibration_id"], "config/calibration ID mismatch")
         _require(len({provenance[name]["scenario_id"] for name in ARTIFACT_FIELDS if "scenario_id" in ARTIFACT_FIELDS[name]}) == 1, "artifact scenario mismatch")
         _require(provenance["vector_index"]["corpus_id"] == provenance["corpus"]["corpus_id"], "index/corpus ID mismatch")

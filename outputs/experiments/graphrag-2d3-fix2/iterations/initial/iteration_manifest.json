@@ -1,0 +1,20 @@
+{
+  "kind": "earlier_development_iteration_not_an_independent_experiment",
+  "artifact_sha256": {
+    "experiment_configuration.json": "d5e101e29009564646c315eb36c5438d753a43ae155d4724b8949d1aae3504d9",
+    "fixed_policy.json": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+    "initial_contexts.json": "da3a0e30053d7579025b442d3c68799b7d6df3a0a9d286e99a3d1b3354952258",
+    "query_requirements.json": "bc0ab33ad46d2710b3148b8e6f66cc7513ce3b17ac524846cf38d52882ad5785",
+    "base_evidence_contexts.json": "241876f6d51174c7992e3277135aab59fd1b0f5dc8a5db21b8c3e7cdc0baf51d",
+    "enriched_contexts.json": "5a0871315d458d5506ce83d9f09266e46637d5d3c58e9530b08dc828dff6faa7",
+    "signals.json": "44ee14bb85be01d8079a69703ba213b9ec6d06a89f7294675ce3596c9aa3dc3b",
+    "decisions.json": "07ea8be1779b4f94570be0531c22b2600cd084347b7d4bb8c136c5dadd7def9f",
+    "external_context_adjudication.json": "8f2f3505cdfe9f1b06d70127999c56f89741af7e5844927f583ed780920578eb",
+    "evaluation_records.json": "211673ac1704acc587376209f2df98441c811b4d42b77d3dbfdae3d844c085d4",
+    "case_transitions.json": "356aacc177c16b815b30a14ec0cb953e7152a9bd3640667ee9d78b99187bc17a",
+    "ablation_results.json": "55a0b47fd215e457398c5cee637adbd231c6829c765ed0d166f6ac4da38f2639"
+  },
+  "reason_for_rerun": "Generic parser invariant bugs: lost named constraints, unanchored process concept, uncovered requested positive claim",
+  "threshold_search_or_new_probes": false,
+  "initial_runtime_source_hashes_not_captured_at_run_time": true
+}

@@ -187,6 +187,16 @@ def _chunk_sort_key(chunk: Mapping[str, object]) -> tuple[int, str]:
     return CHUNK_TYPE_RANK[str(chunk["chunk_type"])], str(identity)
 
 
+def _legacy_source_review_metadata(
+    ground_truth: Mapping[str, Any],
+) -> dict[str, object]:
+    """Preserve v1 annotations without copying v2 human approval to evidence."""
+
+    if ground_truth["schema_version"] == SCENARIO_GROUND_TRUTH_SCHEMA_VERSION:
+        return {"source_review_status": ground_truth["review"]["review_status"]}
+    return {}
+
+
 def _scenario_chunk(
     ground_truth: Mapping[str, Any],
     *,
@@ -236,7 +246,7 @@ def _scenario_chunk(
             "analysis_status": scenario["analysis_status"],
             "time_window": scenario["time_window"],
             "observed_behavior_count": len(summary["observed_behavior"]),
-            "source_review_status": ground_truth["review"]["review_status"],
+            **_legacy_source_review_metadata(ground_truth),
         },
     )
 
@@ -683,7 +693,7 @@ def build_retrieval_corpus(
         "scenario_id": scenario_id,
         "source_ground_truth": {
             "path": source_path,
-            "schema_version": SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
+            "schema_version": root["schema_version"],
             "sha256": source_hash,
             "scenario_id": scenario_id,
         },
@@ -703,7 +713,7 @@ def build_retrieval_corpus(
             "builder_contract": "ground-truth-to-retrieval-corpus/v1",
             "chunk_count": len(chunks),
             "source_analysis_status": root["scenario"]["analysis_status"],
-            "source_review_status": root["review"]["review_status"],
+            **_legacy_source_review_metadata(root),
         },
     }
     try:

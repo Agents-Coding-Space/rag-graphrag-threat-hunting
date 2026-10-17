@@ -1,0 +1,5589 @@
+{
+  "schema_version": "mordor-inspection/v2",
+  "status": "completed",
+  "source": {
+    "filename": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+    "repository_relative_path": "data/raw/mordor/c2_network/empire_launcher_sct_regsvr32/empire_launcher_sct_regsvr32_2020-07-21232741.json",
+    "size_bytes": 5349638,
+    "sha256": "8b619d07ad79713ae96234344c4ba9618eae7119c360ee008b5e0c2cfe4954d7",
+    "encoding": "utf-8"
+  },
+  "format_detection": {
+    "format": "jsonl",
+    "fully_validated": true,
+    "validation_method": "every_nonblank_line_is_one_json_object",
+    "validated_record_count": 2390
+  },
+  "parsing": {
+    "status": "valid",
+    "record_count": 2390,
+    "invalid_record_count": 0,
+    "blank_line_count": 0
+  },
+  "record_count_check": {
+    "expected": 2390,
+    "actual": 2390,
+    "status": "match"
+  },
+  "time_range": {
+    "recommendation": {
+      "status": "candidate",
+      "primary_source_field": "@timestamp",
+      "fallback_source_fields": [
+        "TimeCreated",
+        "EventTime"
+      ],
+      "review_only_source_fields": [
+        "UtcTime"
+      ],
+      "excluded_occurrence_source_fields": [
+        "CreationUtcTime"
+      ],
+      "rationale": "Use @timestamp for the current datasets, then a parseable TimeCreated or EventTime. UtcTime requires timezone semantic review, and CreationUtcTime is not an occurrence timestamp."
+    },
+    "source_fields": {
+      "@timestamp": {
+        "present_count": 2390,
+        "parsed_count": 2390,
+        "unparseable_count": 0,
+        "timezone_aware_count": 2390,
+        "timezone_naive_count": 0
+      },
+      "CreationUtcTime": {
+        "present_count": 17,
+        "parsed_count": 17,
+        "unparseable_count": 0,
+        "timezone_aware_count": 0,
+        "timezone_naive_count": 17
+      },
+      "EventTime": {
+        "present_count": 2390,
+        "parsed_count": 2390,
+        "unparseable_count": 0,
+        "timezone_aware_count": 0,
+        "timezone_naive_count": 2390
+      },
+      "UtcTime": {
+        "present_count": 1762,
+        "parsed_count": 1762,
+        "unparseable_count": 0,
+        "timezone_aware_count": 0,
+        "timezone_naive_count": 1762
+      }
+    },
+    "range_source_field_counts": {
+      "@timestamp": 2390
+    },
+    "multiple_candidate_record_count": 2390,
+    "conflicting_candidate_record_count": 2390,
+    "conflict_threshold_seconds": 60.0,
+    "conflicts": [
+      {
+        "first_field": "@timestamp",
+        "second_field": "CreationUtcTime",
+        "record_count": 9,
+        "maximum_wall_clock_delta_seconds": 204266.992,
+        "comparison_basis_counts": {
+          "wall_clock_only_timezone_unconfirmed": 9
+        }
+      },
+      {
+        "first_field": "@timestamp",
+        "second_field": "EventTime",
+        "record_count": 2390,
+        "maximum_wall_clock_delta_seconds": 14403.533,
+        "comparison_basis_counts": {
+          "wall_clock_only_timezone_unconfirmed": 2390
+        }
+      },
+      {
+        "first_field": "EventTime",
+        "second_field": "CreationUtcTime",
+        "record_count": 17,
+        "maximum_wall_clock_delta_seconds": 189864.95,
+        "comparison_basis_counts": {
+          "naive_wall_clock": 17
+        }
+      },
+      {
+        "first_field": "EventTime",
+        "second_field": "UtcTime",
+        "record_count": 1762,
+        "maximum_wall_clock_delta_seconds": 14400.998,
+        "comparison_basis_counts": {
+          "naive_wall_clock": 1762
+        }
+      },
+      {
+        "first_field": "UtcTime",
+        "second_field": "CreationUtcTime",
+        "record_count": 9,
+        "maximum_wall_clock_delta_seconds": 204265.043,
+        "comparison_basis_counts": {
+          "naive_wall_clock": 9
+        }
+      }
+    ],
+    "minimum": "2020-07-22T03:27:42.455000Z",
+    "maximum": "2020-07-22T03:28:33.535000Z",
+    "minimum_utc": "2020-07-22T03:27:42.455000Z",
+    "maximum_utc": "2020-07-22T03:28:33.535000Z",
+    "timezone_status": "aware",
+    "note": "Timestamps are parsed only for aggregate structural inspection. Timezone-naive values are not assigned UTC and no canonical event is emitted."
+  },
+  "observed_schema": {
+    "path_notation": "RFC 6901 JSON Pointer with /* for array elements",
+    "distinct_field_path_count": 163,
+    "top_level": {
+      "distinct_field_count": 162,
+      "fields": [
+        {
+          "path": "/@timestamp",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/@version",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/AccessList",
+          "present_count": 84,
+          "missing_count": 2306,
+          "null_count": 0,
+          "non_null_count": 84,
+          "coverage": 0.035146,
+          "observed_type_counts": {
+            "string": 84
+          }
+        },
+        {
+          "path": "/AccessMask",
+          "present_count": 84,
+          "missing_count": 2306,
+          "null_count": 0,
+          "non_null_count": 84,
+          "coverage": 0.035146,
+          "observed_type_counts": {
+            "string": 84
+          }
+        },
+        {
+          "path": "/AccessReason",
+          "present_count": 51,
+          "missing_count": 2339,
+          "null_count": 0,
+          "non_null_count": 51,
+          "coverage": 0.021339,
+          "observed_type_counts": {
+            "string": 51
+          }
+        },
+        {
+          "path": "/AccountName",
+          "present_count": 1823,
+          "missing_count": 567,
+          "null_count": 0,
+          "non_null_count": 1823,
+          "coverage": 0.762762,
+          "observed_type_counts": {
+            "string": 1823
+          }
+        },
+        {
+          "path": "/AccountType",
+          "present_count": 1823,
+          "missing_count": 567,
+          "null_count": 0,
+          "non_null_count": 1823,
+          "coverage": 0.762762,
+          "observed_type_counts": {
+            "string": 1823
+          }
+        },
+        {
+          "path": "/ActivityID",
+          "present_count": 63,
+          "missing_count": 2327,
+          "null_count": 0,
+          "non_null_count": 63,
+          "coverage": 0.02636,
+          "observed_type_counts": {
+            "string": 63
+          }
+        },
+        {
+          "path": "/Application",
+          "present_count": 239,
+          "missing_count": 2151,
+          "null_count": 0,
+          "non_null_count": 239,
+          "coverage": 0.1,
+          "observed_type_counts": {
+            "string": 239
+          }
+        },
+        {
+          "path": "/Archived",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/AuthenticationPackageName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/CallTrace",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/Category",
+          "present_count": 627,
+          "missing_count": 1763,
+          "null_count": 0,
+          "non_null_count": 627,
+          "coverage": 0.262343,
+          "observed_type_counts": {
+            "string": 627
+          }
+        },
+        {
+          "path": "/Channel",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/CommandLine",
+          "present_count": 14,
+          "missing_count": 2376,
+          "null_count": 0,
+          "non_null_count": 14,
+          "coverage": 0.005858,
+          "observed_type_counts": {
+            "string": 14
+          }
+        },
+        {
+          "path": "/Company",
+          "present_count": 542,
+          "missing_count": 1848,
+          "null_count": 0,
+          "non_null_count": 542,
+          "coverage": 0.226778,
+          "observed_type_counts": {
+            "string": 542
+          }
+        },
+        {
+          "path": "/ContextInfo",
+          "present_count": 54,
+          "missing_count": 2336,
+          "null_count": 0,
+          "non_null_count": 54,
+          "coverage": 0.022594,
+          "observed_type_counts": {
+            "string": 54
+          }
+        },
+        {
+          "path": "/CreationUtcTime",
+          "present_count": 17,
+          "missing_count": 2373,
+          "null_count": 0,
+          "non_null_count": 17,
+          "coverage": 0.007113,
+          "observed_type_counts": {
+            "string": 17
+          }
+        },
+        {
+          "path": "/CurrentDirectory",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/Description",
+          "present_count": 542,
+          "missing_count": 1848,
+          "null_count": 0,
+          "non_null_count": 542,
+          "coverage": 0.226778,
+          "observed_type_counts": {
+            "string": 542
+          }
+        },
+        {
+          "path": "/DestAddress",
+          "present_count": 216,
+          "missing_count": 2174,
+          "null_count": 0,
+          "non_null_count": 216,
+          "coverage": 0.090377,
+          "observed_type_counts": {
+            "string": 216
+          }
+        },
+        {
+          "path": "/DestinationHostname",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/DestinationIp",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/DestinationIsIpv6",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/DestinationPort",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/DestinationPortName",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/DestPort",
+          "present_count": 216,
+          "missing_count": 2174,
+          "null_count": 0,
+          "non_null_count": 216,
+          "coverage": 0.090377,
+          "observed_type_counts": {
+            "string": 216
+          }
+        },
+        {
+          "path": "/Details",
+          "present_count": 214,
+          "missing_count": 2176,
+          "null_count": 0,
+          "non_null_count": 214,
+          "coverage": 0.08954,
+          "observed_type_counts": {
+            "string": 214
+          }
+        },
+        {
+          "path": "/Device",
+          "present_count": 4,
+          "missing_count": 2386,
+          "null_count": 0,
+          "non_null_count": 4,
+          "coverage": 0.001674,
+          "observed_type_counts": {
+            "string": 4
+          }
+        },
+        {
+          "path": "/Direction",
+          "present_count": 216,
+          "missing_count": 2174,
+          "null_count": 0,
+          "non_null_count": 216,
+          "coverage": 0.090377,
+          "observed_type_counts": {
+            "string": 216
+          }
+        },
+        {
+          "path": "/DisabledPrivilegeList",
+          "present_count": 11,
+          "missing_count": 2379,
+          "null_count": 0,
+          "non_null_count": 11,
+          "coverage": 0.004603,
+          "observed_type_counts": {
+            "string": 11
+          }
+        },
+        {
+          "path": "/Domain",
+          "present_count": 1823,
+          "missing_count": 567,
+          "null_count": 0,
+          "non_null_count": 1823,
+          "coverage": 0.762762,
+          "observed_type_counts": {
+            "string": 1823
+          }
+        },
+        {
+          "path": "/ElevatedToken",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/EnabledPrivilegeList",
+          "present_count": 11,
+          "missing_count": 2379,
+          "null_count": 0,
+          "non_null_count": 11,
+          "coverage": 0.004603,
+          "observed_type_counts": {
+            "string": 11
+          }
+        },
+        {
+          "path": "/EventCountTotal",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/EventID",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/EventIdx",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/EventReceivedTime",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/EventTime",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/EventType",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/EventTypeOrignal",
+          "present_count": 902,
+          "missing_count": 1488,
+          "null_count": 0,
+          "non_null_count": 902,
+          "coverage": 0.377406,
+          "observed_type_counts": {
+            "string": 902
+          }
+        },
+        {
+          "path": "/ExecutionProcessID",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/FileVersion",
+          "present_count": 542,
+          "missing_count": 1848,
+          "null_count": 0,
+          "non_null_count": 542,
+          "coverage": 0.226778,
+          "observed_type_counts": {
+            "string": 542
+          }
+        },
+        {
+          "path": "/FilterRTID",
+          "present_count": 239,
+          "missing_count": 2151,
+          "null_count": 0,
+          "non_null_count": 239,
+          "coverage": 0.1,
+          "observed_type_counts": {
+            "string": 239
+          }
+        },
+        {
+          "path": "/GrantedAccess",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/GroupMembership",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/HandleId",
+          "present_count": 187,
+          "missing_count": 2203,
+          "null_count": 0,
+          "non_null_count": 187,
+          "coverage": 0.078243,
+          "observed_type_counts": {
+            "string": 187
+          }
+        },
+        {
+          "path": "/Hashes",
+          "present_count": 545,
+          "missing_count": 1845,
+          "null_count": 0,
+          "non_null_count": 545,
+          "coverage": 0.228033,
+          "observed_type_counts": {
+            "string": 545
+          }
+        },
+        {
+          "path": "/host",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/Hostname",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/Image",
+          "present_count": 1497,
+          "missing_count": 893,
+          "null_count": 0,
+          "non_null_count": 1497,
+          "coverage": 0.62636,
+          "observed_type_counts": {
+            "string": 1497
+          }
+        },
+        {
+          "path": "/ImageLoaded",
+          "present_count": 535,
+          "missing_count": 1855,
+          "null_count": 0,
+          "non_null_count": 535,
+          "coverage": 0.223849,
+          "observed_type_counts": {
+            "string": 535
+          }
+        },
+        {
+          "path": "/ImpersonationLevel",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/Initiated",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/IntegrityLevel",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/IpAddress",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/IpPort",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/IsExecutable",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/KeyLength",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/Keywords",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/LayerName",
+          "present_count": 239,
+          "missing_count": 2151,
+          "null_count": 0,
+          "non_null_count": 239,
+          "coverage": 0.1,
+          "observed_type_counts": {
+            "string": 239
+          }
+        },
+        {
+          "path": "/LayerRTID",
+          "present_count": 239,
+          "missing_count": 2151,
+          "null_count": 0,
+          "non_null_count": 239,
+          "coverage": 0.1,
+          "observed_type_counts": {
+            "string": 239
+          }
+        },
+        {
+          "path": "/LmPackageName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/LogonGuid",
+          "present_count": 9,
+          "missing_count": 2381,
+          "null_count": 0,
+          "non_null_count": 9,
+          "coverage": 0.003766,
+          "observed_type_counts": {
+            "string": 9
+          }
+        },
+        {
+          "path": "/LogonId",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/LogonProcessName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/LogonType",
+          "present_count": 6,
+          "missing_count": 2384,
+          "null_count": 0,
+          "non_null_count": 6,
+          "coverage": 0.00251,
+          "observed_type_counts": {
+            "string": 6
+          }
+        },
+        {
+          "path": "/MandatoryLabel",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/Message",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/MessageNumber",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/MessageTotal",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/NewProcessId",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/NewProcessName",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/NewSd",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/ObjectName",
+          "present_count": 86,
+          "missing_count": 2304,
+          "null_count": 0,
+          "non_null_count": 86,
+          "coverage": 0.035983,
+          "observed_type_counts": {
+            "string": 86
+          }
+        },
+        {
+          "path": "/ObjectServer",
+          "present_count": 194,
+          "missing_count": 2196,
+          "null_count": 0,
+          "non_null_count": 194,
+          "coverage": 0.081172,
+          "observed_type_counts": {
+            "string": 194
+          }
+        },
+        {
+          "path": "/ObjectType",
+          "present_count": 86,
+          "missing_count": 2304,
+          "null_count": 0,
+          "non_null_count": 86,
+          "coverage": 0.035983,
+          "observed_type_counts": {
+            "string": 86
+          }
+        },
+        {
+          "path": "/OldSd",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/Opcode",
+          "present_count": 628,
+          "missing_count": 1762,
+          "null_count": 0,
+          "non_null_count": 628,
+          "coverage": 0.262762,
+          "observed_type_counts": {
+            "string": 628
+          }
+        },
+        {
+          "path": "/OpcodeValue",
+          "present_count": 2335,
+          "missing_count": 55,
+          "null_count": 0,
+          "non_null_count": 2335,
+          "coverage": 0.976987,
+          "observed_type_counts": {
+            "integer": 2335
+          }
+        },
+        {
+          "path": "/OriginalFileName",
+          "present_count": 542,
+          "missing_count": 1848,
+          "null_count": 0,
+          "non_null_count": 542,
+          "coverage": 0.226778,
+          "observed_type_counts": {
+            "string": 542
+          }
+        },
+        {
+          "path": "/param1",
+          "present_count": 1,
+          "missing_count": 2389,
+          "null_count": 0,
+          "non_null_count": 1,
+          "coverage": 0.000418,
+          "observed_type_counts": {
+            "string": 1
+          }
+        },
+        {
+          "path": "/param2",
+          "present_count": 1,
+          "missing_count": 2389,
+          "null_count": 0,
+          "non_null_count": 1,
+          "coverage": 0.000418,
+          "observed_type_counts": {
+            "string": 1
+          }
+        },
+        {
+          "path": "/ParentCommandLine",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/ParentImage",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/ParentProcessGuid",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/ParentProcessId",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/ParentProcessName",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/Payload",
+          "present_count": 54,
+          "missing_count": 2336,
+          "null_count": 0,
+          "non_null_count": 54,
+          "coverage": 0.022594,
+          "observed_type_counts": {
+            "string": 54
+          }
+        },
+        {
+          "path": "/PipeName",
+          "present_count": 6,
+          "missing_count": 2384,
+          "null_count": 0,
+          "non_null_count": 6,
+          "coverage": 0.00251,
+          "observed_type_counts": {
+            "string": 6
+          }
+        },
+        {
+          "path": "/port",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/PreviousCreationUtcTime",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/PrivilegeList",
+          "present_count": 60,
+          "missing_count": 2330,
+          "null_count": 0,
+          "non_null_count": 60,
+          "coverage": 0.025105,
+          "observed_type_counts": {
+            "string": 60
+          }
+        },
+        {
+          "path": "/ProcessGuid",
+          "present_count": 1497,
+          "missing_count": 893,
+          "null_count": 0,
+          "non_null_count": 1497,
+          "coverage": 0.62636,
+          "observed_type_counts": {
+            "string": 1497
+          }
+        },
+        {
+          "path": "/ProcessId",
+          "present_count": 2268,
+          "missing_count": 122,
+          "null_count": 0,
+          "non_null_count": 2268,
+          "coverage": 0.948954,
+          "observed_type_counts": {
+            "string": 2268
+          }
+        },
+        {
+          "path": "/ProcessName",
+          "present_count": 209,
+          "missing_count": 2181,
+          "null_count": 0,
+          "non_null_count": 209,
+          "coverage": 0.087448,
+          "observed_type_counts": {
+            "string": 209
+          }
+        },
+        {
+          "path": "/Product",
+          "present_count": 542,
+          "missing_count": 1848,
+          "null_count": 0,
+          "non_null_count": 542,
+          "coverage": 0.226778,
+          "observed_type_counts": {
+            "string": 542
+          }
+        },
+        {
+          "path": "/Protocol",
+          "present_count": 264,
+          "missing_count": 2126,
+          "null_count": 0,
+          "non_null_count": 264,
+          "coverage": 0.11046,
+          "observed_type_counts": {
+            "string": 264
+          }
+        },
+        {
+          "path": "/ProviderGuid",
+          "present_count": 2335,
+          "missing_count": 55,
+          "null_count": 0,
+          "non_null_count": 2335,
+          "coverage": 0.976987,
+          "observed_type_counts": {
+            "string": 2335
+          }
+        },
+        {
+          "path": "/QueryName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/QueryResults",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/QueryStatus",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/RecordNumber",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/RemoteMachineID",
+          "present_count": 216,
+          "missing_count": 2174,
+          "null_count": 0,
+          "non_null_count": 216,
+          "coverage": 0.090377,
+          "observed_type_counts": {
+            "string": 216
+          }
+        },
+        {
+          "path": "/RemoteUserID",
+          "present_count": 216,
+          "missing_count": 2174,
+          "null_count": 0,
+          "non_null_count": 216,
+          "coverage": 0.090377,
+          "observed_type_counts": {
+            "string": 216
+          }
+        },
+        {
+          "path": "/ResourceAttributes",
+          "present_count": 84,
+          "missing_count": 2306,
+          "null_count": 0,
+          "non_null_count": 84,
+          "coverage": 0.035146,
+          "observed_type_counts": {
+            "string": 84
+          }
+        },
+        {
+          "path": "/RestrictedAdminMode",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/RestrictedSidCount",
+          "present_count": 51,
+          "missing_count": 2339,
+          "null_count": 0,
+          "non_null_count": 51,
+          "coverage": 0.021339,
+          "observed_type_counts": {
+            "string": 51
+          }
+        },
+        {
+          "path": "/RuleName",
+          "present_count": 1762,
+          "missing_count": 628,
+          "null_count": 0,
+          "non_null_count": 1762,
+          "coverage": 0.737238,
+          "observed_type_counts": {
+            "string": 1762
+          }
+        },
+        {
+          "path": "/ScriptBlockId",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/ScriptBlockText",
+          "present_count": 3,
+          "missing_count": 2387,
+          "null_count": 0,
+          "non_null_count": 3,
+          "coverage": 0.001255,
+          "observed_type_counts": {
+            "string": 3
+          }
+        },
+        {
+          "path": "/Service",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/Severity",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/SeverityValue",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/Signature",
+          "present_count": 535,
+          "missing_count": 1855,
+          "null_count": 0,
+          "non_null_count": 535,
+          "coverage": 0.223849,
+          "observed_type_counts": {
+            "string": 535
+          }
+        },
+        {
+          "path": "/SignatureStatus",
+          "present_count": 535,
+          "missing_count": 1855,
+          "null_count": 0,
+          "non_null_count": 535,
+          "coverage": 0.223849,
+          "observed_type_counts": {
+            "string": 535
+          }
+        },
+        {
+          "path": "/Signed",
+          "present_count": 535,
+          "missing_count": 1855,
+          "null_count": 0,
+          "non_null_count": 535,
+          "coverage": 0.223849,
+          "observed_type_counts": {
+            "string": 535
+          }
+        },
+        {
+          "path": "/SourceAddress",
+          "present_count": 239,
+          "missing_count": 2151,
+          "null_count": 0,
+          "non_null_count": 239,
+          "coverage": 0.1,
+          "observed_type_counts": {
+            "string": 239
+          }
+        },
+        {
+          "path": "/SourceHandleId",
+          "present_count": 51,
+          "missing_count": 2339,
+          "null_count": 0,
+          "non_null_count": 51,
+          "coverage": 0.021339,
+          "observed_type_counts": {
+            "string": 51
+          }
+        },
+        {
+          "path": "/SourceHostname",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/SourceImage",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/SourceIp",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/SourceIsIpv6",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/SourceModuleName",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/SourceModuleType",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/SourceName",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "string": 2390
+          }
+        },
+        {
+          "path": "/SourcePort",
+          "present_count": 264,
+          "missing_count": 2126,
+          "null_count": 0,
+          "non_null_count": 264,
+          "coverage": 0.11046,
+          "observed_type_counts": {
+            "string": 264
+          }
+        },
+        {
+          "path": "/SourcePortName",
+          "present_count": 25,
+          "missing_count": 2365,
+          "null_count": 0,
+          "non_null_count": 25,
+          "coverage": 0.01046,
+          "observed_type_counts": {
+            "string": 25
+          }
+        },
+        {
+          "path": "/SourceProcessGUID",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/SourceProcessId",
+          "present_count": 316,
+          "missing_count": 2074,
+          "null_count": 0,
+          "non_null_count": 316,
+          "coverage": 0.132218,
+          "observed_type_counts": {
+            "string": 316
+          }
+        },
+        {
+          "path": "/SourceThreadId",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/Status",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/SubjectDomainName",
+          "present_count": 271,
+          "missing_count": 2119,
+          "null_count": 0,
+          "non_null_count": 271,
+          "coverage": 0.113389,
+          "observed_type_counts": {
+            "string": 271
+          }
+        },
+        {
+          "path": "/SubjectLogonId",
+          "present_count": 271,
+          "missing_count": 2119,
+          "null_count": 0,
+          "non_null_count": 271,
+          "coverage": 0.113389,
+          "observed_type_counts": {
+            "string": 271
+          }
+        },
+        {
+          "path": "/SubjectUserName",
+          "present_count": 271,
+          "missing_count": 2119,
+          "null_count": 0,
+          "non_null_count": 271,
+          "coverage": 0.113389,
+          "observed_type_counts": {
+            "string": 271
+          }
+        },
+        {
+          "path": "/SubjectUserSid",
+          "present_count": 271,
+          "missing_count": 2119,
+          "null_count": 0,
+          "non_null_count": 271,
+          "coverage": 0.113389,
+          "observed_type_counts": {
+            "string": 271
+          }
+        },
+        {
+          "path": "/tags",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "array": 2390
+          }
+        },
+        {
+          "path": "/TargetDomainName",
+          "present_count": 24,
+          "missing_count": 2366,
+          "null_count": 0,
+          "non_null_count": 24,
+          "coverage": 0.010042,
+          "observed_type_counts": {
+            "string": 24
+          }
+        },
+        {
+          "path": "/TargetFilename",
+          "present_count": 20,
+          "missing_count": 2370,
+          "null_count": 0,
+          "non_null_count": 20,
+          "coverage": 0.008368,
+          "observed_type_counts": {
+            "string": 20
+          }
+        },
+        {
+          "path": "/TargetHandleId",
+          "present_count": 51,
+          "missing_count": 2339,
+          "null_count": 0,
+          "non_null_count": 51,
+          "coverage": 0.021339,
+          "observed_type_counts": {
+            "string": 51
+          }
+        },
+        {
+          "path": "/TargetImage",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/TargetLinkedLogonId",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/TargetLogonId",
+          "present_count": 24,
+          "missing_count": 2366,
+          "null_count": 0,
+          "non_null_count": 24,
+          "coverage": 0.010042,
+          "observed_type_counts": {
+            "string": 24
+          }
+        },
+        {
+          "path": "/TargetObject",
+          "present_count": 896,
+          "missing_count": 1494,
+          "null_count": 0,
+          "non_null_count": 896,
+          "coverage": 0.374895,
+          "observed_type_counts": {
+            "string": 896
+          }
+        },
+        {
+          "path": "/TargetOutboundDomainName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/TargetOutboundUserName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/TargetProcessGUID",
+          "present_count": 265,
+          "missing_count": 2125,
+          "null_count": 0,
+          "non_null_count": 265,
+          "coverage": 0.110879,
+          "observed_type_counts": {
+            "string": 265
+          }
+        },
+        {
+          "path": "/TargetProcessId",
+          "present_count": 316,
+          "missing_count": 2074,
+          "null_count": 0,
+          "non_null_count": 316,
+          "coverage": 0.132218,
+          "observed_type_counts": {
+            "string": 316
+          }
+        },
+        {
+          "path": "/TargetUserName",
+          "present_count": 24,
+          "missing_count": 2366,
+          "null_count": 0,
+          "non_null_count": 24,
+          "coverage": 0.010042,
+          "observed_type_counts": {
+            "string": 24
+          }
+        },
+        {
+          "path": "/TargetUserSid",
+          "present_count": 24,
+          "missing_count": 2366,
+          "null_count": 0,
+          "non_null_count": 24,
+          "coverage": 0.010042,
+          "observed_type_counts": {
+            "string": 24
+          }
+        },
+        {
+          "path": "/Task",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/TerminalSessionId",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/ThreadID",
+          "present_count": 2390,
+          "missing_count": 0,
+          "null_count": 0,
+          "non_null_count": 2390,
+          "coverage": 1.0,
+          "observed_type_counts": {
+            "integer": 2390
+          }
+        },
+        {
+          "path": "/TokenElevationType",
+          "present_count": 7,
+          "missing_count": 2383,
+          "null_count": 0,
+          "non_null_count": 7,
+          "coverage": 0.002929,
+          "observed_type_counts": {
+            "string": 7
+          }
+        },
+        {
+          "path": "/TransactionId",
+          "present_count": 51,
+          "missing_count": 2339,
+          "null_count": 0,
+          "non_null_count": 51,
+          "coverage": 0.021339,
+          "observed_type_counts": {
+            "string": 51
+          }
+        },
+        {
+          "path": "/TransmittedServices",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/User",
+          "present_count": 35,
+          "missing_count": 2355,
+          "null_count": 0,
+          "non_null_count": 35,
+          "coverage": 0.014644,
+          "observed_type_counts": {
+            "string": 35
+          }
+        },
+        {
+          "path": "/UserID",
+          "present_count": 1823,
+          "missing_count": 567,
+          "null_count": 0,
+          "non_null_count": 1823,
+          "coverage": 0.762762,
+          "observed_type_counts": {
+            "string": 1823
+          }
+        },
+        {
+          "path": "/UtcTime",
+          "present_count": 1762,
+          "missing_count": 628,
+          "null_count": 0,
+          "non_null_count": 1762,
+          "coverage": 0.737238,
+          "observed_type_counts": {
+            "string": 1762
+          }
+        },
+        {
+          "path": "/Version",
+          "present_count": 2335,
+          "missing_count": 55,
+          "null_count": 0,
+          "non_null_count": 2335,
+          "coverage": 0.976987,
+          "observed_type_counts": {
+            "integer": 2335
+          }
+        },
+        {
+          "path": "/VirtualAccount",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        },
+        {
+          "path": "/WorkstationName",
+          "present_count": 2,
+          "missing_count": 2388,
+          "null_count": 0,
+          "non_null_count": 2,
+          "coverage": 0.000837,
+          "observed_type_counts": {
+            "string": 2
+          }
+        }
+      ]
+    },
+    "field_paths": [
+      {
+        "path": "/@timestamp",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/@version",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/AccessList",
+        "present_count": 84,
+        "missing_count": 2306,
+        "null_count": 0,
+        "non_null_count": 84,
+        "coverage": 0.035146,
+        "observed_type_counts": {
+          "string": 84
+        }
+      },
+      {
+        "path": "/AccessMask",
+        "present_count": 84,
+        "missing_count": 2306,
+        "null_count": 0,
+        "non_null_count": 84,
+        "coverage": 0.035146,
+        "observed_type_counts": {
+          "string": 84
+        }
+      },
+      {
+        "path": "/AccessReason",
+        "present_count": 51,
+        "missing_count": 2339,
+        "null_count": 0,
+        "non_null_count": 51,
+        "coverage": 0.021339,
+        "observed_type_counts": {
+          "string": 51
+        }
+      },
+      {
+        "path": "/AccountName",
+        "present_count": 1823,
+        "missing_count": 567,
+        "null_count": 0,
+        "non_null_count": 1823,
+        "coverage": 0.762762,
+        "observed_type_counts": {
+          "string": 1823
+        }
+      },
+      {
+        "path": "/AccountType",
+        "present_count": 1823,
+        "missing_count": 567,
+        "null_count": 0,
+        "non_null_count": 1823,
+        "coverage": 0.762762,
+        "observed_type_counts": {
+          "string": 1823
+        }
+      },
+      {
+        "path": "/ActivityID",
+        "present_count": 63,
+        "missing_count": 2327,
+        "null_count": 0,
+        "non_null_count": 63,
+        "coverage": 0.02636,
+        "observed_type_counts": {
+          "string": 63
+        }
+      },
+      {
+        "path": "/Application",
+        "present_count": 239,
+        "missing_count": 2151,
+        "null_count": 0,
+        "non_null_count": 239,
+        "coverage": 0.1,
+        "observed_type_counts": {
+          "string": 239
+        }
+      },
+      {
+        "path": "/Archived",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/AuthenticationPackageName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/CallTrace",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/Category",
+        "present_count": 627,
+        "missing_count": 1763,
+        "null_count": 0,
+        "non_null_count": 627,
+        "coverage": 0.262343,
+        "observed_type_counts": {
+          "string": 627
+        }
+      },
+      {
+        "path": "/Channel",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/CommandLine",
+        "present_count": 14,
+        "missing_count": 2376,
+        "null_count": 0,
+        "non_null_count": 14,
+        "coverage": 0.005858,
+        "observed_type_counts": {
+          "string": 14
+        }
+      },
+      {
+        "path": "/Company",
+        "present_count": 542,
+        "missing_count": 1848,
+        "null_count": 0,
+        "non_null_count": 542,
+        "coverage": 0.226778,
+        "observed_type_counts": {
+          "string": 542
+        }
+      },
+      {
+        "path": "/ContextInfo",
+        "present_count": 54,
+        "missing_count": 2336,
+        "null_count": 0,
+        "non_null_count": 54,
+        "coverage": 0.022594,
+        "observed_type_counts": {
+          "string": 54
+        }
+      },
+      {
+        "path": "/CreationUtcTime",
+        "present_count": 17,
+        "missing_count": 2373,
+        "null_count": 0,
+        "non_null_count": 17,
+        "coverage": 0.007113,
+        "observed_type_counts": {
+          "string": 17
+        }
+      },
+      {
+        "path": "/CurrentDirectory",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/Description",
+        "present_count": 542,
+        "missing_count": 1848,
+        "null_count": 0,
+        "non_null_count": 542,
+        "coverage": 0.226778,
+        "observed_type_counts": {
+          "string": 542
+        }
+      },
+      {
+        "path": "/DestAddress",
+        "present_count": 216,
+        "missing_count": 2174,
+        "null_count": 0,
+        "non_null_count": 216,
+        "coverage": 0.090377,
+        "observed_type_counts": {
+          "string": 216
+        }
+      },
+      {
+        "path": "/DestinationHostname",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/DestinationIp",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/DestinationIsIpv6",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/DestinationPort",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/DestinationPortName",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/DestPort",
+        "present_count": 216,
+        "missing_count": 2174,
+        "null_count": 0,
+        "non_null_count": 216,
+        "coverage": 0.090377,
+        "observed_type_counts": {
+          "string": 216
+        }
+      },
+      {
+        "path": "/Details",
+        "present_count": 214,
+        "missing_count": 2176,
+        "null_count": 0,
+        "non_null_count": 214,
+        "coverage": 0.08954,
+        "observed_type_counts": {
+          "string": 214
+        }
+      },
+      {
+        "path": "/Device",
+        "present_count": 4,
+        "missing_count": 2386,
+        "null_count": 0,
+        "non_null_count": 4,
+        "coverage": 0.001674,
+        "observed_type_counts": {
+          "string": 4
+        }
+      },
+      {
+        "path": "/Direction",
+        "present_count": 216,
+        "missing_count": 2174,
+        "null_count": 0,
+        "non_null_count": 216,
+        "coverage": 0.090377,
+        "observed_type_counts": {
+          "string": 216
+        }
+      },
+      {
+        "path": "/DisabledPrivilegeList",
+        "present_count": 11,
+        "missing_count": 2379,
+        "null_count": 0,
+        "non_null_count": 11,
+        "coverage": 0.004603,
+        "observed_type_counts": {
+          "string": 11
+        }
+      },
+      {
+        "path": "/Domain",
+        "present_count": 1823,
+        "missing_count": 567,
+        "null_count": 0,
+        "non_null_count": 1823,
+        "coverage": 0.762762,
+        "observed_type_counts": {
+          "string": 1823
+        }
+      },
+      {
+        "path": "/ElevatedToken",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/EnabledPrivilegeList",
+        "present_count": 11,
+        "missing_count": 2379,
+        "null_count": 0,
+        "non_null_count": 11,
+        "coverage": 0.004603,
+        "observed_type_counts": {
+          "string": 11
+        }
+      },
+      {
+        "path": "/EventCountTotal",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/EventID",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/EventIdx",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/EventReceivedTime",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/EventTime",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/EventType",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/EventTypeOrignal",
+        "present_count": 902,
+        "missing_count": 1488,
+        "null_count": 0,
+        "non_null_count": 902,
+        "coverage": 0.377406,
+        "observed_type_counts": {
+          "string": 902
+        }
+      },
+      {
+        "path": "/ExecutionProcessID",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/FileVersion",
+        "present_count": 542,
+        "missing_count": 1848,
+        "null_count": 0,
+        "non_null_count": 542,
+        "coverage": 0.226778,
+        "observed_type_counts": {
+          "string": 542
+        }
+      },
+      {
+        "path": "/FilterRTID",
+        "present_count": 239,
+        "missing_count": 2151,
+        "null_count": 0,
+        "non_null_count": 239,
+        "coverage": 0.1,
+        "observed_type_counts": {
+          "string": 239
+        }
+      },
+      {
+        "path": "/GrantedAccess",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/GroupMembership",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/HandleId",
+        "present_count": 187,
+        "missing_count": 2203,
+        "null_count": 0,
+        "non_null_count": 187,
+        "coverage": 0.078243,
+        "observed_type_counts": {
+          "string": 187
+        }
+      },
+      {
+        "path": "/Hashes",
+        "present_count": 545,
+        "missing_count": 1845,
+        "null_count": 0,
+        "non_null_count": 545,
+        "coverage": 0.228033,
+        "observed_type_counts": {
+          "string": 545
+        }
+      },
+      {
+        "path": "/host",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/Hostname",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/Image",
+        "present_count": 1497,
+        "missing_count": 893,
+        "null_count": 0,
+        "non_null_count": 1497,
+        "coverage": 0.62636,
+        "observed_type_counts": {
+          "string": 1497
+        }
+      },
+      {
+        "path": "/ImageLoaded",
+        "present_count": 535,
+        "missing_count": 1855,
+        "null_count": 0,
+        "non_null_count": 535,
+        "coverage": 0.223849,
+        "observed_type_counts": {
+          "string": 535
+        }
+      },
+      {
+        "path": "/ImpersonationLevel",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/Initiated",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/IntegrityLevel",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/IpAddress",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/IpPort",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/IsExecutable",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/KeyLength",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/Keywords",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/LayerName",
+        "present_count": 239,
+        "missing_count": 2151,
+        "null_count": 0,
+        "non_null_count": 239,
+        "coverage": 0.1,
+        "observed_type_counts": {
+          "string": 239
+        }
+      },
+      {
+        "path": "/LayerRTID",
+        "present_count": 239,
+        "missing_count": 2151,
+        "null_count": 0,
+        "non_null_count": 239,
+        "coverage": 0.1,
+        "observed_type_counts": {
+          "string": 239
+        }
+      },
+      {
+        "path": "/LmPackageName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/LogonGuid",
+        "present_count": 9,
+        "missing_count": 2381,
+        "null_count": 0,
+        "non_null_count": 9,
+        "coverage": 0.003766,
+        "observed_type_counts": {
+          "string": 9
+        }
+      },
+      {
+        "path": "/LogonId",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/LogonProcessName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/LogonType",
+        "present_count": 6,
+        "missing_count": 2384,
+        "null_count": 0,
+        "non_null_count": 6,
+        "coverage": 0.00251,
+        "observed_type_counts": {
+          "string": 6
+        }
+      },
+      {
+        "path": "/MandatoryLabel",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/Message",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/MessageNumber",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/MessageTotal",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/NewProcessId",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/NewProcessName",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/NewSd",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/ObjectName",
+        "present_count": 86,
+        "missing_count": 2304,
+        "null_count": 0,
+        "non_null_count": 86,
+        "coverage": 0.035983,
+        "observed_type_counts": {
+          "string": 86
+        }
+      },
+      {
+        "path": "/ObjectServer",
+        "present_count": 194,
+        "missing_count": 2196,
+        "null_count": 0,
+        "non_null_count": 194,
+        "coverage": 0.081172,
+        "observed_type_counts": {
+          "string": 194
+        }
+      },
+      {
+        "path": "/ObjectType",
+        "present_count": 86,
+        "missing_count": 2304,
+        "null_count": 0,
+        "non_null_count": 86,
+        "coverage": 0.035983,
+        "observed_type_counts": {
+          "string": 86
+        }
+      },
+      {
+        "path": "/OldSd",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/Opcode",
+        "present_count": 628,
+        "missing_count": 1762,
+        "null_count": 0,
+        "non_null_count": 628,
+        "coverage": 0.262762,
+        "observed_type_counts": {
+          "string": 628
+        }
+      },
+      {
+        "path": "/OpcodeValue",
+        "present_count": 2335,
+        "missing_count": 55,
+        "null_count": 0,
+        "non_null_count": 2335,
+        "coverage": 0.976987,
+        "observed_type_counts": {
+          "integer": 2335
+        }
+      },
+      {
+        "path": "/OriginalFileName",
+        "present_count": 542,
+        "missing_count": 1848,
+        "null_count": 0,
+        "non_null_count": 542,
+        "coverage": 0.226778,
+        "observed_type_counts": {
+          "string": 542
+        }
+      },
+      {
+        "path": "/param1",
+        "present_count": 1,
+        "missing_count": 2389,
+        "null_count": 0,
+        "non_null_count": 1,
+        "coverage": 0.000418,
+        "observed_type_counts": {
+          "string": 1
+        }
+      },
+      {
+        "path": "/param2",
+        "present_count": 1,
+        "missing_count": 2389,
+        "null_count": 0,
+        "non_null_count": 1,
+        "coverage": 0.000418,
+        "observed_type_counts": {
+          "string": 1
+        }
+      },
+      {
+        "path": "/ParentCommandLine",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/ParentImage",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/ParentProcessGuid",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/ParentProcessId",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/ParentProcessName",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/Payload",
+        "present_count": 54,
+        "missing_count": 2336,
+        "null_count": 0,
+        "non_null_count": 54,
+        "coverage": 0.022594,
+        "observed_type_counts": {
+          "string": 54
+        }
+      },
+      {
+        "path": "/PipeName",
+        "present_count": 6,
+        "missing_count": 2384,
+        "null_count": 0,
+        "non_null_count": 6,
+        "coverage": 0.00251,
+        "observed_type_counts": {
+          "string": 6
+        }
+      },
+      {
+        "path": "/port",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/PreviousCreationUtcTime",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/PrivilegeList",
+        "present_count": 60,
+        "missing_count": 2330,
+        "null_count": 0,
+        "non_null_count": 60,
+        "coverage": 0.025105,
+        "observed_type_counts": {
+          "string": 60
+        }
+      },
+      {
+        "path": "/ProcessGuid",
+        "present_count": 1497,
+        "missing_count": 893,
+        "null_count": 0,
+        "non_null_count": 1497,
+        "coverage": 0.62636,
+        "observed_type_counts": {
+          "string": 1497
+        }
+      },
+      {
+        "path": "/ProcessId",
+        "present_count": 2268,
+        "missing_count": 122,
+        "null_count": 0,
+        "non_null_count": 2268,
+        "coverage": 0.948954,
+        "observed_type_counts": {
+          "string": 2268
+        }
+      },
+      {
+        "path": "/ProcessName",
+        "present_count": 209,
+        "missing_count": 2181,
+        "null_count": 0,
+        "non_null_count": 209,
+        "coverage": 0.087448,
+        "observed_type_counts": {
+          "string": 209
+        }
+      },
+      {
+        "path": "/Product",
+        "present_count": 542,
+        "missing_count": 1848,
+        "null_count": 0,
+        "non_null_count": 542,
+        "coverage": 0.226778,
+        "observed_type_counts": {
+          "string": 542
+        }
+      },
+      {
+        "path": "/Protocol",
+        "present_count": 264,
+        "missing_count": 2126,
+        "null_count": 0,
+        "non_null_count": 264,
+        "coverage": 0.11046,
+        "observed_type_counts": {
+          "string": 264
+        }
+      },
+      {
+        "path": "/ProviderGuid",
+        "present_count": 2335,
+        "missing_count": 55,
+        "null_count": 0,
+        "non_null_count": 2335,
+        "coverage": 0.976987,
+        "observed_type_counts": {
+          "string": 2335
+        }
+      },
+      {
+        "path": "/QueryName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/QueryResults",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/QueryStatus",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/RecordNumber",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/RemoteMachineID",
+        "present_count": 216,
+        "missing_count": 2174,
+        "null_count": 0,
+        "non_null_count": 216,
+        "coverage": 0.090377,
+        "observed_type_counts": {
+          "string": 216
+        }
+      },
+      {
+        "path": "/RemoteUserID",
+        "present_count": 216,
+        "missing_count": 2174,
+        "null_count": 0,
+        "non_null_count": 216,
+        "coverage": 0.090377,
+        "observed_type_counts": {
+          "string": 216
+        }
+      },
+      {
+        "path": "/ResourceAttributes",
+        "present_count": 84,
+        "missing_count": 2306,
+        "null_count": 0,
+        "non_null_count": 84,
+        "coverage": 0.035146,
+        "observed_type_counts": {
+          "string": 84
+        }
+      },
+      {
+        "path": "/RestrictedAdminMode",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/RestrictedSidCount",
+        "present_count": 51,
+        "missing_count": 2339,
+        "null_count": 0,
+        "non_null_count": 51,
+        "coverage": 0.021339,
+        "observed_type_counts": {
+          "string": 51
+        }
+      },
+      {
+        "path": "/RuleName",
+        "present_count": 1762,
+        "missing_count": 628,
+        "null_count": 0,
+        "non_null_count": 1762,
+        "coverage": 0.737238,
+        "observed_type_counts": {
+          "string": 1762
+        }
+      },
+      {
+        "path": "/ScriptBlockId",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/ScriptBlockText",
+        "present_count": 3,
+        "missing_count": 2387,
+        "null_count": 0,
+        "non_null_count": 3,
+        "coverage": 0.001255,
+        "observed_type_counts": {
+          "string": 3
+        }
+      },
+      {
+        "path": "/Service",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/Severity",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/SeverityValue",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/Signature",
+        "present_count": 535,
+        "missing_count": 1855,
+        "null_count": 0,
+        "non_null_count": 535,
+        "coverage": 0.223849,
+        "observed_type_counts": {
+          "string": 535
+        }
+      },
+      {
+        "path": "/SignatureStatus",
+        "present_count": 535,
+        "missing_count": 1855,
+        "null_count": 0,
+        "non_null_count": 535,
+        "coverage": 0.223849,
+        "observed_type_counts": {
+          "string": 535
+        }
+      },
+      {
+        "path": "/Signed",
+        "present_count": 535,
+        "missing_count": 1855,
+        "null_count": 0,
+        "non_null_count": 535,
+        "coverage": 0.223849,
+        "observed_type_counts": {
+          "string": 535
+        }
+      },
+      {
+        "path": "/SourceAddress",
+        "present_count": 239,
+        "missing_count": 2151,
+        "null_count": 0,
+        "non_null_count": 239,
+        "coverage": 0.1,
+        "observed_type_counts": {
+          "string": 239
+        }
+      },
+      {
+        "path": "/SourceHandleId",
+        "present_count": 51,
+        "missing_count": 2339,
+        "null_count": 0,
+        "non_null_count": 51,
+        "coverage": 0.021339,
+        "observed_type_counts": {
+          "string": 51
+        }
+      },
+      {
+        "path": "/SourceHostname",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/SourceImage",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/SourceIp",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/SourceIsIpv6",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/SourceModuleName",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/SourceModuleType",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/SourceName",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/SourcePort",
+        "present_count": 264,
+        "missing_count": 2126,
+        "null_count": 0,
+        "non_null_count": 264,
+        "coverage": 0.11046,
+        "observed_type_counts": {
+          "string": 264
+        }
+      },
+      {
+        "path": "/SourcePortName",
+        "present_count": 25,
+        "missing_count": 2365,
+        "null_count": 0,
+        "non_null_count": 25,
+        "coverage": 0.01046,
+        "observed_type_counts": {
+          "string": 25
+        }
+      },
+      {
+        "path": "/SourceProcessGUID",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/SourceProcessId",
+        "present_count": 316,
+        "missing_count": 2074,
+        "null_count": 0,
+        "non_null_count": 316,
+        "coverage": 0.132218,
+        "observed_type_counts": {
+          "string": 316
+        }
+      },
+      {
+        "path": "/SourceThreadId",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/Status",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/SubjectDomainName",
+        "present_count": 271,
+        "missing_count": 2119,
+        "null_count": 0,
+        "non_null_count": 271,
+        "coverage": 0.113389,
+        "observed_type_counts": {
+          "string": 271
+        }
+      },
+      {
+        "path": "/SubjectLogonId",
+        "present_count": 271,
+        "missing_count": 2119,
+        "null_count": 0,
+        "non_null_count": 271,
+        "coverage": 0.113389,
+        "observed_type_counts": {
+          "string": 271
+        }
+      },
+      {
+        "path": "/SubjectUserName",
+        "present_count": 271,
+        "missing_count": 2119,
+        "null_count": 0,
+        "non_null_count": 271,
+        "coverage": 0.113389,
+        "observed_type_counts": {
+          "string": 271
+        }
+      },
+      {
+        "path": "/SubjectUserSid",
+        "present_count": 271,
+        "missing_count": 2119,
+        "null_count": 0,
+        "non_null_count": 271,
+        "coverage": 0.113389,
+        "observed_type_counts": {
+          "string": 271
+        }
+      },
+      {
+        "path": "/tags",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "array": 2390
+        }
+      },
+      {
+        "path": "/tags/*",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "string": 2390
+        }
+      },
+      {
+        "path": "/TargetDomainName",
+        "present_count": 24,
+        "missing_count": 2366,
+        "null_count": 0,
+        "non_null_count": 24,
+        "coverage": 0.010042,
+        "observed_type_counts": {
+          "string": 24
+        }
+      },
+      {
+        "path": "/TargetFilename",
+        "present_count": 20,
+        "missing_count": 2370,
+        "null_count": 0,
+        "non_null_count": 20,
+        "coverage": 0.008368,
+        "observed_type_counts": {
+          "string": 20
+        }
+      },
+      {
+        "path": "/TargetHandleId",
+        "present_count": 51,
+        "missing_count": 2339,
+        "null_count": 0,
+        "non_null_count": 51,
+        "coverage": 0.021339,
+        "observed_type_counts": {
+          "string": 51
+        }
+      },
+      {
+        "path": "/TargetImage",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/TargetLinkedLogonId",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/TargetLogonId",
+        "present_count": 24,
+        "missing_count": 2366,
+        "null_count": 0,
+        "non_null_count": 24,
+        "coverage": 0.010042,
+        "observed_type_counts": {
+          "string": 24
+        }
+      },
+      {
+        "path": "/TargetObject",
+        "present_count": 896,
+        "missing_count": 1494,
+        "null_count": 0,
+        "non_null_count": 896,
+        "coverage": 0.374895,
+        "observed_type_counts": {
+          "string": 896
+        }
+      },
+      {
+        "path": "/TargetOutboundDomainName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/TargetOutboundUserName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/TargetProcessGUID",
+        "present_count": 265,
+        "missing_count": 2125,
+        "null_count": 0,
+        "non_null_count": 265,
+        "coverage": 0.110879,
+        "observed_type_counts": {
+          "string": 265
+        }
+      },
+      {
+        "path": "/TargetProcessId",
+        "present_count": 316,
+        "missing_count": 2074,
+        "null_count": 0,
+        "non_null_count": 316,
+        "coverage": 0.132218,
+        "observed_type_counts": {
+          "string": 316
+        }
+      },
+      {
+        "path": "/TargetUserName",
+        "present_count": 24,
+        "missing_count": 2366,
+        "null_count": 0,
+        "non_null_count": 24,
+        "coverage": 0.010042,
+        "observed_type_counts": {
+          "string": 24
+        }
+      },
+      {
+        "path": "/TargetUserSid",
+        "present_count": 24,
+        "missing_count": 2366,
+        "null_count": 0,
+        "non_null_count": 24,
+        "coverage": 0.010042,
+        "observed_type_counts": {
+          "string": 24
+        }
+      },
+      {
+        "path": "/Task",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/TerminalSessionId",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/ThreadID",
+        "present_count": 2390,
+        "missing_count": 0,
+        "null_count": 0,
+        "non_null_count": 2390,
+        "coverage": 1.0,
+        "observed_type_counts": {
+          "integer": 2390
+        }
+      },
+      {
+        "path": "/TokenElevationType",
+        "present_count": 7,
+        "missing_count": 2383,
+        "null_count": 0,
+        "non_null_count": 7,
+        "coverage": 0.002929,
+        "observed_type_counts": {
+          "string": 7
+        }
+      },
+      {
+        "path": "/TransactionId",
+        "present_count": 51,
+        "missing_count": 2339,
+        "null_count": 0,
+        "non_null_count": 51,
+        "coverage": 0.021339,
+        "observed_type_counts": {
+          "string": 51
+        }
+      },
+      {
+        "path": "/TransmittedServices",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/User",
+        "present_count": 35,
+        "missing_count": 2355,
+        "null_count": 0,
+        "non_null_count": 35,
+        "coverage": 0.014644,
+        "observed_type_counts": {
+          "string": 35
+        }
+      },
+      {
+        "path": "/UserID",
+        "present_count": 1823,
+        "missing_count": 567,
+        "null_count": 0,
+        "non_null_count": 1823,
+        "coverage": 0.762762,
+        "observed_type_counts": {
+          "string": 1823
+        }
+      },
+      {
+        "path": "/UtcTime",
+        "present_count": 1762,
+        "missing_count": 628,
+        "null_count": 0,
+        "non_null_count": 1762,
+        "coverage": 0.737238,
+        "observed_type_counts": {
+          "string": 1762
+        }
+      },
+      {
+        "path": "/Version",
+        "present_count": 2335,
+        "missing_count": 55,
+        "null_count": 0,
+        "non_null_count": 2335,
+        "coverage": 0.976987,
+        "observed_type_counts": {
+          "integer": 2335
+        }
+      },
+      {
+        "path": "/VirtualAccount",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      },
+      {
+        "path": "/WorkstationName",
+        "present_count": 2,
+        "missing_count": 2388,
+        "null_count": 0,
+        "non_null_count": 2,
+        "coverage": 0.000837,
+        "observed_type_counts": {
+          "string": 2
+        }
+      }
+    ]
+  },
+  "distributions": {
+    "event_id": [
+      {
+        "value": "12",
+        "count": 682
+      },
+      {
+        "value": "7",
+        "count": 535
+      },
+      {
+        "value": "10",
+        "count": 265
+      },
+      {
+        "value": "5156",
+        "count": 216
+      },
+      {
+        "value": "13",
+        "count": 214
+      },
+      {
+        "value": "4658",
+        "count": 101
+      },
+      {
+        "value": "4103",
+        "count": 54
+      },
+      {
+        "value": "4656",
+        "count": 51
+      },
+      {
+        "value": "4690",
+        "count": 51
+      },
+      {
+        "value": "800",
+        "count": 48
+      },
+      {
+        "value": "4663",
+        "count": 33
+      },
+      {
+        "value": "3",
+        "count": 25
+      },
+      {
+        "value": "5158",
+        "count": 23
+      },
+      {
+        "value": "11",
+        "count": 15
+      },
+      {
+        "value": "4703",
+        "count": 11
+      },
+      {
+        "value": "1",
+        "count": 7
+      },
+      {
+        "value": "4673",
+        "count": 7
+      },
+      {
+        "value": "4688",
+        "count": 7
+      },
+      {
+        "value": "600",
+        "count": 6
+      },
+      {
+        "value": "18",
+        "count": 5
+      },
+      {
+        "value": "9",
+        "count": 4
+      },
+      {
+        "value": "23",
+        "count": 3
+      },
+      {
+        "value": "4104",
+        "count": 3
+      },
+      {
+        "value": "2",
+        "count": 2
+      },
+      {
+        "value": "22",
+        "count": 2
+      },
+      {
+        "value": "4624",
+        "count": 2
+      },
+      {
+        "value": "4627",
+        "count": 2
+      },
+      {
+        "value": "4634",
+        "count": 2
+      },
+      {
+        "value": "4670",
+        "count": 2
+      },
+      {
+        "value": "4672",
+        "count": 2
+      },
+      {
+        "value": "4689",
+        "count": 2
+      },
+      {
+        "value": "5",
+        "count": 2
+      },
+      {
+        "value": "17",
+        "count": 1
+      },
+      {
+        "value": "400",
+        "count": 1
+      },
+      {
+        "value": "40961",
+        "count": 1
+      },
+      {
+        "value": "40962",
+        "count": 1
+      },
+      {
+        "value": "53504",
+        "count": 1
+      },
+      {
+        "value": "5857",
+        "count": 1
+      }
+    ],
+    "provider": [
+      {
+        "value": "Microsoft-Windows-Sysmon",
+        "count": 1762
+      },
+      {
+        "value": "Microsoft-Windows-Security-Auditing",
+        "count": 512
+      },
+      {
+        "value": "Microsoft-Windows-PowerShell",
+        "count": 60
+      },
+      {
+        "value": "PowerShell",
+        "count": 55
+      },
+      {
+        "value": "Microsoft-Windows-WMI-Activity",
+        "count": 1
+      }
+    ]
+  },
+  "security_relevant_structural_contexts": [
+    {
+      "label": "Sysmon 1",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "1",
+      "count": 7
+    },
+    {
+      "label": "Security 4688",
+      "provider": "Microsoft-Windows-Security-Auditing",
+      "event_id": "4688",
+      "count": 7
+    },
+    {
+      "label": "Sysmon 3",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "3",
+      "count": 25
+    },
+    {
+      "label": "Security 5156",
+      "provider": "Microsoft-Windows-Security-Auditing",
+      "event_id": "5156",
+      "count": 216
+    },
+    {
+      "label": "Sysmon 10",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "10",
+      "count": 265
+    },
+    {
+      "label": "Sysmon 12",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "12",
+      "count": 682
+    },
+    {
+      "label": "Sysmon 13",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "13",
+      "count": 214
+    },
+    {
+      "label": "Sysmon 22",
+      "provider": "Microsoft-Windows-Sysmon",
+      "event_id": "22",
+      "count": 2
+    }
+  ],
+  "canonical_mapping_proposals": {
+    "event_id": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/EventID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "integer"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event identifier in this provider-specific structural context.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "timestamp": {
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/@timestamp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_primary"
+        },
+        {
+          "source_path": "/EventTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "recommended_fallback"
+        },
+        {
+          "source_path": "/UtcTime",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.737238,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "parse_after_timezone_semantics_review",
+          "rationale": "Timestamp candidate for this provider and Event ID. Source timezone semantics must be reviewed before normalization.",
+          "review_status": "needs_review"
+        }
+      ],
+      "recommendation": {
+        "status": "candidate",
+        "primary_source_path": "/@timestamp",
+        "fallback_source_paths": [
+          "/TimeCreated",
+          "/EventTime"
+        ],
+        "review_only_source_paths": [
+          "/UtcTime"
+        ],
+        "excluded_occurrence_source_paths": [
+          "/CreationUtcTime"
+        ],
+        "rationale": "Use @timestamp as the cross-dataset timeline candidate and TimeCreated or EventTime as parsed fallbacks. UtcTime remains review-only until its timezone semantics are known, and CreationUtcTime is not an event occurrence timestamp."
+      }
+    },
+    "channel": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Channel",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Event channel in this provider and Event ID context.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "provider": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Provider identity used to interpret Event ID semantics.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "host": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Hostname",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Host identity candidate; context is retained for review.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "user": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/User",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.014644,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 User is retained as a generic process user.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/User",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.014644,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 3 User is retained as a generic network process user.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "subject_user": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/SubjectUserName",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.113389,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 SubjectUserName is the actor creating the process.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "target_user": {
+      "status": "unavailable",
+      "candidates": []
+    },
+    "source_ip": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/SourceAddress",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 0.1,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 5156 SourceAddress is the network source address.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourceIp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.01046,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 3 SourceIp is the network source address.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "source_port": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/SourcePort",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 0.11046,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "validated_string_to_integer",
+          "rationale": "Security Event ID 5156 SourcePort is the network source port.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/SourcePort",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.11046,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "validated_string_to_integer",
+          "rationale": "Sysmon Event ID 3 SourcePort is the network source port.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "destination_ip": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/DestAddress",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 0.090377,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 5156 DestAddress is the destination address.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/DestinationIp",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.01046,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 3 DestinationIp is the network destination address.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "destination_port": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/DestPort",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "5156",
+          "present_count": 216,
+          "context_record_count": 216,
+          "context_coverage": 1.0,
+          "file_coverage": 0.090377,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "validated_string_to_integer",
+          "rationale": "Security Event ID 5156 DestPort is the destination port.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/DestinationPort",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.01046,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "validated_string_to_integer",
+          "rationale": "Sysmon Event ID 3 DestinationPort is the network destination port.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "process_name": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/NewProcessName",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 NewProcessName is the created process image.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Image",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 Image is the created process image.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Image",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Image identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Image",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Image identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Image",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Image identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/Image",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Image identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "process_id": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/NewProcessId",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 NewProcessId identifies the created process.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ProcessId identifies the created process.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessId identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessId identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessId identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessId identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "process_guid": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/ProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ProcessGuid identifies the created process.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessGuid identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessGuid identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessGuid identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "3",
+          "present_count": 25,
+          "context_record_count": 25,
+          "context_coverage": 1.0,
+          "file_coverage": 0.62636,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon ProcessGuid identifies the process owning this contextual event.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "parent_process_name": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/ParentProcessName",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 ParentProcessName is the creator process image.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ParentImage",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ParentImage is the creator process image.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "parent_process_id": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/ProcessId",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.948954,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 ProcessId identifies the creator process, not the new process.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/ParentProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ParentProcessId identifies the creator process.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "parent_process_guid": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/ParentProcessGuid",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ParentProcessGuid identifies the creator process.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "command_line": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/CommandLine",
+          "provider": "Microsoft-Windows-Security-Auditing",
+          "event_id": "4688",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.005858,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Security Event ID 4688 CommandLine belongs to the new process.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/CommandLine",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.005858,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 CommandLine belongs to the created process.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "parent_command_line": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/ParentCommandLine",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "1",
+          "present_count": 7,
+          "context_record_count": 7,
+          "context_coverage": 1.0,
+          "file_coverage": 0.002929,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 1 ParentCommandLine belongs to the creator process.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "file_path": {
+      "status": "unavailable",
+      "candidates": []
+    },
+    "registry_key": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/TargetObject",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "12",
+          "present_count": 682,
+          "context_record_count": 682,
+          "context_coverage": 1.0,
+          "file_coverage": 0.374895,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon registry Event IDs 12, 13, and 14 give TargetObject registry semantics.",
+          "review_status": "needs_review"
+        },
+        {
+          "source_path": "/TargetObject",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "13",
+          "present_count": 214,
+          "context_record_count": 214,
+          "context_coverage": 1.0,
+          "file_coverage": 0.374895,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon registry Event IDs 12, 13, and 14 give TargetObject registry semantics.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "dns_query": {
+      "status": "candidate",
+      "candidates": [
+        {
+          "source_path": "/QueryName",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "22",
+          "present_count": 2,
+          "context_record_count": 2,
+          "context_coverage": 1.0,
+          "file_coverage": 0.000837,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 22 QueryName is a DNS query name.",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    "raw_record_ref": {
+      "status": "parser_metadata",
+      "candidates": [],
+      "rationale": "Generated by the parser boundary; no source field is mapped."
+    },
+    "source_file": {
+      "status": "parser_metadata",
+      "candidates": [],
+      "rationale": "Generated by the parser boundary; no source field is mapped."
+    },
+    "context_specific_unmapped": {
+      "status": "context_specific_unmapped",
+      "candidates": [
+        {
+          "source_path": "/SourceImage",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "source_process_image",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        },
+        {
+          "source_path": "/SourceProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "source_process_id",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        },
+        {
+          "source_path": "/SourceProcessGUID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "source_process_guid",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        },
+        {
+          "source_path": "/TargetImage",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "target_process_image",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        },
+        {
+          "source_path": "/TargetProcessId",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "target_process_id",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        },
+        {
+          "source_path": "/TargetProcessGUID",
+          "provider": "Microsoft-Windows-Sysmon",
+          "event_id": "10",
+          "source_role": "target_process_guid",
+          "present_count": 265,
+          "context_record_count": 265,
+          "context_coverage": 1.0,
+          "observed_types": [
+            "string"
+          ],
+          "expected_transformation": "none",
+          "rationale": "Sysmon Event ID 10 uses source/target process roles, not parent/child roles represented by canonical-event/v2.",
+          "review_status": "context_specific_unmapped"
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Timestamp candidates differ by more than 60 seconds in 2390 records; timezone-naive values were compared only as wall-clock text and were not assumed to be UTC.",
+    "Observed 4169 timezone-naive timestamp values. Their timezone semantics remain unresolved; no UTC timezone was assigned.",
+    "UtcTime was observed but remains review-only until its timezone semantics are confirmed; it was not selected as an event occurrence timestamp.",
+    "CreationUtcTime was observed as creation metadata and was excluded from event occurrence timestamp selection.",
+    "Canonical integer port fields require validated string-to-integer transformation for observed source strings: source_port, destination_port. No transformation was applied during inspection.",
+    "ProcessId changes semantic role by context: it is process_id in Sysmon Event ID 1 but parent_process_id in Security Event ID 4688.",
+    "AccountName is not automatically mapped to target_user because its role varies across providers and Event IDs.",
+    "Sysmon Event ID 10 SourceImage/TargetImage and related identifiers use source/target process roles. canonical-event/v2 does not force them into process_name or parent_process_name.",
+    "Multiple context-aware candidates remain reviewable for: timestamp."
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "rd-vi-reviewed-scope-limitations": {
+    "source_has_required_units": true,
+    "source_unit_validation": {
+      "limitation_0": true,
+      "limitation_1": true,
+      "limitation_2": true,
+      "limitation_3": true,
+      "limitation_4": true,
+      "limitation_5": true,
+      "limitation_6": true
+    },
+    "all_consumer_payload_support": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ],
+      "missing_answer_units": []
+    },
+    "actual_returned_context_support": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_5",
+          "source_ground_truth_pointer": "/summary/limitations/5",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_6",
+          "source_ground_truth_pointer": "/summary/limitations/6",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_3"
+      ],
+      "missing_answer_units": [
+        "limitation_1",
+        "limitation_2",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ]
+    },
+    "actual_hit_sources": [
+      "/summary/limitations/0",
+      "/summary/limitations/3",
+      "/mitre_assessments/1",
+      "/mitre_assessments/2",
+      "/mitre_assessments/0"
+    ],
+    "context_evidence_not_injected": true,
+    "full_consumer_audit_not_supplied_to_runtime_gate": true
+  },
+  "rp-vi-final-review-limits": {
+    "source_has_required_units": true,
+    "source_unit_validation": {
+      "analysis_status": true,
+      "limitation_0": true,
+      "limitation_1": true,
+      "limitation_2": true,
+      "limitation_3": true,
+      "limitation_4": true
+    },
+    "all_consumer_payload_support": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ],
+      "missing_answer_units": []
+    },
+    "actual_returned_context_support": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "known_required_information_missing_from_actual_returned_context",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "analysis_status",
+          "source_ground_truth_pointer": "/scenario",
+          "support_status": "known_missing",
+          "reason": "required_source_associated_structured_fields_not_returned"
+        },
+        {
+          "answer_unit_id": "limitation_0",
+          "source_ground_truth_pointer": "/summary/limitations/0",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_3",
+          "source_ground_truth_pointer": "/summary/limitations/3",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ]
+    },
+    "actual_hit_sources": [
+      "/mitre_assessments/1",
+      "/facts/0",
+      "/facts/1",
+      "/mitre_assessments/0",
+      "/mitre_assessments/2"
+    ],
+    "context_evidence_not_injected": true,
+    "full_consumer_audit_not_supplied_to_runtime_gate": true
+  },
+  "rp-vi-service-action": {
+    "source_has_required_units": true,
+    "source_unit_validation": {
+      "launch_command": true,
+      "limitation_4": true
+    },
+    "all_consumer_payload_support": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command",
+        "limitation_4"
+      ],
+      "missing_answer_units": []
+    },
+    "actual_returned_context_support": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command"
+      ],
+      "missing_answer_units": [
+        "limitation_4"
+      ]
+    },
+    "actual_hit_sources": [
+      "/scenario",
+      "/facts/1",
+      "/facts/0",
+      "/mitre_assessments/2",
+      "/mitre_assessments/0"
+    ],
+    "context_evidence_not_injected": true,
+    "full_consumer_audit_not_supplied_to_runtime_gate": true
+  }
+}

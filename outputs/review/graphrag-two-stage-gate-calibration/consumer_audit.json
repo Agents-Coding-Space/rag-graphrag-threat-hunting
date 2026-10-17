@@ -1,0 +1,1670 @@
+{
+  "schema_version": "graphrag-two-stage-consumer-audit/v1",
+  "audit_type": "read_only_source_audit",
+  "evaluation_only": true,
+  "files": {
+    "outputs/review/mshta-ground-truth/scenario_ground_truth.json": {
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "schema_version": "scenario-ground-truth/v2"
+    },
+    "outputs/review/mshta-ground-truth/reference_answers.json": {
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b",
+      "schema_version": "mshta-reference-answers/v2"
+    },
+    "outputs/review/mshta-ground-truth/review_manifest.json": {
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4",
+      "schema_version": "mshta-technical-review/v2"
+    },
+    "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json": {
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124",
+      "schema_version": "graphrag-relevance-calibration-dataset/v1"
+    },
+    "benchmarks/graphrag/mshta_relevance_calibration.json": {
+      "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4",
+      "schema_version": "graphrag-relevance-calibration-dataset/v1"
+    },
+    "benchmarks/retrieval/mshta_embedding_retrieval_judgments.json": {
+      "sha256": "021c7a31f8244d15ba8a84258d067d8112753a26138dfb3afb57f5ae921eaf0d",
+      "schema_version": "retrieval-relevance-judgments/v1"
+    },
+    "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json": {
+      "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+      "schema_version": "scenario-ground-truth/v1"
+    },
+    "outputs/retrieval/mshta-powershell/retrieval_corpus.json": {
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3",
+      "schema_version": "retrieval-corpus/v1"
+    },
+    "outputs/graph/mshta-powershell/knowledge_graph.json": {
+      "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227",
+      "schema_version": "knowledge-graph/v1"
+    },
+    "outputs/retrieval/mshta-powershell/vector_index.json": {
+      "sha256": "94705156295740dfbf835a867c031213975481ec0bee68275c886be9d8cf2116",
+      "schema_version": "vector-index/v1"
+    },
+    "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json": {
+      "sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91",
+      "schema_version": "vector-index/v1"
+    },
+    "outputs/evaluation/mshta-powershell/embedding_retrieval_comparison.json": {
+      "sha256": "687e304ed164dd03a72a0ded81a712d7fc6940f81af2e28a1a2c1ba2c1f3cc32",
+      "schema_version": "embedding-retrieval-comparison/v1"
+    },
+    "outputs/evaluation/mshta-powershell/embedding_model_selection.json": {
+      "sha256": "b8eb390f8351771541f9b998aaf1d7d211bc4b2111f40d54dc955669db0d41eb",
+      "schema_version": "embedding-model-selection/v1"
+    },
+    "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration.json": {
+      "sha256": "7806c75c5b20625f6c00fc83936c8e339f9e88433b4a73cca780a996a7d59694",
+      "schema_version": "graphrag-relevance-calibration/v1"
+    },
+    "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration_e5.json": {
+      "sha256": "d4427a47676884b9996c353be26318e1b665bb714056f55e811c852835d7efcb",
+      "schema_version": "graphrag-relevance-calibration/v1"
+    }
+  },
+  "human_approval": {
+    "ground_truth_path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+    "reference_answers_path": "outputs/review/mshta-ground-truth/reference_answers.json",
+    "review_manifest_path": "outputs/review/mshta-ground-truth/review_manifest.json",
+    "reviewer": "Nguyen Hong Phong",
+    "reviewed_at": "2026-10-15T23:36:13+07:00",
+    "document_status": "confirmed",
+    "security_label_promotions": 0
+  },
+  "consumer_baseline": {
+    "source_ground_truth": {
+      "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v1",
+      "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+      "scenario_id": "mshta-powershell"
+    },
+    "corpus_chunks": 19,
+    "graph_nodes": 17,
+    "graph_edges": 21,
+    "embedding_index_path": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+    "embedding": {
+      "provider": "sentence-transformers",
+      "model_id": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "distance_metric": "cosine",
+      "normalization": "l2",
+      "document_prefix": "passage: ",
+      "query_prefix": "query: "
+    },
+    "model_selection": "provisional_recommendation_not_final",
+    "local_model_cache_status": "Not loaded or inspected by this audit; evaluation runtime must verify existing pinned offline snapshot without downloading."
+  },
+  "leakage_checks": [
+    {
+      "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "forbidden_evaluation_key_findings": [],
+      "exact_evaluation_text_substring_findings": {
+        "query": [],
+        "reference_answer": [],
+        "case_id": []
+      },
+      "assessment": "No evaluation fields, case IDs, entire evaluation questions, or entire reference answers found by complete recursive inspection. Shared log-derived entities/facts/assessment limitations are allowed evidence; their overlap with benchmark answers is expected rather than proof of leakage. This is an explicit structural and full-string check, not a claim to detect every possible semantic leakage."
+    },
+    {
+      "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "forbidden_evaluation_key_findings": [],
+      "exact_evaluation_text_substring_findings": {
+        "query": [],
+        "reference_answer": [],
+        "case_id": []
+      },
+      "assessment": "No evaluation fields, case IDs, entire evaluation questions, or entire reference answers found by complete recursive inspection. Shared log-derived entities/facts/assessment limitations are allowed evidence; their overlap with benchmark answers is expected rather than proof of leakage. This is an explicit structural and full-string check, not a claim to detect every possible semantic leakage."
+    }
+  ],
+  "stale_evidence_findings": [
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "pointers": [
+        "/chunks/0/content"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon",
+        "PowerShell ran Get-Service sysmon."
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Process creation establishes launch command, not successful cmdlet completion; this consumer cannot support a policy-qualified result."
+    },
+    {
+      "severity": "material_contradiction",
+      "artifact": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "pointers": [
+        "/nodes/14/attributes/description"
+      ],
+      "old_claims": [
+        "PowerShell runs Get-Service sysmon"
+      ],
+      "approved_ground_truth_pointers": [
+        "/scenario/description",
+        "/summary/observed_behavior/2",
+        "/summary/limitations/4"
+      ],
+      "effect": "Same stale completion wording as corpus."
+    },
+    {
+      "severity": "missing_approved_evidence_content",
+      "artifacts": [
+        "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+        "outputs/graph/mshta-powershell/knowledge_graph.json"
+      ],
+      "missing_approved_ground_truth_pointers": [
+        "/facts/0/attributes/source_observations",
+        "/facts/1/attributes/source_observations",
+        "/summary/limitations/4",
+        "/summary/limitations/5",
+        "/summary/limitations/6"
+      ],
+      "effect": "Original CommandLine/process-role fields and expanded scope limits cannot be recovered by dereferencing provenance or adding expected evidence to gate input."
+    }
+  ],
+  "policy_qualification_allowed": false,
+  "allowed_interpretation": "Diagnostic development calibration only with frozen existing consumers; no production or held-out success claim. No corpus/graph/index rebuild performed.",
+  "v1_only_consumers": [
+    {
+      "path": "src/threat_hunting/graph/schema.py",
+      "line": 20,
+      "contract": "SOURCE_GROUND_TRUTH_SCHEMA_VERSION pinned to v1; source provenance validator also v1-only."
+    },
+    {
+      "path": "src/threat_hunting/retrieval/schema.py",
+      "line": 19,
+      "contract": "SOURCE_GROUND_TRUTH_SCHEMA_VERSION pinned to v1; source provenance validator also v1-only."
+    },
+    {
+      "path": "src/threat_hunting/graphrag/relevance.py",
+      "line": 187,
+      "contract": "Shared source provenance validator accepts only v1; gate signal runtime uses it."
+    },
+    {
+      "path": "src/threat_hunting/evaluation/calibration_schema.py",
+      "line": 42,
+      "contract": "Legacy calibration report provenance schema map pins GT v1."
+    },
+    {
+      "path": "src/threat_hunting/graph/builder.py",
+      "line": 405,
+      "contract": "Builder emits default v1 source provenance; not an evaluation consumer to modify in this milestone."
+    },
+    {
+      "path": "src/threat_hunting/retrieval/builder.py",
+      "line": 686,
+      "contract": "Builder emits default v1 source provenance; not an evaluation consumer to modify in this milestone."
+    }
+  ],
+  "dataset_history": [
+    {
+      "path": "outputs/evaluation/mshta-powershell/embedding_retrieval_comparison.json",
+      "sha256": "687e304ed164dd03a72a0ded81a712d7fc6940f81af2e28a1a2c1ba2c1f3cc32",
+      "purpose": "embedding_comparison_for_model_selection",
+      "case_count": 32,
+      "candidate_count": 2,
+      "dataset": {
+        "dataset_id": "mshta-relevance-calibration-v1",
+        "path": "benchmarks/graphrag/mshta_relevance_calibration.json",
+        "scenario_id": "mshta-powershell",
+        "schema_version": "graphrag-relevance-calibration-dataset/v1",
+        "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4"
+      },
+      "followed_by": "outputs/evaluation/mshta-powershell/embedding_model_selection.json",
+      "selection_decision": "provisional_recommendation",
+      "recommended_candidate_id": "multilingual-e5-small"
+    },
+    {
+      "path": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration.json",
+      "sha256": "7806c75c5b20625f6c00fc83936c8e339f9e88433b4a73cca780a996a7d59694",
+      "purpose": "legacy_relevance_policy_calibration",
+      "case_count": 32,
+      "candidate_count": 672,
+      "selection_status": "no_eligible_policy",
+      "source_dataset": {
+        "dataset_id": "mshta-relevance-calibration-v1",
+        "path": "benchmarks/graphrag/mshta_relevance_calibration.json",
+        "scenario_id": "mshta-powershell",
+        "schema_version": "graphrag-relevance-calibration-dataset/v1",
+        "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4"
+      },
+      "all_current_case_ids_used": true
+    },
+    {
+      "path": "outputs/evaluation/mshta-powershell/graphrag_relevance_calibration_e5.json",
+      "sha256": "d4427a47676884b9996c353be26318e1b665bb714056f55e811c852835d7efcb",
+      "purpose": "legacy_relevance_policy_calibration",
+      "case_count": 32,
+      "candidate_count": 672,
+      "selection_status": "no_eligible_policy",
+      "source_dataset": {
+        "dataset_id": "mshta-relevance-calibration-v1",
+        "path": "benchmarks/graphrag/mshta_relevance_calibration.json",
+        "scenario_id": "mshta-powershell",
+        "schema_version": "graphrag-relevance-calibration-dataset/v1",
+        "sha256": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4"
+      },
+      "all_current_case_ids_used": true
+    }
+  ],
+  "independent_held_out_available": false,
+  "history_conclusion": "All 32 case IDs already used for embedding comparison, provisional model selection, legacy threshold selection and error analysis. The two corrected wordings do not erase development usage or produce an independent hold-out.",
+  "layer_label_counts": {
+    "topical_relevant_true": 24,
+    "topical_relevant_false": 8,
+    "dataset_answerable_true": 16,
+    "dataset_answerable_false": 8,
+    "dataset_answerable_not_applicable": 8,
+    "context_sufficiency_unassessed": 32
+  },
+  "answer_unit_contract": {
+    "status": "AI external evaluation rubric derived from approved questions, answers and GT; does not change approved artifacts",
+    "required_units_are_evaluation_only": true,
+    "incidental_pointer_warning": "A pointer or evidence ID is an address/reference, not proof that required answer fields were actually returned. Original log records must not be fetched through references to repair context.",
+    "comparison_warning": "Associate values with their source object and roles; do not search all scalars globally to satisfy unrelated units. A conservative exact-content check is a lower-bound support screen and cannot replace semantic human review.",
+    "insufficient_evidence_meaning": "Dataset false refers to requested claim or detail, even though a scoped explanation of insufficiency is answerable.",
+    "historical_approval_prose": "Approved artifacts intentionally preserve historical pending-review prose; v2 metadata governs current document approval, while technique candidate/needs_review remain unchanged."
+  },
+  "answer_units": {
+    "initial_spawn": {
+      "source_ground_truth_pointer": "/relationships/1",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/relationships/1/relationship_type",
+          "value": "process_spawn"
+        },
+        {
+          "pointer": "/relationships/1/source_entity_id",
+          "value": "process-7c96a17eb66f2831da61"
+        },
+        {
+          "pointer": "/relationships/1/target_entity_id",
+          "value": "process-9c691740bde5d3dbdc4e"
+        },
+        {
+          "pointer": "/relationships/1/status",
+          "value": "observed"
+        }
+      ],
+      "description": "Observed directed process creation; source/target entity IDs must remain associated with their roles. Graph process_spawn edges may satisfy only when both returned endpoint nodes resolve to these source entities.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_relationship_chunk",
+        "returned_process_spawn_edge_with_returned_endpoint_entities",
+        "retrieved_fact_or_graph_fact_with_matching_subject_predicate_object"
+      ]
+    },
+    "final_spawn": {
+      "source_ground_truth_pointer": "/relationships/0",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/relationships/0/relationship_type",
+          "value": "process_spawn"
+        },
+        {
+          "pointer": "/relationships/0/source_entity_id",
+          "value": "process-9c691740bde5d3dbdc4e"
+        },
+        {
+          "pointer": "/relationships/0/target_entity_id",
+          "value": "process-9f7ceeecb4cd61358ab7"
+        },
+        {
+          "pointer": "/relationships/0/status",
+          "value": "observed"
+        }
+      ],
+      "description": "Observed directed process creation; source/target entity IDs must remain associated with their roles. Graph process_spawn edges may satisfy only when both returned endpoint nodes resolve to these source entities.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_relationship_chunk",
+        "returned_process_spawn_edge_with_returned_endpoint_entities",
+        "retrieved_fact_or_graph_fact_with_matching_subject_predicate_object"
+      ]
+    },
+    "initial_observations": {
+      "source_ground_truth_pointer": "/evidence/0",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/evidence/0/summary",
+          "value": "cmd.exe spawned mshta.exe"
+        },
+        {
+          "pointer": "/evidence/0/observations",
+          "value": [
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:275",
+              "provider": "Microsoft-Windows-Sysmon",
+              "event_id": "1",
+              "timestamp": "2020-10-22T02:57:59.857000Z"
+            },
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:4",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "event_id": "4688",
+              "timestamp": "2020-10-22T02:57:59.856000Z"
+            }
+          ]
+        },
+        {
+          "pointer": "/evidence/0/source_references",
+          "value": [
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:275"
+            },
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:4"
+            }
+          ]
+        }
+      ],
+      "description": "Both raw telemetry observations associated with the corresponding single behavior group. Provider/Event ID/raw reference association matters; refs must not be dereferenced to inject content.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_evidence_chunk_plus_its_source_references",
+        "returned_evidence_node_with_observations_and_source_references"
+      ]
+    },
+    "final_observations": {
+      "source_ground_truth_pointer": "/evidence/1",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/evidence/1/summary",
+          "value": "mshta.exe spawned powershell.exe"
+        },
+        {
+          "pointer": "/evidence/1/observations",
+          "value": [
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:30",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "event_id": "4688",
+              "timestamp": "2020-10-22T02:58:00.462000Z"
+            },
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:398",
+              "provider": "Microsoft-Windows-Sysmon",
+              "event_id": "1",
+              "timestamp": "2020-10-22T02:58:00.489000Z"
+            }
+          ]
+        },
+        {
+          "pointer": "/evidence/1/source_references",
+          "value": [
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:30"
+            },
+            {
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "raw_record_ref": "jsonl:line:398"
+            }
+          ]
+        }
+      ],
+      "description": "Both raw telemetry observations associated with the corresponding single behavior group. Provider/Event ID/raw reference association matters; refs must not be dereferenced to inject content.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_evidence_chunk_plus_its_source_references",
+        "returned_evidence_node_with_observations_and_source_references"
+      ]
+    },
+    "scripting_assessment": {
+      "source_ground_truth_pointer": "/mitre_assessments/0",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/mitre_assessments/0/external_id",
+          "value": "T1059.007"
+        },
+        {
+          "pointer": "/mitre_assessments/0/status",
+          "value": "candidate"
+        },
+        {
+          "pointer": "/mitre_assessments/0/evidence_support",
+          "value": "not_supported_by_observed_command"
+        },
+        {
+          "pointer": "/mitre_assessments/0/review_status",
+          "value": "needs_review"
+        },
+        {
+          "pointer": "/mitre_assessments/0/rationale",
+          "value": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence."
+        }
+      ],
+      "description": "Assessment status and evidence support for the identified technique; document approval must not substitute for technique approval.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_mitre_assessment_chunk_including_metadata",
+        "returned_mitre_assessment_node"
+      ]
+    },
+    "proxy_assessment": {
+      "source_ground_truth_pointer": "/mitre_assessments/2",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/mitre_assessments/2/external_id",
+          "value": "T1218.005"
+        },
+        {
+          "pointer": "/mitre_assessments/2/status",
+          "value": "candidate"
+        },
+        {
+          "pointer": "/mitre_assessments/2/evidence_support",
+          "value": "supported_by_observed_behavior"
+        },
+        {
+          "pointer": "/mitre_assessments/2/review_status",
+          "value": "needs_review"
+        },
+        {
+          "pointer": "/mitre_assessments/2/rationale",
+          "value": "mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment."
+        }
+      ],
+      "description": "Assessment status and evidence support for the identified technique; document approval must not substitute for technique approval.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_mitre_assessment_chunk_including_metadata",
+        "returned_mitre_assessment_node"
+      ]
+    },
+    "scripting_origin": {
+      "source_ground_truth_pointer": "/mitre_assessments/0",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/mitre_assessments/0/external_id",
+          "value": "T1059.007"
+        },
+        {
+          "pointer": "/mitre_assessments/0/origin",
+          "value": "sigma_tag"
+        },
+        {
+          "pointer": "/mitre_assessments/0/rationale",
+          "value": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence."
+        }
+      ],
+      "description": "Sigma-tag provenance explains retention of the unsupported JavaScript label.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_mitre_assessment_chunk_including_metadata",
+        "returned_mitre_assessment_node"
+      ]
+    },
+    "analysis_status": {
+      "source_ground_truth_pointer": "/scenario",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/scenario/analysis_status",
+          "value": "draft_reviewable"
+        }
+      ],
+      "description": "Draft analysis status remains distinct from approved-document metadata.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_scenario_chunk_including_metadata",
+        "returned_scenario_node"
+      ]
+    },
+    "limitation_0": {
+      "source_ground_truth_pointer": "/summary/limitations/0",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/0",
+          "value": "This ground truth scope covers only the two reviewed behavior and evidence groups."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_1": {
+      "source_ground_truth_pointer": "/summary/limitations/1",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/1",
+          "value": "The two Sysmon observations carry upstream timestamp_conflict review issues."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_2": {
+      "source_ground_truth_pointer": "/summary/limitations/2",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/2",
+          "value": "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_3": {
+      "source_ground_truth_pointer": "/summary/limitations/3",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/3",
+          "value": "MITRE assessments remain candidates and require human review."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_4": {
+      "source_ground_truth_pointer": "/summary/limitations/4",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/4",
+          "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_5": {
+      "source_ground_truth_pointer": "/summary/limitations/5",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/5",
+          "value": "Canonical timestamps follow TimeCreated; Sysmon UtcTime differs by about four hours and its timezone is unresolved."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "limitation_6": {
+      "source_ground_truth_pointer": "/summary/limitations/6",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/summary/limitations/6",
+          "value": "The file also contains conhost creation, event-log clearing and temporary-file deletion telemetry outside this two-group core. These must not be described as globally absent or automatically classified as a destructive payload."
+        }
+      ],
+      "description": "Requested scope or evidence limit; exact approved text is one sufficient representation. A semantic equivalent can also be sufficient, so absent exact text alone must not be claimed as a general semantic impossibility.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_limitation_chunk",
+        "returned_limitation_node"
+      ]
+    },
+    "launch_command": {
+      "source_ground_truth_pointer": "/facts/1",
+      "required_ground_truth_fields": [
+        {
+          "pointer": "/facts/1/attributes/source_observations/0/original_fields/CommandLine",
+          "value": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon"
+        }
+      ],
+      "description": "PowerShell launch command includes -noexit -command Get-Service sysmon. A scenario claim that PowerShell ran the cmdlet is insufficient and contradictory.",
+      "evaluation_only": true,
+      "acceptable_context_forms": [
+        "retrieved_fact_with_returned_original_CommandLine",
+        "returned_fact_node_with_original_CommandLine"
+      ],
+      "same_value_alternative_ground_truth_fields": [
+        "/facts/1/attributes/source_observations/1/original_fields/CommandLine"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "rd-en-process-chain",
+      "approved_answer_pointer": "/cases/0",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "two_hop_process_chain",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/0/category",
+        "reference_answers_case_answer_pointer": "/cases/0/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-en-shell-parent",
+      "approved_answer_pointer": "/cases/1",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "powershell_parent",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/1/category",
+        "reference_answers_case_answer_pointer": "/cases/1/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0",
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "final_spawn"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-en-initial-spawn-evidence",
+      "approved_answer_pointer": "/cases/2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "initial_spawn_observations",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/2/category",
+        "reference_answers_case_answer_pointer": "/cases/2/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/facts/0",
+        "/relationships/1"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_spawn",
+        "initial_observations"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-en-final-spawn-evidence",
+      "approved_answer_pointer": "/cases/3",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "final_spawn_observations",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/3/category",
+        "reference_answers_case_answer_pointer": "/cases/3/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0"
+      ],
+      "minimal_answer_unit_ids": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-vi-proxy-technique-assessment",
+      "approved_answer_pointer": "/cases/4",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "proxy_assessment_status",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/4/category",
+        "reference_answers_case_answer_pointer": "/cases/4/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/2"
+      ],
+      "minimal_answer_unit_ids": [
+        "proxy_assessment"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-vi-scripting-technique-status",
+      "approved_answer_pointer": "/cases/5",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "unsupported_javascript_label",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/5/category",
+        "reference_answers_case_answer_pointer": "/cases/5/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/0"
+      ],
+      "minimal_answer_unit_ids": [
+        "scripting_assessment"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-vi-reviewed-scope-limitations",
+      "approved_answer_pointer": "/cases/6",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "review_scope_and_limits",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/6/category",
+        "reference_answers_case_answer_pointer": "/cases/6/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/1",
+        "/summary/limitations/2",
+        "/summary/limitations/3",
+        "/summary/limitations/4",
+        "/summary/limitations/5",
+        "/summary/limitations/6"
+      ],
+      "minimal_answer_unit_ids": [
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ],
+      "raw_reference_requirements": [],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rd-vi-initial-relation-provenance",
+      "approved_answer_pointer": "/cases/7",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "initial_spawn_observations",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_direct",
+        "reference_answers_case_category_pointer": "/cases/7/category",
+        "reference_answers_case_answer_pointer": "/cases/7/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/facts/0",
+        "/relationships/1"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_observations"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-en-intermediate-utility",
+      "approved_answer_pointer": "/cases/8",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "two_hop_process_chain",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/8/category",
+        "reference_answers_case_answer_pointer": "/cases/8/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-en-shell-creator",
+      "approved_answer_pointer": "/cases/9",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "powershell_parent",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/9/category",
+        "reference_answers_case_answer_pointer": "/cases/9/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0"
+      ],
+      "minimal_answer_unit_ids": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-en-technique-review",
+      "approved_answer_pointer": "/cases/10",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "proxy_assessment_status",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/10/category",
+        "reference_answers_case_answer_pointer": "/cases/10/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/2",
+        "/scenario",
+        "/summary/limitations/3"
+      ],
+      "minimal_answer_unit_ids": [
+        "proxy_assessment"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence.",
+      "incidental_answer_unit_ids": [
+        "analysis_status",
+        "limitation_3"
+      ],
+      "minimal_unit_rationale": "The question asks why the technique still awaits analyst approval. The technique assessment itself supplies candidate, needs_review, supporting behavior and a rationale explicitly stating that it does not finalize the assessment. Scenario analysis_status and the general limitation are corroborating context, not required answer fields."
+    },
+    {
+      "case_id": "rp-en-retained-scripting-label",
+      "approved_answer_pointer": "/cases/11",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "unsupported_javascript_label",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/11/category",
+        "reference_answers_case_answer_pointer": "/cases/11/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/0",
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "scripting_assessment",
+        "scripting_origin"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-vi-launch-order",
+      "approved_answer_pointer": "/cases/12",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "two_hop_process_chain",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/12/category",
+        "reference_answers_case_answer_pointer": "/cases/12/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-vi-observation-provenance",
+      "approved_answer_pointer": "/cases/13",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "cross_provider_deduplication",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/13/category",
+        "reference_answers_case_answer_pointer": "/cases/13/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1"
+      ],
+      "minimal_answer_unit_ids": [
+        "initial_observations",
+        "final_observations"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-vi-final-review-limits",
+      "approved_answer_pointer": "/cases/14",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "review_scope_and_limits",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/14/category",
+        "reference_answers_case_answer_pointer": "/cases/14/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/1",
+        "/summary/limitations/2",
+        "/summary/limitations/3"
+      ],
+      "minimal_answer_unit_ids": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ],
+      "raw_reference_requirements": [],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "rp-vi-service-action",
+      "approved_answer_pointer": "/cases/15",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "topical_relevant": true,
+      "dataset_answerable": true,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "powershell_launch_command",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/relevant_paraphrase",
+        "reference_answers_case_category_pointer": "/cases/15/category",
+        "reference_answers_case_answer_pointer": "/cases/15/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/scenario"
+      ],
+      "minimal_answer_unit_ids": [
+        "launch_command",
+        "limitation_4"
+      ],
+      "raw_reference_requirements": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "notes": "Approved category establishes dataset answerability, not context sufficiency. Expected pointer lists contain broad or incidental targets and must not be treated as all individually necessary or as sufficient by their mere presence."
+    },
+    {
+      "case_id": "ie-en-payload-download-url",
+      "approved_answer_pointer": "/cases/16",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-en-payload-download-url",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/16/category",
+        "reference_answers_case_answer_pointer": "/cases/16/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-en-c2-address",
+      "approved_answer_pointer": "/cases/17",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-en-c2-address",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/17/category",
+        "reference_answers_case_answer_pointer": "/cases/17/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-en-attacker-identity",
+      "approved_answer_pointer": "/cases/18",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-en-attacker-identity",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/18/category",
+        "reference_answers_case_answer_pointer": "/cases/18/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-en-stolen-credentials",
+      "approved_answer_pointer": "/cases/19",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-en-stolen-credentials",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/19/category",
+        "reference_answers_case_answer_pointer": "/cases/19/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-vi-destructive-files",
+      "approved_answer_pointer": "/cases/20",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-vi-destructive-files",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/20/category",
+        "reference_answers_case_answer_pointer": "/cases/20/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2",
+        "/summary/limitations/6"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-vi-decoded-content",
+      "approved_answer_pointer": "/cases/21",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-vi-decoded-content",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/21/category",
+        "reference_answers_case_answer_pointer": "/cases/21/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/mitre_assessments/1",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-vi-decoding-proof",
+      "approved_answer_pointer": "/cases/22",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-vi-decoding-proof",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/22/category",
+        "reference_answers_case_answer_pointer": "/cases/22/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/1"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ie-vi-certain-attack-determination",
+      "approved_answer_pointer": "/cases/23",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "topical_relevant": true,
+      "dataset_answerable": false,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ie-vi-certain-attack-determination",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/insufficient_evidence",
+        "reference_answers_case_category_pointer": "/cases/23/category",
+        "reference_answers_case_answer_pointer": "/cases/23/reference_answer"
+      },
+      "expected_retrieval_pointers": [
+        "/mitre_assessments/2",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2",
+        "/summary/limitations/3"
+      ],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Requested positive assertion/details are unsupported. Scope and limitation chunks can justify abstention; they do not turn this into an answerable positive question."
+    },
+    {
+      "case_id": "ur-en-weather",
+      "approved_answer_pointer": "/cases/24",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-en-weather",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/24/category",
+        "reference_answers_case_answer_pointer": "/cases/24/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-en-product-price",
+      "approved_answer_pointer": "/cases/25",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-en-product-price",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/25/category",
+        "reference_answers_case_answer_pointer": "/cases/25/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-en-linux-cron",
+      "approved_answer_pointer": "/cases/26",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-en-linux-cron",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/26/category",
+        "reference_answers_case_answer_pointer": "/cases/26/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-en-sql-injection",
+      "approved_answer_pointer": "/cases/27",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-en-sql-injection",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/27/category",
+        "reference_answers_case_answer_pointer": "/cases/27/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-vi-ransomware-encryption",
+      "approved_answer_pointer": "/cases/28",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-vi-ransomware-encryption",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/28/category",
+        "reference_answers_case_answer_pointer": "/cases/28/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-vi-kubernetes-configuration",
+      "approved_answer_pointer": "/cases/29",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-vi-kubernetes-configuration",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/29/category",
+        "reference_answers_case_answer_pointer": "/cases/29/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-vi-literature-learning",
+      "approved_answer_pointer": "/cases/30",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-vi-literature-learning",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/30/category",
+        "reference_answers_case_answer_pointer": "/cases/30/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    },
+    {
+      "case_id": "ur-vi-opaque-token",
+      "approved_answer_pointer": "/cases/31",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "topical_relevant": false,
+      "dataset_answerable": null,
+      "context_sufficient": null,
+      "context_sufficiency_status": "not_assessed_requires_actual_returned_context",
+      "semantic_group": "ur-vi-opaque-token",
+      "label_basis": {
+        "reference_answers_scope_policy_pointer": "/scope_policy/unrelated",
+        "reference_answers_case_category_pointer": "/cases/31/category",
+        "reference_answers_case_answer_pointer": "/cases/31/reference_answer"
+      },
+      "expected_retrieval_pointers": [],
+      "minimal_answer_unit_ids": [],
+      "raw_reference_requirements": [],
+      "notes": "Explicitly outside the benchmark scope. Answerability is not applicable; this is not inferred merely from expected_decision=abstain."
+    }
+  ],
+  "rubric_revisions": [
+    {
+      "revision_id": "technique-review-minimal-support-correction-1",
+      "previous_audit_sha256": "33662857c8178eb8c204df338b63d32fda9c1663c3eda0cd16262fd56e4ce1c7",
+      "affected_case_id": "rp-en-technique-review",
+      "previous_minimal_answer_unit_ids": [
+        "proxy_assessment",
+        "analysis_status",
+        "limitation_3"
+      ],
+      "minimal_answer_unit_ids": [
+        "proxy_assessment"
+      ],
+      "incidental_answer_unit_ids": [
+        "analysis_status",
+        "limitation_3"
+      ],
+      "reason": "Read-only semantic review found the external rubric overconstrained the question by requiring scenario-level analysis status and a separate general review limitation. Direct technique assessment fields suffice. This corrects evaluation support requirements, not approved labels or runtime policy.",
+      "decision_basis": "Approved question/reference answer and actual returned proxy assessment, independent of policy thresholds or gate decision.",
+      "approved_artifacts_changed": false,
+      "gate_inputs_changed": false,
+      "thresholds_changed": false,
+      "replay_required": "Recompute external adjudication and metrics from saved contexts/signals; no retrieval, embedding or threshold change.",
+      "remaining_known_context_failures": [
+        "rd-vi-reviewed-scope-limitations",
+        "rp-vi-final-review-limits",
+        "rp-vi-service-action"
+      ]
+    }
+  ]
+}

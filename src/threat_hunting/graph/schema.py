@@ -15,9 +15,10 @@ from pathlib import Path
 import re
 from typing import Any, NoReturn
 
+from ..ground_truth.schema import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+
 
 KNOWLEDGE_GRAPH_SCHEMA_VERSION = "knowledge-graph/v1"
-SOURCE_GROUND_TRUTH_SCHEMA_VERSION = "scenario-ground-truth/v1"
 
 TOP_LEVEL_FIELDS = (
     "schema_version", "graph_id", "scenario_id", "source_ground_truth",
@@ -184,9 +185,11 @@ def _validate_source_ground_truth(value: object, scenario_id: str) -> None:
     source = _require_object(value, path)
     _require_fields(source, SOURCE_GROUND_TRUTH_FIELDS, path)
     _require_string(source["path"], f"{path}.path")
-    if source["schema_version"] != SOURCE_GROUND_TRUTH_SCHEMA_VERSION:
+    schema_version = _require_string(source["schema_version"], f"{path}.schema_version")
+    if schema_version not in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS:
         raise KnowledgeGraphValidationError(
-            f"{path}.schema_version must be {SOURCE_GROUND_TRUTH_SCHEMA_VERSION!r}"
+            f"{path}.schema_version must be one of "
+            f"{sorted(SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS)!r}"
         )
     digest = _require_string(source["sha256"], f"{path}.sha256")
     if SHA256_PATTERN.fullmatch(digest) is None:

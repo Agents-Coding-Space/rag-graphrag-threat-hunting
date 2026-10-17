@@ -1,0 +1,12 @@
+{
+  "combined_policy_sha256": "465733abfe2ce1d46e768737f872de0e072021508e6f3895655e79d854ca21cb",
+  "runtime_code_sha256": {
+    "src/threat_hunting/graphrag/query_requirements_v2.py": "8153e66126e85896e0b6f68f08b6a3dad1086f64c3db0647216eb87da798b65e",
+    "src/threat_hunting/graphrag/query_context_v2.py": "940ccfadac127ddbba3b9e7865d7b8d54280bb136fd486cfddbabb11fa9c4e54",
+    "src/threat_hunting/graphrag/query_support_v2.py": "0e6ee4bc67cdf160072f6bb9c0bdffee81eeee92f9335120ebe6d3417a910d69",
+    "src/threat_hunting/graphrag/query_policy.py": "f9bcdc030a46bc5da19b4ed19b8d661e9f9a2e2c8a7366347021bfb5661e1cf0"
+  },
+  "runner_sha256": "dbc98165bbe32fe1c33634ea08a93a79f583f2aaf683472ccd1904847bf6b744",
+  "design_note_sha256": "979fb45390d1bc6db01c541aebaf72100e5e414d10a98278e91c042e89ad0821",
+  "benchmark_results_existed": false
+}

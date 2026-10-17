@@ -1,0 +1,1542 @@
+[
+  {
+    "case_id": "rd-en-process-chain",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->abstain",
+      "D": "proceed->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-en-shell-parent",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "D": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->proceed",
+      "D": "proceed->proceed"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-en-initial-spawn-evidence",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->abstain",
+      "D": "proceed->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-en-final-spawn-evidence",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->abstain",
+      "D": "proceed->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-vi-proxy-technique-assessment",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-vi-scripting-technique-status",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-vi-reviewed-scope-limitations",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": true,
+      "C": null,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rd-vi-initial-relation-provenance",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-en-intermediate-utility",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-en-shell-creator",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-en-technique-review",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-en-retained-scripting-label",
+    "language": "en",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "D": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->proceed",
+      "D": "proceed->proceed"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-vi-launch-order",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-vi-observation-provenance",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true
+    }
+  },
+  {
+    "case_id": "rp-vi-final-review-limits",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "rp-vi-service-action",
+    "language": "vi",
+    "expected_decision": "proceed",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ie-en-payload-download-url",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->abstain",
+      "D": "proceed->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-en-c2-address",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "evidence_answerability",
+        "reason_codes": [
+          "required_evidence_missing",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "evidence_answerability",
+        "reason_codes": [
+          "required_evidence_missing",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-en-attacker-identity",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-en-stolen-credentials",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-vi-destructive-files",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-vi-decoded-content",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-vi-decoding-proof",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ie-vi-certain-attack-determination",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": false,
+      "B": false,
+      "C": false,
+      "D": false
+    }
+  },
+  {
+    "case_id": "ur-en-weather",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-en-product-price",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-en-linux-cron",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "B": {
+        "decision": "proceed",
+        "abstention_stage": null,
+        "reason_codes": []
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "requested_scope_mismatch",
+          "query_requirements_unsupported",
+          "required_evidence_unknown"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "requested_scope_mismatch",
+          "query_requirements_unsupported",
+          "required_evidence_unknown"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "proceed->proceed",
+      "C": "proceed->abstain",
+      "D": "proceed->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-en-sql-injection",
+    "language": "en",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-vi-ransomware-encryption",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-vi-kubernetes-configuration",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-vi-literature-learning",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_unsupported",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  },
+  {
+    "case_id": "ur-vi-opaque-token",
+    "language": "vi",
+    "expected_decision": "abstain",
+    "decisions": {
+      "A": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "B": {
+        "decision": "abstain",
+        "abstention_stage": "topical_relevance",
+        "reason_codes": [
+          "query_token_coverage_below_threshold",
+          "returned_top_cosine_score_below_threshold"
+        ]
+      },
+      "C": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      },
+      "D": {
+        "decision": "abstain",
+        "abstention_stage": "query_requirements",
+        "reason_codes": [
+          "query_requirements_ambiguous",
+          "required_evidence_unknown",
+          "legacy_quality_gate_abstained"
+        ]
+      }
+    },
+    "from_A": {
+      "B": "abstain->abstain",
+      "C": "abstain->abstain",
+      "D": "abstain->abstain"
+    },
+    "external_context_sufficiency": {
+      "A": null,
+      "B": null,
+      "C": null,
+      "D": null
+    }
+  }
+]

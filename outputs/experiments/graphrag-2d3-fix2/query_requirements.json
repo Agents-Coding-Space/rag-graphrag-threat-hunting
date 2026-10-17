@@ -1,0 +1,1374 @@
+{
+  "rd-en-process-chain": {
+    "schema_version": "query-requirements/v1",
+    "query": "Which process chain led to powershell.exe in the reviewed evidence?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": "powershell.exe"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-en-shell-parent": {
+    "schema_version": "query-requirements/v1",
+    "query": "Which process is the observed parent of powershell.exe?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "child"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": "powershell.exe",
+          "chain": false
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-en-initial-spawn-evidence": {
+    "schema_version": "query-requirements/v1",
+    "query": "What evidence supports the cmd.exe to mshta.exe process creation relationship?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "cmd.exe",
+        "roles": [
+          "unspecified"
+        ]
+      },
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-en-final-spawn-evidence": {
+    "schema_version": "query-requirements/v1",
+    "query": "What evidence supports the mshta.exe to powershell.exe process creation relationship?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      },
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-vi-proxy-technique-assessment": {
+    "schema_version": "query-requirements/v1",
+    "query": "Đánh giá hiện tại đối với ATT&CK T1218.005 có mức hỗ trợ bằng chứng và trạng thái review nào?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "technique_assessment",
+        "mandatory": true,
+        "parameters": {
+          "technique_id": "T1218.005",
+          "certainty": "assessment"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_technique_assessment_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-vi-scripting-technique-status": {
+    "schema_version": "query-requirements/v1",
+    "query": "T1059.007 có được hỗ trợ bởi command line đã quan sát không, và trạng thái đánh giá là gì?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "launch_command",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_launch_command_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "technique_assessment",
+        "mandatory": true,
+        "parameters": {
+          "technique_id": "T1059.007",
+          "certainty": "assessment"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_technique_assessment_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "negation_scope_not_resolved",
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-vi-reviewed-scope-limitations": {
+    "schema_version": "query-requirements/v1",
+    "query": "Ground Truth ghi nhận những giới hạn nào đối với phạm vi bằng chứng đã review?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "review_limitations",
+        "mandatory": true,
+        "parameters": {
+          "facets": [
+            "scope"
+          ]
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_review_limitations_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rd-vi-initial-relation-provenance": {
+    "schema_version": "query-requirements/v1",
+    "query": "Nguồn log và raw record references nào hỗ trợ quan hệ cmd.exe tạo mshta.exe?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "cmd.exe",
+        "roles": [
+          "parent"
+        ]
+      },
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "child"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": "cmd.exe",
+          "child": "mshta.exe",
+          "chain": false
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-en-intermediate-utility": {
+    "schema_version": "query-requirements/v1",
+    "query": "Which Windows utility sits between the initial command interpreter and the final shell?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [
+        "windows"
+      ],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "in_scope",
+      "reason_codes": [
+        "requested_platform_in_source"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-en-shell-creator": {
+    "schema_version": "query-requirements/v1",
+    "query": "How can I trace the launch of the final shell back to its creator?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-en-technique-review": {
+    "schema_version": "query-requirements/v1",
+    "query": "Why is the proxy execution technique still awaiting analyst approval even though its behavior has supporting records?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      },
+      {
+        "requirement_id": "r3",
+        "kind": "technique_assessment",
+        "mandatory": true,
+        "parameters": {
+          "technique_id": null,
+          "certainty": "assessment"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_technique_assessment_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-en-retained-scripting-label": {
+    "schema_version": "query-requirements/v1",
+    "query": "Why does a scripting technique label remain in the record when the reviewed inline command uses a different scripting language?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "technique_assessment",
+        "mandatory": true,
+        "parameters": {
+          "technique_id": null,
+          "certainty": "assessment"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_technique_assessment_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-vi-launch-order": {
+    "schema_version": "query-requirements/v1",
+    "query": "Nhìn các quan hệ cha-con đã lưu, làm thế nào dựng lại thứ tự khởi chạy ba tiến trình?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-vi-observation-provenance": {
+    "schema_version": "query-requirements/v1",
+    "query": "Những bản ghi telemetry nào cùng làm căn cứ cho mỗi lần tạo tiến trình trong hai nhóm bằng chứng?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": null
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-vi-final-review-limits": {
+    "schema_version": "query-requirements/v1",
+    "query": "Người phân tích còn phải xem lại điều gì trước khi đưa ra nhận định cuối cùng?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "rp-vi-service-action": {
+    "schema_version": "query-requirements/v1",
+    "query": "Lệnh liên quan đến dịch vụ được ghi nhận trên command line khi PowerShell được khởi chạy là gì?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "subject"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "launch_command",
+        "mandatory": true,
+        "parameters": {
+          "process": "powershell.exe"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_launch_command_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-en-payload-download-url": {
+    "schema_version": "query-requirements/v1",
+    "query": "Which URL did PowerShell use to download the payload in this MSHTA chain?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "parent"
+        ]
+      },
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "child"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": "powershell.exe",
+          "child": "mshta.exe",
+          "chain": true
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_process_relationship_concept"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "network_url",
+        "mandatory": true,
+        "parameters": {
+          "actor": null,
+          "action": "download",
+          "field": "url"
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-en-c2-address": {
+    "schema_version": "query-requirements/v1",
+    "query": "What IP address acted as the C2 server for the PowerShell process?",
+    "analysis_status": "supported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "actor"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "network_url",
+        "mandatory": true,
+        "parameters": {
+          "actor": "powershell.exe",
+          "action": "network",
+          "field": "endpoint"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_network_url_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-en-attacker-identity": {
+    "schema_version": "query-requirements/v1",
+    "query": "Who was the attacker responsible for the reviewed MSHTA execution?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_attribution_or_identity_requirement",
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-en-stolen-credentials": {
+    "schema_version": "query-requirements/v1",
+    "query": "Which credentials did PowerShell steal during this activity?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-vi-destructive-files": {
+    "schema_version": "query-requirements/v1",
+    "query": "Trong hai nhóm process-creation evidence của ground truth, có bằng chứng nào cho thấy payload PowerShell cố ý phá hoại tệp không?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": "powershell.exe"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "requested_assertion_predicate_not_supported",
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-vi-decoded-content": {
+    "schema_version": "query-requirements/v1",
+    "query": "Nội dung payload đã được MSHTA hoặc PowerShell giải mã là gì?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      },
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-vi-decoding-proof": {
+    "schema_version": "query-requirements/v1",
+    "query": "Bằng chứng nào chứng minh T1140 đã xảy ra trong chuỗi MSHTA?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      },
+      {
+        "requirement_id": "r2",
+        "kind": "evidence_provenance",
+        "mandatory": true,
+        "parameters": {
+          "process": "mshta.exe"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_evidence_provenance_concept"
+        ]
+      },
+      {
+        "requirement_id": "r3",
+        "kind": "technique_assessment",
+        "mandatory": true,
+        "parameters": {
+          "technique_id": "T1140",
+          "certainty": "assessment"
+        },
+        "analysis_status": "supported",
+        "reason_codes": [
+          "recognized_technique_assessment_concept"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ie-vi-certain-attack-determination": {
+    "schema_version": "query-requirements/v1",
+    "query": "Có thể khẳng định chắc chắn toàn bộ chuỗi cmd.exe, mshta.exe và powershell.exe là một cuộc tấn công không?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [
+      {
+        "name": "cmd.exe",
+        "roles": [
+          "unspecified"
+        ]
+      },
+      {
+        "name": "mshta.exe",
+        "roles": [
+          "unspecified"
+        ]
+      },
+      {
+        "name": "powershell.exe",
+        "roles": [
+          "unspecified"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "requested_security_conclusion_not_supported",
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-en-weather": {
+    "schema_version": "query-requirements/v1",
+    "query": "What will the weather be in Hanoi tomorrow?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-en-product-price": {
+    "schema_version": "query-requirements/v1",
+    "query": "What is the current price of a gaming laptop?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-en-linux-cron": {
+    "schema_version": "query-requirements/v1",
+    "query": "How do I schedule a Linux cron job to run every ten minutes?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [
+        "linux"
+      ],
+      "excluded_platforms": [],
+      "mechanisms": [
+        "cron"
+      ],
+      "comparison": false,
+      "status": "mismatch",
+      "reason_codes": [
+        "requested_platform_not_in_source"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-en-sql-injection": {
+    "schema_version": "query-requirements/v1",
+    "query": "How can I prevent SQL injection in a web application's database queries?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-vi-ransomware-encryption": {
+    "schema_version": "query-requirements/v1",
+    "query": "Mã hóa ransomware xử lý các khóa mật mã như thế nào?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-vi-kubernetes-configuration": {
+    "schema_version": "query-requirements/v1",
+    "query": "Cần cấu hình Kubernetes thế nào để tự động mở rộng một Deployment?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-vi-literature-learning": {
+    "schema_version": "query-requirements/v1",
+    "query": "Làm thế nào phân biệt hình ảnh ẩn dụ và hoán dụ trong một bài thơ?",
+    "analysis_status": "unsupported",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [],
+    "reason_codes": [
+      "unsupported_information_request"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  },
+  "ur-vi-opaque-token": {
+    "schema_version": "query-requirements/v1",
+    "query": "Chuỗi velora_quartz_token_483920761 có ý nghĩa gì?",
+    "analysis_status": "ambiguous",
+    "scope": {
+      "requested_platforms": [],
+      "excluded_platforms": [],
+      "mechanisms": [],
+      "comparison": false,
+      "status": "unspecified",
+      "reason_codes": [
+        "no_resolved_explicit_scope"
+      ]
+    },
+    "entities": [],
+    "requirements": [
+      {
+        "requirement_id": "r1",
+        "kind": "process_relationship",
+        "mandatory": true,
+        "parameters": {
+          "parent": null,
+          "child": null,
+          "chain": true
+        },
+        "analysis_status": "ambiguous",
+        "reason_codes": [
+          "unresolved_entity_roles"
+        ]
+      }
+    ],
+    "reason_codes": [
+      "recognized_concept_requirements"
+    ],
+    "limitations": [
+      "Deterministic EN/VI concept-and-role subset; not general natural language understanding.",
+      "Complex negation/comparison and unresolved roles remain ambiguous; unrecognized information requests remain unsupported.",
+      "Requirements describe requested returned evidence, not real-world absence or a security conclusion."
+    ]
+  }
+}

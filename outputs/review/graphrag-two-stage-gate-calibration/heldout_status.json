@@ -1,0 +1,11 @@
+{
+  "status": "not_run",
+  "reasons": [
+    "All32 prior cases exposed to development",
+    "New AI-proposed stress probes lack human-approved labels and independent-core eligibility",
+    "Frozen consumers contain material stale evidence contradiction"
+  ],
+  "labels_approved": false,
+  "heldout_queries_embedded": 0,
+  "heldout_gate_calls": 0
+}

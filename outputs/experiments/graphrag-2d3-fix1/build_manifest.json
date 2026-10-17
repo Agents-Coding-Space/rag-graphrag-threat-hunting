@@ -1,0 +1,109 @@
+{
+  "schema_version": "graphrag-v2-consumer-sync-build/v1",
+  "experimental_only": true,
+  "source_ground_truth": {
+    "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v2",
+    "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+    "scenario_id": "mshta-powershell"
+  },
+  "approved_bundle_hashes": {
+    "scenario_ground_truth.json": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+    "reference_answers.json": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b",
+    "review_manifest.json": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4"
+  },
+  "outputs": {
+    "retrieval_corpus.json": "b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c",
+    "knowledge_graph.json": "04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443",
+    "vector_index.json": "2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78"
+  },
+  "embedding": {
+    "provider": "sentence-transformers",
+    "model_id": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dimension": 384,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "passage: ",
+    "query_prefix": "query: "
+  },
+  "preprocessing": {
+    "device": "cpu",
+    "offline": true,
+    "batch_size": 1,
+    "show_progress_bar": false
+  },
+  "embedding_cache": {
+    "old_vector_reuse": false,
+    "document_cache_hits": 0,
+    "document_cache_misses": 22,
+    "determinism_replay_exact_input_hits": 22
+  },
+  "counts": {
+    "chunks": 22,
+    "nodes": 20,
+    "edges": 21,
+    "vectors": 22,
+    "dimension": 384
+  },
+  "validation": {
+    "approved_bundle": true,
+    "corpus_graph_source_identical": true,
+    "complete_vector_coverage": true,
+    "deterministic_builders": true
+  },
+  "content_audit": {
+    "source_observation_values_preserved": true,
+    "original_commands": [
+      {
+        "source_pointer": "/facts/0",
+        "raw_record_ref": "jsonl:line:275",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")"
+      },
+      {
+        "source_pointer": "/facts/0",
+        "raw_record_ref": "jsonl:line:4",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")"
+      },
+      {
+        "source_pointer": "/facts/1",
+        "raw_record_ref": "jsonl:line:30",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon"
+      },
+      {
+        "source_pointer": "/facts/1",
+        "raw_record_ref": "jsonl:line:398",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon"
+      }
+    ],
+    "limitation_count": 7,
+    "all_limitations_in_corpus_and_graph": true,
+    "overstated_completion_wording_absent": true,
+    "source_approval_metadata_absent": true,
+    "approved_case_ids_queries_answers_absent": true
+  },
+  "embedding_input_sha256": [
+    "114830503d0dc11e17e2a810d5e61d620d0e405d46e3e402aa61964ac085142d",
+    "1dcc604a8e0abce24f43ed59d99cfb01eae2f652d05bf5866fbbe3f3e2a1e67a",
+    "fab174e877e98ca22a9b66855e0ee2f2636c1bbb57489440eb4f87da73e404a1",
+    "052ad7fbfb7241fed211d68e8e143322220eeeb184c5e28d13ae9e5e66d7a7b2",
+    "3115eddddfe090c8fa62c7130d1f6e547a259208fe48ae2600a1606fdad0b778",
+    "13d77c958d680d9f80af2c84b828fc95529974ae8ca28238da68a1ab68f908a2",
+    "64519b134e7a9339a0ffcc6b8ff74f80301c5ccdb1aa6512961aca675ecac2a7",
+    "8f6c875b9c7053789e205feae9d8639372b397d1dbc9f31ca27dd6d42d1ed80b",
+    "542838d1a053f6986591c487ec3c55b681fa48bf7ef47b9e7d0ec27031589b03",
+    "378b32c2e951b4726afd9c955e985ed51ddec7e2c3cb5b04c93d41cd835831e6",
+    "eec70604829794d6de2dd286d6450608102bd04c2e67502b2f3d69f7f81afa62",
+    "9a46f0c66d4ec158caa71bdb9500da6bdcc2a2b85fac9ab76670860314dcbb23",
+    "92cd9ca78683427cf3dea3bb0e943c5837e05449fc78761952656836c16e9864",
+    "8f1591a9056c6669e4d07e6ef05acd1c2041fc415ae027f14205ffaa3d54cbc4",
+    "eaf989acdc89a4ac76b595746f047b275ab242762fd94bdfa7d000b747c6c387",
+    "9c8ad3b8b3d1e1d48e8f675c6ab35c92d25b3563d362a7b398139b40649a811b",
+    "a87dca30654830af54fcc69ee9f70d705e29a60105fa766b40c971d5331f85cf",
+    "791c47c533e9c495b2b5e5e81ac9a83e60d3b78cc13ad771960cad8a5f2f089c",
+    "732b11a46a117ed5c7e377d2d1b1a6d9d311854f02da37d2d58eae78d24709d0",
+    "c415a1f3d5f6bb13539907d190a1661b57150143232825096e0348485a6fa520",
+    "4c8d70caf9aa7801abfcb4e31f0e2c797c97ff31d73bed9d0f0b245ad2e720cc",
+    "a7baeda5204435ab90ae4fa4b8e7f147204a7aecce075938486c3b4645690986"
+  ]
+}

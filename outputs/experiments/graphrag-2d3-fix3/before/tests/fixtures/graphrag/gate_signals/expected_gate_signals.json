@@ -1,0 +1,84 @@
+{
+  "schema_version": "graphrag-gate-signals/v1",
+  "corpus_id": "retrieval-corpus--a8d7adca8c70e4ec669cc6848aec6159133dcc30c7ae6fb8b59db4c9dfb5006e",
+  "graph_id": "knowledge-graph--0df6be716dea7d6f7277e298eec7500d0165b8ba196264a60374e865a28eea04",
+  "scenario_id": "scenario-synthetic-builder",
+  "source_ground_truth": {
+    "path": "tests/fixtures/ground_truth/builder/expected_ground_truth.json",
+    "scenario_id": "scenario-synthetic-builder",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "90a352db22280201685a47e1e0ba6b15241986bf6c1c5e95b0e3105d43b88e93"
+  },
+  "query": {
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    },
+    "normalized_terms": [
+      "synthetic",
+      "ω",
+      "unmatched"
+    ],
+    "text": "ＳＹＮＴＨＥＴＩＣ synthetic Ω unmatched",
+    "top_k": 5
+  },
+  "topical_relevance": {
+    "retrieval_hit_count": 5,
+    "lexical_hit_count": 4,
+    "vector_hit_count": 5,
+    "joint_lexical_vector_hit_count": 4,
+    "returned_top_rrf_score": 0.031318815757,
+    "returned_top_bm25_score": 0.90673698,
+    "returned_top_cosine_score": 0.5280169,
+    "query_token_count": 3,
+    "matched_query_token_count": 2,
+    "query_token_coverage": 0.66666667
+  },
+  "evidence_answerability": {
+    "chunk_type_counts": {
+      "scenario_summary": 1,
+      "entity": 0,
+      "fact": 1,
+      "relationship": 0,
+      "evidence": 0,
+      "sigma_finding": 2,
+      "mitre_assessment": 1,
+      "limitation": 0
+    },
+    "status_counts": {
+      "candidate": 2,
+      "inferred": 1,
+      "observed": 1,
+      "reviewable": 1
+    },
+    "hits_with_evidence_ids": 3,
+    "hits_with_source_references": 4,
+    "unique_source_reference_count": 4,
+    "mapped_hit_count": 5,
+    "seed_node_count": 5,
+    "traversal_performed": true,
+    "traversal_node_count": 13,
+    "traversal_edge_count": 17,
+    "traversal_path_count": 26,
+    "traversed_evidence_node_count": 2,
+    "traversed_limitation_node_count": 1,
+    "support_edge_count": 11
+  },
+  "warnings": [
+    "Synthetic Sigma review warning.",
+    "Synthetic resolution warning.",
+    "vector: Synthetic Sigma review warning.",
+    "vector: Synthetic resolution warning."
+  ],
+  "metadata": {
+    "decision_made": false,
+    "score_interpretations": {
+      "rrf": "reciprocal_rank_fusion_not_probability",
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability"
+    },
+    "topical_signal_count": 10,
+    "answerability_signal_count": 14
+  }
+}

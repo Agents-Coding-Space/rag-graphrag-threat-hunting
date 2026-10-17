@@ -1,0 +1,27 @@
+{
+  "focused": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=outputs/review/mshta-human-approval/test-tmp-focused tests/test_ground_truth_schema.py tests/test_ground_truth_approval.py",
+    "passed": 158,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.73
+  },
+  "related": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-approval-related-20261015\" tests/test_ground_truth_schema.py tests/test_ground_truth_approval.py tests/test_ground_truth_builder.py tests/test_mshta_ground_truth_config.py tests/test_build_mshta_ground_truth_cli.py tests/test_retrieval_schema.py tests/test_retrieval_builder.py tests/test_retrieval_judgments.py tests/test_relevance_calibration_dataset.py tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_builder.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py",
+    "passed": 1533,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 13.52
+  },
+  "full_suite": {
+    "command": ".\\.venv\\Scripts\\python.exe -m pytest -q --tb=short -p no:cacheprovider --basetemp=\"$env:TEMP/rag-approval-full-20261015\"",
+    "passed": 5691,
+    "subtests_passed": 6,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 148.77
+  }
+}

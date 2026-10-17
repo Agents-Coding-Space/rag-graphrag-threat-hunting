@@ -1,0 +1,264 @@
+{
+  "E0": {
+    "by_language_runtime_statuses": {
+      "en": {
+        "parser": {
+          "ambiguous": 5,
+          "supported": 4,
+          "unsupported": 7
+        },
+        "support": {
+          "unknown": 12,
+          "supported": 3,
+          "missing": 1
+        }
+      },
+      "vi": {
+        "parser": {
+          "supported": 6,
+          "ambiguous": 5,
+          "unsupported": 5
+        },
+        "support": {
+          "supported": 6,
+          "unknown": 10
+        }
+      }
+    },
+    "requirement_completeness": {
+      "not_in_v1_contract": 31
+    },
+    "requirement_contradiction": {
+      "not_in_v1_contract": 31
+    },
+    "false_abstain_dataset_case_ids": [
+      "rd-en-process-chain",
+      "rd-en-initial-spawn-evidence",
+      "rd-en-final-spawn-evidence",
+      "rd-vi-proxy-technique-assessment",
+      "rd-vi-scripting-technique-status",
+      "rd-vi-reviewed-scope-limitations",
+      "rd-vi-initial-relation-provenance",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits",
+      "rp-vi-service-action"
+    ],
+    "permitted_with_external_context_unknown": [],
+    "permitted_with_external_context_false": [],
+    "source_inventory_coverage_unknown_contexts": 0
+  },
+  "E1": {
+    "by_language_runtime_statuses": {
+      "en": {
+        "parser": {
+          "supported": 7,
+          "unsupported": 6,
+          "ambiguous": 3
+        },
+        "support": {
+          "supported": 5,
+          "unknown": 9,
+          "missing": 2
+        }
+      },
+      "vi": {
+        "parser": {
+          "supported": 6,
+          "ambiguous": 5,
+          "unsupported": 5
+        },
+        "support": {
+          "missing": 1,
+          "unknown": 12,
+          "supported": 3
+        }
+      }
+    },
+    "requirement_completeness": {
+      "complete": 2,
+      "not_applicable": 27,
+      "incomplete": 1,
+      "unknown": 2
+    },
+    "requirement_contradiction": {
+      "none_detected": 30,
+      "unknown": 2
+    },
+    "false_abstain_dataset_case_ids": [
+      "rd-vi-proxy-technique-assessment",
+      "rd-vi-scripting-technique-status",
+      "rd-vi-reviewed-scope-limitations",
+      "rd-vi-initial-relation-provenance",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits",
+      "rp-vi-service-action"
+    ],
+    "permitted_with_external_context_unknown": [],
+    "permitted_with_external_context_false": [],
+    "source_inventory_coverage_unknown_contexts": 0
+  },
+  "E2": {
+    "by_language_runtime_statuses": {
+      "en": {
+        "parser": {
+          "ambiguous": 5,
+          "supported": 4,
+          "unsupported": 7
+        },
+        "support": {
+          "unknown": 12,
+          "supported": 3,
+          "missing": 1
+        }
+      },
+      "vi": {
+        "parser": {
+          "supported": 6,
+          "ambiguous": 5,
+          "unsupported": 5
+        },
+        "support": {
+          "supported": 6,
+          "unknown": 10
+        }
+      }
+    },
+    "requirement_completeness": {
+      "not_applicable": 27,
+      "complete": 1,
+      "unknown": 3
+    },
+    "requirement_contradiction": {
+      "none_detected": 28,
+      "unknown": 3
+    },
+    "false_abstain_dataset_case_ids": [
+      "rd-en-process-chain",
+      "rd-en-initial-spawn-evidence",
+      "rd-en-final-spawn-evidence",
+      "rd-vi-scripting-technique-status",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits"
+    ],
+    "permitted_with_external_context_unknown": [
+      "rp-vi-service-action"
+    ],
+    "permitted_with_external_context_false": [],
+    "source_inventory_coverage_unknown_contexts": 0
+  },
+  "E3": {
+    "by_language_runtime_statuses": {
+      "en": {
+        "parser": {
+          "supported": 7,
+          "unsupported": 6,
+          "ambiguous": 3
+        },
+        "support": {
+          "supported": 5,
+          "unknown": 9,
+          "missing": 2
+        }
+      },
+      "vi": {
+        "parser": {
+          "supported": 6,
+          "ambiguous": 5,
+          "unsupported": 5
+        },
+        "support": {
+          "missing": 1,
+          "unknown": 12,
+          "supported": 3
+        }
+      }
+    },
+    "requirement_completeness": {
+      "complete": 2,
+      "not_applicable": 27,
+      "incomplete": 1,
+      "unknown": 2
+    },
+    "requirement_contradiction": {
+      "none_detected": 30,
+      "unknown": 2
+    },
+    "false_abstain_dataset_case_ids": [
+      "rd-vi-proxy-technique-assessment",
+      "rd-vi-scripting-technique-status",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits"
+    ],
+    "permitted_with_external_context_unknown": [
+      "rp-vi-service-action"
+    ],
+    "permitted_with_external_context_false": [],
+    "source_inventory_coverage_unknown_contexts": 0
+  },
+  "E4": {
+    "by_language_runtime_statuses": {
+      "en": {
+        "parser": {
+          "supported": 7,
+          "unsupported": 6,
+          "ambiguous": 3
+        },
+        "support": {
+          "supported": 5,
+          "unknown": 9,
+          "missing": 2
+        }
+      },
+      "vi": {
+        "parser": {
+          "supported": 6,
+          "ambiguous": 5,
+          "unsupported": 5
+        },
+        "support": {
+          "supported": 4,
+          "unknown": 12
+        }
+      }
+    },
+    "requirement_completeness": {
+      "complete": 3,
+      "not_applicable": 27,
+      "unknown": 2
+    },
+    "requirement_contradiction": {
+      "none_detected": 30,
+      "unknown": 2
+    },
+    "false_abstain_dataset_case_ids": [
+      "rd-vi-scripting-technique-status",
+      "rp-en-intermediate-utility",
+      "rp-en-shell-creator",
+      "rp-en-technique-review",
+      "rp-vi-launch-order",
+      "rp-vi-observation-provenance",
+      "rp-vi-final-review-limits"
+    ],
+    "permitted_with_external_context_unknown": [
+      "rp-vi-service-action"
+    ],
+    "permitted_with_external_context_false": [],
+    "source_inventory_coverage_unknown_contexts": 0
+  }
+}

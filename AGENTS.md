@@ -1,5 +1,7 @@
 # AGENTS.md
 
+**Status updated:** 14/10/2026
+
 ## 1. Project context
 
 This repository implements the graduation project:
@@ -12,7 +14,7 @@ Do not bring unrelated SOC labs, NIDS/CIC-IDS-2017, Solana, Hyperledger Fabric, 
 
 ## 2. Current objective
 
-The immediate goal is to build a small, reproducible pipeline that:
+The project pipeline has the following responsibilities:
 
 1. Inspects the selected Security Datasets/Mordor logs without modifying them.
 2. Identifies their schemas and useful security fields.
@@ -21,7 +23,15 @@ The immediate goal is to build a small, reproducible pipeline that:
 5. Maps supported behavior to MITRE ATT&CK.
 6. Produces a reviewable draft of `scenario_ground_truth.json`.
 
+All 10 selected external inputs have been located. Structural inspection and normalization of all three logs are complete: `29,510` raw records produced `29,510` canonical events, with no dropped records. Evidence extraction, selected Sigma evaluation and ATT&CK resolution have been implemented for the MSHTA slice. PurpleSharp and Regsvr32 still need their complete evidence and ground-truth pipelines; the project-defined password-spraying correlation is also unfinished.
+
+The current checkpoint is the technical review of MSHTA ground truth and 32 reference answers, completed on 14/10/2026. Corrected artifacts and the human-readable report are separate files in `outputs/review/mshta-ground-truth/`. Two query wordings were corrected, without changing case IDs, categories, expected decisions or promoting technique labels. Human review remains `pending_human_review`; the corrected ground truth remains `draft_reviewable`.
+
+MSHTA retrieval and GraphRAG prototypes exist. The two-stage relevance/evidence gate has code and tests, but has not been validated on the production data or integrated into the production CLI. Existing corpus, graph, vector indexes and evaluation outputs still reference the earlier ground-truth hashes. After human approval, the next milestone is to rebuild those consumers with the reviewed provenance and validate the two-stage gate. LLM integration and the user interface are unfinished.
+
 Do not start the full RAG, GraphRAG, LLM, vector database, graph database, or user-interface implementation until the data schema and ground truth have been reviewed.
+
+Keep technical review distinct from human approval. Do not treat the existing prototypes, this status update or a passing test suite as authorization to expand implementation or mark labels `confirmed`. Reference answers are evaluation artifacts and must not be inserted into the retrieval corpus or supplied as runtime gate input.
 
 ## 3. Selected input files
 
@@ -141,7 +151,9 @@ Look for multiple distinct user accounts receiving failed authentication from th
 
 ### Suspicious PowerShell execution through MSHTA
 
-Look for `mshta.exe` executing a `vbscript:` command and spawning `powershell.exe`. The selected dataset demonstrates proxy execution and a suspicious parent-child relationship, but it does not demonstrate a PowerShell download, C2 channel, data theft, or destructive payload. Do not infer those behaviors.
+Look for `mshta.exe` executing a `vbscript:` command and spawning `powershell.exe`. The reviewed core supports proxy execution and a suspicious parent-child relationship. PowerShell was launched with `-noexit -command Get-Service sysmon`; process-creation telemetry does not establish successful cmdlet completion, output or the Sysmon service state. The reviewed evidence does not demonstrate a PowerShell download, C2 channel, data theft or destructive payload. Do not infer those behaviors.
+
+Keep the two process-creation evidence groups distinct from the full file. The file also contains a `conhost.exe` child, temporary-file deletion and event-log clearing telemetry outside that core. Do not claim that deletion is globally absent, infer destructive intent from those records or add positive technique labels without a separate evidence review.
 
 ### C2 through Regsvr32
 
@@ -255,7 +267,7 @@ Use the repository's existing test command. If none exists and Python is used, p
 
 ## 14. Current milestone
 
-The first milestone is complete only when:
+The first milestone was structural inspection and is complete. Its acceptance criteria were:
 
 1. All 10 external selected inputs are found: 3 Security Datasets/Mordor logs, 6 Sigma rules, and 1 MITRE file.
 2. The three selected log formats and schemas are documented, including a fresh inspection of the replacement MSHTA dataset.
@@ -266,7 +278,11 @@ The first milestone is complete only when:
 
 Do not generate final ground-truth labels during this first milestone.
 
-## 15. Verified data-selection decisions (2026-07-16)
+The current MSHTA technical-review milestone is complete with corrections, while human approval remains pending. Review `review_report.md`, `scenario_ground_truth.json`, `reference_answers.md` and `review_manifest.json` together in `outputs/review/mshta-ground-truth/`. The review checked all `1,127` MSHTA records, preserved the original input hashes and kept `3` core entities, `2` facts, `2` relationships and `2` evidence groups supported by `4` raw observations. All `32` reference answers are available: `16` proceed cases, `8` insufficient-evidence cases and `8` unrelated cases. Two query wording corrections preserve the existing decisions and categories.
+
+The corrected version has not replaced the baseline ground truth or its downstream consumers. The next milestone depends on human review: use approved provenance to rebuild the corpus, graph and indexes, then calibrate and evaluate the two-stage gate on an independent test set before integrating its policy into the CLI. The current GraphRAG prototype does not establish a completed or validated production pipeline. Do not move to LLM/UI integration or add scenarios on the basis of technical review alone.
+
+## 15. Verified data-selection decisions (16/07/2026; MSHTA reviewed 14/10/2026)
 
 The active experiment is fixed to the following three scenarios and verified evidence anchors. These findings came from complete streaming reads of the selected JSONL files; they are not assumptions based on filenames.
 
@@ -298,7 +314,12 @@ The active experiment is fixed to the following three scenarios and verified evi
 - SHA-256: `25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32`
 - `jsonl:line:275`: `cmd.exe` spawns `mshta.exe` with a `vbscript:Execute` command; matches `proc_creation_win_mshta_susp_execution.yml`.
 - `jsonl:line:398`: `mshta.exe` spawns `powershell.exe`; matches `proc_creation_win_mshta_susp_child_processes.yml`.
-- Security Event ID `4688` records at lines `4`, `30`, and `36` duplicate the Sysmon process telemetry and must not be counted as additional processes.
-- The PowerShell payload only runs `Get-Service sysmon`; no download, C2, credential theft, or destructive behavior is observed.
+- Security Event ID `4688` at line `4` and Sysmon Event ID `1` at line `275` describe the same `mshta.exe` creation; Security line `30` and Sysmon line `398` describe the same `powershell.exe` creation. These four observations support two behavior groups and must not be counted as four process creations.
+- Security line `36` and Sysmon line `422` describe the same `conhost.exe` child of PowerShell. This process is outside the two-group ground-truth core and must not be counted as another copy of the MSHTA or PowerShell behavior.
+- The observed PowerShell launch command is `-noexit -command Get-Service sysmon`; it does not prove cmdlet completion or service state. No download, C2, credential theft or destructive payload is supported by these two reviewed process-creation groups.
+- The complete raw file contains temporary-file deletion and event-log clearing telemetry outside the core. Preserve those records and scope limitations without asserting destructive intent or global absence of deletion.
+- Sysmon `UtcTime` differs from `TimeCreated` by about four hours and is timezone-naive in the source. Preserve the conflict and do not invent a timezone correction.
 
-Candidate MITRE techniques are `T1110.003`, `T1558.003`, `T1218.010`, and `T1218.005`. Resolve and verify them from `enterprise-attack.json` before marking mappings as confirmed.
+Candidate MITRE techniques for the selected scenarios are `T1110.003`, `T1558.003`, `T1218.010`, and `T1218.005`. Resolve and verify them from `enterprise-attack.json`, cite the supporting evidence and obtain human review before marking mappings as `confirmed`.
+
+The local ATT&CK snapshot is pinned to `v19.1` by `configs/knowledge/mitre_enterprise_attack.json`. The MSHTA audit validated that manifest and the active STIX objects. `T1218.005` has `supported_by_observed_behavior`; Sigma-derived `T1059.007` (JavaScript) has `not_supported_by_observed_command` because the command is VBScript; Sigma-derived `T1140` has `not_assessed`. These assessments remain `candidate`, with no label promotions. Rule descriptions and tags do not prove download, decoding, disguised file extensions or CVE exploitation.

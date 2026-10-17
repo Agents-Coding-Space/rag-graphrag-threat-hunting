@@ -14,6 +14,8 @@ from pathlib import Path
 import re
 from typing import Any, NoReturn
 
+from threat_hunting.ground_truth import SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS
+
 
 RETRIEVAL_CORPUS_SCHEMA_VERSION = "retrieval-corpus/v1"
 SOURCE_GROUND_TRUTH_SCHEMA_VERSION = "scenario-ground-truth/v1"
@@ -273,9 +275,10 @@ def _validate_source_ground_truth(value: object, scenario_id: str) -> None:
     schema_version = _require_nonempty_string(
         source["schema_version"], f"{path}.schema_version"
     )
-    if schema_version != SOURCE_GROUND_TRUTH_SCHEMA_VERSION:
+    if schema_version not in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS:
         raise RetrievalCorpusValidationError(
-            f"{path}.schema_version must be {SOURCE_GROUND_TRUTH_SCHEMA_VERSION!r}"
+            f"{path}.schema_version must be one of "
+            f"{sorted(SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS)!r}"
         )
     _require_sha256(source["sha256"], f"{path}.sha256")
     source_scenario_id = _require_nonempty_string(

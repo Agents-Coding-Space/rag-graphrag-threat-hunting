@@ -1,0 +1,14 @@
+{
+  "json_readback_count": 16,
+  "decision_replays": 160,
+  "saved_all_five_arms_replay_matches": true,
+  "E0_exact_saved_FIX2_D_trace_matches": true,
+  "replay_is_consistency_verification_not_an_independent_experiment": true,
+  "trace_field_quotes_item_ids_and_source_pointers_verified": 840,
+  "authenticated_context_count": 160,
+  "fixed_context_upgrades_change_inventory_only": true,
+  "E4_supplementation_replay_matches_without_ranking_or_model_call": true,
+  "runtime_runner_policy_and_design_hashes_match_pre_evaluation_freeze": true,
+  "external_AI_diagnostic_rubric_replay_matches": true,
+  "legacy_FIX2_sources_fixtures_artifacts_verified_separately_by_protected_hash_audit": true
+}

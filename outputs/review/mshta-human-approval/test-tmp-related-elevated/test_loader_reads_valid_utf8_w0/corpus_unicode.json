@@ -1,0 +1,407 @@
+{
+  "schema_version": "retrieval-corpus/v1",
+  "corpus_id": "corpus-synthetic-review-001",
+  "scenario_id": "scenario-synthetic-review-001",
+  "source_ground_truth": {
+    "path": "fixtures/synthetic_scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "scenario_id": "scenario-synthetic-review-001"
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk-synthetic-summary-001",
+      "chunk_type": "scenario_summary",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic scenario summary",
+      "content": "Two synthetic entities participate in a reviewable activity supported by one synthetic evidence group. Nội dung giữ nguyên Unicode.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "scenario",
+        "object_id": null,
+        "json_pointer": "/scenario"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [
+        "fact-synthetic-activity"
+      ],
+      "relationship_ids": [
+        "relationship-synthetic-transition"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-review-001"
+      ],
+      "mitre_external_ids": [
+        "TECH-SYNTHETIC-001"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "scenario",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 1
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-entity-alpha",
+      "chunk_type": "entity",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic origin entity",
+      "content": "The synthetic origin entity is observed in the first fixture record.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "entity-synthetic-alpha",
+        "json_pointer": "/entities/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-transition"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 2
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-entity-beta",
+      "chunk_type": "entity",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic destination entity",
+      "content": "The synthetic destination entity is observed in the second fixture record.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "entity-synthetic-beta",
+        "json_pointer": "/entities/1"
+      },
+      "entity_ids": [
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-transition"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 3
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-fact-001",
+      "chunk_type": "fact",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic activity fact",
+      "content": "The origin entity is inferred to initiate the synthetic activity represented by the destination entity.",
+      "status": "inferred",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "fact",
+        "object_id": "fact-synthetic-activity",
+        "json_pointer": "/facts/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [
+        "fact-synthetic-activity"
+      ],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "queryable_dimensions": [
+        "fact",
+        "entity"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 4
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-relationship-001",
+      "chunk_type": "relationship",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic entity transition",
+      "content": "The observed transition links the synthetic origin entity to the synthetic destination entity.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "relationship",
+        "object_id": "relationship-synthetic-transition",
+        "json_pointer": "/relationships/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-transition"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "relationship",
+        "entity",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 5
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-evidence-001",
+      "chunk_type": "evidence",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic evidence group",
+      "content": "Two fixture records directly support the observed synthetic transition.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "evidence",
+        "object_id": "evidence-synthetic-activity",
+        "json_pointer": "/evidence/0"
+      },
+      "entity_ids": [
+        "entity-synthetic-alpha",
+        "entity-synthetic-beta"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-synthetic-transition"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 6
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-sigma-001",
+      "chunk_type": "sigma_finding",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic rule finding",
+      "content": "A synthetic rule finding remains a candidate linked to the reviewed fixture evidence.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "sigma_finding",
+        "object_id": "finding-synthetic-rule-001",
+        "json_pointer": "/sigma_findings/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-review-001"
+      ],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "queryable_dimensions": [
+        "sigma_rule",
+        "evidence",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 7
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-mitre-001",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic technique assessment",
+      "content": "The synthetic technique assessment is a candidate that still requires human review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "assessment-synthetic-technique-001",
+        "json_pointer": "/mitre_assessments/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-synthetic-activity"
+      ],
+      "sigma_rule_ids": [
+        "rule-synthetic-review-001"
+      ],
+      "mitre_external_ids": [
+        "TECH-SYNTHETIC-001"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ],
+      "queryable_dimensions": [
+        "mitre_technique",
+        "evidence",
+        "provenance"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 8
+      }
+    },
+    {
+      "chunk_id": "chunk-synthetic-limitation-001",
+      "chunk_type": "limitation",
+      "scenario_id": "scenario-synthetic-review-001",
+      "title": "Synthetic scope limitation",
+      "content": "The fixture covers only two synthetic records and does not support conclusions outside that reviewed scope.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation"
+      ],
+      "metadata": {
+        "fixture": true,
+        "ordinal": 9
+      }
+    }
+  ],
+  "queryable_dimensions": [
+    "entity",
+    "evidence",
+    "fact",
+    "limitation",
+    "mitre_technique",
+    "provenance",
+    "relationship",
+    "scenario",
+    "sigma_rule"
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": []
+  },
+  "warnings": [],
+  "metadata": {
+    "fixture": true,
+    "purpose": "Validate the Retrieval Corpus v1 contract with synthetic data.",
+    "unicode_label": "Dữ liệu tổng quát"
+  }
+}

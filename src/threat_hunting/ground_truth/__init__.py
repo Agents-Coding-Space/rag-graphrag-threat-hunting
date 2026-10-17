@@ -7,7 +7,9 @@ from .builder import (
     validate_ground_truth_build_config,
 )
 from .schema import (
+    SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION,
     SCENARIO_GROUND_TRUTH_SCHEMA_VERSION,
+    SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS,
     GroundTruthValidationError,
     load_ground_truth_document,
     validate_ground_truth_document,
@@ -16,6 +18,8 @@ from .schema import (
 __all__ = (
     "GROUND_TRUTH_BUILD_CONFIG_SCHEMA_VERSION",
     "SCENARIO_GROUND_TRUTH_SCHEMA_VERSION",
+    "SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION",
+    "SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS",
     "GroundTruthBuildError",
     "GroundTruthValidationError",
     "build_ground_truth_core",

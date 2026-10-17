@@ -1,0 +1,90 @@
+{
+  "schema_version": "two-stage-review-retrieval/v1",
+  "sources": {
+    "ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+    },
+    "answers": {
+      "path": "outputs/review/mshta-ground-truth/reference_answers.json",
+      "sha256": "400026d106b863c4127c57c74d3b7722e672652474638bb9554089d322fba96b"
+    },
+    "manifest": {
+      "path": "outputs/review/mshta-ground-truth/review_manifest.json",
+      "sha256": "29507fe4f68a1222d93d5626da8d03f29b497d5798be3f2f6786f8911d0eedb4"
+    },
+    "dataset": {
+      "path": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124"
+    },
+    "corpus": {
+      "path": "outputs/retrieval/mshta-powershell/retrieval_corpus.json",
+      "sha256": "53abc9e44c03c46aaf024cdb79b61ad3381d50feb82689f27074151381b9d0f3"
+    },
+    "graph": {
+      "path": "outputs/graph/mshta-powershell/knowledge_graph.json",
+      "sha256": "892a4c1926178c12bb3878dbd7e5d779d39494b8c11da3ac33864cbdc66c7227"
+    },
+    "index": {
+      "path": "outputs/evaluation/mshta-powershell/vector_index_multilingual_e5_small.json",
+      "sha256": "e329f0031b64f255044d47d6162535c5bff3916369987d17e3d37e0b25023e91"
+    }
+  },
+  "consumer_ground_truth": {
+    "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "scenario_id": "mshta-powershell"
+  },
+  "evaluation_ground_truth": {
+    "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v2",
+    "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461"
+  },
+  "embedding": {
+    "provider": "sentence-transformers",
+    "model_id": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dimension": 384,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "passage: ",
+    "query_prefix": "query: "
+  },
+  "model_selection_status": "Existing provisional E5 recommendation reused, no new model selection",
+  "retrieval": {
+    "top_k": 5,
+    "candidate_k": 20,
+    "chunk_types": null,
+    "required_dimensions": null
+  },
+  "fusion": {
+    "method": "reciprocal_rank_fusion",
+    "rrf_k": 60
+  },
+  "seed_mapping": "Existing exact ID/JSON-pointer mapping, unchanged",
+  "traversal": {
+    "direction": "both",
+    "max_depth": 2,
+    "allowed_edge_types": null,
+    "max_nodes": 100,
+    "max_edges": 200
+  },
+  "context_budget": {
+    "retrieval_hits": 5,
+    "traversal_nodes": 100,
+    "traversal_edges": 200,
+    "additional_token_truncation": null
+  },
+  "runtime": {
+    "device": "cpu",
+    "offline": true,
+    "batch_size": 1,
+    "show_progress_bar": false
+  },
+  "query_input_boundary": "Only the current query text is embedded/retrieved; never the question collection, answers, categories, decisions or expected evidence.",
+  "query_embeddings_sha256": "93f716d7df07451d97c3cbe76c5c7bf22fca768370d0423ad98e0ee94626c2a3",
+  "external_context_adjudication_sha256": "e3554a91690c15df530fba344564da7eae7e12ffa626556368162b749508dfb9",
+  "consumer_audit_sha256": "23a884033a7f3362210c78b870ff24c842fffee5965baa9e3ff6a4075265098b",
+  "quarantined_test_manifest_sha256": "5da7b7e221e16eddf77475ef1e7403fb358641527237621867d887ec6b976814"
+}

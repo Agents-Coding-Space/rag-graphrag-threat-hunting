@@ -1,0 +1,310 @@
+{
+  "schema_version": "query-aware-gate-development-ablation/v1",
+  "arms": {
+    "A": "FIX1 ranked context + old policy",
+    "B": "enriched evidence context + old policy",
+    "C": "FIX1 context + query-aware scope/support AND old policy",
+    "D": "enriched context + query-aware scope/support AND old policy"
+  },
+  "source_configuration": {
+    "embedding": {
+      "provider": "sentence-transformers",
+      "model_id": "intfloat/multilingual-e5-small",
+      "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "dimension": 384,
+      "distance_metric": "cosine",
+      "normalization": "l2",
+      "document_prefix": "passage: ",
+      "query_prefix": "query: "
+    },
+    "retrieval": {
+      "top_k": 5,
+      "candidate_k": 20,
+      "chunk_types": null,
+      "required_dimensions": null
+    },
+    "fusion": {
+      "method": "reciprocal_rank_fusion",
+      "rrf_k": 60
+    },
+    "seed_mapping": "Existing exact ID/JSON-pointer mapping, unchanged",
+    "traversal": {
+      "direction": "both",
+      "max_depth": 2,
+      "allowed_edge_types": null,
+      "max_nodes": 100,
+      "max_edges": 200
+    },
+    "context_budget": {
+      "retrieval_hits": 5,
+      "traversal_nodes": 100,
+      "traversal_edges": 200,
+      "additional_token_truncation": null
+    },
+    "runtime": {
+      "device": "cpu",
+      "offline": true,
+      "batch_size": 1,
+      "show_progress_bar": false
+    },
+    "query_input_boundary": "Only the current query text is embedded/retrieved; never the question collection, answers, categories, decisions or expected evidence.",
+    "schema_version": "graphrag-v2-consumer-sync-experiment/v1",
+    "fixed_policy": {
+      "path": "outputs/review/graphrag-two-stage-gate-calibration/selected_policy.json",
+      "sha256": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+      "policy_id": "two-stage-dev-5a4b308b106699e0"
+    },
+    "sources": {
+      "retrieval_corpus.json": {
+        "path": "outputs/experiments/graphrag-2d3-fix1/retrieval_corpus.json",
+        "sha256": "b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c"
+      },
+      "knowledge_graph.json": {
+        "path": "outputs/experiments/graphrag-2d3-fix1/knowledge_graph.json",
+        "sha256": "04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443"
+      },
+      "vector_index.json": {
+        "path": "outputs/experiments/graphrag-2d3-fix1/vector_index.json",
+        "sha256": "2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78"
+      }
+    },
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "intentional_changes": [
+      "Actual approved Ground Truth v2 source/provenance",
+      "Evidence content and fresh document embeddings synchronized",
+      "Strict supported-source compatibility"
+    ],
+    "no_threshold_search": true,
+    "no_heldout": true
+  },
+  "public_source_scope": {
+    "platforms": [
+      "windows"
+    ],
+    "mechanisms": [
+      "process_creation"
+    ]
+  },
+  "scope_basis": "Configured Windows process-creation source capability, not benchmark category",
+  "vocabulary": {
+    "entity_aliases": {
+      "cmd": "cmd.exe",
+      "mshta": "mshta.exe",
+      "powershell": "powershell.exe"
+    },
+    "platforms": {
+      "windows": [
+        "windows",
+        "win32",
+        "win64"
+      ],
+      "linux": [
+        "linux",
+        "gnu/linux"
+      ],
+      "unix": [
+        "unix",
+        "posix"
+      ],
+      "macos": [
+        "macos",
+        "mac os",
+        "darwin"
+      ]
+    },
+    "mechanisms": {
+      "cron": [
+        "cron",
+        "crontab",
+        "cronjob",
+        "cron job"
+      ]
+    },
+    "concepts": {
+      "relationship": [
+        "parent",
+        "child",
+        "spawn",
+        "spawned",
+        "spawns",
+        "chain",
+        "process tree",
+        "process relationship",
+        "parent-child",
+        "quan he",
+        "chuoi",
+        "tien trinh cha",
+        "tien trinh con",
+        "sinh ra",
+        "sinh",
+        "tao tien trinh",
+        "proxy execution"
+      ],
+      "command": [
+        "command line",
+        "command lines",
+        "commandline",
+        "commandlines",
+        "launch command",
+        "command-line",
+        "cau lenh",
+        "dong lenh",
+        "lenh khoi chay",
+        "lenh nao",
+        "lenh gi"
+      ],
+      "completion": [
+        "successful",
+        "successfully",
+        "success",
+        "completion",
+        "completed",
+        "complete",
+        "output",
+        "result",
+        "thanh cong",
+        "hoan tat",
+        "hoan thanh",
+        "dau ra",
+        "ket qua"
+      ],
+      "service_state": [
+        "service state",
+        "service status",
+        "service running",
+        "service stopped",
+        "trang thai dich vu",
+        "dich vu dang chay",
+        "dich vu da dung"
+      ],
+      "network": [
+        "url",
+        "uri",
+        "endpoint",
+        "network",
+        "connection",
+        "connect",
+        "connected",
+        "destination",
+        "ip address",
+        "download",
+        "downloaded",
+        "tai xuong",
+        "ket noi",
+        "dia chi ip",
+        "dich mang"
+      ],
+      "download": [
+        "download",
+        "downloaded",
+        "downloading",
+        "tai xuong",
+        "tai payload",
+        "tai tep",
+        "tai file"
+      ],
+      "connect": [
+        "connect",
+        "connected",
+        "connection",
+        "ket noi"
+      ],
+      "provenance": [
+        "evidence",
+        "provenance",
+        "raw",
+        "record",
+        "records",
+        "event id",
+        "source reference",
+        "source references",
+        "source log",
+        "bang chung",
+        "ban ghi",
+        "nguon",
+        "tham chieu",
+        "su kien"
+      ],
+      "limitations": [
+        "limitation",
+        "limitations",
+        "scope",
+        "caveat",
+        "caveats",
+        "boundary",
+        "boundaries",
+        "review limit",
+        "review limits",
+        "gioi han",
+        "pham vi",
+        "han che",
+        "luu y"
+      ],
+      "technique": [
+        "technique",
+        "techniques",
+        "mitre",
+        "attack mapping",
+        "att&ck",
+        "ky thuat",
+        "anh xa",
+        "candidate",
+        "needs_review"
+      ]
+    }
+  },
+  "context_budget": {
+    "max_supplementary_items": 12,
+    "max_final_items": 64,
+    "max_serialized_bytes": 131072
+  },
+  "quality_mode": "require_legacy_proceed",
+  "policy": {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "two-stage-dev-5a4b308b106699e0",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 0,
+      "min_vector_hit_count": 0,
+      "min_joint_lexical_vector_hit_count": 0,
+      "min_query_token_coverage": 0.18181818,
+      "min_returned_top_rrf_score": null,
+      "min_returned_top_bm25_score": null,
+      "min_returned_top_cosine_score": 0.84299805
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 0,
+      "min_hits_with_source_references": 0,
+      "min_unique_source_reference_count": 0,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": true,
+      "min_traversal_node_count": 0,
+      "min_traversal_edge_count": 0,
+      "min_traversal_path_count": 0,
+      "min_traversed_evidence_node_count": 0,
+      "min_support_edge_count": 0,
+      "max_traversed_limitation_node_count": null
+    }
+  },
+  "ranked_context_source": "frozen FIX1 contexts; identical for all arms",
+  "supplements_have_no_rank_scores_or_paths": true,
+  "no_model_calls_no_index_rebuild_no_threshold_search": true,
+  "no_heldout_no_proposed_probes": true,
+  "external_evaluation": "unchanged conservative AI rubric + approved dataset labels; support checker is not ground truth",
+  "input_hashes": {
+    "retrieval_corpus.json": "b57ffad3d1e3b797e1b5fae7360b605a67acbecede8fb98ce8faf6f993cc695c",
+    "knowledge_graph.json": "04d6efd2ca47388689ad376766f96f9136a9a8f4ef22403b4bc1ed4ff30ae443",
+    "vector_index.json": "2182baefb9598609c5e1e9a92ac370b366e0fcab79e8d672ac64adcb7717ae78",
+    "fixed_policy.json": "b132df134abbffa8a9ebd2afbb742befc239d4111f63a024b5386fe09d5d447c",
+    "experiment_configuration.json": "a19a03c3bf2022bf1467ad470e95a5dbe4e84f226ea8969ce3d63b6592a503f0",
+    "contexts.json": "da3a0e30053d7579025b442d3c68799b7d6df3a0a9d286e99a3d1b3354952258",
+    "signals.json": "26e0d27b4455396519605c42cd978d91908e86d70ed64eaa5d881b833b7062de",
+    "decisions.json": "ae6a511aa01cbea7f1b3d39a97b633723646bf66e3e28266521b58f806b8f651"
+  }
+}

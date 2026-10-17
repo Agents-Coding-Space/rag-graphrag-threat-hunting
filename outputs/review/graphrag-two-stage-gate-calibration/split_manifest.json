@@ -1,0 +1,386 @@
+{
+  "schema_version": "two-stage-gate-evaluation-split/v1",
+  "dataset_id": "mshta-relevance-calibration-reviewed-v1",
+  "dataset_sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124",
+  "split_rationale": "All 32 cases previously exposed. No independent heldout partition exists; no reshuffling or paraphrase split.",
+  "cases": [
+    {
+      "case_id": "ie-en-attacker-identity",
+      "group_id": "ie-en-attacker-identity",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/18",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-en-c2-address",
+      "group_id": "ie-en-c2-address",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/17",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-en-payload-download-url",
+      "group_id": "ie-en-payload-download-url",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/16",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-en-stolen-credentials",
+      "group_id": "ie-en-stolen-credentials",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/19",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-vi-certain-attack-determination",
+      "group_id": "ie-vi-certain-attack-determination",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/23",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-vi-decoded-content",
+      "group_id": "ie-vi-decoded-content",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/21",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-vi-decoding-proof",
+      "group_id": "ie-vi-decoding-proof",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/22",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ie-vi-destructive-files",
+      "group_id": "ie-vi-destructive-files",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/20",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-en-final-spawn-evidence",
+      "group_id": "final_spawn_observations",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/3",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-en-initial-spawn-evidence",
+      "group_id": "initial_spawn_observations",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/2",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-en-process-chain",
+      "group_id": "two_hop_process_chain",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/0",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-en-shell-parent",
+      "group_id": "powershell_parent",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/1",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-vi-initial-relation-provenance",
+      "group_id": "initial_spawn_observations",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/7",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-vi-proxy-technique-assessment",
+      "group_id": "proxy_assessment_status",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/4",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-vi-reviewed-scope-limitations",
+      "group_id": "review_scope_and_limits",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/6",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rd-vi-scripting-technique-status",
+      "group_id": "unsupported_javascript_label",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/5",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-en-intermediate-utility",
+      "group_id": "two_hop_process_chain",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/8",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-en-retained-scripting-label",
+      "group_id": "unsupported_javascript_label",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/11",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-en-shell-creator",
+      "group_id": "powershell_parent",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/9",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-en-technique-review",
+      "group_id": "proxy_assessment_status",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/10",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-vi-final-review-limits",
+      "group_id": "review_scope_and_limits",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/14",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-vi-launch-order",
+      "group_id": "two_hop_process_chain",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/12",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-vi-observation-provenance",
+      "group_id": "cross_provider_deduplication",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/13",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "rp-vi-service-action",
+      "group_id": "powershell_launch_command",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/15",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-en-linux-cron",
+      "group_id": "ur-en-linux-cron",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/26",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-en-product-price",
+      "group_id": "ur-en-product-price",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/25",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-en-sql-injection",
+      "group_id": "ur-en-sql-injection",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/27",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-en-weather",
+      "group_id": "ur-en-weather",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/24",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-vi-kubernetes-configuration",
+      "group_id": "ur-vi-kubernetes-configuration",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/29",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-vi-literature-learning",
+      "group_id": "ur-vi-literature-learning",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/30",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-vi-opaque-token",
+      "group_id": "ur-vi-opaque-token",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/31",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    },
+    {
+      "case_id": "ur-vi-ransomware-encryption",
+      "group_id": "ur-vi-ransomware-encryption",
+      "label_source": "outputs/review/mshta-ground-truth/reference_answers.json#/cases/28",
+      "grouping_rationale": "Same question intent and reviewed evidence; all exposed development groups remain calibration."
+    }
+  ],
+  "assignments": {
+    "ie-en-attacker-identity": "calibration",
+    "ie-en-c2-address": "calibration",
+    "ie-en-payload-download-url": "calibration",
+    "ie-en-stolen-credentials": "calibration",
+    "ie-vi-certain-attack-determination": "calibration",
+    "ie-vi-decoded-content": "calibration",
+    "ie-vi-decoding-proof": "calibration",
+    "ie-vi-destructive-files": "calibration",
+    "rd-en-final-spawn-evidence": "calibration",
+    "rd-en-initial-spawn-evidence": "calibration",
+    "rd-en-process-chain": "calibration",
+    "rd-en-shell-parent": "calibration",
+    "rd-vi-initial-relation-provenance": "calibration",
+    "rd-vi-proxy-technique-assessment": "calibration",
+    "rd-vi-reviewed-scope-limitations": "calibration",
+    "rd-vi-scripting-technique-status": "calibration",
+    "rp-en-intermediate-utility": "calibration",
+    "rp-en-retained-scripting-label": "calibration",
+    "rp-en-shell-creator": "calibration",
+    "rp-en-technique-review": "calibration",
+    "rp-vi-final-review-limits": "calibration",
+    "rp-vi-launch-order": "calibration",
+    "rp-vi-observation-provenance": "calibration",
+    "rp-vi-service-action": "calibration",
+    "ur-en-linux-cron": "calibration",
+    "ur-en-product-price": "calibration",
+    "ur-en-sql-injection": "calibration",
+    "ur-en-weather": "calibration",
+    "ur-vi-kubernetes-configuration": "calibration",
+    "ur-vi-literature-learning": "calibration",
+    "ur-vi-opaque-token": "calibration",
+    "ur-vi-ransomware-encryption": "calibration"
+  },
+  "usage_history": {
+    "cross_provider_deduplication": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "final_spawn_observations": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-attacker-identity": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-c2-address": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-payload-download-url": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-en-stolen-credentials": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-certain-attack-determination": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-decoded-content": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-decoding-proof": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ie-vi-destructive-files": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "initial_spawn_observations": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "powershell_launch_command": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "powershell_parent": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "proxy_assessment_status": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "review_scope_and_limits": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "two_hop_process_chain": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "unsupported_javascript_label": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-linux-cron": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-product-price": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-sql-injection": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-en-weather": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-kubernetes-configuration": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-literature-learning": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-opaque-token": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ],
+    "ur-vi-ransomware-encryption": [
+      "Embedding comparison/model selection on these 32 cases",
+      "Legacy MiniLM calibration: 672 policies on all 32 cases",
+      "Legacy E5 calibration: 672 policies on all 32 cases",
+      "Technical review/error analysis and two wording corrections"
+    ]
+  }
+}

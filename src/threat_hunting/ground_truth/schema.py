@@ -1,8 +1,9 @@
 """Strict, scenario-independent validation for Ground Truth Core documents.
 
 This module validates a reviewable data contract only. It does not merge
-production artifacts, build ground truth, answer evaluation questions, or
-promote any value to a confirmed state.
+production artifacts, build ground truth, or answer evaluation questions.
+Version 2 accepts explicitly supplied human approval at $.review only; it
+never promotes evidence, Sigma findings or MITRE assessments to confirmed.
 """
 
 from __future__ import annotations
@@ -14,8 +15,14 @@ from pathlib import Path
 import re
 from typing import Any
 
+from .approval import validate_human_review
+
 
 SCENARIO_GROUND_TRUTH_SCHEMA_VERSION = "scenario-ground-truth/v1"
+SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION = "scenario-ground-truth/v2"
+SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS = frozenset(
+    {SCENARIO_GROUND_TRUTH_SCHEMA_VERSION, SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION}
+)
 
 TOP_LEVEL_FIELDS = (
     "schema_version",
@@ -284,7 +291,9 @@ def _direct_status_value_is_confirmed(value: object) -> bool:
     return False
 
 
-def _scan_contract_guards(value: object, path: str) -> None:
+def _scan_contract_guards(
+    value: object, path: str, *, allow_human_approval: bool = False
+) -> None:
     if isinstance(value, Mapping):
         for key, item in value.items():
             normalized_key = key.casefold()
@@ -292,14 +301,25 @@ def _scan_contract_guards(value: object, path: str) -> None:
                 raise GroundTruthValidationError(
                     f"{path}.{key} is forbidden in Ground Truth Core"
                 )
-            if _is_status_like_field(key) and _direct_status_value_is_confirmed(item):
+            human_approval_field = (
+                allow_human_approval and path == "$.review" and key == "review_status"
+            )
+            if (
+                _is_status_like_field(key)
+                and _direct_status_value_is_confirmed(item)
+                and not human_approval_field
+            ):
                 raise GroundTruthValidationError(
                     f"{path}.{key} must not contain the value 'confirmed'"
                 )
-            _scan_contract_guards(item, f"{path}.{key}")
+            _scan_contract_guards(
+                item, f"{path}.{key}", allow_human_approval=allow_human_approval
+            )
     elif isinstance(value, list):
         for index, item in enumerate(value):
-            _scan_contract_guards(item, f"{path}[{index}]")
+            _scan_contract_guards(
+                item, f"{path}[{index}]", allow_human_approval=allow_human_approval
+            )
 
 
 def _add_unique_identifier(
@@ -632,19 +652,27 @@ def _validate_summary(value: object) -> None:
         _require_string_list(summary[field], f"{path}.{field}")
 
 
-def _validate_review(value: object) -> None:
+def _validate_review(value: object, *, allow_human_approval: bool = False) -> None:
     path = "$.review"
     review = _require_object(value, path)
     _require_exact_fields(review, REVIEW_FIELDS, path)
     _require_status(
         review["review_status"],
-        DOCUMENT_REVIEW_STATUSES,
+        DOCUMENT_REVIEW_STATUSES | ({"confirmed"} if allow_human_approval else set()),
         f"{path}.review_status",
     )
-    if review["reviewer"] is not None:
-        raise GroundTruthValidationError(f"{path}.reviewer must be null in this version")
-    if review["reviewed_at"] is not None:
-        raise GroundTruthValidationError(f"{path}.reviewed_at must be null in this version")
+    if allow_human_approval:
+        try:
+            validate_human_review(
+                review["review_status"], review["reviewer"], review["reviewed_at"], path=path
+            )
+        except ValueError as exc:
+            raise GroundTruthValidationError(str(exc)) from exc
+    else:
+        if review["reviewer"] is not None:
+            raise GroundTruthValidationError(f"{path}.reviewer must be null in this version")
+        if review["reviewed_at"] is not None:
+            raise GroundTruthValidationError(f"{path}.reviewed_at must be null in this version")
     decisions = _require_list(review["decisions"], f"{path}.decisions")
     for index, decision in enumerate(decisions):
         if isinstance(decision, str):
@@ -657,13 +685,16 @@ def validate_ground_truth_document(document: object) -> None:
 
     root = _require_object(document, "$")
     _validate_json_value(root, "$")
-    _scan_contract_guards(root, "$")
+    allow_human_approval = (
+        root.get("schema_version") == SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION
+    )
+    _scan_contract_guards(root, "$", allow_human_approval=allow_human_approval)
     _require_exact_fields(root, TOP_LEVEL_FIELDS, "$")
 
     schema_version = _require_nonempty_string(root["schema_version"], "$.schema_version")
-    if schema_version != SCENARIO_GROUND_TRUTH_SCHEMA_VERSION:
+    if schema_version not in SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS:
         raise GroundTruthValidationError(
-            f"$.schema_version must be {SCENARIO_GROUND_TRUTH_SCHEMA_VERSION!r}"
+            f"$.schema_version must be one of {sorted(SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS)!r}"
         )
 
     scenario_id = _validate_scenario(root["scenario"])
@@ -680,7 +711,7 @@ def validate_ground_truth_document(document: object) -> None:
     _require_string_list(
         root["queryable_dimensions"], "$.queryable_dimensions", unique=True
     )
-    _validate_review(root["review"])
+    _validate_review(root["review"], allow_human_approval=allow_human_approval)
     _require_string_list(root["warnings"], "$.warnings")
 
 
@@ -724,6 +755,8 @@ def load_ground_truth_document(path: Path) -> dict[str, Any]:
 
 __all__ = (
     "SCENARIO_GROUND_TRUTH_SCHEMA_VERSION",
+    "SCENARIO_GROUND_TRUTH_APPROVAL_SCHEMA_VERSION",
+    "SUPPORTED_GROUND_TRUTH_SCHEMA_VERSIONS",
     "GroundTruthValidationError",
     "load_ground_truth_document",
     "validate_ground_truth_document",

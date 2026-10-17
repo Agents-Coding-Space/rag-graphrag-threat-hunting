@@ -1,0 +1,19 @@
+{
+  "schema_version": "query-evidence-eligibility-policy/v1",
+  "policy_id": "fix3-source-bound-evidence-v1",
+  "parser_mode": "supported_with_mandatory_requirements",
+  "source_mode": "exact_runtime_source_payloads",
+  "scope_mode": "block_mismatch_or_ambiguous_allow_authenticated_bound_unspecified",
+  "mandatory_support_mode": "all_supported_with_resolved_nonempty_traces",
+  "evidence_mode": "kind_specific_identity_or_source_metadata",
+  "completeness_mode": "block_required_identity_set_gap_or_relevant_cuts",
+  "contradiction_mode": "block_conflicting_bound_values",
+  "legacy_mode": "diagnostic_only",
+  "ranking_mode": "diagnostic_only_no_supplement_scores",
+  "retrieval_quality": {
+    "min_ranked_hits": 1,
+    "require_finite_ranked_scores": true,
+    "require_exact_source_bound_ranked_payloads": true
+  },
+  "max_chain_depth": 8
+}

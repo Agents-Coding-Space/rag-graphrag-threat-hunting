@@ -1,0 +1,953 @@
+{
+  "schema_version": "retrieval-corpus/v1",
+  "corpus_id": "retrieval-corpus--631ff39273344120e671693f867fbb47057f029d5de0c982d90c7b27e508d7b9",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "scenario_id": "mshta-powershell"
+  },
+  "chunks": [
+    {
+      "chunk_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+      "chunk_type": "scenario_summary",
+      "scenario_id": "mshta-powershell",
+      "title": "MSHTA spawning PowerShell",
+      "content": "Scenario MSHTA spawning PowerShell. Description: Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe, mshta.exe launches powershell.exe, and PowerShell runs Get-Service sysmon; this config records observed behavior without asserting a finalized attack determination. Analysis status: draft_reviewable. Observed behavior: PowerShell ran Get-Service sysmon. cmd.exe launched mshta.exe with an inline vbscript:Execute command. mshta.exe launched PowerShell.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "scenario",
+        "object_id": null,
+        "json_pointer": "/scenario"
+      },
+      "entity_ids": [
+        "process-7c96a17eb66f2831da61",
+        "process-9c691740bde5d3dbdc4e",
+        "process-9f7ceeecb4cd61358ab7"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e",
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "command_line",
+        "entity",
+        "evidence",
+        "mitre_technique",
+        "process",
+        "process_spawn",
+        "provenance",
+        "scenario",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "analysis_status": "draft_reviewable",
+        "time_window": {
+          "end": "2020-10-22T02:58:00.489000Z",
+          "start": "2020-10-22T02:57:59.856000Z"
+        },
+        "observed_behavior_count": 3,
+        "source_review_status": "pending_human_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--4f6a416cecca5f8ad25a4e7c566581541851208ccf4f9f1feb910c522d6d053b",
+      "chunk_type": "entity",
+      "scenario_id": "mshta-powershell",
+      "title": "cmd.exe",
+      "content": "Entity cmd.exe. Type: process. Status: observed. Attributes: {\"host\":\"WORKSTATION5\",\"process_guid\":\"{39e4a257-2d59-5f91-6813-000000000700}\",\"process_id\":\"5888\",\"process_name\":\"cmd.exe\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "process-7c96a17eb66f2831da61",
+        "json_pointer": "/entities/0"
+      },
+      "entity_ids": [
+        "process-7c96a17eb66f2831da61"
+      ],
+      "fact_ids": [
+        "fact-cmd-spawns-mshta"
+      ],
+      "relationship_ids": [
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "process",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d59-5f91-6813-000000000700}",
+          "process_id": "5888",
+          "process_name": "cmd.exe"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--a88bd6373d92523085f98f26935d8efee399574b634f04f1bd06bf4500c6a312",
+      "chunk_type": "entity",
+      "scenario_id": "mshta-powershell",
+      "title": "mshta.exe",
+      "content": "Entity mshta.exe. Type: process. Status: observed. Attributes: {\"host\":\"WORKSTATION5\",\"process_guid\":\"{39e4a257-2d77-5f91-6b13-000000000700}\",\"process_id\":\"10980\",\"process_name\":\"mshta.exe\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "process-9c691740bde5d3dbdc4e",
+        "json_pointer": "/entities/1"
+      },
+      "entity_ids": [
+        "process-9c691740bde5d3dbdc4e"
+      ],
+      "fact_ids": [
+        "fact-cmd-spawns-mshta",
+        "fact-mshta-spawns-powershell"
+      ],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e",
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "process",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+          "process_id": "10980",
+          "process_name": "mshta.exe"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--c32ddb26354b18b70d2211d97c14eb353517e6ca0260e275f0300bcfb9439cc0",
+      "chunk_type": "entity",
+      "scenario_id": "mshta-powershell",
+      "title": "powershell.exe",
+      "content": "Entity powershell.exe. Type: process. Status: observed. Attributes: {\"host\":\"WORKSTATION5\",\"process_guid\":\"{39e4a257-2d78-5f91-6c13-000000000700}\",\"process_id\":\"9572\",\"process_name\":\"powershell.exe\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "entity",
+        "object_id": "process-9f7ceeecb4cd61358ab7",
+        "json_pointer": "/entities/2"
+      },
+      "entity_ids": [
+        "process-9f7ceeecb4cd61358ab7"
+      ],
+      "fact_ids": [
+        "fact-mshta-spawns-powershell"
+      ],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "entity_type": "process",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+          "process_id": "9572",
+          "process_name": "powershell.exe"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--bffd78d6601e01f3de6be978d5d7357c1f4d6e90be38b07509bb800d0f23ed5b",
+      "chunk_type": "fact",
+      "scenario_id": "mshta-powershell",
+      "title": "spawned_process",
+      "content": "Fact fact-cmd-spawns-mshta. Subject: process-7c96a17eb66f2831da61. Predicate: spawned_process. Object: process-9c691740bde5d3dbdc4e. Status: observed. Attributes: {\"relationship_id\":\"relationship-9e41d0cc407e7878b2d8\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "fact",
+        "object_id": "fact-cmd-spawns-mshta",
+        "json_pointer": "/facts/0"
+      },
+      "entity_ids": [
+        "process-7c96a17eb66f2831da61",
+        "process-9c691740bde5d3dbdc4e"
+      ],
+      "fact_ids": [
+        "fact-cmd-spawns-mshta"
+      ],
+      "relationship_ids": [
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {
+          "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--135ad46ae0c56b905d31ab531d5d565a01412b61f3600ad6b4d9dda6e2eef860",
+      "chunk_type": "fact",
+      "scenario_id": "mshta-powershell",
+      "title": "spawned_process",
+      "content": "Fact fact-mshta-spawns-powershell. Subject: process-9c691740bde5d3dbdc4e. Predicate: spawned_process. Object: process-9f7ceeecb4cd61358ab7. Status: observed. Attributes: {\"relationship_id\":\"relationship-1641029b76ea1ac3df6e\"}.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "fact",
+        "object_id": "fact-mshta-spawns-powershell",
+        "json_pointer": "/facts/1"
+      },
+      "entity_ids": [
+        "process-9c691740bde5d3dbdc4e",
+        "process-9f7ceeecb4cd61358ab7"
+      ],
+      "fact_ids": [
+        "fact-mshta-spawns-powershell"
+      ],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {
+          "relationship_id": "relationship-1641029b76ea1ac3df6e"
+        }
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--ef21f2bc7758f90ce3097c824ea9cfcf382e6fbefcaf03a8cc2c2f2cfa34534f",
+      "chunk_type": "relationship",
+      "scenario_id": "mshta-powershell",
+      "title": "process_spawn",
+      "content": "Relationship relationship-1641029b76ea1ac3df6e. Source: mshta.exe (process-9c691740bde5d3dbdc4e). Type: process_spawn. Target: powershell.exe (process-9f7ceeecb4cd61358ab7). Status: observed.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "relationship",
+        "object_id": "relationship-1641029b76ea1ac3df6e",
+        "json_pointer": "/relationships/0"
+      },
+      "entity_ids": [
+        "process-9c691740bde5d3dbdc4e",
+        "process-9f7ceeecb4cd61358ab7"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {}
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--6c81131b41dbfbf7554df2341edc55b3ffeb9da99282a8cde4492bd3a1107365",
+      "chunk_type": "relationship",
+      "scenario_id": "mshta-powershell",
+      "title": "process_spawn",
+      "content": "Relationship relationship-9e41d0cc407e7878b2d8. Source: cmd.exe (process-7c96a17eb66f2831da61). Type: process_spawn. Target: mshta.exe (process-9c691740bde5d3dbdc4e). Status: observed.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "relationship",
+        "object_id": "relationship-9e41d0cc407e7878b2d8",
+        "json_pointer": "/relationships/1"
+      },
+      "entity_ids": [
+        "process-7c96a17eb66f2831da61",
+        "process-9c691740bde5d3dbdc4e"
+      ],
+      "fact_ids": [],
+      "relationship_ids": [
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "metadata": {
+        "attributes": {}
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--536a732c5d918e1b90e281ed5d438f06f8b161d70c9d4e64699eee77dfd2a30b",
+      "chunk_type": "evidence",
+      "scenario_id": "mshta-powershell",
+      "title": "cmd.exe spawned mshta.exe",
+      "content": "Evidence evidence-b07a5ff4763e629715e6. Type: process_creation. Summary: cmd.exe spawned mshta.exe Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-10-22T02:57:59.856000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-10-22T02:57:59.857000Z.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "evidence",
+        "object_id": "evidence-b07a5ff4763e629715e6",
+        "json_pointer": "/evidence/0"
+      },
+      "entity_ids": [
+        "process-7c96a17eb66f2831da61",
+        "process-9c691740bde5d3dbdc4e"
+      ],
+      "fact_ids": [
+        "fact-cmd-spawns-mshta"
+      ],
+      "relationship_ids": [
+        "relationship-9e41d0cc407e7878b2d8"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "mitre_external_ids": [
+        "T1059.007",
+        "T1218.005"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "mitre_technique",
+        "provenance",
+        "relationship",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "observation_count": 2
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+      "chunk_type": "evidence",
+      "scenario_id": "mshta-powershell",
+      "title": "mshta.exe spawned powershell.exe",
+      "content": "Evidence evidence-b31714b888d1489a380c. Type: process_creation. Summary: mshta.exe spawned powershell.exe Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-10-22T02:58:00.462000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-10-22T02:58:00.489000Z.",
+      "status": "observed",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "evidence",
+        "object_id": "evidence-b31714b888d1489a380c",
+        "json_pointer": "/evidence/1"
+      },
+      "entity_ids": [
+        "process-9c691740bde5d3dbdc4e",
+        "process-9f7ceeecb4cd61358ab7"
+      ],
+      "fact_ids": [
+        "fact-mshta-spawns-powershell"
+      ],
+      "relationship_ids": [
+        "relationship-1641029b76ea1ac3df6e"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+      ],
+      "mitre_external_ids": [
+        "T1218.005"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "queryable_dimensions": [
+        "entity",
+        "evidence",
+        "fact",
+        "mitre_technique",
+        "provenance",
+        "relationship",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "observation_count": 2
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--86a736896429fe91225a4a02ba9bd3cdff903a0fe3cbcb208702155afa2ef1a7",
+      "chunk_type": "sigma_finding",
+      "scenario_id": "mshta-powershell",
+      "title": "MSHTA Execution with Suspicious File Extensions",
+      "content": "Sigma finding MSHTA Execution with Suspicious File Extensions. Rule ID: cc7abbd0-762b-41e3-8a26-57ad50d2eea3. Status: candidate. Caveats: known_unmapped_field: OriginalFileName. Evidence IDs: evidence-b07a5ff4763e629715e6.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--631416bc85bd054493d7b849979dcedf81d938825832c4cb699f09700b2f09e5",
+        "json_pointer": "/sigma_findings/1"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "mitre_external_ids": [
+        "T1059.007",
+        "T1140",
+        "T1218.005"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "rule_sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+        "observation_match_ids": [
+          "sigma-observation-match-1e220a1f400a4618fee0",
+          "sigma-observation-match-47f7c1ba395dc32b9350"
+        ],
+        "behavior_match_ids": [
+          "sigma-behavior-match-5a1390bbe64d27403b77"
+        ],
+        "caveats": [
+          "known_unmapped_field: OriginalFileName"
+        ]
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--c8a720c3000f779ab36ac8207e7cf21c14d3687ca16157c534c95be7e5ce99ae",
+      "chunk_type": "sigma_finding",
+      "scenario_id": "mshta-powershell",
+      "title": "Suspicious MSHTA Child Process",
+      "content": "Sigma finding Suspicious MSHTA Child Process. Rule ID: 03cc0c25-389f-4bf8-b48d-11878079f1ca. Status: candidate. Caveats: known_unmapped_field: OriginalFileName. Evidence IDs: evidence-b31714b888d1489a380c.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--88654ed2fa69e533969b800d5a29dc0a7d7ad59987f300f4f554de638b9a4f7a",
+        "json_pointer": "/sigma_findings/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+      ],
+      "mitre_external_ids": [
+        "T1218.005"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "rule_sha256": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+        "observation_match_ids": [
+          "sigma-observation-match-6245df513098047dcef2",
+          "sigma-observation-match-868f2ef62739c4c74573"
+        ],
+        "behavior_match_ids": [
+          "sigma-behavior-match-700c4a1a1fbe62aeb900"
+        ],
+        "caveats": [
+          "known_unmapped_field: OriginalFileName"
+        ]
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--8a73d544afa5a8a974c12b905a13224e95e58a8dc73c3a6141ca02c3e2b731e8",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "mshta-powershell",
+      "title": "T1218.005 - Mshta",
+      "content": "MITRE assessment T1218.005: Mshta. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment. Review status: needs_review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "sigma_rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "mitre_external_ids": [
+        "T1218.005"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+        "origin": "sigma_tag",
+        "evidence_support": "supported_by_observed_behavior",
+        "review_status": "needs_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "mshta-powershell",
+      "title": "T1059.007 - JavaScript",
+      "content": "MITRE assessment T1059.007: JavaScript. Status: candidate. Evidence support: not_supported_by_observed_command. Rationale: The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence. Review status: needs_review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "json_pointer": "/mitre_assessments/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "sigma_rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "mitre_external_ids": [
+        "T1059.007"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+        "origin": "sigma_tag",
+        "evidence_support": "not_supported_by_observed_command",
+        "review_status": "needs_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--7917e296e6271f9a9abed0f08c9d58ac86ecc42a780688ad39ce05764b78c74e",
+      "chunk_type": "mitre_assessment",
+      "scenario_id": "mshta-powershell",
+      "title": "T1140 - Deobfuscate/Decode Files or Information",
+      "content": "MITRE assessment T1140: Deobfuscate/Decode Files or Information. Status: candidate. Evidence support: not_assessed. Rationale: The resolver only resolved a Sigma tag. The two reviewed evidence groups are insufficient to assess T1140, and the required full negative scan and broader evaluation have not been performed. This milestone therefore does not make a not_observed_in_reviewed_scope determination. Review status: needs_review.",
+      "status": "candidate",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--e78c269b283e5bca17c136194d9a2a18bd8c1cf0fe37726dd2c02717ea74d63f",
+        "json_pointer": "/mitre_assessments/1"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "mitre_external_ids": [
+        "T1140"
+      ],
+      "source_references": [],
+      "queryable_dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance",
+        "sigma_rule"
+      ],
+      "metadata": {
+        "stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+        "origin": "sigma_tag",
+        "evidence_support": "not_assessed",
+        "review_status": "needs_review"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--21d69e9c7ff2d03d44ac6d53e1fa234e961f1c743e59c6ffa11289ddcd5e715c",
+      "chunk_type": "limitation",
+      "scenario_id": "mshta-powershell",
+      "title": "Ground Truth scope limitation",
+      "content": "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/0"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation",
+        "provenance"
+      ],
+      "metadata": {
+        "source_summary_field": "limitations"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--82de3946302e7f785eef02295ff593ae743fe8820b352255edd7688fde42479c",
+      "chunk_type": "limitation",
+      "scenario_id": "mshta-powershell",
+      "title": "Ground Truth scope limitation",
+      "content": "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/1"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation",
+        "provenance"
+      ],
+      "metadata": {
+        "source_summary_field": "limitations"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--7c8854204807c39fe6d6da4ea799f643abe73976e973f1b6677fd130020af72a",
+      "chunk_type": "limitation",
+      "scenario_id": "mshta-powershell",
+      "title": "Ground Truth scope limitation",
+      "content": "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/2"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation",
+        "provenance"
+      ],
+      "metadata": {
+        "source_summary_field": "limitations"
+      }
+    },
+    {
+      "chunk_id": "retrieval-chunk--69e16e4937a131ad5d4712b725f21116ae3c14c49b4d72f124980e9c3d90bbaf",
+      "chunk_type": "limitation",
+      "scenario_id": "mshta-powershell",
+      "title": "Ground Truth scope limitation",
+      "content": "MITRE assessments remain candidates and require human review.",
+      "status": "reviewable",
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/3"
+      },
+      "entity_ids": [],
+      "fact_ids": [],
+      "relationship_ids": [],
+      "evidence_ids": [],
+      "sigma_rule_ids": [],
+      "mitre_external_ids": [],
+      "source_references": [],
+      "queryable_dimensions": [
+        "limitation",
+        "provenance"
+      ],
+      "metadata": {
+        "source_summary_field": "limitations"
+      }
+    }
+  ],
+  "queryable_dimensions": [
+    "command_line",
+    "entity",
+    "evidence",
+    "fact",
+    "limitation",
+    "mitre_technique",
+    "process",
+    "process_spawn",
+    "provenance",
+    "relationship",
+    "scenario",
+    "sigma_rule"
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": [
+      "This corpus was generated automatically from a validated Ground Truth Core document.",
+      "The generated corpus has not been reviewed by a human."
+    ]
+  },
+  "warnings": [],
+  "metadata": {
+    "builder_contract": "ground-truth-to-retrieval-corpus/v1",
+    "chunk_count": 19,
+    "source_analysis_status": "draft_reviewable",
+    "source_review_status": "pending_human_review"
+  }
+}

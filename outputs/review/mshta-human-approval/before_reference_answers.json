@@ -1,0 +1,993 @@
+{
+  "cases": [
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-en-process-chain",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "language": "en",
+      "original_query": "Which process chain led to powershell.exe in the reviewed evidence?",
+      "query": "Which process chain led to powershell.exe in the reviewed evidence?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Chuỗi được quan sát trên WORKSTATION5 là cmd.exe → mshta.exe → powershell.exe. fact-cmd-spawns-mshta và fact-mshta-spawns-powershell ghi hai quan hệ có hướng; Sysmon 1 ở lines 275/398 và Security 4688 ở lines 4/30 là các góc telemetry hỗ trợ cùng hai lần tạo tiến trình, không phải bốn lần tạo riêng.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/0",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-en-shell-parent",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0",
+        "/scenario"
+      ],
+      "language": "en",
+      "original_query": "Which process is the observed parent of powershell.exe?",
+      "query": "Which process is the observed parent of powershell.exe?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Tiến trình cha của powershell.exe là mshta.exe. fact-mshta-spawns-powershell liên kết process-9c691740bde5d3dbdc4e với process-9f7ceeecb4cd61358ab7; evidence-b31714b888d1489a380c giữ refs jsonl:line:30 và jsonl:line:398.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/1",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-en-initial-spawn-evidence",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/facts/0",
+        "/relationships/1"
+      ],
+      "language": "en",
+      "original_query": "What evidence supports the cmd.exe to mshta.exe process creation relationship?",
+      "query": "What evidence supports the cmd.exe to mshta.exe process creation relationship?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "evidence-b07a5ff4763e629715e6 giữ Sysmon Event ID 1 ở jsonl:line:275 và Security Event ID 4688 ở jsonl:line:4. ParentImage/ParentProcessName là cmd.exe, Image/NewProcessName là mshta.exe; PID cha 5888 tương ứng 0x1700, PID con 10980 tương ứng 0x2ae4. Hai records hỗ trợ một quan hệ cmd.exe → mshta.exe.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/2",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-en-final-spawn-evidence",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0"
+      ],
+      "language": "en",
+      "original_query": "What evidence supports the mshta.exe to powershell.exe process creation relationship?",
+      "query": "What evidence supports the mshta.exe to powershell.exe process creation relationship?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "evidence-b31714b888d1489a380c giữ Security Event ID 4688 ở jsonl:line:30 và Sysmon Event ID 1 ở jsonl:line:398. ParentImage/ParentProcessName là mshta.exe, Image/NewProcessName là powershell.exe; PID cha 10980 tương ứng 0x2ae4, PID con 9572 tương ứng 0x2564. Sysmon ParentProcessGuid khớp ProcessGuid của mshta.exe trong nhóm đầu.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/3",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-vi-proxy-technique-assessment",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/mitre_assessments/2"
+      ],
+      "language": "vi",
+      "original_query": "Đánh giá hiện tại đối với ATT&CK T1218.005 có mức hỗ trợ bằng chứng và trạng thái review nào?",
+      "query": "Đánh giá hiện tại đối với ATT&CK T1218.005 có mức hỗ trợ bằng chứng và trạng thái review nào?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "T1218.005 (Mshta) có evidence_support=supported_by_observed_behavior, status=candidate và review_status=needs_review tại /mitre_assessments/2. Hai evidence groups hỗ trợ mshta.exe với vbscript:Execute và việc sinh PowerShell; mapping này chưa được con người duyệt hay đánh dấu confirmed.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/4",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-vi-scripting-technique-status",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/mitre_assessments/0"
+      ],
+      "language": "vi",
+      "original_query": "T1059.007 có được hỗ trợ bởi command line đã quan sát không, và trạng thái đánh giá là gì?",
+      "query": "T1059.007 có được hỗ trợ bởi command line đã quan sát không, và trạng thái đánh giá là gì?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "T1059.007 là JavaScript, nhưng command line quan sát được dùng vbscript:Execute. /mitre_assessments/0 ghi not_supported_by_observed_command, status=candidate và review_status=needs_review; nhãn được giữ từ Sigma tag để truy vết nguồn, không chứng minh JavaScript đã chạy.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/5",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-vi-reviewed-scope-limitations",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/1",
+        "/summary/limitations/2",
+        "/summary/limitations/3",
+        "/summary/limitations/4",
+        "/summary/limitations/5",
+        "/summary/limitations/6"
+      ],
+      "language": "vi",
+      "original_query": "Ground Truth ghi nhận những giới hạn nào đối với phạm vi bằng chứng đã review?",
+      "query": "Ground Truth ghi nhận những giới hạn nào đối với phạm vi bằng chứng đã review?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Ground truth chỉ chứa hai behavior/evidence groups, không phải toàn bộ process inventory. Sysmon có timestamp_conflict: canonical dùng TimeCreated, còn UtcTime lệch khoảng bốn giờ và timezone chưa được xác nhận. Process creation không chứng minh cmdlet hoàn tất hay trạng thái dịch vụ. Log gốc có conhost creation, log clearing và temporary-file deletion ngoài core, nên không được kết luận các hành vi đó vắng mặt trên toàn dataset hoặc tự coi là destructive payload. Chưa có negative detector toàn diện; MITRE assessments còn candidate và human approval còn pending.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/6",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rd-vi-initial-relation-provenance",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/facts/0",
+        "/relationships/1"
+      ],
+      "language": "vi",
+      "original_query": "Nguồn log và raw record references nào hỗ trợ quan hệ cmd.exe tạo mshta.exe?",
+      "query": "Nguồn log và raw record references nào hỗ trợ quan hệ cmd.exe tạo mshta.exe?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Quan hệ cmd.exe tạo mshta.exe được truy về file cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json, tại jsonl:line:275 (Sysmon 1) và jsonl:line:4 (Security 4688). fact-cmd-spawns-mshta, relationship-9e41d0cc407e7878b2d8 và evidence-b07a5ff4763e629715e6 cùng giữ các refs này.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/7",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-en-intermediate-utility",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "language": "en",
+      "original_query": "Which Windows utility sits between the initial command interpreter and the final shell?",
+      "query": "Which Windows utility sits between the initial command interpreter and the final shell?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Tiện ích nằm giữa cmd.exe và powershell.exe là mshta.exe: cmd.exe → mshta.exe → powershell.exe. Hai process_spawn relationships và evidence tương ứng ghi rõ hướng của từng liên kết.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/8",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-en-shell-creator",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/facts/1",
+        "/relationships/0"
+      ],
+      "language": "en",
+      "original_query": "How can I trace the launch of the final shell back to its creator?",
+      "query": "How can I trace the launch of the final shell back to its creator?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Truy từ process-9f7ceeecb4cd61358ab7 (powershell.exe) về relationship-1641029b76ea1ac3df6e và fact-mshta-spawns-powershell; source là process-9c691740bde5d3dbdc4e (mshta.exe). evidence-b31714b888d1489a380c đưa về Security 4688 line 30 và Sysmon 1 line 398 để kiểm tra cha-con.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/9",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-en-technique-review",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/mitre_assessments/2",
+        "/scenario",
+        "/summary/limitations/3"
+      ],
+      "language": "en",
+      "original_query": "Why is the proxy execution technique still awaiting analyst approval even though its behavior has supporting records?",
+      "query": "Why is the proxy execution technique still awaiting analyst approval even though its behavior has supporting records?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "T1218.005 được hỗ trợ ở mức hành vi quan sát, nhưng status vẫn candidate và review_status=needs_review. Khớp Sigma hoặc quan sát mshta.exe sinh PowerShell không tự thay thế phê duyệt của người phân tích; artifact còn giới hạn phạm vi và timestamp_conflict, chưa có kết luận tấn công cuối cùng.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/10",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-en-retained-scripting-label",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/mitre_assessments/0",
+        "/scenario"
+      ],
+      "language": "en",
+      "original_query": "Why does a scripting technique label remain in the record when the reviewed inline command uses a different scripting language?",
+      "query": "Why does a scripting technique label remain in the record when the reviewed inline command uses a different scripting language?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "T1059.007 được giữ vì xuất phát từ tag của Sigma rule, để bảo toàn provenance. Command line dùng VBScript, không phải JavaScript; assessment vì vậy ghi not_supported_by_observed_command và không coi nhãn JavaScript là hành vi đã được chứng minh.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/11",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-vi-launch-order",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/facts/0",
+        "/facts/1",
+        "/relationships/0",
+        "/relationships/1",
+        "/scenario"
+      ],
+      "language": "vi",
+      "original_query": "Nhìn các quan hệ cha-con đã lưu, làm thế nào dựng lại thứ tự khởi chạy ba tiến trình?",
+      "query": "Nhìn các quan hệ cha-con đã lưu, làm thế nào dựng lại thứ tự khởi chạy ba tiến trình?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Dựng thứ tự bằng hướng của facts và relationships: fact-cmd-spawns-mshta trước, rồi fact-mshta-spawns-powershell, tạo chuỗi cmd.exe → mshta.exe → powershell.exe. Không suy ra thứ tự bằng vị trí phần tử trong mảng relationships; mảng lưu quan hệ cuối ở /relationships/0 và quan hệ đầu ở /relationships/1. Mỗi bước có một cặp Security/Sysmon telemetry, không đếm đôi.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/12",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-vi-observation-provenance",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1"
+      ],
+      "language": "vi",
+      "original_query": "Những bản ghi telemetry nào cùng làm căn cứ cho mỗi lần tạo tiến trình trong hai nhóm bằng chứng?",
+      "query": "Những bản ghi telemetry nào cùng làm căn cứ cho mỗi lần tạo tiến trình trong hai nhóm bằng chứng?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Nhóm evidence-b07a5ff4763e629715e6 gồm Security 4688 line 4 và Sysmon 1 line 275 cho cmd.exe → mshta.exe. Nhóm evidence-b31714b888d1489a380c gồm Security 4688 line 30 và Sysmon 1 line 398 cho mshta.exe → powershell.exe. Tất cả thuộc cùng source file; chúng được tương quan thành hai behavior groups để tránh đếm telemetry thành nhiều tiến trình.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/13",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet."
+      ],
+      "case_id": "rp-vi-final-review-limits",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/1",
+        "/summary/limitations/2",
+        "/summary/limitations/3"
+      ],
+      "language": "vi",
+      "original_query": "Người phân tích còn phải xem lại điều gì trước khi đưa ra nhận định cuối cùng?",
+      "query": "Người phân tích còn phải xem lại điều gì trước khi đưa ra nhận định cuối cùng?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Người phân tích cần kiểm tra lại correlation và refs của hai behavior groups, xử lý timestamp_conflict của Sysmon, xem mức hỗ trợ của từng MITRE assessment và giữ giới hạn negative scan. Cần duyệt ground truth và phân biệt lệnh xuất hiện trên command line với kết quả thực thi; các candidate hiện có chưa phải kết luận tấn công cuối cùng.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/14",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ khẳng định command line -command Get-Service sysmon; không khẳng định cmdlet hoàn tất hay trạng thái dịch vụ."
+      ],
+      "case_id": "rp-vi-service-action",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "ground_truth_pointers": [
+        "/scenario"
+      ],
+      "language": "vi",
+      "original_query": "Tác vụ về dịch vụ mà shell cuối cùng đã thực hiện được ghi nhận như thế nào?",
+      "query": "Lệnh liên quan đến dịch vụ được ghi nhận trên command line khi PowerShell được khởi chạy là gì?",
+      "raw_record_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "raw_reference_role": "supports_stated_observed_fields",
+      "reference_answer": "Command line của PowerShell ở jsonl:line:30 và jsonl:line:398 chứa -noexit -command Get-Service sysmon. Điều được quan sát trực tiếp là PowerShell được khởi chạy với lệnh này; căn cứ hiện có chưa cung cấp đầu ra cmdlet hoặc chứng minh trạng thái dịch vụ Sysmon. Không suy ra payload tải xuống, C2 hay thao tác phá hoại.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/15",
+      "target_kind": "answer_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-en-payload-download-url",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "language": "en",
+      "original_query": "Which URL did PowerShell use to download the payload in this MSHTA chain?",
+      "query": "Which URL did PowerShell use to download the payload in this MSHTA chain?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Không đủ bằng chứng để nêu URL tải payload. Hai evidence groups đã lưu chủ yếu là process creation; command line ghi Get-Service sysmon, không cung cấp download URL. Không được bịa URL hoặc kết luận mọi download đều vắng mặt trên toàn dataset từ ground truth giới hạn này.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/16",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-en-c2-address",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "language": "en",
+      "original_query": "What IP address acted as the C2 server for the PowerShell process?",
+      "query": "What IP address acted as the C2 server for the PowerShell process?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Không đủ bằng chứng để xác định IP C2 cho PowerShell trong chuỗi MSHTA. Hai nhóm evidence này không cung cấp quan hệ C2 hay endpoint tương ứng; không được gán IP từ kịch bản khác hoặc coi giới hạn hiện có là kết luận vắng mặt trên toàn dataset.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/17",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-en-attacker-identity",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "language": "en",
+      "original_query": "Who was the attacker responsible for the reviewed MSHTA execution?",
+      "query": "Who was the attacker responsible for the reviewed MSHTA execution?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Không đủ bằng chứng để quy kết danh tính kẻ tấn công. Process và tài khoản chạy tiến trình trong telemetry chỉ là thực thể quan sát, không chứng minh người hoặc nhóm chịu trách nhiệm; ground truth chưa có attribution được duyệt.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/18",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-en-stolen-credentials",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "language": "en",
+      "original_query": "Which credentials did PowerShell steal during this activity?",
+      "query": "Which credentials did PowerShell steal during this activity?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Không đủ bằng chứng để nêu thông tin xác thực bị đánh cắp. Evidence và summary hiện có không chứng minh credential theft hay cung cấp stolen values; command line Get-Service sysmon không tự chứng minh hành vi này. Không suy rộng thành kết luận toàn dataset không có đánh cắp thông tin xác thực.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/19",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-vi-destructive-files",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/1",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2",
+        "/summary/limitations/6"
+      ],
+      "language": "vi",
+      "original_query": "PowerShell trong chuỗi MSHTA này đã xóa hoặc phá hoại những tệp nào?",
+      "query": "Trong hai nhóm process-creation evidence của ground truth, có bằng chứng nào cho thấy payload PowerShell cố ý phá hoại tệp không?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Hai nhóm process-creation evidence không chứng minh payload PowerShell cố ý phá hoại tệp. Log gốc có record xóa tệp tạm, nhưng việc xóa tệp tạm không tự chứng minh ý định phá hoại và nằm ngoài hai nhóm evidence của core này. Không suy ra toàn dataset không có thao tác xóa tệp; câu hỏi liệt kê tệp đã xóa trong raw cần một phạm vi evidence khác.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/20",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-vi-decoded-content",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/evidence/0",
+        "/evidence/1",
+        "/mitre_assessments/1",
+        "/summary/limitations/0",
+        "/summary/limitations/2"
+      ],
+      "language": "vi",
+      "original_query": "Nội dung payload đã được MSHTA hoặc PowerShell giải mã là gì?",
+      "query": "Nội dung payload đã được MSHTA hoặc PowerShell giải mã là gì?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Không đủ bằng chứng để đưa ra nội dung payload đã giải mã. Artifact có command line VBScript và Get-Service sysmon, nhưng không có căn cứ về thao tác giải mã hoặc kết quả giải mã; T1140 còn not_assessed. Không coi lệnh quan sát được là decoded payload.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/21",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-vi-decoding-proof",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/mitre_assessments/1"
+      ],
+      "language": "vi",
+      "original_query": "Bằng chứng nào chứng minh T1140 đã xảy ra trong chuỗi MSHTA?",
+      "query": "Bằng chứng nào chứng minh T1140 đã xảy ra trong chuỗi MSHTA?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Ground truth hiện không có bằng chứng chứng minh T1140 đã xảy ra. /mitre_assessments/1 ghi status=candidate, evidence_support=not_assessed và supporting_evidence_ids rỗng; nhãn được giải quyết từ Sigma tag, không phải bằng chứng hành vi giải mã.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/22",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Nêu thiếu căn cứ cho yêu cầu cụ thể, giữ cùng chủ đề MSHTA; không trả lời như câu hỏi ngoài phạm vi.",
+        "Không dùng thiếu evidence trong artifact làm kết luận phủ định toàn dataset."
+      ],
+      "case_id": "ie-vi-certain-attack-determination",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [
+        "/mitre_assessments/2",
+        "/scenario",
+        "/summary/limitations/0",
+        "/summary/limitations/2",
+        "/summary/limitations/3"
+      ],
+      "language": "vi",
+      "original_query": "Có thể khẳng định chắc chắn toàn bộ chuỗi cmd.exe, mshta.exe và powershell.exe là một cuộc tấn công không?",
+      "query": "Có thể khẳng định chắc chắn toàn bộ chuỗi cmd.exe, mshta.exe và powershell.exe là một cuộc tấn công không?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Chưa thể khẳng định chắc chắn toàn bộ chuỗi là cuộc tấn công từ ground truth hiện có. Quan hệ cha-con và command line đáng chú ý được quan sát, nhưng scenario còn draft_reviewable, MITRE assessments còn candidate và human review chưa hoàn tất. Có thể mô tả các hành vi được hỗ trợ, không nâng chúng thành nhận định chắc chắn được yêu cầu.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/23",
+      "target_kind": "abstention_support"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-en-weather",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "en",
+      "original_query": "What will the weather be in Hanoi tomorrow?",
+      "query": "What will the weather be in Hanoi tomorrow?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Câu hỏi dự báo thời tiết nằm ngoài phạm vi ground truth MSHTA–PowerShell; corpus này không cung cấp căn cứ trả lời.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/24",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-en-product-price",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "en",
+      "original_query": "What is the current price of a gaming laptop?",
+      "query": "What is the current price of a gaming laptop?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Câu hỏi giá laptop nằm ngoài phạm vi ground truth MSHTA–PowerShell; corpus này không cung cấp căn cứ về giá sản phẩm.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/25",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-en-linux-cron",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "en",
+      "original_query": "How do I schedule a Linux cron job to run every ten minutes?",
+      "query": "How do I schedule a Linux cron job to run every ten minutes?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Hướng dẫn Linux cron nằm ngoài phạm vi bằng chứng thực thi tiến trình Windows của ground truth MSHTA–PowerShell.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/26",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-en-sql-injection",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "en",
+      "original_query": "How can I prevent SQL injection in a web application's database queries?",
+      "query": "How can I prevent SQL injection in a web application's database queries?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Hướng dẫn phòng SQL injection nằm ngoài phạm vi ground truth MSHTA–PowerShell; corpus này không phải nguồn trả lời câu hỏi cấu hình bảo mật cơ sở dữ liệu web.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/27",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-vi-ransomware-encryption",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "vi",
+      "original_query": "Mã hóa ransomware xử lý các khóa mật mã như thế nào?",
+      "query": "Mã hóa ransomware xử lý các khóa mật mã như thế nào?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Cơ chế quản lý khóa của ransomware nằm ngoài phạm vi MSHTA–PowerShell đang được đánh giá; corpus này không có tri thức để giải thích yêu cầu đó.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/28",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-vi-kubernetes-configuration",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "vi",
+      "original_query": "Cần cấu hình Kubernetes thế nào để tự động mở rộng một Deployment?",
+      "query": "Cần cấu hình Kubernetes thế nào để tự động mở rộng một Deployment?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Cấu hình tự động mở rộng Kubernetes Deployment nằm ngoài phạm vi ground truth MSHTA–PowerShell; corpus không cung cấp căn cứ hướng dẫn.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/29",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-vi-literature-learning",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "vi",
+      "original_query": "Làm thế nào phân biệt hình ảnh ẩn dụ và hoán dụ trong một bài thơ?",
+      "query": "Làm thế nào phân biệt hình ảnh ẩn dụ và hoán dụ trong một bài thơ?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Phân biệt ẩn dụ và hoán dụ trong thơ nằm ngoài phạm vi ground truth MSHTA–PowerShell; không có chunk liên quan để trả lời.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/30",
+      "target_kind": "no_relevant_chunk"
+    },
+    {
+      "answer_constraints": [
+        "Nêu đúng trạng thái observed/candidate và giữ việc human review còn pending.",
+        "Không tự tạo IOC, attribution, download, C2, credential theft, decoded payload hoặc kết quả cmdlet.",
+        "Chỉ giải thích ngoài phạm vi benchmark; không truy xuất nguồn ngoài corpus để làm sai điều kiện đánh giá.",
+        "Giữ relevant_source_pointers rỗng; /scenario chỉ giải thích phạm vi."
+      ],
+      "case_id": "ur-vi-opaque-token",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "ground_truth_pointers": [],
+      "language": "vi",
+      "original_query": "Chuỗi velora_quartz_token_483920761 có ý nghĩa gì?",
+      "query": "Chuỗi velora_quartz_token_483920761 có ý nghĩa gì?",
+      "raw_record_references": [],
+      "raw_reference_role": "not_required_for_artifact_status_or_scope_answer",
+      "reference_answer": "Chuỗi velora_quartz_token_483920761 không có ngữ cảnh trong corpus MSHTA–PowerShell; không đủ cơ sở gán ý nghĩa cho chuỗi ngoài phạm vi này.",
+      "reference_answer_language": "vi",
+      "source_case_pointer": "/cases/31",
+      "target_kind": "no_relevant_chunk"
+    }
+  ],
+  "metadata": {
+    "case_count": 32,
+    "category_counts": {
+      "insufficient_evidence": 8,
+      "relevant_direct": 8,
+      "relevant_paraphrase": 8,
+      "unrelated": 8
+    },
+    "changed_labels": 0,
+    "changed_queries": 2,
+    "dataset_use": "calibration_not_final_benchmark",
+    "decision_counts": {
+      "abstain": 16,
+      "proceed": 16
+    }
+  },
+  "purpose": "evaluation_reference_only_not_retrieval_or_runtime_gate_input",
+  "review": {
+    "human_approved_at": null,
+    "human_reviewer": null,
+    "notes": [
+      "Đây là kiểm tra kỹ thuật và đáp án tham chiếu do Codex soạn; không giả lập việc con người đã duyệt.",
+      "Giữ nguyên toàn bộ case_id, category, expected_decision và relevance judgments trong nguồn.",
+      "Không nâng bất kỳ nhãn observed, inferred hoặc candidate nào thành confirmed.",
+      "Đáp án thiếu bằng chứng nêu đúng giới hạn của artifact đang kiểm tra; không biến chúng thành kết luận vắng mặt trên toàn dataset."
+    ],
+    "review_date": "2026-10-14",
+    "review_status": "ai_review_completed_pending_human_approval",
+    "review_type": "evidence_and_reference_answer_audit",
+    "reviewer": "Codex",
+    "reviewer_type": "ai_assistant"
+  },
+  "scenario_id": "mshta-powershell",
+  "schema_version": "mshta-reference-answers/v1",
+  "scope_policy": {
+    "abstain_meaning": "Không đáp ứng khẳng định hoặc chi tiết không được hỗ trợ. Vẫn có thể trả lời bằng lời giải thích ngắn có căn cứ về giới hạn; không nhất thiết im lặng hoặc từ chối toàn bộ hội thoại.",
+    "insufficient_evidence": "Vẫn cùng kịch bản nhưng yêu cầu thông tin hoặc độ chắc chắn không được evidence cung cấp; abstain với lý do thiếu bằng chứng.",
+    "relevant_direct": "Câu hỏi trực tiếp về dữ kiện hoặc trạng thái đánh giá trong MSHTA ground truth; proceed.",
+    "relevant_paraphrase": "Cùng nội dung MSHTA, diễn đạt khác nhưng có căn cứ; proceed.",
+    "retrieval_target_meaning": "answer_support là căn cứ trả lời dữ kiện; abstention_support là ngữ cảnh giải thích giới hạn. Chunk abstention_support không chứng minh download, C2, credential theft hoặc giải mã đã xảy ra.",
+    "scope_reference_for_unrelated": "Có thể viện dẫn /scenario để giải thích phạm vi, nhưng điều này không biến /scenario thành relevant_source_pointer của câu hỏi ngoài phạm vi.",
+    "unrelated": "Câu hỏi không yêu cầu thông tin trong phạm vi MSHTA ground truth; abstain với lý do ngoài phạm vi."
+  },
+  "sources": {
+    "dataset": {
+      "path": "outputs/review/mshta-ground-truth/mshta_relevance_calibration_reviewed.json",
+      "sha256": "a4c0d04078cc3ed74b16b041322f494bf8329820e0833550e29d40aa8187e124"
+    },
+    "ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "sha256": "b6c156358e17da6bfc092d5a97dce8a9f97c7e6ddd25522c43ed6fd506598186"
+    },
+    "raw_log": {
+      "path": "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32"
+    }
+  }
+}

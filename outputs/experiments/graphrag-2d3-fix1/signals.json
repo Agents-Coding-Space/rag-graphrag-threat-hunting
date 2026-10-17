@@ -1,0 +1,2879 @@
+{
+  "rd-en-process-chain": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Which process chain led to powershell.exe in the reviewed evidence?",
+      "normalized_terms": [
+        "which",
+        "process",
+        "chain",
+        "led",
+        "to",
+        "powershell.exe",
+        "in",
+        "the",
+        "reviewed",
+        "evidence"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 6.23699744,
+      "returned_top_cosine_score": 0.86920241,
+      "query_token_count": 10,
+      "matched_query_token_count": 7,
+      "query_token_coverage": 0.7
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 1,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 40,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-en-shell-parent": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Which process is the observed parent of powershell.exe?",
+      "normalized_terms": [
+        "which",
+        "process",
+        "is",
+        "the",
+        "observed",
+        "parent",
+        "of",
+        "powershell.exe"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 7.12368524,
+      "returned_top_cosine_score": 0.87243353,
+      "query_token_count": 8,
+      "matched_query_token_count": 7,
+      "query_token_coverage": 0.875
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 1,
+        "fact": 0,
+        "relationship": 1,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 3,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 43,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-en-initial-spawn-evidence": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "What evidence supports the cmd.exe to mshta.exe process creation relationship?",
+      "normalized_terms": [
+        "what",
+        "evidence",
+        "supports",
+        "the",
+        "cmd.exe",
+        "to",
+        "mshta.exe",
+        "process",
+        "creation",
+        "relationship"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032258064516,
+      "returned_top_bm25_score": 6.42011014,
+      "returned_top_cosine_score": 0.91129758,
+      "query_token_count": 10,
+      "matched_query_token_count": 8,
+      "query_token_coverage": 0.8
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 2,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 3,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 55,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-en-final-spawn-evidence": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "What evidence supports the mshta.exe to powershell.exe process creation relationship?",
+      "normalized_terms": [
+        "what",
+        "evidence",
+        "supports",
+        "the",
+        "mshta.exe",
+        "to",
+        "powershell.exe",
+        "process",
+        "creation",
+        "relationship"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 6.36215007,
+      "returned_top_cosine_score": 0.91293859,
+      "query_token_count": 10,
+      "matched_query_token_count": 8,
+      "query_token_coverage": 0.8
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 2,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 3,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 53,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-vi-proxy-technique-assessment": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Đánh giá hiện tại đối với ATT&CK T1218.005 có mức hỗ trợ bằng chứng và trạng thái review nào?",
+      "normalized_terms": [
+        "đánh",
+        "giá",
+        "hiện",
+        "tại",
+        "đối",
+        "với",
+        "att",
+        "ck",
+        "t1218.005",
+        "có",
+        "mức",
+        "hỗ",
+        "trợ",
+        "bằng",
+        "chứng",
+        "và",
+        "trạng",
+        "thái",
+        "review",
+        "nào"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 5.39340971,
+      "returned_top_cosine_score": 0.79762618,
+      "query_token_count": 20,
+      "matched_query_token_count": 2,
+      "query_token_coverage": 0.1
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 27,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-vi-scripting-technique-status": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "T1059.007 có được hỗ trợ bởi command line đã quan sát không, và trạng thái đánh giá là gì?",
+      "normalized_terms": [
+        "t1059.007",
+        "có",
+        "được",
+        "hỗ",
+        "trợ",
+        "bởi",
+        "command",
+        "line",
+        "đã",
+        "quan",
+        "sát",
+        "không",
+        "và",
+        "trạng",
+        "thái",
+        "đánh",
+        "giá",
+        "là",
+        "gì"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 4,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 4,
+      "returned_top_rrf_score": 0.032786885246,
+      "returned_top_bm25_score": 8.92160471,
+      "returned_top_cosine_score": 0.83420673,
+      "query_token_count": 19,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.15789474
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 40,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-vi-reviewed-scope-limitations": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Ground Truth ghi nhận những giới hạn nào đối với phạm vi bằng chứng đã review?",
+      "normalized_terms": [
+        "ground",
+        "truth",
+        "ghi",
+        "nhận",
+        "những",
+        "giới",
+        "hạn",
+        "nào",
+        "đối",
+        "với",
+        "phạm",
+        "vi",
+        "bằng",
+        "chứng",
+        "đã",
+        "review"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 5.89020896,
+      "returned_top_cosine_score": 0.77191291,
+      "query_token_count": 16,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.1875
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 27,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rd-vi-initial-relation-provenance": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Nguồn log và raw record references nào hỗ trợ quan hệ cmd.exe tạo mshta.exe?",
+      "normalized_terms": [
+        "nguồn",
+        "log",
+        "và",
+        "raw",
+        "record",
+        "references",
+        "nào",
+        "hỗ",
+        "trợ",
+        "quan",
+        "hệ",
+        "cmd.exe",
+        "tạo",
+        "mshta.exe"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 4.11675257,
+      "returned_top_cosine_score": 0.85033941,
+      "query_token_count": 14,
+      "matched_query_token_count": 2,
+      "query_token_coverage": 0.14285714
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 1,
+        "fact": 0,
+        "relationship": 2,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 4,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 43,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-en-intermediate-utility": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Which Windows utility sits between the initial command interpreter and the final shell?",
+      "normalized_terms": [
+        "which",
+        "windows",
+        "utility",
+        "sits",
+        "between",
+        "the",
+        "initial",
+        "command",
+        "interpreter",
+        "and",
+        "final",
+        "shell"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 6.00870081,
+      "returned_top_cosine_score": 0.79998104,
+      "query_token_count": 12,
+      "matched_query_token_count": 5,
+      "query_token_coverage": 0.41666667
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 40,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-en-shell-creator": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "How can I trace the launch of the final shell back to its creator?",
+      "normalized_terms": [
+        "how",
+        "can",
+        "i",
+        "trace",
+        "the",
+        "launch",
+        "of",
+        "final",
+        "shell",
+        "back",
+        "to",
+        "its",
+        "creator"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.031099324976,
+      "returned_top_bm25_score": 7.7471347,
+      "returned_top_cosine_score": 0.81449298,
+      "query_token_count": 13,
+      "matched_query_token_count": 5,
+      "query_token_coverage": 0.38461538
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 3,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 27,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-en-technique-review": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Why is the proxy execution technique still awaiting analyst approval even though its behavior has supporting records?",
+      "normalized_terms": [
+        "why",
+        "is",
+        "the",
+        "proxy",
+        "execution",
+        "technique",
+        "still",
+        "awaiting",
+        "analyst",
+        "approval",
+        "even",
+        "though",
+        "its",
+        "behavior",
+        "has",
+        "supporting",
+        "records"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 8.24836759,
+      "returned_top_cosine_score": 0.83565082,
+      "query_token_count": 17,
+      "matched_query_token_count": 5,
+      "query_token_coverage": 0.29411765
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 27,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-en-retained-scripting-label": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Why does a scripting technique label remain in the record when the reviewed inline command uses a different scripting language?",
+      "normalized_terms": [
+        "why",
+        "does",
+        "a",
+        "scripting",
+        "technique",
+        "label",
+        "remain",
+        "in",
+        "the",
+        "record",
+        "when",
+        "reviewed",
+        "inline",
+        "command",
+        "uses",
+        "different",
+        "language"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032786885246,
+      "returned_top_bm25_score": 9.41818544,
+      "returned_top_cosine_score": 0.84997561,
+      "query_token_count": 17,
+      "matched_query_token_count": 9,
+      "query_token_coverage": 0.52941176
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 1,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 1,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 35,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-vi-launch-order": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Nhìn các quan hệ cha-con đã lưu, làm thế nào dựng lại thứ tự khởi chạy ba tiến trình?",
+      "normalized_terms": [
+        "nhìn",
+        "các",
+        "quan",
+        "hệ",
+        "cha-con",
+        "đã",
+        "lưu",
+        "làm",
+        "thế",
+        "nào",
+        "dựng",
+        "lại",
+        "thứ",
+        "tự",
+        "khởi",
+        "chạy",
+        "ba",
+        "tiến",
+        "trình"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.79364885,
+      "query_token_count": 19,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 2,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 4,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 12,
+      "traversal_edge_count": 17,
+      "traversal_path_count": 50,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 11
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-vi-observation-provenance": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Những bản ghi telemetry nào cùng làm căn cứ cho mỗi lần tạo tiến trình trong hai nhóm bằng chứng?",
+      "normalized_terms": [
+        "những",
+        "bản",
+        "ghi",
+        "telemetry",
+        "nào",
+        "cùng",
+        "làm",
+        "căn",
+        "cứ",
+        "cho",
+        "mỗi",
+        "lần",
+        "tạo",
+        "tiến",
+        "trình",
+        "trong",
+        "hai",
+        "nhóm",
+        "bằng",
+        "chứng"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 2,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 2,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 2.75460572,
+      "returned_top_cosine_score": 0.80113376,
+      "query_token_count": 20,
+      "matched_query_token_count": 1,
+      "query_token_coverage": 0.05
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 1,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 1,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 29,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-vi-final-review-limits": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Người phân tích còn phải xem lại điều gì trước khi đưa ra nhận định cuối cùng?",
+      "normalized_terms": [
+        "người",
+        "phân",
+        "tích",
+        "còn",
+        "phải",
+        "xem",
+        "lại",
+        "điều",
+        "gì",
+        "trước",
+        "khi",
+        "đưa",
+        "ra",
+        "nhận",
+        "định",
+        "cuối",
+        "cùng"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.76222476,
+      "query_token_count": 17,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 0
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 12,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 44,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "rp-vi-service-action": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Lệnh liên quan đến dịch vụ được ghi nhận trên command line khi PowerShell được khởi chạy là gì?",
+      "normalized_terms": [
+        "lệnh",
+        "liên",
+        "quan",
+        "đến",
+        "dịch",
+        "vụ",
+        "được",
+        "ghi",
+        "nhận",
+        "trên",
+        "command",
+        "line",
+        "khi",
+        "powershell",
+        "khởi",
+        "chạy",
+        "là",
+        "gì"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032786885246,
+      "returned_top_bm25_score": 5.34340338,
+      "returned_top_cosine_score": 0.83447589,
+      "query_token_count": 18,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.16666667
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 40,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-en-payload-download-url": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Which URL did PowerShell use to download the payload in this MSHTA chain?",
+      "normalized_terms": [
+        "which",
+        "url",
+        "did",
+        "powershell",
+        "use",
+        "to",
+        "download",
+        "the",
+        "payload",
+        "in",
+        "this",
+        "mshta",
+        "chain"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 8.73033557,
+      "returned_top_cosine_score": 0.85918457,
+      "query_token_count": 13,
+      "matched_query_token_count": 7,
+      "query_token_coverage": 0.53846154
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 33,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-en-c2-address": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "What IP address acted as the C2 server for the PowerShell process?",
+      "normalized_terms": [
+        "what",
+        "ip",
+        "address",
+        "acted",
+        "as",
+        "the",
+        "c2",
+        "server",
+        "for",
+        "powershell",
+        "process"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.031513647643,
+      "returned_top_bm25_score": 5.85827883,
+      "returned_top_cosine_score": 0.80232748,
+      "query_token_count": 11,
+      "matched_query_token_count": 5,
+      "query_token_coverage": 0.45454545
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 1,
+        "fact": 1,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 29,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 14
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-en-attacker-identity": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Who was the attacker responsible for the reviewed MSHTA execution?",
+      "normalized_terms": [
+        "who",
+        "was",
+        "the",
+        "attacker",
+        "responsible",
+        "for",
+        "reviewed",
+        "mshta",
+        "execution"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032786885246,
+      "returned_top_bm25_score": 7.00566279,
+      "returned_top_cosine_score": 0.82283647,
+      "query_token_count": 9,
+      "matched_query_token_count": 6,
+      "query_token_coverage": 0.66666667
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 2,
+        "mitre_assessment": 2,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 4,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 39,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-en-stolen-credentials": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Which credentials did PowerShell steal during this activity?",
+      "normalized_terms": [
+        "which",
+        "credentials",
+        "did",
+        "powershell",
+        "steal",
+        "during",
+        "this",
+        "activity"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 4.81150653,
+      "returned_top_cosine_score": 0.8174801,
+      "query_token_count": 8,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.375
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 33,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-vi-destructive-files": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Trong hai nhóm process-creation evidence của ground truth, có bằng chứng nào cho thấy payload PowerShell cố ý phá hoại tệp không?",
+      "normalized_terms": [
+        "trong",
+        "hai",
+        "nhóm",
+        "process-creation",
+        "evidence",
+        "của",
+        "ground",
+        "truth",
+        "có",
+        "bằng",
+        "chứng",
+        "nào",
+        "cho",
+        "thấy",
+        "payload",
+        "powershell",
+        "cố",
+        "ý",
+        "phá",
+        "hoại",
+        "tệp",
+        "không"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032002048131,
+      "returned_top_bm25_score": 7.10652179,
+      "returned_top_cosine_score": 0.83579549,
+      "query_token_count": 22,
+      "matched_query_token_count": 6,
+      "query_token_coverage": 0.27272727
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 1,
+        "relationship": 0,
+        "evidence": 1,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 3
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 3
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 19,
+      "traversal_path_count": 23,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 3,
+      "support_edge_count": 13
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-vi-decoded-content": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Nội dung payload đã được MSHTA hoặc PowerShell giải mã là gì?",
+      "normalized_terms": [
+        "nội",
+        "dung",
+        "payload",
+        "đã",
+        "được",
+        "mshta",
+        "hoặc",
+        "powershell",
+        "giải",
+        "mã",
+        "là",
+        "gì"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032786885246,
+      "returned_top_bm25_score": 4.5457998,
+      "returned_top_cosine_score": 0.84216155,
+      "query_token_count": 12,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.25
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 33,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-vi-decoding-proof": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Bằng chứng nào chứng minh T1140 đã xảy ra trong chuỗi MSHTA?",
+      "normalized_terms": [
+        "bằng",
+        "chứng",
+        "nào",
+        "minh",
+        "t1140",
+        "đã",
+        "xảy",
+        "ra",
+        "trong",
+        "chuỗi",
+        "mshta"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 4.29902005,
+      "returned_top_cosine_score": 0.80946346,
+      "query_token_count": 11,
+      "matched_query_token_count": 2,
+      "query_token_coverage": 0.18181818
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 2,
+        "mitre_assessment": 1,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 0
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 12,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 42,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ie-vi-certain-attack-determination": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Có thể khẳng định chắc chắn toàn bộ chuỗi cmd.exe, mshta.exe và powershell.exe là một cuộc tấn công không?",
+      "normalized_terms": [
+        "có",
+        "thể",
+        "khẳng",
+        "định",
+        "chắc",
+        "chắn",
+        "toàn",
+        "bộ",
+        "chuỗi",
+        "cmd.exe",
+        "mshta.exe",
+        "và",
+        "powershell.exe",
+        "là",
+        "một",
+        "cuộc",
+        "tấn",
+        "công",
+        "không"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032522474881,
+      "returned_top_bm25_score": 4.11675257,
+      "returned_top_cosine_score": 0.86113907,
+      "query_token_count": 19,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.15789474
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 2,
+        "evidence": 2,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 4,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 21,
+      "traversal_path_count": 53,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-en-weather": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "What will the weather be in Hanoi tomorrow?",
+      "normalized_terms": [
+        "what",
+        "will",
+        "the",
+        "weather",
+        "be",
+        "in",
+        "hanoi",
+        "tomorrow"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.031257631258,
+      "returned_top_bm25_score": 3.64201354,
+      "returned_top_cosine_score": 0.73406128,
+      "query_token_count": 8,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.375
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 3
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 3
+      },
+      "hits_with_evidence_ids": 1,
+      "hits_with_source_references": 1,
+      "unique_source_reference_count": 2,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 11,
+      "traversal_edge_count": 9,
+      "traversal_path_count": 16,
+      "traversed_evidence_node_count": 1,
+      "traversed_limitation_node_count": 3,
+      "support_edge_count": 9
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-en-product-price": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "What is the current price of a gaming laptop?",
+      "normalized_terms": [
+        "what",
+        "is",
+        "the",
+        "current",
+        "price",
+        "of",
+        "a",
+        "gaming",
+        "laptop"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.031544957774,
+      "returned_top_bm25_score": 6.81559186,
+      "returned_top_cosine_score": 0.75130367,
+      "query_token_count": 9,
+      "matched_query_token_count": 5,
+      "query_token_coverage": 0.55555556
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 3,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 3,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 15,
+      "traversal_path_count": 27,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 15
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-en-linux-cron": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "How do I schedule a Linux cron job to run every ten minutes?",
+      "normalized_terms": [
+        "how",
+        "do",
+        "i",
+        "schedule",
+        "a",
+        "linux",
+        "cron",
+        "job",
+        "to",
+        "run",
+        "every",
+        "ten",
+        "minutes"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.032266458496,
+      "returned_top_bm25_score": 3.91216101,
+      "returned_top_cosine_score": 0.84683677,
+      "query_token_count": 13,
+      "matched_query_token_count": 3,
+      "query_token_coverage": 0.23076923
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 2,
+        "reviewable": 2
+      },
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 3,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 14,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 26,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 14
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-en-sql-injection": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "How can I prevent SQL injection in a web application's database queries?",
+      "normalized_terms": [
+        "how",
+        "can",
+        "i",
+        "prevent",
+        "sql",
+        "injection",
+        "in",
+        "a",
+        "web",
+        "application",
+        "s",
+        "database",
+        "queries"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 5,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 5,
+      "returned_top_rrf_score": 0.031498015873,
+      "returned_top_bm25_score": 2.62222294,
+      "returned_top_cosine_score": 0.81217832,
+      "query_token_count": 13,
+      "matched_query_token_count": 2,
+      "query_token_coverage": 0.15384615
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 1,
+        "entity": 0,
+        "fact": 0,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 2,
+        "limitation": 2
+      },
+      "status_counts": {
+        "candidate": 2,
+        "inferred": 0,
+        "observed": 0,
+        "reviewable": 3
+      },
+      "hits_with_evidence_ids": 1,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 11,
+      "traversal_edge_count": 9,
+      "traversal_path_count": 16,
+      "traversed_evidence_node_count": 1,
+      "traversed_limitation_node_count": 2,
+      "support_edge_count": 9
+    },
+    "warnings": [],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-vi-ransomware-encryption": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Mã hóa ransomware xử lý các khóa mật mã như thế nào?",
+      "normalized_terms": [
+        "mã",
+        "hóa",
+        "ransomware",
+        "xử",
+        "lý",
+        "các",
+        "khóa",
+        "mật",
+        "như",
+        "thế",
+        "nào"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.80556518,
+      "query_token_count": 11,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 2,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 4,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 12,
+      "traversal_edge_count": 17,
+      "traversal_path_count": 50,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 11
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-vi-kubernetes-configuration": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Cần cấu hình Kubernetes thế nào để tự động mở rộng một Deployment?",
+      "normalized_terms": [
+        "cần",
+        "cấu",
+        "hình",
+        "kubernetes",
+        "thế",
+        "nào",
+        "để",
+        "tự",
+        "động",
+        "mở",
+        "rộng",
+        "một",
+        "deployment"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.80022951,
+      "query_token_count": 13,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 1,
+        "fact": 2,
+        "relationship": 0,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 1
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 3,
+        "reviewable": 1
+      },
+      "hits_with_evidence_ids": 3,
+      "hits_with_source_references": 3,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 13,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 34,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 14
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-vi-literature-learning": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Làm thế nào phân biệt hình ảnh ẩn dụ và hoán dụ trong một bài thơ?",
+      "normalized_terms": [
+        "làm",
+        "thế",
+        "nào",
+        "phân",
+        "biệt",
+        "hình",
+        "ảnh",
+        "ẩn",
+        "dụ",
+        "và",
+        "hoán",
+        "trong",
+        "một",
+        "bài",
+        "thơ"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.76547387,
+      "query_token_count": 15,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 0,
+        "fact": 2,
+        "relationship": 2,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 1,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 1,
+        "inferred": 0,
+        "observed": 4,
+        "reviewable": 0
+      },
+      "hits_with_evidence_ids": 4,
+      "hits_with_source_references": 4,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 6,
+      "traversal_performed": true,
+      "traversal_node_count": 12,
+      "traversal_edge_count": 20,
+      "traversal_path_count": 54,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 14
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "ur-vi-opaque-token": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "retrieval-corpus--097ede2a35bbc6127e3f595e9ed77fe1d832306db4ac96d3b461e287a62478ac",
+    "graph_id": "knowledge-graph--eaf1a97e91783b7eebf70aee7f984a2a1e8bf07398959d49e75d550583805ec7",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/review/mshta-ground-truth/scenario_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v2",
+      "sha256": "8676d7a1df41058e7f4b1460a0d4bf909fca5d8f20992753e63be7d024268461",
+      "scenario_id": "mshta-powershell"
+    },
+    "query": {
+      "text": "Chuỗi velora_quartz_token_483920761 có ý nghĩa gì?",
+      "normalized_terms": [
+        "chuỗi",
+        "velora_quartz_token_483920761",
+        "có",
+        "ý",
+        "nghĩa",
+        "gì"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 5,
+      "lexical_hit_count": 0,
+      "vector_hit_count": 5,
+      "joint_lexical_vector_hit_count": 0,
+      "returned_top_rrf_score": 0.016393442623,
+      "returned_top_bm25_score": null,
+      "returned_top_cosine_score": 0.79176038,
+      "query_token_count": 6,
+      "matched_query_token_count": 0,
+      "query_token_coverage": 0.0
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {
+        "scenario_summary": 0,
+        "entity": 1,
+        "fact": 2,
+        "relationship": 2,
+        "evidence": 0,
+        "sigma_finding": 0,
+        "mitre_assessment": 0,
+        "limitation": 0
+      },
+      "status_counts": {
+        "candidate": 0,
+        "inferred": 0,
+        "observed": 5,
+        "reviewable": 0
+      },
+      "hits_with_evidence_ids": 5,
+      "hits_with_source_references": 5,
+      "unique_source_reference_count": 4,
+      "mapped_hit_count": 5,
+      "seed_node_count": 5,
+      "traversal_performed": true,
+      "traversal_node_count": 11,
+      "traversal_edge_count": 17,
+      "traversal_path_count": 49,
+      "traversed_evidence_node_count": 2,
+      "traversed_limitation_node_count": 0,
+      "support_edge_count": 11
+    },
+    "warnings": [
+      "lexical: No eligible chunks matched the normalized lexical query terms."
+    ],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {
+        "rrf": "reciprocal_rank_fusion_not_probability",
+        "bm25": "bm25_relevance_not_probability",
+        "cosine": "cosine_similarity_not_probability"
+      },
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  }
+}

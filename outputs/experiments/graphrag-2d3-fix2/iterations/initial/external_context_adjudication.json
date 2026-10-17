@@ -1,0 +1,2134 @@
+{
+  "A": {
+    "rd-en-process-chain": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-shell-parent": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-initial-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-final-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-proxy-technique-assessment": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-scripting-technique-status": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-reviewed-scope-limitations": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_5",
+          "source_ground_truth_pointer": "/summary/limitations/5",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_6",
+          "source_ground_truth_pointer": "/summary/limitations/6",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_3"
+      ],
+      "missing_answer_units": [
+        "limitation_1",
+        "limitation_2",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ]
+    },
+    "rd-vi-initial-relation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-intermediate-utility": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-shell-creator": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-technique-review": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-retained-scripting-label": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment",
+        "scripting_origin"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-launch-order": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-observation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-final-review-limits": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "known_required_information_missing_from_actual_returned_context",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "analysis_status",
+          "source_ground_truth_pointer": "/scenario",
+          "support_status": "known_missing",
+          "reason": "required_source_associated_structured_fields_not_returned"
+        },
+        {
+          "answer_unit_id": "limitation_0",
+          "source_ground_truth_pointer": "/summary/limitations/0",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_3",
+          "source_ground_truth_pointer": "/summary/limitations/3",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ]
+    },
+    "rp-vi-service-action": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command"
+      ],
+      "missing_answer_units": [
+        "limitation_4"
+      ]
+    },
+    "ie-en-payload-download-url": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-c2-address": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-attacker-identity": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-stolen-credentials": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-destructive-files": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoded-content": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoding-proof": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-certain-attack-determination": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-weather": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-product-price": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-linux-cron": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-sql-injection": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-ransomware-encryption": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-kubernetes-configuration": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-literature-learning": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-opaque-token": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    }
+  },
+  "B": {
+    "rd-en-process-chain": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-shell-parent": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-initial-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-final-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-proxy-technique-assessment": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-scripting-technique-status": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-reviewed-scope-limitations": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-initial-relation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-intermediate-utility": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-shell-creator": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-technique-review": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-retained-scripting-label": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment",
+        "scripting_origin"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-launch-order": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-observation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-final-review-limits": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "known_required_information_missing_from_actual_returned_context",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "analysis_status",
+          "source_ground_truth_pointer": "/scenario",
+          "support_status": "known_missing",
+          "reason": "required_source_associated_structured_fields_not_returned"
+        },
+        {
+          "answer_unit_id": "limitation_0",
+          "source_ground_truth_pointer": "/summary/limitations/0",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_3",
+          "source_ground_truth_pointer": "/summary/limitations/3",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ]
+    },
+    "rp-vi-service-action": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command"
+      ],
+      "missing_answer_units": [
+        "limitation_4"
+      ]
+    },
+    "ie-en-payload-download-url": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-c2-address": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-attacker-identity": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-stolen-credentials": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-destructive-files": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoded-content": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoding-proof": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-certain-attack-determination": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-weather": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-product-price": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-linux-cron": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-sql-injection": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-ransomware-encryption": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-kubernetes-configuration": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-literature-learning": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-opaque-token": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    }
+  },
+  "C": {
+    "rd-en-process-chain": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-shell-parent": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-initial-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-final-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-proxy-technique-assessment": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-scripting-technique-status": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-reviewed-scope-limitations": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_5",
+          "source_ground_truth_pointer": "/summary/limitations/5",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_6",
+          "source_ground_truth_pointer": "/summary/limitations/6",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_3"
+      ],
+      "missing_answer_units": [
+        "limitation_1",
+        "limitation_2",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ]
+    },
+    "rd-vi-initial-relation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-intermediate-utility": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-shell-creator": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-technique-review": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-retained-scripting-label": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment",
+        "scripting_origin"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-launch-order": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-observation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-final-review-limits": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "known_required_information_missing_from_actual_returned_context",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "analysis_status",
+          "source_ground_truth_pointer": "/scenario",
+          "support_status": "known_missing",
+          "reason": "required_source_associated_structured_fields_not_returned"
+        },
+        {
+          "answer_unit_id": "limitation_0",
+          "source_ground_truth_pointer": "/summary/limitations/0",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_3",
+          "source_ground_truth_pointer": "/summary/limitations/3",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ]
+    },
+    "rp-vi-service-action": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command"
+      ],
+      "missing_answer_units": [
+        "limitation_4"
+      ]
+    },
+    "ie-en-payload-download-url": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-c2-address": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-attacker-identity": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-stolen-credentials": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-destructive-files": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoded-content": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoding-proof": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-certain-attack-determination": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-weather": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-product-price": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-linux-cron": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-sql-injection": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-ransomware-encryption": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-kubernetes-configuration": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-literature-learning": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-opaque-token": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    }
+  },
+  "D": {
+    "rd-en-process-chain": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-shell-parent": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-initial-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-en-final-spawn-evidence": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-proxy-technique-assessment": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-scripting-technique-status": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-reviewed-scope-limitations": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4",
+        "limitation_5",
+        "limitation_6"
+      ],
+      "missing_answer_units": []
+    },
+    "rd-vi-initial-relation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-intermediate-utility": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-shell-creator": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "final_spawn",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-technique-review": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "proxy_assessment"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-en-retained-scripting-label": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "scripting_assessment",
+        "scripting_origin"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-launch-order": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_spawn",
+        "final_spawn"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-observation-provenance": {
+      "context_sufficient": true,
+      "context_sufficiency_basis": "all_required_units_passed_conservative_ai_rubric_not_human_approved_semantic_evaluation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "initial_observations",
+        "final_observations"
+      ],
+      "missing_answer_units": []
+    },
+    "rp-vi-final-review-limits": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "known_required_information_missing_from_actual_returned_context",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "analysis_status",
+          "source_ground_truth_pointer": "/scenario",
+          "support_status": "known_missing",
+          "reason": "required_source_associated_structured_fields_not_returned"
+        },
+        {
+          "answer_unit_id": "limitation_0",
+          "source_ground_truth_pointer": "/summary/limitations/0",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_1",
+          "source_ground_truth_pointer": "/summary/limitations/1",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_2",
+          "source_ground_truth_pointer": "/summary/limitations/2",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_3",
+          "source_ground_truth_pointer": "/summary/limitations/3",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        },
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": [
+        "analysis_status",
+        "limitation_0",
+        "limitation_1",
+        "limitation_2",
+        "limitation_3",
+        "limitation_4"
+      ]
+    },
+    "rp-vi-service-action": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "semantic_context_sufficiency_unassessed_conservative_screen_incomplete",
+      "missing_evidence_diagnostics": [
+        {
+          "answer_unit_id": "limitation_4",
+          "source_ground_truth_pointer": "/summary/limitations/4",
+          "support_status": "unassessed",
+          "reason": "no_exact_limitation_support_semantic_sufficiency_not_established"
+        }
+      ],
+      "expected_evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [
+        "launch_command"
+      ],
+      "missing_answer_units": [
+        "limitation_4"
+      ]
+    },
+    "ie-en-payload-download-url": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-c2-address": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-attacker-identity": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-en-stolen-credentials": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-destructive-files": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoded-content": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-decoding-proof": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ie-vi-certain-attack-determination": {
+      "context_sufficient": false,
+      "context_sufficiency_basis": "approved_category_marks_requested_assertion_unsupported_not_scope_explanation",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-weather": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-product-price": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-linux-cron": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-en-sql-injection": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-ransomware-encryption": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-kubernetes-configuration": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-literature-learning": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    },
+    "ur-vi-opaque-token": {
+      "context_sufficient": null,
+      "context_sufficiency_basis": "outside_scope_answerability_not_applicable",
+      "missing_evidence_diagnostics": [],
+      "expected_evidence_ids": [],
+      "returned_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "satisfied_answer_units": [],
+      "missing_answer_units": []
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "ground-truth-build-config/v1",
+  "scenario": {
+    "scenario_id": "scenario-synthetic-builder",
+    "description": "A synthetic scenario used only to verify deterministic artifact merging."
+  },
+  "entity_name_overrides": {
+    "entity-synthetic-alpha": "Alpha display override"
+  },
+  "facts": [
+    {
+      "fact_id": "fact-synthetic-beta-transition",
+      "subject": "entity-synthetic-beta",
+      "predicate": "has_reviewable_transition",
+      "object": "entity-synthetic-gamma",
+      "attributes": {
+        "basis": "correlated synthetic records"
+      },
+      "status": "inferred",
+      "evidence_ids": [
+        "missing-evidence"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        }
+      ]
+    },
+    {
+      "fact_id": "fact-synthetic-alpha-activity",
+      "subject": "entity-synthetic-alpha",
+      "predicate": "initiates_activity",
+      "object": "entity-synthetic-beta",
+      "attributes": {
+        "basis": "direct synthetic observation"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ]
+    }
+  ],
+  "mitre_decisions": [
+    {
+      "external_id": "SYN-1001",
+      "evidence_support": "supported_by_observed_behavior",
+      "supporting_evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "rationale": "The first synthetic evidence group directly supports this candidate pattern."
+    }
+  ],
+  "summary": {
+    "observed_behavior": [
+      "Synthetic activity was observed between the first two entities."
+    ],
+    "key_entities": [
+      "entity-synthetic-beta",
+      "entity-synthetic-alpha"
+    ],
+    "key_relationships": [
+      "relationship-synthetic-beta-gamma",
+      "relationship-synthetic-alpha-beta"
+    ],
+    "limitations": [
+      "All fixture values are synthetic and require human review."
+    ]
+  },
+  "queryable_dimensions": [
+    "relationship",
+    "synthetic_signal",
+    "evidence",
+    "provenance"
+  ],
+  "review_notes": [
+    "No review decision has been finalized."
+  ]
+}

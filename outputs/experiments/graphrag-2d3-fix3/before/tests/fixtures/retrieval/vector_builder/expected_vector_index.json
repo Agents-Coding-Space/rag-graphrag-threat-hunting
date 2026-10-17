@@ -1,0 +1,191 @@
+{
+  "schema_version": "vector-index/v1",
+  "index_id": "vector-index--49fed05ed25b043287385d0173f77a2b2570c24925a0f0ca616247356fe9828d",
+  "corpus_provenance": {
+    "path": "tests/fixtures/retrieval/builder/expected_retrieval_corpus.json",
+    "schema_version": "retrieval-corpus/v1",
+    "sha256": "fb5101fb65a24b7d00e5407677d9ba287fac8bc00c9ad088f03ea7fce6843d39",
+    "corpus_id": "retrieval-corpus--a8d7adca8c70e4ec669cc6848aec6159133dcc30c7ae6fb8b59db4c9dfb5006e",
+    "scenario_id": "scenario-synthetic-builder"
+  },
+  "embedding": {
+    "provider": "synthetic-provider",
+    "model_id": "deterministic-contract-fixture",
+    "model_revision": "revision-001",
+    "dimension": 3,
+    "distance_metric": "cosine",
+    "normalization": "none",
+    "document_prefix": "document: ",
+    "query_prefix": "query: "
+  },
+  "records": [
+    {
+      "chunk_id": "retrieval-chunk--06b6367aba60c0225e742249732a3653dc5647bb6e4992456f68da26009933c2",
+      "chunk_type": "relationship",
+      "content_sha256": "8d0a162c16f4633f75d10a9f80d84a179f33113e48287530432e7dc3566ec9b9",
+      "vector": [
+        1.0,
+        2.0,
+        3.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--174bd769161289331c01f0247c73fe217ae24fd31493fc1193b3b39e85551af2",
+      "chunk_type": "mitre_assessment",
+      "content_sha256": "08a1ee8a3c67e7a9398648599c06f5e53de7ef4935194a00c52906109de28f43",
+      "vector": [
+        2.0,
+        3.0,
+        4.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--2bb4f6afdcc582991d103cea999c39daa71a6048fe88b3a8eb2939b0559f69c2",
+      "chunk_type": "limitation",
+      "content_sha256": "67edd934eee5f145756c1c7bb5dda63e2ffb1bee5a0ba7e25039a5f46627d251",
+      "vector": [
+        3.0,
+        4.0,
+        5.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--335a150e6dc4498c40ddcab7efa1dcd0ec19c003213de3032175a613f43b01cd",
+      "chunk_type": "evidence",
+      "content_sha256": "078bd0f4ee94bbd6c4d7c0b48b6f68b8efe41591aa25498e18dde949eb578e80",
+      "vector": [
+        4.0,
+        5.0,
+        6.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--346ddb95a13c273040c7ac2ebf5718af79039e2ce63db3f046d2a4b4a5eeac55",
+      "chunk_type": "mitre_assessment",
+      "content_sha256": "41548beacac6070d75572a93b60c3657cca891e10183a9e825842fd22d8f7780",
+      "vector": [
+        5.0,
+        6.0,
+        7.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--38b95efd900fcefa3783e7b85b2f8bdf39a0db49ed45d885315b30956826b8ef",
+      "chunk_type": "evidence",
+      "content_sha256": "059a92b33cb7139c7fa37ea0d354ac09df06a1fd7dd843b94faf90853a8aabae",
+      "vector": [
+        6.0,
+        7.0,
+        8.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--40d28e60efc52a107bea2fd45c08daec1c1427aaf737428d7f7cc6b1a4449d99",
+      "chunk_type": "sigma_finding",
+      "content_sha256": "bffc29c41c981c220cd08c0781b20cfa9f5b4e09b2a7448d47c06aaf9023c59a",
+      "vector": [
+        7.0,
+        8.0,
+        9.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--4d6219075201b7f7196db67fc839d81e76800f447fda486d8462af3eee469e53",
+      "chunk_type": "fact",
+      "content_sha256": "f18539f4c0b07d718aa0a38e09f986c7b4e6e3a59444952c44d0bba8e2cbbbc9",
+      "vector": [
+        8.0,
+        9.0,
+        10.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--4eb4adfa772b698bc8fdab3bd3250015774783847d4d09d8a47241f4ed430256",
+      "chunk_type": "scenario_summary",
+      "content_sha256": "803903fa100a3b23de549eb352d6041857f748748fbe5c61b7f739a4bb5f82c5",
+      "vector": [
+        9.0,
+        10.0,
+        11.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--904f950dcd0513018504d0bbf0598172ae32178886f38b58e99894e033e5b63d",
+      "chunk_type": "sigma_finding",
+      "content_sha256": "105e806b85dcb7a24ef77298507502a4f780feb1cc023ff79b11257c23584a27",
+      "vector": [
+        10.0,
+        11.0,
+        12.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--917e0b7dcdb8136b2bf5a8fa2253e99e8c62857fbb63d10b8ed69e927e776284",
+      "chunk_type": "fact",
+      "content_sha256": "76bbba8fe578b514a011f776221b29fc62590703c53ee4de9e882752260cc2cd",
+      "vector": [
+        11.0,
+        12.0,
+        13.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--9222eed2c381f5574b2d184cbf8e05130d6b8beec106a5923c0fdd5a4636e290",
+      "chunk_type": "relationship",
+      "content_sha256": "f7a2a9893e327a34814ee56eb23dd2897731aa56d75e70a833112cef23aa6477",
+      "vector": [
+        12.0,
+        13.0,
+        14.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--d86770d36498b45989c892939ad6ecc715c1cf218fa086accd8548360a4ec039",
+      "chunk_type": "entity",
+      "content_sha256": "7dff7457b57e7b7a20f8074fdf70489d3d35d54069878407968aa2be94347ab9",
+      "vector": [
+        13.0,
+        14.0,
+        15.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--e3ca3a1b70195c88f675e1ebd5702d57207ac7245db5c1c04d825174df1e4d43",
+      "chunk_type": "entity",
+      "content_sha256": "aa23b36c7dd11082231bc4044ee5cbb1651d350766af353e9d9bc6a0e7ca7d09",
+      "vector": [
+        14.0,
+        15.0,
+        16.0
+      ]
+    },
+    {
+      "chunk_id": "retrieval-chunk--f88e5e064e1bbd4eda0fdf636c900bcb0ff2152b927d786c5df507e37675c79b",
+      "chunk_type": "entity",
+      "content_sha256": "3d8fb384674046f198460ba2b25a3c0849145a5c326b294b18f2c0b3bb86a5ea",
+      "vector": [
+        15.0,
+        16.0,
+        17.0
+      ]
+    }
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": [
+      "This vector index was generated automatically from a validated Retrieval Corpus document.",
+      "The embedding output and corpus coverage have not been reviewed by a human."
+    ]
+  },
+  "warnings": [
+    "Synthetic Sigma review warning.",
+    "Synthetic resolution warning."
+  ],
+  "metadata": {
+    "record_count": 15,
+    "vector_dimension": 3,
+    "complete_corpus_coverage": true
+  }
+}

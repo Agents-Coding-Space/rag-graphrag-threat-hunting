@@ -1,0 +1,8 @@
+{
+  "json_readback_count": 15,
+  "saved_output_replay_matches": true,
+  "replay_is_consistency_verification_not_an_independent_experiment": true,
+  "trace_field_quotes_and_item_ids_verified": 444,
+  "runtime_and_runner_hashes_match_final_ablation": true,
+  "legacy_source_and_fixtures_unchanged": true
+}

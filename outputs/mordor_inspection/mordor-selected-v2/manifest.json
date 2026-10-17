@@ -1,0 +1,42 @@
+{
+  "schema_version": "mordor-inspection-run/v1",
+  "experiment_id": "mordor-selected-v2",
+  "status": "completed",
+  "input_count": 3,
+  "successful_count": 3,
+  "failed_count": 0,
+  "canonical_schema": "canonical_schema.json",
+  "summary": "summary.md",
+  "files": [
+    {
+      "input": "data/raw/mordor/burte_force/purplesharp_ad_playbook_II/purplesharp_ad_playbook_I_2020-10-22042947.json",
+      "status": "completed",
+      "record_count_check": {
+        "expected": 25993,
+        "actual": 25993,
+        "status": "match"
+      },
+      "report": "files/purplesharp_ad_playbook_i_2020_10_22042947--d86d22f0c02a/inspection.json"
+    },
+    {
+      "input": "data/raw/mordor/c2_network/empire_launcher_sct_regsvr32/empire_launcher_sct_regsvr32_2020-07-21232741.json",
+      "status": "completed",
+      "record_count_check": {
+        "expected": 2390,
+        "actual": 2390,
+        "status": "match"
+      },
+      "report": "files/empire_launcher_sct_regsvr32_2020_07_21232741--8b619d07ad79/inspection.json"
+    },
+    {
+      "input": "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "status": "completed",
+      "record_count_check": {
+        "expected": 1127,
+        "actual": 1127,
+        "status": "match"
+      },
+      "report": "files/cmd_mshta_vbscript_execute_psh_2020_10_2202580804--25aa24b5f631/inspection.json"
+    }
+  ]
+}

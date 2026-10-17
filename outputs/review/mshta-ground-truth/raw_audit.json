@@ -1,0 +1,592 @@
+{
+  "analysis_status": "reviewable_audit",
+  "anchor_source_to_canonical_errors": [],
+  "baseline_records": 1127,
+  "baseline_sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+  "baseline_sha256_matches": true,
+  "canonical_sha256_matches_manifest": true,
+  "canonical_timecreated_range": {
+    "end": "2020-10-22T02:58:08.695000Z",
+    "start": "2020-10-22T02:57:55.601000Z"
+  },
+  "command_line_records": [
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.856Z",
+        "Channel": "Security",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2ae4",
+        "NewProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\cmd.exe",
+        "ProcessId": "0x1700",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:57:59.856Z"
+      },
+      "raw_record_ref": "jsonl:line:4"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.462Z",
+        "Channel": "Security",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2564",
+        "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ProcessId": "0x2ae4",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:58:00.462Z"
+      },
+      "raw_record_ref": "jsonl:line:30"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.568Z",
+        "Channel": "Security",
+        "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x27b4",
+        "NewProcessName": "C:\\Windows\\System32\\conhost.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ProcessId": "0x2564",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:58:00.568Z"
+      },
+      "raw_record_ref": "jsonl:line:36"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.857Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\mshta.exe",
+        "OriginalFileName": "MSHTA.EXE",
+        "ParentCommandLine": "\"C:\\windows\\system32\\cmd.exe\" ",
+        "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+        "ParentProcessGuid": "{39e4a257-2d59-5f91-6813-000000000700}",
+        "ParentProcessId": "5888",
+        "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ProcessId": "10980",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:57:59.857Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:57:59.855"
+      },
+      "raw_record_ref": "jsonl:line:275"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.489Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "OriginalFileName": "PowerShell.EXE",
+        "ParentCommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "ParentImage": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ParentProcessId": "10980",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:58:00.489Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.462"
+      },
+      "raw_record_ref": "jsonl:line:398"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.570Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\conhost.exe",
+        "OriginalFileName": "CONHOST.EXE",
+        "ParentCommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ParentProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ParentProcessId": "9572",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6d13-000000000700}",
+        "ProcessId": "10164",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:58:00.570Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.568"
+      },
+      "raw_record_ref": "jsonl:line:422"
+    }
+  ],
+  "complete_scan_records": 1127,
+  "confirmed_labels_assigned": false,
+  "dedup_pairs": [
+    {
+      "correlation_status": "inferred",
+      "in_ground_truth_scope": true,
+      "matching_command_line": true,
+      "matching_host": true,
+      "matching_parent_id": true,
+      "matching_parent_path": true,
+      "matching_process_id": true,
+      "matching_process_path": true,
+      "security_ref": "jsonl:line:4",
+      "sysmon_ref": "jsonl:line:275",
+      "timecreated_delta_seconds": 0.001
+    },
+    {
+      "correlation_status": "inferred",
+      "in_ground_truth_scope": true,
+      "matching_command_line": true,
+      "matching_host": true,
+      "matching_parent_id": true,
+      "matching_parent_path": true,
+      "matching_process_id": true,
+      "matching_process_path": true,
+      "security_ref": "jsonl:line:30",
+      "sysmon_ref": "jsonl:line:398",
+      "timecreated_delta_seconds": 0.027
+    },
+    {
+      "correlation_status": "inferred",
+      "in_ground_truth_scope": false,
+      "matching_command_line": true,
+      "matching_host": true,
+      "matching_parent_id": true,
+      "matching_parent_path": true,
+      "matching_process_id": true,
+      "matching_process_path": true,
+      "security_ref": "jsonl:line:36",
+      "sysmon_ref": "jsonl:line:422",
+      "timecreated_delta_seconds": 0.002
+    }
+  ],
+  "encoding": "UTF-8 (strict decoded)",
+  "entity_checks": [
+    {
+      "anchor_matches": [
+        {
+          "basename_matches": true,
+          "host_matches": true,
+          "pid_matches": true,
+          "raw_record_ref": "jsonl:line:275",
+          "role": "parent"
+        }
+      ],
+      "entity_id": "process-7c96a17eb66f2831da61"
+    },
+    {
+      "anchor_matches": [
+        {
+          "basename_matches": true,
+          "host_matches": true,
+          "pid_matches": true,
+          "raw_record_ref": "jsonl:line:275",
+          "role": "process"
+        },
+        {
+          "basename_matches": true,
+          "host_matches": true,
+          "pid_matches": true,
+          "raw_record_ref": "jsonl:line:398",
+          "role": "parent"
+        }
+      ],
+      "entity_id": "process-9c691740bde5d3dbdc4e"
+    },
+    {
+      "anchor_matches": [
+        {
+          "basename_matches": true,
+          "host_matches": true,
+          "pid_matches": true,
+          "raw_record_ref": "jsonl:line:398",
+          "role": "process"
+        },
+        {
+          "basename_matches": true,
+          "host_matches": true,
+          "pid_matches": true,
+          "raw_record_ref": "jsonl:line:422",
+          "role": "parent"
+        }
+      ],
+      "entity_id": "process-9f7ceeecb4cd61358ab7"
+    }
+  ],
+  "event_id_counts": {
+    "1": 3,
+    "10": 184,
+    "104": 2,
+    "11": 5,
+    "1102": 1,
+    "12": 401,
+    "13": 48,
+    "17": 1,
+    "18": 1,
+    "2": 1,
+    "23": 3,
+    "4656": 48,
+    "4658": 95,
+    "4663": 32,
+    "4673": 2,
+    "4688": 3,
+    "4689": 1,
+    "4690": 48,
+    "4703": 1,
+    "5": 1,
+    "5156": 1,
+    "5158": 1,
+    "7": 238,
+    "9": 6
+  },
+  "eventlog_clear_records": [
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:56.178Z",
+        "Channel": "Security",
+        "EventID": 1102,
+        "Hostname": "WORKSTATION5",
+        "SourceName": "Microsoft-Windows-Eventlog",
+        "TimeCreated": "2020-10-22T02:57:56.178Z"
+      },
+      "raw_record_ref": "jsonl:line:1"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:56.240Z",
+        "Channel": "System",
+        "EventID": 104,
+        "Hostname": "WORKSTATION5",
+        "SourceName": "Microsoft-Windows-Eventlog",
+        "TimeCreated": "2020-10-22T02:57:56.240Z"
+      },
+      "raw_record_ref": "jsonl:line:1126"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:56.256Z",
+        "Channel": "System",
+        "EventID": 104,
+        "Hostname": "WORKSTATION5",
+        "SourceName": "Microsoft-Windows-Eventlog",
+        "TimeCreated": "2020-10-22T02:57:56.256Z"
+      },
+      "raw_record_ref": "jsonl:line:1127"
+    }
+  ],
+  "fact_checks": [
+    {
+      "consistent_relationship": true,
+      "fact_id": "fact-cmd-spawns-mshta"
+    },
+    {
+      "consistent_relationship": true,
+      "fact_id": "fact-mshta-spawns-powershell"
+    }
+  ],
+  "file_deletion_records": [
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.894Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "EventID": 23,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TargetFilename": "C:\\Users\\wardog\\AppData\\Roaming\\Microsoft\\Windows\\Recent\\CustomDestinations\\590aee7bdd69b59b.customDestinations-ms~RF1473b55e.TMP",
+        "TimeCreated": "2020-10-22T02:58:00.894Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.881"
+      },
+      "raw_record_ref": "jsonl:line:612"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:02.154Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "EventID": 23,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_qb2jvpzw.rfn.ps1",
+        "TimeCreated": "2020-10-22T02:58:02.154Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:02.100"
+      },
+      "raw_record_ref": "jsonl:line:655"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:02.226Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "EventID": 23,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TargetFilename": "C:\\Users\\wardog\\AppData\\Local\\Temp\\__PSScriptPolicyTest_elhh2jt2.2ix.psm1",
+        "TimeCreated": "2020-10-22T02:58:02.226Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:02.162"
+      },
+      "raw_record_ref": "jsonl:line:782"
+    }
+  ],
+  "findings": [
+    {
+      "claim": "PowerShell ran Get-Service sysmon.",
+      "id": "payload_execution_overstatement",
+      "reason": "Only process creation command-line telemetry is present. No PowerShell script/action/output events or command result prove completion.",
+      "severity": "wording_correction",
+      "source_references": [
+        "jsonl:line:30",
+        "jsonl:line:398"
+      ],
+      "supported_statement": "PowerShell was launched with -noexit -command Get-Service sysmon."
+    },
+    {
+      "id": "scope_is_two_behavior_groups",
+      "reason": "The three ground-truth entities describe cmd, mshta and powershell in two evidence groups; they are not the full process inventory. A conhost child is observed at lines36/422 outside this reviewed slice.",
+      "severity": "scope_limit"
+    },
+    {
+      "id": "timestamp_source_conflict",
+      "reason": "Ground truth correctly preserves canonical TimeCreated timestamps; Sysmon UtcTime strings are about four hours later and timezone-naive. True UTC/timezone provenance is unresolved.",
+      "severity": "review_limit"
+    },
+    {
+      "id": "commandline_not_embedded_in_core",
+      "reason": "Ground Truth Core declares command_line queryability but contains no literal command lines; they are available through linked intermediate evidence and raw references. Intermediate raw_fields are empty.",
+      "severity": "artifact_limit"
+    },
+    {
+      "id": "negative_claim_limits",
+      "reason": "No Sysmon3/22 or PowerShell scriptblock telemetry is present. The Security5156 network event belongs to WindowsAzureGuestAgent, not the reviewed chain. No download/C2/destructive-payload conclusion is supported for the reviewed command; absence of such behavior cannot be proven universally.",
+      "severity": "evidence_limit"
+    },
+    {
+      "id": "background_deletion_and_log_clear",
+      "reason": "Full raw data contains Eventlog1102/104 clear events and Sysmon23 temporary file deletion by PowerShell. Do not infer destructive payload or map extra techniques from these without separate review; do not claim no deletion anywhere in the file.",
+      "severity": "scope_limit"
+    }
+  ],
+  "format": "jsonl",
+  "ground_truth_observation_errors": [],
+  "human_review_status": "pending_human_review",
+  "input_provenance_checks": [
+    {
+      "actual_sha256": "f5eec09eaff36806e8567f215d9eed7edc7bc62dc3c3c9864dcbae3c6dcd608d",
+      "expected_sha256": "f5eec09eaff36806e8567f215d9eed7edc7bc62dc3c3c9864dcbae3c6dcd608d",
+      "path": "outputs/evidence/mshta-powershell/mitre_resolution.json"
+    },
+    {
+      "actual_sha256": "ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905",
+      "expected_sha256": "ea56d0bb07547da85a98339491af55d5b984d96ab8558eef3f8ec530955a4905",
+      "path": "outputs/evidence/mshta-powershell/scenario_evidence.json"
+    },
+    {
+      "actual_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4",
+      "expected_sha256": "cafb455ce6ad59cc5cf5f62805a0d7354f6b88d69fc1414c6f860222fd147fe4",
+      "path": "outputs/evidence/mshta-powershell/sigma_match_review.json"
+    }
+  ],
+  "intermediate_observation_errors": [],
+  "network_records": [
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:58.116Z",
+        "Application": "\\device\\harddiskvolume2\\windowsazure\\guestagent_2.7.41491.993_2020-10-08_063613\\guestagent\\windowsazureguestagent.exe",
+        "Channel": "Security",
+        "EventID": 5158,
+        "Hostname": "WORKSTATION5",
+        "ProcessId": "3428",
+        "SourceAddress": "0.0.0.0",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "TimeCreated": "2020-10-22T02:57:58.116Z"
+      },
+      "raw_record_ref": "jsonl:line:2"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:58.116Z",
+        "Application": "\\device\\harddiskvolume2\\windowsazure\\guestagent_2.7.41491.993_2020-10-08_063613\\guestagent\\windowsazureguestagent.exe",
+        "Channel": "Security",
+        "DestAddress": "168.63.129.16",
+        "DestPort": "80",
+        "EventID": 5156,
+        "Hostname": "WORKSTATION5",
+        "SourceAddress": "192.168.2.5",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "TimeCreated": "2020-10-22T02:57:58.116Z"
+      },
+      "raw_record_ref": "jsonl:line:3"
+    }
+  ],
+  "original_anchors": [
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.856Z",
+        "Channel": "Security",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2ae4",
+        "NewProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\cmd.exe",
+        "ProcessId": "0x1700",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:57:59.856Z"
+      },
+      "raw_record_ref": "jsonl:line:4"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.462Z",
+        "Channel": "Security",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2564",
+        "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ProcessId": "0x2ae4",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:58:00.462Z"
+      },
+      "raw_record_ref": "jsonl:line:30"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.568Z",
+        "Channel": "Security",
+        "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x27b4",
+        "NewProcessName": "C:\\Windows\\System32\\conhost.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ProcessId": "0x2564",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:58:00.568Z"
+      },
+      "raw_record_ref": "jsonl:line:36"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.857Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\mshta.exe",
+        "OriginalFileName": "MSHTA.EXE",
+        "ParentCommandLine": "\"C:\\windows\\system32\\cmd.exe\" ",
+        "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+        "ParentProcessGuid": "{39e4a257-2d59-5f91-6813-000000000700}",
+        "ParentProcessId": "5888",
+        "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ProcessId": "10980",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:57:59.857Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:57:59.855"
+      },
+      "raw_record_ref": "jsonl:line:275"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.489Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "OriginalFileName": "PowerShell.EXE",
+        "ParentCommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "ParentImage": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ParentProcessId": "10980",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:58:00.489Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.462"
+      },
+      "raw_record_ref": "jsonl:line:398"
+    },
+    {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.570Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "\\??\\C:\\windows\\system32\\conhost.exe 0xffffffff -ForceV1",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\conhost.exe",
+        "OriginalFileName": "CONHOST.EXE",
+        "ParentCommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "ParentImage": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ParentProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ParentProcessId": "9572",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6d13-000000000700}",
+        "ProcessId": "10164",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:58:00.570Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.568"
+      },
+      "raw_record_ref": "jsonl:line:422"
+    }
+  ],
+  "provider_counts": {
+    "Microsoft-Windows-Eventlog": 3,
+    "Microsoft-Windows-Security-Auditing": 232,
+    "Microsoft-Windows-Sysmon": 892
+  },
+  "raw_canonical_invariant_errors": [],
+  "raw_sha256_after": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+  "raw_sha256_before": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+  "raw_unchanged": true,
+  "relationship_checks": [
+    {
+      "matching_sysmon_refs": [
+        "jsonl:line:398"
+      ],
+      "relationship_id": "relationship-1641029b76ea1ac3df6e"
+    },
+    {
+      "matching_sysmon_refs": [
+        "jsonl:line:275"
+      ],
+      "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+    }
+  ],
+  "schema_version": "mshta-ground-truth-raw-audit/v1",
+  "script_content_fields_records": [],
+  "source_file": "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+}

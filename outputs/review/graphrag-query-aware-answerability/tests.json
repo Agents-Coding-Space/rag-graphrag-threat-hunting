@@ -1,0 +1,80 @@
+{
+  "schema_version": "query-aware-fix2-test-results/v1",
+  "final_runs": [
+    {
+      "scope": "focused",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_query_requirements.py tests/test_query_context.py tests/test_query_support.py tests/test_query_aware_gate.py tests/test_query_aware_ablation.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix2-focused-resume-20261017\" > outputs/experiments/graphrag-2d3-fix2/focused_final.log 2>&1",
+      "passed": 221,
+      "subtests_passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 1.46,
+      "exit_code": 0,
+      "actual_pytest_summary": "221 passed in 1.46s",
+      "log_sha256": "fc68e4a9ea82fb3d7899bc57e52ff6dc59d0117983f2f0c6544bace27bb43cbb"
+    },
+    {
+      "scope": "related regression",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest tests/test_retrieval_builder.py tests/test_retrieval_schema.py tests/test_vector_index_builder.py tests/test_vector_index_schema.py tests/test_vector_retriever.py tests/test_hybrid_retriever.py tests/test_knowledge_graph_builder.py tests/test_knowledge_graph_schema.py tests/test_knowledge_graph_traversal.py tests/test_graphrag_seed_mapping.py tests/test_graphrag_orchestrator.py tests/test_graphrag_relevance.py tests/test_graphrag_gate_signals.py tests/test_graphrag_two_stage_gate.py tests/test_relevance_calibration_schema.py tests/test_ground_truth_schema.py tests/test_ground_truth_approval.py tests/test_two_stage_calibration.py tests/test_two_stage_review.py -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix2-regression-resume-20261017\" > outputs/experiments/graphrag-2d3-fix2/regression_final.log 2>&1",
+      "passed": 2541,
+      "subtests_passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 14.85,
+      "exit_code": 0,
+      "actual_pytest_summary": "2541 passed in 14.85s",
+      "log_sha256": "750f9934dd34274f6dc4a704e72049ea11477d5a189b6fe4270d430de55b0cbd"
+    },
+    {
+      "scope": "full suite",
+      "command": ".\\.venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp=\"$env:TEMP/rag-fix2-full-final-20261017\" > outputs/experiments/graphrag-2d3-fix2/full_final.log 2>&1",
+      "passed": 6121,
+      "subtests_passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "errors": 0,
+      "seconds": 143.05,
+      "exit_code": 0,
+      "actual_pytest_summary": "6121 passed, 6 subtests passed in 143.05s (0:02:23)",
+      "log_sha256": "ce9e90ed4b989e19c0d29be30afcca8dc9f50c44a7b3b04d257cbc193d7e87fe"
+    }
+  ],
+  "logs_normalized_from_powershell_utf16_to_utf8_without_text_changes": true,
+  "earlier_development_runs": [
+    {
+      "scope": "initial parser",
+      "result": "96 passed / 2 failed; plural command-lines and child-process-of parsing were corrected; final parser 121 passed"
+    },
+    {
+      "scope": "context enrichment",
+      "result": "19 passed / 1 failed test assumption about smaller graph fallback; corrected assertion; final 20 passed"
+    },
+    {
+      "scope": "wrapper integration",
+      "result": "14 passed / 1 failed from pairing different legacy fixture inputs; corrected assertion; final 15 passed"
+    },
+    {
+      "scope": "initial ablation runner",
+      "result": "KeyError before evaluation: corpus content hash was incorrectly assumed a chunk field; corrected to SHA-256 of actual UTF-8 content and added mismatch tests"
+    },
+    {
+      "scope": "earlier complete focused",
+      "result": "202 passed, 0 failed/skipped, 1.10s; superseded by generic invariant fixes and archive test"
+    },
+    {
+      "scope": "frozen focused before resume",
+      "result": "221 passed, 0 failed/skipped, 1.21s"
+    },
+    {
+      "scope": "earlier regression",
+      "result": "2541 passed, 0 failed/skipped, 12.06s; an additional running-cell result was unavailable after resume, so final regression was rerun and logged"
+    }
+  ],
+  "experiment_commands": [
+    ".\\.venv\\Scripts\\python.exe scripts/evaluate_query_aware_gate.py",
+    ".\\.venv\\Scripts\\python.exe scripts/evaluate_query_aware_gate.py --archive-development-iteration"
+  ],
+  "no_test_or_experiment_is_claimed_as_independent_or_heldout": true
+}

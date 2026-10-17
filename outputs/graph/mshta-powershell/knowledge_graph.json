@@ -1,0 +1,1194 @@
+{
+  "schema_version": "knowledge-graph/v1",
+  "graph_id": "knowledge-graph--45c9e1a1369012689417635f46b00e25ea0b5be2d39a6cf9375428d302ce27ea",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/ground_truth/mshta-powershell/scenario_ground_truth.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "b2e3aa48c2c20e6a49479e765db0a1d660121fdb70472ca36f308b1094ddbc41",
+    "scenario_id": "mshta-powershell"
+  },
+  "nodes": [
+    {
+      "node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "node_type": "entity",
+      "label": "mshta.exe",
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-9c691740bde5d3dbdc4e",
+        "json_pointer": "/entities/1"
+      },
+      "attributes": {
+        "entity_type": "process",
+        "name": "mshta.exe",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+          "process_id": "10980",
+          "process_name": "mshta.exe"
+        }
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--20d644848d2ad2423f8b8b2c687bc68437fbba3297d473e4757483e5c72c0540",
+      "node_type": "fact",
+      "label": "spawned_process",
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-cmd-spawns-mshta",
+        "json_pointer": "/facts/0"
+      },
+      "attributes": {
+        "subject": "process-7c96a17eb66f2831da61",
+        "predicate": "spawned_process",
+        "object": "process-9c691740bde5d3dbdc4e",
+        "attributes": {
+          "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+        }
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--30ba58cb71e8f07942f0fd56bc47478be54949325edd9c09f4c7cfe8366cf8b1",
+      "node_type": "mitre_assessment",
+      "label": "T1140 - Deobfuscate/Decode Files or Information",
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--e78c269b283e5bca17c136194d9a2a18bd8c1cf0fe37726dd2c02717ea74d63f",
+        "json_pointer": "/mitre_assessments/1"
+      },
+      "attributes": {
+        "external_id": "T1140",
+        "stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+        "name": "Deobfuscate/Decode Files or Information",
+        "origin": "sigma_tag",
+        "evidence_support": "not_assessed",
+        "supporting_sigma_rule_ids": [
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ],
+        "rationale": "The resolver only resolved a Sigma tag. The two reviewed evidence groups are insufficient to assess T1140, and the required full negative scan and broader evaluation have not been performed. This milestone therefore does not make a not_observed_in_reviewed_scope determination.",
+        "review_status": "needs_review"
+      },
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--35b8bcd535dd4ccf222294889c5fa36ef7e5e2969809b6991e27d501bab1269b",
+      "node_type": "limitation",
+      "label": "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+      "status": "reviewable",
+      "source": {
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/0"
+      },
+      "attributes": {},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--37d3788ad9015061dfbe8af173ea3244306e9c65c103464f48d861cd51c26135",
+      "node_type": "limitation",
+      "label": "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+      "status": "reviewable",
+      "source": {
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/2"
+      },
+      "attributes": {},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--47257c3660c6cd968cd01f05142a5d97757d6bde4630b48abba691f18512d8e5",
+      "node_type": "mitre_assessment",
+      "label": "T1059.007 - JavaScript",
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "json_pointer": "/mitre_assessments/0"
+      },
+      "attributes": {
+        "external_id": "T1059.007",
+        "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+        "name": "JavaScript",
+        "origin": "sigma_tag",
+        "evidence_support": "not_supported_by_observed_command",
+        "supporting_sigma_rule_ids": [
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ],
+        "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence.",
+        "review_status": "needs_review"
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--566b93b65d87f146ff0f676dbc6cf6226bbb70c61a4c8a6bd5d7831a95cef434",
+      "node_type": "entity",
+      "label": "powershell.exe",
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-9f7ceeecb4cd61358ab7",
+        "json_pointer": "/entities/2"
+      },
+      "attributes": {
+        "entity_type": "process",
+        "name": "powershell.exe",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+          "process_id": "9572",
+          "process_name": "powershell.exe"
+        }
+      },
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--5de7c6b37416d9b4a9e1d38dbca3b6e637c610654f3aeeb7bf9cd7a2edeaa121",
+      "node_type": "fact",
+      "label": "spawned_process",
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-mshta-spawns-powershell",
+        "json_pointer": "/facts/1"
+      },
+      "attributes": {
+        "subject": "process-9c691740bde5d3dbdc4e",
+        "predicate": "spawned_process",
+        "object": "process-9f7ceeecb4cd61358ab7",
+        "attributes": {
+          "relationship_id": "relationship-1641029b76ea1ac3df6e"
+        }
+      },
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "node_type": "evidence",
+      "label": "cmd.exe spawned mshta.exe",
+      "status": "observed",
+      "source": {
+        "object_type": "evidence",
+        "object_id": "evidence-b07a5ff4763e629715e6",
+        "json_pointer": "/evidence/0"
+      },
+      "attributes": {
+        "evidence_type": "process_creation",
+        "summary": "cmd.exe spawned mshta.exe",
+        "observations": [
+          {
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+            "raw_record_ref": "jsonl:line:275",
+            "provider": "Microsoft-Windows-Sysmon",
+            "event_id": "1",
+            "timestamp": "2020-10-22T02:57:59.857000Z"
+          },
+          {
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+            "raw_record_ref": "jsonl:line:4",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "event_id": "4688",
+            "timestamp": "2020-10-22T02:57:59.856000Z"
+          }
+        ]
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--987d34cc38fa8a42104b62d681da414687181e1a6f7dcaee82e2f882b1b3595c",
+      "node_type": "mitre_assessment",
+      "label": "T1218.005 - Mshta",
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2"
+      },
+      "attributes": {
+        "external_id": "T1218.005",
+        "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+        "name": "Mshta",
+        "origin": "sigma_tag",
+        "evidence_support": "supported_by_observed_behavior",
+        "supporting_sigma_rule_ids": [
+          "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ],
+        "rationale": "mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment.",
+        "review_status": "needs_review"
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "node_type": "evidence",
+      "label": "mshta.exe spawned powershell.exe",
+      "status": "observed",
+      "source": {
+        "object_type": "evidence",
+        "object_id": "evidence-b31714b888d1489a380c",
+        "json_pointer": "/evidence/1"
+      },
+      "attributes": {
+        "evidence_type": "process_creation",
+        "summary": "mshta.exe spawned powershell.exe",
+        "observations": [
+          {
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+            "raw_record_ref": "jsonl:line:30",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "event_id": "4688",
+            "timestamp": "2020-10-22T02:58:00.462000Z"
+          },
+          {
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+            "raw_record_ref": "jsonl:line:398",
+            "provider": "Microsoft-Windows-Sysmon",
+            "event_id": "1",
+            "timestamp": "2020-10-22T02:58:00.489000Z"
+          }
+        ]
+      },
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--a28f915e10fb34eee617f4291a3bbc1e85914a485dd26cf5b9efc08cc3ecc624",
+      "node_type": "entity",
+      "label": "cmd.exe",
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-7c96a17eb66f2831da61",
+        "json_pointer": "/entities/0"
+      },
+      "attributes": {
+        "entity_type": "process",
+        "name": "cmd.exe",
+        "attributes": {
+          "host": "WORKSTATION5",
+          "process_guid": "{39e4a257-2d59-5f91-6813-000000000700}",
+          "process_id": "5888",
+          "process_name": "cmd.exe"
+        }
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--b6b5fd7d652f15faac02130975cec5e99b0ce38ea6d078c359b6912ca9732945",
+      "node_type": "sigma_finding",
+      "label": "Suspicious MSHTA Child Process",
+      "status": "candidate",
+      "source": {
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--88654ed2fa69e533969b800d5a29dc0a7d7ad59987f300f4f554de638b9a4f7a",
+        "json_pointer": "/sigma_findings/0"
+      },
+      "attributes": {
+        "rule_id": "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+        "rule_title": "Suspicious MSHTA Child Process",
+        "rule_sha256": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+        "observation_match_ids": [
+          "sigma-observation-match-6245df513098047dcef2",
+          "sigma-observation-match-868f2ef62739c4c74573"
+        ],
+        "behavior_match_ids": [
+          "sigma-behavior-match-700c4a1a1fbe62aeb900"
+        ],
+        "caveats": [
+          "known_unmapped_field: OriginalFileName"
+        ]
+      },
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "sigma_rule"
+      ]
+    },
+    {
+      "node_id": "graph-node--c8d04057d4ec10a5975da22b178334fc2f4f56d9a9e890242cd774a4b92b8352",
+      "node_type": "limitation",
+      "label": "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+      "status": "reviewable",
+      "source": {
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/1"
+      },
+      "attributes": {},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--cb24e86485f5ea4bf3096cae0b0d09790076d8355b6309ecfc02f6a7107edd35",
+      "node_type": "scenario",
+      "label": "MSHTA spawning PowerShell",
+      "status": "reviewable",
+      "source": {
+        "object_type": "scenario",
+        "object_id": null,
+        "json_pointer": "/scenario"
+      },
+      "attributes": {
+        "description": "Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe, mshta.exe launches powershell.exe, and PowerShell runs Get-Service sysmon; this config records observed behavior without asserting a finalized attack determination.",
+        "analysis_status": "draft_reviewable",
+        "time_window": {
+          "end": "2020-10-22T02:58:00.489000Z",
+          "start": "2020-10-22T02:57:59.856000Z"
+        }
+      },
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--cfe937b1c0ad152c49a19f0edaeb42cbca9c8da42682d806a63e31c8a4ed5f36",
+      "node_type": "limitation",
+      "label": "MITRE assessments remain candidates and require human review.",
+      "status": "reviewable",
+      "source": {
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/3"
+      },
+      "attributes": {},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": [
+        "provenance"
+      ]
+    },
+    {
+      "node_id": "graph-node--d9675b016298cdd2ad404df4acd7e46d6b58c8a946fe5bf6ae8a9e66300df5ed",
+      "node_type": "sigma_finding",
+      "label": "MSHTA Execution with Suspicious File Extensions",
+      "status": "candidate",
+      "source": {
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--631416bc85bd054493d7b849979dcedf81d938825832c4cb699f09700b2f09e5",
+        "json_pointer": "/sigma_findings/1"
+      },
+      "attributes": {
+        "rule_id": "cc7abbd0-762b-41e3-8a26-57ad50d2eea3",
+        "rule_title": "MSHTA Execution with Suspicious File Extensions",
+        "rule_sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+        "observation_match_ids": [
+          "sigma-observation-match-1e220a1f400a4618fee0",
+          "sigma-observation-match-47f7c1ba395dc32b9350"
+        ],
+        "behavior_match_ids": [
+          "sigma-behavior-match-5a1390bbe64d27403b77"
+        ],
+        "caveats": [
+          "known_unmapped_field: OriginalFileName"
+        ]
+      },
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "sigma_rule"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "graph-edge--00df6aba77340b2bdb884907f2b9499441d59ff53884f767e9d8bee21ede4b71",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "target_node_id": "graph-node--987d34cc38fa8a42104b62d681da414687181e1a6f7dcaee82e2f882b1b3595c",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2/supporting_evidence_ids/1"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--0b125347a6bdb87da2e4aca96006b59677db2153bcba116bbad2b50e49cabf87",
+      "edge_type": "supports_assessment",
+      "source_node_id": "graph-node--b6b5fd7d652f15faac02130975cec5e99b0ce38ea6d078c359b6912ca9732945",
+      "target_node_id": "graph-node--987d34cc38fa8a42104b62d681da414687181e1a6f7dcaee82e2f882b1b3595c",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2/supporting_sigma_rule_ids/0"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+        "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--18a6a24e4fb1be2b1893f47845f08c35b8e1cec2b525724ce2848b400417ae7c",
+      "edge_type": "supports_assessment",
+      "source_node_id": "graph-node--d9675b016298cdd2ad404df4acd7e46d6b58c8a946fe5bf6ae8a9e66300df5ed",
+      "target_node_id": "graph-node--47257c3660c6cd968cd01f05142a5d97757d6bde4630b48abba691f18512d8e5",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "json_pointer": "/mitre_assessments/0/supporting_sigma_rule_ids/0"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--1da9302d51008d5d6f3605a20ecf968e69cfa1b13d43b02022ecdf98a838662a",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--d9675b016298cdd2ad404df4acd7e46d6b58c8a946fe5bf6ae8a9e66300df5ed",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--631416bc85bd054493d7b849979dcedf81d938825832c4cb699f09700b2f09e5",
+        "json_pointer": "/sigma_findings/1/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "sigma_rule"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--20d4d689ea4a6af0b490da6d0ac54852269f30ac175c9fedb9f49fc2fca9dd72",
+      "edge_type": "fact_object",
+      "source_node_id": "graph-node--20d644848d2ad2423f8b8b2c687bc68437fbba3297d473e4757483e5c72c0540",
+      "target_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-cmd-spawns-mshta",
+        "json_pointer": "/facts/0/object"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "attributes": {
+        "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--24f07b764940dc9c32b8dead8411b2be38dfd1fa27fb2274123effdc0bdd1043",
+      "edge_type": "process_spawn",
+      "source_node_id": "graph-node--a28f915e10fb34eee617f4291a3bbc1e85914a485dd26cf5b9efc08cc3ecc624",
+      "target_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "relationship",
+        "object_id": "relationship-9e41d0cc407e7878b2d8",
+        "json_pointer": "/relationships/1"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--2912d9e4bda08c3e922165f5422dbcb594b09ce77111a8c2921d12cf5e099ca4",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "target_node_id": "graph-node--566b93b65d87f146ff0f676dbc6cf6226bbb70c61a4c8a6bd5d7831a95cef434",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-9f7ceeecb4cd61358ab7",
+        "json_pointer": "/entities/2/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--2ee8c774f70b94dd36477cac2631964eedafd85a1b9a3e4dda51c429696aab42",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "target_node_id": "graph-node--b6b5fd7d652f15faac02130975cec5e99b0ce38ea6d078c359b6912ca9732945",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "sigma_finding",
+        "object_id": "sigma-finding--88654ed2fa69e533969b800d5a29dc0a7d7ad59987f300f4f554de638b9a4f7a",
+        "json_pointer": "/sigma_findings/0/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "sigma_rule"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--63c9daa6762a57d40d0bf4b42ac37647b0b38cfbcaed386914ceab3c7497292d",
+      "edge_type": "fact_object",
+      "source_node_id": "graph-node--5de7c6b37416d9b4a9e1d38dbca3b6e637c610654f3aeeb7bf9cd7a2edeaa121",
+      "target_node_id": "graph-node--566b93b65d87f146ff0f676dbc6cf6226bbb70c61a4c8a6bd5d7831a95cef434",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-mshta-spawns-powershell",
+        "json_pointer": "/facts/1/object"
+      },
+      "supporting_node_ids": [
+        "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "attributes": {
+        "relationship_id": "relationship-1641029b76ea1ac3df6e"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--7b7e21292c36912814faed54be0b1832bc0f02a3aa2bcf5a9ecb4ad827bb2078",
+      "edge_type": "supports_assessment",
+      "source_node_id": "graph-node--d9675b016298cdd2ad404df4acd7e46d6b58c8a946fe5bf6ae8a9e66300df5ed",
+      "target_node_id": "graph-node--30ba58cb71e8f07942f0fd56bc47478be54949325edd9c09f4c7cfe8366cf8b1",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--e78c269b283e5bca17c136194d9a2a18bd8c1cf0fe37726dd2c02717ea74d63f",
+        "json_pointer": "/mitre_assessments/1/supporting_sigma_rule_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--7fe2927d7848b86c334d56f24c87409e01cfaa13818cabbbb8ee93d0e79b6f8d",
+      "edge_type": "fact_subject",
+      "source_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "target_node_id": "graph-node--5de7c6b37416d9b4a9e1d38dbca3b6e637c610654f3aeeb7bf9cd7a2edeaa121",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-mshta-spawns-powershell",
+        "json_pointer": "/facts/1/subject"
+      },
+      "supporting_node_ids": [
+        "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "attributes": {
+        "relationship_id": "relationship-1641029b76ea1ac3df6e"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--87c15acdb40db63c6eebec3c35e83dd5d43daeab59f2661342ebca9c37c8d9e5",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--987d34cc38fa8a42104b62d681da414687181e1a6f7dcaee82e2f882b1b3595c",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2/supporting_evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--92411043b1d3e18d0cd66c78e614905caacd9e6f2be7a3d98c561d9f21889999",
+      "edge_type": "process_spawn",
+      "source_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "target_node_id": "graph-node--566b93b65d87f146ff0f676dbc6cf6226bbb70c61a4c8a6bd5d7831a95cef434",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "relationship",
+        "object_id": "relationship-1641029b76ea1ac3df6e",
+        "json_pointer": "/relationships/0"
+      },
+      "supporting_node_ids": [
+        "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2"
+      ],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--9febe14ac8d5f69a3de83f88988d919ddfb57b6f0cb4988e80449b7de0a2e08f",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "target_node_id": "graph-node--5de7c6b37416d9b4a9e1d38dbca3b6e637c610654f3aeeb7bf9cd7a2edeaa121",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-mshta-spawns-powershell",
+        "json_pointer": "/facts/1/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--ac372d5b9b13f7fe721285bef862a006b11db6a54e7766726233c84834a441c5",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--20d644848d2ad2423f8b8b2c687bc68437fbba3297d473e4757483e5c72c0540",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-cmd-spawns-mshta",
+        "json_pointer": "/facts/0/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--d1dde64489d59062d83dc1e5ab50ac4743b5fb2dcb0f577e8c31cbf4923be864",
+      "edge_type": "fact_subject",
+      "source_node_id": "graph-node--a28f915e10fb34eee617f4291a3bbc1e85914a485dd26cf5b9efc08cc3ecc624",
+      "target_node_id": "graph-node--20d644848d2ad2423f8b8b2c687bc68437fbba3297d473e4757483e5c72c0540",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "fact",
+        "object_id": "fact-cmd-spawns-mshta",
+        "json_pointer": "/facts/0/subject"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        }
+      ],
+      "attributes": {
+        "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--d767ef9e7ca600c4d793761e897e3f27d114557cf4f21d6802f53172f402443a",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--47257c3660c6cd968cd01f05142a5d97757d6bde4630b48abba691f18512d8e5",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "json_pointer": "/mitre_assessments/0/supporting_evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--e2ffb65fdb66b270f410e5791757fa43dd9d906e9cc36c06cdfc6f0407a9e2a2",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2",
+      "target_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-9c691740bde5d3dbdc4e",
+        "json_pointer": "/entities/1/evidence_ids/1"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--e55ecad85901e323e1914ba186368f8bf84d347e3acbed00e6ac8c1a7f203887",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--1dc506d0ebaba36a9b30744ff79cd6a42595cd7f2a95247ce8783735a0d898eb",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-9c691740bde5d3dbdc4e",
+        "json_pointer": "/entities/1/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--f9973802ed1c63a6a47c821241da5a14f808bc079cb52270e6f0dcba4a84e8af",
+      "edge_type": "supports_assessment",
+      "source_node_id": "graph-node--d9675b016298cdd2ad404df4acd7e46d6b58c8a946fe5bf6ae8a9e66300df5ed",
+      "target_node_id": "graph-node--987d34cc38fa8a42104b62d681da414687181e1a6f7dcaee82e2f882b1b3595c",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "json_pointer": "/mitre_assessments/2/supporting_sigma_rule_ids/1"
+      },
+      "supporting_node_ids": [
+        "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+        "graph-node--99d1b2ec3d158fad4c946c90ed5d834e51d0f2360720f81e41e72ae788e24bb2"
+      ],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "mitre_technique",
+        "provenance"
+      ]
+    },
+    {
+      "edge_id": "graph-edge--fdfaed6737e273179e8c8b9c130dee91ea468f0afad5ee42341fb4a00d229637",
+      "edge_type": "supports",
+      "source_node_id": "graph-node--731463ebe4ba5265641ebc144761d3d0ad3d99741bdb315615fc05c306d3e1e7",
+      "target_node_id": "graph-node--a28f915e10fb34eee617f4291a3bbc1e85914a485dd26cf5b9efc08cc3ecc624",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "process-7c96a17eb66f2831da61",
+        "json_pointer": "/entities/0/evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": [
+        "entity",
+        "provenance"
+      ]
+    }
+  ],
+  "queryable_dimensions": [
+    "command_line",
+    "entity",
+    "evidence",
+    "mitre_technique",
+    "process",
+    "process_spawn",
+    "provenance",
+    "sigma_rule"
+  ],
+  "review": {
+    "status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "warnings": [],
+  "metadata": {
+    "node_count": 17,
+    "edge_count": 21,
+    "node_type_counts": {
+      "entity": 3,
+      "evidence": 2,
+      "fact": 2,
+      "limitation": 4,
+      "mitre_assessment": 3,
+      "scenario": 1,
+      "sigma_finding": 2
+    },
+    "edge_type_counts": {
+      "fact_object": 2,
+      "fact_subject": 2,
+      "process_spawn": 2,
+      "supports": 11,
+      "supports_assessment": 4
+    },
+    "mapping_version": "ground-truth-to-knowledge-graph/v1"
+  }
+}

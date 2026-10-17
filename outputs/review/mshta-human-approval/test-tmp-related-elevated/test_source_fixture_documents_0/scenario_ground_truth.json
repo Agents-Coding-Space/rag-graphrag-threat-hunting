@@ -1,0 +1,360 @@
+{
+  "schema_version": "scenario-ground-truth/v1",
+  "scenario": {
+    "scenario_id": "scenario-synthetic-builder",
+    "scenario_name": "Synthetic artifact relationship review",
+    "description": "A synthetic scenario used only to verify deterministic artifact merging.",
+    "analysis_status": "draft_reviewable",
+    "time_window": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-01T00:00:03Z"
+    }
+  },
+  "input_provenance": [
+    {
+      "input_id": "mitre-resolution-input",
+      "input_type": "mitre_resolution",
+      "path": "outputs/review/mshta-human-approval/test-tmp-related-elevated/test_source_fixture_documents_0/mitre_resolution.json",
+      "schema_version": "mitre-resolution/v1",
+      "sha256": "d148fdc6e962c77495880106cbf9827a5c915e1df469c17f7062876ad1242e00",
+      "scenario_id": "scenario-synthetic-builder"
+    },
+    {
+      "input_id": "scenario-evidence-input",
+      "input_type": "scenario_evidence",
+      "path": "outputs/review/mshta-human-approval/test-tmp-related-elevated/test_source_fixture_documents_0/scenario_evidence.json",
+      "schema_version": "scenario-evidence/v1",
+      "sha256": "9b8e9f9649b4fe4cad05b701b857fc0f583b3d2e165b9e12f810ea85bc94a7db",
+      "scenario_id": "scenario-synthetic-builder"
+    },
+    {
+      "input_id": "sigma-review-input",
+      "input_type": "sigma_review",
+      "path": "outputs/review/mshta-human-approval/test-tmp-related-elevated/test_source_fixture_documents_0/sigma_match_review.json",
+      "schema_version": "sigma-match-review/v1",
+      "sha256": "b57944867e402bb9ef10119b175766f7698186dbdb7725198b3a83b0fcf2ec25",
+      "scenario_id": "scenario-synthetic-builder"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "entity-synthetic-alpha",
+      "entity_type": "synthetic_agent",
+      "name": "Alpha display override",
+      "attributes": {
+        "name": "alpha-source",
+        "zone": "lab-a"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ]
+    },
+    {
+      "entity_id": "entity-synthetic-beta",
+      "entity_type": "synthetic_worker",
+      "name": "worker-beta.bin",
+      "attributes": {
+        "process_name": "worker-beta.bin",
+        "role": "worker"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1",
+        "evidence-synthetic-2"
+      ]
+    },
+    {
+      "entity_id": "entity-synthetic-gamma",
+      "entity_type": "synthetic_host",
+      "name": "host-gamma",
+      "attributes": {
+        "host": "host-gamma",
+        "role": "destination"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "fact_id": "fact-synthetic-alpha-activity",
+      "subject": "entity-synthetic-alpha",
+      "predicate": "initiates_activity",
+      "object": "entity-synthetic-beta",
+      "attributes": {
+        "basis": "direct synthetic observation"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        }
+      ]
+    },
+    {
+      "fact_id": "fact-synthetic-beta-transition",
+      "subject": "entity-synthetic-beta",
+      "predicate": "has_reviewable_transition",
+      "object": "entity-synthetic-gamma",
+      "attributes": {
+        "basis": "correlated synthetic records"
+      },
+      "status": "inferred",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship-synthetic-alpha-beta",
+      "relationship_type": "initiates",
+      "source_entity_id": "entity-synthetic-alpha",
+      "target_entity_id": "entity-synthetic-beta",
+      "attributes": {},
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ]
+    },
+    {
+      "relationship_id": "relationship-synthetic-beta-gamma",
+      "relationship_type": "transitions_to",
+      "source_entity_id": "entity-synthetic-beta",
+      "target_entity_id": "entity-synthetic-gamma",
+      "attributes": {},
+      "status": "inferred",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence-synthetic-1",
+      "evidence_type": "synthetic_activity",
+      "summary": "Two records directly show synthetic activity.",
+      "status": "observed",
+      "observations": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1",
+          "provider": "Synthetic-Provider",
+          "event_id": "101",
+          "timestamp": "2024-01-01T00:00:00Z"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2",
+          "provider": null,
+          "event_id": "202",
+          "timestamp": "2024-01-01T00:00:01Z"
+        }
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ]
+    },
+    {
+      "evidence_id": "evidence-synthetic-2",
+      "evidence_type": "synthetic_transition",
+      "summary": "Two records support a transition to the destination.",
+      "status": "inferred",
+      "observations": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3",
+          "provider": "Synthetic-Provider",
+          "event_id": "303",
+          "timestamp": "2024-01-01T00:00:02Z"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4",
+          "provider": "Synthetic-Provider",
+          "event_id": 404,
+          "timestamp": "2024-01-01T00:00:03Z"
+        }
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ]
+    }
+  ],
+  "sigma_findings": [
+    {
+      "finding_id": "sigma-finding--9c0f4be61a535fab4dfadab048bcec4859de843c6a602242be720ce528e2afbf",
+      "rule_id": "rule-synthetic-alpha",
+      "rule_title": "Synthetic activity candidate",
+      "rule_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "candidate",
+      "observation_match_ids": [
+        "observation-match-synthetic-1",
+        "observation-match-synthetic-2"
+      ],
+      "behavior_match_ids": [
+        "behavior-match-synthetic-1"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2"
+        }
+      ],
+      "caveats": []
+    },
+    {
+      "finding_id": "sigma-finding--c9edf46d1d2b9031bafa24117422548caff0a78d22e834b80e37de0bd2f43cdd",
+      "rule_id": "rule-synthetic-beta",
+      "rule_title": "Synthetic transition candidate",
+      "rule_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "status": "candidate",
+      "observation_match_ids": [
+        "observation-match-synthetic-3",
+        "observation-match-synthetic-4"
+      ],
+      "behavior_match_ids": [
+        "behavior-match-synthetic-2"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source_references": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3"
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4"
+        }
+      ],
+      "caveats": [
+        "known_unmapped_field: SyntheticField"
+      ]
+    }
+  ],
+  "mitre_assessments": [
+    {
+      "assessment_id": "mitre-assessment--c37a0735d4866a5c785ec00afffbd847cbba47c83c9bcd254158404c09ffad8b",
+      "external_id": "SYN-1001",
+      "stix_id": "attack-pattern--synthetic-alpha",
+      "name": "Synthetic Activity Pattern",
+      "origin": "sigma_tag",
+      "status": "candidate",
+      "evidence_support": "supported_by_observed_behavior",
+      "supporting_evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "supporting_sigma_rule_ids": [
+        "rule-synthetic-alpha"
+      ],
+      "rationale": "The first synthetic evidence group directly supports this candidate pattern.",
+      "review_status": "needs_review"
+    },
+    {
+      "assessment_id": "mitre-assessment--113a7030e1781caf43721924fddb64f04c9b0541cf9cdfd2b799a5fe7633d8b8",
+      "external_id": "SYN-1002",
+      "stix_id": "attack-pattern--synthetic-beta",
+      "name": "Synthetic Transition Pattern",
+      "origin": "sigma_tag",
+      "status": "candidate",
+      "evidence_support": "not_assessed",
+      "supporting_evidence_ids": [],
+      "supporting_sigma_rule_ids": [
+        "rule-synthetic-beta"
+      ],
+      "rationale": "No evidence-support decision was provided in the build config.",
+      "review_status": "needs_review"
+    }
+  ],
+  "summary": {
+    "observed_behavior": [
+      "Synthetic activity was observed between the first two entities."
+    ],
+    "key_entities": [
+      "entity-synthetic-beta",
+      "entity-synthetic-alpha"
+    ],
+    "key_relationships": [
+      "relationship-synthetic-beta-gamma",
+      "relationship-synthetic-alpha-beta"
+    ],
+    "limitations": [
+      "All fixture values are synthetic and require human review."
+    ]
+  },
+  "queryable_dimensions": [
+    "evidence",
+    "provenance",
+    "relationship",
+    "synthetic_signal"
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "decisions": [],
+    "notes": [
+      "No review decision has been finalized."
+    ]
+  },
+  "warnings": [
+    "Synthetic Sigma review warning.",
+    "Synthetic resolution warning."
+  ]
+}

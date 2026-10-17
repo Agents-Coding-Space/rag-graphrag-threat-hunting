@@ -1,0 +1,2515 @@
+{
+  "schema_version": "query-aware-ablation-results/v1",
+  "arms": {
+    "A": "FIX1 ranked context + old policy",
+    "B": "enriched evidence context + old policy",
+    "C": "FIX1 context + query-aware scope/support AND old policy",
+    "D": "enriched context + query-aware scope/support AND old policy"
+  },
+  "summaries": {
+    "A": {
+      "case_count": 32,
+      "positive_class": "proceed",
+      "negative_class": "abstain",
+      "dataset_label_confusion_matrix": {
+        "tp": 5,
+        "tn": 14,
+        "fp": 2,
+        "fn": 11
+      },
+      "dataset_label_metrics": {
+        "accuracy": {
+          "numerator": 19,
+          "denominator": 32,
+          "value": 0.59375
+        },
+        "precision": {
+          "numerator": 5,
+          "denominator": 7,
+          "value": 0.7142857142857143
+        },
+        "recall": {
+          "numerator": 5,
+          "denominator": 16,
+          "value": 0.3125
+        },
+        "specificity": {
+          "numerator": 14,
+          "denominator": 16,
+          "value": 0.875
+        },
+        "f1": {
+          "numerator": 10,
+          "denominator": 23,
+          "value": 0.43478260869565216
+        }
+      },
+      "coverage": {
+        "numerator": 7,
+        "denominator": 32,
+        "value": 0.21875
+      },
+      "selective_error": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": 0.2857142857142857
+      },
+      "selective_error_basis": "dataset_expected_decision",
+      "context_eligibility_known_label_count": 30,
+      "context_eligibility_unknown_label_count": 2,
+      "context_eligibility_confusion_matrix": {
+        "tp": 5,
+        "tn": 15,
+        "fp": 2,
+        "fn": 8
+      },
+      "context_eligibility_metrics": {
+        "accuracy": {
+          "numerator": 20,
+          "denominator": 30,
+          "value": 0.6666666666666666
+        },
+        "precision": {
+          "numerator": 5,
+          "denominator": 7,
+          "value": 0.7142857142857143
+        },
+        "recall": {
+          "numerator": 5,
+          "denominator": 13,
+          "value": 0.38461538461538464
+        },
+        "specificity": {
+          "numerator": 15,
+          "denominator": 17,
+          "value": 0.8823529411764706
+        },
+        "f1": {
+          "numerator": 10,
+          "denominator": 20,
+          "value": 0.5
+        }
+      },
+      "context_selective_error": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": 0.2857142857142857
+      },
+      "false_proceed_by_category": {
+        "unrelated": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": 0.125
+        },
+        "insufficient_evidence": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": 0.125
+        }
+      },
+      "false_abstain_context_sufficient": {
+        "numerator": 8,
+        "denominator": 13,
+        "value": 0.6153846153846154
+      },
+      "retained_context_sufficient_positives": 5,
+      "dataset_answerable_context_failure_count": 1,
+      "unknown_context_sufficiency_count": 10,
+      "layers": {
+        "topical_relevance": {
+          "case_count": 32,
+          "known_label_count": 32,
+          "unknown_label_count": 0,
+          "evaluated_known_label_count": 32,
+          "not_evaluated_count": 0,
+          "known_label_not_evaluated_count": 0,
+          "confusion_matrix": {
+            "tp": 6,
+            "tn": 7,
+            "fp": 1,
+            "fn": 18
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 13,
+              "denominator": 32,
+              "value": 0.40625
+            },
+            "precision": {
+              "numerator": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571
+            },
+            "recall": {
+              "numerator": 6,
+              "denominator": 24,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "f1": {
+              "numerator": 12,
+              "denominator": 31,
+              "value": 0.3870967741935484
+            }
+          }
+        },
+        "evidence_answerability": {
+          "case_count": 32,
+          "known_label_count": 22,
+          "unknown_label_count": 10,
+          "evaluated_known_label_count": 6,
+          "not_evaluated_count": 25,
+          "known_label_not_evaluated_count": 16,
+          "confusion_matrix": {
+            "tp": 5,
+            "tn": 0,
+            "fp": 1,
+            "fn": 0
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "specificity": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 11,
+              "value": 0.9090909090909091
+            }
+          }
+        }
+      },
+      "all_abstain": false,
+      "layer_summary_semantics": "unchanged_legacy_gate_stages; query_scope_support_counts_are_separate",
+      "by_language": {
+        "en": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 5,
+            "tn": 6,
+            "fp": 2,
+            "fn": 3
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 16,
+              "value": 0.6875
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "specificity": {
+              "numerator": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 15,
+              "value": 0.6666666666666666
+            }
+          },
+          "coverage": {
+            "numerator": 7,
+            "denominator": 16,
+            "value": 0.4375
+          },
+          "selective_error": {
+            "numerator": 2,
+            "denominator": 7,
+            "value": 0.2857142857142857
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 16,
+          "context_eligibility_unknown_label_count": 0,
+          "context_eligibility_confusion_matrix": {
+            "tp": 5,
+            "tn": 6,
+            "fp": 2,
+            "fn": 3
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 16,
+              "value": 0.6875
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "specificity": {
+              "numerator": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 15,
+              "value": 0.6666666666666666
+            }
+          },
+          "context_selective_error": {
+            "numerator": 2,
+            "denominator": 7,
+            "value": 0.2857142857142857
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "insufficient_evidence": {
+              "numerator": 1,
+              "denominator": 4,
+              "value": 0.25
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 3,
+            "denominator": 8,
+            "value": 0.375
+          },
+          "retained_context_sufficient_positives": 5,
+          "dataset_answerable_context_failure_count": 0,
+          "unknown_context_sufficiency_count": 4,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 6,
+                "tn": 3,
+                "fp": 1,
+                "fn": 6
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 9,
+                  "denominator": 16,
+                  "value": 0.5625
+                },
+                "precision": {
+                  "numerator": 6,
+                  "denominator": 7,
+                  "value": 0.8571428571428571
+                },
+                "recall": {
+                  "numerator": 6,
+                  "denominator": 12,
+                  "value": 0.5
+                },
+                "specificity": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "value": 0.75
+                },
+                "f1": {
+                  "numerator": 12,
+                  "denominator": 19,
+                  "value": 0.631578947368421
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 12,
+              "unknown_label_count": 4,
+              "evaluated_known_label_count": 6,
+              "not_evaluated_count": 9,
+              "known_label_not_evaluated_count": 6,
+              "confusion_matrix": {
+                "tp": 5,
+                "tn": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "precision": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "recall": {
+                  "numerator": 5,
+                  "denominator": 5,
+                  "value": 1.0
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "value": 0.0
+                },
+                "f1": {
+                  "numerator": 10,
+                  "denominator": 11,
+                  "value": 0.9090909090909091
+                }
+              }
+            }
+          },
+          "all_abstain": false
+        },
+        "vi": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 0,
+            "tn": 8,
+            "fp": 0,
+            "fn": 8
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "coverage": {
+            "numerator": 0,
+            "denominator": 16,
+            "value": 0.0
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 14,
+          "context_eligibility_unknown_label_count": 2,
+          "context_eligibility_confusion_matrix": {
+            "tp": 0,
+            "tn": 9,
+            "fp": 0,
+            "fn": 5
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 9,
+              "denominator": 14,
+              "value": 0.6428571428571429
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 5,
+            "denominator": 5,
+            "value": 1.0
+          },
+          "retained_context_sufficient_positives": 0,
+          "dataset_answerable_context_failure_count": 1,
+          "unknown_context_sufficiency_count": 6,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 4,
+                "fp": 0,
+                "fn": 12
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 4,
+                  "denominator": 16,
+                  "value": 0.25
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                },
+                "specificity": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "value": 1.0
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 10,
+              "unknown_label_count": 6,
+              "evaluated_known_label_count": 0,
+              "not_evaluated_count": 16,
+              "known_label_not_evaluated_count": 10,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                }
+              }
+            }
+          },
+          "all_abstain": true
+        }
+      },
+      "query_analysis_counts": {
+        "ambiguous": 10,
+        "supported": 10,
+        "unsupported": 12
+      },
+      "scope_counts": {
+        "in_scope": 1,
+        "mismatch": 1,
+        "unspecified": 30
+      },
+      "evidence_support_counts": {
+        "missing": 1,
+        "supported": 9,
+        "unknown": 22
+      },
+      "unsupported_query_rate": {
+        "numerator": 12,
+        "denominator": 32,
+        "value": 0.375
+      },
+      "ambiguous_query_rate": {
+        "numerator": 10,
+        "denominator": 32,
+        "value": 0.3125
+      },
+      "unknown_support_rate": {
+        "numerator": 22,
+        "denominator": 32,
+        "value": 0.6875
+      },
+      "context": {
+        "size_measurement": "canonical_serialized_final_items_utf8_bytes_not_tokens",
+        "min_bytes": 26582,
+        "max_bytes": 60183,
+        "mean_bytes": 50761.6875,
+        "supplementary_items_total": 0,
+        "max_supplementary_items": 0,
+        "incomplete_context_count": 7
+      }
+    },
+    "B": {
+      "case_count": 32,
+      "positive_class": "proceed",
+      "negative_class": "abstain",
+      "dataset_label_confusion_matrix": {
+        "tp": 5,
+        "tn": 14,
+        "fp": 2,
+        "fn": 11
+      },
+      "dataset_label_metrics": {
+        "accuracy": {
+          "numerator": 19,
+          "denominator": 32,
+          "value": 0.59375
+        },
+        "precision": {
+          "numerator": 5,
+          "denominator": 7,
+          "value": 0.7142857142857143
+        },
+        "recall": {
+          "numerator": 5,
+          "denominator": 16,
+          "value": 0.3125
+        },
+        "specificity": {
+          "numerator": 14,
+          "denominator": 16,
+          "value": 0.875
+        },
+        "f1": {
+          "numerator": 10,
+          "denominator": 23,
+          "value": 0.43478260869565216
+        }
+      },
+      "coverage": {
+        "numerator": 7,
+        "denominator": 32,
+        "value": 0.21875
+      },
+      "selective_error": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": 0.2857142857142857
+      },
+      "selective_error_basis": "dataset_expected_decision",
+      "context_eligibility_known_label_count": 31,
+      "context_eligibility_unknown_label_count": 1,
+      "context_eligibility_confusion_matrix": {
+        "tp": 5,
+        "tn": 15,
+        "fp": 2,
+        "fn": 9
+      },
+      "context_eligibility_metrics": {
+        "accuracy": {
+          "numerator": 20,
+          "denominator": 31,
+          "value": 0.6451612903225806
+        },
+        "precision": {
+          "numerator": 5,
+          "denominator": 7,
+          "value": 0.7142857142857143
+        },
+        "recall": {
+          "numerator": 5,
+          "denominator": 14,
+          "value": 0.35714285714285715
+        },
+        "specificity": {
+          "numerator": 15,
+          "denominator": 17,
+          "value": 0.8823529411764706
+        },
+        "f1": {
+          "numerator": 10,
+          "denominator": 21,
+          "value": 0.47619047619047616
+        }
+      },
+      "context_selective_error": {
+        "numerator": 2,
+        "denominator": 7,
+        "value": 0.2857142857142857
+      },
+      "false_proceed_by_category": {
+        "unrelated": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": 0.125
+        },
+        "insufficient_evidence": {
+          "numerator": 1,
+          "denominator": 8,
+          "value": 0.125
+        }
+      },
+      "false_abstain_context_sufficient": {
+        "numerator": 9,
+        "denominator": 14,
+        "value": 0.6428571428571429
+      },
+      "retained_context_sufficient_positives": 5,
+      "dataset_answerable_context_failure_count": 1,
+      "unknown_context_sufficiency_count": 9,
+      "layers": {
+        "topical_relevance": {
+          "case_count": 32,
+          "known_label_count": 32,
+          "unknown_label_count": 0,
+          "evaluated_known_label_count": 32,
+          "not_evaluated_count": 0,
+          "known_label_not_evaluated_count": 0,
+          "confusion_matrix": {
+            "tp": 6,
+            "tn": 7,
+            "fp": 1,
+            "fn": 18
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 13,
+              "denominator": 32,
+              "value": 0.40625
+            },
+            "precision": {
+              "numerator": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571
+            },
+            "recall": {
+              "numerator": 6,
+              "denominator": 24,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "f1": {
+              "numerator": 12,
+              "denominator": 31,
+              "value": 0.3870967741935484
+            }
+          }
+        },
+        "evidence_answerability": {
+          "case_count": 32,
+          "known_label_count": 23,
+          "unknown_label_count": 9,
+          "evaluated_known_label_count": 6,
+          "not_evaluated_count": 25,
+          "known_label_not_evaluated_count": 17,
+          "confusion_matrix": {
+            "tp": 5,
+            "tn": 0,
+            "fp": 1,
+            "fn": 0
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "specificity": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 11,
+              "value": 0.9090909090909091
+            }
+          }
+        }
+      },
+      "all_abstain": false,
+      "layer_summary_semantics": "unchanged_legacy_gate_stages; query_scope_support_counts_are_separate",
+      "by_language": {
+        "en": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 5,
+            "tn": 6,
+            "fp": 2,
+            "fn": 3
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 16,
+              "value": 0.6875
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "specificity": {
+              "numerator": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 15,
+              "value": 0.6666666666666666
+            }
+          },
+          "coverage": {
+            "numerator": 7,
+            "denominator": 16,
+            "value": 0.4375
+          },
+          "selective_error": {
+            "numerator": 2,
+            "denominator": 7,
+            "value": 0.2857142857142857
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 16,
+          "context_eligibility_unknown_label_count": 0,
+          "context_eligibility_confusion_matrix": {
+            "tp": 5,
+            "tn": 6,
+            "fp": 2,
+            "fn": 3
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 11,
+              "denominator": 16,
+              "value": 0.6875
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 7,
+              "value": 0.7142857142857143
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 8,
+              "value": 0.625
+            },
+            "specificity": {
+              "numerator": 6,
+              "denominator": 8,
+              "value": 0.75
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 15,
+              "value": 0.6666666666666666
+            }
+          },
+          "context_selective_error": {
+            "numerator": 2,
+            "denominator": 7,
+            "value": 0.2857142857142857
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 1,
+              "denominator": 4,
+              "value": 0.25
+            },
+            "insufficient_evidence": {
+              "numerator": 1,
+              "denominator": 4,
+              "value": 0.25
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 3,
+            "denominator": 8,
+            "value": 0.375
+          },
+          "retained_context_sufficient_positives": 5,
+          "dataset_answerable_context_failure_count": 0,
+          "unknown_context_sufficiency_count": 4,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 6,
+                "tn": 3,
+                "fp": 1,
+                "fn": 6
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 9,
+                  "denominator": 16,
+                  "value": 0.5625
+                },
+                "precision": {
+                  "numerator": 6,
+                  "denominator": 7,
+                  "value": 0.8571428571428571
+                },
+                "recall": {
+                  "numerator": 6,
+                  "denominator": 12,
+                  "value": 0.5
+                },
+                "specificity": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "value": 0.75
+                },
+                "f1": {
+                  "numerator": 12,
+                  "denominator": 19,
+                  "value": 0.631578947368421
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 12,
+              "unknown_label_count": 4,
+              "evaluated_known_label_count": 6,
+              "not_evaluated_count": 9,
+              "known_label_not_evaluated_count": 6,
+              "confusion_matrix": {
+                "tp": 5,
+                "tn": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "precision": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "recall": {
+                  "numerator": 5,
+                  "denominator": 5,
+                  "value": 1.0
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "value": 0.0
+                },
+                "f1": {
+                  "numerator": 10,
+                  "denominator": 11,
+                  "value": 0.9090909090909091
+                }
+              }
+            }
+          },
+          "all_abstain": false
+        },
+        "vi": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 0,
+            "tn": 8,
+            "fp": 0,
+            "fn": 8
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "coverage": {
+            "numerator": 0,
+            "denominator": 16,
+            "value": 0.0
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 15,
+          "context_eligibility_unknown_label_count": 1,
+          "context_eligibility_confusion_matrix": {
+            "tp": 0,
+            "tn": 9,
+            "fp": 0,
+            "fn": 6
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 9,
+              "denominator": 15,
+              "value": 0.6
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1.0
+          },
+          "retained_context_sufficient_positives": 0,
+          "dataset_answerable_context_failure_count": 1,
+          "unknown_context_sufficiency_count": 5,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 4,
+                "fp": 0,
+                "fn": 12
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 4,
+                  "denominator": 16,
+                  "value": 0.25
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                },
+                "specificity": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "value": 1.0
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 11,
+              "unknown_label_count": 5,
+              "evaluated_known_label_count": 0,
+              "not_evaluated_count": 16,
+              "known_label_not_evaluated_count": 11,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                }
+              }
+            }
+          },
+          "all_abstain": true
+        }
+      },
+      "query_analysis_counts": {
+        "ambiguous": 10,
+        "supported": 10,
+        "unsupported": 12
+      },
+      "scope_counts": {
+        "in_scope": 1,
+        "mismatch": 1,
+        "unspecified": 30
+      },
+      "evidence_support_counts": {
+        "missing": 1,
+        "supported": 9,
+        "unknown": 22
+      },
+      "unsupported_query_rate": {
+        "numerator": 12,
+        "denominator": 32,
+        "value": 0.375
+      },
+      "ambiguous_query_rate": {
+        "numerator": 10,
+        "denominator": 32,
+        "value": 0.3125
+      },
+      "unknown_support_rate": {
+        "numerator": 22,
+        "denominator": 32,
+        "value": 0.6875
+      },
+      "context": {
+        "size_measurement": "canonical_serialized_final_items_utf8_bytes_not_tokens",
+        "min_bytes": 26582,
+        "max_bytes": 62927,
+        "mean_bytes": 51345.3125,
+        "supplementary_items_total": 16,
+        "max_supplementary_items": 6,
+        "incomplete_context_count": 0
+      }
+    },
+    "C": {
+      "case_count": 32,
+      "positive_class": "proceed",
+      "negative_class": "abstain",
+      "dataset_label_confusion_matrix": {
+        "tp": 2,
+        "tn": 16,
+        "fp": 0,
+        "fn": 14
+      },
+      "dataset_label_metrics": {
+        "accuracy": {
+          "numerator": 18,
+          "denominator": 32,
+          "value": 0.5625
+        },
+        "precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "recall": {
+          "numerator": 2,
+          "denominator": 16,
+          "value": 0.125
+        },
+        "specificity": {
+          "numerator": 16,
+          "denominator": 16,
+          "value": 1.0
+        },
+        "f1": {
+          "numerator": 4,
+          "denominator": 18,
+          "value": 0.2222222222222222
+        }
+      },
+      "coverage": {
+        "numerator": 2,
+        "denominator": 32,
+        "value": 0.0625
+      },
+      "selective_error": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "selective_error_basis": "dataset_expected_decision",
+      "context_eligibility_known_label_count": 30,
+      "context_eligibility_unknown_label_count": 2,
+      "context_eligibility_confusion_matrix": {
+        "tp": 2,
+        "tn": 17,
+        "fp": 0,
+        "fn": 11
+      },
+      "context_eligibility_metrics": {
+        "accuracy": {
+          "numerator": 19,
+          "denominator": 30,
+          "value": 0.6333333333333333
+        },
+        "precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "recall": {
+          "numerator": 2,
+          "denominator": 13,
+          "value": 0.15384615384615385
+        },
+        "specificity": {
+          "numerator": 17,
+          "denominator": 17,
+          "value": 1.0
+        },
+        "f1": {
+          "numerator": 4,
+          "denominator": 15,
+          "value": 0.26666666666666666
+        }
+      },
+      "context_selective_error": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "false_proceed_by_category": {
+        "unrelated": {
+          "numerator": 0,
+          "denominator": 8,
+          "value": 0.0
+        },
+        "insufficient_evidence": {
+          "numerator": 0,
+          "denominator": 8,
+          "value": 0.0
+        }
+      },
+      "false_abstain_context_sufficient": {
+        "numerator": 11,
+        "denominator": 13,
+        "value": 0.8461538461538461
+      },
+      "retained_context_sufficient_positives": 2,
+      "dataset_answerable_context_failure_count": 1,
+      "unknown_context_sufficiency_count": 10,
+      "layers": {
+        "topical_relevance": {
+          "case_count": 32,
+          "known_label_count": 32,
+          "unknown_label_count": 0,
+          "evaluated_known_label_count": 32,
+          "not_evaluated_count": 0,
+          "known_label_not_evaluated_count": 0,
+          "confusion_matrix": {
+            "tp": 6,
+            "tn": 7,
+            "fp": 1,
+            "fn": 18
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 13,
+              "denominator": 32,
+              "value": 0.40625
+            },
+            "precision": {
+              "numerator": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571
+            },
+            "recall": {
+              "numerator": 6,
+              "denominator": 24,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "f1": {
+              "numerator": 12,
+              "denominator": 31,
+              "value": 0.3870967741935484
+            }
+          }
+        },
+        "evidence_answerability": {
+          "case_count": 32,
+          "known_label_count": 22,
+          "unknown_label_count": 10,
+          "evaluated_known_label_count": 6,
+          "not_evaluated_count": 25,
+          "known_label_not_evaluated_count": 16,
+          "confusion_matrix": {
+            "tp": 5,
+            "tn": 0,
+            "fp": 1,
+            "fn": 0
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "specificity": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 11,
+              "value": 0.9090909090909091
+            }
+          }
+        }
+      },
+      "all_abstain": false,
+      "layer_summary_semantics": "unchanged_legacy_gate_stages; query_scope_support_counts_are_separate",
+      "by_language": {
+        "en": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 2,
+            "tn": 8,
+            "fp": 0,
+            "fn": 6
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 10,
+              "denominator": 16,
+              "value": 0.625
+            },
+            "precision": {
+              "numerator": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "numerator": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 4,
+              "denominator": 10,
+              "value": 0.4
+            }
+          },
+          "coverage": {
+            "numerator": 2,
+            "denominator": 16,
+            "value": 0.125
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 16,
+          "context_eligibility_unknown_label_count": 0,
+          "context_eligibility_confusion_matrix": {
+            "tp": 2,
+            "tn": 8,
+            "fp": 0,
+            "fn": 6
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 10,
+              "denominator": 16,
+              "value": 0.625
+            },
+            "precision": {
+              "numerator": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "numerator": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 4,
+              "denominator": 10,
+              "value": 0.4
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 6,
+            "denominator": 8,
+            "value": 0.75
+          },
+          "retained_context_sufficient_positives": 2,
+          "dataset_answerable_context_failure_count": 0,
+          "unknown_context_sufficiency_count": 4,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 6,
+                "tn": 3,
+                "fp": 1,
+                "fn": 6
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 9,
+                  "denominator": 16,
+                  "value": 0.5625
+                },
+                "precision": {
+                  "numerator": 6,
+                  "denominator": 7,
+                  "value": 0.8571428571428571
+                },
+                "recall": {
+                  "numerator": 6,
+                  "denominator": 12,
+                  "value": 0.5
+                },
+                "specificity": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "value": 0.75
+                },
+                "f1": {
+                  "numerator": 12,
+                  "denominator": 19,
+                  "value": 0.631578947368421
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 12,
+              "unknown_label_count": 4,
+              "evaluated_known_label_count": 6,
+              "not_evaluated_count": 9,
+              "known_label_not_evaluated_count": 6,
+              "confusion_matrix": {
+                "tp": 5,
+                "tn": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "precision": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "recall": {
+                  "numerator": 5,
+                  "denominator": 5,
+                  "value": 1.0
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "value": 0.0
+                },
+                "f1": {
+                  "numerator": 10,
+                  "denominator": 11,
+                  "value": 0.9090909090909091
+                }
+              }
+            }
+          },
+          "all_abstain": false
+        },
+        "vi": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 0,
+            "tn": 8,
+            "fp": 0,
+            "fn": 8
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "coverage": {
+            "numerator": 0,
+            "denominator": 16,
+            "value": 0.0
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 14,
+          "context_eligibility_unknown_label_count": 2,
+          "context_eligibility_confusion_matrix": {
+            "tp": 0,
+            "tn": 9,
+            "fp": 0,
+            "fn": 5
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 9,
+              "denominator": 14,
+              "value": 0.6428571428571429
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 5,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 5,
+              "value": 0.0
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 5,
+            "denominator": 5,
+            "value": 1.0
+          },
+          "retained_context_sufficient_positives": 0,
+          "dataset_answerable_context_failure_count": 1,
+          "unknown_context_sufficiency_count": 6,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 4,
+                "fp": 0,
+                "fn": 12
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 4,
+                  "denominator": 16,
+                  "value": 0.25
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                },
+                "specificity": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "value": 1.0
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 10,
+              "unknown_label_count": 6,
+              "evaluated_known_label_count": 0,
+              "not_evaluated_count": 16,
+              "known_label_not_evaluated_count": 10,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                }
+              }
+            }
+          },
+          "all_abstain": true
+        }
+      },
+      "query_analysis_counts": {
+        "ambiguous": 10,
+        "supported": 10,
+        "unsupported": 12
+      },
+      "scope_counts": {
+        "in_scope": 1,
+        "mismatch": 1,
+        "unspecified": 30
+      },
+      "evidence_support_counts": {
+        "missing": 1,
+        "supported": 9,
+        "unknown": 22
+      },
+      "unsupported_query_rate": {
+        "numerator": 12,
+        "denominator": 32,
+        "value": 0.375
+      },
+      "ambiguous_query_rate": {
+        "numerator": 10,
+        "denominator": 32,
+        "value": 0.3125
+      },
+      "unknown_support_rate": {
+        "numerator": 22,
+        "denominator": 32,
+        "value": 0.6875
+      },
+      "context": {
+        "size_measurement": "canonical_serialized_final_items_utf8_bytes_not_tokens",
+        "min_bytes": 26582,
+        "max_bytes": 60183,
+        "mean_bytes": 50761.6875,
+        "supplementary_items_total": 0,
+        "max_supplementary_items": 0,
+        "incomplete_context_count": 7
+      }
+    },
+    "D": {
+      "case_count": 32,
+      "positive_class": "proceed",
+      "negative_class": "abstain",
+      "dataset_label_confusion_matrix": {
+        "tp": 2,
+        "tn": 16,
+        "fp": 0,
+        "fn": 14
+      },
+      "dataset_label_metrics": {
+        "accuracy": {
+          "numerator": 18,
+          "denominator": 32,
+          "value": 0.5625
+        },
+        "precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "recall": {
+          "numerator": 2,
+          "denominator": 16,
+          "value": 0.125
+        },
+        "specificity": {
+          "numerator": 16,
+          "denominator": 16,
+          "value": 1.0
+        },
+        "f1": {
+          "numerator": 4,
+          "denominator": 18,
+          "value": 0.2222222222222222
+        }
+      },
+      "coverage": {
+        "numerator": 2,
+        "denominator": 32,
+        "value": 0.0625
+      },
+      "selective_error": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "selective_error_basis": "dataset_expected_decision",
+      "context_eligibility_known_label_count": 31,
+      "context_eligibility_unknown_label_count": 1,
+      "context_eligibility_confusion_matrix": {
+        "tp": 2,
+        "tn": 17,
+        "fp": 0,
+        "fn": 12
+      },
+      "context_eligibility_metrics": {
+        "accuracy": {
+          "numerator": 19,
+          "denominator": 31,
+          "value": 0.6129032258064516
+        },
+        "precision": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "recall": {
+          "numerator": 2,
+          "denominator": 14,
+          "value": 0.14285714285714285
+        },
+        "specificity": {
+          "numerator": 17,
+          "denominator": 17,
+          "value": 1.0
+        },
+        "f1": {
+          "numerator": 4,
+          "denominator": 16,
+          "value": 0.25
+        }
+      },
+      "context_selective_error": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "false_proceed_by_category": {
+        "unrelated": {
+          "numerator": 0,
+          "denominator": 8,
+          "value": 0.0
+        },
+        "insufficient_evidence": {
+          "numerator": 0,
+          "denominator": 8,
+          "value": 0.0
+        }
+      },
+      "false_abstain_context_sufficient": {
+        "numerator": 12,
+        "denominator": 14,
+        "value": 0.8571428571428571
+      },
+      "retained_context_sufficient_positives": 2,
+      "dataset_answerable_context_failure_count": 1,
+      "unknown_context_sufficiency_count": 9,
+      "layers": {
+        "topical_relevance": {
+          "case_count": 32,
+          "known_label_count": 32,
+          "unknown_label_count": 0,
+          "evaluated_known_label_count": 32,
+          "not_evaluated_count": 0,
+          "known_label_not_evaluated_count": 0,
+          "confusion_matrix": {
+            "tp": 6,
+            "tn": 7,
+            "fp": 1,
+            "fn": 18
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 13,
+              "denominator": 32,
+              "value": 0.40625
+            },
+            "precision": {
+              "numerator": 6,
+              "denominator": 7,
+              "value": 0.8571428571428571
+            },
+            "recall": {
+              "numerator": 6,
+              "denominator": 24,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 7,
+              "denominator": 8,
+              "value": 0.875
+            },
+            "f1": {
+              "numerator": 12,
+              "denominator": 31,
+              "value": 0.3870967741935484
+            }
+          }
+        },
+        "evidence_answerability": {
+          "case_count": 32,
+          "known_label_count": 23,
+          "unknown_label_count": 9,
+          "evaluated_known_label_count": 6,
+          "not_evaluated_count": 25,
+          "known_label_not_evaluated_count": 17,
+          "confusion_matrix": {
+            "tp": 5,
+            "tn": 0,
+            "fp": 1,
+            "fn": 0
+          },
+          "metrics": {
+            "accuracy": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "precision": {
+              "numerator": 5,
+              "denominator": 6,
+              "value": 0.8333333333333334
+            },
+            "recall": {
+              "numerator": 5,
+              "denominator": 5,
+              "value": 1.0
+            },
+            "specificity": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "f1": {
+              "numerator": 10,
+              "denominator": 11,
+              "value": 0.9090909090909091
+            }
+          }
+        }
+      },
+      "all_abstain": false,
+      "layer_summary_semantics": "unchanged_legacy_gate_stages; query_scope_support_counts_are_separate",
+      "by_language": {
+        "en": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 2,
+            "tn": 8,
+            "fp": 0,
+            "fn": 6
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 10,
+              "denominator": 16,
+              "value": 0.625
+            },
+            "precision": {
+              "numerator": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "numerator": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 4,
+              "denominator": 10,
+              "value": 0.4
+            }
+          },
+          "coverage": {
+            "numerator": 2,
+            "denominator": 16,
+            "value": 0.125
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 16,
+          "context_eligibility_unknown_label_count": 0,
+          "context_eligibility_confusion_matrix": {
+            "tp": 2,
+            "tn": 8,
+            "fp": 0,
+            "fn": 6
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 10,
+              "denominator": 16,
+              "value": 0.625
+            },
+            "precision": {
+              "numerator": 2,
+              "denominator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "numerator": 2,
+              "denominator": 8,
+              "value": 0.25
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 4,
+              "denominator": 10,
+              "value": 0.4
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 2,
+            "value": 0.0
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 6,
+            "denominator": 8,
+            "value": 0.75
+          },
+          "retained_context_sufficient_positives": 2,
+          "dataset_answerable_context_failure_count": 0,
+          "unknown_context_sufficiency_count": 4,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 6,
+                "tn": 3,
+                "fp": 1,
+                "fn": 6
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 9,
+                  "denominator": 16,
+                  "value": 0.5625
+                },
+                "precision": {
+                  "numerator": 6,
+                  "denominator": 7,
+                  "value": 0.8571428571428571
+                },
+                "recall": {
+                  "numerator": 6,
+                  "denominator": 12,
+                  "value": 0.5
+                },
+                "specificity": {
+                  "numerator": 3,
+                  "denominator": 4,
+                  "value": 0.75
+                },
+                "f1": {
+                  "numerator": 12,
+                  "denominator": 19,
+                  "value": 0.631578947368421
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 12,
+              "unknown_label_count": 4,
+              "evaluated_known_label_count": 6,
+              "not_evaluated_count": 9,
+              "known_label_not_evaluated_count": 6,
+              "confusion_matrix": {
+                "tp": 5,
+                "tn": 0,
+                "fp": 1,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "precision": {
+                  "numerator": 5,
+                  "denominator": 6,
+                  "value": 0.8333333333333334
+                },
+                "recall": {
+                  "numerator": 5,
+                  "denominator": 5,
+                  "value": 1.0
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 1,
+                  "value": 0.0
+                },
+                "f1": {
+                  "numerator": 10,
+                  "denominator": 11,
+                  "value": 0.9090909090909091
+                }
+              }
+            }
+          },
+          "all_abstain": false
+        },
+        "vi": {
+          "case_count": 16,
+          "positive_class": "proceed",
+          "negative_class": "abstain",
+          "dataset_label_confusion_matrix": {
+            "tp": 0,
+            "tn": 8,
+            "fp": 0,
+            "fn": 8
+          },
+          "dataset_label_metrics": {
+            "accuracy": {
+              "numerator": 8,
+              "denominator": 16,
+              "value": 0.5
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 8,
+              "denominator": 8,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 8,
+              "value": 0.0
+            }
+          },
+          "coverage": {
+            "numerator": 0,
+            "denominator": 16,
+            "value": 0.0
+          },
+          "selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "selective_error_basis": "dataset_expected_decision",
+          "context_eligibility_known_label_count": 15,
+          "context_eligibility_unknown_label_count": 1,
+          "context_eligibility_confusion_matrix": {
+            "tp": 0,
+            "tn": 9,
+            "fp": 0,
+            "fn": 6
+          },
+          "context_eligibility_metrics": {
+            "accuracy": {
+              "numerator": 9,
+              "denominator": 15,
+              "value": 0.6
+            },
+            "precision": {
+              "numerator": 0,
+              "denominator": 0,
+              "value": null
+            },
+            "recall": {
+              "numerator": 0,
+              "denominator": 6,
+              "value": 0.0
+            },
+            "specificity": {
+              "numerator": 9,
+              "denominator": 9,
+              "value": 1.0
+            },
+            "f1": {
+              "numerator": 0,
+              "denominator": 6,
+              "value": 0.0
+            }
+          },
+          "context_selective_error": {
+            "numerator": 0,
+            "denominator": 0,
+            "value": null
+          },
+          "false_proceed_by_category": {
+            "unrelated": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            },
+            "insufficient_evidence": {
+              "numerator": 0,
+              "denominator": 4,
+              "value": 0.0
+            }
+          },
+          "false_abstain_context_sufficient": {
+            "numerator": 6,
+            "denominator": 6,
+            "value": 1.0
+          },
+          "retained_context_sufficient_positives": 0,
+          "dataset_answerable_context_failure_count": 1,
+          "unknown_context_sufficiency_count": 5,
+          "layers": {
+            "topical_relevance": {
+              "case_count": 16,
+              "known_label_count": 16,
+              "unknown_label_count": 0,
+              "evaluated_known_label_count": 16,
+              "not_evaluated_count": 0,
+              "known_label_not_evaluated_count": 0,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 4,
+                "fp": 0,
+                "fn": 12
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 4,
+                  "denominator": 16,
+                  "value": 0.25
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                },
+                "specificity": {
+                  "numerator": 4,
+                  "denominator": 4,
+                  "value": 1.0
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 12,
+                  "value": 0.0
+                }
+              }
+            },
+            "evidence_answerability": {
+              "case_count": 16,
+              "known_label_count": 11,
+              "unknown_label_count": 5,
+              "evaluated_known_label_count": 0,
+              "not_evaluated_count": 16,
+              "known_label_not_evaluated_count": 11,
+              "confusion_matrix": {
+                "tp": 0,
+                "tn": 0,
+                "fp": 0,
+                "fn": 0
+              },
+              "metrics": {
+                "accuracy": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "precision": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "recall": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "specificity": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                },
+                "f1": {
+                  "numerator": 0,
+                  "denominator": 0,
+                  "value": null
+                }
+              }
+            }
+          },
+          "all_abstain": true
+        }
+      },
+      "query_analysis_counts": {
+        "ambiguous": 10,
+        "supported": 10,
+        "unsupported": 12
+      },
+      "scope_counts": {
+        "in_scope": 1,
+        "mismatch": 1,
+        "unspecified": 30
+      },
+      "evidence_support_counts": {
+        "missing": 1,
+        "supported": 9,
+        "unknown": 22
+      },
+      "unsupported_query_rate": {
+        "numerator": 12,
+        "denominator": 32,
+        "value": 0.375
+      },
+      "ambiguous_query_rate": {
+        "numerator": 10,
+        "denominator": 32,
+        "value": 0.3125
+      },
+      "unknown_support_rate": {
+        "numerator": 22,
+        "denominator": 32,
+        "value": 0.6875
+      },
+      "context": {
+        "size_measurement": "canonical_serialized_final_items_utf8_bytes_not_tokens",
+        "min_bytes": 26582,
+        "max_bytes": 62927,
+        "mean_bytes": 51345.3125,
+        "supplementary_items_total": 16,
+        "max_supplementary_items": 6,
+        "incomplete_context_count": 0
+      }
+    }
+  },
+  "development_case_count": 32,
+  "independent_validation": false,
+  "new_probe_queries_executed": 0,
+  "model_calls": 0,
+  "threshold_candidates_evaluated": 0,
+  "ranked_context_and_old_policy_unchanged": true,
+  "B_uses_final_context_evidence_but_old_policy_reads_only_ranked_signals": true,
+  "query_aware_support_is_not_external_ground_truth": true
+}

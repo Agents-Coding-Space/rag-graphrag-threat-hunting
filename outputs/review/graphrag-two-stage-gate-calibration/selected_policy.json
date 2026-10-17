@@ -1,0 +1,28 @@
+{
+  "schema_version": "graphrag-two-stage-gate-policy/v1",
+  "policy_id": "two-stage-dev-5a4b308b106699e0",
+  "topical_relevance": {
+    "min_retrieval_hit_count": 1,
+    "min_lexical_hit_count": 0,
+    "min_vector_hit_count": 0,
+    "min_joint_lexical_vector_hit_count": 0,
+    "min_query_token_coverage": 0.18181818,
+    "min_returned_top_rrf_score": null,
+    "min_returned_top_bm25_score": null,
+    "min_returned_top_cosine_score": 0.84299805
+  },
+  "evidence_answerability": {
+    "min_hits_with_evidence_ids": 0,
+    "min_hits_with_source_references": 0,
+    "min_unique_source_reference_count": 0,
+    "min_mapped_hit_count": 1,
+    "min_seed_node_count": 1,
+    "require_traversal": true,
+    "min_traversal_node_count": 0,
+    "min_traversal_edge_count": 0,
+    "min_traversal_path_count": 0,
+    "min_traversed_evidence_node_count": 0,
+    "min_support_edge_count": 0,
+    "max_traversed_limitation_node_count": null
+  }
+}
