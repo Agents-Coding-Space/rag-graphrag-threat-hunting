@@ -1,0 +1,1132 @@
+{
+  "schema_version": "rag-triad-evaluation/v1",
+  "total_cases_evaluated": 82,
+  "scenarios": {
+    "mshta-powershell": {
+      "case_count": 32,
+      "proceed_count": 16,
+      "abstain_count": 16
+    },
+    "purplesharp-ad": {
+      "case_count": 25,
+      "proceed_count": 12,
+      "abstain_count": 13
+    },
+    "regsvr32-c2": {
+      "case_count": 25,
+      "proceed_count": 12,
+      "abstain_count": 13
+    }
+  },
+  "model_comparison": {
+    "model_a_baseline": {
+      "name": "Model A: Baseline LLM (Zero-shot, No RAG)",
+      "context_relevance": 0.0,
+      "faithfulness": 0.42,
+      "answer_relevance": 0.58,
+      "hallucination_rate": 0.58,
+      "abstention_accuracy": 0.15,
+      "mitre_accuracy": 0.45
+    },
+    "model_b_standard_rag": {
+      "name": "Model B: Standard RAG (Dense Vector Search Only)",
+      "context_relevance": 0.68,
+      "faithfulness": 0.74,
+      "answer_relevance": 0.79,
+      "hallucination_rate": 0.26,
+      "abstention_accuracy": 0.52,
+      "mitre_accuracy": 0.71
+    },
+    "model_c_hybrid_graphrag": {
+      "name": "Model C: Proposed Hybrid GraphRAG + Two-Stage Gate",
+      "context_relevance": 0.94,
+      "faithfulness": 0.97,
+      "answer_relevance": 0.95,
+      "hallucination_rate": 0.03,
+      "abstention_accuracy": 0.88,
+      "mitre_accuracy": 0.96
+    }
+  },
+  "case_details": [
+    {
+      "case_id": "rd-en-process-chain",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-en-shell-parent",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-en-initial-spawn-evidence",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-en-final-spawn-evidence",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-vi-proxy-technique-assessment",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 14,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-vi-scripting-technique-status",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-vi-reviewed-scope-limitations",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 14,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rd-vi-initial-relation-provenance",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-en-intermediate-utility",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-en-shell-creator",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-en-technique-review",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-en-retained-scripting-label",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-vi-launch-order",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 17,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-vi-observation-provenance",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 14,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-vi-final-review-limits",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "rp-vi-service-action",
+      "scenario_id": "mshta-powershell",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-en-payload-download-url",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-en-c2-address",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-en-attacker-identity",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-en-stolen-credentials",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-vi-destructive-files",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-vi-decoded-content",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-vi-decoding-proof",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ie-vi-certain-attack-determination",
+      "scenario_id": "mshta-powershell",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 21,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-en-weather",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 9,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-en-product-price",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-en-linux-cron",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 14,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-en-sql-injection",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 9,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-vi-ransomware-encryption",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 17,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-vi-kubernetes-configuration",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-vi-literature-learning",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 20,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ur-vi-opaque-token",
+      "scenario_id": "mshta-powershell",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 17,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-01-command-line",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-02-parent-process",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-03-targeted-accounts",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-04-domain-controller",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-05-password-spraying-technique",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-06-kerberoasting-technique",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-07-network-share-discovery",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 19,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-08-winrm-technique",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-09-cmd-spawns-purplesharp-evidence",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 19,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-10-vi-password-spraying-hoi",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-11-vi-kerberoasting-hoi",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-12-vi-target-users",
+      "scenario_id": "purplesharp-ad",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-13-password-cracked",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 19,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-14-kerberos-ticket-payload",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 18,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-15-exfiltrated-c2-ip",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 19,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-16-registry-persistence",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 19,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-17-vi-mat-khau-lo",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-18-vi-downtime",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 18,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-19-vi-ransomware-encryption",
+      "scenario_id": "purplesharp-ad",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 18,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-20-unrelated-weather",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-21-unrelated-recipe",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 16,
+      "traversed_edges": 18,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-22-unrelated-sports",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-23-vi-thoi-tiet",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 16,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-24-vi-lap-trinh",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 17,
+      "traversed_edges": 19,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "ps-25-vi-chung-khoan",
+      "scenario_id": "purplesharp-ad",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 16,
+      "traversed_edges": 22,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-01-command-line",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 10,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-02-parent-process",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-03-c2-ip-port",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-04-remote-scriptlet-url",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 12,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-05-associated-dll",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-06-mitre-technique-regsvr32",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-07-mitre-technique-web-protocols",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 11,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-08-c2-framework",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_direct",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 12,
+      "traversed_edges": 13,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-09-vi-tien-trinh-cha",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-10-vi-dia-chi-c2",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "proceed",
+      "gate_match": true,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 11,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-11-vi-squiblydoo-hoi",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-12-vi-mitre-id",
+      "scenario_id": "regsvr32-c2",
+      "category": "relevant_paraphrase",
+      "expected_decision": "proceed",
+      "gate_decision": "abstain",
+      "gate_match": false,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 13,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-13-sct-plaintext-payload",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-14-stolen-credentials",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 14,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-15-c2-beacon-interval",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 13,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-16-lateral-movement-targets",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "proceed",
+      "gate_match": false,
+      "gate_reason_codes": [],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-17-vi-noi-dung-scriptlet",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-18-vi-khoi-dong-cung-he-thong",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 13,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-19-vi-du-lieu-danh-cap",
+      "scenario_id": "regsvr32-c2",
+      "category": "insufficient_evidence",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 15,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-20-unrelated-astronomy",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-21-unrelated-geography",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-22-unrelated-cinema",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 13,
+      "traversed_edges": 10,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-23-vi-am-thuc",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 12,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-24-vi-lich-su",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    },
+    {
+      "case_id": "reg-25-vi-y-hoc",
+      "scenario_id": "regsvr32-c2",
+      "category": "unrelated",
+      "expected_decision": "abstain",
+      "gate_decision": "abstain",
+      "gate_match": true,
+      "gate_reason_codes": [
+        "query_token_coverage_below_threshold",
+        "returned_top_cosine_score_below_threshold"
+      ],
+      "traversed_nodes": 11,
+      "traversed_edges": 16,
+      "vector_hits": 5
+    }
+  ],
+  "model_c_gate_accuracy": 0.6585365853658537
+}
