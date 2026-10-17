@@ -2,15 +2,23 @@
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 import logging
+import os
 from pathlib import Path
+import sys
 from typing import Any, AsyncGenerator
+
+# Auto-inject src directory into sys.path to guarantee robust imports
+SRC_DIR = Path(__file__).resolve().parents[2]
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
-import asyncio
 
 from threat_hunting.graph import load_knowledge_graph
 from threat_hunting.graphrag import build_graphrag_context
@@ -137,13 +145,37 @@ _embedding_backend: SentenceTransformerEmbeddingBackend | None = None
 def get_embedding_backend() -> SentenceTransformerEmbeddingBackend:
     global _embedding_backend
     if _embedding_backend is None:
+        model_id = "intfloat/multilingual-e5-small"
+        revision = "614241f622f53c4eeff9890bdc4f31cfecc418b3"
+        snapshot = (
+            Path.home()
+            / ".cache/huggingface/hub"
+            / ("models--" + model_id.replace("/", "--"))
+            / "snapshots"
+            / revision
+        )
+        snapshot_path = str(snapshot) if (snapshot / "modules.json").is_file() else model_id
+
+        def factory(m_id: str, *, revision: str, device: str) -> Any:
+            for setting in (
+                "HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE",
+                "HF_HUB_DISABLE_TELEMETRY", "HF_HUB_DISABLE_IMPLICIT_TOKEN", "DO_NOT_TRACK",
+            ):
+                os.environ[setting] = "1"
+            from sentence_transformers import SentenceTransformer
+            return SentenceTransformer(
+                snapshot_path, device=device, local_files_only=True,
+                token=False, trust_remote_code=False,
+            )
+
         _embedding_backend = SentenceTransformerEmbeddingBackend(
-            model_id="intfloat/multilingual-e5-small",
-            model_revision="614241f622f53c4eeff9890bdc4f31cfecc418b3",
+            model_id=model_id,
+            model_revision=revision,
             dimension=384,
             device="cpu",
             batch_size=32,
             show_progress_bar=False,
+            model_factory=factory,
         )
     return _embedding_backend
 
