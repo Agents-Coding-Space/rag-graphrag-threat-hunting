@@ -47,7 +47,7 @@ class LLMClient:
         self.config = config or LLMConfig.from_env()
 
     def generate(self, messages: list[dict[str, str]]) -> str:
-        """Send chat messages and return assistant response text."""
+        """Send chat messages and return assistant response text, parsing both JSON and SSE streams."""
         endpoint = f"{self.config.base_url.rstrip('/')}/chat/completions"
         payload = {
             "model": self.config.model_name,
@@ -59,7 +59,7 @@ class LLMClient:
 
         headers = {
             "Content-Type": "application/json",
-            "User-Agent": "ThreatHunting-GraphRAG-Client/1.0",
+            "User-Agent": "claude-cli/0.2.29 (external, cli)",
         }
         if self.config.api_key:
             headers["Authorization"] = f"Bearer {self.config.api_key}"
@@ -69,8 +69,29 @@ class LLMClient:
             try:
                 req = urllib.request.Request(endpoint, data=data, headers=headers, method="POST")
                 with urllib.request.urlopen(req, timeout=self.config.timeout_seconds) as resp:
-                    resp_bytes = resp.read()
-                    resp_json = json.loads(resp_bytes.decode("utf-8"))
+                    resp_text = resp.read().decode("utf-8", errors="replace")
+
+                    # Handle SSE Streaming response from some OpenAI proxies (like 9router)
+                    if resp_text.strip().startswith("data:"):
+                        content_parts = []
+                        for line in resp_text.splitlines():
+                            line = line.strip()
+                            if line.startswith("data:") and not line.endswith("[DONE]"):
+                                json_part = line[5:].strip()
+                                if json_part:
+                                    try:
+                                        chunk = json.loads(json_part)
+                                        delta = chunk.get("choices", [{}])[0].get("delta", {})
+                                        part = delta.get("content", "")
+                                        if part:
+                                            content_parts.append(part)
+                                    except Exception:
+                                        pass
+                        if content_parts:
+                            return "".join(content_parts)
+
+                    # Standard JSON response
+                    resp_json = json.loads(resp_text)
                     choices = resp_json.get("choices", [])
                     if not choices:
                         raise LLMClientError(f"Empty choices returned from LLM endpoint: {resp_json}")

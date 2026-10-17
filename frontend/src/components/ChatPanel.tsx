@@ -30,6 +30,8 @@ export const ChatPanel: React.FC<Props> = ({
   const [query, setQuery] = useState('');
   const [enforceGate, setEnforceGate] = useState(true);
   const [useLLM, setUseLLM] = useState(true);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showDetailsMap, setShowDetailsMap] = useState<Record<string, boolean>>({});
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'welcome',
@@ -280,58 +282,84 @@ export const ChatPanel: React.FC<Props> = ({
                         </div>
                       </div>
 
-                      <div className="text-[11px] font-medium text-white leading-normal">
-                        {m.response.report.executive_summary}
+                      {/* Direct Short Answer from AI */}
+                      {m.response.report.direct_answer ? (
+                        <div className="bg-cyan-950/40 border border-cyan-500/30 rounded-lg p-2 text-cyan-200 text-[11px] leading-relaxed">
+                          <div className="flex items-center gap-1.5 font-semibold text-cyan-400 text-[10px] font-mono mb-1">
+                            <SparklesIcon className="w-3.5 h-3.5" /> Giải thích trực tiếp từ AI ({m.response.report.ai_engine || 'Gemma4 / Phong'}):
+                          </div>
+                          <div className="font-medium text-white">{m.response.report.direct_answer}</div>
+                        </div>
+                      ) : (
+                        <div className="text-[11px] font-medium text-white leading-normal">
+                          {m.response.report.executive_summary}
+                        </div>
+                      )}
+
+                      {/* Toggle Details Button */}
+                      <div className="pt-1 flex justify-end">
+                        <button
+                          type="button"
+                          onClick={() => setShowDetailsMap(prev => ({ ...prev, [m.id]: !prev[m.id] }))}
+                          className="text-[10px] font-mono text-cyan-400 hover:underline flex items-center gap-1"
+                        >
+                          {showDetailsMap[m.id] ? "▲ Thu gọn chi tiết kỹ thuật" : "▼ Xem chi tiết chuỗi tấn công & MITRE"}
+                        </button>
                       </div>
 
-                      {/* Attack Chain */}
-                      {(m.response.report.attack_chain?.length ?? 0) > 0 && (
-                        <div className="pt-2 border-t space-y-1.5" style={{ borderColor: 'var(--border-glass)' }}>
-                          <span className="text-[10px] text-soc-muted uppercase font-mono font-semibold block">
-                            Chuỗi Tấn Công (Attack Chain):
-                          </span>
-                          {m.response.report.attack_chain?.map((step) => (
-                            <div
-                              key={step.step_number}
-                              className="text-[10px] font-mono bg-black/40 p-2 rounded-md flex flex-col gap-0.5 border"
-                              style={{ borderColor: 'var(--border-glass)' }}
-                            >
-                              <div className="text-cyan-400 font-semibold">
-                                #{step.step_number}. {step.source_entity} ➔ {step.target_entity}
-                              </div>
-                              <div className="text-gray-400">Action: {step.action}</div>
-                              <div className="text-[9px] text-emerald-400">Ref: {step.evidence_ref}</div>
+                      {/* Collapsible Details */}
+                      {showDetailsMap[m.id] && (
+                        <div className="pt-2 border-t space-y-2" style={{ borderColor: 'var(--border-glass)' }}>
+                          {/* Attack Chain */}
+                          {(m.response.report.attack_chain?.length ?? 0) > 0 && (
+                            <div className="space-y-1.5">
+                              <span className="text-[10px] text-soc-muted uppercase font-mono font-semibold block">
+                                Chuỗi Tấn Công (Attack Chain):
+                              </span>
+                              {m.response.report.attack_chain?.map((step) => (
+                                <div
+                                  key={step.step_number}
+                                  className="text-[10px] font-mono bg-black/40 p-2 rounded-md flex flex-col gap-0.5 border"
+                                  style={{ borderColor: 'var(--border-glass)' }}
+                                >
+                                  <div className="text-cyan-400 font-semibold">
+                                    #{step.step_number}. {step.source_entity} ➔ {step.target_entity}
+                                  </div>
+                                  <div className="text-gray-400">Action: {step.action}</div>
+                                  <div className="text-[9px] text-emerald-400">Ref: {step.evidence_ref}</div>
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                        </div>
-                      )}
+                          )}
 
-                      {/* MITRE Mapping */}
-                      {(m.response.report.mitre_mappings?.length ?? 0) > 0 && (
-                        <div className="flex flex-wrap gap-1 pt-1">
-                          {m.response.report.mitre_mappings?.map((mitre) => (
-                            <span
-                              key={mitre.technique_id}
-                              className="px-1.5 py-0.5 rounded text-[10px] bg-rose-950/80 text-rose-300 border border-rose-900 font-mono"
-                              title={mitre.rationale}
-                            >
-                              {mitre.technique_id} ({mitre.technique_name})
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                          {/* MITRE Mapping */}
+                          {(m.response.report.mitre_mappings?.length ?? 0) > 0 && (
+                            <div className="flex flex-wrap gap-1 pt-1">
+                              {m.response.report.mitre_mappings?.map((mitre) => (
+                                <span
+                                  key={mitre.technique_id}
+                                  className="px-1.5 py-0.5 rounded text-[10px] bg-rose-950/80 text-rose-300 border border-rose-900 font-mono"
+                                  title={mitre.rationale}
+                                >
+                                  {mitre.technique_id} ({mitre.technique_name})
+                                </span>
+                              ))}
+                            </div>
+                          )}
 
-                      {/* Unverified Claims */}
-                      {(m.response.report.unverified_claims?.length ?? 0) > 0 && (
-                        <div className="p-2 rounded bg-amber-950/30 border border-amber-900/60 text-[10px] text-amber-300 space-y-0.5">
-                          <span className="font-semibold flex items-center gap-1 font-mono">
-                            <AlertTriangleIcon className="w-3 h-3" /> Giới hạn bằng chứng (Unverified):
-                          </span>
-                          <ul className="list-disc list-inside">
-                            {m.response.report.unverified_claims?.map((claim, idx) => (
-                              <li key={idx}>{claim}</li>
-                            ))}
-                          </ul>
+                          {/* Unverified Claims */}
+                          {(m.response.report.unverified_claims?.length ?? 0) > 0 && (
+                            <div className="p-2 rounded bg-amber-950/30 border border-amber-900/60 text-[10px] text-amber-300 space-y-0.5">
+                              <span className="font-semibold flex items-center gap-1 font-mono">
+                                <AlertTriangleIcon className="w-3 h-3" /> Giới hạn bằng chứng (Unverified):
+                              </span>
+                              <ul className="list-disc list-inside">
+                                {m.response.report.unverified_claims?.map((claim, idx) => (
+                                  <li key={idx}>{claim}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -372,21 +400,34 @@ export const ChatPanel: React.FC<Props> = ({
         )}
       </div>
 
-      {/* Quick Prompts */}
-      <div className="px-3.5 py-2 border-t bg-black/20" style={{ borderColor: 'var(--border-glass)' }}>
-        <span className="text-[10px] text-soc-muted font-mono block mb-1">Gợi ý truy vấn nhanh:</span>
-        <div className="flex flex-wrap gap-1">
-          {(quickQueries[selectedScenario] || []).map((q, idx) => (
-            <button
-              key={idx}
-              onClick={() => handleSend(q)}
-              className="text-[10px] bg-black/30 hover:bg-black/50 text-gray-300 hover:text-white px-2 py-1 rounded-md transition border font-mono truncate max-w-full text-left"
-              style={{ borderColor: 'var(--border-glass)' }}
-            >
-              {q}
-            </button>
-          ))}
+      {/* Quick Prompts (Collapsible with Toggle button) */}
+      <div className="border-t bg-black/20" style={{ borderColor: 'var(--border-glass)' }}>
+        <div className="px-3.5 py-1.5 flex items-center justify-between">
+          <span className="text-[10px] text-soc-muted font-mono uppercase tracking-wider font-semibold">Gợi ý truy vấn nhanh</span>
+          <button
+            type="button"
+            onClick={() => setShowSuggestions((prev) => !prev)}
+            className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/30 hover:bg-black/50 text-cyan-400 border transition flex items-center gap-1"
+            style={{ borderColor: 'var(--border-glass)' }}
+          >
+            {showSuggestions ? "▲ Ẩn gợi ý" : "▼ Hiện gợi ý"}
+          </button>
         </div>
+
+        {showSuggestions && (
+          <div className="px-3.5 pb-2.5 flex flex-wrap gap-1">
+            {(quickQueries[selectedScenario] || []).map((q, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleSend(q)}
+                className="text-[10px] bg-black/30 hover:bg-black/50 text-gray-300 hover:text-white px-2 py-1 rounded-md transition border font-mono truncate max-w-full text-left"
+                style={{ borderColor: 'var(--border-glass)' }}
+              >
+                {q}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Input Area */}

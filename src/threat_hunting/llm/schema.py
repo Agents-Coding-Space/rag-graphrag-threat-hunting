@@ -35,6 +35,7 @@ class ThreatHuntingReport(BaseModel):
 
     schema_version: Literal["threat-hunting-report/v1"] = "threat-hunting-report/v1"
     verdict: VerdictType = Field(..., description="High-level threat assessment verdict")
+    direct_answer: str = Field(default="", description="Câu trả lời trực tiếp, giải thích ngắn gọn 1-2 câu cho câu hỏi của người dùng dựa trên bằng chứng.")
     executive_summary: str = Field(..., description="Concise 2-3 sentence executive briefing for SOC commanders")
     technical_analysis: str = Field(..., description="Detailed forensic analysis of observed activity")
     attack_chain: List[AttackStep] = Field(default_factory=list, description="Verified steps with evidence references")

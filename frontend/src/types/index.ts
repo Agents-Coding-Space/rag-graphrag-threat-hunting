@@ -70,6 +70,8 @@ export interface MitreMapping {
 export interface ThreatReport {
   schema_version: string;
   verdict: 'MALICIOUS' | 'SUSPICIOUS' | 'BENIGN' | 'INSUFFICIENT_EVIDENCE';
+  direct_answer?: string;
+  ai_engine?: string;
   executive_summary: string;
   technical_analysis: string;
   attack_chain: AttackStep[];

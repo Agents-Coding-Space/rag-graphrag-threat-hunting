@@ -316,11 +316,22 @@ def synthesize_rule_guided_report(context: dict[str, Any], query: str, gate_deci
     if any(k in q_lower for k in ("cmdlet", "mật khẩu", "password", "plaintext", "downtime", "đánh cắp")):
         unverified_claims.append("Telemetry log chỉ ghi nhận lệnh khởi tạo tiến trình, không chứa kết quả cmdlet completion hoặc mật khẩu giải mã.")
 
-    verdict = "INSUFFICIENT_EVIDENCE" if unverified_claims else ("MALICIOUS" if attack_chain or mitre_mappings else "SUSPICIOUS")
+    # Build concise direct answer
+    tech_str = ", ".join(m["technique_id"] for m in mitre_mappings)
+    if unverified_claims:
+        direct_answer = f"Không đủ bằng chứng để xác nhận đầy đủ: {unverified_claims[0]}"
+    elif mitre_mappings and "mitre" in q_lower:
+        direct_answer = f"Ghi nhận {len(mitre_mappings)} kỹ thuật MITRE ATT&CK: {tech_str}, trong đó hành vi thực thi đã được quan sát trực tiếp trong log."
+    elif attack_chain and any(k in q_lower for k in ("chuỗi", "tiến trình", "chain", "process")):
+        chain_summary = " ➔ ".join(f"{s['source_entity']}" for s in attack_chain) + f" ➔ {attack_chain[-1]['target_entity']}"
+        direct_answer = f"Chuỗi tiến trình quan sát được là: {chain_summary}."
+    else:
+        direct_answer = f"Phát hiện chuỗi {len(attack_chain)} hành vi thực thi bất thường và khớp {len(mitre_mappings)} kỹ thuật MITRE ATT&CK ({tech_str})."
 
     return {
         "schema_version": "threat-hunting-report/v1",
         "verdict": verdict,
+        "direct_answer": direct_answer,
         "executive_summary": (
             "Phân tích pháp y đồ thị (Rule-Guided Forensic Synthesis): Đã liên kết chuỗi hành vi bất thường "
             f"qua {len(attack_chain)} bước tiến trình thực thi và ánh xạ {len(mitre_mappings)} kỹ thuật MITRE ATT&CK."
@@ -410,35 +421,30 @@ def hunt_threat(req: HuntRequest) -> HuntResponse:
         edge_count=len(traversed_graph["edges"]),
     )
 
-    # 5. LLM Synthesis (with instant socket probe and Rule-Guided Forensic Fallback)
+    # 5. LLM Synthesis (Powered by Model Phong / 9Router API with Forensic Fallback)
     report_dict = None
     if req.use_llm:
         llm_success = False
         try:
-            # Instant socket check on port to see if local LLM service is running
-            import socket
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(0.2)
-            is_port_open = (sock.connect_ex(("127.0.0.1", 11434)) == 0)
-            sock.close()
+            llm_client = LLMClient()
+            prompt_builder = ThreatHuntingPromptBuilder()
+            messages = prompt_builder.build_messages(req.query, context)
+            raw_report = llm_client.generate_json(messages)
 
-            if is_port_open:
-                llm_client = LLMClient()
-                prompt_builder = ThreatHuntingPromptBuilder()
-                messages = prompt_builder.build_messages(req.query, context)
-                raw_report = llm_client.generate_json(messages)
-
-                from threat_hunting.llm.schema import ThreatHuntingReport
-                parsed_report = ThreatHuntingReport.model_validate(raw_report)
-                guardrail = HallucinationGuardrail(strict=True)
-                guard_res = guardrail.validate(parsed_report, context)
-                report_dict = guard_res.sanitized_report.model_dump()
-                llm_success = True
+            from threat_hunting.llm.schema import ThreatHuntingReport
+            parsed_report = ThreatHuntingReport.model_validate(raw_report)
+            guardrail = HallucinationGuardrail(strict=True)
+            guard_res = guardrail.validate(parsed_report, context)
+            report_dict = guard_res.sanitized_report.model_dump()
+            report_dict["ai_engine"] = f"{llm_client.config.model_name} ({llm_client.config.base_url})"
+            llm_success = True
+            logger.info("Successfully synthesized forensic report using LLM model: %s", llm_client.config.model_name)
         except Exception as exc:
-            logger.info("Local LLM invocation failed (%s)", exc)
+            logger.warning("LLM invocation with %s failed (%s); activating Rule-Guided Forensic Synthesizer.", getattr(llm_client.config, 'model_name', 'LLM'), exc)
 
         if not llm_success:
             report_dict = synthesize_rule_guided_report(context, req.query, gate_decision)
+            report_dict["ai_engine"] = "Rule-Guided Forensic Synthesizer (Offline Fallback)"
 
     hits_data = [
         {

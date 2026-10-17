@@ -76,6 +76,7 @@ class ThreatHuntingPromptBuilder:
             {
                 "schema_version": "threat-hunting-report/v1",
                 "verdict": "MALICIOUS",
+                "direct_answer": "Câu trả lời trực tiếp ngắn gọn 1-2 câu giải thích cho câu hỏi của người dùng dựa trên bằng chứng.",
                 "executive_summary": "Tóm tắt ngắn gọn",
                 "technical_analysis": "Phân tích chi tiết",
                 "attack_chain": [

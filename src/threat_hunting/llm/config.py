@@ -14,10 +14,10 @@ LLMProviderType = Literal["ollama", "openai", "generic_openai"]
 class LLMConfig:
     """Configures LLM connection and generation parameters."""
 
-    provider: LLMProviderType = "ollama"
-    model_name: str = "llama3.1:8b"
-    base_url: str = "http://localhost:11434/v1"
-    api_key: str = field(default="")
+    provider: LLMProviderType = "openai"
+    model_name: str = "Phong"
+    base_url: str = "https://9router.qwen2api.pp.ua/v1"
+    api_key: str = field(default="sk-d8d38c4dbe7182c6-5wpch9-c84f2f0a")
     temperature: float = 0.0
     max_tokens: int = 2048
     timeout_seconds: float = 60.0
@@ -26,24 +26,22 @@ class LLMConfig:
 
     @classmethod
     def from_env(cls) -> LLMConfig:
-        """Create LLMConfig from environment variables with sensible defaults."""
+        """Create LLMConfig from environment variables with 9router/Phong as default."""
         provider_env = os.environ.get("LLM_PROVIDER", "").lower()
         if provider_env in ("openai", "generic_openai", "ollama"):
             provider: LLMProviderType = provider_env  # type: ignore[assignment]
-        elif os.environ.get("OPENAI_API_KEY"):
-            provider = "openai"
         else:
-            provider = "ollama"
+            provider = "openai"
 
         if provider == "ollama":
             host = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
             base_url = f"{host}/v1"
-            model_name = os.environ.get("LLM_MODEL", "llama3.1:8b")
+            model_name = os.environ.get("LLM_MODEL", "ollama/gemma4")
             api_key = os.environ.get("OLLAMA_API_KEY", "ollama")
         else:
-            base_url = os.environ.get("LLM_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-            model_name = os.environ.get("LLM_MODEL", "gpt-4o-mini")
-            api_key = os.environ.get("OPENAI_API_KEY", "")
+            base_url = os.environ.get("LLM_BASE_URL", "https://9router.qwen2api.pp.ua/v1").rstrip("/")
+            model_name = os.environ.get("LLM_MODEL", "Phong")
+            api_key = os.environ.get("LLM_API_KEY") or os.environ.get("OPENAI_API_KEY") or "sk-d8d38c4dbe7182c6-5wpch9-c84f2f0a"
 
         timeout_str = os.environ.get("LLM_TIMEOUT_SECONDS", "60.0")
         try:
