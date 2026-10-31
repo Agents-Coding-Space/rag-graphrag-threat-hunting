@@ -1,3 +1,7 @@
+> **Bắt đầu ở [START_HERE.md](START_HERE.md)** — cài đặt và lệnh chạy.
+> Trạng thái hiện hành: [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) (profile `integrated-final-direct-v17`).
+> Bản sửa lỗi theo review độc lập ngày 01/11/2026: [docs/REVIEW_FIXES_20261101/report.md](docs/REVIEW_FIXES_20261101/report.md).
+
 # Bản phân phối bàn giao dự án
 
 Bắt đầu tại [START_HERE.md](START_HERE.md): kiểm ZIP offline, đường dẫn portable, cài đặt và giới hạn hiện tại. Đọc [HANDOVER.md](HANDOVER.md) để tiếp tục triển khai; [E5_MODEL.md](E5_MODEL.md) để tải đúng embedding revision.

@@ -1,0 +1,42 @@
+{
+  "schema_version": "preservation-check/v1",
+  "checks": [
+    {
+      "path": "packaging/package_manifest.json",
+      "label": "bàn giao gốc 31/10",
+      "exists": true,
+      "sha256": "f5bcb1fc8848ced9f01d355da8b6e35e04957bb14d55ffc29e43cec24c312bb1",
+      "size": 1525254
+    },
+    {
+      "path": "outputs/final/20261031_direct_v7/runtime_pin.json",
+      "label": "pin v7",
+      "exists": true,
+      "sha256": "fbbd9b6d8d5cc8ae33b38af09884f54f249060bc8a2e96c4bbac22c47e2a4991",
+      "size": 19458
+    },
+    {
+      "path": "outputs/experiments/integrated-final-v8-live-01/results.json",
+      "label": "v8 live results",
+      "exists": true,
+      "sha256": "e939752f1533e57f5a7bacdad36e5a031d8de9861a9167d11621dc33924c2935",
+      "size": 35557
+    },
+    {
+      "path": "outputs/experiments/integrated-final-v8-live-01/AUTH-CTI_graphrag/raw_report_before_sanitize.json",
+      "label": "report sai F02 (regression fixture)",
+      "exists": true,
+      "sha256": "8faa9aa1412d2f4ae7252c864f63901ffa7ea25928b4414783ce2c79663ef6e8",
+      "size": 5189
+    },
+    {
+      "path": "PROJECT_PROGRESS.md",
+      "label": "lịch sử (chỉ append)",
+      "exists": true,
+      "sha256": "697430360de29c6c32c15160e424fd7be5a4aecff58d68c1657a9084cfe88ccf",
+      "size": 82256
+    }
+  ],
+  "project_progress_total_bytes": 82256,
+  "historical_manifest_intact": true
+}

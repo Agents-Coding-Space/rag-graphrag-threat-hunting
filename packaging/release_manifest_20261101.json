@@ -1,7 +1,7 @@
 {
   "schema_version": "release-manifest/v1",
   "release_id": "20261101_review_fixes_v14",
-  "created_utc": "2026-10-31T23:10:44.183796+00:00",
+  "created_utc": "2026-10-31T23:28:06.580244+00:00",
   "profile": "integrated-final-direct-v17",
   "validator_policy": "source-meaning-validator/v3.1",
   "supersedes": null,
@@ -50,7 +50,7 @@
       ".env"
     ]
   },
-  "file_count": 410,
+  "file_count": 416,
   "files": {
     "src/threat_hunting/__init__.py": "8226d03d5772e2bbd55bddbf6d1e1d88f6bab726a587bca4e283785fc609e5c4",
     "src/threat_hunting/cti/__init__.py": "a0fa02f985133ef3d5a563f9a7f1f5ac3852ef07beb71b91b6e6ecb2c0b371fd",
@@ -437,6 +437,12 @@
     "docs/human_approval.md": "7cb1e164e066d4d4288e822b1ba79aff37f7c3d83363cd3ed95ba99d213d7158",
     "docs/MASTER_PLAN.md": "7382b58ad5beb1281e1e2ae279372a553b42d4aff3c411aaa618b7eaa7fccece",
     "docs/REPRODUCIBILITY.md": "a3d0e66c669135339b0040094d9c44b521f08814c286376e433e0e7784ebe58f",
+    "docs/REVIEW_FIXES_20261101/changed_files.json": "90a51ccd218f5dca0c9ef6cf399977c45ab9bf37c80360137bfebd8b94fc1b1f",
+    "docs/REVIEW_FIXES_20261101/commands_and_tests.md": "b029b4096b07285aece21caa87e0d306d809f0809cee5f3d1aa9a9289ee0038e",
+    "docs/REVIEW_FIXES_20261101/findings_resolution.md": "d61477597b20331cb6fa85c056f7ba998328b4356b10e4be235071fd6087a6e2",
+    "docs/REVIEW_FIXES_20261101/preservation_check.json": "9ee63f17401cc6f8c6719300dd3937e9f75a8f5b7229c5be3b4a75c9db110a7d",
+    "docs/REVIEW_FIXES_20261101/report.md": "4755cf0516359edfc99158c66c44641847fead418b360e9bb0aa5ac31e1aad6c",
+    "docs/REVIEW_FIXES_20261101/thesis_facts.md": "333dcdd89c5a455703cde6b30711cd558adeab70efcc8310dc9fad70684bc221",
     "docs/THUYET_MINH_DO_AN_TOT_NGHIEP_KMA.md": "755df5c6d21ce7c0dde4a19c4c3c3f8b5092b991123a15f397d279755483bd72",
     "benchmarks/graphrag/mshta_relevance_calibration.json": "6764dda887c216a8c9fd83590391f2f9079a8fc0f5e0f74959e63e95654f62a4",
     "benchmarks/integrated/scenarios_12_v1.json": "11c745915a65655bd99c8d9ec4e70c20458b70deee1884e783a85f3a8af096e7",
@@ -455,7 +461,7 @@
     "AGENTS.md": "0e78b4691acc23e15bf90216e64b876da89502c489dd4cdb3bf9778d733c6adf",
     "HUONG_DAN_CHAY.md": "3ddc6e0e4304fbe01a7b8109168d0190b46aad5fe2fa6536b338629ec3e7b10d",
     "Thuc_trang.md": "387b7daec77b5fe9dbc83a3de10472f91fd8ec3665294d08bb8616a5dc30731f",
-    "README.md": "df186bf130c87dd57022cdf45c330766b9b105dd2aed40d6f7f393a1f725f2d7",
+    "README.md": "bdb3862534e90d6f68a414a73f46dc3f4835ff64fe9d233990e954accdc8766b",
     "pyproject.toml": "8ed5b9160e335ad71d809d33d422e88dc4fa7f25f5424b1a74fcba6a5793f929",
     "verify_package.py": "ce0d5c74de2739023463e718c1b15df32db78bca67a29af66b7ecc0b3472bea2",
     "run_backend.py": "7fc5c867aeef9bf30368d91071ddfec17d0cf676f9eef7443c32e173b0817d5b",

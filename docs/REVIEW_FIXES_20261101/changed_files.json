@@ -1,0 +1,202 @@
+{
+  "schema_version": "review-fixes-changeset/v1",
+  "generated_utc": "2026-10-31T23:26:24.559206+00:00",
+  "baseline_commit": "2b48d8d~1",
+  "head_commit": "7806fc1",
+  "commits": [
+    "7806fc1 docs(F09)+fix: current-status entry point, release manifest, Windows lock retry",
+    "383827a test(dashboard): HTTP-level acceptance for all three scenarios and both branches",
+    "4145ed1 test(F11): classify the whole suite; 0 failures, 0 errors",
+    "5d90124 fix(F05): declare dependencies, pin environment, define float tolerance",
+    "be32079 fix(F08): clear all frontend dependency advisories",
+    "e73616c test(F07): run declared six-branch smoke and score it honestly",
+    "80c5512 feat(F07): bounded review-subset runner sharing the study pipeline",
+    "2b48d8d fix(P1): remove fabricated SSE verdict, bind validator to clauses and events"
+  ],
+  "summary_by_group": {
+    "root": 9,
+    "configs": 7,
+    "docs": 3,
+    "frontend": 2,
+    "artifacts": 1,
+    "packaging": 1,
+    "scripts": 3,
+    "source": 6,
+    "tests": 11
+  },
+  "total_files": 43,
+  "files": [
+    {
+      "status": "M",
+      "path": "AGENTS.md"
+    },
+    {
+      "status": "M",
+      "path": "HANDOVER.md"
+    },
+    {
+      "status": "M",
+      "path": "HUONG_DAN_CHAY.md"
+    },
+    {
+      "status": "M",
+      "path": "PROJECT_CONTEXT.md"
+    },
+    {
+      "status": "M",
+      "path": "PROJECT_PROGRESS.md"
+    },
+    {
+      "status": "M",
+      "path": "START_HERE.md"
+    },
+    {
+      "status": "M",
+      "path": "Thuc_trang.md"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v11.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v12.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v13.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v14.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v15.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v16.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v17.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/CURRENT_STATUS.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/DASHBOARD_QA_CHECKLIST.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/REPRODUCIBILITY.md"
+    },
+    {
+      "status": "M",
+      "path": "frontend/package-lock.json"
+    },
+    {
+      "status": "M",
+      "path": "frontend/package.json"
+    },
+    {
+      "status": "A",
+      "path": "outputs/final/20261101_direct_v10/v8_revalidation_under_v31.json"
+    },
+    {
+      "status": "A",
+      "path": "packaging/release_manifest_20261101.json"
+    },
+    {
+      "status": "M",
+      "path": "pyproject.toml"
+    },
+    {
+      "status": "A",
+      "path": "scripts/record_execution_environment.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/run_final_experiment.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/verify_env_config.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/evaluation/experimental_comparison.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/evaluation/experimental_recovery.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/evaluation/final_experiment.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/llm/generation_contract_v3.py"
+    },
+    {
+      "status": "A",
+      "path": "src/threat_hunting/retrieval/reproducibility.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/server/app.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/historical_fixtures.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_experimental_ui.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_final_direct_experiment.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_final_direct_profile.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_graph_ground_truth_v2.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_integrated_v6_runtime.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/test_reproducibility_policy.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_retrieval_ground_truth_v2.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/test_review_subset.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_server_sse.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_v2_candidate_artifacts.py"
+    },
+    {
+      "status": "M",
+      "path": "verify_package.py"
+    }
+  ]
+}
