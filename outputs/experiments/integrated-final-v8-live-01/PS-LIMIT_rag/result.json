@@ -1,0 +1,29 @@
+{
+  "case_id": "PS-LIMIT",
+  "scenario_id": "mshta-powershell",
+  "branch": "rag",
+  "outcome": "abstain",
+  "gate_decision": "abstain",
+  "eligibility_decision": "abstain",
+  "policy_gate_decision": "abstain",
+  "llm_http_attempts": 0,
+  "fallback_used": false,
+  "human_review_required": true,
+  "retrieval_context_seconds": 0.27350060001481324,
+  "abstention_stage": "evidence_answerability",
+  "context_utf8_bytes": 17460,
+  "messages_utf8_bytes": 28886,
+  "context_sha256": "622caa8413bdf10ef94119561f8e5c366159e1ecd709af58a91f25dc0df40774",
+  "messages_sha256": "6ee51e152958e9469400b3b314a45d38930bcc03560330069257e2d945b06f3c",
+  "retrieval_sha256": "92eac0df45692a1a382d251586ec6c24545c6d4949600ce25e747fbe74e13346",
+  "retrieval_hit_ids": [
+    "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+    "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+    "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+    "retrieval-chunk--82de3946302e7f785eef02295ff593ae743fe8820b352255edd7688fde42479c",
+    "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1"
+  ],
+  "returned_graph_nodes": 0,
+  "returned_graph_edges": 0,
+  "available_reference_count": 18
+}

@@ -1,0 +1,113 @@
+{
+  "raw_report_before_sanitize": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Trong 7 sự kiện 4625 quan sát, mỗi sự kiện nhắm một tài khoản khác nhau: lrodriguez, mscott, nxlogsvc, pbeesly, pgustavo, sbeavers, sysmonsvc. Nguồn workstation là WORKSTATION5 (host WORKSTATION5.theshire.local). Status=0xc000006d và SubStatus=0xc000006a. IP nguồn ghi None/missing, không tự điền.",
+    "executive_summary": "Bảy sự kiện 4625 cùng xuất phát từ WORKSTATION5 và cùng có Status 0xc000006d / SubStatus 0xc000006a; mỗi tài khoản bị nhắm đúng một lần. IP nguồn không có trong telemetry.",
+    "technical_analysis": "Fact auth-failure-survey (/facts/7) cho thấy profile 4625 có count=7, target_account phân phối mỗi tài khoản 1 lần, source_workstation=WORKSTATION5 (7), host=WORKSTATION5.theshire.local (7), source_ip=None (7), Status=0xc000006d (7), SubStatus=0xc000006a (7), SubjectUserName=pgustavo (7), LogonType=2 (7). Các raw record 4625 tương ứng là jsonl:line:788, 790, 792, 794, 796, 798, 803 trong purplesharp_ad_playbook_I_2020-10-22042947.json, mỗi record có WorkstationName=WORKSTATION5, Status=0xc000006d, SubStatus=0xc000006a. Các sự kiện 4776 là view DC khác của cùng nhóm failure, không phải attempt bổ sung.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "IP nguồn của các failure không có trong telemetry (source_ip=None); không được tự điền hoặc suy ra.",
+      "Password sameness, brute force per account và account compromise không được chứng minh bởi telemetry hiện có.",
+      "Ghép 4625 với 4776 là suy luận within tolerance, không có shared attempt ID."
+    ],
+    "evidence_refs": [
+      "auth-failure-observations",
+      "jsonl:line:788",
+      "jsonl:line:790",
+      "jsonl:line:792",
+      "jsonl:line:794",
+      "jsonl:line:796",
+      "jsonl:line:798",
+      "jsonl:line:803"
+    ]
+  },
+  "sanitized_report": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Trong 7 sự kiện 4625 quan sát, mỗi sự kiện nhắm một tài khoản khác nhau: lrodriguez, mscott, nxlogsvc, pbeesly, pgustavo, sbeavers, sysmonsvc. Nguồn workstation là WORKSTATION5 (host WORKSTATION5.theshire.local). Status=0xc000006d và SubStatus=0xc000006a. IP nguồn ghi None/missing, không tự điền.",
+    "executive_summary": "Bảy sự kiện 4625 cùng xuất phát từ WORKSTATION5 và cùng có Status 0xc000006d / SubStatus 0xc000006a; mỗi tài khoản bị nhắm đúng một lần. IP nguồn không có trong telemetry.",
+    "technical_analysis": "Fact auth-failure-survey (/facts/7) cho thấy profile 4625 có count=7, target_account phân phối mỗi tài khoản 1 lần, source_workstation=WORKSTATION5 (7), host=WORKSTATION5.theshire.local (7), source_ip=None (7), Status=0xc000006d (7), SubStatus=0xc000006a (7), SubjectUserName=pgustavo (7), LogonType=2 (7). Các raw record 4625 tương ứng là jsonl:line:788, 790, 792, 794, 796, 798, 803 trong purplesharp_ad_playbook_I_2020-10-22042947.json, mỗi record có WorkstationName=WORKSTATION5, Status=0xc000006d, SubStatus=0xc000006a. Các sự kiện 4776 là view DC khác của cùng nhóm failure, không phải attempt bổ sung.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "IP nguồn của các failure không có trong telemetry (source_ip=None); không được tự điền hoặc suy ra.",
+      "Password sameness, brute force per account và account compromise không được chứng minh bởi telemetry hiện có.",
+      "Ghép 4625 với 4776 là suy luận within tolerance, không có shared attempt ID."
+    ],
+    "evidence_refs": [
+      "auth-failure-observations",
+      "jsonl:line:788",
+      "jsonl:line:790",
+      "jsonl:line:792",
+      "jsonl:line:794",
+      "jsonl:line:796",
+      "jsonl:line:798",
+      "jsonl:line:803"
+    ]
+  },
+  "status": "passed",
+  "scope": "structured claims + bounded process citation, duration and request-topic checks; remaining prose/comparison correctness unverified",
+  "issues": [],
+  "reference_checks": [
+    {
+      "reference": "auth-failure-observations",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:788",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:790",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:792",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:794",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:796",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:798",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:803",
+      "status": "exists_unverified"
+    }
+  ],
+  "unverified_fields": [
+    "verdict",
+    "direct_answer",
+    "executive_summary",
+    "technical_analysis",
+    "containment_recommendations",
+    "sigma_matches"
+  ],
+  "human_review_required": true,
+  "narrative_binding_audit": {
+    "scope": "explicit positive executable-parent/creation-verb/executable-child clauses with inline references only",
+    "checks": [],
+    "issues": [],
+    "remaining_prose": "unverified; human review required"
+  },
+  "clock_and_scope_audit": {
+    "scope": "explicit numeric authentication-duration expressions and explicit HTTP/C2/exfiltration topics only",
+    "checks": [],
+    "issues": [],
+    "comparison_semantics": "requires offline rubric review, not automatically verified",
+    "remaining_prose": "unverified; AI/human semantic review remains necessary"
+  }
+}

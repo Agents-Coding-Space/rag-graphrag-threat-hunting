@@ -1,0 +1,26 @@
+title: Fixture Suspicious MSHTA Child
+id: 22222222-2222-4222-8222-222222222222
+status: test
+description: Fixture child-process rule for safe Sigma subset tests.
+references:
+    - https://example.test/mshta-child
+author: Test Author
+date: 2020-01-03
+modified: 2025-01-04
+tags:
+    - attack.t1218.005
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_parent:
+        ParentImage|endswith: '\mshta.exe'
+    selection_child:
+        - Image|endswith:
+              - '\cmd.exe'
+              - '\powershell.exe'
+        - OriginalFileName:
+              - 'Cmd.Exe'
+              - 'PowerShell.EXE'
+    condition: all of selection*
+level: high

@@ -1,0 +1,165 @@
+{
+  "schema_version": "graphrag-two-stage-gate-decision/v1",
+  "corpus_id": "retrieval-corpus--f19f8c043c686443a6d0c4c20449509d8ef87540008454f852ac90388033875c",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "purplesharp-ad",
+  "query": {
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    },
+    "normalized_terms": [
+      "các",
+      "đăng",
+      "nhập",
+      "thành",
+      "công",
+      "sau",
+      "lỗi",
+      "trong",
+      "purplesharp",
+      "có",
+      "chứng",
+      "minh",
+      "password",
+      "spraying",
+      "đã",
+      "lấy",
+      "được",
+      "mật",
+      "khẩu",
+      "và",
+      "cả",
+      "bảy",
+      "tài",
+      "khoản",
+      "bị",
+      "xâm",
+      "không",
+      "dẫn",
+      "sự",
+      "kiện",
+      "giới",
+      "hạn",
+      "tương",
+      "quan",
+      "trước"
+    ],
+    "text": "Các đăng nhập thành công sau lỗi trong PurpleSharp có chứng minh password spraying đã lấy được mật khẩu và cả bảy tài khoản bị xâm nhập không? Dẫn sự kiện và giới hạn tương quan trước/sau.",
+    "top_k": 5
+  },
+  "policy_id": "two-stage-prod-aae2e49de84bd18a",
+  "decision": "abstain",
+  "abstention_stage": "evidence_answerability",
+  "reason_codes": [
+    "insufficient_mapped_hits",
+    "insufficient_seed_nodes",
+    "traversal_required"
+  ],
+  "stage_results": {
+    "topical_relevance": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "joint_lexical_vector_hit_count": 5,
+        "lexical_hit_count": 5,
+        "matched_query_token_count": 9,
+        "query_token_count": 35,
+        "query_token_coverage": 0.25714286,
+        "retrieval_hit_count": 5,
+        "returned_top_bm25_score": 25.86180147,
+        "returned_top_cosine_score": 0.85374418,
+        "returned_top_rrf_score": 0.032786885246,
+        "vector_hit_count": 5
+      }
+    },
+    "evidence_answerability": {
+      "status": "failed",
+      "reason_codes": [
+        "insufficient_mapped_hits",
+        "insufficient_seed_nodes",
+        "traversal_required"
+      ],
+      "signals": {
+        "chunk_type_counts": {
+          "cti_report": 1,
+          "entity": 0,
+          "evidence": 0,
+          "fact": 0,
+          "limitation": 1,
+          "mitre_assessment": 1,
+          "relationship": 0,
+          "scenario_summary": 1,
+          "sigma_finding": 1
+        },
+        "hits_with_evidence_ids": 2,
+        "hits_with_source_references": 4,
+        "mapped_hit_count": 0,
+        "seed_node_count": 0,
+        "status_counts": {
+          "candidate": 3,
+          "inferred": 0,
+          "observed": 0,
+          "reviewable": 2
+        },
+        "support_edge_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_node_count": 0,
+        "traversal_path_count": 0,
+        "traversal_performed": false,
+        "traversed_evidence_node_count": 0,
+        "traversed_limitation_node_count": 0,
+        "unique_source_reference_count": 15
+      }
+    }
+  },
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "signal_schema_version": "graphrag-gate-signals/v1",
+    "policy_schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy": {
+      "schema_version": "graphrag-two-stage-gate-policy/v1",
+      "policy_id": "two-stage-prod-aae2e49de84bd18a",
+      "topical_relevance": {
+        "min_retrieval_hit_count": 1,
+        "min_lexical_hit_count": 0,
+        "min_vector_hit_count": 0,
+        "min_joint_lexical_vector_hit_count": 0,
+        "min_query_token_coverage": 0.0,
+        "min_returned_top_rrf_score": null,
+        "min_returned_top_bm25_score": null,
+        "min_returned_top_cosine_score": 0.75
+      },
+      "evidence_answerability": {
+        "min_hits_with_evidence_ids": 0,
+        "min_hits_with_source_references": 0,
+        "min_unique_source_reference_count": 0,
+        "min_mapped_hit_count": 1,
+        "min_seed_node_count": 1,
+        "require_traversal": true,
+        "min_traversal_node_count": 0,
+        "min_traversal_edge_count": 0,
+        "min_traversal_path_count": 0,
+        "min_traversed_evidence_node_count": 0,
+        "min_support_edge_count": 0,
+        "max_traversed_limitation_node_count": null
+      }
+    },
+    "score_interpretations": {
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability",
+      "rrf": "reciprocal_rank_fusion_not_probability"
+    },
+    "decision_interpretation": "context_eligibility_only",
+    "security_conclusion_made": false,
+    "source_ground_truth": {
+      "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+      "scenario_id": "purplesharp-ad",
+      "schema_version": "scenario-ground-truth/v3",
+      "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+    }
+  }
+}

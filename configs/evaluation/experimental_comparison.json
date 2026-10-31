@@ -1,0 +1,17 @@
+{
+  "schema_version": "experimental-comparison-config/v1",
+  "benchmark": "outputs/review/live_llm_functional_smoke/cases.json",
+  "runtime_artifacts": "configs/runtime_artifacts.json",
+  "gate_policy": "configs/gate/two_stage_production_policy.json",
+  "expected_case_count": 15,
+  "maximum_llm_requests": 30,
+  "retrieval": {"top_k": 5, "candidate_k": 20},
+  "graph_expansion": {"direction": "both", "max_depth": 2, "max_nodes": 100, "max_edges": 200},
+  "maximum_context_utf8_bytes": 262144,
+  "maximum_messages_utf8_bytes": 294912,
+  "branches": ["rag", "graphrag"],
+  "scope_source": "corpus_only_same_for_both_branches",
+  "policy_change": false,
+  "review_status": "draft_reviewable_pending_human_review",
+  "interpretation": "Regression diagnostic, not independent validation. The unchanged gate requires graph seeds/traversal and structurally blocks retrieval-only RAG. Answer quality superiority cannot be inferred from this gate-confounded comparison."
+}

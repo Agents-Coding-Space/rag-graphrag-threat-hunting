@@ -1,0 +1,22 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "SUSPICIOUS",
+  "direct_answer": "Trong Sysmon Event ID 3, regsvr32.exe (process GUID {b59756a9-b238-5f17-5207-000000000400}, PID 9384) trên host WORKSTATION5.mordor.local, source IP 172.18.39.5, đã kết nối tới destination IP 10.10.10.5 và port 8444; raw record là jsonl:line:1001. Đây là endpoint quan sát được trong telemetry, không phải confirmed C2.",
+  "executive_summary": "Có một quan sát Sysmon Event ID 3 cho regsvr32.exe kết nối tới 10.10.10.5:8444 từ 172.18.39.5 trên WORKSTATION5.mordor.local. Mối quan hệ connected_to là inferred, và endpoint chỉ có ngữ cảnh mạng đáng ngờ, chưa được xác minh là C2.",
+  "technical_analysis": "Observation canonical fields: host=WORKSTATION5.mordor.local; process_name=C:\\Windows\\System32\\regsvr32.exe; process_guid={b59756a9-b238-5f17-5207-000000000400}; process_id=9384; source_ip=172.18.39.5; source_port=50247; destination_ip=10.10.10.5; destination_port=8444; timestamp=2020-07-22T03:27:55.955000Z; raw_record_ref=jsonl:line:1001; source_file=empire_launcher_sct_regsvr32_2020-07-21232741.json. Sysmon Event ID 3 chứng minh network connection/process-bound endpoint, không chứng minh HTTP completion, nội dung truyền, số byte, exfiltration hoặc mục đích C2.",
+  "attack_chain": [],
+  "mitre_mappings": [],
+  "sigma_matches": [],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "Endpoint 10.10.10.5:8444 là destination quan sát được trong Sysmon Event ID 3, nhưng chưa được xác minh là confirmed C2.",
+    "Sysmon Event ID 3 không chứng minh HTTP exchange đã hoàn tất, nội dung truyền, số byte hoặc exfiltration.",
+    "Mối quan hệ connected_to giữa regsvr32.exe và endpoint là inferred theo host/GUID/lifetime, không phải quan sát trực tiếp độc lập."
+  ],
+  "evidence_refs": [
+    "jsonl:line:1001",
+    "connections-process-1356a3e1f91322ca",
+    "process-1356a3e1f91322ca",
+    "connected-process-1356a3e1f91322ca"
+  ]
+}

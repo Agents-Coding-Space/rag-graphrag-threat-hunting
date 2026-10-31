@@ -1,0 +1,136 @@
+{
+  "schema_version": "synthetic-two-stage-gate-expectations/v1",
+  "base_signals": {
+    "schema_version": "graphrag-gate-signals/v1",
+    "corpus_id": "synthetic-two-stage-corpus",
+    "graph_id": "synthetic-two-stage-graph",
+    "scenario_id": "synthetic-two-stage",
+    "source_ground_truth": {
+      "path": "synthetic_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v1",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "scenario_id": "synthetic-two-stage"
+    },
+    "query": {
+      "text": "Synthetic Ω absent",
+      "normalized_terms": ["synthetic", "ω", "absent"],
+      "top_k": 3,
+      "candidate_k": 5,
+      "filters": {"chunk_types": null, "required_dimensions": null}
+    },
+    "topical_relevance": {
+      "retrieval_hit_count": 3,
+      "lexical_hit_count": 2,
+      "vector_hit_count": 3,
+      "joint_lexical_vector_hit_count": 2,
+      "returned_top_rrf_score": 0.03,
+      "returned_top_bm25_score": 2.0,
+      "returned_top_cosine_score": 0.75,
+      "query_token_count": 3,
+      "matched_query_token_count": 2,
+      "query_token_coverage": 0.66666667
+    },
+    "evidence_answerability": {
+      "chunk_type_counts": {"scenario_summary": 0, "entity": 1, "fact": 0, "relationship": 0, "evidence": 1, "sigma_finding": 0, "mitre_assessment": 0, "limitation": 1},
+      "status_counts": {"observed": 1, "inferred": 1, "candidate": 0, "reviewable": 1},
+      "hits_with_evidence_ids": 2,
+      "hits_with_source_references": 2,
+      "unique_source_reference_count": 3,
+      "mapped_hit_count": 2,
+      "seed_node_count": 2,
+      "traversal_performed": true,
+      "traversal_node_count": 4,
+      "traversal_edge_count": 3,
+      "traversal_path_count": 4,
+      "traversed_evidence_node_count": 1,
+      "traversed_limitation_node_count": 1,
+      "support_edge_count": 2
+    },
+    "warnings": ["Synthetic context requires human review."],
+    "metadata": {
+      "decision_made": false,
+      "score_interpretations": {"rrf": "reciprocal_rank_fusion_not_probability", "bm25": "bm25_relevance_not_probability", "cosine": "cosine_similarity_not_probability"},
+      "topical_signal_count": 10,
+      "answerability_signal_count": 14
+    }
+  },
+  "base_policy": {
+    "schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy_id": "synthetic-two-stage-policy",
+    "topical_relevance": {
+      "min_retrieval_hit_count": 1,
+      "min_lexical_hit_count": 1,
+      "min_vector_hit_count": 1,
+      "min_joint_lexical_vector_hit_count": 1,
+      "min_query_token_coverage": 0.5,
+      "min_returned_top_rrf_score": 0.02,
+      "min_returned_top_bm25_score": 1.0,
+      "min_returned_top_cosine_score": 0.5
+    },
+    "evidence_answerability": {
+      "min_hits_with_evidence_ids": 1,
+      "min_hits_with_source_references": 1,
+      "min_unique_source_reference_count": 1,
+      "min_mapped_hit_count": 1,
+      "min_seed_node_count": 1,
+      "require_traversal": false,
+      "min_traversal_node_count": 1,
+      "min_traversal_edge_count": 1,
+      "min_traversal_path_count": 1,
+      "min_traversed_evidence_node_count": 1,
+      "min_support_edge_count": 1,
+      "max_traversed_limitation_node_count": 2
+    }
+  },
+  "cases": {
+    "both_stages_pass": {
+      "signal_overrides": {}, "policy_overrides": {},
+      "expected": {"decision": "proceed", "abstention_stage": null, "topical_status": "passed", "topical_reasons": [], "answerability_status": "passed", "answerability_reasons": []}
+    },
+    "topical_conditions_fail": {
+      "signal_overrides": {},
+      "policy_overrides": {"topical_relevance": {"min_retrieval_hit_count": 4, "min_lexical_hit_count": 3, "min_vector_hit_count": 4, "min_joint_lexical_vector_hit_count": 3, "min_query_token_coverage": 0.75, "min_returned_top_rrf_score": 0.04, "min_returned_top_bm25_score": 2.1, "min_returned_top_cosine_score": 0.8}},
+      "expected": {"decision": "abstain", "abstention_stage": "topical_relevance", "topical_status": "failed", "topical_reasons": ["insufficient_retrieval_hits", "insufficient_lexical_hits", "insufficient_vector_hits", "insufficient_joint_lexical_vector_hits", "query_token_coverage_below_threshold", "returned_top_rrf_score_below_threshold", "returned_top_bm25_score_below_threshold", "returned_top_cosine_score_below_threshold"], "answerability_status": "not_evaluated", "answerability_reasons": []}
+    },
+    "answerability_conditions_fail": {
+      "signal_overrides": {},
+      "policy_overrides": {"evidence_answerability": {"min_hits_with_evidence_ids": 3, "min_hits_with_source_references": 3, "min_unique_source_reference_count": 4, "min_mapped_hit_count": 3, "min_seed_node_count": 3, "require_traversal": true, "min_traversal_node_count": 5, "min_traversal_edge_count": 4, "min_traversal_path_count": 5, "min_traversed_evidence_node_count": 2, "min_support_edge_count": 3, "max_traversed_limitation_node_count": 0}},
+      "expected": {"decision": "abstain", "abstention_stage": "evidence_answerability", "topical_status": "passed", "topical_reasons": [], "answerability_status": "failed", "answerability_reasons": ["insufficient_hits_with_evidence_ids", "insufficient_hits_with_source_references", "insufficient_unique_source_references", "insufficient_mapped_hits", "insufficient_seed_nodes", "insufficient_traversal_nodes", "insufficient_traversal_edges", "insufficient_traversal_paths", "insufficient_traversed_evidence_nodes", "insufficient_support_edges", "traversed_limitation_node_count_above_maximum"]}
+    },
+    "all_boundaries_equal": {
+      "signal_overrides": {},
+      "policy_overrides": {"topical_relevance": {"min_retrieval_hit_count": 3, "min_lexical_hit_count": 2, "min_vector_hit_count": 3, "min_joint_lexical_vector_hit_count": 2, "min_query_token_coverage": 0.66666667, "min_returned_top_rrf_score": 0.03, "min_returned_top_bm25_score": 2.0, "min_returned_top_cosine_score": 0.75}, "evidence_answerability": {"min_hits_with_evidence_ids": 2, "min_hits_with_source_references": 2, "min_unique_source_reference_count": 3, "min_mapped_hit_count": 2, "min_seed_node_count": 2, "require_traversal": true, "min_traversal_node_count": 4, "min_traversal_edge_count": 3, "min_traversal_path_count": 4, "min_traversed_evidence_node_count": 1, "min_support_edge_count": 2, "max_traversed_limitation_node_count": 1}},
+      "expected": {"decision": "proceed", "abstention_stage": null, "topical_status": "passed", "topical_reasons": [], "answerability_status": "passed", "answerability_reasons": []}
+    },
+    "missing_returned_scores": {
+      "signal_overrides": {"topical_relevance": {"returned_top_rrf_score": null, "returned_top_bm25_score": null, "returned_top_cosine_score": null}},
+      "policy_overrides": {"topical_relevance": {"min_returned_top_rrf_score": 0, "min_returned_top_bm25_score": 0, "min_returned_top_cosine_score": 0}},
+      "expected": {"decision": "abstain", "abstention_stage": "topical_relevance", "topical_status": "failed", "topical_reasons": ["returned_top_rrf_score_missing", "returned_top_bm25_score_missing", "returned_top_cosine_score_missing"], "answerability_status": "not_evaluated", "answerability_reasons": []}
+    },
+    "below_returned_scores": {
+      "signal_overrides": {},
+      "policy_overrides": {"topical_relevance": {"min_returned_top_rrf_score": 0.04, "min_returned_top_bm25_score": 2.1, "min_returned_top_cosine_score": 0.8}},
+      "expected": {"decision": "abstain", "abstention_stage": "topical_relevance", "topical_status": "failed", "topical_reasons": ["returned_top_rrf_score_below_threshold", "returned_top_bm25_score_below_threshold", "returned_top_cosine_score_below_threshold"], "answerability_status": "not_evaluated", "answerability_reasons": []}
+    },
+    "disabled_requirements_empty_hits": {
+      "signal_overrides": {"topical_relevance": {"retrieval_hit_count": 0, "lexical_hit_count": 0, "vector_hit_count": 0, "joint_lexical_vector_hit_count": 0, "returned_top_rrf_score": null, "returned_top_bm25_score": null, "returned_top_cosine_score": null, "matched_query_token_count": 0, "query_token_coverage": 0.0}, "evidence_answerability": {"chunk_type_counts": {"scenario_summary": 0, "entity": 0, "fact": 0, "relationship": 0, "evidence": 0, "sigma_finding": 0, "mitre_assessment": 0, "limitation": 0}, "status_counts": {"observed": 0, "inferred": 0, "candidate": 0, "reviewable": 0}, "hits_with_evidence_ids": 0, "hits_with_source_references": 0, "unique_source_reference_count": 0, "mapped_hit_count": 0, "seed_node_count": 0, "traversal_performed": false, "traversal_node_count": 0, "traversal_edge_count": 0, "traversal_path_count": 0, "traversed_evidence_node_count": 0, "traversed_limitation_node_count": 0, "support_edge_count": 0}},
+      "policy_overrides": {"topical_relevance": {"min_retrieval_hit_count": 0, "min_lexical_hit_count": 0, "min_vector_hit_count": 0, "min_joint_lexical_vector_hit_count": 0, "min_query_token_coverage": 0.0, "min_returned_top_rrf_score": null, "min_returned_top_bm25_score": null, "min_returned_top_cosine_score": null}, "evidence_answerability": {"min_hits_with_evidence_ids": 0, "min_hits_with_source_references": 0, "min_unique_source_reference_count": 0, "min_mapped_hit_count": 0, "min_seed_node_count": 0, "require_traversal": false, "min_traversal_node_count": 0, "min_traversal_edge_count": 0, "min_traversal_path_count": 0, "min_traversed_evidence_node_count": 0, "min_support_edge_count": 0, "max_traversed_limitation_node_count": null}},
+      "expected": {"decision": "proceed", "abstention_stage": null, "topical_status": "passed", "topical_reasons": [], "answerability_status": "passed", "answerability_reasons": []}
+    },
+    "traversal_required": {
+      "signal_overrides": {"evidence_answerability": {"traversal_performed": false, "traversal_node_count": 0, "traversal_edge_count": 0, "traversal_path_count": 0, "traversed_evidence_node_count": 0, "traversed_limitation_node_count": 0, "support_edge_count": 0}},
+      "policy_overrides": {"evidence_answerability": {"require_traversal": true, "min_traversal_node_count": 0, "min_traversal_edge_count": 0, "min_traversal_path_count": 0, "min_traversed_evidence_node_count": 0, "min_support_edge_count": 0}},
+      "expected": {"decision": "abstain", "abstention_stage": "evidence_answerability", "topical_status": "passed", "topical_reasons": [], "answerability_status": "failed", "answerability_reasons": ["traversal_required"]}
+    },
+    "traversal_optional": {
+      "signal_overrides": {"evidence_answerability": {"traversal_performed": false, "traversal_node_count": 0, "traversal_edge_count": 0, "traversal_path_count": 0, "traversed_evidence_node_count": 0, "traversed_limitation_node_count": 0, "support_edge_count": 0}},
+      "policy_overrides": {"evidence_answerability": {"require_traversal": false, "min_traversal_node_count": 0, "min_traversal_edge_count": 0, "min_traversal_path_count": 0, "min_traversed_evidence_node_count": 0, "min_support_edge_count": 0}},
+      "expected": {"decision": "proceed", "abstention_stage": null, "topical_status": "passed", "topical_reasons": [], "answerability_status": "passed", "answerability_reasons": []}
+    },
+    "limitation_above_maximum": {
+      "signal_overrides": {},
+      "policy_overrides": {"evidence_answerability": {"max_traversed_limitation_node_count": 0}},
+      "expected": {"decision": "abstain", "abstention_stage": "evidence_answerability", "topical_status": "passed", "topical_reasons": [], "answerability_status": "failed", "answerability_reasons": ["traversed_limitation_node_count_above_maximum"]}
+    }
+  }
+}

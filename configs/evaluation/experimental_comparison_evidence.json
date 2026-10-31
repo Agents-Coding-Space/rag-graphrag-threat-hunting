@@ -1,0 +1,18 @@
+{
+  "schema_version": "experimental-comparison-config/v1",
+  "benchmark": "outputs/review/live_llm_functional_smoke/cases.json",
+  "runtime_artifacts": "configs/runtime_artifacts.json",
+  "gate_policy": "configs/gate/two_stage_production_policy.json",
+  "gate_contract": "source-evidence-contract/v1",
+  "expected_case_count": 15,
+  "maximum_llm_requests": 30,
+  "retrieval": {"top_k": 5, "candidate_k": 20},
+  "graph_expansion": {"direction": "both", "max_depth": 2, "max_nodes": 100, "max_edges": 200},
+  "maximum_context_utf8_bytes": 262144,
+  "maximum_messages_utf8_bytes": 294912,
+  "branches": ["rag", "graphrag"],
+  "scope_source": "corpus_only_same_for_both_branches",
+  "policy_change": "experimental source contract migration; production policy and topical thresholds unchanged",
+  "review_status": "draft_reviewable_pending_human_review",
+  "interpretation": "Offline corrective regression with a common source-evidence contract. Legacy topology gate is diagnostic only. No graph objects are added to RAG. Finite query coverage and rubric assessments require review; this is not independent validation or proof of answer quality superiority."
+}

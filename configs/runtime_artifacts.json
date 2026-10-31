@@ -1,0 +1,36 @@
+{
+  "schema_version": "runtime-scenario-artifacts/v1",
+  "review_status": "pending_human_review",
+  "scenarios": {
+    "purplesharp-ad": {
+      "paths": {
+        "gt_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/purplesharp-ad/scenario_ground_truth.json",
+        "corpus_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/purplesharp-ad/retrieval_corpus.json",
+        "graph_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/purplesharp-ad/knowledge_graph.json",
+        "index_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/purplesharp-ad/vector_index_e5.json"
+      },
+      "sha256": {
+        "scenario_ground_truth.json": "419020d48d832faa13a077f42bfcac3aa3268860e87dee5491b2d4ebd137a97e",
+        "retrieval_corpus.json": "ec91e818c2beee76f23caeee4e4c188accb6fe64da4423187e46d22a83f7b7c4",
+        "knowledge_graph.json": "e49252962eedc08cdfed9636355f32dd2258ad7003a89cabb9f187f3ca4d52c8",
+        "vector_index_e5.json": "771d2da5038e20d256fbb0ca922e366388e7d4d141fbed411075c9355134ec2d"
+      },
+      "review_status": "pending_human_review"
+    },
+    "regsvr32-c2": {
+      "paths": {
+        "gt_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/regsvr32-c2/scenario_ground_truth.json",
+        "corpus_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/regsvr32-c2/retrieval_corpus.json",
+        "graph_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/regsvr32-c2/knowledge_graph.json",
+        "index_path": "outputs/review/live_llm_fixes/20261025/artifacts-v2/regsvr32-c2/vector_index_e5.json"
+      },
+      "sha256": {
+        "scenario_ground_truth.json": "8e94019c57932bbf419ad4a2522cbd0aea85550728a2daf3c700809b8ca65e25",
+        "retrieval_corpus.json": "4eeca54a8c71ee07da47bb4ed5798595705b266e98088967a379d77dacba22ea",
+        "knowledge_graph.json": "26eb2d96cea11b7321e8566872d5657b4b103cca7b21f83a72866291d6b18a00",
+        "vector_index_e5.json": "d57049c86d7dc690e7c338715b6526d8e5fa00ca530e3603a5e900f06934ea26"
+      },
+      "review_status": "pending_human_review"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": "scenario-evidence/v1",
+  "scenario_id": "scenario-synthetic-builder",
+  "scenario_name": "Synthetic artifact relationship review",
+  "source_files": [
+    "synthetic_events.jsonl"
+  ],
+  "analysis_status": "draft_reviewable",
+  "time_window": {
+    "start": "2024-01-01T00:00:00Z",
+    "end": "2024-01-01T00:00:03Z"
+  },
+  "observed_entities": [
+    {
+      "entity_id": "entity-synthetic-gamma",
+      "entity_type": "synthetic_host",
+      "attributes": {
+        "host": "host-gamma",
+        "role": "destination"
+      }
+    },
+    {
+      "entity_id": "entity-synthetic-alpha",
+      "entity_type": "synthetic_agent",
+      "attributes": {
+        "name": "alpha-source",
+        "zone": "lab-a"
+      }
+    },
+    {
+      "entity_id": "entity-synthetic-beta",
+      "entity_type": "synthetic_worker",
+      "attributes": {
+        "process_name": "worker-beta.bin",
+        "role": "worker"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "evidence-synthetic-2",
+      "evidence_type": "synthetic_transition",
+      "status": "inferred",
+      "summary": "Two records support a transition to the destination.",
+      "observations": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:4",
+          "provider": "Synthetic-Provider",
+          "event_id": 404,
+          "timestamp": "2024-01-01T00:00:03Z",
+          "canonical_fields": {
+            "destination": "host-gamma"
+          },
+          "raw_fields": {
+            "SyntheticField": "delta"
+          }
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:3",
+          "provider": "Synthetic-Provider",
+          "event_id": "303",
+          "timestamp": "2024-01-01T00:00:02Z",
+          "canonical_fields": {
+            "worker": "worker-beta.bin"
+          },
+          "raw_fields": {
+            "SyntheticField": "gamma"
+          }
+        }
+      ],
+      "reason": "The records share a synthetic correlation token.",
+      "review_status": "needs_review"
+    },
+    {
+      "evidence_id": "evidence-synthetic-1",
+      "evidence_type": "synthetic_activity",
+      "status": "observed",
+      "summary": "Two records directly show synthetic activity.",
+      "observations": [
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:2",
+          "provider": null,
+          "event_id": "202",
+          "timestamp": "2024-01-01T00:00:01Z",
+          "canonical_fields": {
+            "worker": "worker-beta.bin"
+          },
+          "raw_fields": {
+            "SyntheticField": "beta"
+          }
+        },
+        {
+          "source_file": "synthetic_events.jsonl",
+          "raw_record_ref": "fixture:record:1",
+          "provider": "Synthetic-Provider",
+          "event_id": "101",
+          "timestamp": "2024-01-01T00:00:00Z",
+          "canonical_fields": {
+            "agent": "alpha-source"
+          },
+          "raw_fields": {
+            "SyntheticField": "alpha"
+          }
+        }
+      ],
+      "reason": "Both records explicitly contain the synthetic activity marker.",
+      "review_status": "needs_review"
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship-synthetic-beta-gamma",
+      "relationship_type": "transitions_to",
+      "source_entity_id": "entity-synthetic-beta",
+      "target_entity_id": "entity-synthetic-gamma",
+      "status": "inferred",
+      "supported_by": [
+        "evidence-synthetic-2"
+      ],
+      "review_status": "needs_review"
+    },
+    {
+      "relationship_id": "relationship-synthetic-alpha-beta",
+      "relationship_type": "initiates",
+      "source_entity_id": "entity-synthetic-alpha",
+      "target_entity_id": "entity-synthetic-beta",
+      "status": "observed",
+      "supported_by": [
+        "evidence-synthetic-1"
+      ],
+      "review_status": "needs_review"
+    }
+  ],
+  "sigma_rules": [],
+  "mitre_techniques": [],
+  "review_notes": [
+    "Synthetic fixture only."
+  ]
+}

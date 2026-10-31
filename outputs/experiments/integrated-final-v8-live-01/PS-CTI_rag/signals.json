@@ -1,0 +1,114 @@
+{
+  "schema_version": "graphrag-gate-signals/v1",
+  "corpus_id": "retrieval-corpus--3a5db8558989dc08fd76d537f2b3a49c7ac3653403cb0cf69add89381d90ba26",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+  },
+  "query": {
+    "text": "Vì sao chuỗi mshta.exe sinh powershell.exe trong telemetry đáng điều tra khi đối chiếu CTI report Red Canary? Dẫn riêng parent/child và command evidence với đoạn CTI về process lineage; không suy download hoặc C2.",
+    "normalized_terms": [
+      "vì",
+      "sao",
+      "chuỗi",
+      "mshta.exe",
+      "sinh",
+      "powershell.exe",
+      "trong",
+      "telemetry",
+      "đáng",
+      "điều",
+      "tra",
+      "khi",
+      "đối",
+      "chiếu",
+      "cti",
+      "report",
+      "red",
+      "canary",
+      "dẫn",
+      "riêng",
+      "parent",
+      "child",
+      "và",
+      "command",
+      "evidence",
+      "với",
+      "đoạn",
+      "về",
+      "process",
+      "lineage",
+      "không",
+      "suy",
+      "download",
+      "hoặc",
+      "c2"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "topical_relevance": {
+    "retrieval_hit_count": 5,
+    "lexical_hit_count": 5,
+    "vector_hit_count": 5,
+    "joint_lexical_vector_hit_count": 5,
+    "returned_top_rrf_score": 0.032786885246,
+    "returned_top_bm25_score": 20.00429646,
+    "returned_top_cosine_score": 0.88580237,
+    "query_token_count": 35,
+    "matched_query_token_count": 14,
+    "query_token_coverage": 0.4
+  },
+  "evidence_answerability": {
+    "chunk_type_counts": {
+      "scenario_summary": 1,
+      "entity": 0,
+      "fact": 0,
+      "relationship": 0,
+      "evidence": 1,
+      "sigma_finding": 1,
+      "mitre_assessment": 0,
+      "limitation": 0,
+      "cti_report": 2
+    },
+    "status_counts": {
+      "candidate": 3,
+      "inferred": 0,
+      "observed": 1,
+      "reviewable": 1
+    },
+    "hits_with_evidence_ids": 2,
+    "hits_with_source_references": 5,
+    "unique_source_reference_count": 6,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversal_node_count": 0,
+    "traversal_edge_count": 0,
+    "traversal_path_count": 0,
+    "traversed_evidence_node_count": 0,
+    "traversed_limitation_node_count": 0,
+    "support_edge_count": 0
+  },
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "decision_made": false,
+    "score_interpretations": {
+      "rrf": "reciprocal_rank_fusion_not_probability",
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability"
+    },
+    "topical_signal_count": 10,
+    "answerability_signal_count": 14
+  }
+}

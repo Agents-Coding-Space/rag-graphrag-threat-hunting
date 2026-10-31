@@ -1,0 +1,68 @@
+{
+  "schema_version": "retrieval-relevance-judgments/v1",
+  "judgment_set_id": "synthetic-retrieval-judgments",
+  "scenario_id": "scenario-synthetic-review-001",
+  "purpose": "retrieval_relevance_evaluation",
+  "source_dataset": {
+    "path": "tests/fixtures/evaluation/synthetic_dataset.json",
+    "schema_version": "graphrag-relevance-calibration-dataset/v1",
+    "sha256": "475bdfc43c495b69869c92a73be009c97d8d7187b5d692682c64d3c8d67609d0",
+    "dataset_id": "synthetic-retrieval-calibration",
+    "scenario_id": "scenario-synthetic-review-001"
+  },
+  "source_corpus": {
+    "path": "tests/fixtures/evaluation/synthetic_corpus.json",
+    "schema_version": "retrieval-corpus/v1",
+    "sha256": "a6f16ec205fc496e58ef25c9a6e61882fc3d2a8b098191127b656e923c888881",
+    "corpus_id": "corpus-synthetic-review-001",
+    "scenario_id": "scenario-synthetic-review-001"
+  },
+  "cases": [
+    {
+      "case_id": "synthetic-case-01",
+      "target_kind": "answer_support",
+      "relevant_source_pointers": ["/evidence/0", "/relationships/0"],
+      "annotation_note": "The relation and its evidence jointly provide the required context."
+    },
+    {
+      "case_id": "synthetic-case-02",
+      "target_kind": "answer_support",
+      "relevant_source_pointers": ["/facts/0"],
+      "annotation_note": "Fact giả lập phù hợp với cách diễn đạt lại của câu hỏi."
+    },
+    {
+      "case_id": "synthetic-case-03",
+      "target_kind": "abstention_support",
+      "relevant_source_pointers": ["/summary/limitations/0"],
+      "annotation_note": "The scope limitation explains why authorship remains unsupported."
+    },
+    {
+      "case_id": "synthetic-case-04",
+      "target_kind": "no_relevant_chunk",
+      "relevant_source_pointers": [],
+      "annotation_note": "Chủ đề nằm ngoài phạm vi corpus giả lập."
+    }
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "metadata": {
+    "case_count": 4,
+    "target_kind_counts": {
+      "answer_support": 2,
+      "abstention_support": 1,
+      "no_relevant_chunk": 1
+    },
+    "category_counts": {
+      "relevant_direct": 1,
+      "relevant_paraphrase": 1,
+      "insufficient_evidence": 1,
+      "unrelated": 1
+    },
+    "language_counts": {"en": 2, "vi": 2},
+    "total_relevant_pointer_count": 4,
+    "cases_with_multiple_relevant_chunks": 1
+  }
+}

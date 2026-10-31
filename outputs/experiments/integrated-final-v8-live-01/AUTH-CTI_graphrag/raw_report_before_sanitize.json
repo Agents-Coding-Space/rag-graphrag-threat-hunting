@@ -1,0 +1,40 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "SUSPICIOUS",
+  "direct_answer": "Telemetry PurpleSharp có 7 lần thử thất bại (14 bản ghi 4625/4776 là hai view của cùng 7 attempt), mỗi account một lần, từ cùng WORKSTATION5/PurpleSharp.exe, tập trung trong khoảng dấu thời gian canonical rất ngắn; điều này giống CTI ở chỗ 'few attempts per account across many accounts', nhưng khác ở chỗ local là burst ngắn từ một nguồn đơn lẻ và chưa chứng minh phân bố rộng/low-volume kéo dài hay actor/campaign. CTI chỉ là bối cảnh ngoài, không gán cho host.",
+  "executive_summary": "Cụm đăng nhập thất bại PurpleSharp được đánh giá là nghi vấn password spraying ở mức candidate: 7 attempt, 7 account distinct, cùng workstation/process và cùng mã lỗi. Microsoft CTI mô tả distributed password spraying với few attempts per account across many accounts, gồm low-volume patterns; đây là bối cảnh ngoài và không thiết lập hành vi/compromise trên host local.",
+  "technical_analysis": "Telemetry quan sát được: 7 bản ghi 4625 trên WORKSTATION5.theshire.local và 7 bản ghi 4776 trên MORDORDC.theshire.local; đây là hai view của cùng 7 attempt, không phải 14 attempt độc lập. Các account distinct là lrodriguez, mscott, nxlogsvc, pbeesly, pgustavo, sbeavers, sysmonsvc; mỗi account xuất hiện một lần. Nguồn workstation là WORKSTATION5, caller process C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe, target domain theshire.local, Status 0xc000006a, SubStatus 0xc000006a, LogonType 2, SubjectUserName pgustavo. Khoảng dấu thời gian canonical của các observations được chọn: 4625 từ 2020-10-22T08:29:55.210000Z đến 2020-10-22T08:29:55.222000Z (0.012 giây); 4776 từ 2020-10-22T08:29:55.357000Z đến 2020-10-22T08:29:55.382000Z (0.025 giây). Việc ghép 4625/4776 thành 7 attempt là inferred theo mutually unique account/workstation/failure code trong tolerance 1 giây, không có shared attempt ID; 4776 target domain absent. Candidate cluster yêu cầu tối thiểu 5 account distinct trong 60 giây và đã quan sát 7 account; password sameness không được log và compromise không được thiết lập. CTI Microsoft (publisher Microsoft Threat Intelligence, publication 2024-10-31, section 'Password spray activity from CovertNetwork-1658 infrastructure', anchor 'a very small number of sign-in attempts to many accounts') báo cáo distributed password spraying với few attempts per account across many accounts, gồm low-volume patterns. Giống: cả hai đều có đặc điểm few attempts per account trên nhiều account. Khác: local là burst rất ngắn từ một workstation/process đơn lẻ với đúng 7 account; CTI mô tả distributed campaign context và không cung cấp trong context này các con số chính xác, population account, cửa sổ thời gian hoặc phân bố nguồn để so sánh định lượng. CTI là external technical context, không thiết lập hành vi, compromise, attribution hoặc C2 purpose trên host Mordor/PurpleSharp. MITRE T1110.003 chỉ ở trạng thái candidate với evidence support supported_by_observed_behavior và review_status needs_review; Sigma rule 8146a24e-c271-4d34-a679-6a361f71ccab là project suspected password spraying candidate, không phải xác nhận.",
+  "attack_chain": [],
+  "mitre_mappings": [
+    {
+      "technique_id": "T1110.003",
+      "technique_name": "Password Spraying",
+      "confidence": "supported_by_observed_behavior",
+      "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+      "evidence_support": "supported_by_observed_behavior",
+      "assessment_status": "candidate",
+      "review_status": "needs_review"
+    }
+  ],
+  "sigma_matches": [
+    "8146a24e-c271-4d34-a679-6a361f71ccab"
+  ],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "Password spraying thành công, password sameness giữa các account và compromise không được chứng minh.",
+    "Việc ghép 4625/4776 thành 7 attempt là inferred, không phải shared attempt ID; 4776 target domain absent.",
+    "Khoảng dấu thời gian canonical của các observations/anchors được chọn không phải duration thực tế của hoạt động và không chứng minh đồng bộ clock giữa nguồn.",
+    "CTI Microsoft là bối cảnh ngoài; không gán threat actor, campaign IOC hoặc compromise cho host WORKSTATION5/PurpleSharp.",
+    "CTI không cung cấp trong context này đủ chi tiết định lượng (số attempt, số account, cửa sổ thời gian, phân bố nguồn) để so sánh trực tiếp với cụm local.",
+    "14 observations là hai view của cùng 7 attempt, không phải 14 attempt riêng biệt."
+  ],
+  "evidence_refs": [
+    "auth-failure-observations",
+    "cti-4d79697c25bee5b013b2",
+    "jsonl:line:788",
+    "jsonl:line:803",
+    "jsonl:line:1020",
+    "jsonl:line:1077",
+    "text:chars:6215:6271"
+  ]
+}

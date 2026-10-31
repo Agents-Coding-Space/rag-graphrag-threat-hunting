@@ -1,0 +1,97 @@
+{
+  "raw_report_before_sanitize": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "The mshta.exe command line records the VBScript mechanism vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\"). PowerShell was launched as \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon. These are observed launch commands only; process-creation telemetry does not establish that Get-Service sysmon completed or produced output.",
+    "executive_summary": "Observed process creation on WORKSTATION5 shows cmd.exe launching mshta.exe, and mshta.exe launching powershell.exe via a vbscript:Execute Wscript.Shell.Run command.",
+    "technical_analysis": "Security event 4688 at 2020-10-22T02:57:59.856000Z (jsonl:line:4) and Sysmon event 1 at 2020-10-22T02:57:59.857000Z (jsonl:line:275) record mshta.exe with CommandLine: mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\"). Security event 4688 at 2020-10-22T02:58:00.462000Z (jsonl:line:30) and Sysmon event 1 at 2020-10-22T02:58:00.489000Z (jsonl:line:398) record powershell.exe with CommandLine: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon and ParentImage C:\\Windows\\System32\\mshta.exe. The observed records establish parent-child process creation and command text only.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Successful execution, output, or result of Get-Service sysmon is not established by the process-creation records."
+    ],
+    "evidence_refs": [
+      "jsonl:line:4",
+      "jsonl:line:275",
+      "jsonl:line:30",
+      "jsonl:line:398",
+      "evidence-b07a5ff4763e629715e6",
+      "evidence-b31714b888d1489a380c"
+    ]
+  },
+  "sanitized_report": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "The mshta.exe command line records the VBScript mechanism vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\"). PowerShell was launched as \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon. These are observed launch commands only; process-creation telemetry does not establish that Get-Service sysmon completed or produced output.",
+    "executive_summary": "Observed process creation on WORKSTATION5 shows cmd.exe launching mshta.exe, and mshta.exe launching powershell.exe via a vbscript:Execute Wscript.Shell.Run command.",
+    "technical_analysis": "Security event 4688 at 2020-10-22T02:57:59.856000Z (jsonl:line:4) and Sysmon event 1 at 2020-10-22T02:57:59.857000Z (jsonl:line:275) record mshta.exe with CommandLine: mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\"). Security event 4688 at 2020-10-22T02:58:00.462000Z (jsonl:line:30) and Sysmon event 1 at 2020-10-22T02:58:00.489000Z (jsonl:line:398) record powershell.exe with CommandLine: \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon and ParentImage C:\\Windows\\System32\\mshta.exe. The observed records establish parent-child process creation and command text only.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Successful execution, output, or result of Get-Service sysmon is not established by the process-creation records."
+    ],
+    "evidence_refs": [
+      "jsonl:line:4",
+      "jsonl:line:275",
+      "jsonl:line:30",
+      "jsonl:line:398",
+      "evidence-b07a5ff4763e629715e6",
+      "evidence-b31714b888d1489a380c"
+    ]
+  },
+  "status": "passed",
+  "scope": "structured claims + bounded process citation, duration and request-topic checks; remaining prose/comparison correctness unverified",
+  "issues": [],
+  "reference_checks": [
+    {
+      "reference": "jsonl:line:4",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:275",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:30",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:398",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "evidence-b07a5ff4763e629715e6",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "evidence-b31714b888d1489a380c",
+      "status": "exists_unverified"
+    }
+  ],
+  "unverified_fields": [
+    "verdict",
+    "direct_answer",
+    "executive_summary",
+    "technical_analysis",
+    "containment_recommendations",
+    "sigma_matches"
+  ],
+  "human_review_required": true,
+  "narrative_binding_audit": {
+    "scope": "explicit positive executable-parent/creation-verb/executable-child clauses with inline references only",
+    "checks": [],
+    "issues": [],
+    "remaining_prose": "unverified; human review required"
+  },
+  "clock_and_scope_audit": {
+    "scope": "explicit numeric authentication-duration expressions and explicit HTTP/C2/exfiltration topics only",
+    "checks": [],
+    "issues": [],
+    "comparison_semantics": "requires offline rubric review, not automatically verified",
+    "remaining_prose": "unverified; AI/human semantic review remains necessary"
+  }
+}

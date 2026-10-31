@@ -1,0 +1,167 @@
+{
+  "schema_version": "knowledge-graph/v1",
+  "graph_id": "graph-synthetic-alpha",
+  "scenario_id": "scenario-synthetic-alpha",
+  "source_ground_truth": {
+    "path": "tests/fixtures/ground_truth/scenario_ground_truth_minimal.json",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "69271ff0735618378ea8002446a31d20dc1222023aa39ac755afaad47429aec0",
+    "scenario_id": "scenario-synthetic-alpha"
+  },
+  "nodes": [
+    {
+      "node_id": "node-synthetic-scenario",
+      "node_type": "scenario",
+      "label": "Synthetic relationship review",
+      "status": "reviewable",
+      "source": {
+        "object_type": "scenario",
+        "object_id": null,
+        "json_pointer": "/scenario"
+      },
+      "attributes": {},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": ["provenance"]
+    },
+    {
+      "node_id": "node-synthetic-actor",
+      "node_type": "entity",
+      "label": "actor-alpha",
+      "status": "observed",
+      "source": {
+        "object_type": "entity",
+        "object_id": "entity-synthetic-actor",
+        "json_pointer": "/entities/0"
+      },
+      "attributes": {"entity_type": "synthetic_actor", "category": "fixture"},
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [],
+      "dimensions": ["entity", "provenance"]
+    },
+    {
+      "node_id": "node-synthetic-resource",
+      "node_type": "entity",
+      "label": "resource-beta",
+      "status": "inferred",
+      "source": {
+        "object_type": "entity",
+        "object_id": "entity-synthetic-resource",
+        "json_pointer": "/entities/1"
+      },
+      "attributes": {"entity_type": "synthetic_resource"},
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [],
+      "dimensions": ["entity", "provenance"]
+    },
+    {
+      "node_id": "node-synthetic-evidence",
+      "node_type": "evidence",
+      "label": "A fictional record links two synthetic entities.",
+      "status": "observed",
+      "source": {
+        "object_type": "evidence",
+        "object_id": "evidence-synthetic-1",
+        "json_pointer": "/evidence/0"
+      },
+      "attributes": {"evidence_type": "synthetic_observation"},
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [
+        {"source_file": "synthetic_events.jsonl", "raw_record_ref": "fixture:record:1"}
+      ],
+      "dimensions": ["evidence", "provenance"]
+    },
+    {
+      "node_id": "node-synthetic-assessment",
+      "node_type": "mitre_assessment",
+      "label": "Synthetic technique candidate",
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "assessment-synthetic-1",
+        "json_pointer": "/mitre_assessments/0"
+      },
+      "attributes": {
+        "external_id": "technique-synthetic-1",
+        "stix_id": "attack-pattern--synthetic-fixture-1",
+        "review_status": "needs_review"
+      },
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [],
+      "dimensions": ["mitre_technique", "provenance"]
+    },
+    {
+      "node_id": "node-synthetic-limitation",
+      "node_type": "limitation",
+      "label": "The fixture has no production meaning.",
+      "status": "reviewable",
+      "source": {
+        "object_type": "limitation",
+        "object_id": null,
+        "json_pointer": "/summary/limitations/0"
+      },
+      "attributes": {"annotation": "Dữ liệu giả lập dùng để kiểm tra contract."},
+      "evidence_ids": [],
+      "source_references": [],
+      "dimensions": ["provenance"]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "edge-synthetic-interaction",
+      "edge_type": "synthetic_interaction",
+      "source_node_id": "node-synthetic-actor",
+      "target_node_id": "node-synthetic-resource",
+      "directed": true,
+      "status": "observed",
+      "source": {
+        "object_type": "relationship",
+        "object_id": "relationship-synthetic-1",
+        "json_pointer": "/relationships/0"
+      },
+      "supporting_node_ids": ["node-synthetic-evidence"],
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [
+        {"source_file": "synthetic_events.jsonl", "raw_record_ref": "fixture:record:1"}
+      ],
+      "attributes": {},
+      "dimensions": ["relationship", "evidence", "provenance"]
+    },
+    {
+      "edge_id": "edge-synthetic-assessment-support",
+      "edge_type": "supports_assessment",
+      "source_node_id": "node-synthetic-evidence",
+      "target_node_id": "node-synthetic-assessment",
+      "directed": true,
+      "status": "candidate",
+      "source": {
+        "object_type": "mitre_assessment",
+        "object_id": "assessment-synthetic-1",
+        "json_pointer": "/mitre_assessments/0/supporting_evidence_ids/0"
+      },
+      "supporting_node_ids": [],
+      "evidence_ids": ["evidence-synthetic-1"],
+      "source_references": [],
+      "attributes": {},
+      "dimensions": ["evidence", "mitre_technique", "provenance"]
+    }
+  ],
+  "queryable_dimensions": [
+    "entity", "relationship", "evidence", "sigma_rule", "mitre_technique", "provenance"
+  ],
+  "review": {
+    "status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null
+  },
+  "warnings": [],
+  "metadata": {
+    "node_count": 6,
+    "edge_count": 2,
+    "node_type_counts": {
+      "scenario": 1, "entity": 2, "evidence": 1, "mitre_assessment": 1, "limitation": 1
+    },
+    "edge_type_counts": {"synthetic_interaction": 1, "supports_assessment": 1},
+    "fixture": true
+  }
+}

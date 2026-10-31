@@ -1,0 +1,11 @@
+{
+  "mode": "live",
+  "phase": "initial",
+  "planned_branch_count": 24,
+  "eligible_branch_count": 16,
+  "llm_http_attempts": 16,
+  "stopped_reason": null,
+  "stop_details": null,
+  "completed_branch_count": 24,
+  "human_review_required": true
+}

@@ -1,0 +1,277 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "Scenario 3.3.2 Kịch bản thực thi PowerShell nghi vấn. Description: Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe and mshta.exe launches powershell.exe with -noexit -command Get-Service sysmon. Process creation records establish the launch command, not successful cmdlet completion or a finalized attack determination. Analysis status: draft_reviewable. Observed behavior: PowerShell was launched with -noexit -command Get-Service sysmon. cmd.exe launched mshta.exe with an inline vbscript:Execute command. mshta.exe launched PowerShell.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 3,
+        "scope_limitations": [
+          "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+          "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+          "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+          "MITRE assessments remain candidates and require human review.",
+          "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state.",
+          "Canonical timestamps follow TimeCreated; Sysmon UtcTime differs by about four hours and its timezone is unresolved.",
+          "The file also contains conhost creation, event-log clearing and temporary-file deletion telemetry outside this two-group core. These must not be described as globally absent or automatically classified as a destructive payload.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-10-22T02:58:00.489000Z",
+          "start": "2020-10-22T02:57:59.856000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/summary/limitations/4",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state.",
+      "properties": {
+        "source_summary_field": "limitations"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "MITRE assessment T1059.007: JavaScript. Status: candidate. Evidence support: not_supported_by_observed_command. Rationale: The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "not_supported_by_observed_command",
+        "external_id": "T1059.007",
+        "model_confidence": "candidate",
+        "name": "JavaScript",
+        "origin": "sigma_tag",
+        "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+          "evidence_support": "not_supported_by_observed_command",
+          "external_id": "T1059.007",
+          "name": "JavaScript",
+          "origin": "sigma_tag",
+          "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+          "supporting_evidence_ids": [
+            "evidence-b07a5ff4763e629715e6"
+          ],
+          "supporting_sigma_rule_ids": [
+            "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+        "supporting_evidence_ids": [
+          "evidence-b07a5ff4763e629715e6"
+        ],
+        "supporting_sigma_rule_ids": [
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--82de3946302e7f785eef02295ff593ae743fe8820b352255edd7688fde42479c",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/summary/limitations/1",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+      "properties": {
+        "source_summary_field": "limitations"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/entities/5",
+        "object_id": "cti-2accb1022fba708a2787",
+        "object_type": "entity"
+      },
+      "status": "candidate",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "text:chars:11226:11282",
+          "source_file": "redcanary-mshta"
+        }
+      ],
+      "text": "CTI context (Red Canary): The report recommends collecting command-line and parent-child relationships, with grandparent context where possible. This guides evidence collection for MSHTA investigations; it does not establish completion or output of a PowerShell command in the local dataset. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+      "properties": {
+        "accessed_at": "2026-10-30T09:07:42.344843+00:00",
+        "citation": {
+          "anchor": "At a minimum, collect parent-child process relationships",
+          "char_end": 11282,
+          "char_start": 11226,
+          "line": 384,
+          "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+          "section": "Visibility / Process and command-line monitoring",
+          "snapshot_path": "../cti_sources/redcanary-mshta.html",
+          "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+          "source_id": "redcanary-mshta",
+          "text_path": "redcanary-mshta.txt",
+          "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+          "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+        },
+        "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+        "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+        "evidence_layer": "cti_context",
+        "publication_date": "2021-03-18T16:58:29+00:00",
+        "publisher": "Red Canary",
+        "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+        "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+        "source_id": "redcanary-mshta",
+        "source_object": {
+          "attributes": {
+            "accessed_at": "2026-10-30T09:07:42.344843+00:00",
+            "citation": {
+              "anchor": "At a minimum, collect parent-child process relationships",
+              "char_end": 11282,
+              "char_start": 11226,
+              "line": 384,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Visibility / Process and command-line monitoring",
+              "snapshot_path": "../cti_sources/redcanary-mshta.html",
+              "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+              "source_id": "redcanary-mshta",
+              "text_path": "redcanary-mshta.txt",
+              "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+              "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+            },
+            "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+            "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+            "evidence_layer": "cti_context",
+            "publication_date": "2021-03-18T16:58:29+00:00",
+            "publisher": "Red Canary",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+            "source_id": "redcanary-mshta",
+            "source_references": [
+              {
+                "raw_record_ref": "text:chars:11226:11282",
+                "source_file": "redcanary-mshta"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "The report recommends collecting command-line and parent-child relationships, with grandparent context where possible. This guides evidence collection for MSHTA investigations; it does not establish completion or output of a PowerShell command in the local dataset.",
+            "title": "Mshta | Red Canary Threat Detection Report",
+            "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+          },
+          "entity_id": "cti-2accb1022fba708a2787",
+          "entity_type": "cti_report",
+          "evidence_ids": [],
+          "name": "Mshta | Red Canary Threat Detection Report",
+          "status": "candidate"
+        },
+        "source_references": [
+          {
+            "raw_record_ref": "text:chars:11226:11282",
+            "source_file": "redcanary-mshta"
+          }
+        ],
+        "source_type": "cti_report",
+        "text": "The report recommends collecting command-line and parent-child relationships, with grandparent context where possible. This guides evidence collection for MSHTA investigations; it does not establish completion or output of a PowerShell command in the local dataset.",
+        "title": "Mshta | Red Canary Threat Detection Report",
+        "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+      },
+      "evidence_layer": "cti_context"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

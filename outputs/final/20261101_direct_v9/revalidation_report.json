@@ -1,0 +1,101 @@
+{
+  "schema_version": "integrated-final-direct-revalidation/v1",
+  "generated_utc": "2026-10-31T17:09:20Z",
+  "source_experiment": "outputs/experiments/integrated-final-v8-live-01",
+  "validator_note": "Re-validation is offline and read-only: no LLM call, no --live run, and no artifact in the v8 experiment directory is modified. The exact pipeline path was reproduced per case: generation_contract_v3.annotate_context(context.json) -> experimental_comparison.validate_generated(raw_report_before_sanitize.json, context) -> generation_contract_v3.validate_meaning(checked, raw, context), i.e. the full validator including source.validate_meaning, the narrative-binding audit and check_clock_and_scope. annotate_context reproduced each row's context_sha256 exactly, and raw_report_before_sanitize.json equals json.loads(extract_json_text(raw_model_output.text)), so the comparison is faithful to the v8 run. Corrected validator behavior: negated boundary caveats about unrequested network topics (HTTP/C2/exfiltration) are ACCEPTED as legitimate scope limits (clock_and_scope check status 'negated_boundary_caveat'), while asserted network claims are still REJECTED with unrequested_network_claim. Duration expressions and narrative bindings are unchanged. The v8 validation_failed outcomes were produced by the pre-fix validator, which flagged these same sentences as unrequested_network_claim (reason text: '...outside the requested answer scope, including generic caveats.'); the stored v8 issue codes/counts match that pre-fix behavior exactly. These three outputs are unmodified real model outputs, so the recovery rests on the validator correction only, not on regenerated text. Prose and comparison semantics remain unverified pending human/AI semantic review.",
+  "validator_contract": "source-meaning/v3",
+  "validator_module_sha256": "907405d391bf5d8cb8207a8429305d9f1e87d01a339538d35dec65b757dc6ca1",
+  "runtime_pin": "outputs/final/20261101_direct_v9/runtime_pin.json",
+  "cases_total": 3,
+  "cases_passed": 3,
+  "all_passed": true,
+  "cases": [
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "rag",
+      "v8_outcome": "validation_failed",
+      "v8_validation_status": "validation_failed",
+      "v9_validation_status": "passed",
+      "is_valid": true,
+      "issues": [],
+      "evidence_refs_count": 10,
+      "reference_checks_count": 10,
+      "narrative_binding_issues": 0,
+      "clock_and_scope_checks": [
+        {
+          "field": "unverified_claims",
+          "kind": "unrequested_network_topic",
+          "status": "negated_boundary_caveat"
+        }
+      ],
+      "artifact_dir": "outputs/experiments/integrated-final-v8-live-01/AUTH-DIRECT_rag",
+      "raw_report_sha256": "0f0b60e9c610fc43c0b83a376fee7eb616707dfed77b4d5d269ec3d40408d17f",
+      "context_sha256": "f4b3ae29cce6442ee142611c2b325a52899025650184e02a35123d69b620de79",
+      "context_reproduced_sha256": "f4b3ae29cce6442ee142611c2b325a52899025650184e02a35123d69b620de79",
+      "v8_stored_issue_codes": [
+        "unrequested_network_claim"
+      ],
+      "v8_stored_issue_count": 1
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "rag",
+      "v8_outcome": "validation_failed",
+      "v8_validation_status": "validation_failed",
+      "v9_validation_status": "passed",
+      "is_valid": true,
+      "issues": [],
+      "evidence_refs_count": 17,
+      "reference_checks_count": 17,
+      "narrative_binding_issues": 0,
+      "clock_and_scope_checks": [
+        {
+          "field": "technical_analysis",
+          "kind": "unrequested_network_topic",
+          "status": "negated_boundary_caveat"
+        },
+        {
+          "field": "unverified_claims",
+          "kind": "unrequested_network_topic",
+          "status": "negated_boundary_caveat"
+        }
+      ],
+      "artifact_dir": "outputs/experiments/integrated-final-v8-live-01/AUTH-CTI_rag",
+      "raw_report_sha256": "5f33fae6c6aa6108bb88ff7f4d710943dbe32cb7bcd7eeeafff275c4c3307023",
+      "context_sha256": "3b8eb738e91b76fb2339cc08662d2f1d49303bba6c7efeb29cdd410277fc6315",
+      "context_reproduced_sha256": "3b8eb738e91b76fb2339cc08662d2f1d49303bba6c7efeb29cdd410277fc6315",
+      "v8_stored_issue_codes": [
+        "unrequested_network_claim",
+        "unrequested_network_claim"
+      ],
+      "v8_stored_issue_count": 2
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "graphrag",
+      "v8_outcome": "validation_failed",
+      "v8_validation_status": "validation_failed",
+      "v9_validation_status": "passed",
+      "is_valid": true,
+      "issues": [],
+      "evidence_refs_count": 7,
+      "reference_checks_count": 7,
+      "narrative_binding_issues": 0,
+      "clock_and_scope_checks": [
+        {
+          "field": "technical_analysis",
+          "kind": "unrequested_network_topic",
+          "status": "negated_boundary_caveat"
+        }
+      ],
+      "artifact_dir": "outputs/experiments/integrated-final-v8-live-01/AUTH-CTI_graphrag",
+      "raw_report_sha256": "8faa9aa1412d2f4ae7252c864f63901ffa7ea25928b4414783ce2c79663ef6e8",
+      "context_sha256": "cfdc0e2cab553d40f693eb21deb8f1331eaf26e0829ab6bb3ceadb14f44163cc",
+      "context_reproduced_sha256": "cfdc0e2cab553d40f693eb21deb8f1331eaf26e0829ab6bb3ceadb14f44163cc",
+      "v8_stored_issue_codes": [
+        "unrequested_network_claim"
+      ],
+      "v8_stored_issue_count": 1
+    }
+  ]
+}

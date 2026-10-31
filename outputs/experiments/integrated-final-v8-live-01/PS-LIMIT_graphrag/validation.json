@@ -1,0 +1,94 @@
+{
+  "raw_report_before_sanitize": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "direct_answer": "Không. Context chỉ ghi nhận command line của mshta.exe chứa `powershell -noexit -command Get-Service sysmon` trong các bản ghi tạo tiến trình; nó không chứng minh lệnh PowerShell đã thực thi, cmdlet hoàn tất, có output hay trạng thái dịch vụ Sysmon.",
+    "executive_summary": "Telemetry quan sát được là cmd.exe tạo mshta.exe với command line nhúng PowerShell; completion, output và service state chưa được xác minh.",
+    "technical_analysis": "Sysmon Event ID 1 tại jsonl:line:275 và Security Event ID 4688 tại jsonl:line:4 ghi nhận cmd.exe PID 5888 tạo mshta.exe PID 10980 trên WORKSTATION5, với CommandLine `mshta vbscript:Execute(... powershell -noexit -command Get-Service sysmon ...)`. Đây là launch argument/target trong command line, không phải bằng chứng thực thi scriptlet, tạo powershell.exe, hoàn tất cmdlet, output console hoặc trạng thái dịch vụ Sysmon. Giới hạn tại /summary/limitations/4 nêu process-creation telemetry không thiết lập successful cmdlet completion, output hoặc Sysmon service state. Slice được cung cấp không bao gồm bản ghi PowerShell process creation, console output, service status hoặc exit code; full-dataset negative scan cũng chưa được thực hiện, nên không thể suy absence toàn bộ dataset.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Việc mshta.exe thực thi VBScript `CreateObject(...).Run` và tạo powershell.exe chưa được chứng minh bởi các observations được cung cấp.",
+      "Việc cmdlet `Get-Service sysmon` hoàn tất thành công, có output hoặc trả về trạng thái dịch vụ Sysmon chưa được xác minh.",
+      "Trạng thái hiện tại của dịch vụ Sysmon (running/stopped) chưa được xác minh."
+    ],
+    "evidence_refs": [
+      "jsonl:line:275",
+      "jsonl:line:4",
+      "evidence-b07a5ff4763e629715e6",
+      "/summary/limitations/4"
+    ]
+  },
+  "sanitized_report": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "INSUFFICIENT_EVIDENCE",
+    "direct_answer": "Không. Context chỉ ghi nhận command line của mshta.exe chứa `powershell -noexit -command Get-Service sysmon` trong các bản ghi tạo tiến trình; nó không chứng minh lệnh PowerShell đã thực thi, cmdlet hoàn tất, có output hay trạng thái dịch vụ Sysmon.",
+    "executive_summary": "Telemetry quan sát được là cmd.exe tạo mshta.exe với command line nhúng PowerShell; completion, output và service state chưa được xác minh.",
+    "technical_analysis": "Sysmon Event ID 1 tại jsonl:line:275 và Security Event ID 4688 tại jsonl:line:4 ghi nhận cmd.exe PID 5888 tạo mshta.exe PID 10980 trên WORKSTATION5, với CommandLine `mshta vbscript:Execute(... powershell -noexit -command Get-Service sysmon ...)`. Đây là launch argument/target trong command line, không phải bằng chứng thực thi scriptlet, tạo powershell.exe, hoàn tất cmdlet, output console hoặc trạng thái dịch vụ Sysmon. Giới hạn tại /summary/limitations/4 nêu process-creation telemetry không thiết lập successful cmdlet completion, output hoặc Sysmon service state. Slice được cung cấp không bao gồm bản ghi PowerShell process creation, console output, service status hoặc exit code; full-dataset negative scan cũng chưa được thực hiện, nên không thể suy absence toàn bộ dataset.",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Việc mshta.exe thực thi VBScript `CreateObject(...).Run` và tạo powershell.exe chưa được chứng minh bởi các observations được cung cấp.",
+      "Việc cmdlet `Get-Service sysmon` hoàn tất thành công, có output hoặc trả về trạng thái dịch vụ Sysmon chưa được xác minh.",
+      "Trạng thái hiện tại của dịch vụ Sysmon (running/stopped) chưa được xác minh."
+    ],
+    "evidence_refs": [
+      "jsonl:line:275",
+      "jsonl:line:4",
+      "evidence-b07a5ff4763e629715e6",
+      "/summary/limitations/4"
+    ]
+  },
+  "status": "passed",
+  "scope": "structured claims + bounded process citation, duration and request-topic checks; remaining prose/comparison correctness unverified",
+  "issues": [],
+  "reference_checks": [
+    {
+      "reference": "jsonl:line:275",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:4",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "evidence-b07a5ff4763e629715e6",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "/summary/limitations/4",
+      "status": "exists_unverified"
+    }
+  ],
+  "unverified_fields": [
+    "verdict",
+    "direct_answer",
+    "executive_summary",
+    "technical_analysis",
+    "containment_recommendations",
+    "sigma_matches"
+  ],
+  "human_review_required": true,
+  "narrative_binding_audit": {
+    "scope": "explicit positive executable-parent/creation-verb/executable-child clauses with inline references only",
+    "checks": [
+      {
+        "field": "executive_summary",
+        "status": "unverified_no_inline_binding"
+      }
+    ],
+    "issues": [],
+    "remaining_prose": "unverified; human review required"
+  },
+  "clock_and_scope_audit": {
+    "scope": "explicit numeric authentication-duration expressions and explicit HTTP/C2/exfiltration topics only",
+    "checks": [],
+    "issues": [],
+    "comparison_semantics": "requires offline rubric review, not automatically verified",
+    "remaining_prose": "unverified; AI/human semantic review remains necessary"
+  }
+}

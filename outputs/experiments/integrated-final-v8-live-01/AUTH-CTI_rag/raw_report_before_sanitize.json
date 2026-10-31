@@ -1,0 +1,37 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "SUSPICIOUS",
+  "direct_answer": "Telemetry PurpleSharp cho thấy 7 tài khoản khác nhau, mỗi tài khoản một lần đăng nhập thất bại, trong khoảng dấu thời gian canonical 08:29:55.210–08:29:55.382Z từ một workstation; đây là mẫu nhiều tài khoản, ít lần thử mỗi tài khoản, tương đồng với mô tả CTI về password spraying. Khác biệt là cụm local rất ngắn và tập trung, còn CTI mô tả phân tán trên mạng covert với nhiều tài khoản; CTI không chứng minh host local bị compromise hoặc gán threat actor.",
+  "executive_summary": "Cụm thất bại PurpleSharp có đặc điểm nghi vấn spraying: một lần thử trên mỗi tài khoản trong số 7 tài khoản khác nhau, phát sinh từ WORKSTATION5 với subject pgustavo và process PurpleSharp.exe. CTI Microsoft mô tả password spraying phân tán với ít lần thử mỗi tài khoản trên nhiều tài khoản, bao gồm mẫu low-volume; hai nguồn có điểm tương đồng về phân bố ít lần thử/tài khoản, nhưng telemetry local là burst ngắn và CTI không chuyển actor/IOC/compromise sang host local.",
+  "technical_analysis": "Telemetry observed: evidence auth-failure-observations ghi 14 observations, nhưng là hai views 4625 endpoint và 4776 DC của 7 correlated attempts, không phải 14 attempts độc lập. Các tài khoản target quan sát được: lrodriguez, pgustavo, sysmonsvc, sbeavers, mscott, pbeesly, nxlogsvc; mỗi tài khoản xuất hiện một lần trong nhóm 4625 và tương ứng trong 4776. 4625 có subject_user pgustavo, host WORKSTATION5.theshire.local, process_name C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe, LogonType 2, Status 0xc000006d/SubStatus 0xc000006a; 4776 có host MORDORDC.theshire.local, Workstation WORKSTATION5, Status 0xc000006a. Khoảng dấu thời gian canonical của các observations được chọn là 08:29:55.210–08:29:55.222Z cho 4625 và 08:29:55.357–08:29:55.382Z cho 4776; raw EventTime đều là 2020-10-22 04:29:53 và không được hiệu chỉnh múi giờ. Điểm tương đồng với CTI: cả hai đều liên quan đến nhiều tài khoản với số lần thử thấp trên mỗi tài khoản. Điểm khác biệt: PurpleSharp là burst rất ngắn, tập trung từ một endpoint/workstation và một subject process; CTI mô tả distributed password spraying trên cơ sở hạ tầng covert network, với few attempts per account across many accounts, bao gồm low-volume patterns, nhưng chunk CTI được cung cấp không có số lượng tài khoản, host, event ID hoặc timestamp cụ thể. CTI là publisher-reported external context: không chứng minh hành vi, compromise hoặc mục đích C2 trên Mordor hosts, không gán threat actor cho host local, và không xác nhận spraying thành công hay cùng mật khẩu.",
+  "attack_chain": [],
+  "mitre_mappings": [],
+  "sigma_matches": [],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "Các failure observations không chứng minh cùng một mật khẩu được thử, spraying thành công, recovered password, cracking success hoặc account compromise.",
+    "14 failure observations là hai views của 7 attempts; không suy ra 14 attempts độc lập.",
+    "Khoảng dấu thời gian canonical là span của các observations được chọn, không phải thời lượng thực tế của hoạt động tấn công hay đồng bộ clock giữa các nguồn.",
+    "CTI mô tả distributed low-volume spraying nhưng không chứng minh host local, actor, IOC, HTTP completion, C2 hoặc compromise trong dataset PurpleSharp.",
+    "CTI chunk được cung cấp không có số lượng tài khoản, timestamp hay host cụ thể để so sánh định lượng chi tiết với telemetry local."
+  ],
+  "evidence_refs": [
+    "auth-failure-observations",
+    "cti-4d79697c25bee5b013b2",
+    "jsonl:line:788",
+    "jsonl:line:790",
+    "jsonl:line:792",
+    "jsonl:line:794",
+    "jsonl:line:796",
+    "jsonl:line:798",
+    "jsonl:line:803",
+    "jsonl:line:1020",
+    "jsonl:line:1046",
+    "jsonl:line:1048",
+    "jsonl:line:1051",
+    "jsonl:line:1072",
+    "jsonl:line:1074",
+    "jsonl:line:1077",
+    "text:chars:6215:6271"
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": "synthetic-relevance-expectations/v1",
+  "cases": {
+    "joint_supported": {
+      "decision": "proceed",
+      "reason_codes": [],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 2,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    },
+    "vector_only_requires_lexical": {
+      "decision": "abstain",
+      "reason_codes": [
+        "missing_lexical_support"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 0,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    },
+    "vector_only_allowed": {
+      "decision": "proceed",
+      "reason_codes": [],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 0,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    },
+    "no_hits": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_hits",
+        "insufficient_mapped_hits",
+        "insufficient_seeds",
+        "insufficient_traversal_nodes",
+        "missing_joint_lexical_vector_support",
+        "missing_lexical_support",
+        "traversal_required",
+        "vector_score_below_threshold"
+      ],
+      "signals": {
+        "retrieval_hit_count": 0,
+        "lexical_hit_count": 0,
+        "vector_hit_count": 0,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": null,
+        "hit_mapping_count": 0,
+        "mapped_hit_count": 0,
+        "seed_node_count": 0,
+        "traversal_performed": false,
+        "traversal_node_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 0
+      }
+    },
+    "no_mappings": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_mapped_hits",
+        "insufficient_seeds",
+        "insufficient_traversal_nodes",
+        "traversal_required"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 2,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 0,
+        "mapped_hit_count": 0,
+        "seed_node_count": 0,
+        "traversal_performed": false,
+        "traversal_node_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 0
+      }
+    },
+    "mappings_no_seeds": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_seeds",
+        "insufficient_traversal_nodes",
+        "traversal_required"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 2,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 0,
+        "traversal_performed": false,
+        "traversal_node_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 0
+      }
+    },
+    "traversal_absent": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_traversal_nodes",
+        "traversal_required"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 2,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": false,
+        "traversal_node_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 0
+      }
+    },
+    "too_few_traversal_nodes": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_traversal_nodes"
+      ],
+      "signals": {
+        "retrieval_hit_count": 1,
+        "lexical_hit_count": 1,
+        "vector_hit_count": 1,
+        "joint_lexical_vector_hit_count": 1,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 1,
+        "mapped_hit_count": 1,
+        "seed_node_count": 1,
+        "traversal_performed": true,
+        "traversal_node_count": 1,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 1
+      }
+    },
+    "low_cosine": {
+      "decision": "abstain",
+      "reason_codes": [
+        "vector_score_below_threshold"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 2,
+        "joint_lexical_vector_hit_count": 2,
+        "top_cosine_score": 0.4,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    },
+    "split_support_joint": {
+      "decision": "abstain",
+      "reason_codes": [
+        "missing_joint_lexical_vector_support"
+      ],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 1,
+        "vector_hit_count": 1,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": 0.8,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    },
+    "all_conditions_fail": {
+      "decision": "abstain",
+      "reason_codes": [
+        "insufficient_hits",
+        "insufficient_mapped_hits",
+        "insufficient_seeds",
+        "insufficient_traversal_nodes",
+        "missing_joint_lexical_vector_support",
+        "missing_lexical_support",
+        "traversal_required",
+        "vector_score_below_threshold"
+      ],
+      "signals": {
+        "retrieval_hit_count": 0,
+        "lexical_hit_count": 0,
+        "vector_hit_count": 0,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": null,
+        "hit_mapping_count": 0,
+        "mapped_hit_count": 0,
+        "seed_node_count": 0,
+        "traversal_performed": false,
+        "traversal_node_count": 0,
+        "traversal_edge_count": 0,
+        "traversal_path_count": 0
+      }
+    },
+    "lexical_only_optional_vector": {
+      "decision": "proceed",
+      "reason_codes": [],
+      "signals": {
+        "retrieval_hit_count": 2,
+        "lexical_hit_count": 2,
+        "vector_hit_count": 0,
+        "joint_lexical_vector_hit_count": 0,
+        "top_cosine_score": null,
+        "hit_mapping_count": 2,
+        "mapped_hit_count": 2,
+        "seed_node_count": 2,
+        "traversal_performed": true,
+        "traversal_node_count": 2,
+        "traversal_edge_count": 1,
+        "traversal_path_count": 3
+      }
+    }
+  }
+}

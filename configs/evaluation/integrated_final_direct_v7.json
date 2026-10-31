@@ -1,0 +1,39 @@
+{
+  "schema_version": "experimental-comparison-config/v2",
+  "profile_id": "integrated-final-direct-v7",
+  "benchmark": "benchmarks/integrated/scenarios_12_v1.json",
+  "runtime_artifacts": "configs/runtime_artifacts_integrated_v5.json",
+  "gate_policy": "configs/gate/two_stage_production_policy.json",
+  "gate_contract": "source-evidence-contract/v2",
+  "expected_case_count": 12,
+  "maximum_llm_requests": 24,
+  "retrieval": {
+    "top_k": 5,
+    "candidate_k": 20
+  },
+  "graph_expansion": {
+    "direction": "both",
+    "max_depth": 2,
+    "max_nodes": 100,
+    "max_edges": 200
+  },
+  "maximum_context_utf8_bytes": 262144,
+  "maximum_messages_utf8_bytes": 294912,
+  "branches": [
+    "rag",
+    "graphrag"
+  ],
+  "scope_source": "corpus_only_same_for_both_branches",
+  "review_status": "draft_reviewable_pending_human_review",
+  "interpretation": "Final within-project corrective comparison using one frozen direct OpenRouter profile for all12x2 branches. Not independent validation; no retrieval/gate tuning or label approval. Separate from historical v5/v6. Prose remains subject to semantic review.",
+  "generation_contract": "source-meaning/v3",
+  "saved_results_manifest": "outputs/final/20261031_direct_v7/saved_results.json",
+  "final_run_policy": {
+    "initial_attempt_limit": 16,
+    "recovery_attempt_limit": 4,
+    "total_attempt_limit": 20,
+    "request_interval_seconds": 60,
+    "task_ledger": "outputs/final/20261031_direct_v7/request_budget.json",
+    "recovery_policy": "Explicit service-error/not_run phase only; no accepted/rejected regeneration; stop401/403/429/503; no fallback; ledger persists across processes"
+  }
+}

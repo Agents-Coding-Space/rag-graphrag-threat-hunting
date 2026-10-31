@@ -1,0 +1,407 @@
+{
+  "schema_version": "source-evidence-gate-decision/v2",
+  "contract": "source-evidence-contract/v2",
+  "decision": "abstain",
+  "abstention_stage": "evidence_answerability",
+  "reason_codes": [
+    "actor_bound_command_fields_not_returned"
+  ],
+  "stage_results": {
+    "topical_relevance": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "joint_lexical_vector_hit_count": 5,
+        "lexical_hit_count": 5,
+        "matched_query_token_count": 7,
+        "query_token_count": 31,
+        "query_token_coverage": 0.22580645,
+        "retrieval_hit_count": 5,
+        "returned_top_bm25_score": 9.07001373,
+        "returned_top_cosine_score": 0.8925428,
+        "returned_top_rrf_score": 0.032786885246,
+        "vector_hit_count": 5
+      }
+    },
+    "evidence_answerability": {
+      "schema_version": "source-evidence-contract/v2",
+      "requirements": {
+        "authentication": false,
+        "cti": false,
+        "correlation": false,
+        "limits": false
+      },
+      "checks": [
+        {
+          "requirement": "command",
+          "status": "missing",
+          "reason_code": "actor_bound_command_fields_not_returned",
+          "witnesses": []
+        },
+        {
+          "requirement": "bound_retrieved_hit",
+          "status": "supported",
+          "reason_code": "source_witness_present",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/0/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/1/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--ef21f2bc7758f90ce3097c824ea9cfcf382e6fbefcaf03a8cc2c2f2cfa34534f",
+                "context_pointer": "/retrieval/hits/2/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/relationships/0",
+                "object_id": "relationship-1641029b76ea1ac3df6e",
+                "object_type": "relationship"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/2/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/relationships/0",
+                "object_id": "relationship-1641029b76ea1ac3df6e",
+                "object_type": "relationship"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--8a73d544afa5a8a974c12b905a13224e95e58a8dc73c3a6141ca02c3e2b731e8",
+                "context_pointer": "/retrieval/hits/3/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/2",
+                "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+                "object_type": "mitre_assessment"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/3/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/2",
+                "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+                "object_type": "mitre_assessment"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+                "context_pointer": "/retrieval/hits/4/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/4/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              }
+            }
+          ]
+        },
+        {
+          "requirement": "bound_retrieved_source",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/0/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/1/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--ef21f2bc7758f90ce3097c824ea9cfcf382e6fbefcaf03a8cc2c2f2cfa34534f",
+                "context_pointer": "/retrieval/hits/2/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/relationships/0",
+                "object_id": "relationship-1641029b76ea1ac3df6e",
+                "object_type": "relationship"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/2/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/relationships/0",
+                "object_id": "relationship-1641029b76ea1ac3df6e",
+                "object_type": "relationship"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--8a73d544afa5a8a974c12b905a13224e95e58a8dc73c3a6141ca02c3e2b731e8",
+                "context_pointer": "/retrieval/hits/3/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/2",
+                "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+                "object_type": "mitre_assessment"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/3/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/2",
+                "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+                "object_type": "mitre_assessment"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+                "context_pointer": "/retrieval/hits/4/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/4/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              }
+            }
+          ],
+          "reason_code": "source_witness_present"
+        }
+      ],
+      "status": "missing",
+      "reason_codes": [
+        "actor_bound_command_fields_not_returned"
+      ]
+    }
+  },
+  "legacy_policy_id": "two-stage-prod-aae2e49de84bd18a",
+  "human_review_required": true,
+  "interpretation": "Research context eligibility, not claim truth or human approval."
+}

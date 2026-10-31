@@ -1,0 +1,4340 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "purplesharp-ad",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+    "scenario_id": "purplesharp-ad",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--91ef444192d109b423f4b0402f098672ea5143a1c14c7d15566c0872ec1016f8",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "Scenario 3.3.1 Kịch bản brute force và đăng nhập bất thường. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: Observed 49 successful logons; same-name associations and privileges are context only. Toàn bộ 25993 raw/canonical records đã được đối chiếu; 14 failure observations, 7 correlated attempts, 1 suspected spraying cluster(s), 5 RC4 rule matches. Không xác nhận compromise.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 2,
+        "scope_limitations": [
+          "Use existing canonical timestamp unchanged. Preserve timezone-naive EventTime and @timestamp differences; no timezone correction.",
+          "Launch /t is intent only; failure clustering and ticket evidence are evaluated independently.",
+          "One failed attempt per account does not establish repeated brute force against a single account. Password sameness is not logged.",
+          "Successful logon is observed, but abnormality/causality/compromise requires historical and session context.",
+          "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+          "No cracking success/password recovery is established. CTI campaign activity does not attribute an actor to this dataset.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-10-22T08:30:42.832000Z",
+          "start": "2020-10-22T08:29:48.785000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--55fd82e45a343b8e932202f57fbf060278048047dd8c925ec7821b7196db06fc",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "assessment-T1110-003",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "MITRE assessment T1110.003: Password Spraying. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "assessment-T1110-003",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "T1110.003",
+        "model_confidence": "supported_by_observed_behavior",
+        "name": "Password Spraying",
+        "origin": "evidence_review",
+        "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "assessment-T1110-003",
+          "evidence_support": "supported_by_observed_behavior",
+          "external_id": "T1110.003",
+          "name": "Password Spraying",
+          "origin": "evidence_review",
+          "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+          "supporting_evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "supporting_sigma_rule_ids": [
+            "8146a24e-c271-4d34-a679-6a361f71ccab"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+        "supporting_evidence_ids": [
+          "auth-failure-observations"
+        ],
+        "supporting_sigma_rule_ids": [
+          "8146a24e-c271-4d34-a679-6a361f71ccab"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--b6a6ec039ec168c6c7d42ce75801ce96a0dda107ce32fd5fca0125ddf8fe695e",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/summary/limitations/4",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+      "properties": {
+        "source_summary_field": "limitations"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--eb2b6e6508b7b978eaa1436483c42fd13d146a05454bd73c8bb6c6b51af49afd",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/sigma_findings/1",
+        "object_id": "sigma-spray-project",
+        "object_type": "sigma_finding"
+      },
+      "status": "candidate",
+      "object_type": "sigma_finding",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "Sigma finding Project suspected password spraying. Rule ID: 8146a24e-c271-4d34-a679-6a361f71ccab. Status: candidate. Caveats: Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved.. Evidence IDs: auth-failure-observations.",
+      "properties": {
+        "behavior_match_ids": [
+          "spray-candidate-6000d7d4035d8a5e"
+        ],
+        "caveats": [
+          "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+        ],
+        "evidence_ids": [
+          "auth-failure-observations"
+        ],
+        "evidence_layer": "candidate_assessment",
+        "finding_id": "sigma-spray-project",
+        "observation_match_ids": [
+          "auth-828c9b3fd2b7209e",
+          "auth-f2f0f62b5b95e5a6",
+          "auth-8a9fdccd3c675cbe",
+          "auth-cc44c45f8f4d1384",
+          "auth-17640e1136ac66de",
+          "auth-cc108c80c6820e63",
+          "auth-31b713bada8e7fc4",
+          "auth-f5aa2bce1653a3a8",
+          "auth-345dc51eaf51b2c2",
+          "auth-eb380129994cf773",
+          "auth-972a76b5b2ebca66",
+          "auth-2769787511b48b49",
+          "auth-97bd65eedb8e19c0",
+          "auth-d40d7df41c2d11e1"
+        ],
+        "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+        "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+        "rule_title": "Project suspected password spraying",
+        "source_object": {
+          "behavior_match_ids": [
+            "spray-candidate-6000d7d4035d8a5e"
+          ],
+          "caveats": [
+            "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+          ],
+          "evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "finding_id": "sigma-spray-project",
+          "observation_match_ids": [
+            "auth-828c9b3fd2b7209e",
+            "auth-f2f0f62b5b95e5a6",
+            "auth-8a9fdccd3c675cbe",
+            "auth-cc44c45f8f4d1384",
+            "auth-17640e1136ac66de",
+            "auth-cc108c80c6820e63",
+            "auth-31b713bada8e7fc4",
+            "auth-f5aa2bce1653a3a8",
+            "auth-345dc51eaf51b2c2",
+            "auth-eb380129994cf773",
+            "auth-972a76b5b2ebca66",
+            "auth-2769787511b48b49",
+            "auth-97bd65eedb8e19c0",
+            "auth-d40d7df41c2d11e1"
+          ],
+          "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+          "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+          "rule_title": "Project suspected password spraying",
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ],
+          "status": "candidate"
+        },
+        "source_references": [
+          {
+            "raw_record_ref": "jsonl:line:788",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:790",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:792",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:794",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:796",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:798",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:803",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1020",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1046",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1048",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1051",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1072",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1074",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1077",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          }
+        ],
+        "status": "candidate"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--bfde3d735d2958b37041be2ca14a587ca572235f02c34bd59d07f85f1ca4acbf",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/entities/10",
+        "object_id": "cti-4d79697c25bee5b013b2",
+        "object_type": "entity"
+      },
+      "status": "candidate",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "text:chars:6215:6271",
+          "source_file": "microsoft-password-spray"
+        }
+      ],
+      "text": "CTI context (Microsoft Threat Intelligence): Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+      "properties": {
+        "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+        "citation": {
+          "anchor": "a very small number of sign-in attempts to many accounts",
+          "char_end": 6271,
+          "char_start": 6215,
+          "line": 129,
+          "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+          "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+          "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+          "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+          "source_id": "microsoft-password-spray",
+          "text_path": "microsoft-password-spray.txt",
+          "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+        },
+        "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+        "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+        "evidence_layer": "cti_context",
+        "publication_date": "2024-10-31T17:00:00+00:00",
+        "publisher": "Microsoft Threat Intelligence",
+        "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+        "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+        "source_id": "microsoft-password-spray",
+        "source_object": {
+          "attributes": {
+            "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+            "citation": {
+              "anchor": "a very small number of sign-in attempts to many accounts",
+              "char_end": 6271,
+              "char_start": 6215,
+              "line": 129,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+              "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+              "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+              "source_id": "microsoft-password-spray",
+              "text_path": "microsoft-password-spray.txt",
+              "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+              "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+            },
+            "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+            "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+            "evidence_layer": "cti_context",
+            "publication_date": "2024-10-31T17:00:00+00:00",
+            "publisher": "Microsoft Threat Intelligence",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+            "source_id": "microsoft-password-spray",
+            "source_references": [
+              {
+                "raw_record_ref": "text:chars:6215:6271",
+                "source_file": "microsoft-password-spray"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+            "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+          },
+          "entity_id": "cti-4d79697c25bee5b013b2",
+          "entity_type": "cti_report",
+          "evidence_ids": [],
+          "name": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+          "status": "candidate"
+        },
+        "source_references": [
+          {
+            "raw_record_ref": "text:chars:6215:6271",
+            "source_file": "microsoft-password-spray"
+          }
+        ],
+        "source_type": "cti_report",
+        "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+        "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+        "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+      },
+      "evidence_layer": "cti_context"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--098cba14f4006960c6a6f48d9544fd438fa431e12a9c2277066322c412284d54",
+        "context_pointer": "/traversal/nodes/0"
+      },
+      "source": {
+        "json_pointer": "/entities/7",
+        "object_id": "account-pbeesly",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "pbeesly",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "pbeesly"
+        },
+        "entity_type": "account",
+        "name": "pbeesly"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--170d61a63970fbc23dc4a965867519b9fdc84304988e1d4c33803965786e499e",
+        "context_pointer": "/traversal/nodes/1"
+      },
+      "source": {
+        "json_pointer": "/entities/1",
+        "object_id": "host-eaaecb99f58f0b78",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "WORKSTATION5",
+      "properties": {
+        "attributes": {
+          "host": "WORKSTATION5",
+          "source_context": {
+            "caller_pid": "0x1d60",
+            "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+            "domain": "theshire.local",
+            "endpoint_host": "WORKSTATION5.theshire.local",
+            "kind": "workstation",
+            "value": "WORKSTATION5"
+          }
+        },
+        "entity_type": "host",
+        "name": "WORKSTATION5"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--1756a7c5f2a1222f0ddadaac6ea27a7b86646d517a22bad38562caf8cbaea8bb",
+        "context_pointer": "/traversal/nodes/2"
+      },
+      "source": {
+        "json_pointer": "/entities/10",
+        "object_id": "cti-4d79697c25bee5b013b2",
+        "object_type": "entity"
+      },
+      "status": "candidate",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "text:chars:6215:6271",
+          "source_file": "microsoft-password-spray"
+        }
+      ],
+      "text": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+      "properties": {
+        "attributes": {
+          "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+          "citation": {
+            "anchor": "a very small number of sign-in attempts to many accounts",
+            "char_end": 6271,
+            "char_start": 6215,
+            "line": 129,
+            "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+            "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+            "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+            "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+            "source_id": "microsoft-password-spray",
+            "text_path": "microsoft-password-spray.txt",
+            "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+          },
+          "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+          "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+          "evidence_layer": "cti_context",
+          "publication_date": "2024-10-31T17:00:00+00:00",
+          "publisher": "Microsoft Threat Intelligence",
+          "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+          "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+          "source_id": "microsoft-password-spray",
+          "source_references": [
+            {
+              "raw_record_ref": "text:chars:6215:6271",
+              "source_file": "microsoft-password-spray"
+            }
+          ],
+          "source_type": "cti_report",
+          "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+          "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+        },
+        "entity_type": "cti_report",
+        "name": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network"
+      },
+      "evidence_layer": "cti_context"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--30aadb583c6465024b6e34db2adf1d19c1e318419f0f797dfa422643f6365283",
+        "context_pointer": "/traversal/nodes/3"
+      },
+      "source": {
+        "json_pointer": "/facts/0",
+        "object_id": "attempt-708294f78948db67",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-708294f78948db67",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-828c9b3fd2b7209e",
+              "auth-f5aa2bce1653a3a8"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:788",
+              "jsonl:line:1020"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "lrodriguez",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.210000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:788",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.210000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.210Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "lrodriguez",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1020",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.357000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.357Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "lrodriguez",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-lrodriguez",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--5086b9702467305130b1b99e5876d87a14148e1c4eed3455b0fa83606cea4470",
+        "context_pointer": "/traversal/nodes/4"
+      },
+      "source": {
+        "json_pointer": "/facts/2",
+        "object_id": "attempt-c65c47e5fa6c0377",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-c65c47e5fa6c0377",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-8a9fdccd3c675cbe",
+              "auth-eb380129994cf773"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:792",
+              "jsonl:line:1048"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "sysmonsvc",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.214000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:792",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.214000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.214Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sysmonsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1048",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.370000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.370Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sysmonsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-sysmonsvc",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--51ba4c1d245a0a577640eeac45f2b3e01dbe83b2560eb22c547ea65e2f2ed88c",
+        "context_pointer": "/traversal/nodes/5"
+      },
+      "source": {
+        "json_pointer": "/facts/7",
+        "object_id": "auth-failure-survey",
+        "object_type": "fact"
+      },
+      "status": "observed",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "authentication_failure_survey",
+      "properties": {
+        "attributes": {
+          "authentication_profiles": {
+            "4625": {
+              "count": 7,
+              "distributions": {
+                "host": {
+                  "WORKSTATION5.theshire.local": 7
+                },
+                "outcome": {
+                  "failure": 7
+                },
+                "source_ip": {
+                  "None": 7
+                },
+                "source_workstation": {
+                  "WORKSTATION5": 7
+                },
+                "target_account": {
+                  "lrodriguez": 1,
+                  "mscott": 1,
+                  "nxlogsvc": 1,
+                  "pbeesly": 1,
+                  "pgustavo": 1,
+                  "sbeavers": 1,
+                  "sysmonsvc": 1
+                },
+                "target_domain": {
+                  "theshire.local": 7
+                }
+              },
+              "end": "2020-10-22T08:29:55.222000Z",
+              "original_field_distributions": {
+                "AuthenticationPackageName": {
+                  "MICROSOFT_AUTHENTICATION_PACKAGE_V1_0": 7
+                },
+                "LogonType": {
+                  "2": 7
+                },
+                "ServiceName": {
+                  "None": 7
+                },
+                "Status": {
+                  "0xc000006d": 7
+                },
+                "SubStatus": {
+                  "0xc000006a": 7
+                },
+                "SubjectUserName": {
+                  "pgustavo": 7
+                },
+                "TicketEncryptionType": {
+                  "None": 7
+                },
+                "TicketOptions": {
+                  "None": 7
+                }
+              },
+              "start": "2020-10-22T08:29:55.210000Z"
+            },
+            "4776": {
+              "count": 7,
+              "distributions": {
+                "host": {
+                  "MORDORDC.theshire.local": 7
+                },
+                "outcome": {
+                  "failure": 7
+                },
+                "source_ip": {
+                  "None": 7
+                },
+                "source_workstation": {
+                  "WORKSTATION5": 7
+                },
+                "target_account": {
+                  "lrodriguez": 1,
+                  "mscott": 1,
+                  "nxlogsvc": 1,
+                  "pbeesly": 1,
+                  "pgustavo": 1,
+                  "sbeavers": 1,
+                  "sysmonsvc": 1
+                },
+                "target_domain": {
+                  "None": 7
+                }
+              },
+              "end": "2020-10-22T08:29:55.382000Z",
+              "original_field_distributions": {
+                "AuthenticationPackageName": {
+                  "None": 7
+                },
+                "LogonType": {
+                  "None": 7
+                },
+                "ServiceName": {
+                  "None": 7
+                },
+                "Status": {
+                  "0xc000006a": 7
+                },
+                "SubStatus": {
+                  "None": 7
+                },
+                "SubjectUserName": {
+                  "None": 7
+                },
+                "TicketEncryptionType": {
+                  "None": 7
+                },
+                "TicketOptions": {
+                  "None": 7
+                }
+              },
+              "start": "2020-10-22T08:29:55.357000Z"
+            }
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:788",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.210000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.210Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "lrodriguez",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:790",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.211000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.211Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pgustavo",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:792",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.214000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.214Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sysmonsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:794",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.215000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.215Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sbeavers",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:796",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.217000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.217Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "mscott",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:798",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.219000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.219Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pbeesly",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:803",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.222000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.222Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "nxlogsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1020",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.357000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.357Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "lrodriguez",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1046",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.368000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.368Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pgustavo",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1048",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.370000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.370Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sysmonsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1051",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.371000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.371Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sbeavers",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1072",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "mscott",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1074",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pbeesly",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1077",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.382000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.382Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "nxlogsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "source-account-outcome-fields",
+        "predicate": "authentication_failure_survey",
+        "subject": "authentication-capture-scope"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--5791b3c48944f00078279773ec02a5adf7fa5c4f453da481ebb0c571806db666",
+        "context_pointer": "/traversal/nodes/6"
+      },
+      "source": {
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [],
+      "text": "3.3.1 Kịch bản brute force và đăng nhập bất thường",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "description": "Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context.",
+        "time_window": {
+          "end": "2020-10-22T08:30:42.832000Z",
+          "start": "2020-10-22T08:29:48.785000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--58fa8c5115d50ffba78d7250d29158552e5f780cc304a5feb2fa264a3a056844",
+        "context_pointer": "/traversal/nodes/7"
+      },
+      "source": {
+        "json_pointer": "/entities/4",
+        "object_id": "account-sysmonsvc",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "sysmonsvc",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "sysmonsvc"
+        },
+        "entity_type": "account",
+        "name": "sysmonsvc"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--5afb995549f811213626dc7dbe61bc6faf8f879c998d5ba3be830f1a98cc44c5",
+        "context_pointer": "/traversal/nodes/8"
+      },
+      "source": {
+        "json_pointer": "/facts/5",
+        "object_id": "attempt-d106d55730e6a156",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-d106d55730e6a156",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-cc108c80c6820e63",
+              "auth-97bd65eedb8e19c0"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:798",
+              "jsonl:line:1074"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "pbeesly",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.219000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:798",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.219000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.219Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pbeesly",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1074",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pbeesly",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-pbeesly",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--5fac586737bde50bf50d2e2cf6566733c56652f3773f272a00162f36494fa756",
+        "context_pointer": "/traversal/nodes/9"
+      },
+      "source": {
+        "json_pointer": "/sigma_findings/1",
+        "object_id": "sigma-spray-project",
+        "object_type": "sigma_finding"
+      },
+      "status": "candidate",
+      "object_type": "sigma_finding",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "Project suspected password spraying",
+      "properties": {
+        "behavior_match_ids": [
+          "spray-candidate-6000d7d4035d8a5e"
+        ],
+        "caveats": [
+          "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+        ],
+        "observation_match_ids": [
+          "auth-17640e1136ac66de",
+          "auth-2769787511b48b49",
+          "auth-31b713bada8e7fc4",
+          "auth-345dc51eaf51b2c2",
+          "auth-828c9b3fd2b7209e",
+          "auth-8a9fdccd3c675cbe",
+          "auth-972a76b5b2ebca66",
+          "auth-97bd65eedb8e19c0",
+          "auth-cc108c80c6820e63",
+          "auth-cc44c45f8f4d1384",
+          "auth-d40d7df41c2d11e1",
+          "auth-eb380129994cf773",
+          "auth-f2f0f62b5b95e5a6",
+          "auth-f5aa2bce1653a3a8"
+        ],
+        "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+        "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+        "rule_title": "Project suspected password spraying"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--6a4d9cceadff1e38653dc2fe217a0037daad2ada443fd36748eee889003d5751",
+        "context_pointer": "/traversal/nodes/10"
+      },
+      "source": {
+        "json_pointer": "/entities/2",
+        "object_id": "account-lrodriguez",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "lrodriguez",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "lrodriguez"
+        },
+        "entity_type": "account",
+        "name": "lrodriguez"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--82b579992c581d04c1cce664873c87675426751647237f27f9e9ab48de892f3f",
+        "context_pointer": "/traversal/nodes/11"
+      },
+      "source": {
+        "json_pointer": "/entities/9",
+        "object_id": "knowledge-topic-purplesharp-ad",
+        "object_type": "entity"
+      },
+      "status": "candidate",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "3.3.1 Kịch bản brute force và đăng nhập bất thường",
+      "properties": {
+        "attributes": {
+          "evidence_layer": "cti_context",
+          "source_type": "project_behavior_concept"
+        },
+        "entity_type": "behavior_concept",
+        "name": "3.3.1 Kịch bản brute force và đăng nhập bất thường"
+      },
+      "evidence_layer": "cti_context"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--850bf71343c53839a3d0faae5504a923a4a134bc9e33aa26845ff416b4aa9154",
+        "context_pointer": "/traversal/nodes/12"
+      },
+      "source": {
+        "json_pointer": "/facts/3",
+        "object_id": "attempt-2882bb6fd5a6b107",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-2882bb6fd5a6b107",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-cc44c45f8f4d1384",
+              "auth-972a76b5b2ebca66"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:794",
+              "jsonl:line:1051"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "sbeavers",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.215000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:794",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.215000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.215Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sbeavers",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1051",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.371000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.371Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sbeavers",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-sbeavers",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--85fa5132fd4d6fe627db83dfe8f8af8f3207637f01ce559aa25c62cff11322b0",
+        "context_pointer": "/traversal/nodes/13"
+      },
+      "source": {
+        "json_pointer": "/facts/8",
+        "object_id": "auth-correlation-summary",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "authentication_correlation",
+      "properties": {
+        "attributes": {
+          "authentication_correlation": {
+            "ambiguous_observations": [],
+            "countable_attempts": 7,
+            "failure_observations": 14,
+            "paired_attempts": 7,
+            "tolerance_seconds": 1.0
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:788",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.210000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.210Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "lrodriguez",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:790",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.211000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.211Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pgustavo",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:792",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.214000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.214Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sysmonsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:794",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.215000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.215Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "sbeavers",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:796",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.217000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.217Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "mscott",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:798",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.219000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.219Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pbeesly",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:803",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.222000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.222Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "nxlogsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1020",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "lrodriguez",
+                "timestamp": "2020-10-22T08:29:55.357000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.357Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "lrodriguez",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1046",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.368000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.368Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pgustavo",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1048",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sysmonsvc",
+                "timestamp": "2020-10-22T08:29:55.370000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.370Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sysmonsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1051",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "sbeavers",
+                "timestamp": "2020-10-22T08:29:55.371000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.371Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "sbeavers",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1072",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "mscott",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1074",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pbeesly",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pbeesly",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1077",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.382000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.382Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "nxlogsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ],
+          "spraying_candidates": [
+            {
+              "assessment": "Concentrated failures across accounts support suspected spraying; password sameness and successful compromise are unobserved.",
+              "attempt_ids": [
+                "attempt-708294f78948db67",
+                "attempt-8ae24dc39875f280",
+                "attempt-c65c47e5fa6c0377",
+                "attempt-2882bb6fd5a6b107",
+                "attempt-7c675a9633c38577",
+                "attempt-d106d55730e6a156",
+                "attempt-a8a7cfbab07bd923"
+              ],
+              "distinct_accounts": [
+                "lrodriguez",
+                "mscott",
+                "nxlogsvc",
+                "pbeesly",
+                "pgustavo",
+                "sbeavers",
+                "sysmonsvc"
+              ],
+              "duration_seconds": 0.012,
+              "end": "2020-10-22T08:29:55.222000Z",
+              "finding_id": "spray-candidate-6000d7d4035d8a5e",
+              "min_distinct_accounts": 5,
+              "source_context": {
+                "caller_pid": "0x1d60",
+                "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "domain": "theshire.local",
+                "endpoint_host": "WORKSTATION5.theshire.local",
+                "kind": "workstation",
+                "value": "WORKSTATION5"
+              },
+              "start": "2020-10-22T08:29:55.210000Z",
+              "status": "candidate",
+              "window_seconds": 60
+            }
+          ]
+        },
+        "object": "deduplicated_attempts",
+        "predicate": "authentication_correlation",
+        "subject": "authentication-capture-scope"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--8ce6973b63845014f9205a682bd4ebf8446a2467cb95475d3e09815188d27b63",
+        "context_pointer": "/traversal/nodes/14"
+      },
+      "source": {
+        "json_pointer": "/facts/6",
+        "object_id": "attempt-a8a7cfbab07bd923",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-a8a7cfbab07bd923",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-31b713bada8e7fc4",
+              "auth-d40d7df41c2d11e1"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:803",
+              "jsonl:line:1077"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "nxlogsvc",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.222000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:803",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.222000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.222Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "nxlogsvc",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1077",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "nxlogsvc",
+                "timestamp": "2020-10-22T08:29:55.382000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.382Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "nxlogsvc",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-nxlogsvc",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--8d393106e6c6d0b9f1decc7a6f31a4dfff3de028f65fad13a8951652db42f0d2",
+        "context_pointer": "/traversal/nodes/15"
+      },
+      "source": {
+        "json_pointer": "/summary/limitations/4",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+      "properties": {},
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--9fa43b64c8e14298d1701d7fa2f62b7a9f76a4d595a1615b4298a8531271830c",
+        "context_pointer": "/traversal/nodes/16"
+      },
+      "source": {
+        "json_pointer": "/entities/3",
+        "object_id": "account-pgustavo",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "pgustavo",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "pgustavo"
+        },
+        "entity_type": "account",
+        "name": "pgustavo"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--b2f7bb306301727db4c80b7091c6a4c85bec307a5d2cea10cde91a8dbb646eeb",
+        "context_pointer": "/traversal/nodes/17"
+      },
+      "source": {
+        "json_pointer": "/entities/8",
+        "object_id": "account-nxlogsvc",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "nxlogsvc",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "nxlogsvc"
+        },
+        "entity_type": "account",
+        "name": "nxlogsvc"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--b47414b9a75aca63a811286be37821f857c8db772744c6f40e95a74dc9cfe6aa",
+        "context_pointer": "/traversal/nodes/18"
+      },
+      "source": {
+        "json_pointer": "/entities/5",
+        "object_id": "account-sbeavers",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "sbeavers",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "sbeavers"
+        },
+        "entity_type": "account",
+        "name": "sbeavers"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--b70cdfa88dd125851948af2caf2952fc0b230d05dab7b07b864650dddaca8956",
+        "context_pointer": "/traversal/nodes/19"
+      },
+      "source": {
+        "json_pointer": "/entities/6",
+        "object_id": "account-mscott",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "mscott",
+      "properties": {
+        "attributes": {
+          "domain": "theshire.local",
+          "target_user": "mscott"
+        },
+        "entity_type": "account",
+        "name": "mscott"
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--bb7a249f77113a1d1fe5c33d501d2b01cc57575be21073b0706ee060db7d907c",
+        "context_pointer": "/traversal/nodes/20"
+      },
+      "source": {
+        "json_pointer": "/evidence/0",
+        "object_id": "auth-failure-observations",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "PurpleSharp authentication failures: 4625 endpoint and 4776 DC views, not additional attempts.",
+      "properties": {
+        "evidence_type": "authentication_failure",
+        "observations": [
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:788",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.210000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:790",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.211000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:792",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.214000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:794",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.215000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:796",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.217000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:798",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.219000Z"
+          },
+          {
+            "event_id": "4625",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:803",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.222000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1020",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.357000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1046",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.368000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1048",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.370000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1051",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.371000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1072",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.381000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1074",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.381000Z"
+          },
+          {
+            "event_id": "4776",
+            "provider": "Microsoft-Windows-Security-Auditing",
+            "raw_record_ref": "jsonl:line:1077",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+            "timestamp": "2020-10-22T08:29:55.382000Z"
+          }
+        ],
+        "source_observations": [
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "lrodriguez",
+              "timestamp": "2020-10-22T08:29:55.357000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.357Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "lrodriguez",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1020",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "pgustavo",
+              "timestamp": "2020-10-22T08:29:55.368000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.368Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "pgustavo",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1046",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "sysmonsvc",
+              "timestamp": "2020-10-22T08:29:55.370000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.370Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "sysmonsvc",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1048",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "sbeavers",
+              "timestamp": "2020-10-22T08:29:55.371000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.371Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "sbeavers",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1051",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "mscott",
+              "timestamp": "2020-10-22T08:29:55.381000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.381Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "mscott",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1072",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "pbeesly",
+              "timestamp": "2020-10-22T08:29:55.381000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.381Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "pbeesly",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1074",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4776",
+              "host": "MORDORDC.theshire.local",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "target_user": "nxlogsvc",
+              "timestamp": "2020-10-22T08:29:55.382000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.382Z",
+              "EventID": 4776,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "MORDORDC.theshire.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006a",
+              "TargetUserName": "nxlogsvc",
+              "Workstation": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:1077",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "lrodriguez",
+              "timestamp": "2020-10-22T08:29:55.210000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.210Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "lrodriguez",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:788",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "pgustavo",
+              "timestamp": "2020-10-22T08:29:55.211000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.211Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "pgustavo",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:790",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "sysmonsvc",
+              "timestamp": "2020-10-22T08:29:55.214000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.214Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "sysmonsvc",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:792",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "sbeavers",
+              "timestamp": "2020-10-22T08:29:55.215000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.215Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "sbeavers",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:794",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "mscott",
+              "timestamp": "2020-10-22T08:29:55.217000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.217Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "mscott",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:796",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "pbeesly",
+              "timestamp": "2020-10-22T08:29:55.219000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.219Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "pbeesly",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:798",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "event_id": "4625",
+              "host": "WORKSTATION5.theshire.local",
+              "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+              "subject_user": "pgustavo",
+              "target_user": "nxlogsvc",
+              "timestamp": "2020-10-22T08:29:55.222000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-10-22T08:29:55.222Z",
+              "EventID": 4625,
+              "EventTime": "2020-10-22 04:29:53",
+              "Hostname": "WORKSTATION5.theshire.local",
+              "LogonType": "2",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "Status": "0xc000006d",
+              "SubStatus": "0xc000006a",
+              "TargetDomainName": "theshire.local",
+              "TargetUserName": "nxlogsvc",
+              "WorkstationName": "WORKSTATION5"
+            },
+            "raw_record_ref": "jsonl:line:803",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          }
+        ],
+        "summary": "PurpleSharp authentication failures: 4625 endpoint and 4776 DC views, not additional attempts."
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--be1ff7e087735be677fe3b58591a2f3a8eb2101048e7e42c8724638ffc2c2b20",
+        "context_pointer": "/traversal/nodes/21"
+      },
+      "source": {
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "assessment-T1110-003",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [],
+      "text": "T1110.003 - Password Spraying",
+      "properties": {
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "T1110.003",
+        "name": "Password Spraying",
+        "origin": "evidence_review",
+        "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+        "review_status": "needs_review",
+        "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+        "supporting_sigma_rule_ids": [
+          "8146a24e-c271-4d34-a679-6a361f71ccab"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--c3bf0b7e886499bb21b9dc34dfe356b05b8b7407db0b8590d115ac3ace10f157",
+        "context_pointer": "/traversal/nodes/22"
+      },
+      "source": {
+        "json_pointer": "/entities/0",
+        "object_id": "authentication-capture-scope",
+        "object_type": "entity"
+      },
+      "status": "inferred",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Authentication capture scope",
+      "properties": {
+        "attributes": {
+          "scope": "Selected authentication observations; membership is not causal attribution."
+        },
+        "entity_type": "event_group",
+        "name": "Authentication capture scope"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--f1a8f886832991e71adf7a32e50fdb4f5408855a885835d3134f44aa54df0e90",
+        "context_pointer": "/traversal/nodes/23"
+      },
+      "source": {
+        "json_pointer": "/facts/4",
+        "object_id": "attempt-7c675a9633c38577",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-7c675a9633c38577",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-17640e1136ac66de",
+              "auth-2769787511b48b49"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:796",
+              "jsonl:line:1072"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "mscott",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.217000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:796",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.217000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.217Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "mscott",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1072",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "mscott",
+                "timestamp": "2020-10-22T08:29:55.381000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.381Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "mscott",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-mscott",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "node",
+        "item_id": "graph-node--fc7b49d19df00dbaf14f281c997c8baf1d798acb4e4ec1dcd96c0d4f01b8b539",
+        "context_pointer": "/traversal/nodes/24"
+      },
+      "source": {
+        "json_pointer": "/facts/1",
+        "object_id": "attempt-8ae24dc39875f280",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "failed_authentication_attempt",
+      "properties": {
+        "attributes": {
+          "authentication_attempt": {
+            "attempt_id": "attempt-8ae24dc39875f280",
+            "correlation_basis": "mutually_unique_account_workstation_failure_code_within_tolerance",
+            "limitations": [
+              "4776 target domain absent; pairing is inferred, not a shared attempt ID"
+            ],
+            "observation_ids": [
+              "auth-f2f0f62b5b95e5a6",
+              "auth-345dc51eaf51b2c2"
+            ],
+            "raw_record_refs": [
+              "jsonl:line:790",
+              "jsonl:line:1046"
+            ],
+            "source_context": {
+              "caller_pid": "0x1d60",
+              "caller_process": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+              "domain": "theshire.local",
+              "endpoint_host": "WORKSTATION5.theshire.local",
+              "kind": "workstation",
+              "value": "WORKSTATION5"
+            },
+            "status": "inferred",
+            "target_account": "pgustavo",
+            "target_domain": "theshire.local",
+            "timestamp": "2020-10-22T08:29:55.211000Z"
+          },
+          "source_observations": [
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4625",
+                "host": "WORKSTATION5.theshire.local",
+                "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:790",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "subject_user": "pgustavo",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.211000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.211Z",
+                "EventID": 4625,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "WORKSTATION5.theshire.local",
+                "LogonType": "2",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006d",
+                "SubStatus": "0xc000006a",
+                "TargetDomainName": "theshire.local",
+                "TargetUserName": "pgustavo",
+                "WorkstationName": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "canonical_fields": {
+                "channel": "Security",
+                "event_id": "4776",
+                "host": "MORDORDC.theshire.local",
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "raw_record_ref": "jsonl:line:1046",
+                "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                "target_user": "pgustavo",
+                "timestamp": "2020-10-22T08:29:55.368000Z"
+              },
+              "evidence_layer": "observed_telemetry",
+              "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+              "original_fields": {
+                "@timestamp": "2020-10-22T08:29:55.368Z",
+                "EventID": 4776,
+                "EventTime": "2020-10-22 04:29:53",
+                "Hostname": "MORDORDC.theshire.local",
+                "SourceName": "Microsoft-Windows-Security-Auditing",
+                "Status": "0xc000006a",
+                "TargetUserName": "pgustavo",
+                "Workstation": "WORKSTATION5"
+              },
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ]
+        },
+        "object": "account-pgustavo",
+        "predicate": "failed_authentication_attempt",
+        "subject": "host-eaaecb99f58f0b78"
+      },
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--06ef672ddf3536ba68df3e721d041fcb446564ad5b616b0b826dbaac479a8360",
+        "context_pointer": "/traversal/edges/0"
+      },
+      "source": {
+        "json_pointer": "/facts/8/evidence_ids/0",
+        "object_id": "auth-correlation-summary",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--074c9be9ef6161720ebaae8d2a240ddccf2ad8045580ec71aa9bfa547b0d9ed9",
+        "context_pointer": "/traversal/edges/1"
+      },
+      "source": {
+        "json_pointer": "/entities/8/evidence_ids/0",
+        "object_id": "account-nxlogsvc",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--0df13f6748f0aa8d85e637697f52f0a9feadae30fb992b9c907a745d117a6016",
+        "context_pointer": "/traversal/edges/2"
+      },
+      "source": {
+        "json_pointer": "/facts/5/evidence_ids/0",
+        "object_id": "attempt-d106d55730e6a156",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--3c247b9486ed677c4a4a4f2699ce8e1a12c3a5f8deb33d593bf082f71e526553",
+        "context_pointer": "/traversal/edges/3"
+      },
+      "source": {
+        "json_pointer": "/sigma_findings/1/evidence_ids/0",
+        "object_id": "sigma-spray-project",
+        "object_type": "sigma_finding"
+      },
+      "status": "candidate",
+      "object_type": "sigma_finding",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--4660313918420a5369be631b48a5a9b88ce658dc360076ec015e8dbe77dac14d",
+        "context_pointer": "/traversal/edges/4"
+      },
+      "source": {
+        "json_pointer": "/entities/3/evidence_ids/0",
+        "object_id": "account-pgustavo",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--49166c8dab158bacb5e3cac8a27aeadbbf3383f4629d2f36a7e211c3ff542efa",
+        "context_pointer": "/traversal/edges/5"
+      },
+      "source": {
+        "json_pointer": "/facts/6/evidence_ids/0",
+        "object_id": "attempt-a8a7cfbab07bd923",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--4e9a3ba970c5643c176e39dddd70641d5b2add7c396ef9e638c0fba5dd4c0999",
+        "context_pointer": "/traversal/edges/6"
+      },
+      "source": {
+        "json_pointer": "/mitre_assessments/0/supporting_evidence_ids/0",
+        "object_id": "assessment-T1110-003",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--6305a8e3dda6e532a2371fcad03b32808f099b83732d6072ee2c268239b8face",
+        "context_pointer": "/traversal/edges/7"
+      },
+      "source": {
+        "json_pointer": "/relationships/7",
+        "object_id": "context-cti-4d79697c25bee5b013b2",
+        "object_type": "relationship"
+      },
+      "status": "candidate",
+      "object_type": "relationship",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {
+        "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+        "citation": {
+          "anchor": "a very small number of sign-in attempts to many accounts",
+          "char_end": 6271,
+          "char_start": 6215,
+          "line": 129,
+          "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+          "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+          "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+          "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+          "source_id": "microsoft-password-spray",
+          "text_path": "microsoft-password-spray.txt",
+          "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+        },
+        "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+        "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+        "evidence_layer": "cti_context",
+        "publication_date": "2024-10-31T17:00:00+00:00",
+        "publisher": "Microsoft Threat Intelligence",
+        "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+        "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+        "source_id": "microsoft-password-spray",
+        "source_references": [
+          {
+            "raw_record_ref": "text:chars:6215:6271",
+            "source_file": "microsoft-password-spray"
+          }
+        ],
+        "source_type": "cti_report",
+        "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+        "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+        "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+      },
+      "evidence_layer": "cti_context"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--6b0fb54c7ee0b0e83961eac1ba317c0e8407d26aab27b8261eca24e4dae50dae",
+        "context_pointer": "/traversal/edges/8"
+      },
+      "source": {
+        "json_pointer": "/entities/7/evidence_ids/0",
+        "object_id": "account-pbeesly",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--6f063f751ea05974938a1bc8a9c1961e45068b82a6107ff4304d599aba453af7",
+        "context_pointer": "/traversal/edges/9"
+      },
+      "source": {
+        "json_pointer": "/facts/2/evidence_ids/0",
+        "object_id": "attempt-c65c47e5fa6c0377",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--7338f63813dbf23d1d873f327f099c95ae1cefc20495c0bc7c68132adb4992e5",
+        "context_pointer": "/traversal/edges/10"
+      },
+      "source": {
+        "json_pointer": "/relationships/8",
+        "object_id": "context-topic-knowledge-topic-purplesharp-ad",
+        "object_type": "relationship"
+      },
+      "status": "candidate",
+      "object_type": "relationship",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {
+        "evidence_layer": "cti_context",
+        "semantics": "External technical context only; no local behavior support or compromise assertion."
+      },
+      "evidence_layer": "cti_context"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--80728b37fb4c308e0d70a6c9ebf70c7e8119f7cef55cd3c07d1c31c1c2430e05",
+        "context_pointer": "/traversal/edges/11"
+      },
+      "source": {
+        "json_pointer": "/entities/1/evidence_ids/0",
+        "object_id": "host-eaaecb99f58f0b78",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--8829d414bd3516923b1b889c8560bfe475c4e1fca012d9f7b8fa7bbfaca48f2c",
+        "context_pointer": "/traversal/edges/12"
+      },
+      "source": {
+        "json_pointer": "/facts/3/evidence_ids/0",
+        "object_id": "attempt-2882bb6fd5a6b107",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--8b7e333a4ca62b5878f41c8d8a89fb955f0708ba739beee67967d03f2611e41b",
+        "context_pointer": "/traversal/edges/13"
+      },
+      "source": {
+        "json_pointer": "/facts/1/evidence_ids/0",
+        "object_id": "attempt-8ae24dc39875f280",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--a3047c34834e9d9825273e1a9485dad1632cca8a6a3676cbc1cabfb5dd9eee96",
+        "context_pointer": "/traversal/edges/14"
+      },
+      "source": {
+        "json_pointer": "/entities/6/evidence_ids/0",
+        "object_id": "account-mscott",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--b4e6ceb7d8e7a6c0e242d774f198713a527b7e8ae83a7374431359a292f23585",
+        "context_pointer": "/traversal/edges/15"
+      },
+      "source": {
+        "json_pointer": "/facts/4/evidence_ids/0",
+        "object_id": "attempt-7c675a9633c38577",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--b7dbb15a73fe0bb6eec7fa4b110eb530fb5375bf0b1f2cc52ed276ce660882db",
+        "context_pointer": "/traversal/edges/16"
+      },
+      "source": {
+        "json_pointer": "/facts/0/evidence_ids/0",
+        "object_id": "attempt-708294f78948db67",
+        "object_type": "fact"
+      },
+      "status": "inferred",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "inferred_correlation"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--be0b81b8528534e58113f651ea0f9698c82a1299410d102635754792f8965168",
+        "context_pointer": "/traversal/edges/17"
+      },
+      "source": {
+        "json_pointer": "/entities/2/evidence_ids/0",
+        "object_id": "account-lrodriguez",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--c7bd89ef0275d34bd57264f589aaf359326bf859a045bac1c76a612b4298925e",
+        "context_pointer": "/traversal/edges/18"
+      },
+      "source": {
+        "json_pointer": "/entities/5/evidence_ids/0",
+        "object_id": "account-sbeavers",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--ca83f6fb257b1adca4961e52e8d52facba27482ebbede908fb7f0f17688054aa",
+        "context_pointer": "/traversal/edges/19"
+      },
+      "source": {
+        "json_pointer": "/facts/7/evidence_ids/0",
+        "object_id": "auth-failure-survey",
+        "object_type": "fact"
+      },
+      "status": "observed",
+      "object_type": "fact",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--d6dfd24ce3fcc7ec5974b10288a34807a073c2f168660cf99ea0c3913387a287",
+        "context_pointer": "/traversal/edges/20"
+      },
+      "source": {
+        "json_pointer": "/mitre_assessments/0/supporting_sigma_rule_ids/0",
+        "object_id": "assessment-T1110-003",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "edge",
+        "item_id": "graph-edge--f6390e5ed893e4be484b4b86aed26b15eebf0c79792e31ab80d4b61fb255a037",
+        "context_pointer": "/traversal/edges/21"
+      },
+      "source": {
+        "json_pointer": "/entities/4/evidence_ids/0",
+        "object_id": "account-sysmonsvc",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [],
+      "text": "",
+      "properties": {},
+      "evidence_layer": "observed_telemetry"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

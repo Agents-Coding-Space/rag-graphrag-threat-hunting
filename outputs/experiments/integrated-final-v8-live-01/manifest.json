@@ -1,0 +1,248 @@
+{
+  "mode": "live",
+  "phase": "initial",
+  "preflight": "F:\\PERSIONAL\\temp\\PHONG\\rag-graphrag-friend\\outputs\\final\\20261101_direct_v8\\preflight",
+  "runtime_pin_sha256": "b8d2e2916e5248a50d5723b44bd58bf82579bad390526980812a94c7464a8bee",
+  "config_sha256": "babd0e0e85c2eab8c8a6a8aead00083ae3044b9983a122917a39db89c4c7a391",
+  "model": {
+    "provider": "generic_openai",
+    "model_name": "cmc/reflection/beam:free",
+    "base_url": "http://localhost:20128/v1",
+    "temperature": 0.0,
+    "max_tokens": 16384,
+    "timeout_seconds": 180.0,
+    "maximum_http_attempts_per_generation": 1,
+    "automatic_retry": false
+  },
+  "selected_branches": [
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "rag"
+    },
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "AUTH-CORRELATE",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "AUTH-CORRELATE",
+      "branch": "rag"
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "rag"
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "AUTH-LIMIT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "AUTH-LIMIT",
+      "branch": "rag"
+    },
+    {
+      "case_id": "PS-DIRECT",
+      "branch": "rag"
+    },
+    {
+      "case_id": "PS-DIRECT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "PS-CORRELATE",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "PS-CORRELATE",
+      "branch": "rag"
+    },
+    {
+      "case_id": "PS-CTI",
+      "branch": "rag"
+    },
+    {
+      "case_id": "PS-CTI",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "PS-LIMIT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "PS-LIMIT",
+      "branch": "rag"
+    },
+    {
+      "case_id": "NET-DIRECT",
+      "branch": "rag"
+    },
+    {
+      "case_id": "NET-DIRECT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "NET-CORRELATE",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "NET-CORRELATE",
+      "branch": "rag"
+    },
+    {
+      "case_id": "NET-CTI",
+      "branch": "rag"
+    },
+    {
+      "case_id": "NET-CTI",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "NET-LIMIT",
+      "branch": "graphrag"
+    },
+    {
+      "case_id": "NET-LIMIT",
+      "branch": "rag"
+    }
+  ],
+  "task_ledger": "F:\\PERSIONAL\\temp\\PHONG\\rag-graphrag-friend\\outputs\\final\\20261101_direct_v8\\request_budget.json",
+  "source": null,
+  "source_hashes": {},
+  "request_interval_seconds": 60,
+  "execution_pin_sha256": null,
+  "ledger_before_sha256": null,
+  "balance_confirmation_sha256": null,
+  "balance_confirmation_required_before_live": false,
+  "budget_assignments": [
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-CORRELATE",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-CORRELATE",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-LIMIT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "AUTH-LIMIT",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-DIRECT",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-DIRECT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-CORRELATE",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-CORRELATE",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-CTI",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-CTI",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-LIMIT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "PS-LIMIT",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-DIRECT",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-DIRECT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-CORRELATE",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-CORRELATE",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-CTI",
+      "branch": "rag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-CTI",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-LIMIT",
+      "branch": "graphrag",
+      "phase": "initial"
+    },
+    {
+      "case_id": "NET-LIMIT",
+      "branch": "rag",
+      "phase": "initial"
+    }
+  ],
+  "automatic_retry": false,
+  "fallback": false,
+  "human_review_required": true
+}

@@ -1,0 +1,973 @@
+{
+  "baseline_candidate_id": "baseline",
+  "candidate_assessments": [
+    {
+      "candidate_id": "candidate-eligible",
+      "conditions": [
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "hit_rate",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.25,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "ndcg",
+          "observed_value": 0.184535123215,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "recall",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "positive_validation_delta",
+          "cutoff": 10,
+          "metric": "mrr",
+          "observed_value": 0.25,
+          "passed": true,
+          "required_value": 0,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "priority_language_gain",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": 0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "secondary_language_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "vi"
+            }
+          }
+        }
+      ],
+      "eligible": true,
+      "overall_deltas": [
+        {
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "cutoff": 3,
+          "delta": 0.0,
+          "metric": "hit_rate"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.75,
+          "cutoff": 3,
+          "delta": 0.25,
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.630929753571,
+          "candidate": 0.815464876786,
+          "cutoff": 3,
+          "delta": 0.184535123215,
+          "metric": "ndcg"
+        },
+        {
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "cutoff": 3,
+          "delta": 0.0,
+          "metric": "recall"
+        }
+      ],
+      "priority_language_delta": {
+        "baseline": 0.5,
+        "candidate": 1.0,
+        "cutoff": 3,
+        "delta": 0.5,
+        "language": "vi",
+        "metric": "mrr"
+      },
+      "reason_codes": [
+        "eligible_candidate"
+      ],
+      "secondary_language_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "en",
+          "metric": "mrr"
+        }
+      ],
+      "slice_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        }
+      ],
+      "validation_delta": {
+        "baseline": 0.5,
+        "candidate": 0.75,
+        "cutoff": 10,
+        "delta": 0.25,
+        "metric": "mrr"
+      },
+      "worst_regression": {
+        "cutoff": null,
+        "delta": 0.0,
+        "magnitude": 0.0,
+        "metric": null,
+        "scope": null
+      }
+    },
+    {
+      "candidate_id": "candidate-priority-miss",
+      "conditions": [
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "hit_rate",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.25,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "ndcg",
+          "observed_value": 0.184535123215,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "recall",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "positive_validation_delta",
+          "cutoff": 10,
+          "metric": "mrr",
+          "observed_value": 0.25,
+          "passed": true,
+          "required_value": 0,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "priority_language_gain",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": false,
+          "required_value": 0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "secondary_language_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "vi"
+            }
+          }
+        }
+      ],
+      "eligible": false,
+      "overall_deltas": [
+        {
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "cutoff": 3,
+          "delta": 0.0,
+          "metric": "hit_rate"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.75,
+          "cutoff": 3,
+          "delta": 0.25,
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.630929753571,
+          "candidate": 0.815464876786,
+          "cutoff": 3,
+          "delta": 0.184535123215,
+          "metric": "ndcg"
+        },
+        {
+          "baseline": 1.0,
+          "candidate": 1.0,
+          "cutoff": 3,
+          "delta": 0.0,
+          "metric": "recall"
+        }
+      ],
+      "priority_language_delta": {
+        "baseline": 0.5,
+        "candidate": 0.5,
+        "cutoff": 3,
+        "delta": 0.0,
+        "language": "vi",
+        "metric": "mrr"
+      },
+      "reason_codes": [
+        "priority_language_gain_below_minimum"
+      ],
+      "secondary_language_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "en",
+          "metric": "mrr"
+        }
+      ],
+      "slice_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": 0.0,
+          "language": "vi",
+          "metric": "mrr"
+        }
+      ],
+      "validation_delta": {
+        "baseline": 0.5,
+        "candidate": 0.75,
+        "cutoff": 10,
+        "delta": 0.25,
+        "metric": "mrr"
+      },
+      "worst_regression": {
+        "cutoff": null,
+        "delta": 0.0,
+        "magnitude": 0.0,
+        "metric": null,
+        "scope": null
+      }
+    },
+    {
+      "candidate_id": "candidate-regression",
+      "conditions": [
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "hit_rate",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": true,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "ndcg",
+          "observed_value": -0.130929753571,
+          "passed": false,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "overall_metric_regression",
+          "cutoff": 3,
+          "metric": "recall",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.1,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "positive_validation_delta",
+          "cutoff": 10,
+          "metric": "mrr",
+          "observed_value": 0.0,
+          "passed": false,
+          "required_value": 0,
+          "scope": {
+            "group_by": "candidate",
+            "key": {}
+          }
+        },
+        {
+          "condition_id": "priority_language_gain",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": 0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "secondary_language_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "language",
+            "key": {
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "insufficient_evidence",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_direct",
+              "language": "vi"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": -0.5,
+          "passed": false,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "en"
+            }
+          }
+        },
+        {
+          "condition_id": "slice_regression",
+          "cutoff": 3,
+          "metric": "mrr",
+          "observed_value": 0.5,
+          "passed": true,
+          "required_value": -0.25,
+          "scope": {
+            "group_by": "category_language",
+            "key": {
+              "category": "relevant_paraphrase",
+              "language": "vi"
+            }
+          }
+        }
+      ],
+      "eligible": false,
+      "overall_deltas": [
+        {
+          "baseline": 1.0,
+          "candidate": 0.5,
+          "cutoff": 3,
+          "delta": -0.5,
+          "metric": "hit_rate"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.5,
+          "cutoff": 3,
+          "delta": 0.0,
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.630929753571,
+          "candidate": 0.5,
+          "cutoff": 3,
+          "delta": -0.130929753571,
+          "metric": "ndcg"
+        },
+        {
+          "baseline": 1.0,
+          "candidate": 0.5,
+          "cutoff": 3,
+          "delta": -0.5,
+          "metric": "recall"
+        }
+      ],
+      "priority_language_delta": {
+        "baseline": 0.5,
+        "candidate": 1.0,
+        "cutoff": 3,
+        "delta": 0.5,
+        "language": "vi",
+        "metric": "mrr"
+      },
+      "reason_codes": [
+        "overall_metric_regression",
+        "secondary_language_regression",
+        "slice_regression",
+        "validation_delta_not_positive"
+      ],
+      "secondary_language_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 0.0,
+          "cutoff": 3,
+          "delta": -0.5,
+          "language": "en",
+          "metric": "mrr"
+        }
+      ],
+      "slice_deltas": [
+        {
+          "baseline": 0.5,
+          "candidate": 0.0,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": -0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "insufficient_evidence",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.0,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": -0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_direct",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 0.0,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": -0.5,
+          "language": "en",
+          "metric": "mrr"
+        },
+        {
+          "baseline": 0.5,
+          "candidate": 1.0,
+          "category": "relevant_paraphrase",
+          "cutoff": 3,
+          "delta": 0.5,
+          "language": "vi",
+          "metric": "mrr"
+        }
+      ],
+      "validation_delta": {
+        "baseline": 0.5,
+        "candidate": 0.5,
+        "cutoff": 10,
+        "delta": 0.0,
+        "metric": "mrr"
+      },
+      "worst_regression": {
+        "cutoff": 3,
+        "delta": -0.5,
+        "magnitude": 0.5,
+        "metric": "hit_rate",
+        "scope": {
+          "group_by": "candidate",
+          "key": {}
+        }
+      }
+    }
+  ],
+  "decision": "provisional_recommendation",
+  "evaluation_id": "embedding-model-selection-7843d6e4ac855b711cbbee1533f255ee453ccb506d9fa0d6a1446219c5894bf2",
+  "metadata": {
+    "candidate_count": 4,
+    "eligible_candidate_count": 1,
+    "evaluated_cutoffs": [
+      3,
+      10
+    ],
+    "evaluated_languages": [
+      "en",
+      "vi"
+    ],
+    "evaluated_metrics": [
+      "hit_rate",
+      "mrr",
+      "ndcg",
+      "recall"
+    ],
+    "evaluated_slice_count": 6,
+    "selection_method": "policy_based_deterministic_selection"
+  },
+  "policy_id": "policy-selection-synthetic",
+  "reason_codes": [
+    "eligible_candidate",
+    "human_review_required",
+    "overall_metric_regression",
+    "priority_language_gain_below_minimum",
+    "provisional_only_single_scenario",
+    "secondary_language_regression",
+    "slice_regression",
+    "validation_delta_not_positive"
+  ],
+  "recommended_candidate_id": "candidate-eligible",
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewed_at": null,
+    "reviewer": null
+  },
+  "schema_version": "embedding-model-selection/v1",
+  "warnings": [
+    "A recommendation does not automatically change the production embedding model.",
+    "Raw cosine scores cannot be compared directly between embedding models.",
+    "Results are based only on the supplied comparison report.",
+    "Slices with no relevance-support cases have undefined relevance metrics and are excluded from quality conditions.",
+    "This is not a general benchmark for the entire system."
+  ]
+}

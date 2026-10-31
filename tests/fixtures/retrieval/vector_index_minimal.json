@@ -1,0 +1,70 @@
+{
+  "schema_version": "vector-index/v1",
+  "index_id": "vector-index-synthetic-review-001",
+  "corpus_provenance": {
+    "path": "fixtures/retrieval/synthetic_retrieval_corpus.json",
+    "schema_version": "retrieval-corpus/v1",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "corpus_id": "corpus-synthetic-review-001",
+    "scenario_id": "scenario-synthetic-review-001"
+  },
+  "embedding": {
+    "provider": "synthetic-provider",
+    "model_id": "synthetic-embedding-model",
+    "model_revision": "fixture-revision-001",
+    "dimension": 4,
+    "distance_metric": "cosine",
+    "normalization": "l2",
+    "document_prefix": "document: ",
+    "query_prefix": "query: "
+  },
+  "records": [
+    {
+      "chunk_id": "chunk-synthetic-summary-001",
+      "chunk_type": "scenario_summary",
+      "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "vector": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "chunk_id": "chunk-synthetic-entity-001",
+      "chunk_type": "entity",
+      "content_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "vector": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "chunk_id": "chunk-synthetic-evidence-001",
+      "chunk_type": "evidence",
+      "content_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "vector": [
+        0.0,
+        0.6,
+        0.0,
+        0.8
+      ]
+    }
+  ],
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "notes": [
+      "Synthetic fixture awaiting human review."
+    ]
+  },
+  "warnings": [],
+  "metadata": {
+    "record_count": 3,
+    "vector_dimension": 4,
+    "complete_corpus_coverage": false
+  }
+}

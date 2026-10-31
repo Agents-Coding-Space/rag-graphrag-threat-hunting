@@ -1,0 +1,37 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "SUSPICIOUS",
+  "direct_answer": "Trong cluster nghi vấn password spraying có 7 lần thử, khử trùng từ 14 failure observations (7 Event ID 4625 + 7 Event ID 4776), trên 7 tài khoản khác nhau: lrodriguez, mscott, nxlogsvc, pbeesly, pgustavo, sbeavers, sysmonsvc. Khoảng dấu thời gian canonical của các anchors suy luận là 2020-10-22T08:29:55.210000Z đến 2020-10-22T08:29:55.222000Z (0,012 giây); các bản ghi 4776 tương ứng nằm ở 2020-10-22T08:29:55.357000Z đến 2020-10-22T08:29:55.382000Z.",
+  "executive_summary": "PurpleSharp ghi nhận một cluster nghi vấn password spraying: 7 attempt suy luận từ hai view sự kiện authentication, mỗi account một lần thử, không có bằng chứng compromise.",
+  "technical_analysis": "Evidence auth-failure-observations chứa 14 observations: 7 Event ID 4625 trên WORKSTATION5.theshire.local và 7 Event ID 4776 trên MORDORDC.theshire.local. Theo correlation summary, hai view này được khử trùng thành 7 countable attempts, tolerance 1,0 giây, không có ambiguous observations. Mỗi attempt ghép một 4625 với một 4776 dựa trên account/workstation/failure code; timestamp anchor là timestamp của bản ghi 4625. Target accounts là lrodriguez, mscott, nxlogsvc, pbeesly, pgustavo, sbeavers và sysmonsvc. Các 4625 có Status 0xc000006d / SubStatus 0xc000006a; các 4776 có Status 0xc000006a. Cluster candidate có finding_id spray-candidate-6000d7d4035d8a5e, window_seconds=60, min_distinct_accounts=5 và status candidate. Sigma rule id liên quan là 8146a24e-c271-4d34-a679-6a361f71ccab.",
+  "attack_chain": [],
+  "mitre_mappings": [],
+  "sigma_matches": [
+    "8146a24e-c271-4d34-a679-6a361f71ccab"
+  ],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "Phép ghép 4625/4776 là suy luận, không có shared attempt ID; 4776 thiếu target domain.",
+    "Password sameness giữa các tài khoản không được log và không được chứng minh.",
+    "Cluster chỉ là nghi vấn/candidate; không chứng minh được compromise, spray thành công hay credential hợp lệ.",
+    "0,012 giây là khoảng dấu thời gian canonical của các anchors suy luận, không phải thời lượng tấn công thực tế; đồng bộ đồng hồ giữa endpoint và DC chưa được chứng minh.",
+    "Một lần thử thất bại trên mỗi account không chứng minh brute force lặp lại trên một account."
+  ],
+  "evidence_refs": [
+    "auth-failure-observations",
+    "jsonl:line:788",
+    "jsonl:line:790",
+    "jsonl:line:792",
+    "jsonl:line:794",
+    "jsonl:line:796",
+    "jsonl:line:798",
+    "jsonl:line:803",
+    "jsonl:line:1020",
+    "jsonl:line:1046",
+    "jsonl:line:1048",
+    "jsonl:line:1051",
+    "jsonl:line:1072",
+    "jsonl:line:1074",
+    "jsonl:line:1077"
+  ]
+}

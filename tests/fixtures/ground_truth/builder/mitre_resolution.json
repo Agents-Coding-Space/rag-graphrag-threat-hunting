@@ -1,0 +1,41 @@
+{
+  "schema_version": "mitre-resolution/v1",
+  "scenario_id": "scenario-synthetic-builder",
+  "analysis_status": "needs_review",
+  "resolved_technique_count": 2,
+  "resolved_techniques": [
+    {
+      "external_id": "SYN-1002",
+      "stix_id": "attack-pattern--synthetic-beta",
+      "name": "Synthetic Transition Pattern",
+      "evidence_assessment": "not_assessed"
+    },
+    {
+      "external_id": "SYN-1001",
+      "stix_id": "attack-pattern--synthetic-alpha",
+      "name": "Synthetic Activity Pattern",
+      "evidence_assessment": "not_assessed"
+    }
+  ],
+  "rule_technique_candidate_links": [
+    {
+      "link_id": "mitre-link-synthetic-beta",
+      "rule_id": "rule-synthetic-beta",
+      "normalized_external_id": "SYN-1002",
+      "technique_stix_id": "attack-pattern--synthetic-beta",
+      "status": "candidate",
+      "evidence_assessment": "not_assessed"
+    },
+    {
+      "link_id": "mitre-link-synthetic-alpha",
+      "rule_id": "rule-synthetic-alpha",
+      "normalized_external_id": "SYN-1001",
+      "technique_stix_id": "attack-pattern--synthetic-alpha",
+      "status": "candidate",
+      "evidence_assessment": "not_assessed"
+    }
+  ],
+  "warnings": [
+    "Synthetic resolution warning."
+  ]
+}

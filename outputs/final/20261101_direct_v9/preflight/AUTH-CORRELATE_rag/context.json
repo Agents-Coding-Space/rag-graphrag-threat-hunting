@@ -1,0 +1,1631 @@
+{
+  "schema_version": "graphrag-context/v1",
+  "corpus_id": "retrieval-corpus--f19f8c043c686443a6d0c4c20449509d8ef87540008454f852ac90388033875c",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "purplesharp-ad",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+    "scenario_id": "purplesharp-ad",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+  },
+  "query": {
+    "text": "Tương quan 4625 với 4776 trong PurpleSharp: có bao nhiêu lần thử và tài khoản khác nhau trong cụm nghi vấn password spraying, trong khoảng thời gian nào? Giải thích khử trùng và giới hạn của phép ghép.",
+    "normalized_terms": [
+      "tương",
+      "quan",
+      "4625",
+      "với",
+      "4776",
+      "trong",
+      "purplesharp",
+      "có",
+      "bao",
+      "nhiêu",
+      "lần",
+      "thử",
+      "và",
+      "tài",
+      "khoản",
+      "khác",
+      "nhau",
+      "cụm",
+      "nghi",
+      "vấn",
+      "password",
+      "spraying",
+      "khoảng",
+      "thời",
+      "gian",
+      "nào",
+      "giải",
+      "thích",
+      "khử",
+      "trùng",
+      "giới",
+      "hạn",
+      "của",
+      "phép",
+      "ghép"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "retrieval": {
+    "schema_version": "retrieval-result/v1",
+    "retrieval_method": "hybrid-rrf/v1",
+    "corpus_id": "retrieval-corpus--f19f8c043c686443a6d0c4c20449509d8ef87540008454f852ac90388033875c",
+    "scenario_id": "purplesharp-ad",
+    "query": {
+      "text": "Tương quan 4625 với 4776 trong PurpleSharp: có bao nhiêu lần thử và tài khoản khác nhau trong cụm nghi vấn password spraying, trong khoảng thời gian nào? Giải thích khử trùng và giới hạn của phép ghép.",
+      "normalized_terms": [
+        "tương",
+        "quan",
+        "4625",
+        "với",
+        "4776",
+        "trong",
+        "purplesharp",
+        "có",
+        "bao",
+        "nhiêu",
+        "lần",
+        "thử",
+        "và",
+        "tài",
+        "khoản",
+        "khác",
+        "nhau",
+        "cụm",
+        "nghi",
+        "vấn",
+        "password",
+        "spraying",
+        "khoảng",
+        "thời",
+        "gian",
+        "nào",
+        "giải",
+        "thích",
+        "khử",
+        "trùng",
+        "giới",
+        "hạn",
+        "của",
+        "phép",
+        "ghép"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "hits": [
+      {
+        "rank": 1,
+        "score": 0.032522474881,
+        "components": {
+          "lexical": {
+            "rank": 1,
+            "score": 12.63897308,
+            "contribution": 0.016393442623
+          },
+          "vector": {
+            "rank": 2,
+            "score": 0.83809823,
+            "contribution": 0.016129032258
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--0bbca650694671ec179ef9b97d45cc40969a30d7bc97752d23217b208beaf348",
+          "chunk_type": "evidence",
+          "content": "Evidence auth-failure-observations. Type: authentication_failure. Summary: PurpleSharp authentication failures: 4625 endpoint and 4776 DC views, not additional attempts. Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.210000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.211000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.214000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.215000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.217000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.219000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4625, timestamp=2020-10-22T08:29:55.222000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.357000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.368000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.370000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.371000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.381000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.381000Z; provider=Microsoft-Windows-Security-Auditing, event_id=4776, timestamp=2020-10-22T08:29:55.382000Z.",
+          "entity_ids": [
+            "account-lrodriguez",
+            "account-mscott",
+            "account-nxlogsvc",
+            "account-pbeesly",
+            "account-pgustavo",
+            "account-sbeavers",
+            "account-sysmonsvc",
+            "host-eaaecb99f58f0b78"
+          ],
+          "evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "fact_ids": [
+            "attempt-2882bb6fd5a6b107",
+            "attempt-708294f78948db67",
+            "attempt-7c675a9633c38577",
+            "attempt-8ae24dc39875f280",
+            "attempt-a8a7cfbab07bd923",
+            "attempt-c65c47e5fa6c0377",
+            "attempt-d106d55730e6a156",
+            "auth-correlation-summary",
+            "auth-failure-survey"
+          ],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "evidence_id": "auth-failure-observations",
+              "evidence_type": "authentication_failure",
+              "observations": [
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:788",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.210000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:790",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.211000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:792",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.214000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:794",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.215000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:796",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.217000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:798",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.219000Z"
+                },
+                {
+                  "event_id": "4625",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:803",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.222000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1020",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.357000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1046",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.368000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1048",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.370000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1051",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.371000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1072",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.381000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1074",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.381000Z"
+                },
+                {
+                  "event_id": "4776",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:1077",
+                  "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+                  "timestamp": "2020-10-22T08:29:55.382000Z"
+                }
+              ],
+              "source_references": [
+                {
+                  "raw_reference_key": "r-578ad253891c5cfe6011"
+                },
+                {
+                  "raw_reference_key": "r-91863a2511912564f102"
+                },
+                {
+                  "raw_reference_key": "r-f3cb5870597e9ec652af"
+                },
+                {
+                  "raw_reference_key": "r-c966efa532a077dc2012"
+                },
+                {
+                  "raw_reference_key": "r-e94066594a40bce60ac4"
+                },
+                {
+                  "raw_reference_key": "r-cbb05c3196a38eb50f09"
+                },
+                {
+                  "raw_reference_key": "r-03a902db8ef4c8f8e233"
+                },
+                {
+                  "raw_reference_key": "r-1cc0e74d06e68c067815"
+                },
+                {
+                  "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+                },
+                {
+                  "raw_reference_key": "r-c4c645c80d39a45569f0"
+                },
+                {
+                  "raw_reference_key": "r-13010bc822750080d586"
+                },
+                {
+                  "raw_reference_key": "r-b2116eca89ab8325ad66"
+                },
+                {
+                  "raw_reference_key": "r-bfd34469c390f5eb790d"
+                },
+                {
+                  "raw_reference_key": "r-4449e028f7000ab20f4f"
+                }
+              ],
+              "status": "observed",
+              "summary": "PurpleSharp authentication failures: 4625 endpoint and 4776 DC views, not additional attempts."
+            },
+            "source_observations": [
+              {
+                "source_observation_key": "observation--12b1dbadc8b2bf042d1ca2c9d1851e599ab096f5f0394621a66ab9bd8e8d48d0"
+              },
+              {
+                "source_observation_key": "observation--e647c91f45d6cdc880e782cc6572e1979a0f1f01827f5cc164f29ede13cde9b7"
+              },
+              {
+                "source_observation_key": "observation--dadbe6333ee25a60b136669745651074cd686b5d591fbce0fdadbb9d69c6cb19"
+              },
+              {
+                "source_observation_key": "observation--f78e59a14866b0ddd1a7fd3e58bdf86ef0a333bd4dd5a20b43d77760e98b1af4"
+              },
+              {
+                "source_observation_key": "observation--90ed680c2bd5686952b642b886a88063249332f5a0cf310b2405fd2d51e2d91e"
+              },
+              {
+                "source_observation_key": "observation--b8158a2ab9a308813123d8ee0623341494c16a02a22404098592e1fca9baa40a"
+              },
+              {
+                "source_observation_key": "observation--020d217705bc04c94d320a74a364def35b0522815aefadd5cb50a2348a40851f"
+              },
+              {
+                "source_observation_key": "observation--480b50bf4ed933a663bc4aa100e01cd28e1e2d724a090dec7df725cc693aed95"
+              },
+              {
+                "source_observation_key": "observation--5a714a14a0931907d80671841af5f85c5ee741b12804bec3f7d5099188d6033b"
+              },
+              {
+                "source_observation_key": "observation--3ee9ed706af34260585a1b3f952505bcd0c71b922ee0c8db1139c3808939a604"
+              },
+              {
+                "source_observation_key": "observation--09f75195754a5352918eaeacb9b4686305c27893b87ffebe4685fa44801e6ca3"
+              },
+              {
+                "source_observation_key": "observation--c6cc32633fd7e0fc09a93eee292a25196e5661a48caf6b9e2f2973f6115647bd"
+              },
+              {
+                "source_observation_key": "observation--2fe3b9c1e68944565d5718b2a6a20e50ffdd203f64c927d15354ff60d2ce2e36"
+              },
+              {
+                "source_observation_key": "observation--0724c22dfc5263670a135f3e26b3957beb7c4defe41dbdc85c1f5719add333ed"
+              }
+            ]
+          },
+          "mitre_external_ids": [
+            "T1110.003"
+          ],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "mitre_technique",
+            "provenance",
+            "relationship",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "relation-attempt-2882bb6fd5a6b107",
+            "relation-attempt-708294f78948db67",
+            "relation-attempt-7c675a9633c38577",
+            "relation-attempt-8ae24dc39875f280",
+            "relation-attempt-a8a7cfbab07bd923",
+            "relation-attempt-c65c47e5fa6c0377",
+            "relation-attempt-d106d55730e6a156"
+          ],
+          "scenario_id": "purplesharp-ad",
+          "sigma_rule_ids": [
+            "8146a24e-c271-4d34-a679-6a361f71ccab"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/evidence/0",
+            "object_id": "auth-failure-observations",
+            "object_type": "evidence"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-1cc0e74d06e68c067815"
+            },
+            {
+              "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+            },
+            {
+              "raw_reference_key": "r-c4c645c80d39a45569f0"
+            },
+            {
+              "raw_reference_key": "r-13010bc822750080d586"
+            },
+            {
+              "raw_reference_key": "r-b2116eca89ab8325ad66"
+            },
+            {
+              "raw_reference_key": "r-bfd34469c390f5eb790d"
+            },
+            {
+              "raw_reference_key": "r-4449e028f7000ab20f4f"
+            },
+            {
+              "raw_reference_key": "r-578ad253891c5cfe6011"
+            },
+            {
+              "raw_reference_key": "r-91863a2511912564f102"
+            },
+            {
+              "raw_reference_key": "r-f3cb5870597e9ec652af"
+            },
+            {
+              "raw_reference_key": "r-c966efa532a077dc2012"
+            },
+            {
+              "raw_reference_key": "r-e94066594a40bce60ac4"
+            },
+            {
+              "raw_reference_key": "r-cbb05c3196a38eb50f09"
+            },
+            {
+              "raw_reference_key": "r-03a902db8ef4c8f8e233"
+            }
+          ],
+          "status": "observed",
+          "title": "PurpleSharp authentication failures: 4625 endpoint and 4776 DC views, not additional attempts."
+        }
+      },
+      {
+        "rank": 2,
+        "score": 0.032522474881,
+        "components": {
+          "lexical": {
+            "rank": 2,
+            "score": 6.81063409,
+            "contribution": 0.016129032258
+          },
+          "vector": {
+            "rank": 1,
+            "score": 0.85051963,
+            "contribution": 0.016393442623
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--91ef444192d109b423f4b0402f098672ea5143a1c14c7d15566c0872ec1016f8",
+          "chunk_type": "scenario_summary",
+          "content": "Scenario 3.3.1 Kịch bản brute force và đăng nhập bất thường. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: Observed 49 successful logons; same-name associations and privileges are context only. Toàn bộ 25993 raw/canonical records đã được đối chiếu; 14 failure observations, 7 correlated attempts, 1 suspected spraying cluster(s), 5 RC4 rule matches. Không xác nhận compromise.",
+          "entity_ids": [
+            "account-lrodriguez",
+            "account-mscott",
+            "account-nxlogsvc",
+            "account-pbeesly",
+            "account-pgustavo",
+            "account-sbeavers",
+            "account-sysmonsvc",
+            "authentication-capture-scope",
+            "host-eaaecb99f58f0b78"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "analysis_status": "draft_reviewable",
+            "observed_behavior_count": 2,
+            "scope_limitations": [
+              "Use existing canonical timestamp unchanged. Preserve timezone-naive EventTime and @timestamp differences; no timezone correction.",
+              "Launch /t is intent only; failure clustering and ticket evidence are evaluated independently.",
+              "One failed attempt per account does not establish repeated brute force against a single account. Password sameness is not logged.",
+              "Successful logon is observed, but abnormality/causality/compromise requires historical and session context.",
+              "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+              "No cracking success/password recovery is established. CTI campaign activity does not attribute an actor to this dataset.",
+              "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+            ],
+            "scope_limitations_pointer": "/summary/limitations",
+            "time_window": {
+              "end": "2020-10-22T08:30:42.832000Z",
+              "start": "2020-10-22T08:29:48.785000Z"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "authentication",
+            "cti_context",
+            "entity",
+            "evidence",
+            "fact",
+            "limitation",
+            "mitre_technique",
+            "network",
+            "process",
+            "provenance",
+            "relationship",
+            "scenario",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "relation-attempt-2882bb6fd5a6b107",
+            "relation-attempt-708294f78948db67",
+            "relation-attempt-7c675a9633c38577",
+            "relation-attempt-8ae24dc39875f280",
+            "relation-attempt-a8a7cfbab07bd923",
+            "relation-attempt-c65c47e5fa6c0377",
+            "relation-attempt-d106d55730e6a156"
+          ],
+          "scenario_id": "purplesharp-ad",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/scenario",
+            "object_id": null,
+            "object_type": "scenario"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-1cc0e74d06e68c067815"
+            },
+            {
+              "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+            },
+            {
+              "raw_reference_key": "r-c4c645c80d39a45569f0"
+            },
+            {
+              "raw_reference_key": "r-13010bc822750080d586"
+            },
+            {
+              "raw_reference_key": "r-b2116eca89ab8325ad66"
+            },
+            {
+              "raw_reference_key": "r-bfd34469c390f5eb790d"
+            },
+            {
+              "raw_reference_key": "r-4449e028f7000ab20f4f"
+            },
+            {
+              "raw_reference_key": "r-578ad253891c5cfe6011"
+            },
+            {
+              "raw_reference_key": "r-91863a2511912564f102"
+            },
+            {
+              "raw_reference_key": "r-f3cb5870597e9ec652af"
+            },
+            {
+              "raw_reference_key": "r-c966efa532a077dc2012"
+            },
+            {
+              "raw_reference_key": "r-e94066594a40bce60ac4"
+            },
+            {
+              "raw_reference_key": "r-cbb05c3196a38eb50f09"
+            },
+            {
+              "raw_reference_key": "r-03a902db8ef4c8f8e233"
+            }
+          ],
+          "status": "reviewable",
+          "title": "3.3.1 Kịch bản brute force và đăng nhập bất thường"
+        }
+      },
+      {
+        "rank": 3,
+        "score": 0.031746031746,
+        "components": {
+          "lexical": {
+            "rank": 3,
+            "score": 6.70738439,
+            "contribution": 0.015873015873
+          },
+          "vector": {
+            "rank": 3,
+            "score": 0.83345854,
+            "contribution": 0.015873015873
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--55fd82e45a343b8e932202f57fbf060278048047dd8c925ec7821b7196db06fc",
+          "chunk_type": "mitre_assessment",
+          "content": "MITRE assessment T1110.003: Password Spraying. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise. Review status: needs_review.",
+          "entity_ids": [],
+          "evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "fact_ids": [],
+          "metadata": {
+            "assessment_id": "assessment-T1110-003",
+            "evidence_layer": "candidate_assessment",
+            "evidence_support": "supported_by_observed_behavior",
+            "external_id": "T1110.003",
+            "model_confidence": "supported_by_observed_behavior",
+            "name": "Password Spraying",
+            "origin": "evidence_review",
+            "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+            "review_status": "needs_review",
+            "source_object": {
+              "assessment_id": "assessment-T1110-003",
+              "evidence_support": "supported_by_observed_behavior",
+              "external_id": "T1110.003",
+              "name": "Password Spraying",
+              "origin": "evidence_review",
+              "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+              "review_status": "needs_review",
+              "status": "candidate",
+              "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+              "supporting_evidence_ids": [
+                "auth-failure-observations"
+              ],
+              "supporting_sigma_rule_ids": [
+                "8146a24e-c271-4d34-a679-6a361f71ccab"
+              ]
+            },
+            "status": "candidate",
+            "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+            "supporting_evidence_ids": [
+              "auth-failure-observations"
+            ],
+            "supporting_sigma_rule_ids": [
+              "8146a24e-c271-4d34-a679-6a361f71ccab"
+            ]
+          },
+          "mitre_external_ids": [
+            "T1110.003"
+          ],
+          "queryable_dimensions": [
+            "evidence",
+            "mitre_technique",
+            "provenance",
+            "sigma_rule"
+          ],
+          "relationship_ids": [],
+          "scenario_id": "purplesharp-ad",
+          "sigma_rule_ids": [
+            "8146a24e-c271-4d34-a679-6a361f71ccab"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/mitre_assessments/0",
+            "object_id": "assessment-T1110-003",
+            "object_type": "mitre_assessment"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-1cc0e74d06e68c067815"
+            },
+            {
+              "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+            },
+            {
+              "raw_reference_key": "r-c4c645c80d39a45569f0"
+            },
+            {
+              "raw_reference_key": "r-13010bc822750080d586"
+            },
+            {
+              "raw_reference_key": "r-b2116eca89ab8325ad66"
+            },
+            {
+              "raw_reference_key": "r-bfd34469c390f5eb790d"
+            },
+            {
+              "raw_reference_key": "r-4449e028f7000ab20f4f"
+            },
+            {
+              "raw_reference_key": "r-578ad253891c5cfe6011"
+            },
+            {
+              "raw_reference_key": "r-91863a2511912564f102"
+            },
+            {
+              "raw_reference_key": "r-f3cb5870597e9ec652af"
+            },
+            {
+              "raw_reference_key": "r-c966efa532a077dc2012"
+            },
+            {
+              "raw_reference_key": "r-e94066594a40bce60ac4"
+            },
+            {
+              "raw_reference_key": "r-cbb05c3196a38eb50f09"
+            },
+            {
+              "raw_reference_key": "r-03a902db8ef4c8f8e233"
+            }
+          ],
+          "status": "candidate",
+          "title": "T1110.003 - Password Spraying"
+        }
+      },
+      {
+        "rank": 4,
+        "score": 0.03125,
+        "components": {
+          "lexical": {
+            "rank": 4,
+            "score": 6.49525387,
+            "contribution": 0.015625
+          },
+          "vector": {
+            "rank": 4,
+            "score": 0.83234706,
+            "contribution": 0.015625
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--eb2b6e6508b7b978eaa1436483c42fd13d146a05454bd73c8bb6c6b51af49afd",
+          "chunk_type": "sigma_finding",
+          "content": "Sigma finding Project suspected password spraying. Rule ID: 8146a24e-c271-4d34-a679-6a361f71ccab. Status: candidate. Caveats: Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved.. Evidence IDs: auth-failure-observations.",
+          "entity_ids": [],
+          "evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "fact_ids": [],
+          "metadata": {
+            "behavior_match_ids": [
+              "spray-candidate-6000d7d4035d8a5e"
+            ],
+            "caveats": [
+              "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+            ],
+            "evidence_ids": [
+              "auth-failure-observations"
+            ],
+            "evidence_layer": "candidate_assessment",
+            "finding_id": "sigma-spray-project",
+            "observation_match_ids": [
+              "auth-828c9b3fd2b7209e",
+              "auth-f2f0f62b5b95e5a6",
+              "auth-8a9fdccd3c675cbe",
+              "auth-cc44c45f8f4d1384",
+              "auth-17640e1136ac66de",
+              "auth-cc108c80c6820e63",
+              "auth-31b713bada8e7fc4",
+              "auth-f5aa2bce1653a3a8",
+              "auth-345dc51eaf51b2c2",
+              "auth-eb380129994cf773",
+              "auth-972a76b5b2ebca66",
+              "auth-2769787511b48b49",
+              "auth-97bd65eedb8e19c0",
+              "auth-d40d7df41c2d11e1"
+            ],
+            "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+            "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+            "rule_title": "Project suspected password spraying",
+            "source_object": {
+              "behavior_match_ids": [
+                "spray-candidate-6000d7d4035d8a5e"
+              ],
+              "caveats": [
+                "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+              ],
+              "evidence_ids": [
+                "auth-failure-observations"
+              ],
+              "finding_id": "sigma-spray-project",
+              "observation_match_ids": [
+                "auth-828c9b3fd2b7209e",
+                "auth-f2f0f62b5b95e5a6",
+                "auth-8a9fdccd3c675cbe",
+                "auth-cc44c45f8f4d1384",
+                "auth-17640e1136ac66de",
+                "auth-cc108c80c6820e63",
+                "auth-31b713bada8e7fc4",
+                "auth-f5aa2bce1653a3a8",
+                "auth-345dc51eaf51b2c2",
+                "auth-eb380129994cf773",
+                "auth-972a76b5b2ebca66",
+                "auth-2769787511b48b49",
+                "auth-97bd65eedb8e19c0",
+                "auth-d40d7df41c2d11e1"
+              ],
+              "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+              "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+              "rule_title": "Project suspected password spraying",
+              "source_references": [
+                {
+                  "raw_reference_key": "r-578ad253891c5cfe6011"
+                },
+                {
+                  "raw_reference_key": "r-91863a2511912564f102"
+                },
+                {
+                  "raw_reference_key": "r-f3cb5870597e9ec652af"
+                },
+                {
+                  "raw_reference_key": "r-c966efa532a077dc2012"
+                },
+                {
+                  "raw_reference_key": "r-e94066594a40bce60ac4"
+                },
+                {
+                  "raw_reference_key": "r-cbb05c3196a38eb50f09"
+                },
+                {
+                  "raw_reference_key": "r-03a902db8ef4c8f8e233"
+                },
+                {
+                  "raw_reference_key": "r-1cc0e74d06e68c067815"
+                },
+                {
+                  "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+                },
+                {
+                  "raw_reference_key": "r-c4c645c80d39a45569f0"
+                },
+                {
+                  "raw_reference_key": "r-13010bc822750080d586"
+                },
+                {
+                  "raw_reference_key": "r-b2116eca89ab8325ad66"
+                },
+                {
+                  "raw_reference_key": "r-bfd34469c390f5eb790d"
+                },
+                {
+                  "raw_reference_key": "r-4449e028f7000ab20f4f"
+                }
+              ],
+              "status": "candidate"
+            },
+            "source_references": [
+              {
+                "raw_reference_key": "r-578ad253891c5cfe6011"
+              },
+              {
+                "raw_reference_key": "r-91863a2511912564f102"
+              },
+              {
+                "raw_reference_key": "r-f3cb5870597e9ec652af"
+              },
+              {
+                "raw_reference_key": "r-c966efa532a077dc2012"
+              },
+              {
+                "raw_reference_key": "r-e94066594a40bce60ac4"
+              },
+              {
+                "raw_reference_key": "r-cbb05c3196a38eb50f09"
+              },
+              {
+                "raw_reference_key": "r-03a902db8ef4c8f8e233"
+              },
+              {
+                "raw_reference_key": "r-1cc0e74d06e68c067815"
+              },
+              {
+                "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+              },
+              {
+                "raw_reference_key": "r-c4c645c80d39a45569f0"
+              },
+              {
+                "raw_reference_key": "r-13010bc822750080d586"
+              },
+              {
+                "raw_reference_key": "r-b2116eca89ab8325ad66"
+              },
+              {
+                "raw_reference_key": "r-bfd34469c390f5eb790d"
+              },
+              {
+                "raw_reference_key": "r-4449e028f7000ab20f4f"
+              }
+            ],
+            "status": "candidate"
+          },
+          "mitre_external_ids": [
+            "T1110.003"
+          ],
+          "queryable_dimensions": [
+            "evidence",
+            "mitre_technique",
+            "provenance",
+            "sigma_rule"
+          ],
+          "relationship_ids": [],
+          "scenario_id": "purplesharp-ad",
+          "sigma_rule_ids": [
+            "8146a24e-c271-4d34-a679-6a361f71ccab"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/sigma_findings/1",
+            "object_id": "sigma-spray-project",
+            "object_type": "sigma_finding"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-1cc0e74d06e68c067815"
+            },
+            {
+              "raw_reference_key": "r-8d7f4195aeb0b894e4de"
+            },
+            {
+              "raw_reference_key": "r-c4c645c80d39a45569f0"
+            },
+            {
+              "raw_reference_key": "r-13010bc822750080d586"
+            },
+            {
+              "raw_reference_key": "r-b2116eca89ab8325ad66"
+            },
+            {
+              "raw_reference_key": "r-bfd34469c390f5eb790d"
+            },
+            {
+              "raw_reference_key": "r-4449e028f7000ab20f4f"
+            },
+            {
+              "raw_reference_key": "r-578ad253891c5cfe6011"
+            },
+            {
+              "raw_reference_key": "r-91863a2511912564f102"
+            },
+            {
+              "raw_reference_key": "r-f3cb5870597e9ec652af"
+            },
+            {
+              "raw_reference_key": "r-c966efa532a077dc2012"
+            },
+            {
+              "raw_reference_key": "r-e94066594a40bce60ac4"
+            },
+            {
+              "raw_reference_key": "r-cbb05c3196a38eb50f09"
+            },
+            {
+              "raw_reference_key": "r-03a902db8ef4c8f8e233"
+            }
+          ],
+          "status": "candidate",
+          "title": "Project suspected password spraying"
+        }
+      },
+      {
+        "rank": 5,
+        "score": 0.030769230769,
+        "components": {
+          "lexical": {
+            "rank": 5,
+            "score": 6.14882916,
+            "contribution": 0.015384615385
+          },
+          "vector": {
+            "rank": 5,
+            "score": 0.81905171,
+            "contribution": 0.015384615385
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--bfde3d735d2958b37041be2ca14a587ca572235f02c34bd59d07f85f1ca4acbf",
+          "chunk_type": "cti_report",
+          "content": "CTI context (Microsoft Threat Intelligence): Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+          "entity_ids": [
+            "cti-4d79697c25bee5b013b2"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+            "citation": {
+              "anchor": "a very small number of sign-in attempts to many accounts",
+              "char_end": 6271,
+              "char_start": 6215,
+              "line": 129,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+              "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+              "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+              "source_id": "microsoft-password-spray",
+              "text_path": "microsoft-password-spray.txt",
+              "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+              "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+            },
+            "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+            "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+            "evidence_layer": "cti_context",
+            "publication_date": "2024-10-31T17:00:00+00:00",
+            "publisher": "Microsoft Threat Intelligence",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+            "source_id": "microsoft-password-spray",
+            "source_object": {
+              "attributes": {
+                "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+                "citation": {
+                  "anchor": "a very small number of sign-in attempts to many accounts",
+                  "char_end": 6271,
+                  "char_start": 6215,
+                  "line": 129,
+                  "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                  "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+                  "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+                  "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+                  "source_id": "microsoft-password-spray",
+                  "text_path": "microsoft-password-spray.txt",
+                  "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+                  "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+                },
+                "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+                "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+                "evidence_layer": "cti_context",
+                "publication_date": "2024-10-31T17:00:00+00:00",
+                "publisher": "Microsoft Threat Intelligence",
+                "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+                "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+                "source_id": "microsoft-password-spray",
+                "source_references": [
+                  {
+                    "raw_reference_key": "r-2747aaf4c839c0d8caed"
+                  }
+                ],
+                "source_type": "cti_report",
+                "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+                "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+                "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+              },
+              "entity_id": "cti-4d79697c25bee5b013b2",
+              "entity_type": "cti_report",
+              "evidence_ids": [],
+              "name": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+              "status": "candidate"
+            },
+            "source_references": [
+              {
+                "raw_reference_key": "r-2747aaf4c839c0d8caed"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+            "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "context-cti-4d79697c25bee5b013b2"
+          ],
+          "scenario_id": "purplesharp-ad",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/entities/10",
+            "object_id": "cti-4d79697c25bee5b013b2",
+            "object_type": "entity"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-2747aaf4c839c0d8caed"
+            }
+          ],
+          "status": "candidate",
+          "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network"
+        }
+      }
+    ],
+    "warnings": [],
+    "metadata": {
+      "total_chunks": 43,
+      "eligible_chunks": 43,
+      "returned_hits": 5,
+      "lexical_candidate_count": 20,
+      "vector_candidate_count": 20,
+      "union_candidate_count": 22,
+      "rrf_k": 60,
+      "score_precision": 12,
+      "score_interpretation": "reciprocal_rank_fusion_not_probability",
+      "component_methods": {
+        "lexical": "bm25/v1",
+        "vector": "vector-cosine/v1"
+      }
+    }
+  },
+  "seed_mapping": {
+    "schema_version": "graphrag-seed-map/v1",
+    "corpus_id": "retrieval-corpus--f19f8c043c686443a6d0c4c20449509d8ef87540008454f852ac90388033875c",
+    "graph_id": "comparison-rag-no-graph",
+    "scenario_id": "purplesharp-ad",
+    "source_ground_truth": {
+      "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+      "scenario_id": "purplesharp-ad",
+      "schema_version": "scenario-ground-truth/v3",
+      "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+    },
+    "query": {
+      "text": "Tương quan 4625 với 4776 trong PurpleSharp: có bao nhiêu lần thử và tài khoản khác nhau trong cụm nghi vấn password spraying, trong khoảng thời gian nào? Giải thích khử trùng và giới hạn của phép ghép.",
+      "normalized_terms": [
+        "tương",
+        "quan",
+        "4625",
+        "với",
+        "4776",
+        "trong",
+        "purplesharp",
+        "có",
+        "bao",
+        "nhiêu",
+        "lần",
+        "thử",
+        "và",
+        "tài",
+        "khoản",
+        "khác",
+        "nhau",
+        "cụm",
+        "nghi",
+        "vấn",
+        "password",
+        "spraying",
+        "khoảng",
+        "thời",
+        "gian",
+        "nào",
+        "giải",
+        "thích",
+        "khử",
+        "trùng",
+        "giới",
+        "hạn",
+        "của",
+        "phép",
+        "ghép"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "retrieval_method": "hybrid-rrf/v1",
+    "hit_mappings": [],
+    "seed_node_ids": [],
+    "warnings": [],
+    "metadata": {
+      "retrieval_hit_count": 5,
+      "mapped_hit_count": 0,
+      "direct_node_mapping_count": 0,
+      "relationship_edge_mapping_count": 0,
+      "seed_node_count": 0
+    }
+  },
+  "traversal": {},
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "retrieval_hit_count": 5,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversed_node_count": 0,
+    "traversed_edge_count": 0,
+    "traversed_path_count": 0
+  },
+  "source_observation_contract": "source-observation-interning/v1",
+  "source_observation_catalog": {
+    "observation--020d217705bc04c94d320a74a364def35b0522815aefadd5cb50a2348a40851f": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1077",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "nxlogsvc",
+        "timestamp": "2020-10-22T08:29:55.382000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.382Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "nxlogsvc",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1077",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--0724c22dfc5263670a135f3e26b3957beb7c4defe41dbdc85c1f5719add333ed": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:803",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "nxlogsvc",
+        "timestamp": "2020-10-22T08:29:55.222000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.222Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "nxlogsvc",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:803",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--09f75195754a5352918eaeacb9b4686305c27893b87ffebe4685fa44801e6ca3": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:794",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "sbeavers",
+        "timestamp": "2020-10-22T08:29:55.215000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.215Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "sbeavers",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:794",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--12b1dbadc8b2bf042d1ca2c9d1851e599ab096f5f0394621a66ab9bd8e8d48d0": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1020",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "lrodriguez",
+        "timestamp": "2020-10-22T08:29:55.357000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.357Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "lrodriguez",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1020",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--2fe3b9c1e68944565d5718b2a6a20e50ffdd203f64c927d15354ff60d2ce2e36": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:798",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "pbeesly",
+        "timestamp": "2020-10-22T08:29:55.219000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.219Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "pbeesly",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:798",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--3ee9ed706af34260585a1b3f952505bcd0c71b922ee0c8db1139c3808939a604": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:792",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "sysmonsvc",
+        "timestamp": "2020-10-22T08:29:55.214000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.214Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "sysmonsvc",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:792",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--480b50bf4ed933a663bc4aa100e01cd28e1e2d724a090dec7df725cc693aed95": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:788",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "lrodriguez",
+        "timestamp": "2020-10-22T08:29:55.210000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.210Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "lrodriguez",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:788",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--5a714a14a0931907d80671841af5f85c5ee741b12804bec3f7d5099188d6033b": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:790",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "pgustavo",
+        "timestamp": "2020-10-22T08:29:55.211000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.211Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "pgustavo",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:790",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--90ed680c2bd5686952b642b886a88063249332f5a0cf310b2405fd2d51e2d91e": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1072",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "mscott",
+        "timestamp": "2020-10-22T08:29:55.381000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.381Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "mscott",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1072",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--b8158a2ab9a308813123d8ee0623341494c16a02a22404098592e1fca9baa40a": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1074",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "pbeesly",
+        "timestamp": "2020-10-22T08:29:55.381000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.381Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "pbeesly",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1074",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--c6cc32633fd7e0fc09a93eee292a25196e5661a48caf6b9e2f2973f6115647bd": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4625",
+        "host": "WORKSTATION5.theshire.local",
+        "process_name": "C:\\Users\\pgustavo\\Downloads\\PurpleSharp.exe",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:796",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "subject_user": "pgustavo",
+        "target_user": "mscott",
+        "timestamp": "2020-10-22T08:29:55.217000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.217Z",
+        "EventID": 4625,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "WORKSTATION5.theshire.local",
+        "LogonType": "2",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006d",
+        "SubStatus": "0xc000006a",
+        "TargetDomainName": "theshire.local",
+        "TargetUserName": "mscott",
+        "WorkstationName": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:796",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--dadbe6333ee25a60b136669745651074cd686b5d591fbce0fdadbb9d69c6cb19": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1048",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "sysmonsvc",
+        "timestamp": "2020-10-22T08:29:55.370000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.370Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "sysmonsvc",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1048",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--e647c91f45d6cdc880e782cc6572e1979a0f1f01827f5cc164f29ede13cde9b7": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1046",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "pgustavo",
+        "timestamp": "2020-10-22T08:29:55.368000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.368Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "pgustavo",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1046",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "observation--f78e59a14866b0ddd1a7fd3e58bdf86ef0a333bd4dd5a20b43d77760e98b1af4": {
+      "canonical_fields": {
+        "channel": "Security",
+        "event_id": "4776",
+        "host": "MORDORDC.theshire.local",
+        "provider": "Microsoft-Windows-Security-Auditing",
+        "raw_record_ref": "jsonl:line:1051",
+        "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+        "target_user": "sbeavers",
+        "timestamp": "2020-10-22T08:29:55.371000Z"
+      },
+      "evidence_layer": "observed_telemetry",
+      "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+      "original_fields": {
+        "@timestamp": "2020-10-22T08:29:55.371Z",
+        "EventID": 4776,
+        "EventTime": "2020-10-22 04:29:53",
+        "Hostname": "MORDORDC.theshire.local",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "Status": "0xc000006a",
+        "TargetUserName": "sbeavers",
+        "Workstation": "WORKSTATION5"
+      },
+      "raw_record_ref": "jsonl:line:1051",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    }
+  },
+  "raw_reference_catalog": {
+    "r-03a902db8ef4c8f8e233": {
+      "raw_record_ref": "jsonl:line:803",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-13010bc822750080d586": {
+      "raw_record_ref": "jsonl:line:1051",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-1cc0e74d06e68c067815": {
+      "raw_record_ref": "jsonl:line:1020",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-2747aaf4c839c0d8caed": {
+      "raw_record_ref": "text:chars:6215:6271",
+      "source_file": "microsoft-password-spray"
+    },
+    "r-4449e028f7000ab20f4f": {
+      "raw_record_ref": "jsonl:line:1077",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-578ad253891c5cfe6011": {
+      "raw_record_ref": "jsonl:line:788",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-8d7f4195aeb0b894e4de": {
+      "raw_record_ref": "jsonl:line:1046",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-91863a2511912564f102": {
+      "raw_record_ref": "jsonl:line:790",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-b2116eca89ab8325ad66": {
+      "raw_record_ref": "jsonl:line:1072",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-bfd34469c390f5eb790d": {
+      "raw_record_ref": "jsonl:line:1074",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-c4c645c80d39a45569f0": {
+      "raw_record_ref": "jsonl:line:1048",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-c966efa532a077dc2012": {
+      "raw_record_ref": "jsonl:line:794",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-cbb05c3196a38eb50f09": {
+      "raw_record_ref": "jsonl:line:798",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-e94066594a40bce60ac4": {
+      "raw_record_ref": "jsonl:line:796",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    },
+    "r-f3cb5870597e9ec652af": {
+      "raw_record_ref": "jsonl:line:792",
+      "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+    }
+  },
+  "generation_evidence_contract": {
+    "schema_version": "source-meaning/v3",
+    "meaning_projection_sha256": "180a69043afdcedd801f3f5b7bd99848c60dccfd1ebccaedd2a8c21d51b8764f",
+    "timestamp_semantics": "selected canonical spans only; not real activity duration or cross-source clock synchronization",
+    "claim_binding": "command text, observed child creation and completion/output/service state are distinct",
+    "sigma_namespace": "sigma_matches copies exact source rule_id, not finding_id or graph node ID"
+  }
+}

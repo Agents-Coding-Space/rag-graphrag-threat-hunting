@@ -1,0 +1,35 @@
+{
+  "schema_version": "baseline-v1-vs-v2-comparison/v1",
+  "scenario": "mshta-powershell",
+  "baseline_v1": {
+    "chunk_count": 19,
+    "node_count": 17,
+    "edge_count": 21,
+    "source_gt_version": "scenario-ground-truth/v1",
+    "limitations_extracted": 0,
+    "anchor_fields_preserved": false,
+    "latency_ms": 19.5,
+    "coverage_median": 0.5
+  },
+  "candidate_v2": {
+    "chunk_count": 22,
+    "node_count": 20,
+    "edge_count": 21,
+    "source_gt_version": "scenario-ground-truth/v2",
+    "limitations_extracted": 7,
+    "anchor_fields_preserved": true,
+    "latency_ms": 18.2,
+    "coverage_median": 0.65
+  },
+  "delta": {
+    "chunk_delta": 3,
+    "node_delta": 3,
+    "edge_delta": 0,
+    "improvements": [
+      "Bổ sung 7 limitations pháp y ngăn chặn LLM kết luận vượt quá bằng chứng log",
+      "Bảo toàn nguyên bản các trường gốc (CommandLine, UtcTime, Channel, User, ParentProcessGuid)",
+      "Khóa nhãn kỹ thuật T1218.005 ở mức supported_by_observed_behavior thay vì candidate chung chung",
+      "Khắc phục xung đột thời gian 4 giờ giữa Sysmon và Security log qua ProcessCorrelationKey"
+    ]
+  }
+}

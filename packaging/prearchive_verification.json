@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "selected_inputs_verified": 10,
+  "raw_records": 29510,
+  "canonical_records": 29510,
+  "historical_provenance_entries_verified": 21,
+  "historical_consumer_files_verified": 12,
+  "portable_consumer_files_verified": 12,
+  "cti_sources_verified": 3,
+  "schema_validation": "passed",
+  "network_allowed": false,
+  "generation_or_benchmark_run": false
+}

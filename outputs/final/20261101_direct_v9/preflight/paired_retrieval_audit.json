@@ -1,0 +1,64 @@
+{
+  "cases": [
+    {
+      "case_id": "AUTH-DIRECT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "AUTH-CORRELATE",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "AUTH-LIMIT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "PS-DIRECT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "PS-CORRELATE",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "PS-CTI",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "PS-LIMIT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "NET-DIRECT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "NET-CORRELATE",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "NET-CTI",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    },
+    {
+      "case_id": "NET-LIMIT",
+      "both_retrieved": true,
+      "identical_hybrid_retrieval": true
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "calibration_dataset": {
+    "schema_version": "graphrag-relevance-calibration-dataset/v1",
+    "dataset_id": "dataset-comparison-synthetic",
+    "scenario_id": "scenario-comparison-synthetic",
+    "purpose": "relevance_gate_calibration",
+    "cases": [
+      {
+        "case_id": "comparison-direct-en",
+        "category": "relevant_direct",
+        "language": "en",
+        "query": "Which evidence establishes the transition between the two synthetic entities?",
+        "expected_decision": "proceed",
+        "rationale": "The reviewed directed relationship and its evidence group provide complementary context.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/evidence/0",
+          "ground_truth:/relationships/0"
+        ]
+      },
+      {
+        "case_id": "comparison-direct-vi",
+        "category": "relevant_direct",
+        "language": "vi",
+        "query": "Fact nào ghi nhận hoạt động chuyển tiếp giữa hai thực thể giả lập?",
+        "expected_decision": "proceed",
+        "rationale": "Fact đã lưu mô tả hoạt động chuyển tiếp trong phạm vi fixture được review.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/facts/0"
+        ]
+      },
+      {
+        "case_id": "comparison-insufficient-en",
+        "category": "insufficient_evidence",
+        "language": "en",
+        "query": "Which person caused the reviewed synthetic transition?",
+        "expected_decision": "abstain",
+        "rationale": "The attribution limitation prevents assigning a person from entity-transition observations.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/summary/limitations/0"
+        ]
+      },
+      {
+        "case_id": "comparison-insufficient-vi",
+        "category": "insufficient_evidence",
+        "language": "vi",
+        "query": "Hoạt động chuyển tiếp giả lập đã kéo dài chính xác bao lâu?",
+        "expected_decision": "abstain",
+        "rationale": "Giới hạn timestamp không đủ căn cứ cho thời lượng chính xác.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/summary/limitations/1"
+        ]
+      },
+      {
+        "case_id": "comparison-paraphrase-en",
+        "category": "relevant_paraphrase",
+        "language": "en",
+        "query": "How is the reviewed movement between the origin and destination summarized?",
+        "expected_decision": "proceed",
+        "rationale": "The scenario overview provides the requested reformulation of the synthetic activity.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/scenario"
+        ]
+      },
+      {
+        "case_id": "comparison-paraphrase-vi",
+        "category": "relevant_paraphrase",
+        "language": "vi",
+        "query": "Có thể lần theo hoạt động của thực thể đầu đến thực thể cuối qua những căn cứ nào?",
+        "expected_decision": "proceed",
+        "rationale": "Fact và evidence giữ căn cứ bổ sung để truy vết cùng hoạt động giả lập.",
+        "tags": [
+          "synthetic_comparison",
+          "ground_truth:/evidence/0",
+          "ground_truth:/facts/0"
+        ]
+      },
+      {
+        "case_id": "comparison-unrelated-en",
+        "category": "unrelated",
+        "language": "en",
+        "query": "What is the recommended cooking temperature for bread?",
+        "expected_decision": "abstain",
+        "rationale": "Cooking guidance is outside the synthetic entity-transition corpus.",
+        "tags": [
+          "synthetic_comparison"
+        ]
+      },
+      {
+        "case_id": "comparison-unrelated-vi",
+        "category": "unrelated",
+        "language": "vi",
+        "query": "Làm thế nào nhận biết vần trong một bài thơ?",
+        "expected_decision": "abstain",
+        "rationale": "Nội dung văn học không thuộc corpus chuyển tiếp thực thể giả lập.",
+        "tags": [
+          "synthetic_comparison"
+        ]
+      }
+    ],
+    "metadata": {
+      "case_count": 8,
+      "category_counts": {
+        "relevant_direct": 2,
+        "insufficient_evidence": 2,
+        "relevant_paraphrase": 2,
+        "unrelated": 2
+      },
+      "language_counts": {
+        "en": 4,
+        "vi": 4
+      },
+      "decision_counts": {
+        "proceed": 4,
+        "abstain": 4
+      }
+    }
+  },
+  "retrieval_judgments": {
+    "schema_version": "retrieval-relevance-judgments/v1",
+    "judgment_set_id": "judgments-comparison-synthetic",
+    "scenario_id": "scenario-comparison-synthetic",
+    "purpose": "retrieval_relevance_evaluation",
+    "source_dataset": {
+      "path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_dataset.json",
+      "schema_version": "graphrag-relevance-calibration-dataset/v1",
+      "sha256": "d2eb1b8206d347726453fd979bffb9fbd39b511b137498b57d4789d1f952fbb2",
+      "dataset_id": "dataset-comparison-synthetic",
+      "scenario_id": "scenario-comparison-synthetic"
+    },
+    "source_corpus": {
+      "path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_corpus.json",
+      "schema_version": "retrieval-corpus/v1",
+      "sha256": "b7d82094ada8ad1eeb7886333c1548ea49e44655f20b305c6e3534852465c982",
+      "corpus_id": "corpus-comparison-synthetic",
+      "scenario_id": "scenario-comparison-synthetic"
+    },
+    "cases": [
+      {
+        "case_id": "comparison-direct-en",
+        "target_kind": "answer_support",
+        "relevant_source_pointers": [
+          "/evidence/0",
+          "/relationships/0"
+        ],
+        "annotation_note": "The reviewed directed relationship and its evidence group provide complementary context."
+      },
+      {
+        "case_id": "comparison-direct-vi",
+        "target_kind": "answer_support",
+        "relevant_source_pointers": [
+          "/facts/0"
+        ],
+        "annotation_note": "Fact đã lưu mô tả hoạt động chuyển tiếp trong phạm vi fixture được review."
+      },
+      {
+        "case_id": "comparison-insufficient-en",
+        "target_kind": "abstention_support",
+        "relevant_source_pointers": [
+          "/summary/limitations/0"
+        ],
+        "annotation_note": "The attribution limitation prevents assigning a person from entity-transition observations."
+      },
+      {
+        "case_id": "comparison-insufficient-vi",
+        "target_kind": "abstention_support",
+        "relevant_source_pointers": [
+          "/summary/limitations/1"
+        ],
+        "annotation_note": "Giới hạn timestamp không đủ căn cứ cho thời lượng chính xác."
+      },
+      {
+        "case_id": "comparison-paraphrase-en",
+        "target_kind": "answer_support",
+        "relevant_source_pointers": [
+          "/scenario"
+        ],
+        "annotation_note": "The scenario overview provides the requested reformulation of the synthetic activity."
+      },
+      {
+        "case_id": "comparison-paraphrase-vi",
+        "target_kind": "answer_support",
+        "relevant_source_pointers": [
+          "/evidence/0",
+          "/facts/0"
+        ],
+        "annotation_note": "Fact và evidence giữ căn cứ bổ sung để truy vết cùng hoạt động giả lập."
+      },
+      {
+        "case_id": "comparison-unrelated-en",
+        "target_kind": "no_relevant_chunk",
+        "relevant_source_pointers": [],
+        "annotation_note": "Cooking guidance is outside the synthetic entity-transition corpus."
+      },
+      {
+        "case_id": "comparison-unrelated-vi",
+        "target_kind": "no_relevant_chunk",
+        "relevant_source_pointers": [],
+        "annotation_note": "Nội dung văn học không thuộc corpus chuyển tiếp thực thể giả lập."
+      }
+    ],
+    "review": {
+      "review_status": "pending_human_review",
+      "reviewer": null,
+      "reviewed_at": null
+    },
+    "metadata": {
+      "case_count": 8,
+      "target_kind_counts": {
+        "answer_support": 4,
+        "abstention_support": 2,
+        "no_relevant_chunk": 2
+      },
+      "category_counts": {
+        "relevant_direct": 2,
+        "insufficient_evidence": 2,
+        "relevant_paraphrase": 2,
+        "unrelated": 2
+      },
+      "language_counts": {
+        "en": 4,
+        "vi": 4
+      },
+      "total_relevant_pointer_count": 8,
+      "cases_with_multiple_relevant_chunks": 2
+    }
+  },
+  "retrieval_corpus": {
+    "schema_version": "retrieval-corpus/v1",
+    "corpus_id": "corpus-comparison-synthetic",
+    "scenario_id": "scenario-comparison-synthetic",
+    "source_ground_truth": {
+      "path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_ground_truth.json",
+      "schema_version": "scenario-ground-truth/v1",
+      "sha256": "b533edec238dbf9d3ff0d9600058df384a144e225609d10ba7874a7a37ab6b03",
+      "scenario_id": "scenario-comparison-synthetic"
+    },
+    "chunks": [
+      {
+        "chunk_id": "chunk-comparison-01-summary",
+        "chunk_type": "scenario_summary",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic transition overview",
+        "content": "The reviewed synthetic activity links an origin entity to a destination entity through a transition supported by two fixture observations.",
+        "status": "reviewable",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "scenario",
+          "object_id": null,
+          "json_pointer": "/scenario"
+        },
+        "entity_ids": [
+          "entity-comparison-destination",
+          "entity-comparison-origin"
+        ],
+        "fact_ids": [
+          "fact-comparison-transition"
+        ],
+        "relationship_ids": [
+          "relationship-comparison-transition"
+        ],
+        "evidence_ids": [
+          "evidence-comparison-transition"
+        ],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:1"
+          },
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:2"
+          }
+        ],
+        "queryable_dimensions": [
+          "provenance",
+          "scenario"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 1
+        }
+      },
+      {
+        "chunk_id": "chunk-comparison-02-fact",
+        "chunk_type": "fact",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic transition fact",
+        "content": "The origin entity initiated the reviewed transition to the destination entity; the stored fact retains the linked evidence group.",
+        "status": "observed",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "fact",
+          "object_id": "fact-comparison-transition",
+          "json_pointer": "/facts/0"
+        },
+        "entity_ids": [
+          "entity-comparison-destination",
+          "entity-comparison-origin"
+        ],
+        "fact_ids": [
+          "fact-comparison-transition"
+        ],
+        "relationship_ids": [
+          "relationship-comparison-transition"
+        ],
+        "evidence_ids": [
+          "evidence-comparison-transition"
+        ],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:1"
+          },
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:2"
+          }
+        ],
+        "queryable_dimensions": [
+          "entity",
+          "fact",
+          "provenance"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 2
+        }
+      },
+      {
+        "chunk_id": "chunk-comparison-03-relationship",
+        "chunk_type": "relationship",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic directed transition",
+        "content": "The observed directed relationship starts at the synthetic origin entity and ends at the synthetic destination entity.",
+        "status": "observed",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "relationship",
+          "object_id": "relationship-comparison-transition",
+          "json_pointer": "/relationships/0"
+        },
+        "entity_ids": [
+          "entity-comparison-destination",
+          "entity-comparison-origin"
+        ],
+        "fact_ids": [
+          "fact-comparison-transition"
+        ],
+        "relationship_ids": [
+          "relationship-comparison-transition"
+        ],
+        "evidence_ids": [
+          "evidence-comparison-transition"
+        ],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:1"
+          },
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:2"
+          }
+        ],
+        "queryable_dimensions": [
+          "entity",
+          "provenance",
+          "relationship"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 3
+        }
+      },
+      {
+        "chunk_id": "chunk-comparison-04-evidence",
+        "chunk_type": "evidence",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic transition observations",
+        "content": "Two synthetic fixture observations document the origin-to-destination transition and provide stable references to its supporting records.",
+        "status": "observed",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "evidence",
+          "object_id": "evidence-comparison-transition",
+          "json_pointer": "/evidence/0"
+        },
+        "entity_ids": [
+          "entity-comparison-destination",
+          "entity-comparison-origin"
+        ],
+        "fact_ids": [
+          "fact-comparison-transition"
+        ],
+        "relationship_ids": [
+          "relationship-comparison-transition"
+        ],
+        "evidence_ids": [
+          "evidence-comparison-transition"
+        ],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:1"
+          },
+          {
+            "source_file": "synthetic_transition_events.jsonl",
+            "raw_record_ref": "fixture:record:2"
+          }
+        ],
+        "queryable_dimensions": [
+          "evidence",
+          "provenance"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 4
+        }
+      },
+      {
+        "chunk_id": "chunk-comparison-05-limitation-actor",
+        "chunk_type": "limitation",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic attribution limitation",
+        "content": "The reviewed fixture records describe entity transitions and contain no assessed attribution to a person; an actor identity cannot be established from this scope.",
+        "status": "reviewable",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "limitation",
+          "object_id": null,
+          "json_pointer": "/summary/limitations/0"
+        },
+        "entity_ids": [],
+        "fact_ids": [],
+        "relationship_ids": [],
+        "evidence_ids": [],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [],
+        "queryable_dimensions": [
+          "limitation"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 5
+        }
+      },
+      {
+        "chunk_id": "chunk-comparison-06-limitation-time",
+        "chunk_type": "limitation",
+        "scenario_id": "scenario-comparison-synthetic",
+        "title": "Synthetic timing limitation",
+        "content": "The reviewed synthetic observations lack a validated completion timestamp, so the exact duration of the transition remains outside the assessed evidence.",
+        "status": "reviewable",
+        "source": {
+          "artifact_type": "scenario_ground_truth",
+          "object_type": "limitation",
+          "object_id": null,
+          "json_pointer": "/summary/limitations/1"
+        },
+        "entity_ids": [],
+        "fact_ids": [],
+        "relationship_ids": [],
+        "evidence_ids": [],
+        "sigma_rule_ids": [],
+        "mitre_external_ids": [],
+        "source_references": [],
+        "queryable_dimensions": [
+          "limitation"
+        ],
+        "metadata": {
+          "fixture": true,
+          "ordinal": 6
+        }
+      }
+    ],
+    "queryable_dimensions": [
+      "entity",
+      "evidence",
+      "fact",
+      "limitation",
+      "provenance",
+      "relationship",
+      "scenario"
+    ],
+    "review": {
+      "review_status": "pending_human_review",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": []
+    },
+    "warnings": [],
+    "metadata": {
+      "fixture": true,
+      "chunk_count": 6
+    }
+  },
+  "candidate_runs": [
+    {
+      "candidate_id": "baseline",
+      "index_id": "index-comparison-synthetic-baseline",
+      "index_sha256": "dea22ef730e41b9af257daaa6f63a6c4038f8548ee0ae90d8c93eb8289b29082",
+      "embedding": {
+        "provider": "synthetic",
+        "model_id": "synthetic-baseline-embedding",
+        "model_revision": "fixture-revision-001",
+        "dimension": 8,
+        "distance_metric": "cosine",
+        "normalization": "l2",
+        "document_prefix": "",
+        "query_prefix": ""
+      },
+      "ranking_limit": 10,
+      "rankings": [
+        {
+          "case_id": "comparison-direct-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.75
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.7
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.65
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-direct-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.92
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.75
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.7
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-insufficient-en",
+          "hits": []
+        },
+        {
+          "case_id": "comparison-insufficient-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.87
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.84
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.81
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.78
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.75
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.72
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-paraphrase-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.88
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.84
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.78
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.72
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.66
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.6
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-paraphrase-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.83
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.77
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.74
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.71
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.68
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-unrelated-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.42
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.35
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.1
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.05
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": -0.1
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": -0.2
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-unrelated-vi",
+          "hits": []
+        }
+      ]
+    },
+    {
+      "candidate_id": "candidate",
+      "index_id": "index-comparison-synthetic-candidate",
+      "index_sha256": "c6718be96398a8a8ed6c4bb2bcd80156d4438b3abaac3add20a6535b8c64213d",
+      "embedding": {
+        "provider": "synthetic",
+        "model_id": "synthetic-candidate-embedding",
+        "model_revision": "fixture-revision-001",
+        "dimension": 8,
+        "distance_metric": "cosine",
+        "normalization": "l2",
+        "document_prefix": "",
+        "query_prefix": ""
+      },
+      "ranking_limit": 10,
+      "rankings": [
+        {
+          "case_id": "comparison-direct-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.95
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.95
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.75
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-direct-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.96
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.75
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.7
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-insufficient-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.93
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.87
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.84
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.81
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.78
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-insufficient-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.91
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.88
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.82
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.79
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.76
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-paraphrase-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.9
+            },
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.85
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.75
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.7
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.65
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-paraphrase-vi",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.92
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.89
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.86
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.83
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": 0.8
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": 0.77
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-unrelated-en",
+          "hits": [
+            {
+              "chunk_id": "chunk-comparison-02-fact",
+              "score": 0.62
+            },
+            {
+              "chunk_id": "chunk-comparison-01-summary",
+              "score": 0.55
+            },
+            {
+              "chunk_id": "chunk-comparison-03-relationship",
+              "score": 0.3
+            },
+            {
+              "chunk_id": "chunk-comparison-04-evidence",
+              "score": 0.12
+            },
+            {
+              "chunk_id": "chunk-comparison-05-limitation-actor",
+              "score": -0.15
+            },
+            {
+              "chunk_id": "chunk-comparison-06-limitation-time",
+              "score": -0.25
+            }
+          ]
+        },
+        {
+          "case_id": "comparison-unrelated-vi",
+          "hits": []
+        }
+      ]
+    }
+  ],
+  "baseline_candidate_id": "baseline",
+  "source_dataset_path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_dataset.json",
+  "source_corpus_path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_corpus.json",
+  "source_judgments_path": "tests/fixtures/evaluation/embedding_retrieval_comparison/synthetic_judgments.json"
+}

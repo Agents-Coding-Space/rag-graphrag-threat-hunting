@@ -1,0 +1,431 @@
+{
+  "schema_version": "source-evidence-gate-decision/v2",
+  "contract": "source-evidence-contract/v2",
+  "decision": "abstain",
+  "abstention_stage": "evidence_answerability",
+  "reason_codes": [
+    "two_process_relationships_missing"
+  ],
+  "stage_results": {
+    "topical_relevance": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "joint_lexical_vector_hit_count": 5,
+        "lexical_hit_count": 5,
+        "matched_query_token_count": 14,
+        "query_token_count": 35,
+        "query_token_coverage": 0.4,
+        "retrieval_hit_count": 5,
+        "returned_top_bm25_score": 20.00429646,
+        "returned_top_cosine_score": 0.88580237,
+        "returned_top_rrf_score": 0.032786885246,
+        "vector_hit_count": 5
+      }
+    },
+    "evidence_answerability": {
+      "schema_version": "source-evidence-contract/v2",
+      "requirements": {
+        "authentication": false,
+        "cti": true,
+        "correlation": true,
+        "limits": false
+      },
+      "checks": [
+        {
+          "requirement": "process_chain",
+          "status": "missing",
+          "witnesses": [],
+          "reason_code": "two_process_relationships_missing"
+        },
+        {
+          "requirement": "external_cti_context",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f1ed87e57cdcea11c0de954107d3c57a1071610d86454c91d020dabc18fcdd9b",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/4",
+                "object_id": "cti-d4f1c89a0b8b17f31870",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:12076:12109",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "/citation",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata/citation",
+              "value": {
+                "anchor": "can be a good indicator of malice",
+                "char_end": 12109,
+                "char_start": 12076,
+                "line": 391,
+                "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                "section": "Detection opportunities / MSHTA spawning from suspect processes",
+                "snapshot_path": "../cti_sources/redcanary-mshta.html",
+                "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+                "source_id": "redcanary-mshta",
+                "text_path": "redcanary-mshta.txt",
+                "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+                "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f1ed87e57cdcea11c0de954107d3c57a1071610d86454c91d020dabc18fcdd9b",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/4",
+                "object_id": "cti-d4f1c89a0b8b17f31870",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:12076:12109",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "/source_object/attributes/citation",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata/source_object/attributes/citation",
+              "value": {
+                "anchor": "can be a good indicator of malice",
+                "char_end": 12109,
+                "char_start": 12076,
+                "line": 391,
+                "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                "section": "Detection opportunities / MSHTA spawning from suspect processes",
+                "snapshot_path": "../cti_sources/redcanary-mshta.html",
+                "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+                "source_id": "redcanary-mshta",
+                "text_path": "redcanary-mshta.txt",
+                "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+                "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:11226:11282",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "/citation",
+              "context_pointer": "/retrieval/hits/1/chunk/metadata/citation",
+              "value": {
+                "anchor": "At a minimum, collect parent-child process relationships",
+                "char_end": 11282,
+                "char_start": 11226,
+                "line": 384,
+                "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                "section": "Visibility / Process and command-line monitoring",
+                "snapshot_path": "../cti_sources/redcanary-mshta.html",
+                "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+                "source_id": "redcanary-mshta",
+                "text_path": "redcanary-mshta.txt",
+                "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+                "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:11226:11282",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "/source_object/attributes/citation",
+              "context_pointer": "/retrieval/hits/1/chunk/metadata/source_object/attributes/citation",
+              "value": {
+                "anchor": "At a minimum, collect parent-child process relationships",
+                "char_end": 11282,
+                "char_start": 11226,
+                "line": 384,
+                "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                "section": "Visibility / Process and command-line monitoring",
+                "snapshot_path": "../cti_sources/redcanary-mshta.html",
+                "snapshot_sha256": "fd1854324c1b9d65926b700f2c12c0b010b42eed49624f7129a533a34f9e778b",
+                "source_id": "redcanary-mshta",
+                "text_path": "redcanary-mshta.txt",
+                "text_sha256": "291be254c4da5dfd87032c42df0a587d36ca8f93371416fbae40d44819f93691",
+                "url": "https://redcanary.com/threat-detection-report/techniques/mshta/"
+              }
+            }
+          ],
+          "reason_code": "source_witness_present"
+        },
+        {
+          "requirement": "separate_observed_anchor",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+                "context_pointer": "/retrieval/hits/3/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/3/chunk/metadata",
+              "value": {
+                "event_id": 4688,
+                "provider": "Microsoft-Windows-Security-Auditing",
+                "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "parent_process_name": "C:\\Windows\\System32\\mshta.exe",
+                "host": "WORKSTATION5"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+                "context_pointer": "/retrieval/hits/3/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/3/chunk/metadata",
+              "value": {
+                "event_id": 1,
+                "provider": "Microsoft-Windows-Sysmon",
+                "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "parent_process_name": "C:\\Windows\\System32\\mshta.exe",
+                "host": "WORKSTATION5"
+              }
+            }
+          ],
+          "reason_code": "source_witness_present"
+        },
+        {
+          "requirement": "bound_retrieved_source",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f1ed87e57cdcea11c0de954107d3c57a1071610d86454c91d020dabc18fcdd9b",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/4",
+                "object_id": "cti-d4f1c89a0b8b17f31870",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:12076:12109",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/0/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/4",
+                "object_id": "cti-d4f1c89a0b8b17f31870",
+                "object_type": "entity"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:11226:11282",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/1/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/2/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/2/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+                "context_pointer": "/retrieval/hits/3/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/3/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/evidence/1",
+                "object_id": "evidence-b31714b888d1489a380c",
+                "object_type": "evidence"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--c8a720c3000f779ab36ac8207e7cf21c14d3687ca16157c534c95be7e5ce99ae",
+                "context_pointer": "/retrieval/hits/4/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/sigma_findings/0",
+                "object_id": "sigma-finding--88654ed2fa69e533969b800d5a29dc0a7d7ad59987f300f4f554de638b9a4f7a",
+                "object_type": "sigma_finding"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/4/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/sigma_findings/0",
+                "object_id": "sigma-finding--88654ed2fa69e533969b800d5a29dc0a7d7ad59987f300f4f554de638b9a4f7a",
+                "object_type": "sigma_finding"
+              }
+            }
+          ],
+          "reason_code": "source_witness_present"
+        }
+      ],
+      "status": "missing",
+      "reason_codes": [
+        "two_process_relationships_missing"
+      ]
+    }
+  },
+  "legacy_policy_id": "two-stage-prod-aae2e49de84bd18a",
+  "human_review_required": true,
+  "interpretation": "Research context eligibility, not claim truth or human approval."
+}

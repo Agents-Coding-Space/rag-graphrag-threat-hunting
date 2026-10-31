@@ -1,0 +1,114 @@
+{
+  "schema_version": "graphrag-gate-signals/v1",
+  "corpus_id": "retrieval-corpus--f19f8c043c686443a6d0c4c20449509d8ef87540008454f852ac90388033875c",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "purplesharp-ad",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+    "scenario_id": "purplesharp-ad",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+  },
+  "query": {
+    "text": "Tương quan 4625 với 4776 trong PurpleSharp: có bao nhiêu lần thử và tài khoản khác nhau trong cụm nghi vấn password spraying, trong khoảng thời gian nào? Giải thích khử trùng và giới hạn của phép ghép.",
+    "normalized_terms": [
+      "tương",
+      "quan",
+      "4625",
+      "với",
+      "4776",
+      "trong",
+      "purplesharp",
+      "có",
+      "bao",
+      "nhiêu",
+      "lần",
+      "thử",
+      "và",
+      "tài",
+      "khoản",
+      "khác",
+      "nhau",
+      "cụm",
+      "nghi",
+      "vấn",
+      "password",
+      "spraying",
+      "khoảng",
+      "thời",
+      "gian",
+      "nào",
+      "giải",
+      "thích",
+      "khử",
+      "trùng",
+      "giới",
+      "hạn",
+      "của",
+      "phép",
+      "ghép"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "topical_relevance": {
+    "retrieval_hit_count": 5,
+    "lexical_hit_count": 5,
+    "vector_hit_count": 5,
+    "joint_lexical_vector_hit_count": 5,
+    "returned_top_rrf_score": 0.032522474881,
+    "returned_top_bm25_score": 12.63897308,
+    "returned_top_cosine_score": 0.85051963,
+    "query_token_count": 35,
+    "matched_query_token_count": 6,
+    "query_token_coverage": 0.17142857
+  },
+  "evidence_answerability": {
+    "chunk_type_counts": {
+      "scenario_summary": 1,
+      "entity": 0,
+      "fact": 0,
+      "relationship": 0,
+      "evidence": 1,
+      "sigma_finding": 1,
+      "mitre_assessment": 1,
+      "limitation": 0,
+      "cti_report": 1
+    },
+    "status_counts": {
+      "candidate": 3,
+      "inferred": 0,
+      "observed": 1,
+      "reviewable": 1
+    },
+    "hits_with_evidence_ids": 3,
+    "hits_with_source_references": 5,
+    "unique_source_reference_count": 15,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversal_node_count": 0,
+    "traversal_edge_count": 0,
+    "traversal_path_count": 0,
+    "traversed_evidence_node_count": 0,
+    "traversed_limitation_node_count": 0,
+    "support_edge_count": 0
+  },
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "decision_made": false,
+    "score_interpretations": {
+      "rrf": "reciprocal_rank_fusion_not_probability",
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability"
+    },
+    "topical_signal_count": 10,
+    "answerability_signal_count": 14
+  }
+}

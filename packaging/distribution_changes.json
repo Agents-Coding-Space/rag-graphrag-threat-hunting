@@ -1,0 +1,567 @@
+{
+  "schema_version": "handover-distribution/v1",
+  "redactions": [
+    {
+      "path": "HUONG_DAN_CHAY.md",
+      "original_sha256": "2c943054d8763657408362651a7e18bfd89f9b4fc6d97497af877f6a503124c2",
+      "distributed_sha256": "4f61e5935161288984963d1ecb4e50988cc6ab7f006bc47c2d21f2b5273d81de",
+      "operation": "credential_redaction_no_values_logged",
+      "sanitized_intermediate_sha256": "ffdcd4b08570fafa8a68a0817d7142276f2a28f7576edf74ea2e0b6a71ec9be2",
+      "sanitized_history_path": "docs/history/HUONG_DAN_CHAY.before_packaging.md",
+      "sanitized_history_sha256": "3bd16d4b4575ebc5dfa2a7b95111842f112d971cb928146a2510367ee660874a"
+    },
+    {
+      "path": "README.md",
+      "original_sha256": "9f4d342e3a32adc0167c1508d7ae6da9effb146da28afefb51cb9a66d452998a",
+      "distributed_sha256": "df186bf130c87dd57022cdf45c330766b9b105dd2aed40d6f7f393a1f725f2d7",
+      "operation": "credential_redaction_no_values_logged",
+      "sanitized_intermediate_sha256": "4840f826c4302eec02f045a5fecb75834ad83ec91a75a09047ce1815070aa403",
+      "sanitized_history_path": "docs/history/README.before_packaging.md",
+      "sanitized_history_sha256": "8add163a5f4a44926f7982580610a64a5681908a6c7afb3ec147830e40eb51d9"
+    }
+  ],
+  "exclusions": [
+    {
+      "path": ".pytest_cache",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": ".venv",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "pytest-cache-files-ildalpui",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "pytest-cache-files-ow0z2j0g",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "_handover_delivery",
+      "reason": "packaging_workspace"
+    },
+    {
+      "path": ".env",
+      "reason": "secret_environment"
+    },
+    {
+      "path": "docs/videos/e2e_test_recording_v2_current.webm",
+      "reason": "optional_video_not_frame_audited_screenshots_retained"
+    },
+    {
+      "path": "docs/videos/e2e_test_recording_v2_upgraded.webm",
+      "reason": "optional_video_not_frame_audited_screenshots_retained"
+    },
+    {
+      "path": "frontend/dist",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "frontend/node_modules",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/demo/integrated-v5-browser-profile",
+      "reason": "browser_profile_secrets"
+    },
+    {
+      "path": "outputs/demo/dashboard-integration-20261030/pytest",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/dashboard-integration-20261030/pytest-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/browser-profile",
+      "reason": "browser_profile_secrets"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/pytest-adapter",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/pytest-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/pytest-harness",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/pytest-harness-unrestricted",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/pytest-regression",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/demo/experimental-ui-20261029-verification/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/experiments/integrated-12x2-live-v5.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/experiments/integrated-12x2-v5-provider-recovery-01.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/experiments/graphrag-2d3-fix1/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/experiments/graphrag-2d3-fix2/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/final/20261031_direct_v7/pytest_core",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v2/pytest-focused-fixed",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v3/pytest-contract-fixed",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v3/pytest-regression-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v4/pytest-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v4/pytest-guard-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v6/pytest_core",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v6/pytest_delivery",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/integrated/20261030_v6/pytest_meaning_final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/harness-recovery-v1-final-checks",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/harness-recovery-v1-pytest",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/harness-recovery-v1-pytest-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/http402_recovery_20261031_v1/pytest_continuation",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/http402_recovery_20261031_v1/pytest_diagnostics",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/requirements_gap_20261030_v1/pytest-delivery",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/requirements_gap_20261030_v1/pytest-final-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/requirements_gap_20261030_v1/pytest-new",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/offline/requirements_gap_20261030_v1/pytest-new-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/embedding_model_selection_core_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_model_selection_core_review_fixed.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_model_selection_production_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_retrieval_comparison_core_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_retrieval_judgments_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_retrieval_production_comparison_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/embedding_retrieval_production_comparison_review_fixed.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_e5_relevance_calibration_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_ground_truth_v2_consumer_sync_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_orchestrator_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_parser_policy_fix3_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_query_aware_answerability_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_query_cli_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_relevance_calibration_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_relevance_dataset_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_relevance_diagnostics_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_relevance_gate_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_seed_mapping_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_seed_mapping_review_fixed.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_two_stage_gate_calibration_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_two_stage_gate_policy_core_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/graphrag_two_stage_gate_signals_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/ground_truth_builder_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/ground_truth_schema_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/hybrid_query_cli_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/hybrid_retriever_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/knowledge_graph_builder_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/knowledge_graph_query_cli_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/knowledge_graph_schema_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/knowledge_graph_traversal_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/lexical_retriever_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/mitre_resolver_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/mshta_ground_truth_config_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/mshta_ground_truth_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/multilingual_e5_candidate_index_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/production_knowledge_graph_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/production_vector_index_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/query_retrieval_cli_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/retrieval_builder_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/retrieval_corpus_production_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/retrieval_schema_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/sigma_milestone_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/vector_index_builder_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/vector_index_schema_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/vector_query_cli_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/vector_retriever_review.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/experimental_checkpoint_20261026/harness_test_tmp_v2",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/experimental_checkpoint_20261026/pytest-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/experimental_checkpoint_20261026/pytest-runtime",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/experimental_checkpoint_20261026/pytest-runtime-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/experimental_checkpoint_20261026/experimental_source_artifacts.zip",
+      "reason": "duplicate_archive_cache_or_credential_store"
+    },
+    {
+      "path": "outputs/review/integrated-v5-503-diagnosis/pytest_tmp",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/integrated-v5-503-diagnosis/pytest_verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/integrated-v5-503-diagnosis/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/review/live_llm_fixes/20261025/pytest-api-20261026",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/live_llm_fixes/20261025/pytest-final-api-20261026",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/live_llm_fixes/20261025/pytest-regression-20261026",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/live_llm_fixes/20261025/pytest-step1-resumed-20261026",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/live_llm_run_diagnostics/20261025T213710_828452Z/pytest-focused",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/mshta-ground-truth/pytest-approved-20261014",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/mshta-human-approval/test-tmp-focused",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/mshta-human-approval/test-tmp-related-elevated",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/mshta-human-approval/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/review/openrouter_diagnostic/20261025T210218_467678Z/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/review/pilot_source_contract_02_offline_review_20261027/pytest",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/pilot_source_contract_02_offline_review_20261027/pytest-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_gate_contract_20261027/pytest-audit",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_gate_contract_20261027/pytest-final",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_gate_contract_20261027/pytest-final-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_gate_contract_20261027/pytest-temp",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_gate_contract_20261027/pytest-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rag_graphrag_combined_semantic_20261027/pytest-verified",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rg04_generation_fix/20261025T220357_735920Z/pytest-focused",
+      "reason": "test_scratch"
+    },
+    {
+      "path": "outputs/review/rg04_generation_fix/20261025T220357_735920Z/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "outputs/review/three_case_corrective_regression/20261025T223111_976089Z/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "scripts/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/rag_graphrag_threat_hunting.egg-info",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/cti/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/evaluation/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/evidence/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/graph/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/graphrag/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/ground_truth/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/llm/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/mitre/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/mordor/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/retrieval/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/schemas/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/server/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "src/threat_hunting/sigma/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    },
+    {
+      "path": "tests/__pycache__",
+      "reason": "regenerable_environment_or_build"
+    }
+  ],
+  "synthetic_fixture_preserved": "tests/test_safe_provider_diagnostics.py",
+  "screenshots_reviewed": 40,
+  "videos_excluded": true,
+  "originals_unchanged_baseline_count": 7210,
+  "runtime_source_pin_mismatch_preserved": true,
+  "entry_documents_replaced_with_current_package_instructions": true
+}

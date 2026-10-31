@@ -1,0 +1,65 @@
+{
+  "schema_version": "handover-inputs/v1",
+  "inputs": [
+    {
+      "filename": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "path": "data/raw/mordor/powershell/cmd_mshta_vbscript_execute_psh/cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+      "sha256": "25aa24b5f631f19ac23f64db116c23e632295fb5f59040e966fa47e7758b2a32",
+      "size_bytes": 1673900
+    },
+    {
+      "filename": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+      "path": "data/raw/mordor/c2_network/empire_launcher_sct_regsvr32/empire_launcher_sct_regsvr32_2020-07-21232741.json",
+      "sha256": "8b619d07ad79713ae96234344c4ba9618eae7119c360ee008b5e0c2cfe4954d7",
+      "size_bytes": 5349638
+    },
+    {
+      "filename": "enterprise-attack.json",
+      "path": "data/knowledge/Mitre/enterprise-attack.json",
+      "sha256": "bdf1ce86a4e604214c5076d37ae4dcb322678afc528df8492e6fdc1b554f5da3",
+      "size_bytes": 53277393
+    },
+    {
+      "filename": "proc_creation_win_mshta_susp_child_processes.yml",
+      "path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_child_processes.yml",
+      "sha256": "8a32fc6f6030da48f4e22446d7446ffb85b7801158ec204e4659a657ecc44380",
+      "size_bytes": 1378
+    },
+    {
+      "filename": "proc_creation_win_mshta_susp_execution.yml",
+      "path": "data/knowledge/sigma/selected/powershell/proc_creation_win_mshta_susp_execution.yml",
+      "sha256": "67d76c24526db9dadbacb2086115a62b5f6364a39a0d8197de96d6fb738b9774",
+      "size_bytes": 2671
+    },
+    {
+      "filename": "proc_creation_win_regsvr32_http_ip_pattern.yml",
+      "path": "data/knowledge/sigma/selected/c2_regsvr32/proc_creation_win_regsvr32_http_ip_pattern.yml",
+      "sha256": "5ed0c24908eb092479cb93eecc3dc212e5c1b5a573d74b18a8322d86e8eae771",
+      "size_bytes": 1961
+    },
+    {
+      "filename": "proc_creation_win_regsvr32_susp_child_process.yml",
+      "path": "data/knowledge/sigma/selected/c2_regsvr32/proc_creation_win_regsvr32_susp_child_process.yml",
+      "sha256": "53bc06be29973d961a958f66b6640a8c8bfe04c4eb8e2bf385b14ee8a3b14380",
+      "size_bytes": 1488
+    },
+    {
+      "filename": "proc_creation_win_regsvr32_susp_parent.yml",
+      "path": "data/knowledge/sigma/selected/c2_regsvr32/proc_creation_win_regsvr32_susp_parent.yml",
+      "sha256": "14ca4424714aceb1836053f17196e1bb347f9593f8f615e841d7971cc570a8bc",
+      "size_bytes": 1528
+    },
+    {
+      "filename": "purplesharp_ad_playbook_I_2020-10-22042947.json",
+      "path": "data/raw/mordor/burte_force/purplesharp_ad_playbook_II/purplesharp_ad_playbook_I_2020-10-22042947.json",
+      "sha256": "d86d22f0c02ab851564bb5e0c90c220e9df0319f5948bfc90dfa605b4511d4f0",
+      "size_bytes": 39654430
+    },
+    {
+      "filename": "win_security_susp_rc4_kerberos.yml",
+      "path": "data/knowledge/sigma/selected/brute_force/win_security_susp_rc4_kerberos.yml",
+      "sha256": "6b95365726dfb2744695f0402f9784dc015f027f53543b4db4d0f60527b9b2b8",
+      "size_bytes": 871
+    }
+  ]
+}

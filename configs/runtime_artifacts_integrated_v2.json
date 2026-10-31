@@ -1,0 +1,52 @@
+{
+  "profile_id": "integrated-three-scenarios-cti-v1",
+  "review_status": "pending_human_review",
+  "scenarios": {
+    "mshta-powershell": {
+      "paths": {
+        "corpus_path": "outputs/integrated/20261030_v2/consumers/mshta-powershell/retrieval_corpus.json",
+        "graph_path": "outputs/integrated/20261030_v2/consumers/mshta-powershell/knowledge_graph.json",
+        "gt_path": "outputs/integrated/20261030_v2/consumers/mshta-powershell/scenario_ground_truth.json",
+        "index_path": "outputs/integrated/20261030_v2/consumers/mshta-powershell/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "knowledge_graph.json": "adfdf080f7a7c135a1aeb32215ab228ad1033d5a46a255a405298dd7d2f0456a",
+        "retrieval_corpus.json": "e018396cd0bcdd6a8477ca214ff4105fc63f39a14095caf2f4ed0d09fe164bf2",
+        "scenario_ground_truth.json": "fa0583166f5a07203906b47cb17311621759fcc3d23eed6649d75bf3cc469e39",
+        "vector_index_e5.json": "be796bbff2bd8e8cecc851fd9a2d38fdcf98fd78bc21d3124a0fc656f0bcf65c"
+      }
+    },
+    "purplesharp-ad": {
+      "paths": {
+        "corpus_path": "outputs/integrated/20261030_v2/consumers/purplesharp-ad/retrieval_corpus.json",
+        "graph_path": "outputs/integrated/20261030_v2/consumers/purplesharp-ad/knowledge_graph.json",
+        "gt_path": "outputs/integrated/20261030_v2/consumers/purplesharp-ad/scenario_ground_truth.json",
+        "index_path": "outputs/integrated/20261030_v2/consumers/purplesharp-ad/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "knowledge_graph.json": "c449d8c1df96969f5bb9c8ec7f6e13863440de8b4bbc3fa8f2b6c2aecbccd189",
+        "retrieval_corpus.json": "c8f2d4550892b16c46bbaa42eeebd289b14cbd4a086f2329919e258fd7a062e0",
+        "scenario_ground_truth.json": "913b69e6993b059e5d7bd20b0cf2574564df3ae79fcbc291e035d4ce5cbcd196",
+        "vector_index_e5.json": "ac059fd6c06af8913670389bcfc7e123727a415dbb10f56dee7d451571adb499"
+      }
+    },
+    "regsvr32-c2": {
+      "paths": {
+        "corpus_path": "outputs/integrated/20261030_v2/consumers/regsvr32-c2/retrieval_corpus.json",
+        "graph_path": "outputs/integrated/20261030_v2/consumers/regsvr32-c2/knowledge_graph.json",
+        "gt_path": "outputs/integrated/20261030_v2/consumers/regsvr32-c2/scenario_ground_truth.json",
+        "index_path": "outputs/integrated/20261030_v2/consumers/regsvr32-c2/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "knowledge_graph.json": "d5c9b255bc98803dd0048e2e9af5266861b59e1a908e4cc4afe2ca1a0d19d13a",
+        "retrieval_corpus.json": "9dd5c4fff1a1ba7b9e5fa2b0425c1bf967685a3c21373ad22d975285ffca778d",
+        "scenario_ground_truth.json": "36dd8e9fbe872996d157ce1466e5e988067d6324f0404cbe19238a87bba39690",
+        "vector_index_e5.json": "e7d6341e7db9414cf968d4096b65e88c47d8f57a88d2379b2ab6c7d9917c531a"
+      }
+    }
+  },
+  "schema_version": "runtime-scenario-artifacts/v1"
+}

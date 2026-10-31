@@ -1,0 +1,13 @@
+{
+  "microsoft-password-spray": [
+    {
+      "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+      "anchor": "a very small number of sign-in attempts to many accounts",
+      "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+      "context_links": [
+        {"target_kind":"technique","target_id":"T1110.003"},
+        {"target_kind":"behavior","target_id":"multi_account_authentication_failure_investigation"}
+      ]
+    }
+  ]
+}

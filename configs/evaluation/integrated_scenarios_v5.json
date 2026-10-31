@@ -1,0 +1,29 @@
+{
+  "schema_version": "experimental-comparison-config/v2",
+  "profile_id": "integrated-three-scenarios-cti-v5",
+  "benchmark": "benchmarks/integrated/scenarios_12_v1.json",
+  "runtime_artifacts": "configs/runtime_artifacts_integrated_v5.json",
+  "gate_policy": "configs/gate/two_stage_production_policy.json",
+  "gate_contract": "source-evidence-contract/v2",
+  "expected_case_count": 12,
+  "maximum_llm_requests": 24,
+  "retrieval": {
+    "top_k": 5,
+    "candidate_k": 20
+  },
+  "graph_expansion": {
+    "direction": "both",
+    "max_depth": 2,
+    "max_nodes": 100,
+    "max_edges": 200
+  },
+  "maximum_context_utf8_bytes": 262144,
+  "maximum_messages_utf8_bytes": 294912,
+  "branches": [
+    "rag",
+    "graphrag"
+  ],
+  "scope_source": "corpus_only_same_for_both_branches",
+  "review_status": "draft_reviewable_pending_human_review",
+  "interpretation": "Integrated draft evidence and CTI research profile, frozen before any generation. New coverage study, not replacement for historical 15x2 or independent validation. No score/threshold/model tuning. Structured validation does not establish narrative or verdict truth."
+}

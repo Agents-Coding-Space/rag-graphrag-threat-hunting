@@ -1,0 +1,38 @@
+{
+  "schema_version": "recovery-harness-compatibility/v2",
+  "historical_pin_sha256": "93b7460040903a80726f06bcec2348caced9ca3b5949d70797c7fc2d9d472d76",
+  "historical_pin": "outputs\\integrated\\20261030_v5\\runtime_pin_final.json",
+  "changes": {
+    "scripts/evaluate_rag_graphrag.py": {
+      "before": "dc3e69a1c3ee93c38397eee2c16615b3d79a747725bf65f9fa0a19cd2a757312",
+      "after": "706ae9c82f35c93b80c82c5d4beb0df2c56cd096bffc6f7ec7bedf3c41583e2a"
+    },
+    "src/threat_hunting/evaluation/experimental_comparison.py": {
+      "before": "29c07695e5b8de5cafeb2793885a66d8207f4227ccdc6ae4b038290f73f5537a",
+      "after": "6cec4d09f56fec8376f17f7f746a9d7e44ce55d3b2ba3c83598c9c072d7102db"
+    },
+    "src/threat_hunting/evaluation/experimental_recovery.py": {
+      "before": null,
+      "after": "439364afa9ae68b665823ef541a4e44e4fe79700ecd0d21b9c843c716c5bb841"
+    },
+    "src/threat_hunting/llm/generation_contract.py": {
+      "before": null,
+      "after": "056836c3d3eade786059ff525a4c8c627e365dab41ca5bba2ba6a7a99d15bd1c"
+    },
+    "src/threat_hunting/server/experimental.py": {
+      "before": "7bcbe46e49c62a6bb940b614627a5bdc16967b607bcaca9e77d9b332e64468a6",
+      "after": "58637960b51f0c28061fc8273caea8e758dede7e0b887629362ecf1bf386c0c8"
+    }
+  },
+  "predecessor_compatibility": [
+    {
+      "path": "configs/evaluation/recovery_harness_v1.json",
+      "sha256": "a00cb5182c1613726b9f40587989df4b73f21c716a2c9ac18a3c486fa4f9c9e9"
+    }
+  ],
+  "input_mode": "Exact saved v5 messages/context only; source-meaning/v2 annotation and supplemental validation are inactive without the new context marker",
+  "legacy_equivalence_evidence": "outputs/integrated/20261030_v6/legacy_compatibility_evidence.json",
+  "legacy_equivalence_evidence_sha256": "6f163ff84a6d3824d0019d286126301110789ba2e4ca5f4d35ec196e614d5375",
+  "scope": "Explicit source/runtime delta, not promotion of historical pin or acceptance/approval",
+  "historical_outputs_immutable": true
+}

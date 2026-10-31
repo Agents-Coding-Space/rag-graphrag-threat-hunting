@@ -1,0 +1,108 @@
+{
+  "schema_version": "handover-path-migration/v1",
+  "root": ".",
+  "historical_files_not_rewritten": true,
+  "portable_registry": "portable/runtime_artifacts.json",
+  "prefix_rules": [
+    {
+      "from": "D:\\rag-graphrag-threat-hunting\\data",
+      "to": "data"
+    },
+    {
+      "from": "D:\\rag-graphrag-friend",
+      "to": "."
+    },
+    {
+      "from": "D:\\rag-graphrag-threat-hunting",
+      "to": "."
+    }
+  ],
+  "artifacts": [
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+      "original_sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808",
+      "portable_path": "portable/consumers/mshta-powershell/scenario_ground_truth.json",
+      "portable_sha256": "07fbb668c9418abac910ac6650d010904fd832697a01688d2460f0f56e343f71",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/retrieval_corpus.json",
+      "original_sha256": "ae0c5d50f0be09b4d227f37244ad26dac9c4f8fcc3f2bbc8b22af8a5a69a9cbc",
+      "portable_path": "portable/consumers/mshta-powershell/retrieval_corpus.json",
+      "portable_sha256": "9484d12dd5bf88895404fe932b89e540808cbf048c17053de61a545cc93dd111",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/knowledge_graph.json",
+      "original_sha256": "16f841e6acb017dc7d81f1892a3d8bf9ca335cbd1799637b1eedb75177a1e558",
+      "portable_path": "portable/consumers/mshta-powershell/knowledge_graph.json",
+      "portable_sha256": "b9bdc5a76f9e8f770c94b5a63823f5cdf601cea72b3ba6b6093ed5783823e0c6",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/vector_index_e5.json",
+      "original_sha256": "25a596d4f7c46d09c5ad43f0fc289b5c6d3b47bea3d124a36f67e657bdd689df",
+      "portable_path": "portable/consumers/mshta-powershell/vector_index_e5.json",
+      "portable_sha256": "e71d29da4a6dae10f6d59a71ed4cb19fd7c39ff49dfd72f2c28d864e7a06739b",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+      "original_sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a",
+      "portable_path": "portable/consumers/purplesharp-ad/scenario_ground_truth.json",
+      "portable_sha256": "9e5825f9e416a46c354e885bbcc6243fe8a41856a18995e1b418c560b6677b3c",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/retrieval_corpus.json",
+      "original_sha256": "d278ff3b1a4f3a3cee8a49768bdb162e3eee509f40125cfd31c4bb47da53aa2c",
+      "portable_path": "portable/consumers/purplesharp-ad/retrieval_corpus.json",
+      "portable_sha256": "4b74398794bd37727e44ddd33a2d59718a1df602133fd2abc3ad603835544d82",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/knowledge_graph.json",
+      "original_sha256": "aa6b8d55425e12010ddf2c590794f8760600347fadb8589d3efedccf5ffa422c",
+      "portable_path": "portable/consumers/purplesharp-ad/knowledge_graph.json",
+      "portable_sha256": "d13c8c44a1635861c33e1e9c4d02d07c8cfe60d63d3f4c22021a5dda7a1344f1",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/vector_index_e5.json",
+      "original_sha256": "ba6ad8d1f5bc8bd9d68f55896fb3a878419daccc6a2af70f00d0dd1133c94e9b",
+      "portable_path": "portable/consumers/purplesharp-ad/vector_index_e5.json",
+      "portable_sha256": "cd1859cc5d844eb17e85ba6f56a3a23f97198a0c369681864917408dc9a5820e",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+      "original_sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91",
+      "portable_path": "portable/consumers/regsvr32-c2/scenario_ground_truth.json",
+      "portable_sha256": "b0b8fcdafbb2fd23ebf25b9158519088b74f586da7b8a59c902ac4e981662b55",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/retrieval_corpus.json",
+      "original_sha256": "c5a4f823bbac8a1bdeccf7adf2199addcb418eb5bf506ff9ff08de8ad01a862d",
+      "portable_path": "portable/consumers/regsvr32-c2/retrieval_corpus.json",
+      "portable_sha256": "c1f214a4882753763b6646c645a82e1c139053b7aafdfffbd8235cc7b238e6fd",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/knowledge_graph.json",
+      "original_sha256": "175745d914ad53fecf72c2d85a0981b59c242d2de67907b8691bb0210901052a",
+      "portable_path": "portable/consumers/regsvr32-c2/knowledge_graph.json",
+      "portable_sha256": "b3d225c9ea339cf6bd325e286485febe30caba022b19f44e8dd739df4c3bc23a",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    },
+    {
+      "original_path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/vector_index_e5.json",
+      "original_sha256": "66aae7191ab370e814537db6fc756a0bdbbf9dc5f041a6a85375d5674431d66b",
+      "portable_path": "portable/consumers/regsvr32-c2/vector_index_e5.json",
+      "portable_sha256": "e65edeaa38360c2bc1e2f06f5744b7dcc55975e20ad963701ad2f1062c78b19e",
+      "operation": "path_and_provenance_hash_only_no_generation_or_label_change"
+    }
+  ],
+  "vectors_reused_unchanged": true,
+  "generation_pin_not_reissued": true
+}

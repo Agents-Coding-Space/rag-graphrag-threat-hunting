@@ -1,0 +1,146 @@
+{
+  "raw_report_before_sanitize": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Bốn quan sát tương ứng với 2 process creations: mỗi creation có hai bản ghi provider (Security 4688 và Sysmon Event ID 1). Cặp 1: cmd.exe (PID 5888) → mshta.exe (PID 10980); cặp 2: mshta.exe (PID 10980) → powershell.exe (PID 9572). conhost.exe nằm ngoài core vì telemetry đó không thuộc hai quan hệ process_spawn được xem xét; context chỉ nêu nó tồn tại ngoài hai nhóm, không tự phân loại là payload.",
+    "executive_summary": "Core có hai quan hệ process_spawn đã quan sát: cmd.exe tạo mshta.exe và mshta.exe tạo powershell.exe. Mỗi quan hệ được hỗ trợ bởi cả Security 4688 và Sysmon Event ID 1, nên 4 quan sát = 2 process creations. conhost.exe không nằm trong hai quan hệ này.",
+    "technical_analysis": "Security 4688 và Sysmon Event ID 1 là hai views của cùng một process creation, không phải bốn creations riêng biệt. Đối với cmd.exe → mshta.exe: Security 4688 có ProcessId=0x1700 (5888, parent cmd.exe) và NewProcessId=0x2ae4 (10980, child mshta.exe); Sysmon Event ID 1 có ParentProcessId=5888 và ProcessId=10980, với ParentImage=cmd.exe và Image=mshta.exe. Đối với mshta.exe → powershell.exe: Security 4688 có ProcessId=0x2ae4 (10980, parent mshta.exe) và NewProcessId=0x2564 (9572, child powershell.exe); Sysmon Event ID 1 có ParentProcessId=10980 và ProcessId=9572, với ParentImage=mshta.exe và Image=powershell.exe. Timestamp canonical được giữ theo TimeCreated; Sysmon UtcTime lệch khoảng bốn giờ và timezone chưa resolve, nên không suy đồng bộ clock giữa nguồn. Các telemetry conhost creation, event-log clearing và temporary-file deletion nằm ngoài hai nhóm core; context stating they exist outside core không chứng minh chúng malicious/benign và không nên mô tả là globally absent. Process creation chỉ chứng minh lệnh khởi chạy, không chứng minh cmdlet Get-Service sysmon hoàn tất, output, hoặc trạng thái service Sysmon.",
+    "attack_chain": [
+      {
+        "step_number": 1,
+        "source_entity": "cmd.exe (PID 5888)",
+        "action": "process_spawn",
+        "target_entity": "mshta.exe (PID 10980)",
+        "evidence_ref": "evidence-b07a5ff4763e629715e6",
+        "timestamp": "2020-10-22T02:57:59.856000Z"
+      },
+      {
+        "step_number": 2,
+        "source_entity": "mshta.exe (PID 10980)",
+        "action": "process_spawn",
+        "target_entity": "powershell.exe (PID 9572)",
+        "evidence_ref": "evidence-b31714b888d1489a380c",
+        "timestamp": "2020-10-22T02:58:00.462000Z"
+      }
+    ],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Successful execution/output of Get-Service sysmon and Sysmon service state are not established by process-creation telemetry.",
+      "Whether conhost.exe creation, event-log clearing, or temporary-file deletion is malicious/benign is not established by the provided core scope.",
+      "No full-dataset negative scan has been performed, so absence claims across the full dataset cannot be made.",
+      "Cross-source clock synchronization is not established; Sysmon UtcTime differs by about four hours and its timezone is unresolved."
+    ],
+    "evidence_refs": [
+      "evidence-b07a5ff4763e629715e6",
+      "evidence-b31714b888d1489a380c",
+      "jsonl:line:4",
+      "jsonl:line:275",
+      "jsonl:line:30",
+      "jsonl:line:398"
+    ]
+  },
+  "sanitized_report": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Bốn quan sát tương ứng với 2 process creations: mỗi creation có hai bản ghi provider (Security 4688 và Sysmon Event ID 1). Cặp 1: cmd.exe (PID 5888) → mshta.exe (PID 10980); cặp 2: mshta.exe (PID 10980) → powershell.exe (PID 9572). conhost.exe nằm ngoài core vì telemetry đó không thuộc hai quan hệ process_spawn được xem xét; context chỉ nêu nó tồn tại ngoài hai nhóm, không tự phân loại là payload.",
+    "executive_summary": "Core có hai quan hệ process_spawn đã quan sát: cmd.exe tạo mshta.exe và mshta.exe tạo powershell.exe. Mỗi quan hệ được hỗ trợ bởi cả Security 4688 và Sysmon Event ID 1, nên 4 quan sát = 2 process creations. conhost.exe không nằm trong hai quan hệ này.",
+    "technical_analysis": "Security 4688 và Sysmon Event ID 1 là hai views của cùng một process creation, không phải bốn creations riêng biệt. Đối với cmd.exe → mshta.exe: Security 4688 có ProcessId=0x1700 (5888, parent cmd.exe) và NewProcessId=0x2ae4 (10980, child mshta.exe); Sysmon Event ID 1 có ParentProcessId=5888 và ProcessId=10980, với ParentImage=cmd.exe và Image=mshta.exe. Đối với mshta.exe → powershell.exe: Security 4688 có ProcessId=0x2ae4 (10980, parent mshta.exe) và NewProcessId=0x2564 (9572, child powershell.exe); Sysmon Event ID 1 có ParentProcessId=10980 và ProcessId=9572, với ParentImage=mshta.exe và Image=powershell.exe. Timestamp canonical được giữ theo TimeCreated; Sysmon UtcTime lệch khoảng bốn giờ và timezone chưa resolve, nên không suy đồng bộ clock giữa nguồn. Các telemetry conhost creation, event-log clearing và temporary-file deletion nằm ngoài hai nhóm core; context stating they exist outside core không chứng minh chúng malicious/benign và không nên mô tả là globally absent. Process creation chỉ chứng minh lệnh khởi chạy, không chứng minh cmdlet Get-Service sysmon hoàn tất, output, hoặc trạng thái service Sysmon.",
+    "attack_chain": [
+      {
+        "step_number": 1,
+        "source_entity": "cmd.exe (PID 5888)",
+        "action": "process_spawn",
+        "target_entity": "mshta.exe (PID 10980)",
+        "evidence_ref": "evidence-b07a5ff4763e629715e6",
+        "timestamp": "2020-10-22T02:57:59.856000Z"
+      },
+      {
+        "step_number": 2,
+        "source_entity": "mshta.exe (PID 10980)",
+        "action": "process_spawn",
+        "target_entity": "powershell.exe (PID 9572)",
+        "evidence_ref": "evidence-b31714b888d1489a380c",
+        "timestamp": "2020-10-22T02:58:00.462000Z"
+      }
+    ],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "Successful execution/output of Get-Service sysmon and Sysmon service state are not established by process-creation telemetry.",
+      "Whether conhost.exe creation, event-log clearing, or temporary-file deletion is malicious/benign is not established by the provided core scope.",
+      "No full-dataset negative scan has been performed, so absence claims across the full dataset cannot be made.",
+      "Cross-source clock synchronization is not established; Sysmon UtcTime differs by about four hours and its timezone is unresolved."
+    ],
+    "evidence_refs": [
+      "evidence-b07a5ff4763e629715e6",
+      "evidence-b31714b888d1489a380c",
+      "jsonl:line:4",
+      "jsonl:line:275",
+      "jsonl:line:30",
+      "jsonl:line:398"
+    ]
+  },
+  "status": "passed",
+  "scope": "structured claims + bounded process citation, duration and request-topic checks; remaining prose/comparison correctness unverified",
+  "issues": [],
+  "reference_checks": [
+    {
+      "reference": "evidence-b07a5ff4763e629715e6",
+      "status": "supports_structured_claim"
+    },
+    {
+      "reference": "evidence-b31714b888d1489a380c",
+      "status": "supports_structured_claim"
+    },
+    {
+      "reference": "jsonl:line:4",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:275",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:30",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:398",
+      "status": "exists_unverified"
+    }
+  ],
+  "unverified_fields": [
+    "verdict",
+    "direct_answer",
+    "executive_summary",
+    "technical_analysis",
+    "containment_recommendations",
+    "sigma_matches"
+  ],
+  "human_review_required": true,
+  "narrative_binding_audit": {
+    "scope": "explicit positive executable-parent/creation-verb/executable-child clauses with inline references only",
+    "checks": [
+      {
+        "field": "executive_summary",
+        "status": "unverified_no_inline_binding"
+      },
+      {
+        "field": "executive_summary",
+        "status": "unverified_no_inline_binding"
+      }
+    ],
+    "issues": [],
+    "remaining_prose": "unverified; human review required"
+  },
+  "clock_and_scope_audit": {
+    "scope": "explicit numeric authentication-duration expressions and explicit HTTP/C2/exfiltration topics only",
+    "checks": [],
+    "issues": [],
+    "comparison_semantics": "requires offline rubric review, not automatically verified",
+    "remaining_prose": "unverified; AI/human semantic review remains necessary"
+  }
+}

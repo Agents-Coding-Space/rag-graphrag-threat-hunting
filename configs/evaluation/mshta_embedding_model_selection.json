@@ -1,0 +1,28 @@
+{
+  "schema_version": "embedding-model-selection-policy/v1",
+  "policy_id": "mshta-embedding-model-selection",
+  "primary_cutoff": 5,
+  "validation_cutoff": 10,
+  "priority_language": "vi",
+  "secondary_languages": [
+    "en"
+  ],
+  "primary_metric": "ndcg",
+  "required_overall_metrics": [
+    "hit_rate",
+    "mrr",
+    "ndcg",
+    "recall"
+  ],
+  "min_priority_language_delta": 0.1,
+  "max_overall_regression": 0.0,
+  "max_secondary_language_regression": 0.05,
+  "max_slice_regression": 0.05,
+  "require_positive_validation_delta": true,
+  "tie_break_policy": "human_review",
+  "review": {
+    "review_status": "pending_human_review",
+    "reviewer": null,
+    "reviewed_at": null
+  }
+}

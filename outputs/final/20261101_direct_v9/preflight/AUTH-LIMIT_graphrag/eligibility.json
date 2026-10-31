@@ -1,0 +1,8 @@
+{
+  "policy_decision": "abstain",
+  "decision": "abstain",
+  "context_utf8_bytes": 124248,
+  "messages_utf8_bytes": 124377,
+  "budget_exceeded": false,
+  "stage": "evidence_answerability"
+}

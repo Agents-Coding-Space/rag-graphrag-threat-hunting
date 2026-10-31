@@ -1,0 +1,951 @@
+{
+  "edges": [
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--095b561f1efad3d336f025e051f17497e1306fcf184c048a4becb16dab39df37",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/sigma_findings/1/evidence_ids/0",
+        "object_id": "sigma-finding--c9edf46d1d2b9031bafa24117422548caff0a78d22e834b80e37de0bd2f43cdd",
+        "object_type": "sigma_finding"
+      },
+      "source_node_id": "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:4",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "candidate",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--5ae51508d1c7101c4431241acdf92d32395db70ae774b5c9ef52a0a30e9e8c36"
+    },
+    {
+      "attributes": {
+        "basis": "direct synthetic observation"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--1b78ddfa1eb9037b88cb0bfa3d9ebefd9ac6522a5c41e1328f7567056e9a345d",
+      "edge_type": "fact_object",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/facts/0/object",
+        "object_id": "fact-synthetic-alpha-activity",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--11b56cda834f533b0156fdb45240dff1fb34e319432995ef507c3d1ea503bb75",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed",
+      "supporting_node_ids": [
+        "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205"
+      ],
+      "target_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--29913c8f50bb2cc57e9a0f37b43335e3d67aaa69192c19379f840d8658ecd88c",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/entities/1/evidence_ids/1",
+        "object_id": "entity-synthetic-beta",
+        "object_type": "entity"
+      },
+      "source_node_id": "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263",
+      "source_references": [],
+      "status": "observed",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--2e02ce520b309aa907bdcb4f2fa56c9c9bd0626e3b0b4a9abbd7daafa1cf5788",
+      "edge_type": "transitions_to",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/relationships/1",
+        "object_id": "relationship-synthetic-beta-gamma",
+        "object_type": "relationship"
+      },
+      "source_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:4",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred",
+      "supporting_node_ids": [
+        "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263"
+      ],
+      "target_node_id": "graph-node--b9a471f2ece4e3f2452bed52454e60bc05cbce765cd9f09be60a1255162fc8e9"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance",
+        "relationship"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--35711d5ecba312e3c130f42be74d50a81450eae2782ab0b85199a50ec0d1348d",
+      "edge_type": "initiates",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/relationships/0",
+        "object_id": "relationship-synthetic-alpha-beta",
+        "object_type": "relationship"
+      },
+      "source_node_id": "graph-node--1df84dd7f0f335c1901c8ea8b67a34a7db11d04895d3b178be5d0fc0cd0cd2db",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:2",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed",
+      "supporting_node_ids": [
+        "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205"
+      ],
+      "target_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--36c70ac2a18ce93d4d96cdec2daa8b9a12072581a382dc0a1fcee01c50b7cd4f",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/sigma_findings/0/evidence_ids/0",
+        "object_id": "sigma-finding--9c0f4be61a535fab4dfadab048bcec4859de843c6a602242be720ce528e2afbf",
+        "object_type": "sigma_finding"
+      },
+      "source_node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:2",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "candidate",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--c4d575f16fff20b4cf6d2817a3c6586c70a971594b2d27bf4698a95ca59c93cf"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--651600521d3390481a631751cd690b0fa4297ebe20c8d56335f99404ac980327",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/entities/0/evidence_ids/0",
+        "object_id": "entity-synthetic-alpha",
+        "object_type": "entity"
+      },
+      "source_node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "source_references": [],
+      "status": "observed",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--1df84dd7f0f335c1901c8ea8b67a34a7db11d04895d3b178be5d0fc0cd0cd2db"
+    },
+    {
+      "attributes": {
+        "basis": "correlated synthetic records"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--6d4ef0f1f54ba8831f988e38ec65cb38486d359f6a872d89debe504566ef6e0e",
+      "edge_type": "fact_subject",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/facts/1/subject",
+        "object_id": "fact-synthetic-beta-transition",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred",
+      "supporting_node_ids": [
+        "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263"
+      ],
+      "target_node_id": "graph-node--b31bb8c817455f0b5f50620b64864e893019451f81681b901b452ba3a3a64fc2"
+    },
+    {
+      "attributes": {
+        "basis": "direct synthetic observation"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--710dcea292a5475aee113b9badd740c1f8218671ea4ebc53c3517d4fbbd6e4e9",
+      "edge_type": "fact_subject",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/facts/0/subject",
+        "object_id": "fact-synthetic-alpha-activity",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--1df84dd7f0f335c1901c8ea8b67a34a7db11d04895d3b178be5d0fc0cd0cd2db",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed",
+      "supporting_node_ids": [
+        "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205"
+      ],
+      "target_node_id": "graph-node--11b56cda834f533b0156fdb45240dff1fb34e319432995ef507c3d1ea503bb75"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--78ab1ba4364036f10a1e84dd41f0504de413dbf47a992004fb58654161dac04e",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/facts/1/evidence_ids/0",
+        "object_id": "fact-synthetic-beta-transition",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--b31bb8c817455f0b5f50620b64864e893019451f81681b901b452ba3a3a64fc2"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--8ab618081f00b6582802b27ba653481dbf1dad900caf3d435064f89b5952d939",
+      "edge_type": "supports_assessment",
+      "evidence_ids": [],
+      "source": {
+        "json_pointer": "/mitre_assessments/1/supporting_sigma_rule_ids/0",
+        "object_id": "mitre-assessment--113a7030e1781caf43721924fddb64f04c9b0541cf9cdfd2b799a5fe7633d8b8",
+        "object_type": "mitre_assessment"
+      },
+      "source_node_id": "graph-node--5ae51508d1c7101c4431241acdf92d32395db70ae774b5c9ef52a0a30e9e8c36",
+      "source_references": [],
+      "status": "candidate",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--832dea293004cb5ab8d3e0c0fe0c2ec7abba55964994ef55be7b823b194870ee"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--90c020a5fbfef76886e7d0e5166629a4a8b9552462da2fbaf5442a017b364c28",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/entities/2/evidence_ids/0",
+        "object_id": "entity-synthetic-gamma",
+        "object_type": "entity"
+      },
+      "source_node_id": "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263",
+      "source_references": [],
+      "status": "observed",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--b9a471f2ece4e3f2452bed52454e60bc05cbce765cd9f09be60a1255162fc8e9"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--c02637e71a0773eb640b606f86c8b174f2113d5edfeef7c24e846448adba712e",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/facts/0/evidence_ids/0",
+        "object_id": "fact-synthetic-alpha-activity",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--11b56cda834f533b0156fdb45240dff1fb34e319432995ef507c3d1ea503bb75"
+    },
+    {
+      "attributes": {
+        "basis": "correlated synthetic records"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--c49daa036ffc740008cf78a3e674bdb90cb4bc486a6b6b823de7df25da951672",
+      "edge_type": "fact_object",
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "source": {
+        "json_pointer": "/facts/1/object",
+        "object_id": "fact-synthetic-beta-transition",
+        "object_type": "fact"
+      },
+      "source_node_id": "graph-node--b31bb8c817455f0b5f50620b64864e893019451f81681b901b452ba3a3a64fc2",
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred",
+      "supporting_node_ids": [
+        "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263"
+      ],
+      "target_node_id": "graph-node--b9a471f2ece4e3f2452bed52454e60bc05cbce765cd9f09be60a1255162fc8e9"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--c8bea5d577219804cce09e55206559820788f3c88af44ae8e3e8dcce7dd561cc",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/mitre_assessments/0/supporting_evidence_ids/0",
+        "object_id": "mitre-assessment--c37a0735d4866a5c785ec00afffbd847cbba47c83c9bcd254158404c09ffad8b",
+        "object_type": "mitre_assessment"
+      },
+      "source_node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "source_references": [],
+      "status": "candidate",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--7dcede23a830226b7f258062deb58e49e2297e701ff2936114847ff1a00880d1"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--e57e4f0c08e8c106f7d6246f2166582560b0b9932fbb890b37cfd9c038ff767e",
+      "edge_type": "supports_assessment",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/mitre_assessments/0/supporting_sigma_rule_ids/0",
+        "object_id": "mitre-assessment--c37a0735d4866a5c785ec00afffbd847cbba47c83c9bcd254158404c09ffad8b",
+        "object_type": "mitre_assessment"
+      },
+      "source_node_id": "graph-node--c4d575f16fff20b4cf6d2817a3c6586c70a971594b2d27bf4698a95ca59c93cf",
+      "source_references": [],
+      "status": "candidate",
+      "supporting_node_ids": [
+        "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205"
+      ],
+      "target_node_id": "graph-node--7dcede23a830226b7f258062deb58e49e2297e701ff2936114847ff1a00880d1"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "provenance"
+      ],
+      "directed": true,
+      "edge_id": "graph-edge--f249c20c178714e08269576b876fbfff50cfa1ae33ad24a4b2221a71b1284baf",
+      "edge_type": "supports",
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "source": {
+        "json_pointer": "/entities/1/evidence_ids/0",
+        "object_id": "entity-synthetic-beta",
+        "object_type": "entity"
+      },
+      "source_node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "source_references": [],
+      "status": "observed",
+      "supporting_node_ids": [],
+      "target_node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff"
+    }
+  ],
+  "graph_id": "knowledge-graph--0df6be716dea7d6f7277e298eec7500d0165b8ba196264a60374e865a28eea04",
+  "metadata": {
+    "edge_count": 17,
+    "edge_type_counts": {
+      "fact_object": 2,
+      "fact_subject": 2,
+      "initiates": 1,
+      "supports": 9,
+      "supports_assessment": 2,
+      "transitions_to": 1
+    },
+    "mapping_version": "ground-truth-to-knowledge-graph/v1",
+    "node_count": 13,
+    "node_type_counts": {
+      "entity": 3,
+      "evidence": 2,
+      "fact": 2,
+      "limitation": 1,
+      "mitre_assessment": 2,
+      "scenario": 1,
+      "sigma_finding": 2
+    }
+  },
+  "nodes": [
+    {
+      "attributes": {
+        "attributes": {
+          "basis": "direct synthetic observation"
+        },
+        "object": "entity-synthetic-beta",
+        "predicate": "initiates_activity",
+        "subject": "entity-synthetic-alpha"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "label": "initiates_activity",
+      "node_id": "graph-node--11b56cda834f533b0156fdb45240dff1fb34e319432995ef507c3d1ea503bb75",
+      "node_type": "fact",
+      "source": {
+        "json_pointer": "/facts/0",
+        "object_id": "fact-synthetic-alpha-activity",
+        "object_type": "fact"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed"
+    },
+    {
+      "attributes": {
+        "attributes": {
+          "name": "alpha-source",
+          "zone": "lab-a"
+        },
+        "entity_type": "synthetic_agent",
+        "name": "Alpha display override"
+      },
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "label": "Alpha display override",
+      "node_id": "graph-node--1df84dd7f0f335c1901c8ea8b67a34a7db11d04895d3b178be5d0fc0cd0cd2db",
+      "node_type": "entity",
+      "source": {
+        "json_pointer": "/entities/0",
+        "object_id": "entity-synthetic-alpha",
+        "object_type": "entity"
+      },
+      "source_references": [],
+      "status": "observed"
+    },
+    {
+      "attributes": {},
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [],
+      "label": "All fixture values are synthetic and require human review.",
+      "node_id": "graph-node--37d6c8e7c7cd308960296eb3679f110ab06d8ab6683c35bc49937ac0260ee2cd",
+      "node_type": "limitation",
+      "source": {
+        "json_pointer": "/summary/limitations/0",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "source_references": [],
+      "status": "reviewable"
+    },
+    {
+      "attributes": {
+        "behavior_match_ids": [
+          "behavior-match-synthetic-2"
+        ],
+        "caveats": [
+          "known_unmapped_field: SyntheticField"
+        ],
+        "observation_match_ids": [
+          "observation-match-synthetic-3",
+          "observation-match-synthetic-4"
+        ],
+        "rule_id": "rule-synthetic-beta",
+        "rule_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "rule_title": "Synthetic transition candidate"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "label": "Synthetic transition candidate",
+      "node_id": "graph-node--5ae51508d1c7101c4431241acdf92d32395db70ae774b5c9ef52a0a30e9e8c36",
+      "node_type": "sigma_finding",
+      "source": {
+        "json_pointer": "/sigma_findings/1",
+        "object_id": "sigma-finding--c9edf46d1d2b9031bafa24117422548caff0a78d22e834b80e37de0bd2f43cdd",
+        "object_type": "sigma_finding"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:4",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "candidate"
+    },
+    {
+      "attributes": {
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "SYN-1001",
+        "name": "Synthetic Activity Pattern",
+        "origin": "sigma_tag",
+        "rationale": "The first synthetic evidence group directly supports this candidate pattern.",
+        "review_status": "needs_review",
+        "stix_id": "attack-pattern--synthetic-alpha",
+        "supporting_sigma_rule_ids": [
+          "rule-synthetic-alpha"
+        ]
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "label": "SYN-1001 - Synthetic Activity Pattern",
+      "node_id": "graph-node--7dcede23a830226b7f258062deb58e49e2297e701ff2936114847ff1a00880d1",
+      "node_type": "mitre_assessment",
+      "source": {
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "mitre-assessment--c37a0735d4866a5c785ec00afffbd847cbba47c83c9bcd254158404c09ffad8b",
+        "object_type": "mitre_assessment"
+      },
+      "source_references": [],
+      "status": "candidate"
+    },
+    {
+      "attributes": {
+        "evidence_support": "not_assessed",
+        "external_id": "SYN-1002",
+        "name": "Synthetic Transition Pattern",
+        "origin": "sigma_tag",
+        "rationale": "No evidence-support decision was provided in the build config.",
+        "review_status": "needs_review",
+        "stix_id": "attack-pattern--synthetic-beta",
+        "supporting_sigma_rule_ids": [
+          "rule-synthetic-beta"
+        ]
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [],
+      "label": "SYN-1002 - Synthetic Transition Pattern",
+      "node_id": "graph-node--832dea293004cb5ab8d3e0c0fe0c2ec7abba55964994ef55be7b823b194870ee",
+      "node_type": "mitre_assessment",
+      "source": {
+        "json_pointer": "/mitre_assessments/1",
+        "object_id": "mitre-assessment--113a7030e1781caf43721924fddb64f04c9b0541cf9cdfd2b799a5fe7633d8b8",
+        "object_type": "mitre_assessment"
+      },
+      "source_references": [],
+      "status": "candidate"
+    },
+    {
+      "attributes": {
+        "analysis_status": "draft_reviewable",
+        "description": "A synthetic scenario used only to verify deterministic artifact merging.",
+        "time_window": {
+          "end": "2024-01-01T00:00:03Z",
+          "start": "2024-01-01T00:00:00Z"
+        }
+      },
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [],
+      "label": "Synthetic artifact relationship review",
+      "node_id": "graph-node--8731b8cde7c29414acae7ae89f59ca628dc45349ecd21c049e3cc318c1c1fe66",
+      "node_type": "scenario",
+      "source": {
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "source_references": [],
+      "status": "reviewable"
+    },
+    {
+      "attributes": {
+        "evidence_type": "synthetic_activity",
+        "observations": [
+          {
+            "event_id": "101",
+            "provider": "Synthetic-Provider",
+            "raw_record_ref": "fixture:record:1",
+            "source_file": "synthetic_events.jsonl",
+            "timestamp": "2024-01-01T00:00:00Z"
+          },
+          {
+            "event_id": "202",
+            "provider": null,
+            "raw_record_ref": "fixture:record:2",
+            "source_file": "synthetic_events.jsonl",
+            "timestamp": "2024-01-01T00:00:01Z"
+          }
+        ],
+        "summary": "Two records directly show synthetic activity."
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "label": "Two records directly show synthetic activity.",
+      "node_id": "graph-node--9182900f80ab4755b1fd88bda95e21a06c4aecfc3117c42e9d19aa698cea1205",
+      "node_type": "evidence",
+      "source": {
+        "json_pointer": "/evidence/0",
+        "object_id": "evidence-synthetic-1",
+        "object_type": "evidence"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:2",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "observed"
+    },
+    {
+      "attributes": {
+        "attributes": {
+          "basis": "correlated synthetic records"
+        },
+        "object": "entity-synthetic-gamma",
+        "predicate": "has_reviewable_transition",
+        "subject": "entity-synthetic-beta"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "label": "has_reviewable_transition",
+      "node_id": "graph-node--b31bb8c817455f0b5f50620b64864e893019451f81681b901b452ba3a3a64fc2",
+      "node_type": "fact",
+      "source": {
+        "json_pointer": "/facts/1",
+        "object_id": "fact-synthetic-beta-transition",
+        "object_type": "fact"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred"
+    },
+    {
+      "attributes": {
+        "attributes": {
+          "host": "host-gamma",
+          "role": "destination"
+        },
+        "entity_type": "synthetic_host",
+        "name": "host-gamma"
+      },
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "label": "host-gamma",
+      "node_id": "graph-node--b9a471f2ece4e3f2452bed52454e60bc05cbce765cd9f09be60a1255162fc8e9",
+      "node_type": "entity",
+      "source": {
+        "json_pointer": "/entities/2",
+        "object_id": "entity-synthetic-gamma",
+        "object_type": "entity"
+      },
+      "source_references": [],
+      "status": "observed"
+    },
+    {
+      "attributes": {
+        "behavior_match_ids": [
+          "behavior-match-synthetic-1"
+        ],
+        "caveats": [],
+        "observation_match_ids": [
+          "observation-match-synthetic-1",
+          "observation-match-synthetic-2"
+        ],
+        "rule_id": "rule-synthetic-alpha",
+        "rule_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "rule_title": "Synthetic activity candidate"
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1"
+      ],
+      "label": "Synthetic activity candidate",
+      "node_id": "graph-node--c4d575f16fff20b4cf6d2817a3c6586c70a971594b2d27bf4698a95ca59c93cf",
+      "node_type": "sigma_finding",
+      "source": {
+        "json_pointer": "/sigma_findings/0",
+        "object_id": "sigma-finding--9c0f4be61a535fab4dfadab048bcec4859de843c6a602242be720ce528e2afbf",
+        "object_type": "sigma_finding"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:1",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:2",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "candidate"
+    },
+    {
+      "attributes": {
+        "evidence_type": "synthetic_transition",
+        "observations": [
+          {
+            "event_id": "303",
+            "provider": "Synthetic-Provider",
+            "raw_record_ref": "fixture:record:3",
+            "source_file": "synthetic_events.jsonl",
+            "timestamp": "2024-01-01T00:00:02Z"
+          },
+          {
+            "event_id": 404,
+            "provider": "Synthetic-Provider",
+            "raw_record_ref": "fixture:record:4",
+            "source_file": "synthetic_events.jsonl",
+            "timestamp": "2024-01-01T00:00:03Z"
+          }
+        ],
+        "summary": "Two records support a transition to the destination."
+      },
+      "dimensions": [
+        "evidence",
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-2"
+      ],
+      "label": "Two records support a transition to the destination.",
+      "node_id": "graph-node--c56e7a80f4739d4e0dc417dafc9830cfb874c5a43ca9218fac99e40647b15263",
+      "node_type": "evidence",
+      "source": {
+        "json_pointer": "/evidence/1",
+        "object_id": "evidence-synthetic-2",
+        "object_type": "evidence"
+      },
+      "source_references": [
+        {
+          "raw_record_ref": "fixture:record:3",
+          "source_file": "synthetic_events.jsonl"
+        },
+        {
+          "raw_record_ref": "fixture:record:4",
+          "source_file": "synthetic_events.jsonl"
+        }
+      ],
+      "status": "inferred"
+    },
+    {
+      "attributes": {
+        "attributes": {
+          "process_name": "worker-beta.bin",
+          "role": "worker"
+        },
+        "entity_type": "synthetic_worker",
+        "name": "worker-beta.bin"
+      },
+      "dimensions": [
+        "provenance"
+      ],
+      "evidence_ids": [
+        "evidence-synthetic-1",
+        "evidence-synthetic-2"
+      ],
+      "label": "worker-beta.bin",
+      "node_id": "graph-node--cbe90ac56b3ac8557db08b9be71bd03a568bd3ce030ebca444970281a4d30cff",
+      "node_type": "entity",
+      "source": {
+        "json_pointer": "/entities/1",
+        "object_id": "entity-synthetic-beta",
+        "object_type": "entity"
+      },
+      "source_references": [],
+      "status": "observed"
+    }
+  ],
+  "queryable_dimensions": [
+    "evidence",
+    "provenance",
+    "relationship",
+    "synthetic_signal"
+  ],
+  "review": {
+    "reviewed_at": null,
+    "reviewer": null,
+    "status": "pending_human_review"
+  },
+  "scenario_id": "scenario-synthetic-builder",
+  "schema_version": "knowledge-graph/v1",
+  "source_ground_truth": {
+    "path": "tests/fixtures/ground_truth/builder/expected_ground_truth.json",
+    "scenario_id": "scenario-synthetic-builder",
+    "schema_version": "scenario-ground-truth/v1",
+    "sha256": "90a352db22280201685a47e1e0ba6b15241986bf6c1c5e95b0e3105d43b88e93"
+  },
+  "warnings": [
+    "Synthetic Sigma review warning.",
+    "Synthetic resolution warning."
+  ]
+}

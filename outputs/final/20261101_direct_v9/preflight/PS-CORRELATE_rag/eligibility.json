@@ -1,0 +1,8 @@
+{
+  "policy_decision": "proceed",
+  "decision": "proceed",
+  "context_utf8_bytes": 19667,
+  "messages_utf8_bytes": 33236,
+  "budget_exceeded": false,
+  "stage": null
+}

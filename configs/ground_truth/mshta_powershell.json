@@ -1,0 +1,119 @@
+{
+  "schema_version": "ground-truth-build-config/v1",
+  "scenario": {
+    "scenario_id": "mshta-powershell",
+    "description": "Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe, mshta.exe launches powershell.exe, and PowerShell runs Get-Service sysmon; this config records observed behavior without asserting a finalized attack determination."
+  },
+  "entity_name_overrides": {},
+  "facts": [
+    {
+      "fact_id": "fact-cmd-spawns-mshta",
+      "subject": "process-7c96a17eb66f2831da61",
+      "predicate": "spawned_process",
+      "object": "process-9c691740bde5d3dbdc4e",
+      "attributes": {
+        "relationship_id": "relationship-9e41d0cc407e7878b2d8"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:4"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:275"
+        }
+      ]
+    },
+    {
+      "fact_id": "fact-mshta-spawns-powershell",
+      "subject": "process-9c691740bde5d3dbdc4e",
+      "predicate": "spawned_process",
+      "object": "process-9f7ceeecb4cd61358ab7",
+      "attributes": {
+        "relationship_id": "relationship-1641029b76ea1ac3df6e"
+      },
+      "status": "observed",
+      "evidence_ids": [
+        "evidence-b31714b888d1489a380c"
+      ],
+      "source_references": [
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:30"
+        },
+        {
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+          "raw_record_ref": "jsonl:line:398"
+        }
+      ]
+    }
+  ],
+  "mitre_decisions": [
+    {
+      "external_id": "T1059.007",
+      "evidence_support": "not_supported_by_observed_command",
+      "supporting_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6"
+      ],
+      "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence."
+    },
+    {
+      "external_id": "T1140",
+      "evidence_support": "not_assessed",
+      "supporting_evidence_ids": [],
+      "rationale": "The resolver only resolved a Sigma tag. The two reviewed evidence groups are insufficient to assess T1140, and the required full negative scan and broader evaluation have not been performed. This milestone therefore does not make a not_observed_in_reviewed_scope determination."
+    },
+    {
+      "external_id": "T1218.005",
+      "evidence_support": "supported_by_observed_behavior",
+      "supporting_evidence_ids": [
+        "evidence-b07a5ff4763e629715e6",
+        "evidence-b31714b888d1489a380c"
+      ],
+      "rationale": "mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment."
+    }
+  ],
+  "summary": {
+    "observed_behavior": [
+      "cmd.exe launched mshta.exe with an inline vbscript:Execute command.",
+      "mshta.exe launched PowerShell.",
+      "PowerShell ran Get-Service sysmon."
+    ],
+    "key_entities": [
+      "process-7c96a17eb66f2831da61",
+      "process-9c691740bde5d3dbdc4e",
+      "process-9f7ceeecb4cd61358ab7"
+    ],
+    "key_relationships": [
+      "relationship-9e41d0cc407e7878b2d8",
+      "relationship-1641029b76ea1ac3df6e"
+    ],
+    "limitations": [
+      "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+      "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+      "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+      "MITRE assessments remain candidates and require human review."
+    ]
+  },
+  "queryable_dimensions": [
+    "command_line",
+    "entity",
+    "evidence",
+    "mitre_technique",
+    "process",
+    "process_spawn",
+    "provenance",
+    "sigma_rule"
+  ],
+  "review_notes": [
+    "A generated Ground Truth Core document remains draft_reviewable.",
+    "All MITRE assessments remain candidate.",
+    "Human review is incomplete.",
+    "No final determination has been made."
+  ]
+}

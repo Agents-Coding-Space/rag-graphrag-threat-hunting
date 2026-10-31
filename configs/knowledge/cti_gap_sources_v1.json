@@ -1,0 +1,45 @@
+{
+  "redcanary-mshta": [
+    {
+      "section": "Detection opportunities / MSHTA spawning from suspect processes",
+      "anchor": "can be a good indicator of malice",
+      "text": "Red Canary identifies an MSHTA parent spawning PowerShell or cmd as a useful suspicious-behavior detection lead. Apply this as technical context for investigating process lineage, while assessing the command and telemetry independently.",
+      "context_links": [
+        {"target_kind": "behavior", "target_id": "mshta_spawns_powershell"},
+        {"target_kind": "technique", "target_id": "T1218.005"},
+        {"target_kind": "sigma_rule", "target_id": "proc_creation_win_mshta_susp_child_processes.yml"}
+      ]
+    },
+    {
+      "section": "Visibility / Process and command-line monitoring",
+      "anchor": "At a minimum, collect parent-child process relationships",
+      "text": "The report recommends collecting command-line and parent-child relationships, with grandparent context where possible. This guides evidence collection for MSHTA investigations; it does not establish completion or output of a PowerShell command in the local dataset.",
+      "context_links": [
+        {"target_kind": "behavior", "target_id": "process_lineage_investigation"},
+        {"target_kind": "sigma_rule", "target_id": "proc_creation_win_mshta_susp_execution.yml"}
+      ]
+    }
+  ],
+  "uptycs-regsvr32": [
+    {
+      "section": "Regsvr32 Utility & Squiblydoo Technique",
+      "anchor": "Threat actors can use regsvr32 for loading COM scriptlets",
+      "text": "Uptycs describes abuse of regsvr32 to load COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll. This provides context for reviewing scriptlet command lines and potential proxy execution, without classifying a local endpoint as confirmed C2.",
+      "context_links": [
+        {"target_kind": "technique", "target_id": "T1218.010"},
+        {"target_kind": "behavior", "target_id": "regsvr32_http_scriptlet"},
+        {"target_kind": "sigma_rule", "target_id": "proc_creation_win_regsvr32_http_ip_pattern.yml"}
+      ]
+    },
+    {
+      "section": "Insights From Our Threat Intelligence Systems",
+      "anchor": "provides telemetry with parent/child process relationships",
+      "text": "The report discusses parent-child telemetry and correlation as investigation context for suspicious regsvr32 execution. Its campaign observations belong to Uptycs data. Local network events still require their own process identity, destination and timing evidence; they do not prove transferred content or C2 intent.",
+      "context_links": [
+        {"target_kind": "behavior", "target_id": "regsvr32_process_network_investigation"},
+        {"target_kind": "sigma_rule", "target_id": "proc_creation_win_regsvr32_susp_parent.yml"},
+        {"target_kind": "sigma_rule", "target_id": "proc_creation_win_regsvr32_susp_child_process.yml"}
+      ]
+    }
+  ]
+}

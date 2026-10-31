@@ -1,0 +1,52 @@
+{
+  "profile_id": "integrated-three-scenarios-cti-v5",
+  "review_status": "pending_human_review",
+  "scenarios": {
+    "mshta-powershell": {
+      "paths": {
+        "corpus_path": "portable/consumers/mshta-powershell/retrieval_corpus.json",
+        "graph_path": "portable/consumers/mshta-powershell/knowledge_graph.json",
+        "gt_path": "portable/consumers/mshta-powershell/scenario_ground_truth.json",
+        "index_path": "portable/consumers/mshta-powershell/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "retrieval_corpus.json": "9484d12dd5bf88895404fe932b89e540808cbf048c17053de61a545cc93dd111",
+        "knowledge_graph.json": "b9bdc5a76f9e8f770c94b5a63823f5cdf601cea72b3ba6b6093ed5783823e0c6",
+        "scenario_ground_truth.json": "07fbb668c9418abac910ac6650d010904fd832697a01688d2460f0f56e343f71",
+        "vector_index_e5.json": "e71d29da4a6dae10f6d59a71ed4cb19fd7c39ff49dfd72f2c28d864e7a06739b"
+      }
+    },
+    "purplesharp-ad": {
+      "paths": {
+        "corpus_path": "portable/consumers/purplesharp-ad/retrieval_corpus.json",
+        "graph_path": "portable/consumers/purplesharp-ad/knowledge_graph.json",
+        "gt_path": "portable/consumers/purplesharp-ad/scenario_ground_truth.json",
+        "index_path": "portable/consumers/purplesharp-ad/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "retrieval_corpus.json": "4b74398794bd37727e44ddd33a2d59718a1df602133fd2abc3ad603835544d82",
+        "knowledge_graph.json": "d13c8c44a1635861c33e1e9c4d02d07c8cfe60d63d3f4c22021a5dda7a1344f1",
+        "scenario_ground_truth.json": "9e5825f9e416a46c354e885bbcc6243fe8a41856a18995e1b418c560b6677b3c",
+        "vector_index_e5.json": "cd1859cc5d844eb17e85ba6f56a3a23f97198a0c369681864917408dc9a5820e"
+      }
+    },
+    "regsvr32-c2": {
+      "paths": {
+        "corpus_path": "portable/consumers/regsvr32-c2/retrieval_corpus.json",
+        "graph_path": "portable/consumers/regsvr32-c2/knowledge_graph.json",
+        "gt_path": "portable/consumers/regsvr32-c2/scenario_ground_truth.json",
+        "index_path": "portable/consumers/regsvr32-c2/vector_index_e5.json"
+      },
+      "review_status": "pending_human_review",
+      "sha256": {
+        "retrieval_corpus.json": "c1f214a4882753763b6646c645a82e1c139053b7aafdfffbd8235cc7b238e6fd",
+        "knowledge_graph.json": "b3d225c9ea339cf6bd325e286485febe30caba022b19f44e8dd739df4c3bc23a",
+        "scenario_ground_truth.json": "b0b8fcdafbb2fd23ebf25b9158519088b74f586da7b8a59c902ac4e981662b55",
+        "vector_index_e5.json": "e65edeaa38360c2bc1e2f06f5744b7dcc55975e20ad963701ad2f1062c78b19e"
+      }
+    }
+  },
+  "schema_version": "runtime-scenario-artifacts/v1"
+}

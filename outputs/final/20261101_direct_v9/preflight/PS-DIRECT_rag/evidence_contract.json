@@ -1,0 +1,367 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "Scenario 3.3.2 Kịch bản thực thi PowerShell nghi vấn. Description: Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe and mshta.exe launches powershell.exe with -noexit -command Get-Service sysmon. Process creation records establish the launch command, not successful cmdlet completion or a finalized attack determination. Analysis status: draft_reviewable. Observed behavior: PowerShell was launched with -noexit -command Get-Service sysmon. cmd.exe launched mshta.exe with an inline vbscript:Execute command. mshta.exe launched PowerShell.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 3,
+        "scope_limitations": [
+          "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+          "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+          "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+          "MITRE assessments remain candidates and require human review.",
+          "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state.",
+          "Canonical timestamps follow TimeCreated; Sysmon UtcTime differs by about four hours and its timezone is unresolved.",
+          "The file also contains conhost creation, event-log clearing and temporary-file deletion telemetry outside this two-group core. These must not be described as globally absent or automatically classified as a destructive payload.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-10-22T02:58:00.489000Z",
+          "start": "2020-10-22T02:57:59.856000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/evidence/1",
+        "object_id": "evidence-b31714b888d1489a380c",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "Evidence evidence-b31714b888d1489a380c. Type: process_creation. Summary: mshta.exe spawned powershell.exe Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-10-22T02:58:00.462000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-10-22T02:58:00.489000Z.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "evidence_id": "evidence-b31714b888d1489a380c",
+          "evidence_type": "process_creation",
+          "observations": [
+            {
+              "event_id": "4688",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:30",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "timestamp": "2020-10-22T02:58:00.462000Z"
+            },
+            {
+              "event_id": "1",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:398",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+              "timestamp": "2020-10-22T02:58:00.489000Z"
+            }
+          ],
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:30",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:398",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+            }
+          ],
+          "status": "observed",
+          "summary": "mshta.exe spawned powershell.exe"
+        },
+        "source_observations": [
+          {
+            "original_fields": {
+              "@timestamp": "2020-10-22T02:58:00.462Z",
+              "Channel": "Security",
+              "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+              "EventID": 4688,
+              "Hostname": "WORKSTATION5",
+              "NewProcessId": "0x2564",
+              "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "ParentProcessName": "C:\\Windows\\System32\\mshta.exe",
+              "ProcessId": "0x2ae4",
+              "SourceName": "Microsoft-Windows-Security-Auditing",
+              "SubjectDomainName": "WORKSTATION5",
+              "SubjectUserName": "wardog",
+              "TimeCreated": "2020-10-22T02:58:00.462Z"
+            },
+            "raw_record_ref": "jsonl:line:30",
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+          },
+          {
+            "original_fields": {
+              "@timestamp": "2020-10-22T02:58:00.489Z",
+              "Channel": "Microsoft-Windows-Sysmon/Operational",
+              "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+              "EventID": 1,
+              "Hostname": "WORKSTATION5",
+              "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "OriginalFileName": "PowerShell.EXE",
+              "ParentCommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+              "ParentImage": "C:\\Windows\\System32\\mshta.exe",
+              "ParentProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+              "ParentProcessId": "10980",
+              "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+              "ProcessId": "9572",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "TimeCreated": "2020-10-22T02:58:00.489Z",
+              "User": "WORKSTATION5\\wardog",
+              "UtcTime": "2020-10-22 06:58:00.462"
+            },
+            "raw_record_ref": "jsonl:line:398",
+            "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+          }
+        ]
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--ef21f2bc7758f90ce3097c824ea9cfcf382e6fbefcaf03a8cc2c2f2cfa34534f",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/relationships/0",
+        "object_id": "relationship-1641029b76ea1ac3df6e",
+        "object_type": "relationship"
+      },
+      "status": "observed",
+      "object_type": "relationship",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "Relationship relationship-1641029b76ea1ac3df6e. Source: mshta.exe (process-9c691740bde5d3dbdc4e). Type: process_spawn. Target: powershell.exe (process-9f7ceeecb4cd61358ab7). Status: observed.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "attributes": {},
+          "evidence_ids": [
+            "evidence-b31714b888d1489a380c"
+          ],
+          "relationship_id": "relationship-1641029b76ea1ac3df6e",
+          "relationship_type": "process_spawn",
+          "source_entity_id": "process-9c691740bde5d3dbdc4e",
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:30",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:398",
+              "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+            }
+          ],
+          "status": "observed",
+          "target_entity_id": "process-9f7ceeecb4cd61358ab7"
+        }
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--8a73d544afa5a8a974c12b905a13224e95e58a8dc73c3a6141ca02c3e2b731e8",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/2",
+        "object_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:30",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:398",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "MITRE assessment T1218.005: Mshta. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "T1218.005",
+        "model_confidence": "supported_by_observed_behavior",
+        "name": "Mshta",
+        "origin": "sigma_tag",
+        "rationale": "mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "mitre-assessment--09f12e591ccdc088e57b01d09c528efead966e0f723ae9a0be6596b78a9c78f1",
+          "evidence_support": "supported_by_observed_behavior",
+          "external_id": "T1218.005",
+          "name": "Mshta",
+          "origin": "sigma_tag",
+          "rationale": "mshta.exe is directly observed in the first evidence group, and its launch of PowerShell is directly observed in the second. This supports the candidate technique at the evidence level only and does not finalize the assessment.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+          "supporting_evidence_ids": [
+            "evidence-b07a5ff4763e629715e6",
+            "evidence-b31714b888d1489a380c"
+          ],
+          "supporting_sigma_rule_ids": [
+            "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+            "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+        "supporting_evidence_ids": [
+          "evidence-b07a5ff4763e629715e6",
+          "evidence-b31714b888d1489a380c"
+        ],
+        "supporting_sigma_rule_ids": [
+          "03cc0c25-389f-4bf8-b48d-11878079f1ca",
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:275",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:4",
+          "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+        }
+      ],
+      "text": "MITRE assessment T1059.007: JavaScript. Status: candidate. Evidence support: not_supported_by_observed_command. Rationale: The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "not_supported_by_observed_command",
+        "external_id": "T1059.007",
+        "model_confidence": "candidate",
+        "name": "JavaScript",
+        "origin": "sigma_tag",
+        "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+          "evidence_support": "not_supported_by_observed_command",
+          "external_id": "T1059.007",
+          "name": "JavaScript",
+          "origin": "sigma_tag",
+          "rationale": "The reviewed command line uses vbscript:Execute, and JavaScript is not observed in that command. The Sigma tag is retained for provenance but is not treated as supported by the current evidence.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+          "supporting_evidence_ids": [
+            "evidence-b07a5ff4763e629715e6"
+          ],
+          "supporting_sigma_rule_ids": [
+            "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+        "supporting_evidence_ids": [
+          "evidence-b07a5ff4763e629715e6"
+        ],
+        "supporting_sigma_rule_ids": [
+          "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

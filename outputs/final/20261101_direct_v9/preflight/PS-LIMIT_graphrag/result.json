@@ -1,0 +1,31 @@
+{
+  "case_id": "PS-LIMIT",
+  "scenario_id": "mshta-powershell",
+  "branch": "graphrag",
+  "outcome": "dry_run_no_generation",
+  "gate_decision": "proceed",
+  "eligibility_decision": "proceed",
+  "policy_gate_decision": "proceed",
+  "llm_http_attempts": 0,
+  "fallback_used": false,
+  "human_review_required": true,
+  "retrieval_context_seconds": 0.5107909999787807,
+  "abstention_stage": null,
+  "context_utf8_bytes": 57243,
+  "messages_utf8_bytes": 63183,
+  "context_sha256": "dcebb16041eefa47f98f1cfd809e689464143066ea7adc12cd85e73312c5e0ba",
+  "messages_sha256": "954ef4499eacd3d622084142d46abb5c7edc5b1d06545240b22393fe57179645",
+  "retrieval_sha256": "92eac0df45692a1a382d251586ec6c24545c6d4949600ce25e747fbe74e13346",
+  "retrieval_hit_ids": [
+    "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+    "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+    "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+    "retrieval-chunk--82de3946302e7f785eef02295ff593ae743fe8820b352255edd7688fde42479c",
+    "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1"
+  ],
+  "returned_graph_nodes": 14,
+  "returned_graph_edges": 12,
+  "available_reference_count": 78,
+  "validation_status": "not_run",
+  "end_to_end_seconds": 1.8531747000524774
+}

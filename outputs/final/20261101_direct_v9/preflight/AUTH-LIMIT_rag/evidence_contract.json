@@ -1,0 +1,599 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "purplesharp-ad",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/purplesharp-ad/scenario_ground_truth.json",
+    "scenario_id": "purplesharp-ad",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "8ff38aaae4c1ecc6807c54208b7ceeac571f7d3df6249607bdf53e32d328928a"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--91ef444192d109b423f4b0402f098672ea5143a1c14c7d15566c0872ec1016f8",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "Scenario 3.3.1 Kịch bản brute force và đăng nhập bất thường. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: Observed 49 successful logons; same-name associations and privileges are context only. Toàn bộ 25993 raw/canonical records đã được đối chiếu; 14 failure observations, 7 correlated attempts, 1 suspected spraying cluster(s), 5 RC4 rule matches. Không xác nhận compromise.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 2,
+        "scope_limitations": [
+          "Use existing canonical timestamp unchanged. Preserve timezone-naive EventTime and @timestamp differences; no timezone correction.",
+          "Launch /t is intent only; failure clustering and ticket evidence are evaluated independently.",
+          "One failed attempt per account does not establish repeated brute force against a single account. Password sameness is not logged.",
+          "Successful logon is observed, but abnormality/causality/compromise requires historical and session context.",
+          "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+          "No cracking success/password recovery is established. CTI campaign activity does not attribute an actor to this dataset.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-10-22T08:30:42.832000Z",
+          "start": "2020-10-22T08:29:48.785000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--55fd82e45a343b8e932202f57fbf060278048047dd8c925ec7821b7196db06fc",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "assessment-T1110-003",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "MITRE assessment T1110.003: Password Spraying. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "assessment-T1110-003",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "T1110.003",
+        "model_confidence": "supported_by_observed_behavior",
+        "name": "Password Spraying",
+        "origin": "evidence_review",
+        "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "assessment-T1110-003",
+          "evidence_support": "supported_by_observed_behavior",
+          "external_id": "T1110.003",
+          "name": "Password Spraying",
+          "origin": "evidence_review",
+          "rationale": "Observed concentrated failures across distinct accounts support suspected spraying; does not prove same password or compromise.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+          "supporting_evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "supporting_sigma_rule_ids": [
+            "8146a24e-c271-4d34-a679-6a361f71ccab"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+        "supporting_evidence_ids": [
+          "auth-failure-observations"
+        ],
+        "supporting_sigma_rule_ids": [
+          "8146a24e-c271-4d34-a679-6a361f71ccab"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--b6a6ec039ec168c6c7d42ce75801ce96a0dda107ce32fd5fca0125ddf8fe695e",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/summary/limitations/4",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Same-name success after failure does not prove recovered password, successful spraying or account compromise. No historical baseline establishes abnormal successful logon.",
+      "properties": {
+        "source_summary_field": "limitations"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--eb2b6e6508b7b978eaa1436483c42fd13d146a05454bd73c8bb6c6b51af49afd",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/sigma_findings/1",
+        "object_id": "sigma-spray-project",
+        "object_type": "sigma_finding"
+      },
+      "status": "candidate",
+      "object_type": "sigma_finding",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1020",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1046",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1048",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1051",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1072",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1074",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1077",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:788",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:790",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:792",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:794",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:796",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:798",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:803",
+          "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+        }
+      ],
+      "text": "Sigma finding Project suspected password spraying. Rule ID: 8146a24e-c271-4d34-a679-6a361f71ccab. Status: candidate. Caveats: Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved.. Evidence IDs: auth-failure-observations.",
+      "properties": {
+        "behavior_match_ids": [
+          "spray-candidate-6000d7d4035d8a5e"
+        ],
+        "caveats": [
+          "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+        ],
+        "evidence_ids": [
+          "auth-failure-observations"
+        ],
+        "evidence_layer": "candidate_assessment",
+        "finding_id": "sigma-spray-project",
+        "observation_match_ids": [
+          "auth-828c9b3fd2b7209e",
+          "auth-f2f0f62b5b95e5a6",
+          "auth-8a9fdccd3c675cbe",
+          "auth-cc44c45f8f4d1384",
+          "auth-17640e1136ac66de",
+          "auth-cc108c80c6820e63",
+          "auth-31b713bada8e7fc4",
+          "auth-f5aa2bce1653a3a8",
+          "auth-345dc51eaf51b2c2",
+          "auth-eb380129994cf773",
+          "auth-972a76b5b2ebca66",
+          "auth-2769787511b48b49",
+          "auth-97bd65eedb8e19c0",
+          "auth-d40d7df41c2d11e1"
+        ],
+        "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+        "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+        "rule_title": "Project suspected password spraying",
+        "source_object": {
+          "behavior_match_ids": [
+            "spray-candidate-6000d7d4035d8a5e"
+          ],
+          "caveats": [
+            "Project-derived correlation after view deduplication, not external SigmaHQ. Password sameness is unobserved."
+          ],
+          "evidence_ids": [
+            "auth-failure-observations"
+          ],
+          "finding_id": "sigma-spray-project",
+          "observation_match_ids": [
+            "auth-828c9b3fd2b7209e",
+            "auth-f2f0f62b5b95e5a6",
+            "auth-8a9fdccd3c675cbe",
+            "auth-cc44c45f8f4d1384",
+            "auth-17640e1136ac66de",
+            "auth-cc108c80c6820e63",
+            "auth-31b713bada8e7fc4",
+            "auth-f5aa2bce1653a3a8",
+            "auth-345dc51eaf51b2c2",
+            "auth-eb380129994cf773",
+            "auth-972a76b5b2ebca66",
+            "auth-2769787511b48b49",
+            "auth-97bd65eedb8e19c0",
+            "auth-d40d7df41c2d11e1"
+          ],
+          "rule_id": "8146a24e-c271-4d34-a679-6a361f71ccab",
+          "rule_sha256": "8e84606bfdbccfadb3968516b630781076449015da195d6ed72dc0c057a763aa",
+          "rule_title": "Project suspected password spraying",
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:788",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:790",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:792",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:794",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:796",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:798",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:803",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1020",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1046",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1048",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1051",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1072",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1074",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1077",
+              "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+            }
+          ],
+          "status": "candidate"
+        },
+        "source_references": [
+          {
+            "raw_record_ref": "jsonl:line:788",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:790",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:792",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:794",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:796",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:798",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:803",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1020",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1046",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1048",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1051",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1072",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1074",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          },
+          {
+            "raw_record_ref": "jsonl:line:1077",
+            "source_file": "purplesharp_ad_playbook_I_2020-10-22042947.json"
+          }
+        ],
+        "status": "candidate"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--bfde3d735d2958b37041be2ca14a587ca572235f02c34bd59d07f85f1ca4acbf",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/entities/10",
+        "object_id": "cti-4d79697c25bee5b013b2",
+        "object_type": "entity"
+      },
+      "status": "candidate",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "text:chars:6215:6271",
+          "source_file": "microsoft-password-spray"
+        }
+      ],
+      "text": "CTI context (Microsoft Threat Intelligence): Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+      "properties": {
+        "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+        "citation": {
+          "anchor": "a very small number of sign-in attempts to many accounts",
+          "char_end": 6271,
+          "char_start": 6215,
+          "line": 129,
+          "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+          "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+          "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+          "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+          "source_id": "microsoft-password-spray",
+          "text_path": "microsoft-password-spray.txt",
+          "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+        },
+        "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+        "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+        "evidence_layer": "cti_context",
+        "publication_date": "2024-10-31T17:00:00+00:00",
+        "publisher": "Microsoft Threat Intelligence",
+        "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+        "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+        "source_id": "microsoft-password-spray",
+        "source_object": {
+          "attributes": {
+            "accessed_at": "2026-10-30T09:32:28.955678+00:00",
+            "citation": {
+              "anchor": "a very small number of sign-in attempts to many accounts",
+              "char_end": 6271,
+              "char_start": 6215,
+              "line": 129,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Password spray activity from CovertNetwork-1658 infrastructure",
+              "snapshot_path": "../../20261030_v1/cti_auth_sources/microsoft-password-spray.html",
+              "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+              "source_id": "microsoft-password-spray",
+              "text_path": "microsoft-password-spray.txt",
+              "text_sha256": "07bcd5c2299752b7cab9cfb848e5f35471403011f57244778919bde780c474ee",
+              "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+            },
+            "corpus_path": "outputs/integrated/20261030_v5/cti_auth/cti_corpus.json",
+            "corpus_sha256": "c1070db96c84edcefe0afbb7a9c702ba5b0db287ef69a8a9c6ed18a56f4bc5dc",
+            "evidence_layer": "cti_context",
+            "publication_date": "2024-10-31T17:00:00+00:00",
+            "publisher": "Microsoft Threat Intelligence",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "874da1b734a2cc5807e67deaf5aa053e0838c6657f84682d4d3770358e89effb",
+            "source_id": "microsoft-password-spray",
+            "source_references": [
+              {
+                "raw_record_ref": "text:chars:6215:6271",
+                "source_file": "microsoft-password-spray"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+            "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+            "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+          },
+          "entity_id": "cti-4d79697c25bee5b013b2",
+          "entity_type": "cti_report",
+          "evidence_ids": [],
+          "name": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+          "status": "candidate"
+        },
+        "source_references": [
+          {
+            "raw_record_ref": "text:chars:6215:6271",
+            "source_file": "microsoft-password-spray"
+          }
+        ],
+        "source_type": "cti_report",
+        "text": "Microsoft Threat Intelligence reports distributed password spraying with few attempts per account across many accounts, including low-volume patterns. This is external campaign context. PurpleSharp's short multi-account failure burst can be compared with that pattern, without transferring actor identity, compromised credentials or campaign IOC conclusions to local hosts.",
+        "title": "Chinese threat actor Storm-0940 uses credentials from password spray attacks from a covert network",
+        "url": "https://www.microsoft.com/en-us/security/blog/2024/10/31/chinese-threat-actor-storm-0940-uses-credentials-from-password-spray-attacks-from-a-covert-network/"
+      },
+      "evidence_layer": "cti_context"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

