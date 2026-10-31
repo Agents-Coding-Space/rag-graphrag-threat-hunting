@@ -1,0 +1,363 @@
+{
+  "schema_version": "source-evidence-gate-decision/v2",
+  "contract": "source-evidence-contract/v2",
+  "decision": "abstain",
+  "abstention_stage": "evidence_answerability",
+  "reason_codes": [
+    "relevant_observed_anchor_not_returned"
+  ],
+  "stage_results": {
+    "topical_relevance": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "joint_lexical_vector_hit_count": 5,
+        "lexical_hit_count": 5,
+        "matched_query_token_count": 9,
+        "query_token_count": 28,
+        "query_token_coverage": 0.32142857,
+        "retrieval_hit_count": 5,
+        "returned_top_bm25_score": 13.36645722,
+        "returned_top_cosine_score": 0.8746039,
+        "returned_top_rrf_score": 0.032522474881,
+        "vector_hit_count": 5
+      }
+    },
+    "evidence_answerability": {
+      "schema_version": "source-evidence-contract/v2",
+      "requirements": {
+        "authentication": false,
+        "cti": false,
+        "correlation": false,
+        "limits": true
+      },
+      "checks": [
+        {
+          "requirement": "observed_outcome_anchor",
+          "status": "missing",
+          "witnesses": [],
+          "reason_code": "relevant_observed_anchor_not_returned"
+        },
+        {
+          "requirement": "limit_completion",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata",
+              "value": "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/summary/limitations/4",
+                "object_id": null,
+                "object_type": "limitation"
+              },
+              "source_references": [],
+              "field": "text",
+              "context_pointer": "/retrieval/hits/1/chunk/content",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            }
+          ],
+          "reason_code": "source_witness_present"
+        },
+        {
+          "requirement": "limit_output",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/summary/limitations/4",
+                "object_id": null,
+                "object_type": "limitation"
+              },
+              "source_references": [],
+              "field": "text",
+              "context_pointer": "/retrieval/hits/1/chunk/content",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            }
+          ],
+          "reason_code": "source_witness_present"
+        },
+        {
+          "requirement": "limit_service_state",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "properties",
+              "context_pointer": "/retrieval/hits/0/chunk/metadata",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--df3b8e31f96555994c35b133bba1cc21a226769503fd0a214bef7d3c16d7a1f3",
+                "context_pointer": "/retrieval/hits/1/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/summary/limitations/4",
+                "object_id": null,
+                "object_type": "limitation"
+              },
+              "source_references": [],
+              "field": "text",
+              "context_pointer": "/retrieval/hits/1/chunk/content",
+              "value": "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state."
+            }
+          ],
+          "reason_code": "source_witness_present"
+        },
+        {
+          "requirement": "bound_retrieved_source",
+          "status": "supported",
+          "witnesses": [
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+                "context_pointer": "/retrieval/hits/0/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/0/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/scenario",
+                "object_id": null,
+                "object_type": "scenario"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--3422a1d86fc13212f395af0f4089875227b0780e91899c42c13023f3a6ff55d8",
+                "context_pointer": "/retrieval/hits/2/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                },
+                {
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/2/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/mitre_assessments/0",
+                "object_id": "mitre-assessment--4627bedc17126e48369fd005997f3873c17edecfbb34d9a111c6c1f26a1d61c9",
+                "object_type": "mitre_assessment"
+              }
+            },
+            {
+              "origin": {
+                "kind": "chunk",
+                "item_id": "retrieval-chunk--c77cd6c409ec0b1a8f3e0f6e386d8bfdc8380c4e45b074d811f87359fe78bae1",
+                "context_pointer": "/retrieval/hits/4/chunk"
+              },
+              "source": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              },
+              "source_references": [
+                {
+                  "raw_record_ref": "text:chars:11226:11282",
+                  "source_file": "redcanary-mshta"
+                }
+              ],
+              "field": "source",
+              "context_pointer": "/retrieval/hits/4/chunk/source",
+              "value": {
+                "artifact_type": "scenario_ground_truth",
+                "json_pointer": "/entities/5",
+                "object_id": "cti-2accb1022fba708a2787",
+                "object_type": "entity"
+              }
+            }
+          ],
+          "reason_code": "source_witness_present"
+        }
+      ],
+      "status": "missing",
+      "reason_codes": [
+        "relevant_observed_anchor_not_returned"
+      ]
+    }
+  },
+  "legacy_policy_id": "two-stage-prod-aae2e49de84bd18a",
+  "human_review_required": true,
+  "interpretation": "Research context eligibility, not claim truth or human approval."
+}

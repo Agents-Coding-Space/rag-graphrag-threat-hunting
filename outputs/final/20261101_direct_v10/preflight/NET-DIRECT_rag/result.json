@@ -1,0 +1,31 @@
+{
+  "case_id": "NET-DIRECT",
+  "scenario_id": "regsvr32-c2",
+  "branch": "rag",
+  "outcome": "dry_run_no_generation",
+  "gate_decision": "proceed",
+  "eligibility_decision": "proceed",
+  "policy_gate_decision": "proceed",
+  "llm_http_attempts": 0,
+  "fallback_used": false,
+  "human_review_required": true,
+  "retrieval_context_seconds": 0.5861771999625489,
+  "abstention_stage": null,
+  "context_utf8_bytes": 32674,
+  "messages_utf8_bytes": 45394,
+  "context_sha256": "0e71d5e4693f1bb6f2cc93caa0a0e3e1a3d4ab545902baa2dc2c5eddc1589023",
+  "messages_sha256": "57790ec8cf241eb7fca259cf55f1bf15c8dc805edb01ff84d4ade6cff1fd159a",
+  "retrieval_sha256": "bf10ad328dadbc7f114204bee2dd3557bbf767a0199a4b34be2204c497eb4d89",
+  "retrieval_hit_ids": [
+    "retrieval-chunk--cda169e8bc034d29e1e6a71cf9c805314983de89541b704d24f882786745b0bf",
+    "retrieval-chunk--9e080227c8b57a09213f234d85481395b430e57fe72a5d0bc729195aa3e3e2b5",
+    "retrieval-chunk--fc9751da5e578aeb723a0e51005451bc1af92f5b21fb53faf91d01a8fa1a21dd",
+    "retrieval-chunk--45ef40f2bafd71684fb06dd29b7e6ad953c9090788b9e628f46c5f131452cf35",
+    "retrieval-chunk--fdd2d38f06b8c894e8d17906e1faca53f3a44b5828d7adca71cafda9f29135a3"
+  ],
+  "returned_graph_nodes": 0,
+  "returned_graph_edges": 0,
+  "available_reference_count": 31,
+  "validation_status": "not_run",
+  "end_to_end_seconds": 1.0962921000318602
+}

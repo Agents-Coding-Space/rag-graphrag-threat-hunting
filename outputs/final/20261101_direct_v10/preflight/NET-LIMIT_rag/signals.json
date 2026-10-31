@@ -1,0 +1,111 @@
+{
+  "schema_version": "graphrag-gate-signals/v1",
+  "corpus_id": "retrieval-corpus--5806aae95e2c524e9aa6a33709468674f7ed8909d72b1a8d522cc16c3d8436fb",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "regsvr32-c2",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+    "scenario_id": "regsvr32-c2",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+  },
+  "query": {
+    "text": "Các kết nối của regsvr32.exe và PowerShell có chứng minh HTTP exchange hoàn tất, máy chủ C2 đã xác nhận và dữ liệu exfiltration bao nhiêu bytes không? Trả lời theo giới hạn telemetry.",
+    "normalized_terms": [
+      "các",
+      "kết",
+      "nối",
+      "của",
+      "regsvr32.exe",
+      "và",
+      "powershell",
+      "có",
+      "chứng",
+      "minh",
+      "http",
+      "exchange",
+      "hoàn",
+      "tất",
+      "máy",
+      "chủ",
+      "c2",
+      "đã",
+      "xác",
+      "nhận",
+      "dữ",
+      "liệu",
+      "exfiltration",
+      "bao",
+      "nhiêu",
+      "bytes",
+      "không",
+      "trả",
+      "lời",
+      "theo",
+      "giới",
+      "hạn",
+      "telemetry"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "topical_relevance": {
+    "retrieval_hit_count": 5,
+    "lexical_hit_count": 5,
+    "vector_hit_count": 5,
+    "joint_lexical_vector_hit_count": 5,
+    "returned_top_rrf_score": 0.032786885246,
+    "returned_top_bm25_score": 17.28117848,
+    "returned_top_cosine_score": 0.86762244,
+    "query_token_count": 33,
+    "matched_query_token_count": 8,
+    "query_token_coverage": 0.24242424
+  },
+  "evidence_answerability": {
+    "chunk_type_counts": {
+      "scenario_summary": 1,
+      "entity": 0,
+      "fact": 0,
+      "relationship": 0,
+      "evidence": 2,
+      "sigma_finding": 0,
+      "mitre_assessment": 1,
+      "limitation": 1
+    },
+    "status_counts": {
+      "candidate": 1,
+      "inferred": 0,
+      "observed": 2,
+      "reviewable": 2
+    },
+    "hits_with_evidence_ids": 3,
+    "hits_with_source_references": 4,
+    "unique_source_reference_count": 16,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversal_node_count": 0,
+    "traversal_edge_count": 0,
+    "traversal_path_count": 0,
+    "traversed_evidence_node_count": 0,
+    "traversed_limitation_node_count": 0,
+    "support_edge_count": 0
+  },
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "decision_made": false,
+    "score_interpretations": {
+      "rrf": "reciprocal_rank_fusion_not_probability",
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability"
+    },
+    "topical_signal_count": 10,
+    "answerability_signal_count": 14
+  }
+}

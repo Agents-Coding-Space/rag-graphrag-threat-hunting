@@ -1,0 +1,17 @@
+{
+  "schema_version": "query-scope-decision/v1",
+  "decision": "proceed",
+  "reason_codes": [],
+  "matched_intents": [
+    "command",
+    "limits"
+  ],
+  "matched_source_anchors": [
+    "mshta",
+    "mshta.exe",
+    "powershell",
+    "powershell.exe"
+  ],
+  "interpretation": "request_scope_only_not_evidence_support",
+  "security_conclusion_made": false
+}

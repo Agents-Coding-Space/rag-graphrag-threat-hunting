@@ -1,0 +1,16 @@
+{
+  "schema_version": "query-scope-decision/v1",
+  "decision": "proceed",
+  "reason_codes": [],
+  "matched_intents": [
+    "command",
+    "telemetry",
+    "network"
+  ],
+  "matched_source_anchors": [
+    "regsvr32",
+    "regsvr32.exe"
+  ],
+  "interpretation": "request_scope_only_not_evidence_support",
+  "security_conclusion_made": false
+}

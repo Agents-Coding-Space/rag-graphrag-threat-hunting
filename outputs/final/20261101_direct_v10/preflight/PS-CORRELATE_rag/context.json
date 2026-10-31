@@ -1,0 +1,764 @@
+{
+  "schema_version": "graphrag-context/v1",
+  "corpus_id": "retrieval-corpus--3a5db8558989dc08fd76d537f2b3a49c7ac3653403cb0cf69add89381d90ba26",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+  },
+  "query": {
+    "text": "Bốn quan sát Security 4688 và Sysmon 1 trong core cmd.exe → mshta.exe → powershell.exe tương ứng bao nhiêu process creations? Giải thích parent/child correlation và vì sao conhost.exe ở ngoài core.",
+    "normalized_terms": [
+      "bốn",
+      "quan",
+      "sát",
+      "security",
+      "4688",
+      "và",
+      "sysmon",
+      "1",
+      "trong",
+      "core",
+      "cmd.exe",
+      "mshta.exe",
+      "powershell.exe",
+      "tương",
+      "ứng",
+      "bao",
+      "nhiêu",
+      "process",
+      "creations",
+      "giải",
+      "thích",
+      "parent",
+      "child",
+      "correlation",
+      "vì",
+      "sao",
+      "conhost.exe",
+      "ở",
+      "ngoài"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "retrieval": {
+    "schema_version": "retrieval-result/v1",
+    "retrieval_method": "hybrid-rrf/v1",
+    "corpus_id": "retrieval-corpus--3a5db8558989dc08fd76d537f2b3a49c7ac3653403cb0cf69add89381d90ba26",
+    "scenario_id": "mshta-powershell",
+    "query": {
+      "text": "Bốn quan sát Security 4688 và Sysmon 1 trong core cmd.exe → mshta.exe → powershell.exe tương ứng bao nhiêu process creations? Giải thích parent/child correlation và vì sao conhost.exe ở ngoài core.",
+      "normalized_terms": [
+        "bốn",
+        "quan",
+        "sát",
+        "security",
+        "4688",
+        "và",
+        "sysmon",
+        "1",
+        "trong",
+        "core",
+        "cmd.exe",
+        "mshta.exe",
+        "powershell.exe",
+        "tương",
+        "ứng",
+        "bao",
+        "nhiêu",
+        "process",
+        "creations",
+        "giải",
+        "thích",
+        "parent",
+        "child",
+        "correlation",
+        "vì",
+        "sao",
+        "conhost.exe",
+        "ở",
+        "ngoài"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "hits": [
+      {
+        "rank": 1,
+        "score": 0.032018442623,
+        "components": {
+          "lexical": {
+            "rank": 4,
+            "score": 6.78586481,
+            "contribution": 0.015625
+          },
+          "vector": {
+            "rank": 1,
+            "score": 0.87560301,
+            "contribution": 0.016393442623
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--86dd89fe0cfd03c1505a8534ce63dfb9f72221fe32c23d7a0341a66fa98d48ad",
+          "chunk_type": "scenario_summary",
+          "content": "Scenario 3.3.2 Kịch bản thực thi PowerShell nghi vấn. Description: Reviewable MSHTA-PowerShell scenario in which cmd.exe launches mshta.exe and mshta.exe launches powershell.exe with -noexit -command Get-Service sysmon. Process creation records establish the launch command, not successful cmdlet completion or a finalized attack determination. Analysis status: draft_reviewable. Observed behavior: PowerShell was launched with -noexit -command Get-Service sysmon. cmd.exe launched mshta.exe with an inline vbscript:Execute command. mshta.exe launched PowerShell.",
+          "entity_ids": [
+            "process-7c96a17eb66f2831da61",
+            "process-9c691740bde5d3dbdc4e",
+            "process-9f7ceeecb4cd61358ab7"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "analysis_status": "draft_reviewable",
+            "observed_behavior_count": 3,
+            "scope_limitations": [
+              "This ground truth scope covers only the two reviewed behavior and evidence groups.",
+              "The two Sysmon observations carry upstream timestamp_conflict review issues.",
+              "A full-dataset negative scan has not been performed, so absence claims cannot be made across the full scope.",
+              "MITRE assessments remain candidates and require human review.",
+              "Process-creation telemetry does not establish successful cmdlet completion, output, or the Sysmon service state.",
+              "Canonical timestamps follow TimeCreated; Sysmon UtcTime differs by about four hours and its timezone is unresolved.",
+              "The file also contains conhost creation, event-log clearing and temporary-file deletion telemetry outside this two-group core. These must not be described as globally absent or automatically classified as a destructive payload.",
+              "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+            ],
+            "scope_limitations_pointer": "/summary/limitations",
+            "time_window": {
+              "end": "2020-10-22T02:58:00.489000Z",
+              "start": "2020-10-22T02:57:59.856000Z"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "command_line",
+            "entity",
+            "evidence",
+            "mitre_technique",
+            "process",
+            "process_spawn",
+            "provenance",
+            "scenario",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "relationship-1641029b76ea1ac3df6e",
+            "relationship-9e41d0cc407e7878b2d8"
+          ],
+          "scenario_id": "mshta-powershell",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/scenario",
+            "object_id": null,
+            "object_type": "scenario"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-5571737516f728112470"
+            },
+            {
+              "raw_reference_key": "r-864d49c7a1d038fdea96"
+            },
+            {
+              "raw_reference_key": "r-4c9676bf5793ca846eb5"
+            },
+            {
+              "raw_reference_key": "r-a8ad031db429aec8dbd8"
+            }
+          ],
+          "status": "reviewable",
+          "title": "3.3.2 Kịch bản thực thi PowerShell nghi vấn"
+        }
+      },
+      {
+        "rank": 2,
+        "score": 0.031754032258,
+        "components": {
+          "lexical": {
+            "rank": 2,
+            "score": 9.95146807,
+            "contribution": 0.016129032258
+          },
+          "vector": {
+            "rank": 4,
+            "score": 0.85271773,
+            "contribution": 0.015625
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--f36fc26dc2a1ab7790f9bb95ceb5b2ceaaea94a7867c978b680fa532040a0b88",
+          "chunk_type": "evidence",
+          "content": "Evidence evidence-b31714b888d1489a380c. Type: process_creation. Summary: mshta.exe spawned powershell.exe Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-10-22T02:58:00.462000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-10-22T02:58:00.489000Z.",
+          "entity_ids": [
+            "process-9c691740bde5d3dbdc4e",
+            "process-9f7ceeecb4cd61358ab7"
+          ],
+          "evidence_ids": [
+            "evidence-b31714b888d1489a380c"
+          ],
+          "fact_ids": [
+            "fact-mshta-spawns-powershell"
+          ],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "evidence_id": "evidence-b31714b888d1489a380c",
+              "evidence_type": "process_creation",
+              "observations": [
+                {
+                  "event_id": "4688",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:30",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+                  "timestamp": "2020-10-22T02:58:00.462000Z"
+                },
+                {
+                  "event_id": "1",
+                  "provider": "Microsoft-Windows-Sysmon",
+                  "raw_record_ref": "jsonl:line:398",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+                  "timestamp": "2020-10-22T02:58:00.489000Z"
+                }
+              ],
+              "source_references": [
+                {
+                  "raw_reference_key": "r-864d49c7a1d038fdea96"
+                },
+                {
+                  "raw_reference_key": "r-4c9676bf5793ca846eb5"
+                }
+              ],
+              "status": "observed",
+              "summary": "mshta.exe spawned powershell.exe"
+            },
+            "source_observations": [
+              {
+                "source_observation_key": "observation--4268a32a61c4a3a0b0a5c2324ac1f3d4fbda195ab34a316f41f6868c3db9c904"
+              },
+              {
+                "source_observation_key": "observation--2983cf3961e27a6b0a1af83d75db6554eb3cbb0d8606168e9397cd21436ea91d"
+              }
+            ]
+          },
+          "mitre_external_ids": [
+            "T1218.005"
+          ],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "mitre_technique",
+            "provenance",
+            "relationship",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "relationship-1641029b76ea1ac3df6e"
+          ],
+          "scenario_id": "mshta-powershell",
+          "sigma_rule_ids": [
+            "03cc0c25-389f-4bf8-b48d-11878079f1ca"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/evidence/1",
+            "object_id": "evidence-b31714b888d1489a380c",
+            "object_type": "evidence"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-864d49c7a1d038fdea96"
+            },
+            {
+              "raw_reference_key": "r-4c9676bf5793ca846eb5"
+            }
+          ],
+          "status": "observed",
+          "title": "mshta.exe spawned powershell.exe"
+        }
+      },
+      {
+        "rank": 3,
+        "score": 0.031544957774,
+        "components": {
+          "lexical": {
+            "rank": 1,
+            "score": 9.95146807,
+            "contribution": 0.016393442623
+          },
+          "vector": {
+            "rank": 6,
+            "score": 0.8486084,
+            "contribution": 0.015151515152
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--536a732c5d918e1b90e281ed5d438f06f8b161d70c9d4e64699eee77dfd2a30b",
+          "chunk_type": "evidence",
+          "content": "Evidence evidence-b07a5ff4763e629715e6. Type: process_creation. Summary: cmd.exe spawned mshta.exe Status: observed. Observations: provider=Microsoft-Windows-Security-Auditing, event_id=4688, timestamp=2020-10-22T02:57:59.856000Z; provider=Microsoft-Windows-Sysmon, event_id=1, timestamp=2020-10-22T02:57:59.857000Z.",
+          "entity_ids": [
+            "process-7c96a17eb66f2831da61",
+            "process-9c691740bde5d3dbdc4e"
+          ],
+          "evidence_ids": [
+            "evidence-b07a5ff4763e629715e6"
+          ],
+          "fact_ids": [
+            "fact-cmd-spawns-mshta"
+          ],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "evidence_id": "evidence-b07a5ff4763e629715e6",
+              "evidence_type": "process_creation",
+              "observations": [
+                {
+                  "event_id": "1",
+                  "provider": "Microsoft-Windows-Sysmon",
+                  "raw_record_ref": "jsonl:line:275",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+                  "timestamp": "2020-10-22T02:57:59.857000Z"
+                },
+                {
+                  "event_id": "4688",
+                  "provider": "Microsoft-Windows-Security-Auditing",
+                  "raw_record_ref": "jsonl:line:4",
+                  "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json",
+                  "timestamp": "2020-10-22T02:57:59.856000Z"
+                }
+              ],
+              "source_references": [
+                {
+                  "raw_reference_key": "r-5571737516f728112470"
+                },
+                {
+                  "raw_reference_key": "r-a8ad031db429aec8dbd8"
+                }
+              ],
+              "status": "observed",
+              "summary": "cmd.exe spawned mshta.exe"
+            },
+            "source_observations": [
+              {
+                "source_observation_key": "observation--ce7a19b540d6507ec2070ce2ed1fdd0a290626ef664f5775cb7a6d577979d80b"
+              },
+              {
+                "source_observation_key": "observation--fabddd1a549892523cfee7203974323c7213d1e89dc21dcb127dde9ed12521d2"
+              }
+            ]
+          },
+          "mitre_external_ids": [
+            "T1059.007",
+            "T1218.005"
+          ],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "mitre_technique",
+            "provenance",
+            "relationship",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "relationship-9e41d0cc407e7878b2d8"
+          ],
+          "scenario_id": "mshta-powershell",
+          "sigma_rule_ids": [
+            "cc7abbd0-762b-41e3-8a26-57ad50d2eea3"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/evidence/0",
+            "object_id": "evidence-b07a5ff4763e629715e6",
+            "object_type": "evidence"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-5571737516f728112470"
+            },
+            {
+              "raw_reference_key": "r-a8ad031db429aec8dbd8"
+            }
+          ],
+          "status": "observed",
+          "title": "cmd.exe spawned mshta.exe"
+        }
+      },
+      {
+        "rank": 4,
+        "score": 0.030834914611,
+        "components": {
+          "lexical": {
+            "rank": 8,
+            "score": 3.99560661,
+            "contribution": 0.014705882353
+          },
+          "vector": {
+            "rank": 2,
+            "score": 0.85447615,
+            "contribution": 0.016129032258
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--6c81131b41dbfbf7554df2341edc55b3ffeb9da99282a8cde4492bd3a1107365",
+          "chunk_type": "relationship",
+          "content": "Relationship relationship-9e41d0cc407e7878b2d8. Source: cmd.exe (process-7c96a17eb66f2831da61). Type: process_spawn. Target: mshta.exe (process-9c691740bde5d3dbdc4e). Status: observed.",
+          "entity_ids": [
+            "process-7c96a17eb66f2831da61",
+            "process-9c691740bde5d3dbdc4e"
+          ],
+          "evidence_ids": [
+            "evidence-b07a5ff4763e629715e6"
+          ],
+          "fact_ids": [],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "attributes": {},
+              "evidence_ids": [
+                "evidence-b07a5ff4763e629715e6"
+              ],
+              "relationship_id": "relationship-9e41d0cc407e7878b2d8",
+              "relationship_type": "process_spawn",
+              "source_entity_id": "process-7c96a17eb66f2831da61",
+              "source_references": [
+                {
+                  "raw_reference_key": "r-5571737516f728112470"
+                },
+                {
+                  "raw_reference_key": "r-a8ad031db429aec8dbd8"
+                }
+              ],
+              "status": "observed",
+              "target_entity_id": "process-9c691740bde5d3dbdc4e"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "relationship-9e41d0cc407e7878b2d8"
+          ],
+          "scenario_id": "mshta-powershell",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/relationships/1",
+            "object_id": "relationship-9e41d0cc407e7878b2d8",
+            "object_type": "relationship"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-5571737516f728112470"
+            },
+            {
+              "raw_reference_key": "r-a8ad031db429aec8dbd8"
+            }
+          ],
+          "status": "observed",
+          "title": "process_spawn"
+        }
+      },
+      {
+        "rank": 5,
+        "score": 0.030365769496,
+        "components": {
+          "lexical": {
+            "rank": 9,
+            "score": 3.99560661,
+            "contribution": 0.014492753623
+          },
+          "vector": {
+            "rank": 3,
+            "score": 0.8542712,
+            "contribution": 0.015873015873
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--ef21f2bc7758f90ce3097c824ea9cfcf382e6fbefcaf03a8cc2c2f2cfa34534f",
+          "chunk_type": "relationship",
+          "content": "Relationship relationship-1641029b76ea1ac3df6e. Source: mshta.exe (process-9c691740bde5d3dbdc4e). Type: process_spawn. Target: powershell.exe (process-9f7ceeecb4cd61358ab7). Status: observed.",
+          "entity_ids": [
+            "process-9c691740bde5d3dbdc4e",
+            "process-9f7ceeecb4cd61358ab7"
+          ],
+          "evidence_ids": [
+            "evidence-b31714b888d1489a380c"
+          ],
+          "fact_ids": [],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "attributes": {},
+              "evidence_ids": [
+                "evidence-b31714b888d1489a380c"
+              ],
+              "relationship_id": "relationship-1641029b76ea1ac3df6e",
+              "relationship_type": "process_spawn",
+              "source_entity_id": "process-9c691740bde5d3dbdc4e",
+              "source_references": [
+                {
+                  "raw_reference_key": "r-864d49c7a1d038fdea96"
+                },
+                {
+                  "raw_reference_key": "r-4c9676bf5793ca846eb5"
+                }
+              ],
+              "status": "observed",
+              "target_entity_id": "process-9f7ceeecb4cd61358ab7"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "relationship-1641029b76ea1ac3df6e"
+          ],
+          "scenario_id": "mshta-powershell",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/relationships/0",
+            "object_id": "relationship-1641029b76ea1ac3df6e",
+            "object_type": "relationship"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-864d49c7a1d038fdea96"
+            },
+            {
+              "raw_reference_key": "r-4c9676bf5793ca846eb5"
+            }
+          ],
+          "status": "observed",
+          "title": "process_spawn"
+        }
+      }
+    ],
+    "warnings": [],
+    "metadata": {
+      "total_chunks": 25,
+      "eligible_chunks": 25,
+      "returned_hits": 5,
+      "lexical_candidate_count": 15,
+      "vector_candidate_count": 20,
+      "union_candidate_count": 20,
+      "rrf_k": 60,
+      "score_precision": 12,
+      "score_interpretation": "reciprocal_rank_fusion_not_probability",
+      "component_methods": {
+        "lexical": "bm25/v1",
+        "vector": "vector-cosine/v1"
+      }
+    }
+  },
+  "seed_mapping": {
+    "schema_version": "graphrag-seed-map/v1",
+    "corpus_id": "retrieval-corpus--3a5db8558989dc08fd76d537f2b3a49c7ac3653403cb0cf69add89381d90ba26",
+    "graph_id": "comparison-rag-no-graph",
+    "scenario_id": "mshta-powershell",
+    "source_ground_truth": {
+      "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+      "scenario_id": "mshta-powershell",
+      "schema_version": "scenario-ground-truth/v3",
+      "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+    },
+    "query": {
+      "text": "Bốn quan sát Security 4688 và Sysmon 1 trong core cmd.exe → mshta.exe → powershell.exe tương ứng bao nhiêu process creations? Giải thích parent/child correlation và vì sao conhost.exe ở ngoài core.",
+      "normalized_terms": [
+        "bốn",
+        "quan",
+        "sát",
+        "security",
+        "4688",
+        "và",
+        "sysmon",
+        "1",
+        "trong",
+        "core",
+        "cmd.exe",
+        "mshta.exe",
+        "powershell.exe",
+        "tương",
+        "ứng",
+        "bao",
+        "nhiêu",
+        "process",
+        "creations",
+        "giải",
+        "thích",
+        "parent",
+        "child",
+        "correlation",
+        "vì",
+        "sao",
+        "conhost.exe",
+        "ở",
+        "ngoài"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "retrieval_method": "hybrid-rrf/v1",
+    "hit_mappings": [],
+    "seed_node_ids": [],
+    "warnings": [],
+    "metadata": {
+      "retrieval_hit_count": 5,
+      "mapped_hit_count": 0,
+      "direct_node_mapping_count": 0,
+      "relationship_edge_mapping_count": 0,
+      "seed_node_count": 0
+    }
+  },
+  "traversal": {},
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "retrieval_hit_count": 5,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversed_node_count": 0,
+    "traversed_edge_count": 0,
+    "traversed_path_count": 0
+  },
+  "source_observation_contract": "source-observation-interning/v1",
+  "source_observation_catalog": {
+    "observation--2983cf3961e27a6b0a1af83d75db6554eb3cbb0d8606168e9397cd21436ea91d": {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.489Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "OriginalFileName": "PowerShell.EXE",
+        "ParentCommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "ParentImage": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ParentProcessId": "10980",
+        "ProcessGuid": "{39e4a257-2d78-5f91-6c13-000000000700}",
+        "ProcessId": "9572",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:58:00.489Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:58:00.462"
+      },
+      "raw_record_ref": "jsonl:line:398",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "observation--4268a32a61c4a3a0b0a5c2324ac1f3d4fbda195ab34a316f41f6868c3db9c904": {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:58:00.462Z",
+        "Channel": "Security",
+        "CommandLine": "\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -noexit -command Get-Service sysmon",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2564",
+        "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ProcessId": "0x2ae4",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:58:00.462Z"
+      },
+      "raw_record_ref": "jsonl:line:30",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "observation--ce7a19b540d6507ec2070ce2ed1fdd0a290626ef664f5775cb7a6d577979d80b": {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.857Z",
+        "Channel": "Microsoft-Windows-Sysmon/Operational",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 1,
+        "Hostname": "WORKSTATION5",
+        "Image": "C:\\Windows\\System32\\mshta.exe",
+        "OriginalFileName": "MSHTA.EXE",
+        "ParentCommandLine": "\"C:\\windows\\system32\\cmd.exe\" ",
+        "ParentImage": "C:\\Windows\\System32\\cmd.exe",
+        "ParentProcessGuid": "{39e4a257-2d59-5f91-6813-000000000700}",
+        "ParentProcessId": "5888",
+        "ProcessGuid": "{39e4a257-2d77-5f91-6b13-000000000700}",
+        "ProcessId": "10980",
+        "SourceName": "Microsoft-Windows-Sysmon",
+        "TimeCreated": "2020-10-22T02:57:59.857Z",
+        "User": "WORKSTATION5\\wardog",
+        "UtcTime": "2020-10-22 06:57:59.855"
+      },
+      "raw_record_ref": "jsonl:line:275",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "observation--fabddd1a549892523cfee7203974323c7213d1e89dc21dcb127dde9ed12521d2": {
+      "original_fields": {
+        "@timestamp": "2020-10-22T02:57:59.856Z",
+        "Channel": "Security",
+        "CommandLine": "mshta  vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run \"\"powershell -noexit -command Get-Service sysmon\"\":close\")",
+        "EventID": 4688,
+        "Hostname": "WORKSTATION5",
+        "NewProcessId": "0x2ae4",
+        "NewProcessName": "C:\\Windows\\System32\\mshta.exe",
+        "ParentProcessName": "C:\\Windows\\System32\\cmd.exe",
+        "ProcessId": "0x1700",
+        "SourceName": "Microsoft-Windows-Security-Auditing",
+        "SubjectDomainName": "WORKSTATION5",
+        "SubjectUserName": "wardog",
+        "TimeCreated": "2020-10-22T02:57:59.856Z"
+      },
+      "raw_record_ref": "jsonl:line:4",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    }
+  },
+  "raw_reference_catalog": {
+    "r-4c9676bf5793ca846eb5": {
+      "raw_record_ref": "jsonl:line:398",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "r-5571737516f728112470": {
+      "raw_record_ref": "jsonl:line:275",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "r-864d49c7a1d038fdea96": {
+      "raw_record_ref": "jsonl:line:30",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    },
+    "r-a8ad031db429aec8dbd8": {
+      "raw_record_ref": "jsonl:line:4",
+      "source_file": "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
+    }
+  },
+  "generation_evidence_contract": {
+    "schema_version": "source-meaning/v3",
+    "meaning_projection_sha256": "bd8c75a560b660be54dd4cbd901950e1deaaf6391e32a20198ff9af16cb5dcb4",
+    "timestamp_semantics": "selected canonical spans only; not real activity duration or cross-source clock synchronization",
+    "claim_binding": "command text, observed child creation and completion/output/service state are distinct",
+    "sigma_namespace": "sigma_matches copies exact source rule_id, not finding_id or graph node ID"
+  }
+}

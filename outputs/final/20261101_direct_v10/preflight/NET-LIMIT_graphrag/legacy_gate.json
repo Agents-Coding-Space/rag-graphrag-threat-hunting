@@ -1,0 +1,152 @@
+{
+  "schema_version": "graphrag-two-stage-gate-decision/v1",
+  "corpus_id": "retrieval-corpus--5806aae95e2c524e9aa6a33709468674f7ed8909d72b1a8d522cc16c3d8436fb",
+  "graph_id": "knowledge-graph--ea0c1dfc0b58f70bfaf981a930c06d6df24a6ffccf88a0ac9daf5bc516b3d271",
+  "scenario_id": "regsvr32-c2",
+  "query": {
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    },
+    "normalized_terms": [
+      "các",
+      "kết",
+      "nối",
+      "của",
+      "regsvr32.exe",
+      "và",
+      "powershell",
+      "có",
+      "chứng",
+      "minh",
+      "http",
+      "exchange",
+      "hoàn",
+      "tất",
+      "máy",
+      "chủ",
+      "c2",
+      "đã",
+      "xác",
+      "nhận",
+      "dữ",
+      "liệu",
+      "exfiltration",
+      "bao",
+      "nhiêu",
+      "bytes",
+      "không",
+      "trả",
+      "lời",
+      "theo",
+      "giới",
+      "hạn",
+      "telemetry"
+    ],
+    "text": "Các kết nối của regsvr32.exe và PowerShell có chứng minh HTTP exchange hoàn tất, máy chủ C2 đã xác nhận và dữ liệu exfiltration bao nhiêu bytes không? Trả lời theo giới hạn telemetry.",
+    "top_k": 5
+  },
+  "policy_id": "two-stage-prod-aae2e49de84bd18a",
+  "decision": "proceed",
+  "abstention_stage": null,
+  "reason_codes": [],
+  "stage_results": {
+    "topical_relevance": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "joint_lexical_vector_hit_count": 5,
+        "lexical_hit_count": 5,
+        "matched_query_token_count": 8,
+        "query_token_count": 33,
+        "query_token_coverage": 0.24242424,
+        "retrieval_hit_count": 5,
+        "returned_top_bm25_score": 17.28117848,
+        "returned_top_cosine_score": 0.86762244,
+        "returned_top_rrf_score": 0.032786885246,
+        "vector_hit_count": 5
+      }
+    },
+    "evidence_answerability": {
+      "status": "passed",
+      "reason_codes": [],
+      "signals": {
+        "chunk_type_counts": {
+          "entity": 0,
+          "evidence": 2,
+          "fact": 0,
+          "limitation": 1,
+          "mitre_assessment": 1,
+          "relationship": 0,
+          "scenario_summary": 1,
+          "sigma_finding": 0
+        },
+        "hits_with_evidence_ids": 3,
+        "hits_with_source_references": 4,
+        "mapped_hit_count": 5,
+        "seed_node_count": 5,
+        "status_counts": {
+          "candidate": 1,
+          "inferred": 0,
+          "observed": 2,
+          "reviewable": 2
+        },
+        "support_edge_count": 20,
+        "traversal_edge_count": 26,
+        "traversal_node_count": 22,
+        "traversal_path_count": 24,
+        "traversal_performed": true,
+        "traversed_evidence_node_count": 5,
+        "traversed_limitation_node_count": 1,
+        "unique_source_reference_count": 16
+      }
+    }
+  },
+  "warnings": [],
+  "metadata": {
+    "signal_schema_version": "graphrag-gate-signals/v1",
+    "policy_schema_version": "graphrag-two-stage-gate-policy/v1",
+    "policy": {
+      "schema_version": "graphrag-two-stage-gate-policy/v1",
+      "policy_id": "two-stage-prod-aae2e49de84bd18a",
+      "topical_relevance": {
+        "min_retrieval_hit_count": 1,
+        "min_lexical_hit_count": 0,
+        "min_vector_hit_count": 0,
+        "min_joint_lexical_vector_hit_count": 0,
+        "min_query_token_coverage": 0.0,
+        "min_returned_top_rrf_score": null,
+        "min_returned_top_bm25_score": null,
+        "min_returned_top_cosine_score": 0.75
+      },
+      "evidence_answerability": {
+        "min_hits_with_evidence_ids": 0,
+        "min_hits_with_source_references": 0,
+        "min_unique_source_reference_count": 0,
+        "min_mapped_hit_count": 1,
+        "min_seed_node_count": 1,
+        "require_traversal": true,
+        "min_traversal_node_count": 0,
+        "min_traversal_edge_count": 0,
+        "min_traversal_path_count": 0,
+        "min_traversed_evidence_node_count": 0,
+        "min_support_edge_count": 0,
+        "max_traversed_limitation_node_count": null
+      }
+    },
+    "score_interpretations": {
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability",
+      "rrf": "reciprocal_rank_fusion_not_probability"
+    },
+    "decision_interpretation": "context_eligibility_only",
+    "security_conclusion_made": false,
+    "source_ground_truth": {
+      "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+      "scenario_id": "regsvr32-c2",
+      "schema_version": "scenario-ground-truth/v3",
+      "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+    }
+  }
+}

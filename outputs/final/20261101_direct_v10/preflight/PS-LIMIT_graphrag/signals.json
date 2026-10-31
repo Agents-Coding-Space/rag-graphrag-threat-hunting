@@ -1,0 +1,105 @@
+{
+  "schema_version": "graphrag-gate-signals/v1",
+  "corpus_id": "retrieval-corpus--3a5db8558989dc08fd76d537f2b3a49c7ac3653403cb0cf69add89381d90ba26",
+  "graph_id": "knowledge-graph--715cf6b6b14e4ac483b3e67117d354167c0b5c8acec39d02d626b07830dcd8ca",
+  "scenario_id": "mshta-powershell",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/mshta-powershell/scenario_ground_truth.json",
+    "scenario_id": "mshta-powershell",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "78188c977d35970058b69b7b010583b846b625a474fd8d9d1b3d6c0e86f14808"
+  },
+  "query": {
+    "text": "PowerShell Get-Service sysmon có hoàn tất thành công và output chứng minh Sysmon đang chạy không? Phân biệt command line quan sát được với completion, output và service state chưa xác minh.",
+    "normalized_terms": [
+      "powershell",
+      "get-service",
+      "sysmon",
+      "có",
+      "hoàn",
+      "tất",
+      "thành",
+      "công",
+      "và",
+      "output",
+      "chứng",
+      "minh",
+      "đang",
+      "chạy",
+      "không",
+      "phân",
+      "biệt",
+      "command",
+      "line",
+      "quan",
+      "sát",
+      "được",
+      "với",
+      "completion",
+      "service",
+      "state",
+      "chưa",
+      "xác"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "topical_relevance": {
+    "retrieval_hit_count": 5,
+    "lexical_hit_count": 5,
+    "vector_hit_count": 5,
+    "joint_lexical_vector_hit_count": 5,
+    "returned_top_rrf_score": 0.032522474881,
+    "returned_top_bm25_score": 13.36645722,
+    "returned_top_cosine_score": 0.8746039,
+    "query_token_count": 28,
+    "matched_query_token_count": 9,
+    "query_token_coverage": 0.32142857
+  },
+  "evidence_answerability": {
+    "chunk_type_counts": {
+      "scenario_summary": 1,
+      "entity": 0,
+      "fact": 0,
+      "relationship": 0,
+      "evidence": 0,
+      "sigma_finding": 0,
+      "mitre_assessment": 1,
+      "limitation": 2,
+      "cti_report": 1
+    },
+    "status_counts": {
+      "candidate": 2,
+      "inferred": 0,
+      "observed": 0,
+      "reviewable": 3
+    },
+    "hits_with_evidence_ids": 1,
+    "hits_with_source_references": 3,
+    "unique_source_reference_count": 5,
+    "mapped_hit_count": 5,
+    "seed_node_count": 5,
+    "traversal_performed": true,
+    "traversal_node_count": 14,
+    "traversal_edge_count": 12,
+    "traversal_path_count": 15,
+    "traversed_evidence_node_count": 1,
+    "traversed_limitation_node_count": 2,
+    "support_edge_count": 9
+  },
+  "warnings": [],
+  "metadata": {
+    "decision_made": false,
+    "score_interpretations": {
+      "rrf": "reciprocal_rank_fusion_not_probability",
+      "bm25": "bm25_relevance_not_probability",
+      "cosine": "cosine_similarity_not_probability"
+    },
+    "topical_signal_count": 10,
+    "answerability_signal_count": 14
+  }
+}

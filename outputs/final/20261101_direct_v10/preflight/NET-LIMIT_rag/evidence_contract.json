@@ -1,0 +1,742 @@
+{
+  "schema_version": "source-evidence-contract/v2",
+  "scenario_id": "regsvr32-c2",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+    "scenario_id": "regsvr32-c2",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+  },
+  "units": [
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--9e080227c8b57a09213f234d85481395b430e57fe72a5d0bc729195aa3e3e2b5",
+        "context_pointer": "/retrieval/hits/0/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/scenario",
+        "object_id": null,
+        "object_type": "scenario"
+      },
+      "status": "reviewable",
+      "object_type": "scenario",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1001",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1189",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1192",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1213",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1284",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1323",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1363",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1401",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1437",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:2154",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:224",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:240",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:283",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:296",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Scenario 3.3.3 Kịch bản kết nối mạng bất thường hoặc nghi vấn C2. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: PowerShell parent → regsvr32 HTTP /i scriptlet command with /n → encoded PowerShell child; observed regsvr32 port8444 and child PowerShell port80 connections.",
+      "properties": {
+        "analysis_status": "draft_reviewable",
+        "observed_behavior_count": 1,
+        "scope_limitations": [
+          "Connections and command URL do not establish HTTP completion, response content, confirmed C2 purpose, exfiltration or bytes transferred.",
+          "Network and process identity links are inferred from host/GUID/lifetime; PID fallback stops at next creation/exit and has a bounded age. Ambiguous links remain separate.",
+          "Source timestamp conflicts are preserved. Canonical timestamps are not timezone-corrected. Security 5156 is inventoried separately, not counted again as Sysmon connection observations.",
+          "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+        ],
+        "scope_limitations_pointer": "/summary/limitations",
+        "time_window": {
+          "end": "2020-07-22T03:28:28.429000Z",
+          "start": "2020-07-22T03:27:53.548000Z"
+        }
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--ee1f9ffb36de08f121c0a3ce69a9a45e6d77f4e63661acdddf74fec1971565c1",
+        "context_pointer": "/retrieval/hits/1/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/summary/limitations/0",
+        "object_id": null,
+        "object_type": "limitation"
+      },
+      "status": "reviewable",
+      "object_type": "limitation",
+      "source_bound": true,
+      "source_references": [],
+      "text": "Connections and command URL do not establish HTTP completion, response content, confirmed C2 purpose, exfiltration or bytes transferred.",
+      "properties": {
+        "source_summary_field": "limitations"
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--fc9751da5e578aeb723a0e51005451bc1af92f5b21fb53faf91d01a8fa1a21dd",
+        "context_pointer": "/retrieval/hits/2/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/evidence/4",
+        "object_id": "connections-process-1a7b3c442952cc5a",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1189",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1192",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1213",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1284",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1323",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1363",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1401",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:1437",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:2154",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Evidence connections-process-1a7b3c442952cc5a. Type: network_connection. Summary: Observed process-bound Sysmon connections; not HTTP completion, transferred content, confirmed C2 or exfiltration bytes. Status: observed. Observations: provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:27:57.014000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:27:57.015000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:27:58.011000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:04.036000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:09.056000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:13.084000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:19.115000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:24.161000Z; provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:28:28.429000Z.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "evidence_id": "connections-process-1a7b3c442952cc5a",
+          "evidence_type": "network_connection",
+          "observations": [
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1189",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:57.014000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1192",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:57.015000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1213",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:58.011000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1284",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:04.036000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1323",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:09.056000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1363",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:13.084000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1401",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:19.115000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1437",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:24.161000Z"
+            },
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:2154",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:28:28.429000Z"
+            }
+          ],
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:1189",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1192",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1213",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1284",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1323",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1363",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1401",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:1437",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            },
+            {
+              "raw_record_ref": "jsonl:line:2154",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            }
+          ],
+          "status": "observed",
+          "summary": "Observed process-bound Sysmon connections; not HTTP completion, transferred content, confirmed C2 or exfiltration bytes."
+        },
+        "source_observations": [
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1189",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50248,
+              "timestamp": "2020-07-22T03:27:57.014000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:57.014Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:53.641"
+            },
+            "raw_record_ref": "jsonl:line:1189",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1192",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50251,
+              "timestamp": "2020-07-22T03:27:57.015000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:57.015Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:54.286"
+            },
+            "raw_record_ref": "jsonl:line:1192",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1213",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50254,
+              "timestamp": "2020-07-22T03:27:58.011000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:58.011Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:54.831"
+            },
+            "raw_record_ref": "jsonl:line:1213",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1284",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50255,
+              "timestamp": "2020-07-22T03:28:04.036000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:04.036Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:00.247"
+            },
+            "raw_record_ref": "jsonl:line:1284",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1323",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50256,
+              "timestamp": "2020-07-22T03:28:09.056000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:09.056Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:05.401"
+            },
+            "raw_record_ref": "jsonl:line:1323",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1363",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50258,
+              "timestamp": "2020-07-22T03:28:13.084000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:13.084Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:10.513"
+            },
+            "raw_record_ref": "jsonl:line:1363",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1401",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50259,
+              "timestamp": "2020-07-22T03:28:19.115000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:19.115Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:15.624"
+            },
+            "raw_record_ref": "jsonl:line:1401",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1437",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50260,
+              "timestamp": "2020-07-22T03:28:24.161000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:24.161Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:20.745"
+            },
+            "raw_record_ref": "jsonl:line:1437",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          },
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 80,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b239-5f17-5307-000000000400}",
+              "process_id": "9076",
+              "process_name": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:2154",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50261,
+              "timestamp": "2020-07-22T03:28:28.429000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:28:28.429Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:28:25.845"
+            },
+            "raw_record_ref": "jsonl:line:2154",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          }
+        ]
+      },
+      "evidence_layer": "observed_telemetry"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--7b6e3b9a2a13513d85f7fd8dabad4ec67dc423dc64ff1e6d43d68b21a0ff801c",
+        "context_pointer": "/retrieval/hits/3/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/mitre_assessments/0",
+        "object_id": "assessment-T1218-010",
+        "object_type": "mitre_assessment"
+      },
+      "status": "candidate",
+      "object_type": "mitre_assessment",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:219",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:224",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:240",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:283",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:296",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        },
+        {
+          "raw_record_ref": "jsonl:line:97",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "MITRE assessment T1218.010: Regsvr32. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose. Review status: needs_review.",
+      "properties": {
+        "assessment_id": "assessment-T1218-010",
+        "evidence_layer": "candidate_assessment",
+        "evidence_support": "supported_by_observed_behavior",
+        "external_id": "T1218.010",
+        "model_confidence": "supported_by_observed_behavior",
+        "name": "Regsvr32",
+        "origin": "evidence_review",
+        "rationale": "HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose.",
+        "review_status": "needs_review",
+        "source_object": {
+          "assessment_id": "assessment-T1218-010",
+          "evidence_support": "supported_by_observed_behavior",
+          "external_id": "T1218.010",
+          "name": "Regsvr32",
+          "origin": "evidence_review",
+          "rationale": "HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose.",
+          "review_status": "needs_review",
+          "status": "candidate",
+          "stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+          "supporting_evidence_ids": [
+            "creation-process-1356a3e1f91322ca",
+            "creation-process-1a7b3c442952cc5a",
+            "creation-process-73835839c8774e70"
+          ],
+          "supporting_sigma_rule_ids": [
+            "2dd2c217-bf68-437a-b57c-fe9fd01d5de8",
+            "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+            "ab37a6ec-6068-432b-a64e-2c7bf95b1d22"
+          ]
+        },
+        "status": "candidate",
+        "stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+        "supporting_evidence_ids": [
+          "creation-process-1356a3e1f91322ca",
+          "creation-process-1a7b3c442952cc5a",
+          "creation-process-73835839c8774e70"
+        ],
+        "supporting_sigma_rule_ids": [
+          "2dd2c217-bf68-437a-b57c-fe9fd01d5de8",
+          "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+          "ab37a6ec-6068-432b-a64e-2c7bf95b1d22"
+        ]
+      },
+      "evidence_layer": "candidate_assessment"
+    },
+    {
+      "origin": {
+        "kind": "chunk",
+        "item_id": "retrieval-chunk--fdd2d38f06b8c894e8d17906e1faca53f3a44b5828d7adca71cafda9f29135a3",
+        "context_pointer": "/retrieval/hits/4/chunk"
+      },
+      "source": {
+        "artifact_type": "scenario_ground_truth",
+        "json_pointer": "/evidence/3",
+        "object_id": "connections-process-1356a3e1f91322ca",
+        "object_type": "evidence"
+      },
+      "status": "observed",
+      "object_type": "evidence",
+      "source_bound": true,
+      "source_references": [
+        {
+          "raw_record_ref": "jsonl:line:1001",
+          "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+        }
+      ],
+      "text": "Evidence connections-process-1356a3e1f91322ca. Type: network_connection. Summary: Observed process-bound Sysmon connections; not HTTP completion, transferred content, confirmed C2 or exfiltration bytes. Status: observed. Observations: provider=Microsoft-Windows-Sysmon, event_id=3, timestamp=2020-07-22T03:27:55.955000Z.",
+      "properties": {
+        "evidence_layer": "observed_telemetry",
+        "source_object": {
+          "evidence_id": "connections-process-1356a3e1f91322ca",
+          "evidence_type": "network_connection",
+          "observations": [
+            {
+              "event_id": "3",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1001",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "timestamp": "2020-07-22T03:27:55.955000Z"
+            }
+          ],
+          "source_references": [
+            {
+              "raw_record_ref": "jsonl:line:1001",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+            }
+          ],
+          "status": "observed",
+          "summary": "Observed process-bound Sysmon connections; not HTTP completion, transferred content, confirmed C2 or exfiltration bytes."
+        },
+        "source_observations": [
+          {
+            "canonical_fields": {
+              "channel": "Microsoft-Windows-Sysmon/Operational",
+              "destination_ip": "10.10.10.5",
+              "destination_port": 8444,
+              "event_id": "3",
+              "host": "WORKSTATION5.mordor.local",
+              "process_guid": "{b59756a9-b238-5f17-5207-000000000400}",
+              "process_id": "9384",
+              "process_name": "C:\\Windows\\System32\\regsvr32.exe",
+              "provider": "Microsoft-Windows-Sysmon",
+              "raw_record_ref": "jsonl:line:1001",
+              "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json",
+              "source_ip": "172.18.39.5",
+              "source_port": 50247,
+              "timestamp": "2020-07-22T03:27:55.955000Z",
+              "user": "MORDOR\\pgustavo"
+            },
+            "evidence_layer": "observed_telemetry",
+            "field_projection": "canonical non-null scalars plus unmapped authentication/source clock fields; originals remain upstream",
+            "original_fields": {
+              "@timestamp": "2020-07-22T03:27:55.955Z",
+              "EventID": 3,
+              "Hostname": "WORKSTATION5.mordor.local",
+              "SourceName": "Microsoft-Windows-Sysmon",
+              "UtcTime": "2020-07-22 03:27:52.839"
+            },
+            "raw_record_ref": "jsonl:line:1001",
+            "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+          }
+        ]
+      },
+      "evidence_layer": "observed_telemetry"
+    }
+  ],
+  "source_observation_resolution": "source-observation-interning/v1: field pointers address the losslessly expanded supplied context; raw refs retain their original source identity"
+}

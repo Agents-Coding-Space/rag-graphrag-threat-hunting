@@ -1,0 +1,890 @@
+{
+  "schema_version": "graphrag-context/v1",
+  "corpus_id": "retrieval-corpus--5806aae95e2c524e9aa6a33709468674f7ed8909d72b1a8d522cc16c3d8436fb",
+  "graph_id": "comparison-rag-no-graph",
+  "scenario_id": "regsvr32-c2",
+  "source_ground_truth": {
+    "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+    "scenario_id": "regsvr32-c2",
+    "schema_version": "scenario-ground-truth/v3",
+    "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+  },
+  "query": {
+    "text": "Đối chiếu HTTP scriptlet command và kết nối regsvr32.exe trong telemetry với CTI report Uptycs về Squiblydoo: điều gì hỗ trợ nghi vấn và điều gì chỉ là bối cảnh bên ngoài? Dẫn nguồn từng loại, giữ /n và không suy remote UNC share.",
+    "normalized_terms": [
+      "đối",
+      "chiếu",
+      "http",
+      "scriptlet",
+      "command",
+      "và",
+      "kết",
+      "nối",
+      "regsvr32.exe",
+      "trong",
+      "telemetry",
+      "với",
+      "cti",
+      "report",
+      "uptycs",
+      "về",
+      "squiblydoo",
+      "điều",
+      "gì",
+      "hỗ",
+      "trợ",
+      "nghi",
+      "vấn",
+      "chỉ",
+      "là",
+      "bối",
+      "cảnh",
+      "bên",
+      "ngoài",
+      "dẫn",
+      "nguồn",
+      "từng",
+      "loại",
+      "giữ",
+      "n",
+      "không",
+      "suy",
+      "remote",
+      "unc",
+      "share"
+    ],
+    "top_k": 5,
+    "candidate_k": 20,
+    "filters": {
+      "chunk_types": null,
+      "required_dimensions": null
+    }
+  },
+  "retrieval": {
+    "schema_version": "retrieval-result/v1",
+    "retrieval_method": "hybrid-rrf/v1",
+    "corpus_id": "retrieval-corpus--5806aae95e2c524e9aa6a33709468674f7ed8909d72b1a8d522cc16c3d8436fb",
+    "scenario_id": "regsvr32-c2",
+    "query": {
+      "text": "Đối chiếu HTTP scriptlet command và kết nối regsvr32.exe trong telemetry với CTI report Uptycs về Squiblydoo: điều gì hỗ trợ nghi vấn và điều gì chỉ là bối cảnh bên ngoài? Dẫn nguồn từng loại, giữ /n và không suy remote UNC share.",
+      "normalized_terms": [
+        "đối",
+        "chiếu",
+        "http",
+        "scriptlet",
+        "command",
+        "và",
+        "kết",
+        "nối",
+        "regsvr32.exe",
+        "trong",
+        "telemetry",
+        "với",
+        "cti",
+        "report",
+        "uptycs",
+        "về",
+        "squiblydoo",
+        "điều",
+        "gì",
+        "hỗ",
+        "trợ",
+        "nghi",
+        "vấn",
+        "chỉ",
+        "là",
+        "bối",
+        "cảnh",
+        "bên",
+        "ngoài",
+        "dẫn",
+        "nguồn",
+        "từng",
+        "loại",
+        "giữ",
+        "n",
+        "không",
+        "suy",
+        "remote",
+        "unc",
+        "share"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "hits": [
+      {
+        "rank": 1,
+        "score": 0.032786885246,
+        "components": {
+          "lexical": {
+            "rank": 1,
+            "score": 26.23292087,
+            "contribution": 0.016393442623
+          },
+          "vector": {
+            "rank": 1,
+            "score": 0.8743775,
+            "contribution": 0.016393442623
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--9e080227c8b57a09213f234d85481395b430e57fe72a5d0bc729195aa3e3e2b5",
+          "chunk_type": "scenario_summary",
+          "content": "Scenario 3.3.3 Kịch bản kết nối mạng bất thường hoặc nghi vấn C2. Description: Integrated research draft: observed telemetry, inferred correlations, candidate assessments and separate CTI context. Analysis status: draft_reviewable. Observed behavior: PowerShell parent → regsvr32 HTTP /i scriptlet command with /n → encoded PowerShell child; observed regsvr32 port8444 and child PowerShell port80 connections.",
+          "entity_ids": [
+            "endpoint-86770fc516c81dd9",
+            "endpoint-c75f06bcf0f0d60d",
+            "external-parent-f4ce0cf17a05c444",
+            "process-1356a3e1f91322ca",
+            "process-1a7b3c442952cc5a",
+            "process-73835839c8774e70"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "analysis_status": "draft_reviewable",
+            "observed_behavior_count": 1,
+            "scope_limitations": [
+              "Connections and command URL do not establish HTTP completion, response content, confirmed C2 purpose, exfiltration or bytes transferred.",
+              "Network and process identity links are inferred from host/GUID/lifetime; PID fallback stops at next creation/exit and has a bounded age. Ambiguous links remain separate.",
+              "Source timestamp conflicts are preserved. Canonical timestamps are not timezone-corrected. Security 5156 is inventoried separately, not counted again as Sysmon connection observations.",
+              "CTI facts are publisher-reported external context. They do not establish local host compromise, campaign attribution, HTTP completion or confirmed C2."
+            ],
+            "scope_limitations_pointer": "/summary/limitations",
+            "time_window": {
+              "end": "2020-07-22T03:28:28.429000Z",
+              "start": "2020-07-22T03:27:53.548000Z"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "authentication",
+            "cti_context",
+            "entity",
+            "evidence",
+            "fact",
+            "limitation",
+            "mitre_technique",
+            "network",
+            "process",
+            "provenance",
+            "relationship",
+            "scenario",
+            "sigma_rule"
+          ],
+          "relationship_ids": [
+            "connected-process-1356a3e1f91322ca",
+            "connected-process-1a7b3c442952cc5a",
+            "spawn-process-1356a3e1f91322ca",
+            "spawn-process-1a7b3c442952cc5a",
+            "spawn-process-73835839c8774e70"
+          ],
+          "scenario_id": "regsvr32-c2",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/scenario",
+            "object_id": null,
+            "object_type": "scenario"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-0333aa47d4c6064291f9"
+            },
+            {
+              "raw_reference_key": "r-e2536a61b4ba61f01942"
+            },
+            {
+              "raw_reference_key": "r-bdbe933990fb1f8f4a0c"
+            },
+            {
+              "raw_reference_key": "r-e5db15745662becddec0"
+            },
+            {
+              "raw_reference_key": "r-6ea28e907c1d73564391"
+            },
+            {
+              "raw_reference_key": "r-c98dcc73ec1d140a9f0a"
+            },
+            {
+              "raw_reference_key": "r-69f50838974830300ede"
+            },
+            {
+              "raw_reference_key": "r-57f01cc742a5d7de608f"
+            },
+            {
+              "raw_reference_key": "r-66314ae124c2cad33d22"
+            },
+            {
+              "raw_reference_key": "r-af4f0af4826abce7ddd8"
+            },
+            {
+              "raw_reference_key": "r-afc97bfc91daf8193e19"
+            },
+            {
+              "raw_reference_key": "r-c008858351ca81d0e05d"
+            },
+            {
+              "raw_reference_key": "r-0023da6a1a087a7bd1ee"
+            },
+            {
+              "raw_reference_key": "r-2ff961a16075f9bd915a"
+            },
+            {
+              "raw_reference_key": "r-fe8a1581e823ff4f7da5"
+            },
+            {
+              "raw_reference_key": "r-b9a26b0c9d1b6e37b40e"
+            }
+          ],
+          "status": "reviewable",
+          "title": "3.3.3 Kịch bản kết nối mạng bất thường hoặc nghi vấn C2"
+        }
+      },
+      {
+        "rank": 2,
+        "score": 0.032002048131,
+        "components": {
+          "lexical": {
+            "rank": 2,
+            "score": 8.64455422,
+            "contribution": 0.016129032258
+          },
+          "vector": {
+            "rank": 3,
+            "score": 0.84978052,
+            "contribution": 0.015873015873
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--22c0a81acd69ec6f85867576bf893b8febc633622014f793fb6b5551c084e3c6",
+          "chunk_type": "cti_report",
+          "content": "CTI context (Uptycs): Uptycs describes abuse of regsvr32 to load COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll. This provides context for reviewing scriptlet command lines and potential proxy execution, without classifying a local endpoint as confirmed C2. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+          "entity_ids": [
+            "cti-8606d039670518a18210"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "accessed_at": "2026-10-30T09:07:43.523257+00:00",
+            "citation": {
+              "anchor": "Threat actors can use regsvr32 for loading COM scriptlets",
+              "char_end": 5675,
+              "char_start": 5618,
+              "line": 236,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Regsvr32 Utility & Squiblydoo Technique",
+              "snapshot_path": "../cti_sources/uptycs-regsvr32.html",
+              "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+              "source_id": "uptycs-regsvr32",
+              "text_path": "uptycs-regsvr32.txt",
+              "text_sha256": "0c5eaf1d95f6ad13da9817819f3be66cc29b5bc72d54777ddf1535fb949efd3e",
+              "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+            },
+            "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+            "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+            "evidence_layer": "cti_context",
+            "publication_date": "2022-02-09T16:43:52.000Z",
+            "publisher": "Uptycs",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+            "source_id": "uptycs-regsvr32",
+            "source_object": {
+              "attributes": {
+                "accessed_at": "2026-10-30T09:07:43.523257+00:00",
+                "citation": {
+                  "anchor": "Threat actors can use regsvr32 for loading COM scriptlets",
+                  "char_end": 5675,
+                  "char_start": 5618,
+                  "line": 236,
+                  "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                  "section": "Regsvr32 Utility & Squiblydoo Technique",
+                  "snapshot_path": "../cti_sources/uptycs-regsvr32.html",
+                  "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+                  "source_id": "uptycs-regsvr32",
+                  "text_path": "uptycs-regsvr32.txt",
+                  "text_sha256": "0c5eaf1d95f6ad13da9817819f3be66cc29b5bc72d54777ddf1535fb949efd3e",
+                  "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+                },
+                "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+                "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+                "evidence_layer": "cti_context",
+                "publication_date": "2022-02-09T16:43:52.000Z",
+                "publisher": "Uptycs",
+                "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+                "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+                "source_id": "uptycs-regsvr32",
+                "source_references": [
+                  {
+                    "raw_reference_key": "r-10c3d10e0cdf8cc2dcb2"
+                  }
+                ],
+                "source_type": "cti_report",
+                "text": "Uptycs describes abuse of regsvr32 to load COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll. This provides context for reviewing scriptlet command lines and potential proxy execution, without classifying a local endpoint as confirmed C2.",
+                "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+                "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+              },
+              "entity_id": "cti-8606d039670518a18210",
+              "entity_type": "cti_report",
+              "evidence_ids": [],
+              "name": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+              "status": "candidate"
+            },
+            "source_references": [
+              {
+                "raw_reference_key": "r-10c3d10e0cdf8cc2dcb2"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "Uptycs describes abuse of regsvr32 to load COM scriptlets and illustrates an HTTP /i invocation with scrobj.dll. This provides context for reviewing scriptlet command lines and potential proxy execution, without classifying a local endpoint as confirmed C2.",
+            "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+            "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "context-cti-8606d039670518a18210"
+          ],
+          "scenario_id": "regsvr32-c2",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/entities/7",
+            "object_id": "cti-8606d039670518a18210",
+            "object_type": "entity"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-10c3d10e0cdf8cc2dcb2"
+            }
+          ],
+          "status": "candidate",
+          "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution"
+        }
+      },
+      {
+        "rank": 3,
+        "score": 0.031754032258,
+        "components": {
+          "lexical": {
+            "rank": 4,
+            "score": 5.74850394,
+            "contribution": 0.015625
+          },
+          "vector": {
+            "rank": 2,
+            "score": 0.85226215,
+            "contribution": 0.016129032258
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--7b6e3b9a2a13513d85f7fd8dabad4ec67dc423dc64ff1e6d43d68b21a0ff801c",
+          "chunk_type": "mitre_assessment",
+          "content": "MITRE assessment T1218.010: Regsvr32. Status: candidate. Evidence support: supported_by_observed_behavior. Rationale: HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose. Review status: needs_review.",
+          "entity_ids": [],
+          "evidence_ids": [
+            "creation-process-1356a3e1f91322ca",
+            "creation-process-1a7b3c442952cc5a",
+            "creation-process-73835839c8774e70"
+          ],
+          "fact_ids": [],
+          "metadata": {
+            "assessment_id": "assessment-T1218-010",
+            "evidence_layer": "candidate_assessment",
+            "evidence_support": "supported_by_observed_behavior",
+            "external_id": "T1218.010",
+            "model_confidence": "supported_by_observed_behavior",
+            "name": "Regsvr32",
+            "origin": "evidence_review",
+            "rationale": "HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose.",
+            "review_status": "needs_review",
+            "source_object": {
+              "assessment_id": "assessment-T1218-010",
+              "evidence_support": "supported_by_observed_behavior",
+              "external_id": "T1218.010",
+              "name": "Regsvr32",
+              "origin": "evidence_review",
+              "rationale": "HTTP scriptlet regsvr32 command and parent/child evidence support suspected system binary proxy execution. Network endpoints do not prove C2 purpose.",
+              "review_status": "needs_review",
+              "status": "candidate",
+              "stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+              "supporting_evidence_ids": [
+                "creation-process-1356a3e1f91322ca",
+                "creation-process-1a7b3c442952cc5a",
+                "creation-process-73835839c8774e70"
+              ],
+              "supporting_sigma_rule_ids": [
+                "2dd2c217-bf68-437a-b57c-fe9fd01d5de8",
+                "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+                "ab37a6ec-6068-432b-a64e-2c7bf95b1d22"
+              ]
+            },
+            "status": "candidate",
+            "stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+            "supporting_evidence_ids": [
+              "creation-process-1356a3e1f91322ca",
+              "creation-process-1a7b3c442952cc5a",
+              "creation-process-73835839c8774e70"
+            ],
+            "supporting_sigma_rule_ids": [
+              "2dd2c217-bf68-437a-b57c-fe9fd01d5de8",
+              "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+              "ab37a6ec-6068-432b-a64e-2c7bf95b1d22"
+            ]
+          },
+          "mitre_external_ids": [
+            "T1218.010"
+          ],
+          "queryable_dimensions": [
+            "evidence",
+            "mitre_technique",
+            "provenance",
+            "sigma_rule"
+          ],
+          "relationship_ids": [],
+          "scenario_id": "regsvr32-c2",
+          "sigma_rule_ids": [
+            "2dd2c217-bf68-437a-b57c-fe9fd01d5de8",
+            "6f0947a4-1c5e-4e0d-8ac7-53159b8f23ca",
+            "ab37a6ec-6068-432b-a64e-2c7bf95b1d22"
+          ],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/mitre_assessments/0",
+            "object_id": "assessment-T1218-010",
+            "object_type": "mitre_assessment"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-afc97bfc91daf8193e19"
+            },
+            {
+              "raw_reference_key": "r-c008858351ca81d0e05d"
+            },
+            {
+              "raw_reference_key": "r-0023da6a1a087a7bd1ee"
+            },
+            {
+              "raw_reference_key": "r-2ff961a16075f9bd915a"
+            },
+            {
+              "raw_reference_key": "r-fe8a1581e823ff4f7da5"
+            },
+            {
+              "raw_reference_key": "r-b9a26b0c9d1b6e37b40e"
+            }
+          ],
+          "status": "candidate",
+          "title": "T1218.010 - Regsvr32"
+        }
+      },
+      {
+        "rank": 4,
+        "score": 0.031498015873,
+        "components": {
+          "lexical": {
+            "rank": 3,
+            "score": 8.29088287,
+            "contribution": 0.015873015873
+          },
+          "vector": {
+            "rank": 4,
+            "score": 0.84222841,
+            "contribution": 0.015625
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--2033d74f696d4d4e86138ab76fed0d0a6f09156a6493f297f4dcf5a6633e0b15",
+          "chunk_type": "cti_report",
+          "content": "CTI context (Uptycs): The report discusses parent-child telemetry and correlation as investigation context for suspicious regsvr32 execution. Its campaign observations belong to Uptycs data. Local network events still require their own process identity, destination and timing evidence; they do not prove transferred content or C2 intent. Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+          "entity_ids": [
+            "cti-2e9d0a7136b0cfa3cf53"
+          ],
+          "evidence_ids": [],
+          "fact_ids": [],
+          "metadata": {
+            "accessed_at": "2026-10-30T09:07:43.523257+00:00",
+            "citation": {
+              "anchor": "provides telemetry with parent/child process relationships",
+              "char_end": 7446,
+              "char_start": 7388,
+              "line": 248,
+              "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+              "section": "Insights From Our Threat Intelligence Systems",
+              "snapshot_path": "../cti_sources/uptycs-regsvr32.html",
+              "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+              "source_id": "uptycs-regsvr32",
+              "text_path": "uptycs-regsvr32.txt",
+              "text_sha256": "0c5eaf1d95f6ad13da9817819f3be66cc29b5bc72d54777ddf1535fb949efd3e",
+              "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+            },
+            "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+            "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+            "evidence_layer": "cti_context",
+            "publication_date": "2022-02-09T16:43:52.000Z",
+            "publisher": "Uptycs",
+            "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+            "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+            "source_id": "uptycs-regsvr32",
+            "source_object": {
+              "attributes": {
+                "accessed_at": "2026-10-30T09:07:43.523257+00:00",
+                "citation": {
+                  "anchor": "provides telemetry with parent/child process relationships",
+                  "char_end": 7446,
+                  "char_start": 7388,
+                  "line": 248,
+                  "offset_unit": "Unicode code points in extracted UTF-8 text; end exclusive",
+                  "section": "Insights From Our Threat Intelligence Systems",
+                  "snapshot_path": "../cti_sources/uptycs-regsvr32.html",
+                  "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+                  "source_id": "uptycs-regsvr32",
+                  "text_path": "uptycs-regsvr32.txt",
+                  "text_sha256": "0c5eaf1d95f6ad13da9817819f3be66cc29b5bc72d54777ddf1535fb949efd3e",
+                  "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+                },
+                "corpus_path": "outputs/offline/requirements_gap_20261030_v1/cti/cti_corpus.json",
+                "corpus_sha256": "3c39514418eb6464d4af8423ba2bbae44a8511f81600b83fb83e805a8c5611a0",
+                "evidence_layer": "cti_context",
+                "publication_date": "2022-02-09T16:43:52.000Z",
+                "publisher": "Uptycs",
+                "scope": "Publisher-reported technical context; does not establish behavior, compromise or C2 purpose in Mordor hosts.",
+                "snapshot_sha256": "fd80b90dde673af1c24676eea10b4424f011461df180a505d6f751b416c1a08f",
+                "source_id": "uptycs-regsvr32",
+                "source_references": [
+                  {
+                    "raw_reference_key": "r-3f7357ec8199c018f3fb"
+                  }
+                ],
+                "source_type": "cti_report",
+                "text": "The report discusses parent-child telemetry and correlation as investigation context for suspicious regsvr32 execution. Its campaign observations belong to Uptycs data. Local network events still require their own process identity, destination and timing evidence; they do not prove transferred content or C2 intent.",
+                "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+                "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+              },
+              "entity_id": "cti-2e9d0a7136b0cfa3cf53",
+              "entity_type": "cti_report",
+              "evidence_ids": [],
+              "name": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+              "status": "candidate"
+            },
+            "source_references": [
+              {
+                "raw_reference_key": "r-3f7357ec8199c018f3fb"
+              }
+            ],
+            "source_type": "cti_report",
+            "text": "The report discusses parent-child telemetry and correlation as investigation context for suspicious regsvr32 execution. Its campaign observations belong to Uptycs data. Local network events still require their own process identity, destination and timing evidence; they do not prove transferred content or C2 intent.",
+            "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution",
+            "url": "https://www.uptycs.com/blog/threat-research-report-team/attackers-increasingly-adopting-regsvr32-utility-execution-via-office-documents"
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "context-cti-2e9d0a7136b0cfa3cf53"
+          ],
+          "scenario_id": "regsvr32-c2",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/entities/8",
+            "object_id": "cti-2e9d0a7136b0cfa3cf53",
+            "object_type": "entity"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-3f7357ec8199c018f3fb"
+            }
+          ],
+          "status": "candidate",
+          "title": "Attackers Increasingly Using Office Docs Regsvr32 Utility Execution"
+        }
+      },
+      {
+        "rank": 5,
+        "score": 0.030309988519,
+        "components": {
+          "lexical": {
+            "rank": 7,
+            "score": 3.0522637,
+            "contribution": 0.014925373134
+          },
+          "vector": {
+            "rank": 5,
+            "score": 0.83605573,
+            "contribution": 0.015384615385
+          }
+        },
+        "chunk": {
+          "chunk_id": "retrieval-chunk--cda169e8bc034d29e1e6a71cf9c805314983de89541b704d24f882786745b0bf",
+          "chunk_type": "entity",
+          "content": "Entity regsvr32.exe. Type: process. Status: observed. Attributes: {\"host\":\"WORKSTATION5.mordor.local\",\"process_guid\":\"{b59756a9-b238-5f17-5207-000000000400}\",\"process_id\":\"9384\",\"process_name\":\"C:\\\\Windows\\\\System32\\\\regsvr32.exe\"}.",
+          "entity_ids": [
+            "process-1356a3e1f91322ca"
+          ],
+          "evidence_ids": [
+            "creation-process-1356a3e1f91322ca"
+          ],
+          "fact_ids": [
+            "created-process-1356a3e1f91322ca",
+            "created-process-1a7b3c442952cc5a",
+            "network-process-1356a3e1f91322ca",
+            "process-network-timeline"
+          ],
+          "metadata": {
+            "evidence_layer": "observed_telemetry",
+            "source_object": {
+              "attributes": {
+                "host": "WORKSTATION5.mordor.local",
+                "process_guid": "{b59756a9-b238-5f17-5207-000000000400}",
+                "process_id": "9384",
+                "process_name": "C:\\Windows\\System32\\regsvr32.exe"
+              },
+              "entity_id": "process-1356a3e1f91322ca",
+              "entity_type": "process",
+              "evidence_ids": [
+                "creation-process-1356a3e1f91322ca"
+              ],
+              "name": "regsvr32.exe",
+              "status": "observed"
+            }
+          },
+          "mitre_external_ids": [],
+          "queryable_dimensions": [
+            "entity",
+            "evidence",
+            "fact",
+            "provenance",
+            "relationship"
+          ],
+          "relationship_ids": [
+            "connected-process-1356a3e1f91322ca",
+            "context-topic-knowledge-topic-regsvr32-c2",
+            "spawn-process-1356a3e1f91322ca",
+            "spawn-process-1a7b3c442952cc5a"
+          ],
+          "scenario_id": "regsvr32-c2",
+          "sigma_rule_ids": [],
+          "source": {
+            "artifact_type": "scenario_ground_truth",
+            "json_pointer": "/entities/0",
+            "object_id": "process-1356a3e1f91322ca",
+            "object_type": "entity"
+          },
+          "source_references": [
+            {
+              "raw_reference_key": "r-afc97bfc91daf8193e19"
+            },
+            {
+              "raw_reference_key": "r-b9a26b0c9d1b6e37b40e"
+            }
+          ],
+          "status": "observed",
+          "title": "regsvr32.exe"
+        }
+      }
+    ],
+    "warnings": [],
+    "metadata": {
+      "total_chunks": 33,
+      "eligible_chunks": 33,
+      "returned_hits": 5,
+      "lexical_candidate_count": 16,
+      "vector_candidate_count": 20,
+      "union_candidate_count": 22,
+      "rrf_k": 60,
+      "score_precision": 12,
+      "score_interpretation": "reciprocal_rank_fusion_not_probability",
+      "component_methods": {
+        "lexical": "bm25/v1",
+        "vector": "vector-cosine/v1"
+      }
+    }
+  },
+  "seed_mapping": {
+    "schema_version": "graphrag-seed-map/v1",
+    "corpus_id": "retrieval-corpus--5806aae95e2c524e9aa6a33709468674f7ed8909d72b1a8d522cc16c3d8436fb",
+    "graph_id": "comparison-rag-no-graph",
+    "scenario_id": "regsvr32-c2",
+    "source_ground_truth": {
+      "path": "outputs/integrated/20261030_v5/consumers/regsvr32-c2/scenario_ground_truth.json",
+      "scenario_id": "regsvr32-c2",
+      "schema_version": "scenario-ground-truth/v3",
+      "sha256": "936475affb52f1e156eefd8a5dd851a8e32864b6c31a24b66b4838b1bfb35c91"
+    },
+    "query": {
+      "text": "Đối chiếu HTTP scriptlet command và kết nối regsvr32.exe trong telemetry với CTI report Uptycs về Squiblydoo: điều gì hỗ trợ nghi vấn và điều gì chỉ là bối cảnh bên ngoài? Dẫn nguồn từng loại, giữ /n và không suy remote UNC share.",
+      "normalized_terms": [
+        "đối",
+        "chiếu",
+        "http",
+        "scriptlet",
+        "command",
+        "và",
+        "kết",
+        "nối",
+        "regsvr32.exe",
+        "trong",
+        "telemetry",
+        "với",
+        "cti",
+        "report",
+        "uptycs",
+        "về",
+        "squiblydoo",
+        "điều",
+        "gì",
+        "hỗ",
+        "trợ",
+        "nghi",
+        "vấn",
+        "chỉ",
+        "là",
+        "bối",
+        "cảnh",
+        "bên",
+        "ngoài",
+        "dẫn",
+        "nguồn",
+        "từng",
+        "loại",
+        "giữ",
+        "n",
+        "không",
+        "suy",
+        "remote",
+        "unc",
+        "share"
+      ],
+      "top_k": 5,
+      "candidate_k": 20,
+      "filters": {
+        "chunk_types": null,
+        "required_dimensions": null
+      }
+    },
+    "retrieval_method": "hybrid-rrf/v1",
+    "hit_mappings": [],
+    "seed_node_ids": [],
+    "warnings": [],
+    "metadata": {
+      "retrieval_hit_count": 5,
+      "mapped_hit_count": 0,
+      "direct_node_mapping_count": 0,
+      "relationship_edge_mapping_count": 0,
+      "seed_node_count": 0
+    }
+  },
+  "traversal": {},
+  "warnings": [
+    "Comparison RAG branch: graph mapping and traversal disabled."
+  ],
+  "metadata": {
+    "retrieval_hit_count": 5,
+    "mapped_hit_count": 0,
+    "seed_node_count": 0,
+    "traversal_performed": false,
+    "traversed_node_count": 0,
+    "traversed_edge_count": 0,
+    "traversed_path_count": 0
+  },
+  "source_observation_contract": "source-observation-interning/v1",
+  "source_observation_catalog": {},
+  "raw_reference_catalog": {
+    "r-0023da6a1a087a7bd1ee": {
+      "raw_record_ref": "jsonl:line:240",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-0333aa47d4c6064291f9": {
+      "raw_record_ref": "jsonl:line:1001",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-10c3d10e0cdf8cc2dcb2": {
+      "raw_record_ref": "text:chars:5618:5675",
+      "source_file": "uptycs-regsvr32"
+    },
+    "r-2ff961a16075f9bd915a": {
+      "raw_record_ref": "jsonl:line:283",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-3f7357ec8199c018f3fb": {
+      "raw_record_ref": "text:chars:7388:7446",
+      "source_file": "uptycs-regsvr32"
+    },
+    "r-57f01cc742a5d7de608f": {
+      "raw_record_ref": "jsonl:line:1401",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-66314ae124c2cad33d22": {
+      "raw_record_ref": "jsonl:line:1437",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-69f50838974830300ede": {
+      "raw_record_ref": "jsonl:line:1363",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-6ea28e907c1d73564391": {
+      "raw_record_ref": "jsonl:line:1284",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-af4f0af4826abce7ddd8": {
+      "raw_record_ref": "jsonl:line:2154",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-afc97bfc91daf8193e19": {
+      "raw_record_ref": "jsonl:line:219",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-b9a26b0c9d1b6e37b40e": {
+      "raw_record_ref": "jsonl:line:97",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-bdbe933990fb1f8f4a0c": {
+      "raw_record_ref": "jsonl:line:1192",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-c008858351ca81d0e05d": {
+      "raw_record_ref": "jsonl:line:224",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-c98dcc73ec1d140a9f0a": {
+      "raw_record_ref": "jsonl:line:1323",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-e2536a61b4ba61f01942": {
+      "raw_record_ref": "jsonl:line:1189",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-e5db15745662becddec0": {
+      "raw_record_ref": "jsonl:line:1213",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    },
+    "r-fe8a1581e823ff4f7da5": {
+      "raw_record_ref": "jsonl:line:296",
+      "source_file": "empire_launcher_sct_regsvr32_2020-07-21232741.json"
+    }
+  },
+  "generation_evidence_contract": {
+    "schema_version": "source-meaning/v3",
+    "meaning_projection_sha256": "2150a83b2d9c84b8b22056e10cec9d2cb8f528c41fd6189f10d5be339b5eb9f8",
+    "timestamp_semantics": "selected canonical spans only; not real activity duration or cross-source clock synchronization",
+    "claim_binding": "command text, observed child creation and completion/output/service state are distinct",
+    "sigma_namespace": "sigma_matches copies exact source rule_id, not finding_id or graph node ID"
+  }
+}

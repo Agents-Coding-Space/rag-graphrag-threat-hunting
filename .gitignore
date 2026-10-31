@@ -51,13 +51,14 @@ $RECYCLE.BIN/
 .env.*
 !.env.example
 
-# Evidence artifacts kept in the repository for the v8/v9 study.
+# Evidence artifacts kept in the repository for the v8/v9/v10 study.
 # Everything else under /outputs/ stays local (400+ MB of historical runs).
 !/outputs/
 /outputs/*
 !/outputs/final/
 /outputs/final/*
 !/outputs/final/20261101_direct_v9/
+!/outputs/final/20261101_direct_v10/
 !/outputs/experiments/
 /outputs/experiments/*
 !/outputs/experiments/integrated-final-v8-live-01/
