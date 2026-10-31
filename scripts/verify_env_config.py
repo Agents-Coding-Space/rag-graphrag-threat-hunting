@@ -1,7 +1,10 @@
 """Reusable off-line verification for env-centralized operational config.
 
 Zero LLM calls, zero writes outside stdout. Run with PYTHONDONTWRITEBYTECODE=1.
-(a) validator claim/caveat matrix  (b) live v8 clean scan  (c) v6 regression.
+(a) validator claim/caveat matrix  (a2) cross-clause negation probes (F01)
+(b) live v8 clean scan  (c) v6 historical-draft regression
+(d) authentication Status/SubStatus event binding (F02)  (e) validator policy pinned (F03)
+Exit code is the number of failed groups, so 0 means every group passed.
 """
 from __future__ import annotations
 
@@ -68,21 +71,91 @@ def live_v8() -> bool:
 
 
 def v6_regression() -> bool:
-    print("\n(c) v6 regression (2 historical bad drafts)")
-    found = set()
+    """Historical drafts: the duration defect must stay rejected; the network sentence is a caveat.
+
+    The v3.0 validator also flagged "Muc dich C2 ... khong duoc xac minh" in draft 20261030T182105.
+    That sentence states a limitation the question asked for, so v3.1 accepts it on purpose.
+    Cross-clause masking is covered by group (a2) instead, where a negator in one clause must not
+    hide an assertion in another.
+    """
+    print("\n(c) v6 historical drafts: duration defect rejected, network sentence is a caveat")
+    found, caveats = set(), 0
     for path in sorted((ROOT / "outputs/demo/integrated-v6-manual-live-01").rglob("raw_report_before_sanitize.json")):
         ctx = policy.annotate_context(p._read(path.parent / "context.json"))
-        found.update(i["code"] for i in policy.check_clock_and_scope(p._read(path), ctx)["issues"])
-    wanted = {"unsupported_physical_duration_inference", "unrequested_network_claim"}
-    print(f"    found={sorted(found)}")
-    print(f"    RESULT {'BOTH PRESENT' if wanted <= found else 'MISSING ' + str(wanted - found)}")
-    return wanted <= found
+        audit = policy.check_clock_and_scope(p._read(path), ctx)
+        found.update(i["code"] for i in audit["issues"])
+        caveats += sum(1 for c in audit["checks"] if c.get("status") == "negated_boundary_caveat")
+    ok = "unsupported_physical_duration_inference" in found and caveats > 0
+    print(f"    found={sorted(found)}  negated_caveats={caveats}")
+    print(f"    RESULT {'PASS' if ok else 'FAIL'}")
+    return ok
+
+
+AUTH_STATUS_MATRIX = [
+    ("Event 4625 ghi Status 0xc000006d và SubStatus 0xc000006a.", None),
+    ("Event 4776 ghi Status 0xc000006a và không ghi SubStatus.", None),
+    ("Event 4625 ghi Status 0xc000006a và SubStatus 0xc000006a.", "auth_status_event_mismatch"),
+    ("Event 4776 ghi Status 0xc000006a và SubStatus 0xc000006a.", "auth_status_event_mismatch"),
+    ("Status 0xc000006a, SubStatus 0xc000006a cho cả hai view.", "auth_status_views_merged"),
+]
+CROSS_CLAUSE_MATRIX = [
+    ("Không có IP nguồn, nhưng host dùng C2 để nhận lệnh.", False),
+    ("C2 đã gửi dữ liệu ra ngoài nhưng chưa xác định tài khoản.", False),
+    ("No source IP, but the host uses C2 for tasking.", False),
+    ("Host dùng C2 để nhận lệnh.", False),
+    ("The actor used HTTP but C2 was not established.", True),
+    ("Các quan sát không chứng minh exfiltration, C2 hay compromise.", True),
+]
+
+
+def auth_binding() -> bool:
+    print("\n(d) authentication Status/SubStatus binding to event (F02)")
+    ctx = policy.annotate_context(p._read(
+        ROOT / "outputs/experiments/integrated-final-v8-live-01/AUTH-CTI_graphrag/context.json"))
+    bad = 0
+    for text, want in AUTH_STATUS_MATRIX:
+        codes = {i["code"] for i in policy.check_auth_field_binding({"technical_analysis": text}, ctx)["issues"]}
+        got = sorted(codes)[0] if codes else None
+        ok = got == want
+        bad += 0 if ok else 1
+        print(f"    {'PASS' if ok else 'FAIL'} want={want} got={got} | {text[:60]}")
+    print(f"    RESULT {len(AUTH_STATUS_MATRIX) - bad}/{len(AUTH_STATUS_MATRIX)}")
+    return bad == 0
+
+
+def cross_clause() -> bool:
+    print("\n(a2) cross-clause negation probes (F01)")
+    bad = 0
+    for text, want in CROSS_CLAUSE_MATRIX:
+        got = policy.is_negated_network_statement(policy.normalize(text))
+        ok = got == want
+        bad += 0 if ok else 1
+        print(f"    {'PASS' if ok else 'FAIL'} caveat={got!s:<5} want={want!s:<5} | {text[:56]}")
+    print(f"    RESULT {len(CROSS_CLAUSE_MATRIX) - bad}/{len(CROSS_CLAUSE_MATRIX)}")
+    return bad == 0
+
+
+def pinned_validator() -> bool:
+    print("\n(e) validator policy is part of the pinned safe-config (F03)")
+    from threat_hunting.llm.config import LLMConfig
+    pol = (p._safe_config(LLMConfig.from_env()).get("validator_policy") or {})
+    ok = (pol.get("policy_id") == policy.VALIDATOR_POLICY_ID
+          and pol.get("negation_scope") == "clause-local"
+          and pol.get("network_lookbehind") == policy._env_int("VALIDATOR_NETWORK_LOOKBEHIND", 120, 400))
+    print(f"    policy_id={pol.get('policy_id')} lookbehind={pol.get('network_lookbehind')}")
+    print(f"    RESULT {'PASS' if ok else 'FAIL'}")
+    return ok
 
 
 def main() -> int:
-    print(f"validator windows in effect: lookbehind={policy._env_int('VALIDATOR_NETWORK_LOOKBEHIND', 120)} "
-          f"lookahead={policy._env_int('VALIDATOR_NETWORK_LOOKAHEAD', 80)}")
-    return 0 if all((matrix(), live_v8(), v6_regression())) else 1
+    pol = policy.effective_validator_policy()
+    print(f"validator policy in effect: {pol['policy_id']} "
+          f"lookbehind={pol['network_lookbehind']} lookahead={pol['network_lookahead']} "
+          f"scope={pol['negation_scope']}")
+    results = [matrix(), cross_clause(), live_v8(), v6_regression(), auth_binding(), pinned_validator()]
+    failed = sum(1 for r in results if not r)
+    print(f"\nOVERALL: {'PASS' if failed == 0 else str(failed) + ' GROUP(S) FAILED'}")
+    return failed
 
 
 if __name__ == "__main__":

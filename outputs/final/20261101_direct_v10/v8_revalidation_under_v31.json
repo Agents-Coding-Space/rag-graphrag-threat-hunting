@@ -1,0 +1,79 @@
+{
+  "schema_version": "v8-revalidation-under-v31/v1",
+  "generated_utc": "2026-10-31T19:00:55.563836+00:00",
+  "source_experiment": "outputs/experiments/integrated-final-v8-live-01",
+  "validator_policy": {
+    "policy_id": "source-meaning-validator/v3.1",
+    "network_lookbehind": 120,
+    "network_lookahead": 80,
+    "lookbehind_bounds": [
+      1,
+      400
+    ],
+    "lookahead_bounds": [
+      1,
+      400
+    ],
+    "negation_scope": "clause-local",
+    "clause_split": "sentence-terminator|but|however|nhung|tuy nhien|whereas|independent-comma",
+    "checks": [
+      "numeric_duration_expression",
+      "unrequested_network_topic",
+      "auth_status_event_binding",
+      "auth_status_views_merged"
+    ],
+    "source_contract": "source-meaning/v2/v3"
+  },
+  "validator_note": "Read-only re-validation of the three v8 branches that the v3.0 validator rejected. No LLM call was made and no v8 artifact was modified. The v3.1 validator fixes two defects: negation that used to leak across clause boundaries (F01) and citation-only acceptance of authentication field claims (F02). Under v3.1, AUTH-DIRECT/rag and AUTH-CTI/rag pass, while AUTH-CTI/graphrag is correctly rejected because it reports Status 0xc000006a for the 4625 view, which records Status 0xc000006d. Passing these bounded checks is not semantic correctness.",
+  "superseded_reports": [
+    "outputs/final/20261101_direct_v9/revalidation_report.json"
+  ],
+  "cases": [
+    {
+      "case_id": "AUTH-DIRECT",
+      "branch": "rag",
+      "v8_outcome": "validation_failed",
+      "v8_stored_validation_note": "Stored under the pre-fix validator (source-meaning/v3.0); that verdict is superseded.",
+      "v31_validation_status": "passed",
+      "issues": [],
+      "evidence_refs_count": 10,
+      "raw_report_sha256": "0f0b60e9c610fc43c0b83a376fee7eb616707dfed77b4d5d269ec3d40408d17f",
+      "semantic_note": "No structural defect detected by the bounded checks; prose still requires human semantic review."
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "rag",
+      "v8_outcome": "validation_failed",
+      "v8_stored_validation_note": "Stored under the pre-fix validator (source-meaning/v3.0); that verdict is superseded.",
+      "v31_validation_status": "passed",
+      "issues": [],
+      "evidence_refs_count": 17,
+      "raw_report_sha256": "5f33fae6c6aa6108bb88ff7f4d710943dbe32cb7bcd7eeeafff275c4c3307023",
+      "semantic_note": "No structural defect detected by the bounded checks; prose still requires human semantic review."
+    },
+    {
+      "case_id": "AUTH-CTI",
+      "branch": "graphrag",
+      "v8_outcome": "validation_failed",
+      "v8_stored_validation_note": "Stored under the pre-fix validator (source-meaning/v3.0); that verdict is superseded.",
+      "v31_validation_status": "failed",
+      "issues": [
+        {
+          "code": "auth_status_views_merged",
+          "path": "technical_analysis",
+          "reason": "Status and SubStatus are both 0xc000006a; the 4625 view and the 4776 view encode different fields, so this pair cannot describe both.",
+          "reference": null,
+          "audit": "auth_field_binding"
+        }
+      ],
+      "evidence_refs_count": 7,
+      "raw_report_sha256": "8faa9aa1412d2f4ae7252c864f63901ffa7ea25928b4414783ce2c79663ef6e8",
+      "semantic_note": "Claim about authentication Status/SubStatus contradicts the event contract: 4625 records Status 0xc000006d with SubStatus 0xc000006a, while 4776 records Status 0xc000006a and no SubStatus. The stored report merges both views into a single 0xc000006a pair. Requires human correction, not silent acceptance."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 1,
+    "total": 3
+  }
+}

@@ -12,7 +12,7 @@
 
 Hệ thống đã hoàn thành và **chạy thực nghiệm thành công trên dữ liệu thật**, so sánh đối đầu hai nhánh truy xuất trên cùng 12 câu hỏi truy tìm mối đe dọa:
 
-| Chỉ số | RAG (vector baseline) | **GraphRAG (đề xuất)** |
+| Chỉ số | RAG (BM25 + vector + RRF) | **GraphRAG (đề xuất)** |
 |---|---:|---:|
 | Câu trả lời được chấp nhận | 5/12 (42%) | **11/12 (92%)** |
 | Câu bị cổng bằng chứng từ chối | 7/12 | **1/12** |
@@ -22,7 +22,18 @@ Hệ thống đã hoàn thành và **chạy thực nghiệm thành công trên d
 | Thời gian truy xuất + dựng ngữ cảnh | 0,41 s trung bình | 0,41 s trung bình |
 | Lỗi HTTP khi gọi LLM | **0/16** | **0/16** |
 
-> **Kết luận định lượng:** GraphRAG thắng áp đảo **6–0** (không có câu nào RAG làm được mà GraphRAG thất bại). Đây là bằng chứng trực tiếp cho luận điểm trung tâm của đồ án: *truy xuất quan hệ nhiều bước trên đồ thị tri thức là cần thiết để trả lời các câu hỏi tương quan trong threat hunting, điều mà vector RAG thuần tuý không làm được.*
+> **Kết luận định lượng — phạm vi hẹp: đây là COVERAGE của cổng bằng chứng, không phải chất lượng câu trả lời.**
+>
+> Trong cấu hình đã kiểm, GraphRAG đưa được **11/12** câu qua cổng bằng chứng so với **5/12** của RAG. Chênh lệch **6 câu**, và không có câu nào RAG qua cổng mà GraphRAG không qua.
+>
+> **Không được đọc con số này thành “GraphRAG trả lời đúng 92%” hay “GraphRAG thắng 6–0”.** Cụ thể:
+> - 5/12 và 11/12 là **số câu vượt cổng**, tức là có đủ bằng chứng trong ngữ cảnh để sinh câu trả lời — **chưa chấm nội dung**.
+> - Chưa có bảng điểm rubric cho từng câu trả lời (chính xác kỹ thuật, đầy đủ bằng chứng, chuẩn xác trích dẫn).
+> - Một trong ba câu đã chấm lại (`AUTH-CTI/GraphRAG`) được validator cũ đánh `passed` nhưng **thực tế ghi sai Status** — xem mục 7 và finding F02. Điều này chứng minh: *vượt cổng* không đồng nghĩa *đúng nội dung*.
+> - RAG trong đồ án **không phải vector-only baseline**: nhánh RAG dùng `retrieve_hybrid` (BM25 + vector + RRF), và corpus đã chứa cả facts/relationships/evidence chunks.
+> - Chưa có ablation chứng minh vector-only hay hybrid thuần không thể trả lời các câu này.
+>
+> **Điều được chứng minh:** với bộ 12 câu này, thêm bước mapping/mở rộng đồ thị giúp cổng bằng chứng chấp nhận nhiều câu hơn đáng kể. **Điều chưa được chứng minh:** câu trả lời của GraphRAG đúng hơn, hay đồ thị luôn cần thiết cho mọi bài toán threat hunting.
 
 ---
 
@@ -211,7 +222,11 @@ Canonical Normalization (dropped = 0)
 | NET-CTI | ⛔ abstain | ✅ accepted |
 | NET-LIMIT | ✅ accepted | ✅ accepted |
 
-**Đọc bảng:** 6 câu RAG từ chối nhưng GraphRAG trả lời được — đều là câu **tương quan đa bước** (CORRELATE, CTI, LIMIT). 1 câu cả hai đều từ chối (AUTH-LIMIT) — đây là **từ chối đúng**: bằng chứng thật sự không có trong ngữ cảnh, và cả hai nhánh đều trung thực thay vì bịa. 0 câu RAG làm được mà GraphRAG thất bại.
+**Đọc bảng:** 6 câu RAG bị cổng từ chối nhưng GraphRAG vượt qua: **AUTH-CORRELATE, PS-DIRECT, PS-CTI, PS-LIMIT, NET-CORRELATE, NET-CTI**. Đây là hỗn hợp — không phải tất cả đều là câu tương quan đa bước; **PS-DIRECT** là câu hỏi trực tiếp vẫn lệch giữa hai nhánh. Cần đọc từng ca để hiểu nguyên nhân, không gộp thành một quy luật.
+
+1 câu cả hai đều từ chối (**AUTH-LIMIT**) — đây là **từ chối đúng**: bằng chứng thật sự không có trong ngữ cảnh, và cả hai nhánh đều trung thực thay vì bịa. Đây là bằng chứng cổng bằng chứng hoạt động đúng ở cả hai nhánh.
+
+0 câu RAG qua cổng mà GraphRAG không qua — nhưng đây là quan sát trên 12 câu, không phải định luật.
 
 ### Lý do từ chối của cổng bằng chứng
 
@@ -227,7 +242,7 @@ Canonical Normalization (dropped = 0)
 | GraphRAG | `logon_temporal_context_missing` | 1 |
 | GraphRAG | `authentication_account_outcome_fields_missing` | 1 |
 
-Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các thực thể** — đúng như dự đoán lý thuyết. Vector search top-5 chỉ trả về chunk rời rạc, không nối được process → network → account thành chuỗi bằng chứng.
+Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các thực thể** (correlation summary, process relationships, network observations, identity lifetime, anchor). Cách giải thích hợp lý: truy xuất top-5 trả về các chunk không chứa đủ đầu mút của chuỗi bằng chứng. Đây là **giả thuyết cần kiểm từng ca**, chưa phải kết luận nhân quả đã chứng minh.
 
 ### Quy mô đồ thị GraphRAG duyệt
 
@@ -244,6 +259,35 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 | NET-CORRELATE | 24 | 33 |
 | NET-CTI | 24 | 35 |
 | NET-LIMIT | 22 | 26 |
+
+---
+
+## 6A. BỐN TẦNG ĐO LƯỜNG — KHÔNG ĐƯỢC GỘP
+
+Đây là điểm dễ gây hiểu nhầm nhất khi trình bày kết quả. Bốn tầng phải tách riêng:
+
+| Tầng | Câu hỏi | Có số liệu chưa? | Nguồn |
+|---|---|---|---|
+| **1. Coverage truy xuất / answerability** | Ngữ cảnh truy xuất có đủ bằng chứng để cổng cho qua không? | ✅ **Có**: RAG 5/12, GraphRAG 11/12 | `results.json` 24 rows |
+| **2. Draft acceptance** | Câu trả lời có qua được schema + guardrail + validator không? | ✅ **Có**: 16/16 eligible sinh được draft; 3 ca `validation_failed` ở v8, sau khi sửa validator thì 1 ca vẫn phải bị chặn (Status sai — F02) | `validation.json` |
+| **3. Độ đúng nội dung & trích dẫn** | Câu trả lời có đúng sự thật và trích dẫn có hỗ trợ đúng claim không? | ❌ **CHƯA CHẤM** | Cần rubric thủ công |
+| **4. Thời gian / request / lỗi** | Mất bao lâu, bao nhiêu request, bao nhiêu lỗi? | ✅ **Có**: 16 requests, 0 lỗi HTTP, truy xuất 0,41s trung bình | `request_budget.json`, `result.json` |
+
+### Con số nào KHÔNG được nói
+
+| Không được nói | Vì sao |
+|---|---|
+| “GraphRAG đúng 92%” | 11/12 là **vượt cổng**, tầng 3 chưa chấm |
+| “GraphRAG thắng 6–0” | Chỉ chênh lệch tầng 1, không phải chất lượng |
+| “Đồ thị là cần thiết” | Không có ablation; 12 câu là mẫu nhỏ |
+| “RAG là vector-only baseline” | RAG dùng `retrieve_hybrid` = BM25 + vector + RRF |
+| “Đã validation độc lập” | Cùng dự án, cùng người, chưa có holdout ngoài |
+
+### Ba hướng dẫn luận văn
+
+1. **Coverage** (tầng 1) dùng làm luận điểm chính: thêm bước đồ thị giúp nhiều câu hơn vượt cổng bằng chứng.
+2. **Chất lượng** (tầng 3) phải chấm thủ công trước khi viết bất kỳ kết luận nào về độ đúng.
+3. **Trung thực về phản ví dụ**: ca `AUTH-CTI/GraphRAG` đã cho thấy *vượt cổng* ≠ *đúng nội dung*. Phải nêu ca này trong luận văn như giới hạn của hệ thống, không giấu.
 
 ---
 
@@ -266,11 +310,14 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 
 | Giới hạn | Ghi chú |
 |---|---|
-| Không phải validation độc lập | 12 câu hỏi thuộc cùng dự án, dùng để so sánh nội bộ corrective |
+| Không phải validation độc lập | 12 câu hỏi thuộc cùng dự án; chưa có holdout ngoài. AI-assisted review không phải independent validation |
 | Ground truth chưa được duyệt người | Trạng thái `draft_reviewable / pending_human_review` |
-| Chấm ngữ nghĩa chưa làm | Chưa có bảng điểm rubric từng câu trả lời; cần review thủ công |
-| Model miễn phí | `cmc/reflection/beam:free` có thể thay đổi phía nhà cung cấp |
-| Corpus chứa cả facts/relationships | RAG không phải baseline "chỉ tài liệu văn bản" thuần tuý |
+| **Chấm ngữ nghĩa chưa làm** | Chưa có bảng điểm rubric từng câu trả lời. **Đây là lý do không được kết luận về độ đúng hay ưu thế chất lượng** |
+| **Validator có giới hạn đã biết** | Validator chỉ kiểm được một tập hữu hạn cấu trúc (duration, network topic, Status/SubStatus). Nó **không** kiểm được ngữ nghĩa tự nhiên đầy đủ. Ca `AUTH-CTI/GraphRAG` là bằng chứng: validator cũ đánh `passed` cho một report ghi sai Status |
+| Model miễn phí, thay đổi được | `cmc/reflection/beam:free` có thể đổi/ngừng phía nhà cung cấp; kết quả không tái lập được sau khi model thay đổi |
+| Corpus chứa cả facts/relationships | RAG không phải baseline "chỉ tài liệu văn bản" thuần tuý; RAG cũng dùng hybrid BM25+vector+RRF |
+| Không có ablation | Chưa chứng minh vector-only hay hybrid thuần không thể trả lời các câu này |
+| Sai số số thực khi recompute | Score vector lệch ở chữ số thứ 8 (ví dụ `0.87362147` vs `0.87362149`); hit IDs và gate không đổi. Exact-hash reproduction cần môi trường khóa |
 
 ---
 
@@ -281,7 +328,7 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 | Mã nguồn, cấu hình, test, tài liệu | ✅ Hoàn thành — 909 file trên GitHub |
 | Artifacts bằng chứng v9 (pin, preflight, revalidation) | ✅ Có trong repo |
 | Artifacts thực nghiệm v8 (24 nhánh, logs) | ✅ Có trong repo |
-| Validator + bộ test | ✅ 19/19 pass |
+| Validator + bộ test | ✅ 50/50 pass (`test_final_direct_experiment.py`) + 4/4 (`test_server_sse.py`) |
 | `.env` an toàn | ✅ Không commit, `.env.example` key trống |
 | Chấm điểm ngữ nghĩa theo rubric | ⬜ Cần làm tiếp |
 | Đồng bộ Chương 3 luận văn với số liệu v9 | ⬜ Cần làm tiếp |

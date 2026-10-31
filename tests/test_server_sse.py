@@ -42,13 +42,21 @@ def test_sse_stream_proceed(client):
 
     events = parse_sse_events(resp.text)
     event_types = [e[0] for e in events]
+    assert "scope" in event_types
     assert "gate" in event_types
     assert "subgraph" in event_types
-    assert "token" in event_types
     assert "done" in event_types
+    # The stream stops at deterministic retrieval/gating; it must not emit generated prose.
+    assert "token" not in event_types
 
     gate_evt = next(e[1] for e in events if e[0] == "gate")
     assert gate_evt["decision"] == "proceed"
+
+    done_evt = next(e[1] for e in events if e[0] == "done")
+    assert done_evt["analysis_generated"] is False
+    assert done_evt["verdict"] is None
+    assert done_evt["executive_summary"] is None
+    assert done_evt["execution"]["llm_called"] is False
 
 
 def test_sse_stream_abstained(client):
@@ -58,6 +66,31 @@ def test_sse_stream_abstained(client):
 
     events = parse_sse_events(resp.text)
     event_types = [e[0] for e in events]
-    assert "gate" in event_types
+    assert "scope" in event_types
     assert "error" in event_types
     assert "subgraph" not in event_types
+    assert "done" not in event_types
+
+    scope_evt = next(e[1] for e in events if e[0] == "scope")
+    assert scope_evt["decision"] == "abstain"
+
+
+def test_sse_never_fabricates_attack_verdict_for_out_of_scope_query(client):
+    """Regression for the legacy SSE route that returned a hardcoded MALICIOUS verdict."""
+    url = "/api/hunt/stream?query=Thời tiết hôm nay thế nào?&scenario_id=mshta-powershell&enforce_gate=true"
+    body = client.get(url).text
+    for banned in ("MALICIOUS", "xác nhận", "token"):
+        assert banned not in body
+    assert "abstained" in body
+
+
+def test_sse_and_post_agree_on_out_of_scope_query(client):
+    query = "Thời tiết hôm nay thế nào?"
+    sse_events = parse_sse_events(
+        client.get(f"/api/hunt/stream?query={query}&scenario_id=mshta-powershell&enforce_gate=true").text)
+    sse_scope = next(e[1] for e in sse_events if e[0] == "scope")
+    post = client.post("/api/hunt", json={"query": query, "scenario_id": "mshta-powershell",
+                                           "enforce_gate": True, "use_llm": False}).json()
+    assert sse_scope["decision"] == post["status"].replace("abstained", "abstain")
+    assert post["status"] == "abstained"
+    assert post["execution"]["llm_called"] is False

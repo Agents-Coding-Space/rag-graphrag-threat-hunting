@@ -470,22 +470,46 @@ async def hunt_stream(
     scenario_id: str = Query("mshta-powershell"),
     enforce_gate: bool = Query(True),
 ) -> StreamingResponse:
-    """Stream investigation results token-by-token with SSE events (gate, subgraph, token, done)."""
+    """Stream investigation events (scope, gate, subgraph, status/done) over SSE.
+
+    This route uses the same query-scope and two-stage gate as ``POST /api/hunt`` and never
+    fabricates an analysis narrative or verdict. It performs retrieval and gating only; it
+    does not call an LLM. The terminal event reports the deterministic gate outcome so a
+    real consumer cannot mistake a streamed shell for a generated threat assessment.
+    """
     if scenario_id not in SCENARIO_REGISTRY:
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario_id}' not found")
     info = SCENARIO_REGISTRY[scenario_id]
 
     async def sse_generator() -> AsyncGenerator[str, None]:
-        # 1. Load artifacts
+        # 1. Load artifacts and evaluate query scope exactly as the synchronous route does.
         corpus = load_retrieval_corpus(info["corpus_path"])
         graph = load_knowledge_graph(info["graph_path"])
+        scope_decision = assess_query_scope(query, corpus=corpus, graph=graph)
+        execution = {"source": "none", "llm_called": False, "generation_succeeded": False,
+                     "llm_http_attempts": 0, "fallback_used": False, "gate_enforced": enforce_gate}
+
+        yield f"event: scope\ndata: {json.dumps(scope_decision, ensure_ascii=False)}\n\n"
+        await asyncio.sleep(0.05)
+
+        if enforce_gate and scope_decision["decision"] == "abstain":
+            payload = {
+                "status": "abstained",
+                "scenario_id": scenario_id,
+                "stage": "query_scope",
+                "reason": "Câu hỏi chưa được xác định là yêu cầu điều tra từ nguồn dữ liệu của kịch bản.",
+                "reasons": scope_decision.get("reason_codes", []),
+                "execution": execution,
+            }
+            yield f"event: error\ndata: {json.dumps(payload, ensure_ascii=False)}\n\n"
+            return
+
         index = load_vector_index(info["index_path"])
         backend = get_embedding_backend()
 
         def embed_query(texts: list[str]) -> object:
             return backend.embed_documents(texts)
 
-        # 2. Build Context
         corpus_hash = digest(info["corpus_path"])
         context = build_graphrag_context(
             corpus, index, graph, query,
@@ -495,7 +519,7 @@ async def hunt_stream(
             direction="both", max_depth=2, max_nodes=100, max_edges=200,
         )
 
-        # 3. Two-Stage Gate
+        # 2. Two-stage gate, same policy loader as the synchronous route.
         gate_decision = None
         if GATE_POLICY_PATH.is_file():
             policy_doc = json.loads(GATE_POLICY_PATH.read_text(encoding="utf-8"))
@@ -508,7 +532,6 @@ async def hunt_stream(
             signals = extract_graphrag_gate_signals(context)
             gate_decision = assess_graphrag_two_stage_gate(signals, policy=policy)
 
-        # Emit Gate Event
         yield f"event: gate\ndata: {json.dumps(gate_decision, ensure_ascii=False)}\n\n"
         await asyncio.sleep(0.05)
 
@@ -517,14 +540,16 @@ async def hunt_stream(
             reason = "insufficient_evidence" if stage == "evidence_answerability" else "unrelated"
             rejection_data = {
                 "status": "abstained",
+                "scenario_id": scenario_id,
                 "stage": stage,
                 "reason": reason,
                 "reasons": gate_decision.get("reason_codes", []),
+                "execution": execution,
             }
             yield f"event: error\ndata: {json.dumps(rejection_data, ensure_ascii=False)}\n\n"
             return
 
-        # 4. Emit Subgraph Event
+        # 3. Retrieval subgraph for the current response only.
         traversed_graph = {
             "nodes": context.get("traversal", {}).get("nodes", []),
             "edges": context.get("traversal", {}).get("edges", []),
@@ -539,24 +564,18 @@ async def hunt_stream(
         yield f"event: subgraph\ndata: {json.dumps(graph_payload, ensure_ascii=False)}\n\n"
         await asyncio.sleep(0.05)
 
-        # 5. Emit Streaming Narrative Tokens
-        sample_analysis = (
-            f"Phát hiện chuỗi hành vi liên quan đến {scenario_id}. "
-            "Dựa trên 29.510 sự kiện log đã chuẩn hóa, hệ thống xác nhận các thực thể tiến trình "
-            "khởi tạo và thực thi khớp với cơ sở tri thức MITRE ATT&CK và SigmaHQ."
-        )
-        words = sample_analysis.split(" ")
-        for w in words:
-            token_data = {"token": w + " "}
-            yield f"event: token\ndata: {json.dumps(token_data, ensure_ascii=False)}\n\n"
-            await asyncio.sleep(0.02)
-
-        # 6. Emit Done Event
+        # 4. Terminal event. No verdict and no narrative are synthesised here: this route
+        #    stops at deterministic retrieval/gating, so it reports that explicitly rather
+        #    than presenting a fixed attack assessment as an analysis result.
         done_payload = {
-            "status": "complete",
+            "status": "proceeded_without_generation",
             "scenario_id": scenario_id,
-            "verdict": "MALICIOUS",
-            "executive_summary": sample_analysis,
+            "verdict": None,
+            "executive_summary": None,
+            "analysis_generated": False,
+            "note": ("Luồng stream chỉ thực hiện truy xuất và cổng bằng chứng; không sinh câu trả lời "
+                     "threat assessment. Dùng POST /api/hunt hoặc dashboard thí nghiệm để có báo cáo có trích dẫn."),
+            "execution": execution,
         }
         yield f"event: done\ndata: {json.dumps(done_payload, ensure_ascii=False)}\n\n"
 

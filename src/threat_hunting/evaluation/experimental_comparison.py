@@ -116,7 +116,18 @@ def _safe_config(config: LLMConfig) -> dict[str, Any]:
             "base_url": urlunsplit((parts.scheme, host, parts.path, "", "")),
             "temperature": config.temperature, "max_tokens": config.max_tokens,
             "timeout_seconds": config.timeout_seconds, "maximum_http_attempts_per_generation": 1,
-            "automatic_retry": False}
+            "automatic_retry": False,
+            "validator_policy": _safe_validator_policy()}
+
+
+def _safe_validator_policy() -> dict[str, Any]:
+    """Validator parameters in force, so a pin cannot describe two different outcomes.
+
+    Imported lazily: ``generation_contract_v3`` pulls in the schema/guardrail stack that this
+    module also uses, and a module-level import here would create a cycle.
+    """
+    from threat_hunting.llm.generation_contract_v3 import effective_validator_policy
+    return effective_validator_policy()
 
 
 def run_reporting_metadata(*, live: bool, max_requests: int, harness_ceiling: int,

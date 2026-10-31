@@ -287,3 +287,130 @@ def test_validation_failed_branch_is_never_selected_for_continuation(study, monk
     plan=execute(study,"dry",clock,resume_from=study[0]/"outputs/experiments/initial",continue_task=True)
     assert not any((r["case_id"],r["branch"])==("C0","rag") for r in plan["rows"])
     assert plan["planned_branch_count"]==15
+
+
+# --- F01: negation locality regression ------------------------------------------------
+# A negator in one clause must never mask an assertion in another clause.
+F01_CLAIM_PROBES = [
+    "Không có IP nguồn, nhưng host dùng C2 để nhận lệnh.",
+    "C2 đã gửi dữ liệu ra ngoài nhưng chưa xác định tài khoản.",
+    "Host dùng C2 để nhận lệnh; chưa xác định tài khoản.",
+    "No source IP, but the host uses C2 for tasking.",
+    "Host bị C2 qua HTTP tới 10.10.10.5.",
+    "Dữ liệu exfiltration đã hoàn tất 2 MB.",
+    "The host exfiltrated 2MB over HTTP.",
+    "Host dùng C2 để nhận lệnh.",
+]
+F01_CAVEAT_PROBES = [
+    "Mục đích C2 hoặc kết quả truyền tải dữ liệu qua HTTP không được xác minh.",
+    "CTI là external context, không thiết lập hành vi, compromise hoặc C2 purpose trên host.",
+    "Không có bằng chứng về kênh C2 trong dữ liệu hiện có.",
+    "The actor used HTTP but C2 was not established.",
+    "Các quan sát không chứng minh exfiltration, C2 hay compromise.",
+]
+
+
+@pytest.mark.parametrize("text", F01_CLAIM_PROBES)
+def test_negation_in_another_clause_does_not_mask_a_positive_network_claim(text):
+    path = manual_reports()[0]
+    context = policy.annotate_context(p._read(path.parent / "context.json"))
+    assert policy.is_negated_network_statement(policy.normalize(text)) is False
+    codes = [i["code"] for i in policy.check_clock_and_scope({"technical_analysis": text}, context)["issues"]]
+    assert "unrequested_network_claim" in codes
+
+
+@pytest.mark.parametrize("text", F01_CAVEAT_PROBES)
+def test_true_boundary_caveats_are_still_accepted(text):
+    path = manual_reports()[0]
+    context = policy.annotate_context(p._read(path.parent / "context.json"))
+    assert policy.is_negated_network_statement(policy.normalize(text)) is True
+    assert policy.check_clock_and_scope({"technical_analysis": text}, context)["issues"] == []
+
+
+def test_network_topic_spans_report_clause_locality():
+    detail = policy.network_topic_spans(policy.normalize("Không có IP nguồn, nhưng host dùng C2 để nhận lệnh."))
+    assert detail and all(d["negated"] is False for d in detail)
+    caveat = policy.network_topic_spans(policy.normalize("Mục đích C2 không được xác minh."))
+    assert caveat and all(d["negated"] is True for d in caveat)
+
+
+# --- F02: authentication Status/SubStatus must bind to its event ----------------------
+def _auth_context():
+    path = ROOT / "outputs/experiments/integrated-final-v8-live-01/AUTH-CTI_graphrag/context.json"
+    return policy.annotate_context(p._read(path))
+
+
+def test_saved_v8_auth_cti_graphrag_status_merge_is_rejected():
+    """Historical report merged 4625 Status 0xc000006d into 0xc000006a. It must be rejected."""
+    raw = p._read(ROOT / "outputs/experiments/integrated-final-v8-live-01/"
+                         "AUTH-CTI_graphrag/raw_report_before_sanitize.json")
+    audit = policy.check_auth_field_binding(raw, _auth_context())
+    assert "auth_status_views_merged" in {i["code"] for i in audit["issues"]}
+    assert sorted(audit["events_in_context"]) == ["4625", "4776"]
+
+
+def test_correct_auth_status_report_is_not_flagged():
+    raw = p._read(ROOT / "outputs/experiments/integrated-final-v8-live-01/"
+                         "AUTH-DIRECT_rag/raw_report_before_sanitize.json")
+    assert policy.check_auth_field_binding(raw, _auth_context())["issues"] == []
+
+
+@pytest.mark.parametrize("text,expect_code", [
+    ("Event 4625 ghi Status 0xc000006a và SubStatus 0xc000006a.",
+     "auth_status_event_mismatch"),
+    ("Event 4776 ghi Status 0xc000006a và SubStatus 0xc000006a.",
+     "auth_status_event_mismatch"),
+    ("Status 0xc000006a, SubStatus 0xc000006a cho cả hai view.",
+     "auth_status_views_merged"),
+])
+def test_auth_status_contract_violations(text, expect_code):
+    audit = policy.check_auth_field_binding({"technical_analysis": text}, _auth_context())
+    assert expect_code in {i["code"] for i in audit["issues"]}
+
+
+@pytest.mark.parametrize("text", [
+    "Event 4625 có Status 0xc000006d và SubStatus 0xc000006a.",
+    "Event 4776 có Status 0xc000006a và không ghi SubStatus.",
+])
+def test_auth_status_correct_values_are_accepted(text):
+    assert policy.check_auth_field_binding({"technical_analysis": text}, _auth_context())["issues"] == []
+
+
+def test_auth_binding_skips_when_context_has_no_auth_events():
+    audit = policy.check_auth_field_binding({"technical_analysis": "Status 0xc000006a"},
+                                            {"query": {"text": "nothing"}, "retrieval": {"hits": []}})
+    assert audit["issues"] == [] and audit["events_in_context"] == []
+
+
+# --- F03: validator policy must be pinned ---------------------------------------------
+def test_safe_config_carries_validator_policy():
+    from threat_hunting.evaluation import experimental_comparison as comp
+    from threat_hunting.llm.config import LLMConfig
+    safe = comp._safe_config(LLMConfig.from_env())
+    assert "validator_policy" in safe
+    assert safe["validator_policy"]["policy_id"] == policy.VALIDATOR_POLICY_ID
+    assert safe["validator_policy"]["negation_scope"] == "clause-local"
+
+
+def test_validator_parameter_change_alters_pin_safe_config(monkeypatch):
+    from threat_hunting.evaluation import experimental_comparison as comp
+    from threat_hunting.llm.config import LLMConfig
+    before = comp._safe_config(LLMConfig.from_env())
+    monkeypatch.setenv("VALIDATOR_NETWORK_LOOKBEHIND", "200")
+    after = comp._safe_config(LLMConfig.from_env())
+    assert before != after
+    assert after["validator_policy"]["network_lookbehind"] == 200
+
+
+@pytest.mark.parametrize("raw,expected", [("abc", 120), ("0", 120), ("-5", 120), ("", 120),
+                                          ("99999", 400), ("250", 250)])
+def test_validator_window_bounds_and_fallback(monkeypatch, raw, expected):
+    monkeypatch.setenv("VALIDATOR_NETWORK_LOOKBEHIND", raw)
+    assert policy.effective_validator_policy()["network_lookbehind"] == expected
+
+
+def test_validator_window_can_change_outcome_but_is_visible():
+    """The knob really does change an outcome; that is exactly why it must be pinned."""
+    text = policy.normalize("Mục đích C2 hoặc kết quả truyền tải dữ liệu qua HTTP không được xác minh.")
+    assert policy.effective_validator_policy()["network_lookbehind"] == 120
+    assert policy.is_negated_network_statement(text) is True
