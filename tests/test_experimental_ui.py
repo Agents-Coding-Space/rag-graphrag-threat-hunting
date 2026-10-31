@@ -17,7 +17,10 @@ from threat_hunting.server import experimental as demo
 
 @pytest.fixture
 def session(monkeypatch, tmp_path):
-    pin = demo.read(demo.PILOT / "manifest.json")["model"]
+    from historical_fixtures import require_frozen
+    pilot = demo.read(demo.PILOT / "manifest.json")
+    require_frozen(pilot, demo.ROOT, "rag-graphrag-pilot-source-contract-02 dashboard fixture")
+    pin = pilot["model"]
     config = LLMConfig(**{k: pin[k] for k in ("provider", "model_name", "base_url", "temperature", "max_tokens", "timeout_seconds")}, api_key="synthetic-secret")
     monkeypatch.setattr(LLMConfig, "from_env", classmethod(lambda cls: config))
     # Output confinement uses ROOT only; real pinned paths/config stay untouched.

@@ -198,7 +198,9 @@ def test_v2_preserves_source_security_statuses_and_determinism_without_mutation(
             assert chunk["status"] == item["status"]
 
 
-@pytest.mark.parametrize("version", ("scenario-ground-truth/v0", "scenario-ground-truth/v3", "other/v2", "scenario-ground-truth/v2 "))
+# scenario-ground-truth/v3 is a supported unresolved-approval version used by the integrated
+# consumers, so it is no longer an unsupported input. The remaining entries stay rejected.
+@pytest.mark.parametrize("version", ("scenario-ground-truth/v0", "other/v2", "scenario-ground-truth/v2 "))
 def test_builder_rejects_unsupported_actual_source_version(version: str) -> None:
     source = _source(False)
     source["schema_version"] = version
@@ -207,7 +209,9 @@ def test_builder_rejects_unsupported_actual_source_version(version: str) -> None
         _build(source)
 
 
-@pytest.mark.parametrize("version", ("scenario-ground-truth/v0", "scenario-ground-truth/v3", "other/v2", "scenario-ground-truth/v2 "))
+# scenario-ground-truth/v3 is a supported unresolved-approval version used by the integrated
+# consumers, so it is no longer an unsupported input. The remaining entries stay rejected.
+@pytest.mark.parametrize("version", ("scenario-ground-truth/v0", "other/v2", "scenario-ground-truth/v2 "))
 def test_corpus_rejects_unsupported_source_provenance_version(version: str) -> None:
     corpus = _build(_source())
     corpus["source_ground_truth"]["schema_version"] = version
@@ -236,3 +240,12 @@ def test_v2_keeps_existing_confirmed_security_status_guard() -> None:
     corpus["chunks"][0]["metadata"]["source_review_status"] = "confirmed"
     with pytest.raises(RetrievalCorpusValidationError, match="confirmed"):
         validate_retrieval_corpus(corpus)
+
+
+def test_supported_unresolved_v3_source_version_is_accepted() -> None:
+    """v3 carries an unresolved human approval and is produced by the integrated consumers."""
+    source = _source(False)
+    source["schema_version"] = "scenario-ground-truth/v3"
+    corpus = _build(source)
+    validate_retrieval_corpus(corpus)
+    assert corpus["source_ground_truth"]["schema_version"] == "scenario-ground-truth/v3"

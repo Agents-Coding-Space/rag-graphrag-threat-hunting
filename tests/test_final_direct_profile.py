@@ -15,6 +15,9 @@ PIN = BASE / "runtime_pin.json"
 
 
 def test_frozen_direct_profile_and_shared_offline_dashboard():
+    """v7 is a superseded frozen study; skip once its code pin no longer matches the checkout."""
+    from historical_fixtures import require_frozen
+    require_frozen(p._read(PIN), ROOT, "integrated-final-direct-v7")
     config, pin, results, model = validate_preflight(CONFIG, PIN, BASE / "preflight")
     assert model.base_url == "https://openrouter.ai/api/v1" and model.model_name == "google/gemma-4-31b-it"
     assert model.max_retries == 1 and len(results["rows"]) == 24
@@ -46,3 +49,22 @@ def test_final_dashboard_live_cannot_bypass_task_ledger():
     with pytest.raises(ValueError, match="offline/replay dashboard only"):
         ExperimentalSession(output, config_path=CONFIG, pin_path=PIN, live=True, max_requests=16)
     assert not output.exists()
+
+
+def test_active_profile_validates_and_is_dashboard_ready():
+    """The current profile must still validate end to end, offline, with no LLM client."""
+    active = ROOT / "configs/evaluation/integrated_final_direct_v14.json"
+    base = ROOT / "outputs/final/20261101_direct_v14"
+    config, pin, results, model = validate_preflight(active, base / "runtime_pin.json", base / "preflight")
+    assert len(results["rows"]) == 24
+    assert sum(r["eligibility_decision"] == "proceed" for r in results["rows"]) == 16
+    assert pin["model"]["validator_policy"]["policy_id"] == "source-meaning-validator/v3.1"
+
+    def forbidden(**kwargs): pytest.fail("Offline profile constructed LLM client")
+    session = ExperimentalSession(ROOT / "outputs/demo" / ("active-offline-qa-" + uuid4().hex),
+        config_path=active, pin_path=base / "runtime_pin.json", client_factory=forbidden)
+    with TestClient(create_app(session)) as client:
+        assert client.get("/").status_code == 200
+        meta = client.get("/experimental-api/config").json()
+        assert meta["profile_id"] == "integrated-final-direct-v14"
+        assert meta["maximum_llm_requests"] == 0

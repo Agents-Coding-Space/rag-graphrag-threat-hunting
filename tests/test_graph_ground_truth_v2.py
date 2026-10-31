@@ -179,8 +179,10 @@ def test_graph_schema_accepts_only_ground_truths_exported_supported_versions(sch
     assert validate_knowledge_graph(graph) is None
 
 
+# scenario-ground-truth/v3 is a supported unresolved-approval version emitted by the integrated
+# consumers, so it is no longer an unsupported input. A dedicated test below asserts acceptance.
 @pytest.mark.parametrize("schema_version", (
-    "scenario-ground-truth/v0", "scenario-ground-truth/v3",
+    "scenario-ground-truth/v0",
     "scenario-ground-truth/v2-extra", "other/v2", "", None, [], {}, 2,
 ))
 def test_unsupported_source_versions_rejected_by_builder_and_graph_schema(schema_version: object) -> None:
@@ -285,3 +287,12 @@ def test_every_approved_limitation_has_its_own_source_pointer_and_traverses_unch
         result = traverse_knowledge_graph(graph, seed_node_ids=[node["node_id"]])
         assert result["nodes"] == [node]
         assert result["edges"] == []  # No inferred causal links to limitations.
+
+
+def test_supported_unresolved_v3_source_version_is_accepted_by_graph() -> None:
+    """v3 is the unresolved-approval version the integrated consumers actually use."""
+    document = _v2_ground_truth(approved=False)
+    document["schema_version"] = "scenario-ground-truth/v3"
+    graph = _build(document)
+    validate_knowledge_graph(graph)
+    assert graph["source_ground_truth"]["schema_version"] == "scenario-ground-truth/v3"

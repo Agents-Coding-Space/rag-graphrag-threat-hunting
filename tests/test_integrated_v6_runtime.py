@@ -16,6 +16,9 @@ PIN = BASE / "runtime_pin_v6.json"
 
 
 def test_integrated_dashboard_and_harness_share_new_context_and_messages():
+    """v6 is a superseded frozen checkpoint; skip once its code pin no longer matches."""
+    from historical_fixtures import require_frozen
+    require_frozen(pipeline._read(PIN), ROOT, "integrated v6 checkpoint")
     def forbidden(**kwargs):
         pytest.fail("Offline dashboard constructed provider client")
     session = ExperimentalSession(ROOT / "outputs/demo" / ("integrated-v6-qa-" + uuid4().hex),
