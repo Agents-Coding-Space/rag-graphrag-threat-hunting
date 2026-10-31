@@ -295,7 +295,10 @@ def prepare_branch(query: str, branch: str, p: dict[str, Path], corpus: dict[str
     emit("gate", gate)
     generation_contract = config.get("generation_contract")
     if generation_contract is not None:
-        if generation_contract == "source-meaning/v3":
+        # Any v3.x contract resolves to the v3 module; the patch level records which validator
+        # policy produced the run and is repeated in the pin, so two studies cannot silently
+        # share one label while validating differently.
+        if generation_contract.split("/v")[0] == "source-meaning" and generation_contract.startswith("source-meaning/v3"):
             from threat_hunting.llm.generation_contract_v3 import CONTRACT, annotate_context, build_messages
         else:
             from threat_hunting.llm.generation_contract import CONTRACT, annotate_context, build_messages
@@ -343,7 +346,7 @@ def generate_branch(messages: list[dict[str, str]], context_for_model: dict[str,
         emit("raw_report_before_sanitize", raw)
         checked = validate_generated(raw, context_for_model)
         if "generation_evidence_contract" in context_for_model:
-            if context_for_model["generation_evidence_contract"].get("schema_version") == "source-meaning/v3":
+            if str(context_for_model["generation_evidence_contract"].get("schema_version", "")).startswith("source-meaning/v3"):
                 from threat_hunting.llm.generation_contract_v3 import CONTRACT, validate_meaning
             else:
                 from threat_hunting.llm.generation_contract import CONTRACT, validate_meaning

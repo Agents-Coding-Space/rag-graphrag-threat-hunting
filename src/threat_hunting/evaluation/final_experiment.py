@@ -77,10 +77,11 @@ class TaskBudget:
     def __init__(self, path: Path, pin_sha256: str, *, wall: Callable[[], float] = utc_now,
                  sleep: Callable[[float], None] = time.sleep, initial: int = 16,
                  recovery: int = 4, total: int = 20, interval: float = 60,
-                 clock: Callable[[], float] = time.monotonic) -> None:
+                 clock: Callable[[], float] = time.monotonic, scope: str = "final") -> None:
         self.path, self.wall, self.sleep = path, wall, sleep
         self.clock, self.last_monotonic = clock, None
-        self.limits = {"initial": initial, "recovery": recovery, "total": total, "interval": interval}
+        self.limits = {"initial": initial, "recovery": recovery, "total": total, "interval": interval,
+                       "scope": scope}
         self.pin_sha256 = pin_sha256
         if path.exists():
             state = p._read(path)
@@ -274,27 +275,98 @@ def prepare_continuation(prepared: dict[str, Any], ledger: dict[str, Any], pin_s
     return selected
 
 
+# --- F07: bounded review subset ------------------------------------------------------
+# A review subset is a pre-declared selection of already-frozen preflight branches, run through
+# the same generator, pin verification, durable ledger and stop policy as the full study. It
+# exists so a small contract check can be performed without opening the 16-request budget, and
+# it can never authorize more requests than the ceilings below.
+REVIEW_MAX_BRANCHES = 6
+REVIEW_MAX_ATTEMPTS = 6
+REVIEW_EXECUTION_MODES = ("live", "offline_dry_run")
+
+
+def parse_review_selection(selection: str | None) -> list[tuple[str, str]]:
+    """Parse ``CASE:branch,CASE:branch`` into an ordered, de-duplicated list."""
+    if selection is None:
+        return []
+    if not selection.strip():
+        raise ValueError("Review selection is empty")
+    pairs: list[tuple[str, str]] = []
+    for item in selection.split(","):
+        item = item.strip()
+        if not item:
+            continue
+        if ":" not in item:
+            raise ValueError("Review selection entries must be CASE_ID:branch")
+        case_id, branch = (part.strip() for part in item.split(":", 1))
+        if branch not in ("rag", "graphrag"):
+            raise ValueError(f"Review selection branch must be rag or graphrag: {item}")
+        if (case_id, branch) not in pairs:
+            pairs.append((case_id, branch))
+    if not pairs:
+        raise ValueError("Review selection is empty")
+    if len(pairs) > REVIEW_MAX_BRANCHES:
+        raise ValueError(f"Review selection cannot exceed {REVIEW_MAX_BRANCHES} branches")
+    return pairs
+
+
+def review_policy(config: dict[str, Any], pairs: list[tuple[str, str]],
+                  interval: float | None = None, max_attempts: int | None = None) -> dict[str, Any]:
+    """Build a self-contained review budget that is strictly smaller than the study budget."""
+    policy = dict(config["final_run_policy"])
+    if interval is not None:
+        # Pacing may be raised for a subset but never lowered below the frozen study value.
+        policy["request_interval_seconds"] = max(float(interval), float(policy["request_interval_seconds"]))
+    cap = min(max_attempts or REVIEW_MAX_ATTEMPTS, REVIEW_MAX_ATTEMPTS, len(pairs))
+    policy["initial_attempt_limit"] = min(cap, len(pairs))
+    policy["recovery_attempt_limit"] = 0
+    policy["total_attempt_limit"] = policy["initial_attempt_limit"]
+    policy["task_ledger"] = str(p.ROOT / "outputs/final" / config["profile_id"] / "review_request_budget.json")
+    policy["recovery_policy"] = "review subsets do not authorise recovery; rerun a new declared subset"
+    return policy
+
+
+def select_review_branches(prepared: dict[str, Any], pairs: list[tuple[str, str]]) -> list[dict[str, Any]]:
+    """Resolve declared pairs against the frozen preflight; every pair must exist."""
+    index = {(r["case_id"], r["branch"]): r for r in prepared["rows"]}
+    missing = [f"{c}:{b}" for c, b in pairs if (c, b) not in index]
+    if missing:
+        raise ValueError("Review selection is not part of the frozen preflight: " + ", ".join(missing))
+    return [deepcopy(index[pair]) for pair in pairs]
+
+
 def run_final(config_path: Path, pin_path: Path, preflight: Path, output: Path, *, live: bool = False,
               resume_from: Path | None = None, client_factory: Any = p.LLMClient,
               execution_pin: Path | None = None, continue_task: bool = False,
-              balance_confirmation: Path | None = None,
+              balance_confirmation: Path | None = None, review_selection: str | None = None,
+              review_interval_seconds: float | None = None, review_max_attempts: int | None = None,
               clock: Callable[[], float] = time.monotonic, wall: Callable[[], float] = utc_now,
               sleep: Callable[[float], None] = time.sleep) -> dict[str, Any]:
     if execution_pin is None:
         config, pin, prepared, model = validate_preflight(config_path, pin_path, preflight)
     else:
         config, pin, prepared, model = validate_preflight(config_path, pin_path, preflight, execution_pin)
-    policy = run_policy(config)
-    eligible = sum(r["eligibility_decision"] == "proceed" for r in prepared["rows"])
-    # The hard ceiling is a scientific constraint, not an operational knob: the
-    # .env override may lower it but can never authorize more requests.
-    if (eligible != policy["initial_attempt_limit"] or policy["recovery_attempt_limit"] > 4
-            or policy["total_attempt_limit"] > 20 or policy["request_interval_seconds"] < 60):
-        raise ValueError("Frozen eligibility or authorized budget changed")
+    review_pairs = parse_review_selection(review_selection)
+    if review_pairs:
+        if resume_from is not None or continue_task or execution_pin is not None:
+            raise ValueError("A review subset is an independent run; it cannot resume or reuse a delta pin")
+        policy = review_policy(config, review_pairs, review_interval_seconds, review_max_attempts)
+        if (policy["total_attempt_limit"] > REVIEW_MAX_ATTEMPTS
+                or policy["total_attempt_limit"] > len(review_pairs)
+                or policy["recovery_attempt_limit"] != 0):
+            raise ValueError("Review budget exceeds the declared subset or the review ceiling")
+    else:
+        policy = run_policy(config)
+        eligible = sum(r["eligibility_decision"] == "proceed" for r in prepared["rows"])
+        # The hard ceiling is a scientific constraint, not an operational knob: the
+        # .env override may lower it but can never authorize more requests.
+        if (eligible != policy["initial_attempt_limit"] or policy["recovery_attempt_limit"] > 4
+                or policy["total_attempt_limit"] > 20 or policy["request_interval_seconds"] < 60):
+            raise ValueError("Frozen eligibility or authorized budget changed")
     output = output.resolve()
     if output.exists() or not output.is_relative_to((p.ROOT / "outputs/experiments").resolve()):
         raise ValueError("Final output must be a new experiment directory")
-    phase = "continuation" if continue_task else "recovery" if resume_from else "initial"
+    phase = "review" if review_pairs else "continuation" if continue_task else "recovery" if resume_from else "initial"
     if continue_task and resume_from is None:
         raise ValueError("Continuation requires the real previous checkpoint")
     ledger_path = p.ROOT / policy["task_ledger"]
@@ -322,6 +394,8 @@ def run_final(config_path: Path, pin_path: Path, preflight: Path, output: Path, 
         else:
             selected = [r for r in source["rows"] if r["outcome"] == "not_run" or temporary_error(r)]
         source_hashes = {q.relative_to(resume_from).as_posix(): p.sha256(q) for q in resume_from.rglob("*") if q.is_file()}
+    elif review_pairs:
+        selected = select_review_branches(prepared, review_pairs)
     else:
         selected = prepared["rows"]
     output.mkdir(parents=True, exist_ok=False)
@@ -336,6 +410,15 @@ def run_final(config_path: Path, pin_path: Path, preflight: Path, output: Path, 
         "balance_confirmation_sha256": p.sha256(balance_confirmation) if balance_confirmation and balance_confirmation.is_file() else None,
         "balance_confirmation_required_before_live": bool(ledger_before and any((a.get("provider_error") or {}).get("http_status") == 402 for a in ledger_before["attempts"])),
         "budget_assignments": [{"case_id":r["case_id"],"branch":r["branch"],"phase":r.get("request_budget_phase",phase)} for r in selected],
+        "execution_scope": "review_subset" if review_pairs else "frozen_study",
+        "review_declaration": {
+            "selection": [f"{c}:{b}" for c, b in review_pairs],
+            "max_branches": REVIEW_MAX_BRANCHES,
+            "max_attempts": REVIEW_MAX_ATTEMPTS,
+            "declared_before_run": True,
+            "claim_scope": ("smoke/contract check on the declared branches only; not a benchmark result "
+                            "and not evidence about any branch that was not run"),
+        } if review_pairs else None,
         "automatic_retry": False, "fallback": False, "human_review_required": True}
     p._write(output / "manifest.json", manifest)
     rows = []
@@ -351,15 +434,19 @@ def run_final(config_path: Path, pin_path: Path, preflight: Path, output: Path, 
                 raise ValueError("Task ledger changed while preparing continuation")
             budget = TaskBudget(ledger_path, p.sha256(pin_path), wall=wall, sleep=sleep, clock=clock,
                 initial=policy["initial_attempt_limit"], recovery=policy["recovery_attempt_limit"],
-                total=policy["total_attempt_limit"], interval=policy["request_interval_seconds"])
-            if phase == "initial" and p._read(ledger_path)["attempts"]:
-                raise ValueError("Initial phase already used this task ledger; use explicit service recovery")
+                total=policy["total_attempt_limit"], interval=policy["request_interval_seconds"],
+                scope="review_subset" if review_pairs else "frozen_study")
+            if phase in ("initial", "review") and p._read(ledger_path)["attempts"]:
+                raise ValueError("This task ledger already has attempts; declare a new review subset "
+                                 "or use explicit service recovery")
         except BaseException:
             lock.unlink()
             raise
 
     def checkpoint() -> dict[str, Any]:
-        value = {"mode": manifest["mode"], "phase": phase, "planned_branch_count": len(selected),
+        value = {"mode": manifest["mode"], "phase": phase,
+            "execution_scope": manifest["execution_scope"],
+            "planned_branch_count": len(selected),
             "eligible_branch_count": sum(r["eligibility_decision"] == "proceed" for r in selected),
             "llm_http_attempts": attempts, "stopped_reason": stopped, "stop_details": details,
             "completed_branch_count": len(rows), "rows": rows, "human_review_required": True}
