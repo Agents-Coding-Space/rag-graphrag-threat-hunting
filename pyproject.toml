@@ -8,10 +8,30 @@ version = "0.1.0"
 description = "Mordor inspection tooling for a RAG, GraphRAG, and LLM threat-hunting research project."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["PyYAML==6.0.3", "sentence-transformers==6.1.0", "python-dotenv"]
+# Direct dependencies the source actually imports. Every one is pinned so a fresh install does
+# not silently drift into a different retrieval score (see docs/REPRODUCIBILITY.md).
+dependencies = [
+    "PyYAML==6.0.3",
+    "sentence-transformers==6.1.0",
+    "python-dotenv==1.2.1",
+    "fastapi==0.141.1",
+    "uvicorn==0.49.0",
+    "pydantic==2.12.5",
+    "httpx==0.28.1",
+]
 
 [project.optional-dependencies]
-test = ["pytest==9.1.1"]
+test = ["pytest==9.0.2"]
+# Frozen numeric stack. Retrieval scores are floating point, so the exact numpy/torch build
+# affects the last digits of a cosine score (documented tolerance in docs/REPRODUCIBILITY.md).
+numeric = [
+    "numpy==2.3.4",
+    "torch==2.12.0",
+    "transformers==5.17.0",
+    "huggingface-hub==1.7.1",
+    "scikit-learn==1.9.1",
+    "scipy==1.17.1",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

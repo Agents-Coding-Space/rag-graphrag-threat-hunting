@@ -94,8 +94,11 @@ class TaskBudget:
 
     def remaining(self, phase: str) -> int:
         state = p._read(self.path)
+        # A review subset spends from the same single pool as an initial phase; it is a declared
+        # scope, not a second budget, so it must never read a separate allowance.
+        bucket = "initial" if phase == "review" else phase
         used = sum(a["phase"] == phase for a in state["attempts"])
-        return min(self.limits[phase] - used, self.limits["total"] - len(state["attempts"]))
+        return min(self.limits[bucket] - used, self.limits["total"] - len(state["attempts"]))
 
     def reserve(self, phase: str, key: str, batch: str) -> int:
         if self.remaining(phase) <= 0:

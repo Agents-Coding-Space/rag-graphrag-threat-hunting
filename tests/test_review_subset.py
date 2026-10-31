@@ -13,9 +13,9 @@ sys.path.insert(0, str(ROOT / "src"))
 from threat_hunting.evaluation import experimental_comparison as p  # noqa: E402
 from threat_hunting.evaluation import final_experiment as final  # noqa: E402
 
-V11_CONFIG = ROOT / "configs/evaluation/integrated_final_direct_v12.json"
-V11_PIN = ROOT / "outputs/final/20261101_direct_v12/runtime_pin.json"
-V11_PREFLIGHT = ROOT / "outputs/final/20261101_direct_v12/preflight"
+V11_CONFIG = ROOT / "configs/evaluation/integrated_final_direct_v13.json"
+V11_PIN = ROOT / "outputs/final/20261101_direct_v13/runtime_pin.json"
+V11_PREFLIGHT = ROOT / "outputs/final/20261101_direct_v13/preflight"
 
 
 def _config():

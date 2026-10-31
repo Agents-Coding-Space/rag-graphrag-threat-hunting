@@ -87,7 +87,7 @@ def test_final_first_phase_calls_eligible_only_and_spaces_attempts(study, monkey
     assert len(result["rows"]) == 24
     assert sum(r["outcome"] == "abstain" for r in result["rows"]) == 8
     assert all(b - a >= 62 for a,b in zip(calls, calls[1:]))
-    with pytest.raises(ValueError, match="Initial phase already used"):
+    with pytest.raises(ValueError, match="This task ledger already has attempts"):
         execute(study, "second-initial", clock, live=True)
     assert len(calls) == 16
 
