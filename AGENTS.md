@@ -2,7 +2,9 @@
 
 # AGENTS.md
 
-**Status updated:** 31/10/2026
+**Status updated:** 01/11/2026
+
+> **ĐỌC TRƯỚC:** trạng thái hiện hành ở [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md). Profile hiện hành là **integrated-final-direct-v14**, không phải v7. Các chỉ dẫn ngày 31/10 dưới đây là lịch sử; phần "Working source đã khác pin" đã được xử lý bằng pin v14.
 
 ## 1. Project context
 

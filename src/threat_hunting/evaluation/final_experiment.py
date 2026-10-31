@@ -19,9 +19,26 @@ from . import experimental_comparison as p
 
 
 def snapshot(path: Path, data: Any) -> None:
+    """Write via a temporary file, then replace atomically.
+
+    On Windows a replace can fail with WinError 5 while another process (typically an
+    antivirus scanner, or a reader that opened the file a moment earlier) still holds the
+    target or the temporary file. The content is already durable in the temporary file at that
+    point, so the replace is retried briefly instead of losing the checkpoint. A genuine
+    permission problem still surfaces after the bounded retries.
+    """
     temporary = path.with_suffix(path.suffix + ".tmp")
     p._write(temporary, data)
-    os.replace(temporary, path)
+    last_error: OSError | None = None
+    for attempt in range(5):
+        try:
+            os.replace(temporary, path)
+            return
+        except PermissionError as exc:  # WinError 5: target briefly locked
+            last_error = exc
+            time.sleep(0.05 * (attempt + 1))
+    if last_error is not None:
+        raise last_error
 
 
 def utc_now() -> float:

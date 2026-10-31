@@ -1,44 +1,104 @@
-# Bắt đầu từ đây — ZIP bàn giao 31/10/2026
+# BẮT ĐẦU TỪ ĐÂY
 
-Đây là bản phân phối source, tests, tài liệu và artifacts, kèm **đủ 10 inputs gốc**. Dự án gốc không bị sửa. Gói không chứa `.env`, credential databases, môi trường ảo, node_modules, browser profiles hoặc ZIP lồng/trùng. `.env.example` để key rỗng. Model cache E5 không đóng kèm; xem [E5_MODEL.md](E5_MODEL.md).
+**Profile hiện hành:** `integrated-final-direct-v17` — xem [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) để biết trạng thái đầy đủ và giới hạn.
 
-## Kiểm gói sau giải nén
+> Tài liệu này đã được viết lại ngày 01/11/2026. Các phiên bản trước chỉ dẫn profile v7 (đã thất bại vì HTTP 402) và bị lệch pin. Nếu anh đọc một tài liệu nào còn nói v7 là bản cuối, tài liệu đó là lịch sử.
 
-Mở PowerShell tại thư mục chứa file này, dùng Python >=3.11:
+## 1. Cài đặt (một lần)
 
-```powershell
-py -3 -B verify_package.py
-```
-
-Lệnh chỉ đọc file: kiểm inventory SHA-256, 10 inputs, raw/canonical counts, historical provenance qua path map, cả hai bộ consumers và ba CTI snapshots/citation offsets. Không truy cập mạng, không load embedding, không gọi LLM hoặc benchmark. Kết quả mong đợi `status: passed`, raw/canonical đều 29510, selected_inputs_verified=10. [packaging/prearchive_verification.json](packaging/prearchive_verification.json) ghi lần kiểm trước đóng gói; kết quả CRC/giải nén nằm trong báo cáo kiểm tra cạnh ZIP.
-
-Muốn kiểm thêm schema của repository sau khi cài dependencies:
-
-```powershell
+```cmd
 py -3.12 -m venv .venv
-.venv\Scripts\python.exe -m pip install -e '.[test]'
-.venv\Scripts\python.exe -B verify_package.py --schemas
+.venv\Scripts\python.exe -m pip install -e ".[test,numeric]"
+Set-Location frontend
+npm.cmd ci
+npm.cmd run build
+Set-Location ..
 ```
 
-Không đặt file mới vào thư mục gói trước bước kiểm manifest toàn bộ. Nếu đã tạo `.venv` hoặc outputs mới, dùng bản giải nén sạch để xác minh inventory gốc; `.venv` không phải thành phần ZIP. Muốn cài riêng trước rồi kiểm schema, có thể tạo virtualenv ngoài thư mục giải nén. Backend còn các dependencies ghi trong [HANDOVER.md](HANDOVER.md); `pyproject.toml` hiện chưa là lock đầy đủ cho dashboard.
+Python 3.11+ được hỗ trợ. Môi trường đã dùng để sinh ra các số liệu báo cáo: Python **3.14.0**, numpy 2.3.4, torch 2.12.0+cpu. Chi tiết đầy đủ ở [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
-## Đường dẫn và provenance
+## 2. Cấu hình LLM
 
-- Inputs đã ở `data/raw/...` và `data/knowledge/...`; [packaging/inputs.json](packaging/inputs.json) liệt kê đủ đường tương đối và SHA-256. Không cần thư mục data ở máy cũ.
-- Bản gốc các consumers/manifests/history giữ trong `outputs/`. Các absolute paths cũ là metadata lịch sử, không phải yêu cầu tạo ổ/thư mục giống máy cũ. Verifier ánh xạ chúng bằng [packaging/path_migration.json](packaging/path_migration.json), rồi kiểm file thật **bên trong bản giải nén**.
-- Bản dùng đường tương đối mới ở [portable/runtime_artifacts.json](portable/runtime_artifacts.json) và `portable/consumers/<scenario_id>/`. Chỉ đổi input paths và các hash bindings cần thiết của GT→corpus/graph→index; không đổi labels, approval, evidence, chunk contents, vectors hoặc model revision. Không generation/re-embedding.
-- Bản portable là migration cho bàn giao, **chưa phải benchmark hoặc generation pin mới**. Muốn dùng trong runtime, tạo config/preflight/pin mới theo HANDOVER. Không sửa pin/ledger lịch sử hoặc dùng portable hashes để giả tái lập một live run cũ.
+```cmd
+copy .env.example .env
+notepad .env
+```
 
-## Trạng thái cần tiếp tục
+Điền `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY`. `.env` nằm trong `.gitignore` và không bao giờ được commit.
 
-Working source đã có bốn file đổi + một module mới so với pin v7 trước khi đóng gói. Gói giữ nguyên sự khác biệt đó; các lệnh dùng source hiện tại với pin cũ có thể bị chặn. Đây là việc cần xử lý tiếp theo, không phải lỗi thiếu inputs trong ZIP. Không tuyên bố dashboard/generation đã được nghiệm thu qua việc CRC thành công.
+Nhóm biến trong `.env.example` có ghi rõ biến nào **ảnh hưởng pin** (đổi phải tạo pin mới) và biến nào không.
 
-Bộ v7 còn 8 abstain, 1 provider_error và 15 not_run, chưa có model answer. Không trộn kết quả cũ để lấp. Đọc [HANDOVER.md](HANDOVER.md), [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md), tổng kết cuối [PROJECT_PROGRESS.md](PROJECT_PROGRESS.md). Giữ ba scenario, đề tài/mục lục và dashboard ba cột. Người nhận được chọn local/API LLM; trong mỗi bộ so sánh phải dùng cùng LLM/params cho RAG và GraphRAG.
+## 3. Ba lệnh chạy chính
 
-## Nội dung đã lược hoặc làm sạch
+### Kiểm gói offline (không cần mạng, không gọi LLM)
 
-[packaging/distribution_changes.json](packaging/distribution_changes.json) liệt kê exclusions và hashes của các bản đã che credential, không lưu giá trị secrets. README/HUONG_DAN_CHAY cũ được lưu dưới [docs/history](docs/history/) với credential đã che và cảnh báo nội dung lịch sử. Hai video demo tùy chọn không được đóng vì chưa kiểm từng frame; giữ 40 screenshots/QA reports và source quay demo. Không loại tests/fixtures, failed/rejected results hoặc toàn bộ outputs/review.
+```cmd
+.venv\Scripts\python.exe -B verify_package.py
+```
 
-Thesis Word/đề cương PDF chính thức chưa có trong checkout và không nằm trong ZIP; có bản Markdown và lịch sử hiện có. Đây là bàn giao implementation/artifacts, chưa phải bộ hồ sơ nộp luận văn cuối. Các directories test scratch bị access denied đã được loại theo tên, không sửa quyền dự án gốc.
+### Chạy dashboard ba cột (offline, không gọi LLM)
 
-Không gọi LLM, benchmark, commit hoặc push để kiểm gói. API keys phải do người nhận tự cấu hình cục bộ; không đưa chúng vào artifacts/ZIP.
+```cmd
+.venv\Scripts\python.exe -B scripts\serve_experimental_ui.py ^
+  --config configs\evaluation\integrated_final_direct_v17.json ^
+  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
+  --port 8031 --output outputs\demo\demo-v17
+```
+
+Mở <http://127.0.0.1:8031/>.
+
+### Chạy thực nghiệm offline (0 request LLM)
+
+```cmd
+.venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
+  --config configs\evaluation\integrated_final_direct_v17.json ^
+  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --output outputs\experiments\my-dryrun-01
+```
+
+## 4. Chạy live (tùy chọn, có kiểm soát)
+
+Live run tiêu tốn request thật. Có hai chế độ:
+
+**Kiểm nhanh 6 nhánh** (khuyến nghị lần đầu — trần cứng 6 request):
+
+```cmd
+.venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
+  --config configs\evaluation\integrated_final_direct_v17.json ^
+  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --output outputs\experiments\my-review-01 ^
+  --review-selection "AUTH-DIRECT:rag,AUTH-DIRECT:graphrag,PS-DIRECT:rag,PS-DIRECT:graphrag,NET-DIRECT:rag,NET-DIRECT:graphrag" ^
+  --live --review-max-attempts 6
+```
+
+**Toàn bộ 16 nhánh eligible** — thêm `--live` vào lệnh dry-run ở mục 3, bỏ `--review-selection`.
+
+Cả hai đều dùng chung task ledger, pacing 60 giây, stop policy và không retry ngầm.
+
+## 5. Chạy kiểm thử
+
+```cmd
+.venv\Scripts\python.exe -m pytest tests\ -q
+.venv\Scripts\python.exe -B scripts\verify_env_config.py
+```
+
+Số liệu hiện hành: **6720 passed, 29 skipped, 0 failed, 0 errors**. 29 skip đều là fixture lịch sử có lý do ghi rõ — không phải test bị xóa.
+
+## 6. Nếu có gì không chạy
+
+| Triệu chứng | Nguyên nhân thường gặp |
+|---|---|
+| `Frozen runtime changed; an explicit execution delta pin is required` | Mã nguồn đã bị sửa so với pin. Đây là **hành vi đúng**. Tạo pin mới bằng `scripts/pin_integrated_runtime.py` sau khi sinh preflight mới |
+| `Task ledger profile or budget changed` | Ledger đã có attempt với giới hạn khác. Không reset; khai báo subset mới hoặc dùng ledger mới |
+| `Evaluated runtime module changed: ...` | Fixture dashboard lịch sử đang chạy trên code hiện tại. Dùng profile hiện hành |
+| Thiếu model E5 | Cache `intfloat/multilingual-e5-small` revision `614241f6...` chưa có. Xem [E5_MODEL.md](E5_MODEL.md) |
+
+## 7. Đọc tiếp theo thứ tự
+
+1. [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) — trạng thái thật, đã làm gì, chưa làm gì
+2. [Thuc_trang.md](Thuc_trang.md) — kết quả thực nghiệm và giới hạn diễn giải
+3. [docs/REVIEW_FIXES_20261101/report.md](docs/REVIEW_FIXES_20261101/report.md) — bản sửa lỗi theo review
+4. [HANDOVER.md](HANDOVER.md) — hồ sơ bàn giao kỹ thuật
+5. [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) — bối cảnh đồ án và phạm vi

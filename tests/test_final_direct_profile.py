@@ -53,8 +53,8 @@ def test_final_dashboard_live_cannot_bypass_task_ledger():
 
 def test_active_profile_validates_and_is_dashboard_ready():
     """The current profile must still validate end to end, offline, with no LLM client."""
-    active = ROOT / "configs/evaluation/integrated_final_direct_v14.json"
-    base = ROOT / "outputs/final/20261101_direct_v14"
+    active = ROOT / "configs/evaluation/integrated_final_direct_v17.json"
+    base = ROOT / "outputs/final/20261101_direct_v17"
     config, pin, results, model = validate_preflight(active, base / "runtime_pin.json", base / "preflight")
     assert len(results["rows"]) == 24
     assert sum(r["eligibility_decision"] == "proceed" for r in results["rows"]) == 16
@@ -66,5 +66,5 @@ def test_active_profile_validates_and_is_dashboard_ready():
     with TestClient(create_app(session)) as client:
         assert client.get("/").status_code == 200
         meta = client.get("/experimental-api/config").json()
-        assert meta["profile_id"] == "integrated-final-direct-v14"
+        assert meta["profile_id"] == "integrated-final-direct-v17"
         assert meta["maximum_llm_requests"] == 0

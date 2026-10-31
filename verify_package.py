@@ -50,18 +50,41 @@ def resolve_historical(value):
     return safe_relative(value.replace("\\", "/"))
 
 
+RELEASE_MANIFEST = ROOT / "packaging/release_manifest_20261101.json"
+HISTORICAL_MANIFEST = ROOT / "packaging/package_manifest.json"
+
+
 def verify(schemas=False, manifest=True):
     counts = {}
     if manifest:
-        inventory = read(ROOT / "packaging/package_manifest.json")["files"]
-        actual = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file()}
-        expected = set(inventory) | {"packaging/package_manifest.json"}
-        if actual != expected:
-            raise ValueError("Extracted package file set differs from the manifest")
-        for name, entry in inventory.items():
-            path = safe_relative(name)
-            if path.stat().st_size != entry["size_bytes"] or sha(path) != entry["sha256"]:
-                raise ValueError("Package content hash mismatch: " + name)
+        if RELEASE_MANIFEST.is_file():
+            # A newer release manifest describes this checkout. The historical packaging
+            # manifest stays on disk unchanged and is verified as a checksummed artifact
+            # rather than as the inventory of the working tree.
+            release = read(RELEASE_MANIFEST)
+            inventory = {name: {"sha256": value} for name, value in release["files"].items()}
+            # The manifest cannot hash itself; skip its own entry the same way the historical
+            # inventory excluded packaging/package_manifest.json.
+            inventory.pop(RELEASE_MANIFEST.relative_to(ROOT).as_posix(), None)
+            for name, entry in inventory.items():
+                path = safe_relative(name)
+                if not path.is_file() or sha(path) != entry["sha256"]:
+                    raise ValueError("Release manifest content hash mismatch: " + name)
+            historical = (release.get("historical_manifest_preserved") or {})
+            if historical and sha(ROOT / historical["path"]) != historical["sha256"]:
+                raise ValueError("Historical packaging manifest was modified")
+            counts["release_manifest"] = release.get("release_id", "unknown")
+            counts["release_files_verified"] = len(inventory)
+        else:
+            inventory = read(HISTORICAL_MANIFEST)["files"]
+            actual = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file()}
+            expected = set(inventory) | {"packaging/package_manifest.json"}
+            if actual != expected:
+                raise ValueError("Extracted package file set differs from the manifest")
+            for name, entry in inventory.items():
+                path = safe_relative(name)
+                if path.stat().st_size != entry["size_bytes"] or sha(path) != entry["sha256"]:
+                    raise ValueError("Package content hash mismatch: " + name)
         counts["manifest_files_verified"] = len(inventory)
     inputs = read(ROOT / "packaging/inputs.json")["inputs"]
     if len(inputs) != 10 or len({x["filename"] for x in inputs}) != 10:

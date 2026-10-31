@@ -1,3 +1,5 @@
+> **ĐỌC TRƯỚC:** trạng thái hiện hành nằm ở [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md). Tài liệu dưới đây mô tả **hồ sơ bàn giao ngày 31/10/2026** tại profile v7 và được giữ nguyên làm lịch sử. v7 đã thất bại (HTTP 402, 0 câu trả lời). Profile hiện hành là **v14**; các lỗi nêu dưới đây đã được xử lý ngày 01/11/2026 — xem [docs/REVIEW_FIXES_20261101/](docs/REVIEW_FIXES_20261101/).
+
 > Distribution note: this is the staged handover copy. Inputs are now included under data/. See START_HERE.md and packaging/path_migration.json for portable paths; dated instructions below describe earlier tasks.
 
 # Hồ sơ bàn giao dự án

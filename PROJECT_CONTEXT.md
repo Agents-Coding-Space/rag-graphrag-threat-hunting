@@ -1,3 +1,5 @@
+> **ĐỌC TRƯỚC:** trạng thái hiện hành ở [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md). Tài liệu này giữ bối cảnh đồ án và phạm vi; các đoạn nói "hiện trạng v7" là lịch sử.
+
 > Distribution note: this is the staged handover copy. Inputs are now included under data/. See START_HERE.md and packaging/path_migration.json for portable paths; dated instructions below describe earlier tasks.
 
 # HỒ SƠ TRẠNG THÁI ĐỒ ÁN TỐT NGHIỆP
@@ -24,7 +26,7 @@
 
 Đồ án **không nhằm huấn luyện lại LLM**. LLM được dùng như thành phần phân tích và sinh câu trả lời dựa trên ngữ cảnh đã được truy xuất.
 
-**Hiện trạng ngày 31/10/2026:** đã có integrated consumers cho cả ba kịch bản, MITRE/Sigma/CTI, E5 retrieval, graph, evidence gate, generation/validation và dashboard ba cột. Bộ cuối v7 chưa hoàn tất: 8 abstain, 1 provider_error, 15 not_run; chưa có generated answer. Working source hiện khác pin v7. Xem trạng thái và kiến trúc dưới đây cùng [HANDOVER.md](HANDOVER.md).
+**Hiện trạng ngày 01/11/2026:** profile **v14** đóng băng (pin 107 file, preflight 24 planned / 16 eligible / 0 HTTP). Test suite **6720 passed, 29 skipped, 0 failed**. Smoke 6 nhánh live: 5 accepted, 1 abstain, 0 lỗi. Bộ v7 ngày 31/10 đã thất bại vì HTTP 402 và được giữ làm lịch sử. Chi tiết và giới hạn: [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md).
 
 Các dự án NIDS/CIC-IDS-2017, SOC lab, Solana, Hyperledger Fabric/OpenSSL và IAM/Keycloak **không thuộc phạm vi đồ án hiện tại**, trừ khi sau này sinh viên đưa ra quyết định tích hợp rõ ràng. Trong đó, dự án học sâu chống truy cập mạng trái phép hiện được xem là một dự án riêng, không gộp vào đề tài RAG/GraphRAG/LLM.
 

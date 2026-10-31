@@ -1,7 +1,28 @@
-# Bản phân phối bàn giao dự án
+# HƯỚNG DẪN CHẠY NHANH
 
-Bắt đầu tại [START_HERE.md](START_HERE.md): kiểm ZIP offline, đường dẫn portable, cài đặt và giới hạn hiện tại. Đọc [HANDOVER.md](HANDOVER.md) để tiếp tục triển khai; [E5_MODEL.md](E5_MODEL.md) để tải đúng embedding revision.
+Bắt đầu tại [START_HERE.md](START_HERE.md) — có đủ lệnh cài đặt, chạy dashboard, chạy thực nghiệm và xử lý sự cố.
 
-Đã kèm đủ mười inputs trong data/. Không có .env hoặc API key; dùng .env.example và tự cấu hình cục bộ. Không yêu cầu một LLM/provider cụ thể. Source hiện còn lệch pin v7, nên đây không phải tuyên bố pipeline generation/dashboard đã nghiệm thu.
+**Ba lệnh cần nhớ:**
 
-Tài liệu cũ đã che credential ở [docs/history/HUONG_DAN_CHAY.before_packaging.md](docs/history/HUONG_DAN_CHAY.before_packaging.md); metric hoặc ví dụ kết nối trong đó là lịch sử, không phải kết quả kiểm chứng hiện hành.
+```cmd
+REM 1. Kiểm gói offline (không mạng, không gọi LLM)
+.venv\Scripts\python.exe -B verify_package.py
+
+REM 2. Dashboard ba cột (offline)
+.venv\Scripts\python.exe -B scripts\serve_experimental_ui.py --config configs\evaluation\integrated_final_direct_v17.json --pin outputs\final\20261101_direct_v17\runtime_pin.json --port 8031 --output outputs\demo\demo-v17
+
+REM 3. Kiểm thử
+.venv\Scripts\python.exe -m pytest tests\ -q
+```
+
+**Profile hiện hành:** `integrated-final-direct-v17`
+**Trạng thái test:** 6720 passed, 29 skipped, 0 failed, 0 errors
+**Dashboard:** <http://127.0.0.1:8031/> (chỉ offline/replay với profile cuối)
+
+Cần API key: copy `.env.example` thành `.env` rồi điền. Không commit `.env`.
+
+Đọc thêm:
+- [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) — trạng thái thật và giới hạn
+- [Thuc_trang.md](Thuc_trang.md) — kết quả thực nghiệm
+- [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) — môi trường và dung sai số thực
+- [docs/DASHBOARD_QA_CHECKLIST.md](docs/DASHBOARD_QA_CHECKLIST.md) — checklist kiểm dashboard bằng tay

@@ -1,6 +1,6 @@
 # DASHBOARD QA CHECKLIST (manual, browser)
 
-The automated pass covers the HTTP layer only (see `outputs/final/20261101_direct_v14/dashboard_qa.json`).
+The automated pass covers the HTTP layer only (see `outputs/final/20261101_direct_v17/dashboard_qa.json`).
 No controllable browser was available during the review fixes, so **no visual QA is claimed**.
 This checklist is what a person must run by hand, and what to record.
 
@@ -8,9 +8,9 @@ This checklist is what a person must run by hand, and what to record.
 
 ```cmd
 python -B scripts/serve_experimental_ui.py ^
-  --config configs\evaluation\integrated_final_direct_v14.json ^
-  --pin outputs\final\20261101_direct_v14\runtime_pin.json ^
-  --port 8031 --output outputs\demo\qa-manual-v14
+  --config configs\evaluation\integrated_final_direct_v17.json ^
+  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
+  --port 8031 --output outputs\demo\qa-manual-v17
 ```
 
 Open <http://127.0.0.1:8031/>. Offline mode only: `maximum_llm_requests` must read 0, and the

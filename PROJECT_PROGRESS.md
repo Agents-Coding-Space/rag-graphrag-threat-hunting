@@ -533,3 +533,24 @@ Hồ sơ: cập nhật PROJECT_CONTEXT.md (hiện trạng/kiến trúc, giữ l�
 Snapshot bảo toàn trước sửa gồm7.428files; loại caches/node_modules/browser profiles/pytest scratch. Bốn test-temp directories access denied không đọc/đổi quyền: outputs/offline/harness-recovery-v1-final-checks, harness-recovery-v1-pytest, harness-recovery-v1-pytest-verified và outputs/review/experimental_checkpoint_20261026/harness_test_tmp_v2. Không tuyên bố đã rà nội dung các thư mục này. Kiểm links/hash cuối được ghi tiếp sau xác minh.
 
 Kiểm cuối hoàn tất: 148 liên kết cục bộ trong phần tài liệu hiện hành đều tồn tại. Snapshot7.428files ngoài sáu tài liệu/mẫu được phép thay đổi giữ cùng aggregate SHA-256 trước/sau: 953af2392661e2174bb46fcd6b23000f0c77ba3088b1dc4bf128ebeee4e3f870. Prefix69.881bytes của PROJECT_PROGRESS giữ SHA-256 f86d2d2bb9e4151577ae3707cbc1769b1fdceabe98c759105d7b8432c98296ee. Tài liệu mới không có chuỗi credential theo mẫu đã rà; .env.example key rỗng. Không khẳng định nội dung cache/test-temp bị access denied. Không phát sinh output runtime hoặc thay đổi inputs.
+
+## 24. Sửa lỗi theo review độc lập — 01/11/2026
+
+Nhận hồ sơ review tại `review/` (report.md, findings.md, commands_and_tests.md, prompt.txt) với 11 finding F01–F11. Toàn bộ nội dung lịch sử phía trên được giữ nguyên. Đây là bản ghi việc sửa lỗi, không phải viết lại lịch sử.
+
+**Kết quả tổng:** 11/11 finding đã xử lý. Test suite từ `6715 passed / 8 failed / 26 errors` xuống **`6720 passed / 29 skipped / 0 failed / 0 errors`**.
+
+**Bốn lỗi nội dung/chức năng chính (P1):**
+
+- **F10 — SSE legacy dựng sẵn verdict.** `GET /api/hunt/stream` trả narrative và `MALICIOUS` hardcode cho mọi câu hỏi, kể cả câu thời tiết, và không đi qua `assess_query_scope`. Đã bỏ hoàn toàn narrative/verdict; route giờ chạy cùng scope + cổng hai tầng như `POST /api/hunt` và trả `status=proceeded_without_generation`, `verdict=null`, `analysis_generated=false`. Test chặn tái phát gồm cả so khớp SSE với POST trên cùng câu ngoài phạm vi.
+- **F01 — phủ định che claim ở mệnh đề khác.** Câu "Không có IP nguồn, nhưng host dùng C2 để nhận lệnh" bị phân loại là caveat vì cửa sổ ký tự vắt sang mệnh đề bên kia. Phủ định giờ **clause-local**; dấu `,`/`hoặc`/`hay` trong liệt kê không tách mệnh đề; thêm kiểm affirmative-use để mệnh đề giới hạn không bị đọc ngược thành claim. 18/18 probe đúng, gồm 4 counterexample review đưa ra.
+- **F02 — Status/SubStatus không bind với event.** Report `AUTH-CTI/GraphRAG` ghi gộp `Status 0xc000006a, SubStatus 0xc000006a` trong khi 4625 ghi `0xc000006d` + `0xc000006a` và 4776 chỉ ghi `0xc000006a`, không có SubStatus. Đã thêm kiểm bind theo từng event; report cũ **giữ nguyên làm regression fixture** và giờ bị chặn đúng. Validator cũ đã đánh `passed` cho report sai này — đây là bằng chứng "vượt validator ≠ đúng nội dung".
+- **F03 — tham số validator không nằm trong pin.** `VALIDATOR_NETWORK_LOOKBEHIND/LOOKAHEAD` đổi được kết quả validation nhưng pin không ghi. Effective validator policy giờ vào `_safe_config()`, có upper bound 400 và fallback khi giá trị hỏng.
+
+**F04 — sửa kết luận vượt bằng chứng.** `Thuc_trang.md` bỏ tuyên bố "thắng áp đảo 6–0"; thêm mục 6A tách bốn tầng (coverage / draft acceptance / nội dung-citation / thời gian), ghi rõ RAG dùng hybrid BM25+vector+RRF chứ không phải vector-only, sửa danh sách 6 câu chênh lệch (có PS-DIRECT, không chỉ CORRELATE/CTI/LIMIT), và nêu ca `AUTH-CTI/GraphRAG` như phản ví dụ thay vì giấu.
+
+**F07 — chế độ kiểm live có giới hạn.** Thêm `--review-selection` cho `run_final_experiment.py`: chọn trước cặp case/branch từ preflight đã đóng băng, dùng chung generator/pin/ledger/stop policy, trần cứng 6 nhánh và 6 attempt, ledger riêng, không resume, không mượn delta pin, abstain không tốn request. Smoke khai báo trước: 6 nhánh, dùng **5/6 request**, 5 accepted, 1 abstain, 0 provider error. Chấm nội dung tách riêng: factual 5/5, citation 5/5, trả lời đúng câu hỏi 5/5, giữ giới hạn bằng chứng 6/6.
+
+**F05/F06/F08/F09/F11:** khai báo đủ dependency trực tiếp + extra `numeric` trong `pyproject.toml`, thêm `docs/REPRODUCIBILITY.md` và `scripts/record_execution_environment.py`, định nghĩa `reproducibility-tolerance/v1` (1e-6, chỉ áp cho score, không bao giờ áp cho hash artifact hay cho hit order/gate); `verify_env_config.py` từ exit 1 thành exit 0 với 6 nhóm kiểm; npm advisories từ 1 high + 2 moderate về **0**; tài liệu viết lại theo profile v14; 3 test kỳ vọng v3 lạc hậu được sửa đúng contract (schema đã hỗ trợ v3), 26 setup error + 2 profile fail là fixture lịch sử được skip có ghi lý do cụ thể tên module lệch pin.
+
+**Điều phải nêu trung thực:** chưa chấm ngữ nghĩa toàn bộ 16 câu; dashboard mới kiểm HTTP-level (không có browser, không có ảnh chụp, có checklist tay); ground truth vẫn `pending_human_review`; model vẫn là dịch vụ miễn phí bên thứ ba; chưa có live đầy đủ 16 nhánh trên profile v14. Không dùng số smoke để thay benchmark.
