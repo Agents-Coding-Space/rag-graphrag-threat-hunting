@@ -1,10 +1,12 @@
 {
   "schema_version": "review-fixes-changeset/v3",
-  "generated_utc": "2026-11-01T07:43:04.006184+00:00",
+  "generated_utc": "2026-11-01T08:08:05.609014+00:00",
   "baseline_commit": "2b48d8d~1",
-  "head_commit_at_generation": "501204b",
-  "note": "Tệp này được sinh lại sau commit 501204b, là HEAD thật tại thời điểm tạo.",
+  "head_commit_at_generation": "6b30268",
+  "note": "Sinh lại sau commit 6b30268; đây là HEAD thật tại thời điểm tạo tệp.",
   "commits_since_baseline": [
+    "6b30268 docs: align all hand-off documents with the frozen v18 profile",
+    "98fb5e1 chore: regenerate changed_files.json and release manifest at final HEAD",
     "501204b fix(F11+F07+D): close the six defects the independent auditor found",
     "33c0075 docs(F01-F11): delivery package for the review fixes",
     "7806fc1 docs(F09)+fix: current-status entry point, release manifest, Windows lock retry",
