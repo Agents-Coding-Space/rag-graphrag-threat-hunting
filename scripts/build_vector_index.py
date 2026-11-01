@@ -39,6 +39,7 @@ from threat_hunting.retrieval.vector_schema import (  # noqa: E402
     SUPPORTED_DISTANCE_METRICS,
     SUPPORTED_NORMALIZATIONS,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 CONFIG_SCHEMA_VERSION = "vector-index-build-config/v1"
@@ -331,7 +332,7 @@ def _restore_output(output_path: Path, previous_bytes: bytes | None) -> None:
         return
     restore_path = _write_temporary_payload(output_path, previous_bytes)
     try:
-        os.replace(restore_path, output_path)
+        replace_with_retry(restore_path, output_path)
     finally:
         restore_path.unlink(missing_ok=True)
 
@@ -362,7 +363,7 @@ def _write_atomic(
             raise VectorIndexCliError(
                 f"temporary output failed byte read-back: {temporary_path}"
             )
-        os.replace(temporary_path, output_path)
+        replace_with_retry(temporary_path, output_path)
         temporary_path = None
     finally:
         if temporary_path is not None:

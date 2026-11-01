@@ -16,9 +16,10 @@ Hệ thống đã hoàn thành và **chạy thực nghiệm thành công trên d
 |---|---:|---:|
 | Câu trả lời được chấp nhận | 5/12 (42%) | **11/12 (92%)** |
 | Câu bị cổng bằng chứng từ chối | 7/12 | **1/12** |
-| Câu **chỉ GraphRAG** giải quyết được | — | **6 câu** |
+| Câu **chỉ GraphRAG** vượt cổng (chưa chấm nội dung) | — | **6 câu** |
 | Câu **chỉ RAG** giải quyết được | **0 câu** | — |
-| Số nút đồ thị duyệt trung bình | 0 | 20,7 nút / 30,7 cạnh |
+| Nút/cạnh đồ thị duyệt (TB 11 nhánh không abstain) | 0 | **20,73 nút / 30,73 cạnh** |
+| Nút/cạnh đồ thị duyệt (TB cả 12 nhánh, abstain tính 0) | 0 | 21,08 nút |
 | Thời gian truy xuất + dựng ngữ cảnh | 0,41 s trung bình | 0,41 s trung bình |
 | Lỗi HTTP khi gọi LLM | **0/16** | **0/16** |
 

@@ -16,29 +16,18 @@ import time
 from typing import Any, Callable
 
 from . import experimental_comparison as p
+from ..atomic_fs import replace_with_retry
 
 
 def snapshot(path: Path, data: Any) -> None:
-    """Write via a temporary file, then replace atomically.
+    """Write via a temporary file, then replace atomically with transient-lock retry.
 
-    On Windows a replace can fail with WinError 5 while another process (typically an
-    antivirus scanner, or a reader that opened the file a moment earlier) still holds the
-    target or the temporary file. The content is already durable in the temporary file at that
-    point, so the replace is retried briefly instead of losing the checkpoint. A genuine
-    permission problem still surfaces after the bounded retries.
+    The retry lives in ``threat_hunting.atomic_fs`` so every writer in the repository shares one
+    implementation instead of three slightly different ones.
     """
     temporary = path.with_suffix(path.suffix + ".tmp")
     p._write(temporary, data)
-    last_error: OSError | None = None
-    for attempt in range(5):
-        try:
-            os.replace(temporary, path)
-            return
-        except PermissionError as exc:  # WinError 5: target briefly locked
-            last_error = exc
-            time.sleep(0.05 * (attempt + 1))
-    if last_error is not None:
-        raise last_error
+    replace_with_retry(temporary, path)
 
 
 def utc_now() -> float:

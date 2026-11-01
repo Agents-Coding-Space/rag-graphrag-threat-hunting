@@ -35,6 +35,7 @@ from threat_hunting.ground_truth import load_ground_truth_document  # noqa: E402
 from threat_hunting.retrieval import (  # noqa: E402
     SentenceTransformerEmbeddingBackend, load_retrieval_corpus, load_vector_index,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 class GraphRAGCalibrationCliError(ValueError):
@@ -151,7 +152,7 @@ def _atomic_write_report(
         else:
             if not overwrite or output_path.read_bytes() != expected_previous:
                 raise GraphRAGCalibrationCliError(f"report changed before overwrite: {output_path}")
-            os.replace(temporary, output_path)
+            replace_with_retry(temporary, output_path)
         installed = True
         load_calibration_report(output_path)
         if output_path.read_bytes() != serialized:
@@ -176,7 +177,7 @@ def _atomic_write_report(
                             rollback.unlink(missing_ok=True)
                             raise
                     try:
-                        os.replace(rollback, output_path)
+                        replace_with_retry(rollback, output_path)
                     finally:
                         rollback.unlink(missing_ok=True)
             except Exception as rollback_error:

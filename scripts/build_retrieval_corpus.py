@@ -29,6 +29,7 @@ from threat_hunting.retrieval import (  # noqa: E402
     load_retrieval_corpus,
     validate_retrieval_corpus,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 _SHA256_PATTERN = re.compile(r"[0-9a-fA-F]{64}\Z")
@@ -124,7 +125,7 @@ def _write_atomic(
             raise RetrievalCorpusCliError(
                 f"temporary output failed deterministic read-back: {temporary_path}"
             )
-        os.replace(temporary_path, output_path)
+        replace_with_retry(temporary_path, output_path)
         created = False
     except Exception:
         if created:

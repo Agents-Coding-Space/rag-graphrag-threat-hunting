@@ -51,7 +51,7 @@ verify_env_config.py-> OVERALL: PASS, exit 0
 Kết quả mong đợi (đo thật):
 
 ```
-6720 passed, 29 skipped, 6 subtests passed in ~14 min
+6726 passed, 29 skipped, 6 subtests passed in ~14 min
 ```
 
 Xem chi tiết skip có lý do:

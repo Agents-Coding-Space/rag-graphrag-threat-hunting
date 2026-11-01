@@ -125,6 +125,16 @@ có trong ngữ cảnh). Dùng làm bằng chứng cổng hoạt động đúng 
 **Không câu nào RAG vượt mà GraphRAG không** — nhưng đây là quan sát trên 12 câu, không phải
 định luật.
 
+### Quy mô đồ thị GraphRAG (đọc từ artifact, ghi rõ mẫu số)
+
+| Cách tính | Nút TB | Cạnh TB |
+|---|---:|---:|
+| 11 nhánh không abstain | **20,73** | **30,73** |
+| Cả 12 nhánh (abstain tính 0) | 21,08 | — |
+
+Nguồn: `result.json` từng nhánh trong `outputs/experiments/integrated-final-v8-live-01/`.
+**Phải ghi mẫu số** khi trích con số này; 20,73 không áp dụng cho cả 12 nhánh.
+
 Nguồn: `outputs/experiments/integrated-final-v8-live-01/results.json`
 
 ### 3.2 Lý do cổng từ chối

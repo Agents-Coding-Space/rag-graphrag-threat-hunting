@@ -11,6 +11,7 @@ import uuid
 from typing import Iterable
 
 from .schemas.canonical_event import canonical_schema_document
+from .atomic_fs import replace_with_retry
 
 
 class ReportingError(ValueError):
@@ -79,7 +80,7 @@ def _write_json_atomic(path: Path, payload: object, overwrite: bool) -> None:
             stream.write("\n")
             stream.flush()
             os.fsync(stream.fileno())
-        os.replace(temporary, path)
+        replace_with_retry(temporary, path)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -96,7 +97,7 @@ def _write_text_atomic(path: Path, text: str, overwrite: bool) -> None:
             stream.write(text)
             stream.flush()
             os.fsync(stream.fileno())
-        os.replace(temporary, path)
+        replace_with_retry(temporary, path)
     finally:
         if temporary.exists():
             temporary.unlink()

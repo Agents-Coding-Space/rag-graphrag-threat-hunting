@@ -26,6 +26,7 @@ from threat_hunting.schemas.canonical_event import (
     CANONICAL_FIELDS,
     CANONICAL_SCHEMA_VERSION,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 EXPECTED_SOURCE_FILE = "cmd_mshta_vbscript_execute_psh_2020-10-2202580804.json"
@@ -217,7 +218,7 @@ def _write_document(
             raise EvidenceExtractionRunError(
                 f"Output already exists; use --overwrite: {output_path}"
             )
-        os.replace(temporary_path, output_path)
+        replace_with_retry(temporary_path, output_path)
     finally:
         if temporary_path.exists():
             temporary_path.unlink()

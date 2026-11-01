@@ -23,6 +23,7 @@ from threat_hunting.schemas.canonical_event import (
     CANONICAL_SCHEMA_VERSION,
     canonical_schema_document,
 )
+from .atomic_fs import replace_with_retry
 
 
 NORMALIZATION_RUN_SCHEMA_VERSION = "normalization-run/v1"
@@ -368,7 +369,7 @@ def _publish_reports(
             for _, final_path in staged:
                 if final_path.exists():
                     backup = _temporary_path(final_path, "bak")
-                    os.replace(final_path, backup)
+                    replace_with_retry(final_path, backup)
                     backups.append((final_path, backup))
         else:
             existing = [final for _, final in staged if final.exists()]
@@ -378,7 +379,7 @@ def _publish_reports(
                     + ", ".join(str(path) for path in existing)
                 )
         for temporary, final_path in staged:
-            os.replace(temporary, final_path)
+            replace_with_retry(temporary, final_path)
             published.append(final_path)
     except Exception:
         for final_path in reversed(published):
@@ -386,7 +387,7 @@ def _publish_reports(
                 final_path.unlink()
         for final_path, backup in reversed(backups):
             if backup.exists():
-                os.replace(backup, final_path)
+                replace_with_retry(backup, final_path)
         raise
     else:
         for _, backup in backups:

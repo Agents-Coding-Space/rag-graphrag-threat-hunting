@@ -27,6 +27,7 @@ from threat_hunting.ground_truth import (  # noqa: E402
     validate_ground_truth_build_config,
     validate_ground_truth_document,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 DEFAULT_SCENARIO_EVIDENCE = (
@@ -250,7 +251,7 @@ def _write_atomic(
             handle.flush()
             os.fsync(handle.fileno())
         _validate_serialized_document(temporary_path.read_bytes(), path=temporary_path)
-        os.replace(temporary_path, output_path)
+        replace_with_retry(temporary_path, output_path)
     except Exception:
         try:
             temporary_path.unlink(missing_ok=True)

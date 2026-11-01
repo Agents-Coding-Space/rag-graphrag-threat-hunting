@@ -36,6 +36,7 @@ from threat_hunting.evaluation import (  # noqa: E402
 from threat_hunting.retrieval.embedding_backend import (  # noqa: E402
     SentenceTransformerEmbeddingBackend,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 class EmbeddingRetrievalCliError(ValueError):
@@ -193,7 +194,7 @@ def _replace_bytes(path: Path, payload: bytes, *, create_only: bool = False) -> 
             # created the output after the initial --overwrite check.
             os.link(temporary, path)
         else:
-            os.replace(temporary, path)
+            replace_with_retry(temporary, path)
     finally:
         if temporary is not None:
             temporary.unlink(missing_ok=True)

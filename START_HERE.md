@@ -1,6 +1,6 @@
 # BẮT ĐẦU TỪ ĐÂY
 
-**Profile hiện hành:** `integrated-final-direct-v17` — xem [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) để biết trạng thái đầy đủ và giới hạn.
+**Profile hiện hành:** `integrated-final-direct-v18` — xem [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) để biết trạng thái đầy đủ và giới hạn.
 
 > Tài liệu này đã được viết lại ngày 01/11/2026. Các phiên bản trước chỉ dẫn profile v7 (đã thất bại vì HTTP 402) và bị lệch pin. Nếu anh đọc một tài liệu nào còn nói v7 là bản cuối, tài liệu đó là lịch sử.
 
@@ -40,9 +40,9 @@ Nhóm biến trong `.env.example` có ghi rõ biến nào **ảnh hưởng pin**
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\serve_experimental_ui.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --port 8031 --output outputs\demo\demo-v17
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --port 8031 --output outputs\demo\demo-v18
 ```
 
 Mở <http://127.0.0.1:8031/>.
@@ -51,9 +51,9 @@ Mở <http://127.0.0.1:8031/>.
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v18\preflight ^
   --output outputs\experiments\my-dryrun-01
 ```
 
@@ -65,9 +65,9 @@ Live run tiêu tốn request thật. Có hai chế độ:
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v18\preflight ^
   --output outputs\experiments\my-review-01 ^
   --review-selection "AUTH-DIRECT:rag,AUTH-DIRECT:graphrag,PS-DIRECT:rag,PS-DIRECT:graphrag,NET-DIRECT:rag,NET-DIRECT:graphrag" ^
   --live --review-max-attempts 6
@@ -84,7 +84,7 @@ Cả hai đều dùng chung task ledger, pacing 60 giây, stop policy và không
 .venv\Scripts\python.exe -B scripts\verify_env_config.py
 ```
 
-Số liệu hiện hành: **6720 passed, 29 skipped, 0 failed, 0 errors**. 29 skip đều là fixture lịch sử có lý do ghi rõ — không phải test bị xóa.
+Số liệu hiện hành: **6726 passed, 29 skipped, 0 failed, 0 errors**. 29 skip đều là fixture lịch sử có lý do ghi rõ — không phải test bị xóa.
 
 ## 6. Nếu có gì không chạy
 

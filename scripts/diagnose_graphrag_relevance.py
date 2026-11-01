@@ -26,6 +26,7 @@ from threat_hunting.evaluation import (  # noqa: E402
     load_calibration_report, load_relevance_calibration_dataset,
     load_relevance_diagnostics, validate_relevance_diagnostics,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 class RelevanceDiagnosticsCliError(RelevanceDiagnosticsError):
@@ -112,7 +113,7 @@ def _atomic_write_diagnostics(
         else:
             if not overwrite or output_path.read_bytes() != expected_previous:
                 raise RelevanceDiagnosticsCliError(f"output changed before overwrite: {output_path}")
-            os.replace(temporary, output_path)
+            replace_with_retry(temporary, output_path)
         installed = True
         load_relevance_diagnostics(output_path)
         if output_path.read_bytes() != serialized:
@@ -138,7 +139,7 @@ def _atomic_write_diagnostics(
                             handle.write(expected_previous)
                             handle.flush()
                             os.fsync(handle.fileno())
-                        os.replace(rollback, output_path)
+                        replace_with_retry(rollback, output_path)
                     finally:
                         if rollback is not None:
                             rollback.unlink(missing_ok=True)

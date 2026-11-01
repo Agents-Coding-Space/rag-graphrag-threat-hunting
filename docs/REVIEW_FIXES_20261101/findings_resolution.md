@@ -185,7 +185,7 @@ CORRELATE, CTI, LIMIT"*.
 **File:** `Thuc_trang.md`, `docs/CURRENT_STATUS.md`
 
 **Test:** kiểm chứng bằng script đối chiếu 24 assertion với artifact thật; phát hiện và sửa một
-sai số (số nút đồ thị trung bình 20.4 → **20.7**).
+sai số. Ghi chú trung thực: bản đầu tôi ghi "20,4 nút / 30,7 cạnh" rồi "sửa" thành 20,7, nhưng **cả hai đều không khớp artifact**. Giá trị đúng đọc từ 12 `result.json` của `integrated-final-v8-live-01` là **20,73 nút / 30,73 cạnh trên 11 nhánh không abstain** (hoặc 19,0 / 28,2 nếu tính cả 12 nhánh với abstain = 0). Đã sửa `Thuc_trang.md` và `thesis_facts.md` theo mẫu số nêu rõ.
 
 ---
 
@@ -278,6 +278,14 @@ Chấm nội dung tách khỏi structural acceptance
 phase `review` không có bucket riêng — subset giờ tiêu từ pool `initial`, đúng ý nghĩa "một
 ngân sách, hai phạm vi".
 
+**Sửa provenance (kiểm toán viên phát hiện):** declaration được ghi vào thư mục profile **v12**
+trong khi lần chạy và điểm chấm nằm ở **v13** — hai profile khác nhau, nên cặp "khai báo trước,
+chấm sau" không nằm trong một hồ sơ. Đã tạo
+`outputs/final/20261101_direct_v18/review_smoke_evidence.json` gộp cả ba (declaration gốc, lần
+chạy, điểm chấm) kèm hash từng phần và 6 kiểm nhất quán đều PASS, gồm
+`declaration_before_first_attempt` (so `declared_utc` với `started_utc` đầu tiên trong ledger).
+Declaration gốc **không bị sửa hay tạo lại**.
+
 ---
 
 ## F08 — npm advisories (P2)
@@ -354,10 +362,21 @@ offline rồi boot dashboard với `client_factory` ném lỗi nếu bị gọi.
 `outputs/v2/manifest.json` chưa từng được commit. Tạo file giả sẽ là **dựng bằng chứng**, nên
 test skip và ghi rõ đường dẫn còn thiếu. Kiểm tra corpus/index vẫn chạy trên artifact thật.
 
-**Lỗi thật tìm thấy khi chạy lặp (đã sửa):** `os.replace` trong `final_experiment.snapshot` và
-`experimental_recovery._snapshot` thỉnh thoảng ném `WinError 5` khi scanner giữ file, làm **mỗi
-lần chạy một test khác nhau fail**. Đã thêm retry ngắn; nội dung đã bền trong file tạm nên không
-mất checkpoint, và lỗi quyền thật vẫn nổi lên sau số lần thử.
+**Lỗi thật tìm thấy khi chạy lặp — và một lần sửa chưa trọn:**
+
+Bản đầu tôi chỉ thêm retry vào **2 chỗ** (`final_experiment.snapshot`,
+`experimental_recovery._snapshot`) rồi tuyên bố "0 failed". Kiểm toán viên chạy lại full suite
+vẫn thấy **1 failed** ở `test_cli_overwrite_is_atomic...` với `[WinError 5] Access is denied`,
+vì `scripts/build_vector_index.py` (và 13 file khác) vẫn gọi `os.replace` trần. Tôi đã sửa
+**triệu chứng chứ không sửa lớp lỗi**.
+
+Đã sửa gốc: thêm `src/threat_hunting/atomic_fs.py` với `replace_with_retry()`, thay **toàn bộ
+25 call site `os.replace` trên 16 file** trong `src/` và `scripts/`. Retry chỉ áp cho mã lỗi
+khoá tạm thời (WinError 5/32/33, EACCES); lỗi quyền thật nổi lên ngay sau số lần thử có giới hạn.
+
+Thêm `tests/test_atomic_fs.py` (6 test), trong đó có
+`test_no_source_file_bypasses_the_helper` quét `src/` và `scripts/` và **fail nếu có ai thêm
+`os.replace` mới** — chặn tái phát đúng lớp lỗi này, không chỉ chặn một file.
 
 **Báo cáo trung thực:** skip **không** được cộng vào passed; 29 skip đều có lý do cụ thể trong
 `-rs` output.

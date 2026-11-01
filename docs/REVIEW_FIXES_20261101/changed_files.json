@@ -1,9 +1,11 @@
 {
-  "schema_version": "review-fixes-changeset/v1",
-  "generated_utc": "2026-10-31T23:26:24.559206+00:00",
+  "schema_version": "review-fixes-changeset/v2",
+  "generated_utc": "2026-11-01T06:41:47.498205+00:00",
   "baseline_commit": "2b48d8d~1",
-  "head_commit": "7806fc1",
-  "commits": [
+  "head_commit_at_generation": "33c0075",
+  "note": "Ghi cả commit đã có và các thay đổi còn trong working tree tại thời điểm tạo tệp này. Bản trước chỉ ghi HEAD 7806fc1 và bỏ sót commit bàn giao 33c0075 — đã sửa.",
+  "committed_since_baseline": [
+    "33c0075 docs(F01-F11): delivery package for the review fixes",
     "7806fc1 docs(F09)+fix: current-status entry point, release manifest, Windows lock retry",
     "383827a test(dashboard): HTTP-level acceptance for all three scenarios and both branches",
     "4145ed1 test(F11): classify the whole suite; 0 failures, 0 errors",
@@ -13,19 +15,7 @@
     "80c5512 feat(F07): bounded review-subset runner sharing the study pipeline",
     "2b48d8d fix(P1): remove fabricated SSE verdict, bind validator to clauses and events"
   ],
-  "summary_by_group": {
-    "root": 9,
-    "configs": 7,
-    "docs": 3,
-    "frontend": 2,
-    "artifacts": 1,
-    "packaging": 1,
-    "scripts": 3,
-    "source": 6,
-    "tests": 11
-  },
-  "total_files": 43,
-  "files": [
+  "committed_files": [
     {
       "status": "M",
       "path": "AGENTS.md"
@@ -45,6 +35,10 @@
     {
       "status": "M",
       "path": "PROJECT_PROGRESS.md"
+    },
+    {
+      "status": "M",
+      "path": "README.md"
     },
     {
       "status": "M",
@@ -93,6 +87,30 @@
     {
       "status": "A",
       "path": "docs/REPRODUCIBILITY.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/changed_files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/commands_and_tests.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/findings_resolution.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/preservation_check.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/report.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/REVIEW_FIXES_20261101/thesis_facts.md"
     },
     {
       "status": "M",
@@ -198,5 +216,136 @@
       "status": "M",
       "path": "verify_package.py"
     }
-  ]
+  ],
+  "uncommitted_files_at_generation": [
+    {
+      "status": "M",
+      "path": "UONG_DAN_CHAY.md"
+    },
+    {
+      "status": "M",
+      "path": "README.md"
+    },
+    {
+      "status": "M",
+      "path": "START_HERE.md"
+    },
+    {
+      "status": "M",
+      "path": "Thuc_trang.md"
+    },
+    {
+      "status": "M",
+      "path": "docs/CURRENT_STATUS.md"
+    },
+    {
+      "status": "M",
+      "path": "docs/DASHBOARD_QA_CHECKLIST.md"
+    },
+    {
+      "status": "M",
+      "path": "docs/REVIEW_FIXES_20261101/findings_resolution.md"
+    },
+    {
+      "status": "M",
+      "path": "docs/REVIEW_FIXES_20261101/thesis_facts.md"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_knowledge_graph.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_mshta_ground_truth.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_retrieval_corpus.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_vector_index.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/calibrate_graphrag_relevance.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/compare_embedding_retrieval_models.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/diagnose_graphrag_relevance.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/evaluate_mshta_sigma.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/extract_mshta_evidence.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/resolve_mshta_mitre.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/select_embedding_model.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/evaluation/experimental_recovery.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/evaluation/final_experiment.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/normalization_reporting.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/normalization_writer.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/reporting.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_final_direct_profile.py"
+    },
+    {
+      "status": "M",
+      "path": "tests/test_review_subset.py"
+    },
+    {
+      "status": "??",
+      "path": "configs/evaluation/integrated_final_direct_v18.json"
+    },
+    {
+      "status": "??",
+      "path": "src/threat_hunting/atomic_fs.py"
+    },
+    {
+      "status": "??",
+      "path": "tests/test_atomic_fs.py"
+    }
+  ],
+  "summary_by_group": {
+    "root": 14,
+    "configs": 8,
+    "docs": 13,
+    "frontend": 2,
+    "artifacts": 1,
+    "packaging": 1,
+    "scripts": 14,
+    "source": 12,
+    "tests": 14
+  },
+  "total_committed": 50,
+  "total_uncommitted": 29
 }

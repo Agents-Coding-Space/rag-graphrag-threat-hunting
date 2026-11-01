@@ -26,6 +26,7 @@ from threat_hunting.graph import (  # noqa: E402
     load_knowledge_graph,
     validate_knowledge_graph,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 _SHA256_PATTERN = re.compile(r"[0-9a-fA-F]{64}\Z")
@@ -201,7 +202,7 @@ def _write_atomic(
             raise KnowledgeGraphCliError(
                 f"output already exists (pass --overwrite to replace it): {output_path}"
             )
-        os.replace(temporary_path, output_path)
+        replace_with_retry(temporary_path, output_path)
         owned_paths.remove(temporary_path)
         installed = True
         written = load_knowledge_graph(output_path)
@@ -219,7 +220,7 @@ def _write_atomic(
                 if previous_bytes is None:
                     output_path.unlink(missing_ok=True)
                 else:
-                    os.replace(backup_path, output_path)
+                    replace_with_retry(backup_path, output_path)
                     owned_paths.remove(backup_path)
             except OSError as rollback_exc:
                 # Retain the backup when restoration is impossible, for recovery.

@@ -17,6 +17,7 @@ import time
 from typing import Any, Callable
 
 from . import experimental_comparison as pipeline
+from ..atomic_fs import replace_with_retry
 
 
 class RecoveryPreflightError(ValueError):
@@ -232,22 +233,11 @@ def preflight_recovery(config_path: Path, source: Path, *, pin_path: Path,
 def _snapshot(path: Path, value: Any) -> None:
     """Atomic checkpoint in a directory exclusively created by this run.
 
-    Windows can refuse the replace with WinError 5 while a scanner or a brief reader still
-    holds the target. The content is already durable in the temporary file, so the replace is
-    retried briefly rather than dropping the checkpoint.
+    Shares the transient-lock retry with every other writer via ``threat_hunting.atomic_fs``.
     """
     temporary = path.with_suffix(path.suffix + ".tmp")
     pipeline._write(temporary, value)
-    last_error: OSError | None = None
-    for attempt in range(5):
-        try:
-            os.replace(temporary, path)
-            return
-        except PermissionError as exc:
-            last_error = exc
-            time.sleep(0.05 * (attempt + 1))
-    if last_error is not None:
-        raise last_error
+    replace_with_retry(temporary, path)
 
 
 def run_recovery(plan: RecoveryPlan, output: Path, *, live: bool = False,

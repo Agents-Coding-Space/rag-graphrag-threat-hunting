@@ -16,6 +16,7 @@ from threat_hunting.schemas.canonical_mapping import (
     DEFAULT_MAPPING_REGISTRY,
     MappingRegistry,
 )
+from .atomic_fs import replace_with_retry
 
 
 CANONICAL_EVENTS_FILENAME = "canonical_events.jsonl"
@@ -164,7 +165,7 @@ def _publish_pair(
             for _, final_path in temporary_pairs:
                 if final_path.exists():
                     backup = _temporary_path(final_path, "bak")
-                    os.replace(final_path, backup)
+                    replace_with_retry(final_path, backup)
                     backups.append((final_path, backup))
         else:
             existing = [final for _, final in temporary_pairs if final.exists()]
@@ -175,7 +176,7 @@ def _publish_pair(
                 )
 
         for temporary, final_path in temporary_pairs:
-            os.replace(temporary, final_path)
+            replace_with_retry(temporary, final_path)
             published.append(final_path)
     except Exception:
         for final_path in reversed(published):
@@ -183,7 +184,7 @@ def _publish_pair(
                 final_path.unlink()
         for final_path, backup in reversed(backups):
             if backup.exists():
-                os.replace(backup, final_path)
+                replace_with_retry(backup, final_path)
         raise
     else:
         for _, backup in backups:

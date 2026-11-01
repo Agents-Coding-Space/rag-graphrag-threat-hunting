@@ -28,6 +28,7 @@ from threat_hunting.mitre import (
     validate_manifest,
     validate_resolution_document,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 DEFAULT_SIGMA_INPUT = (
@@ -108,7 +109,7 @@ def _atomic_write(path: Path, payload: bytes, *, overwrite: bool) -> None:
             raise MitreResolutionRunError(
                 f"Output appeared while writing: {path}; refusing to overwrite it"
             )
-        os.replace(temporary, path)
+        replace_with_retry(temporary, path)
     finally:
         try:
             temporary.unlink()

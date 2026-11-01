@@ -28,6 +28,7 @@ from threat_hunting.evaluation.embedding_retrieval_comparison_schema import (  #
     snapshot_json,
     validate_embedding_retrieval_comparison_report,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 class EmbeddingModelSelectionCliError(ValueError):
@@ -130,7 +131,7 @@ def _replace_bytes(
             # A competing writer must never be overwritten without authorization.
             os.link(temporary, output)
         else:
-            os.replace(temporary, output)
+            replace_with_retry(temporary, output)
         if on_publish is not None:
             on_publish()
     finally:

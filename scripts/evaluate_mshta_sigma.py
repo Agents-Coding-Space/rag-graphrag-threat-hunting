@@ -34,6 +34,7 @@ from threat_hunting.sigma import (
     load_sigma_rules,
     serialize_sigma_match_review,
 )
+from threat_hunting.atomic_fs import replace_with_retry
 
 
 DEFAULT_OUTPUT = (
@@ -256,7 +257,7 @@ def _write_review(
             raise SigmaReviewRunError(
                 f"Output already exists; use --overwrite: {output_path}"
             )
-        os.replace(temporary, output_path)
+        replace_with_retry(temporary, output_path)
     finally:
         if temporary.exists():
             temporary.unlink()
