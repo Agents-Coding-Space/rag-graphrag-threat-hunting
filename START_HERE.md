@@ -99,7 +99,8 @@ Số liệu hiện hành: **6726 passed, 29 skipped, 0 failed, 0 errors**
 
 ## 7. Đọc tiếp theo thứ tự
 
-1. [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) — trạng thái thật, đã làm gì, chưa làm gì
+1. [TONG_HOP_CONG_VIEC.md](TONG_HOP_CONG_VIEC.md) — tổng hợp toàn bộ việc đã làm
+2. [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) — trạng thái thật, đã làm gì, chưa làm gì
 2. [Thuc_trang.md](Thuc_trang.md) — kết quả thực nghiệm và giới hạn diễn giải
 3. [docs/REVIEW_FIXES_20261101/report.md](docs/REVIEW_FIXES_20261101/report.md) — bản sửa lỗi theo review
 4. [HANDOVER.md](HANDOVER.md) — hồ sơ bàn giao kỹ thuật

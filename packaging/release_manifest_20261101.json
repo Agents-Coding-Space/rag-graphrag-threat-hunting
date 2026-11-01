@@ -1,7 +1,7 @@
 {
   "schema_version": "release-manifest/v1",
   "release_id": "20261101_review_fixes_v14",
-  "created_utc": "2026-11-01T09:48:40.589852+00:00",
+  "created_utc": "2026-11-01T09:54:53.880044+00:00",
   "profile": "integrated-final-direct-v19",
   "validator_policy": "source-meaning-validator/v3.1",
   "supersedes": null,
@@ -40,7 +40,8 @@
       "run_backend.py",
       "E5_MODEL.md",
       "PACKAGING_CHECKLIST.md",
-      ".env.example"
+      ".env.example",
+      "TONG_HOP_CONG_VIEC.md"
     ],
     "excluded": [
       "outputs/ (trừ các thư mục được nêu trong .gitignore)",
@@ -50,7 +51,7 @@
       ".env"
     ]
   },
-  "file_count": 420,
+  "file_count": 421,
   "files": {
     "src/threat_hunting/__init__.py": "8226d03d5772e2bbd55bddbf6d1e1d88f6bab726a587bca4e283785fc609e5c4",
     "src/threat_hunting/atomic_fs.py": "2f4822bb31ae60bd3e1ac94f7f33a73c79561249ef1cad9c773c770067aa7ba1",
@@ -424,7 +425,7 @@
     "frontend/src/types/index.ts": "84169e0a60402e7cfc16d478479f6adcaf52f9995f1e9994dde0d4c62c7e4a72",
     "frontend/package.json": "969879e5fcec30fe9ebb5f8cefe702d272bb03cdb7d72fbc83867f0b7625d710",
     "frontend/package-lock.json": "eb94c6642a7d66abaf77e05addc5a523fefd7cb50feb6e40a01ba4b0fb00399b",
-    "docs/CURRENT_STATUS.md": "f566e22db9782d72e6eb00c594a290d39e2ba153f87c790e6a48c40043bfc800",
+    "docs/CURRENT_STATUS.md": "c574446e94405e6e5a8d93186e2612d120ba680a811925c0c80a3da6e93526e3",
     "docs/DASHBOARD_EXPERIMENTAL.md": "ad1b9249966ec2d047d34528d901d78891c76ba06d09c66d7494faaa18a2c84c",
     "docs/DASHBOARD_QA_CHECKLIST.md": "6b21c70a5371d10604e4be063776413c548a183bca443b2044b62cf377a2501d",
     "docs/evaluation/baseline_v1_vs_candidate_v2_comparison.md": "05d91cf47a7c4b29dd5f558e24e26fc1ab017657411f3bb6d3de975e8d86e343",
@@ -458,20 +459,21 @@
     "packaging/prearchive_verification.json": "208e9209eedabbea8e558a01d341a96fecf4f02dc37807e8afc900143cc0346e",
     "packaging/secret_scan_staging.json": "b2a4a63bf2fbe49b06d21ef92f1b3d8c3c477703ad8629d5b290f09e84d4ee7a",
     "packaging/source_integrity.json": "a607f58e305beec15758f19bf2d270f3a3bcc4b1f261e786208976f44410098d",
-    "START_HERE.md": "feb20e6eb34a17aaac5e234048447fb74ca64a78b94bfcacd05a3e7cfbcb8514",
+    "START_HERE.md": "b6b1a03a68029839e0c9a740c57976232971cbbc4d4b507c22158bc85f012247",
     "HANDOVER.md": "de12fb772647ea2e5566a19a56905b59d07ec758da2c20567c965bb97d3fc4bd",
     "PROJECT_CONTEXT.md": "e9cefe84738f81ecbda470900085cc4e99bd2c9804f60ffbb0cf86c29e7c4db2",
     "PROJECT_PROGRESS.md": "697430360de29c6c32c15160e424fd7be5a4aecff58d68c1657a9084cfe88ccf",
     "AGENTS.md": "0e78b4691acc23e15bf90216e64b876da89502c489dd4cdb3bf9778d733c6adf",
     "HUONG_DAN_CHAY.md": "17ce9640736819d0d648ec3fa442f6cb2957b9331bea7915448890ac5372bdf5",
     "Thuc_trang.md": "c1592d6bf86f69ce97283b7266c7383ea35cd944264b38611fb5534f7e43208f",
-    "README.md": "39c3abcbf59e72f0cc2480b272889b6c884a739a758f594dbaff2391bdde6753",
+    "README.md": "ffb7e680b43012ff265e299ad614552d43a284b3140e0ade4e31eeba51810b66",
     "pyproject.toml": "8ed5b9160e335ad71d809d33d422e88dc4fa7f25f5424b1a74fcba6a5793f929",
     "verify_package.py": "ce0d5c74de2739023463e718c1b15df32db78bca67a29af66b7ecc0b3472bea2",
     "run_backend.py": "7fc5c867aeef9bf30368d91071ddfec17d0cf676f9eef7443c32e173b0817d5b",
     "E5_MODEL.md": "e8680a5aeb7d166ff3c423b74708c86dfbe3fb79d1292574cd66b171b1e109f0",
     "PACKAGING_CHECKLIST.md": "f415233f7906798f2eb80cc4619d6cd8e57e0a9ec8c68bcef87c9a75737b07b5",
-    ".env.example": "743077643defb95bb148275133a69bc35771bc80b89210a91f89e0ec7be796f7"
+    ".env.example": "743077643defb95bb148275133a69bc35771bc80b89210a91f89e0ec7be796f7",
+    "TONG_HOP_CONG_VIEC.md": "11bcc40b906df9cd97142d9661538706fdd2ecace4fa57e0da3e94e37adf91d7"
   },
   "self_excluded": "packaging/release_manifest_20261101.json cannot hash itself; verifier skips it"
 }

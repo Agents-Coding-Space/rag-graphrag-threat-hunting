@@ -1,5 +1,6 @@
 > **Bắt đầu ở [START_HERE.md](START_HERE.md)** — cài đặt và lệnh chạy.
 > Trạng thái hiện hành: [docs/CURRENT_STATUS.md](docs/CURRENT_STATUS.md) (profile `integrated-final-direct-v19`).
+> **Tổng hợp toàn bộ việc đã làm:** [TONG_HOP_CONG_VIEC.md](TONG_HOP_CONG_VIEC.md)
 > Bản sửa lỗi theo review độc lập ngày 01/11/2026: [docs/REVIEW_FIXES_20261101/report.md](docs/REVIEW_FIXES_20261101/report.md).
 
 # Bản phân phối bàn giao dự án

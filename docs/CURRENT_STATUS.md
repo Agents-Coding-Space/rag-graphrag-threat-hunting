@@ -120,6 +120,7 @@ Smoke chỉ chứng minh pipeline chạy được trên 6 nhánh đã khai báo.
 
 ## 7. Đọc tiếp
 
+- [TONG_HOP_CONG_VIEC.md](../TONG_HOP_CONG_VIEC.md) — tổng hợp toàn bộ việc đã làm
 - [START_HERE.md](../START_HERE.md) — cài đặt và lệnh chạy
 - [Thuc_trang.md](../Thuc_trang.md) — kết quả thực nghiệm chi tiết
 - [REPRODUCIBILITY.md](REPRODUCIBILITY.md) — môi trường và dung sai
