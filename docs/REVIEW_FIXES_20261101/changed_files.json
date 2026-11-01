@@ -1,10 +1,11 @@
 {
   "schema_version": "review-fixes-changeset/v3",
-  "generated_utc": "2026-11-01T08:08:05.609014+00:00",
+  "generated_utc": "2026-11-01T09:48:39.333245+00:00",
   "baseline_commit": "2b48d8d~1",
-  "head_commit_at_generation": "6b30268",
-  "note": "Sinh lại sau commit 6b30268; đây là HEAD thật tại thời điểm tạo tệp.",
+  "head_commit_at_generation": "9ab3f0d",
   "commits_since_baseline": [
+    "9ab3f0d feat(v19): full 24-branch live run and content scoring of all 16 answers",
+    "6363628 chore: regenerate changeset and release manifest at HEAD 6b30268",
     "6b30268 docs: align all hand-off documents with the frozen v18 profile",
     "98fb5e1 chore: regenerate changed_files.json and release manifest at final HEAD",
     "501204b fix(F11+F07+D): close the six defects the independent auditor found",
@@ -82,6 +83,10 @@
     {
       "status": "A",
       "path": "configs/evaluation/integrated_final_direct_v18.json"
+    },
+    {
+      "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v19.json"
     },
     {
       "status": "A",
@@ -291,7 +296,7 @@
   "uncommitted_files_at_generation": [],
   "summary_by_group": {
     "root": 10,
-    "configs": 8,
+    "configs": 9,
     "docs": 9,
     "frontend": 2,
     "artifacts": 1,
@@ -300,6 +305,6 @@
     "source": 10,
     "tests": 12
   },
-  "total_committed": 67,
+  "total_committed": 68,
   "total_uncommitted": 0
 }
