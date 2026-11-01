@@ -1,10 +1,11 @@
 {
-  "schema_version": "review-fixes-changeset/v2",
-  "generated_utc": "2026-11-01T06:41:47.498205+00:00",
+  "schema_version": "review-fixes-changeset/v3",
+  "generated_utc": "2026-11-01T07:43:04.006184+00:00",
   "baseline_commit": "2b48d8d~1",
-  "head_commit_at_generation": "33c0075",
-  "note": "Ghi cả commit đã có và các thay đổi còn trong working tree tại thời điểm tạo tệp này. Bản trước chỉ ghi HEAD 7806fc1 và bỏ sót commit bàn giao 33c0075 — đã sửa.",
-  "committed_since_baseline": [
+  "head_commit_at_generation": "501204b",
+  "note": "Tệp này được sinh lại sau commit 501204b, là HEAD thật tại thời điểm tạo.",
+  "commits_since_baseline": [
+    "501204b fix(F11+F07+D): close the six defects the independent auditor found",
     "33c0075 docs(F01-F11): delivery package for the review fixes",
     "7806fc1 docs(F09)+fix: current-status entry point, release manifest, Windows lock retry",
     "383827a test(dashboard): HTTP-level acceptance for all three scenarios and both branches",
@@ -78,6 +79,10 @@
     },
     {
       "status": "A",
+      "path": "configs/evaluation/integrated_final_direct_v18.json"
+    },
+    {
+      "status": "A",
       "path": "docs/CURRENT_STATUS.md"
     },
     {
@@ -133,8 +138,48 @@
       "path": "pyproject.toml"
     },
     {
+      "status": "M",
+      "path": "scripts/build_knowledge_graph.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_mshta_ground_truth.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_retrieval_corpus.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/build_vector_index.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/calibrate_graphrag_relevance.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/compare_embedding_retrieval_models.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/diagnose_graphrag_relevance.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/evaluate_mshta_sigma.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/extract_mshta_evidence.py"
+    },
+    {
       "status": "A",
       "path": "scripts/record_execution_environment.py"
+    },
+    {
+      "status": "M",
+      "path": "scripts/resolve_mshta_mitre.py"
     },
     {
       "status": "M",
@@ -142,7 +187,15 @@
     },
     {
       "status": "M",
+      "path": "scripts/select_embedding_model.py"
+    },
+    {
+      "status": "M",
       "path": "scripts/verify_env_config.py"
+    },
+    {
+      "status": "A",
+      "path": "src/threat_hunting/atomic_fs.py"
     },
     {
       "status": "M",
@@ -161,6 +214,18 @@
       "path": "src/threat_hunting/llm/generation_contract_v3.py"
     },
     {
+      "status": "M",
+      "path": "src/threat_hunting/normalization_reporting.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/normalization_writer.py"
+    },
+    {
+      "status": "M",
+      "path": "src/threat_hunting/reporting.py"
+    },
+    {
       "status": "A",
       "path": "src/threat_hunting/retrieval/reproducibility.py"
     },
@@ -171,6 +236,10 @@
     {
       "status": "A",
       "path": "tests/historical_fixtures.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/test_atomic_fs.py"
     },
     {
       "status": "M",
@@ -217,135 +286,18 @@
       "path": "verify_package.py"
     }
   ],
-  "uncommitted_files_at_generation": [
-    {
-      "status": "M",
-      "path": "UONG_DAN_CHAY.md"
-    },
-    {
-      "status": "M",
-      "path": "README.md"
-    },
-    {
-      "status": "M",
-      "path": "START_HERE.md"
-    },
-    {
-      "status": "M",
-      "path": "Thuc_trang.md"
-    },
-    {
-      "status": "M",
-      "path": "docs/CURRENT_STATUS.md"
-    },
-    {
-      "status": "M",
-      "path": "docs/DASHBOARD_QA_CHECKLIST.md"
-    },
-    {
-      "status": "M",
-      "path": "docs/REVIEW_FIXES_20261101/findings_resolution.md"
-    },
-    {
-      "status": "M",
-      "path": "docs/REVIEW_FIXES_20261101/thesis_facts.md"
-    },
-    {
-      "status": "M",
-      "path": "scripts/build_knowledge_graph.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/build_mshta_ground_truth.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/build_retrieval_corpus.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/build_vector_index.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/calibrate_graphrag_relevance.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/compare_embedding_retrieval_models.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/diagnose_graphrag_relevance.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/evaluate_mshta_sigma.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/extract_mshta_evidence.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/resolve_mshta_mitre.py"
-    },
-    {
-      "status": "M",
-      "path": "scripts/select_embedding_model.py"
-    },
-    {
-      "status": "M",
-      "path": "src/threat_hunting/evaluation/experimental_recovery.py"
-    },
-    {
-      "status": "M",
-      "path": "src/threat_hunting/evaluation/final_experiment.py"
-    },
-    {
-      "status": "M",
-      "path": "src/threat_hunting/normalization_reporting.py"
-    },
-    {
-      "status": "M",
-      "path": "src/threat_hunting/normalization_writer.py"
-    },
-    {
-      "status": "M",
-      "path": "src/threat_hunting/reporting.py"
-    },
-    {
-      "status": "M",
-      "path": "tests/test_final_direct_profile.py"
-    },
-    {
-      "status": "M",
-      "path": "tests/test_review_subset.py"
-    },
-    {
-      "status": "??",
-      "path": "configs/evaluation/integrated_final_direct_v18.json"
-    },
-    {
-      "status": "??",
-      "path": "src/threat_hunting/atomic_fs.py"
-    },
-    {
-      "status": "??",
-      "path": "tests/test_atomic_fs.py"
-    }
-  ],
+  "uncommitted_files_at_generation": [],
   "summary_by_group": {
-    "root": 14,
+    "root": 10,
     "configs": 8,
-    "docs": 13,
+    "docs": 9,
     "frontend": 2,
     "artifacts": 1,
     "packaging": 1,
     "scripts": 14,
-    "source": 12,
-    "tests": 14
+    "source": 10,
+    "tests": 12
   },
-  "total_committed": 50,
-  "total_uncommitted": 29
+  "total_committed": 67,
+  "total_uncommitted": 0
 }
