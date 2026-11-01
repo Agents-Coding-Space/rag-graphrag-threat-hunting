@@ -16,7 +16,7 @@ REM 3. Kiểm thử
 ```
 
 **Profile hiện hành:** `integrated-final-direct-v18`
-**Trạng thái test:** 6720 passed, 29 skipped, 0 failed, 0 errors
+**Trạng thái test:** 6726 passed, 29 skipped, 0 failed, 0 errors
 **Dashboard:** <http://127.0.0.1:8031/> (chỉ offline/replay với profile cuối)
 
 Cần API key: copy `.env.example` thành `.env` rồi điền. Không commit `.env`.

@@ -2,7 +2,7 @@
 
 **Ngày:** 01/11/2026, Asia/Bangkok
 **Phạm vi:** sửa 11 finding F01–F11 trong `review/`, kiểm thử, bàn giao.
-**Profile cuối:** `integrated-final-direct-v17`
+**Profile cuối:** `integrated-final-direct-v18`
 **Commit:** xem `changed_files.json` → `commits`
 
 ---
@@ -93,7 +93,7 @@ Bốn lỗi P1 đều là lỗi thật, không phải hiểu nhầm:
 ### Đã làm
 
 **Smoke 6 nhánh** trên profile v13, khai báo **trước** khi sinh output
-(`outputs/final/20261101_direct_v13/review_smoke_declaration.json`):
+(`outputs/final/20261101_direct_v12/review_smoke_declaration.json`):
 - 1 câu DIRECT mỗi scenario × 2 nhánh
 - Dùng **5/6** request trần, 5 accepted, 1 abstain (0 request), 0 provider error
 - Chấm nội dung tách riêng khỏi structural acceptance: factual 5/5, citation 5/5, trả lời đúng
@@ -117,7 +117,7 @@ Kiểm toán viên độc lập chạy lại và **bác bỏ** bản báo cáo �
 | # | Kiểm toán viên chỉ ra | Tôi đã sửa thế nào |
 |---|---|---|
 | 1 | Tôi báo "0 failed" nhưng họ chạy lại thấy **1 failed** (`WinError 5`), vì tôi chỉ thêm retry ở **2/16 file**, bỏ sót `scripts/build_vector_index.py` | Thêm `atomic_fs.replace_with_retry()`, thay **toàn bộ 25 call site**; thêm test quét `src/`+`scripts/` fail nếu có `os.replace` mới |
-| 2 | Ba tài liệu trích `outputs/final/20261101_direct_v17/dashboard_qa.json` — **file không tồn tại**; chỉ có v14/v15 **giống hệt nhau** chỉ khác nhãn profile | Chạy dashboard QA **thật** trên v18, ghi `dashboard_qa.json` với profile đúng, `evidence_kind: live HTTP responses captured during this run, not a copied artifact` |
+| 2 | Ba tài liệu trích `outputs/final/20261101_direct_v18/dashboard_qa.json` — **file không tồn tại**; chỉ có v14/v15 **giống hệt nhau** chỉ khác nhãn profile | Chạy dashboard QA **thật** trên v18, ghi `dashboard_qa.json` với profile đúng, `evidence_kind: live HTTP responses captured during this run, not a copied artifact` |
 | 3 | Declaration ở **v12**, scores ở **v13** — hai profile khác nhau | Gộp vào `review_smoke_evidence.json` (v18) kèm hash gốc và 6 kiểm nhất quán |
 | 4 | "20,7 nút / 30,7 cạnh" không khớp artifact nào (thật: 20,73/30,73 trên 11 nhánh, 21,08 trên 12 nhánh) | Sửa `Thuc_trang.md` + `thesis_facts.md`, **ghi rõ mẫu số**; ghi lại sai lầm trong `findings_resolution.md` |
 | 5 | `changed_files.json` ghi HEAD `7806fc1`, thiếu commit bàn giao `33c0075` | Regenerate theo HEAD thật, tách `committed_files` và `uncommitted_files_at_generation` |
@@ -132,7 +132,7 @@ là giá trị của quy trình review độc lập.
 | Hạng mục | Lý do |
 |---|---|
 | **Visual QA dashboard** | không có browser điều khiển được trong môi trường này; không có ảnh chụp |
-| **Live đủ 16 nhánh trên v17** | mới có preflight; smoke 6 nhánh không thay benchmark |
+| **Live đủ 16 nhánh trên v18** | mới có preflight; smoke 6 nhánh không thay benchmark |
 | **Chấm ngữ nghĩa 16 câu** | chưa có bảng rubric; đây là lý do không kết luận về chất lượng |
 
 ### Hai sự cố ghi nhận
@@ -151,7 +151,7 @@ là giá trị của quy trình review độc lập.
 ### Đạt (có bằng chứng)
 
 - ✅ 11/11 finding xử lý, mỗi cái có test hoặc artifact chứng minh
-- ✅ Full suite 6720 passed, 0 failed, 0 errors
+- ✅ Full suite 6726 passed, 29 skipped, 0 failed, 0 errors (3 lần chạy)
 - ✅ `verify_package.py` passed: 410 file, 29.510 canonical, 21 provenance, 3 CTI snapshot
 - ✅ npm 0 vulnerabilities, build pass
 - ✅ Smoke 6 nhánh: pipeline chạy end-to-end, 5 accepted, 1 abstain đúng
@@ -178,7 +178,7 @@ là giá trị của quy trình review độc lập.
 | Report v8 `AUTH-CTI/GraphRAG` sai | **Không ghi đè**; chấm lại và lưu kết quả riêng |
 | `PROJECT_PROGRESS.md` | Chỉ append; phần cũ không sửa |
 | Raw data, canonical, consumers | Không đổi; `verify_package.py` xác nhận 29.510 records |
-| Pin lịch sử | v7/v8/v9/v10 giữ nguyên; profile mới là v11…v17 |
+| Pin lịch sử | v7/v8/v9/v10 giữ nguyên; profile mới là v11…v18 |
 
 ---
 

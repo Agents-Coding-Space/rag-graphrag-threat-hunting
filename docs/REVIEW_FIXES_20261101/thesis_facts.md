@@ -1,6 +1,6 @@
 # THESIS FACTS — số liệu đã kiểm chứng để viết luận văn
 
-**Ngày:** 01/11/2026 · **Profile:** `integrated-final-direct-v17`
+**Ngày:** 01/11/2026 · **Profile:** `integrated-final-direct-v18`
 
 Mọi con số dưới đây đọc trực tiếp từ artifact và có đường dẫn nguồn. **Không** dùng số liệu
 trong tài liệu lịch sử (HANDOVER v7, `docs/EXPERIMENTAL_RESULTS.md` cũ) vì chúng thuộc bản đã
@@ -250,10 +250,10 @@ Nguồn: `result.json` từng nhánh, `request_budget.json`.
 | Coverage 12 cặp | `outputs/experiments/integrated-final-v8-live-01/results.json` |
 | Bảng lý do từ chối | `outputs/experiments/integrated-final-v8-live-01/<case>_<branch>/gate.json` |
 | Chấm lại 3 ca v8 | `outputs/final/20261101_direct_v10/v8_revalidation_under_v31.json` |
-| Smoke 6 nhánh — khai báo trước | `outputs/final/20261101_direct_v13/review_smoke_declaration.json` |
+| Smoke 6 nhánh — khai báo trước | `outputs/final/20261101_direct_v12/review_smoke_declaration.json` |
 | Smoke 6 nhánh — điểm | `outputs/final/20261101_direct_v13/review_smoke_scores.json` |
-| Preflight 24 nhánh | `outputs/final/20261101_direct_v17/preflight/results.json` |
-| Pin (107 file + policy) | `outputs/final/20261101_direct_v17/runtime_pin.json` |
+| Preflight 24 nhánh | `outputs/final/20261101_direct_v18/preflight/results.json` |
+| Pin (107 file + policy) | `outputs/final/20261101_direct_v18/runtime_pin.json` |
 | Môi trường | `outputs/final/integrated-final-direct-v13/execution_environment.json` |
-| Dashboard QA | `outputs/final/20261101_direct_v17/dashboard_qa.json` |
+| Dashboard QA | `outputs/final/20261101_direct_v18/dashboard_qa.json` |
 | Kiểm gói | chạy `verify_package.py` |

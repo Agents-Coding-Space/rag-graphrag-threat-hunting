@@ -5,6 +5,9 @@ npm **11.13.0**, Node **25.0.0**. Xem [../REPRODUCIBILITY.md](../REPRODUCIBILITY
 
 `PYTHONDONTWRITEBYTECODE=1` được dùng để không sinh `.pyc` làm lệch kiểm tra file.
 
+**Profile cuối:** `integrated-final-direct-v18` — pin `outputs/final/20261101_direct_v18/runtime_pin.json`.
+Mọi lệnh dưới đây trỏ tới v18. Các profile cũ (v10 đến v17) đã bị thay thế và chỉ còn giá trị lịch sử.
+
 ---
 
 ## 1. Cài đặt
@@ -84,9 +87,9 @@ Kết quả mong đợi: **95 passed, 1 skipped** (~68s).
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v18\preflight ^
   --output outputs\experiments\my-dryrun-01
 ```
 
@@ -94,9 +97,9 @@ Kết quả mong đợi: **95 passed, 1 skipped** (~68s).
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v18\preflight ^
   --output outputs\experiments\my-review-01 ^
   --review-selection "AUTH-DIRECT:rag,AUTH-DIRECT:graphrag,PS-DIRECT:rag,PS-DIRECT:graphrag,NET-DIRECT:rag,NET-DIRECT:graphrag" ^
   --live --review-max-attempts 6
@@ -108,9 +111,9 @@ Kết quả mong đợi: **95 passed, 1 skipped** (~68s).
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\run_final_experiment.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --preflight outputs\final\20261101_direct_v17\preflight ^
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --preflight outputs\final\20261101_direct_v18\preflight ^
   --output outputs\experiments\my-live-full-01 ^
   --live
 ```
@@ -123,9 +126,9 @@ Trần 16 request initial + 4 recovery, pacing 60s, ledger persistent, không re
 
 ```cmd
 .venv\Scripts\python.exe -B scripts\serve_experimental_ui.py ^
-  --config configs\evaluation\integrated_final_direct_v17.json ^
-  --pin outputs\final\20261101_direct_v17\runtime_pin.json ^
-  --port 8031 --output outputs\demo\qa-manual-v17
+  --config configs\evaluation\integrated_final_direct_v18.json ^
+  --pin outputs\final\20261101_direct_v18\runtime_pin.json ^
+  --port 8031 --output outputs\demo\qa-manual-v18
 ```
 
 Mở <http://127.0.0.1:8031/>. Kiểm theo [../DASHBOARD_QA_CHECKLIST.md](../DASHBOARD_QA_CHECKLIST.md).
@@ -148,7 +151,7 @@ Kết quả mong đợi cho câu ngoài phạm vi: `outcome=abstain`, `llm_http_
 Khi sửa code hoặc đổi cấu hình model, **phải** tạo profile mới (pin cũ sẽ chặn đúng):
 
 ```cmd
-REM 1. Tạo config mới (copy v17, đổi profile_id + task_ledger + saved_results_manifest)
+REM 1. Tạo config mới (copy v18, đổi profile_id + task_ledger + saved_results_manifest)
 
 REM 2. Sinh preflight — không gọi LLM
 .venv\Scripts\python.exe -B scripts\evaluate_rag_graphrag.py ^
@@ -201,10 +204,10 @@ Kết quả mong đợi: `found 0 vulnerabilities`; `tsc && vite build` pass (40
 
 | Đường dẫn | Nội dung |
 |---|---|
-| `outputs/final/20261101_direct_v17/runtime_pin.json` | Pin hiện hành (107 file code + validator policy) |
-| `outputs/final/20261101_direct_v17/preflight/results.json` | 24 nhánh, 16 eligible, 0 HTTP |
-| `outputs/final/20261101_direct_v17/dashboard_qa.json` | Dashboard HTTP-level QA |
-| `outputs/final/20261101_direct_v13/review_smoke_declaration.json` | Khai báo smoke **trước** khi chạy |
+| `outputs/final/20261101_direct_v18/runtime_pin.json` | Pin hiện hành (107 file code + validator policy) |
+| `outputs/final/20261101_direct_v18/preflight/results.json` | 24 nhánh, 16 eligible, 0 HTTP |
+| `outputs/final/20261101_direct_v18/dashboard_qa.json` | Dashboard HTTP-level QA |
+| `outputs/final/20261101_direct_v12/review_smoke_declaration.json` | Khai báo smoke **trước** khi chạy |
 | `outputs/final/20261101_direct_v13/review_smoke_scores.json` | Chấm 4 tiêu chí từng câu |
 | `outputs/final/20261101_direct_v10/v8_revalidation_under_v31.json` | Chấm lại 3 ca v8 |
 | `packaging/release_manifest_20261101.json` | Manifest phát hành (410 file) |

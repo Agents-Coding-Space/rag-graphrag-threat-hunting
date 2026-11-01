@@ -1,6 +1,6 @@
 # FINDINGS RESOLUTION — F01 đến F11
 
-**Ngày:** 01/11/2026 · **Baseline:** `2b48d8d~1` · **Profile cuối:** `integrated-final-direct-v17`
+**Ngày:** 01/11/2026 · **Baseline:** `2b48d8d~1` · **Profile cuối:** `integrated-final-direct-v18`
 
 Mỗi finding ghi: trạng thái, file sửa, bằng chứng trước/sau, test liên quan. Không dùng
 `not_applicable` mà không có giải thích.
@@ -256,7 +256,7 @@ chặt hơn (phủ định cross-clause).
 - pacing chỉ được **nâng**, không được hạ dưới giá trị đã pin;
 - manifest ghi `execution_scope=review_subset` + `review_declaration` kèm `claim_scope`.
 
-**Smoke đã chạy** (`outputs/final/20261101_direct_v13/review_smoke_declaration.json`, khai báo
+**Smoke đã chạy** (`outputs/final/20261101_direct_v12/review_smoke_declaration.json`, khai báo
 **trước** khi sinh bất kỳ output): 1 câu DIRECT mỗi scenario × 2 nhánh.
 
 | Chỉ số | Kết quả |
@@ -342,7 +342,7 @@ v9; config thật là v10; `verify_package.py` fail vì inventory lịch sử l�
 
 **Trước:** `6715 passed, 8 failed, 26 errors`.
 
-**Sau:** **`6720 passed, 29 skipped, 0 failed, 0 errors`**.
+**Sau:** **`6726 passed, 29 skipped, 0 failed, 0 errors`** (3 lần chạy liên tiếp).
 
 Ba nhóm xử lý tách bạch:
 
@@ -355,12 +355,14 @@ cả builder lẫn schema.
 **2. Hai mươi sáu setup error + 2 profile failure — fixture lịch sử:**
 Pilot source contract 02, integrated v6, v7 là các run **đã đóng băng** với pin riêng; pin đó
 ghi code image của ngày tạo. Thêm `tests/historical_fixtures.py` skip với lý do **nêu tên module
-lệch**. Không xóa test, không nới pin. Bù lại bằng test mới cho profile hiện hành: validate v17
+lệch**. Không xóa test, không nới pin. Bù lại bằng test mới cho profile hiện hành: validate v18
 offline rồi boot dashboard với `client_factory` ném lỗi nếu bị gọi.
 
 **3. Manifest v2 thiếu — skip trung thực:**
-`outputs/v2/manifest.json` chưa từng được commit. Tạo file giả sẽ là **dựng bằng chứng**, nên
-test skip và ghi rõ đường dẫn còn thiếu. Kiểm tra corpus/index vẫn chạy trên artifact thật.
+
+> Cảnh báo cho người đọc: `outputs/v2/manifest.json` là đường dẫn **lịch sử và không tồn tại**. Nó chỉ xuất hiện trong test như lý do skip, không phải file để mở.
+
+`outputs/v2/manifest.json` (đường dẫn lịch sử, **không tồn tại trong repo**) và chưa từng được commit — đây là lý do test skip, không phải đường dẫn để người đọc mở. Tạo file giả sẽ là **dựng bằng chứng**, nên test skip và tự nêu đường dẫn còn thiếu trong thông báo skip. Kiểm tra corpus/index vẫn chạy trên artifact thật.
 
 **Lỗi thật tìm thấy khi chạy lặp — và một lần sửa chưa trọn:**
 
@@ -389,6 +391,6 @@ Thêm `tests/test_atomic_fs.py` (6 test), trong đó có
 |---|---|
 | Chấm ngữ nghĩa đủ 16 câu trả lời theo rubric | **Chưa làm** |
 | Visual QA dashboard trên browser thật | **Chưa làm** — không có browser; đã có checklist tay |
-| Live đủ 16 nhánh eligible trên profile v17 | **Chưa chạy** — mới có preflight + smoke 6 nhánh |
+| Live đủ 16 nhánh eligible trên profile v18 | **Chưa chạy** — mới có preflight + smoke 6 nhánh |
 | Human approval ground truth | Vẫn `draft_reviewable / pending_human_review` |
 | Chứng minh float score trùng khít giữa hai máy | Không cam kết được; có tolerance policy |
