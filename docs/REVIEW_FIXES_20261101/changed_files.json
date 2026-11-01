@@ -1,9 +1,11 @@
 {
   "schema_version": "review-fixes-changeset/v3",
-  "generated_utc": "2026-11-01T09:48:39.333245+00:00",
+  "generated_utc": "2026-11-01T09:56:38.539766+00:00",
   "baseline_commit": "2b48d8d~1",
-  "head_commit_at_generation": "9ab3f0d",
+  "head_commit_at_generation": "3a43932",
   "commits_since_baseline": [
+    "3a43932 docs: add TONG_HOP_CONG_VIEC.md summarising the whole session",
+    "94232f0 chore: regenerate changeset and release manifest at final HEAD",
     "9ab3f0d feat(v19): full 24-branch live run and content scoring of all 16 answers",
     "6363628 chore: regenerate changeset and release manifest at HEAD 6b30268",
     "6b30268 docs: align all hand-off documents with the frozen v18 profile",
@@ -47,6 +49,10 @@
     {
       "status": "M",
       "path": "START_HERE.md"
+    },
+    {
+      "status": "A",
+      "path": "TONG_HOP_CONG_VIEC.md"
     },
     {
       "status": "M",
@@ -295,7 +301,7 @@
   ],
   "uncommitted_files_at_generation": [],
   "summary_by_group": {
-    "root": 10,
+    "root": 11,
     "configs": 9,
     "docs": 9,
     "frontend": 2,
@@ -305,6 +311,6 @@
     "source": 10,
     "tests": 12
   },
-  "total_committed": 68,
+  "total_committed": 69,
   "total_uncommitted": 0
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "release-manifest/v1",
   "release_id": "20261101_review_fixes_v14",
-  "created_utc": "2026-11-01T09:54:53.880044+00:00",
+  "created_utc": "2026-11-01T09:56:39.737291+00:00",
   "profile": "integrated-final-direct-v19",
   "validator_policy": "source-meaning-validator/v3.1",
   "supersedes": null,
@@ -442,7 +442,7 @@
     "docs/human_approval.md": "7cb1e164e066d4d4288e822b1ba79aff37f7c3d83363cd3ed95ba99d213d7158",
     "docs/MASTER_PLAN.md": "7382b58ad5beb1281e1e2ae279372a553b42d4aff3c411aaa618b7eaa7fccece",
     "docs/REPRODUCIBILITY.md": "a3d0e66c669135339b0040094d9c44b521f08814c286376e433e0e7784ebe58f",
-    "docs/REVIEW_FIXES_20261101/changed_files.json": "5402c8962c33e29f058521d2c77419b8a91c2efc93f6fb76e665037b5f53f272",
+    "docs/REVIEW_FIXES_20261101/changed_files.json": "ab5e9da6d35a7e119425f1cc44c5bafdc7a1ff81f151417fd91cd60b44fea345",
     "docs/REVIEW_FIXES_20261101/commands_and_tests.md": "cf1fd0754de1eee547be1b9009900a97fdd1c74d6689d5565305af135b058dfe",
     "docs/REVIEW_FIXES_20261101/findings_resolution.md": "19b21d4cbb00aa46977f57fc8dd76d668f53f46ccc2e8f499518000005de3c03",
     "docs/REVIEW_FIXES_20261101/preservation_check.json": "9ee63f17401cc6f8c6719300dd3937e9f75a8f5b7229c5be3b4a75c9db110a7d",
