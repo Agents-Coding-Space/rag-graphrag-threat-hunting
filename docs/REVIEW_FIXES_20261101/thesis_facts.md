@@ -1,6 +1,6 @@
 # THESIS FACTS — số liệu đã kiểm chứng để viết luận văn
 
-**Ngày:** 01/11/2026 · **Profile:** `integrated-final-direct-v18`
+**Ngày:** 01/11/2026 · **Profile:** `integrated-final-direct-v19`
 
 Mọi con số dưới đây đọc trực tiếp từ artifact và có đường dẫn nguồn. **Không** dùng số liệu
 trong tài liệu lịch sử (HANDOVER v7, `docs/EXPERIMENTAL_RESULTS.md` cũ) vì chúng thuộc bản đã
@@ -160,10 +160,12 @@ kiểm từng ca; chưa phải kết luận nhân quả đã chứng minh.
 |---|---|---:|---:|---:|---:|---:|
 | v7 (31/10) | gemma-4-31b-it | 1 | **0** | 0 | 8 | 1 (HTTP 402) |
 | v8 | cmc/reflection/beam:free | 16 | 13 | 3 | 8 | **0** |
+| **v19 (live cuối)** | cmc/reflection/beam:free | **16** | **15** | **1** | **8** | **0** |
 | v9 (chấm lại 3 ca v8 bằng validator sửa) | — | 0 | +2 | **1 còn bị chặn** | — | — |
 | Smoke v13 (6 nhánh) | cmc/reflection/beam:free | 5 | 5 | 0 | 1 | 0 |
 
-Nguồn: `outputs/experiments/integrated-final-v8-live-01/results.json`,
+Nguồn: `outputs/experiments/integrated-final-v19-live-01/results.json` (v19),
+`outputs/experiments/integrated-final-v8-live-01/results.json`,
 `outputs/final/20261101_direct_v10/v8_revalidation_under_v31.json`,
 `outputs/final/20261101_direct_v13/review_smoke_scores.json`
 
@@ -173,17 +175,26 @@ Nguồn: `outputs/experiments/integrated-final-v8-live-01/results.json`,
 
 ### 3.4 Tầng 3 — Nội dung và trích dẫn
 
-**Chấm được (smoke 6 nhánh):**
+**Đã chấm đầy đủ trên live v19 (16 nhánh eligible):**
 
-| Tiêu chí | Kết quả |
-|---|---|
-| Factual correctness | 5/5 |
-| Citation support | 5/5 |
-| Trả lời đúng câu hỏi | 5/5 |
-| Giữ giới hạn bằng chứng | 6/6 |
+| Tiêu chí | Kết quả | Mẫu số |
+|---|---|---|
+| Factual correctness | **16/16** | 16 nhánh có câu trả lời |
+| Citation support | **15/16** | 16 nhánh; 166 ref đã kiểm, **18 bịa** |
+| Trả lời đúng câu hỏi hỏi | **16/16** | 16 nhánh |
+| Giữ giới hạn bằng chứng | **16/16** | 16 nhánh |
 
-**Chưa chấm:** 16 câu trả lời của bộ v8. Đây là lý do **không được** viết kết luận về chất lượng
-hay về ưu thế RAG/GraphRAG.
+Nguồn: `outputs/final/20261101_direct_v19/review_scores.json`, chấm từ
+`outputs/experiments/integrated-final-v19-live-01`.
+
+**18 ref bịa nằm cả ở một nhánh:** `NET-CORRELATE/graphrag`. Nội dung nhánh này **đúng**
+(regsvr32 1 connection :8444, PowerShell con 9 connections :80, khớp 10 Sysmon EID 3 trong GT),
+nhưng model tự bịa tiền tố citation `r-...`. Validator chặn đúng vì citation, **không** biết nội
+dung thực ra đúng.
+
+**Không chấm được:** 8 nhánh abstain (không có câu trả lời). Đây là lý do **không được** kết luận
+"GraphRAG tốt hơn RAG" — khác biệt 5/12 vs 11/12 là *coverage*, còn chất lượng 16 câu đã chấm
+gần như tương đương giữa hai nhánh (cùng 16/16 factual ở những câu cả hai đều trả lời).
 
 ### 3.5 Tầng 4 — Thời gian và lỗi
 
@@ -247,6 +258,9 @@ Nguồn: `result.json` từng nhánh, `request_budget.json`.
 
 | Nội dung | File |
 |---|---|
+| **Live cuối 24 nhánh** | `outputs/experiments/integrated-final-v19-live-01/results.json` |
+| **Chấm 16 nhánh** | `outputs/final/20261101_direct_v19/review_scores.json` |
+| Khai báo trước khi chạy | `outputs/final/20261101_direct_v19/final_live_declaration.json` |
 | Coverage 12 cặp | `outputs/experiments/integrated-final-v8-live-01/results.json` |
 | Bảng lý do từ chối | `outputs/experiments/integrated-final-v8-live-01/<case>_<branch>/gate.json` |
 | Chấm lại 3 ca v8 | `outputs/final/20261101_direct_v10/v8_revalidation_under_v31.json` |

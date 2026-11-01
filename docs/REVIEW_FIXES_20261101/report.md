@@ -2,7 +2,7 @@
 
 **Ngày:** 01/11/2026, Asia/Bangkok
 **Phạm vi:** sửa 11 finding F01–F11 trong `review/`, kiểm thử, bàn giao.
-**Profile cuối:** `integrated-final-direct-v18`
+**Profile cuối:** `integrated-final-direct-v19`
 **Commit:** xem `changed_files.json` → `commits`
 
 ---
@@ -126,6 +126,41 @@ Kiểm toán viên độc lập chạy lại và **bác bỏ** bản báo cáo �
 Bài học: tôi đã tự tin tuyên bố hoàn thành mà không chạy lại xác nhận, và đã **copy một file QA
 rồi đổi nhãn** — đúng hành vi mà chính báo cáo này phê phán ở F04. Việc kiểm toán viên bắt được
 là giá trị của quy trình review độc lập.
+
+### 4.0b Live đầy đủ 16 nhánh đã chạy trên v19
+
+Sau khi sửa xong 6 điểm kiểm toán, tôi chạy đủ bộ 24 nhánh trên profile mới **v19**:
+
+| Chỉ số | Kết quả |
+|---|---|
+| Request LLM | **16/16** (ledger 16/20) |
+| Lỗi HTTP | **0** |
+| accepted_draft | 15 |
+| validation_failed | 1 |
+| abstain (0 request) | 8 |
+| Vượt cổng: RAG / GraphRAG | **5/12** / **11/12** |
+
+Khai báo 12 câu được ghi **trước** khi gọi request đầu tiên:
+`outputs/final/20261101_direct_v19/final_live_declaration.json`.
+
+**Chấm nội dung 16 nhánh** (`outputs/final/20261101_direct_v19/review_scores.json`):
+
+| Tiêu chí | Kết quả |
+|---|---|
+| Factual correctness | **16/16** |
+| Citation support | **15/16** |
+| Trả lời đúng câu hỏi | **16/16** |
+| Giữ giới hạn bằng chứng | **16/16** |
+
+166 trích dẫn đã kiểm, **18 bịa** — cả 18 nằm ở `NET-CORRELATE/graphrag`. Nội dung nhánh đó
+**đúng** (regsvr32 1 connection :8444, PowerShell con 9 connections :80, khớp 10 Sysmon EID 3
+trong ground truth) nhưng model tự bịa tiền tố `r-...`. Validator chặn đúng vì citation mà không
+biết nội dung thực ra đúng.
+
+**Sự cố trong quá trình làm, ghi lại thay vì giấu:** trước v19 tôi chạy một lệnh probe `--live`
+trên v18 rồi **xoá thư mục batch trong khi ledger vẫn ghi 3 lượt**. Ledger v18 giữ nguyên 3/20
+làm bằng chứng sự cố, **không reset**; v19 là bộ sạch. Chi tiết trong
+`findings_resolution.md` mục F07.
 
 ### Chưa làm — và không tuyên bố là đã làm
 

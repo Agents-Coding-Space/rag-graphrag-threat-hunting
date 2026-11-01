@@ -12,10 +12,12 @@
 
 Hệ thống đã hoàn thành và **chạy thực nghiệm thành công trên dữ liệu thật**, so sánh đối đầu hai nhánh truy xuất trên cùng 12 câu hỏi truy tìm mối đe dọa:
 
-| Chỉ số | RAG (BM25 + vector + RRF) | **GraphRAG (đề xuất)** |
+| Chỉ số (live v19) | RAG (BM25 + vector + RRF) | **GraphRAG (đề xuất)** |
 |---|---:|---:|
-| Câu trả lời được chấp nhận | 5/12 (42%) | **11/12 (92%)** |
+| Câu **vượt cổng bằng chứng** | 5/12 (42%) | **11/12 (92%)** |
 | Câu bị cổng bằng chứng từ chối | 7/12 | **1/12** |
+| accepted_draft | 5 | 10 |
+| validation_failed | 0 | 1 |
 | Câu **chỉ GraphRAG** vượt cổng (chưa chấm nội dung) | — | **6 câu** |
 | Câu **chỉ RAG** giải quyết được | **0 câu** | — |
 | Nút/cạnh đồ thị duyệt (TB 11 nhánh không abstain) | 0 | **20,73 nút / 30,73 cạnh** |
@@ -263,6 +265,45 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 
 ---
 
+## 6.0 KẾT QUẢ CHẤM NỘI DUNG 16 CÂU TRẢ LỜI (live v19)
+
+Đây là lần đầu tiên bộ câu trả lời được chấm theo 4 tiêu chí, không chỉ đếm số câu vượt cổng.
+
+| Tiêu chí | Kết quả |
+|---|---|
+| Factual correctness (đối chiếu telemetry gốc) | **16/16** |
+| Citation support (evidence_refs có trong catalog) | **15/16** |
+| Trả lời đúng câu hỏi được hỏi | **16/16** |
+| Giữ giới hạn bằng chứng (không suy C2/exfil/completion) | **16/16** |
+
+**Tổng ref đã kiểm: 166. Ref bịa: 18.**
+Toàn bộ 18 ref bịa nằm ở **một** nhánh duy nhất: `NET-CORRELATE/graphrag`.
+
+### Phát hiện đáng chú ý
+
+Ca `NET-CORRELATE/graphrag` có **nội dung đúng** — regsvr32 1 connection cổng 8444, PowerShell con
+9 connections cổng 80, khử trùng 2 view telemetry, nêu giới hạn PID reuse — nhưng model tự bịa
+tiền tố citation `r-b9a26b0c...`, `r-afc97bfc...` (không có trong 169 ID thật của catalog).
+Validator đã **chặn đúng** và ghi `validation_failed`.
+
+Đây là bằng chứng hai chiều:
+- **Validator hoạt động:** 18 ref bịa bị bắt, không lọt.
+- **Validator không đủ:** nó chặn vì citation, không phát hiện được nội dung thực ra đúng. Phải
+  chấm tay mới biết.
+
+### Nguồn
+
+`outputs/final/20261101_direct_v19/review_scores.json`, chấm từ
+`outputs/experiments/integrated-final-v19-live-01`.
+
+### Giới hạn của bảng điểm này
+
+- Không phải independent validation: cùng dự án, cùng người chấm, AI hỗ trợ.
+- 16 nhánh này là 16 câu eligible; 8 nhánh abstain không có câu trả lời để chấm nội dung.
+- Chưa có người thứ hai duyệt lại từng câu.
+
+---
+
 ## 6A. BỐN TẦNG ĐO LƯỜNG — KHÔNG ĐƯỢC GỘP
 
 Đây là điểm dễ gây hiểu nhầm nhất khi trình bày kết quả. Bốn tầng phải tách riêng:
@@ -313,7 +354,7 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 |---|---|
 | Không phải validation độc lập | 12 câu hỏi thuộc cùng dự án; chưa có holdout ngoài. AI-assisted review không phải independent validation |
 | Ground truth chưa được duyệt người | Trạng thái `draft_reviewable / pending_human_review` |
-| **Chấm ngữ nghĩa chưa làm** | Chưa có bảng điểm rubric từng câu trả lời. **Đây là lý do không được kết luận về độ đúng hay ưu thế chất lượng** |
+| Chấm ngữ nghĩa **đã làm** cho 16 nhánh eligible (mục 6.0) | 16/16 factual, 15/16 citation. Nhưng **không** chấm được 8 nhánh abstain (không có câu trả lời), và chưa có người thứ hai duyệt |
 | **Validator có giới hạn đã biết** | Validator chỉ kiểm được một tập hữu hạn cấu trúc (duration, network topic, Status/SubStatus). Nó **không** kiểm được ngữ nghĩa tự nhiên đầy đủ. Ca `AUTH-CTI/GraphRAG` là bằng chứng: validator cũ đánh `passed` cho một report ghi sai Status |
 | Model miễn phí, thay đổi được | `cmc/reflection/beam:free` có thể đổi/ngừng phía nhà cung cấp; kết quả không tái lập được sau khi model thay đổi |
 | Corpus chứa cả facts/relationships | RAG không phải baseline "chỉ tài liệu văn bản" thuần tuý; RAG cũng dùng hybrid BM25+vector+RRF |
@@ -331,7 +372,7 @@ Các mã lý do của RAG đều thuộc nhóm **thiếu liên kết giữa các
 | Artifacts thực nghiệm v8 (24 nhánh, logs) | ✅ Có trong repo |
 | Validator + bộ test | ✅ 50/50 pass (`test_final_direct_experiment.py`) + 4/4 (`test_server_sse.py`) |
 | `.env` an toàn | ✅ Không commit, `.env.example` key trống |
-| Chấm điểm ngữ nghĩa theo rubric | ⬜ Cần làm tiếp |
+| Chấm điểm ngữ nghĩa 16 nhánh | ✅ Đã làm — 16/16 factual, 15/16 citation |
 | Đồng bộ Chương 3 luận văn với số liệu v9 | ⬜ Cần làm tiếp |
 | Nghiệm thu dashboard 3 cột với profile v9 | ⬜ Cần làm tiếp |
 | Chụp ảnh Visual QA | ⬜ Cần làm tiếp |

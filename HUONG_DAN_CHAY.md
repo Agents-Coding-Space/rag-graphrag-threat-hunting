@@ -9,14 +9,15 @@ REM 1. Kiểm gói offline (không mạng, không gọi LLM)
 .venv\Scripts\python.exe -B verify_package.py
 
 REM 2. Dashboard ba cột (offline)
-.venv\Scripts\python.exe -B scripts\serve_experimental_ui.py --config configs\evaluation\integrated_final_direct_v18.json --pin outputs\final\20261101_direct_v18\runtime_pin.json --port 8031 --output outputs\demo\demo-v18
+.venv\Scripts\python.exe -B scripts\serve_experimental_ui.py --config configs\evaluation\integrated_final_direct_v19.json --pin outputs\final\20261101_direct_v19\runtime_pin.json --port 8031 --output outputs\demo\demo-v19
 
 REM 3. Kiểm thử
 .venv\Scripts\python.exe -m pytest tests\ -q
 ```
 
-**Profile hiện hành:** `integrated-final-direct-v18`
+**Profile hiện hành:** `integrated-final-direct-v19`
 **Trạng thái test:** 6726 passed, 29 skipped, 0 failed, 0 errors
+**Chấm nội dung (live v19):** 16/16 factual, 15/16 citation
 **Dashboard:** <http://127.0.0.1:8031/> (chỉ offline/replay với profile cuối)
 
 Cần API key: copy `.env.example` thành `.env` rồi điền. Không commit `.env`.

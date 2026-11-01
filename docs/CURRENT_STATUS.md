@@ -1,6 +1,6 @@
-# TRẠNG THÁI HIỆN HÀNH
+﻿# TRẠNG THÁI HIỆN HÀNH
 
-**Cập nhật:** 01/11/2026 · **Profile:** `integrated-final-direct-v18` · **Validator:** `source-meaning-validator/v3.1`
+**Cập nhật:** 01/11/2026 · **Profile:** `integrated-final-direct-v19` · **Validator:** `source-meaning-validator/v3.1`
 
 Đây là entry point duy nhất cho trạng thái thật của dự án. Mọi tài liệu khác nói profile cũ (v7, v8, v9, v10) là **lịch sử**, không phải trạng thái hiện tại.
 
@@ -11,12 +11,12 @@
 | Hạng mục | Trạng thái |
 |---|---|
 | Mã nguồn, cấu hình, test, frontend | ✅ Chạy được |
-| Profile đóng băng | `integrated-final-direct-v18` — pin 107 file, preflight 24/16/0 |
+| Profile đóng băng | `integrated-final-direct-v19` — pin 107 file, preflight 24/16/0 |
 | Test suite | ✅ **6726 passed, 29 skipped, 0 failed, 0 errors** |
 | Frontend advisories | ✅ **0 vulnerabilities** (vite 7.3.7, esbuild 0.28.2) |
 | Dashboard HTTP-level | ✅ 6/6 tổ hợp scenario × branch |
 | Dashboard visual QA | ❌ **Chưa làm** — xem checklist |
-| Chấm ngữ nghĩa toàn bộ | ❌ **Chưa làm** |
+| Chấm ngữ nghĩa toàn bộ | ✅ **Đã làm** — 16/16 factual, 15/16 citation (live v19) |
 | Human approval ground truth | ❌ Vẫn `pending_human_review` |
 
 ---
@@ -104,7 +104,7 @@ Smoke chỉ chứng minh pipeline chạy được trên 6 nhánh đã khai báo.
 | Không có ablation | Chưa chứng minh vector-only không thể trả lời các câu này |
 | Dashboard chưa visual QA | Không điều khiển được browser; đã có checklist tay |
 | Sai số float khi recompute | Score lệch ~2e-8; hit order và gate không đổi; có tolerance policy v1 |
-| Chưa có kết quả live đầy đủ 16 nhánh trên profile v18 | Mới có preflight + smoke 6 nhánh |
+| Live đầy đủ 16 nhánh | ✅ Đã chạy trên **v19**: 16 request, 15 accepted, 1 validation_failed, 8 abstain |
 
 ---
 
@@ -113,7 +113,7 @@ Smoke chỉ chứng minh pipeline chạy được trên 6 nhánh đã khai báo.
 1. **Chấm ngữ nghĩa** 16 câu trả lời theo rubric 4 tiêu chí → bảng `paired_details.csv`
 2. **Đồng bộ Chương 3** luận văn với số liệu thật (dùng [thesis_facts.md](REVIEW_FIXES_20261101/thesis_facts.md))
 3. **Kiểm dashboard bằng browser** theo [DASHBOARD_QA_CHECKLIST.md](DASHBOARD_QA_CHECKLIST.md)
-4. **Chạy live đủ 16 nhánh** trên profile v18 nếu cần số liệu cuối
+4. **Live đủ 16 nhánh** ✅ đã chạy trên v19 (16 request, 15 accepted, 1 validation_failed, 8 abstain)
 5. **Duyệt ground truth** để nâng khỏi `pending_human_review`
 
 ---

@@ -1,6 +1,6 @@
 # FINDINGS RESOLUTION — F01 đến F11
 
-**Ngày:** 01/11/2026 · **Baseline:** `2b48d8d~1` · **Profile cuối:** `integrated-final-direct-v18`
+**Ngày:** 01/11/2026 · **Baseline:** `2b48d8d~1` · **Profile cuối:** `integrated-final-direct-v19`
 
 Mỗi finding ghi: trạng thái, file sửa, bằng chứng trước/sau, test liên quan. Không dùng
 `not_applicable` mà không có giải thích.
@@ -285,6 +285,23 @@ chấm sau" không nằm trong một hồ sơ. Đã tạo
 chạy, điểm chấm) kèm hash từng phần và 6 kiểm nhất quán đều PASS, gồm
 `declaration_before_first_attempt` (so `declared_utc` với `started_utc` đầu tiên trong ledger).
 Declaration gốc **không bị sửa hay tạo lại**.
+
+---
+
+### Sự cố trong quá trình chạy live (ghi lại, không giấu)
+
+Khi thử chạy live trên v18, tôi chạy một lệnh probe `--live` để kiểm tra vì sao background task
+không có ledger. Lệnh đó **gọi thật 3 request** vào ledger v18, rồi tôi **xoá thư mục batch**
+trong khi ledger vẫn ghi 3 lượt đó.
+
+Hệ quả và cách xử lý:
+- Ledger v18 **giữ nguyên 3/20**, không reset — reset sẽ là làm giả provenance, đúng điều F07 cấm.
+- `outputs/final/20261101_direct_v18/` vẫn còn để làm bằng chứng sự cố.
+- Bộ live sạch chạy trên profile mới **v19** (pin/code/dữ liệu/validator giống hệt v18, chỉ khác
+  `profile_id` và ledger để có đủ 16 nhánh).
+- Không câu hỏi nào bị đổi, không tham số nào bị đổi, không chọn lọc kết quả.
+
+Bài học ghi lại: không được dùng lệnh `--live` để chẩn đoán. Phải đọc log/ledger trước.
 
 ---
 
